@@ -66,7 +66,10 @@ namespace BinaryDataDecoders.ToolKit.Tests
             foreach (var check in checks)
             {
                 Assert.AreEqual(check.exp.Length, results.ElementAt(check.index).Length);
-                Assert.AreEqual(0, results.ElementAt(check.index).Span.IndexOf(new ReadOnlySpan<byte>(check.exp)));
+                if (check.exp.Length != 0)
+                {
+                    Assert.AreEqual(0, results.ElementAt(check.index).Span.IndexOf(new ReadOnlySpan<byte>(check.exp)));
+                }
             }
         }
 

@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
         private IScoreMachineState last = ScoreMachineState.Empty;
         public IScoreMachineState Parse(ReadOnlySpan<byte> frame)
         {
-            if (frame == null || frame.Length == 0 || frame[0] != 0x13) return last;
+            if (frame == null || frame.Length == 0 || frame[0] != 0x01) return last;
 
             if (frame.StartsWith(Dc3, S, T, Sotx))
             {

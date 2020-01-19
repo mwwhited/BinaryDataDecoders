@@ -23,15 +23,15 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
             ////if (message[9] != crc)
             ////    throw new InvalidOperationException("invalid CRC");
 
-            /*		
-	         10° byte:  CRC , it is the sum without carry of the 9 previous bytes.
-	         */
-            byte crc = 0; // frame[0];
-            for (var x = 1; x < 10; x++)
-            {
-                crc = (byte)(crc ^ frame[x]);
-            }
-            //var crc = frame.Take(9).Aggregate(0, (a, i) => a ^ i);
+            //  /*		
+            //10° byte:  CRC , it is the sum without carry of the 9 previous bytes.
+            //*/
+            //  byte crc = 0; // frame[0];
+            //  for (var x = 1; x < 10; x++)
+            //  {
+            //      crc = (byte)(crc ^ frame[x]);
+            //  }
+            //  //var crc = frame.Take(9).Aggregate(0, (a, i) => a ^ i);
 
             // 6° byte: XXh  = Define the state of the lamps
             var lamps = ParseLights(frame[5]);
@@ -103,7 +103,6 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
               right: Card((byte)(subFrame & 0x5))
               );
             Cards Card(byte subFrame) => ((subFrame & 0x01) != 0 ? Cards.Red : Cards.None) | ((subFrame & 0x04) != 0 ? Cards.Yellow : Cards.None);
-
         }
     }
 }
