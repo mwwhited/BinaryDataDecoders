@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace BinaryDataDecoders.ToolKit
 {
 
-    public class MemoryCompare : IEqualityComparer<Memory<byte>>
+    public class MemoryCompare<T> : IEqualityComparer<Memory<T>>
+         where T : IEquatable<T>
     {
-        public bool Equals([AllowNull] Memory<byte> x, [AllowNull] Memory<byte> y)
+        public bool Equals(Memory<T> x, Memory<T> y)
         {
             return x.Span.Length == y.Span.Length && x.Span.IndexOf(y.Span) == 0;
         }
 
-        public int GetHashCode([DisallowNull] Memory<byte> obj)
+        public int GetHashCode(Memory<T> obj)
         {
             return obj.Length;
         }

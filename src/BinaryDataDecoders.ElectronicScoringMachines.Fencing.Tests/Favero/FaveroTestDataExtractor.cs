@@ -21,12 +21,11 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
             var path = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\RawData.txt";
 
             var chunks = File.ReadAllText(path)
-                           .ToUpper()
-                           .Where(c => (c >= '0' && c <= '9') || (c >= 'A' && c <= 'F'))
-                           .ToArray()
-                           .AsMemory()
-                           .MemoryFromHexString()
-                           .Split(0xff, Carry);
+                             .Where(c => (c >= '0' && c <= '9') || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f'))
+                             .AsMemory()
+                             .BytesFromHexString()
+                             .Split(0xff, Carry)
+                             ;
 
             //var segments = (from c in chunks
             //                select c.ToArray().ToHexString(",0x"))
@@ -37,7 +36,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
             // this.TestContext.WriteLine(segments);
 
             var parser = new FaveroStateParser();
-            foreach (var c in chunks.Distinct()) 
+            foreach (var c in chunks.Distinct())
             {
                 try
                 {
