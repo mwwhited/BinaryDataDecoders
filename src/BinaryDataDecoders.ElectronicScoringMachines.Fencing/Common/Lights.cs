@@ -7,7 +7,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common
     {
         None = 0x0,
         White = 0x1,
-        Touch = 0x2,
-        Yellow = 0x3,
+        Yellow = 0x2,
+        Touch = 0x4,
     }
 }

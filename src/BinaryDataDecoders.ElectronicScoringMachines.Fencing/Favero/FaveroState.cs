@@ -2,6 +2,7 @@
 using BinaryDataDecoders.ToolKit;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
@@ -10,8 +11,10 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
     {
         public static IScoreMachineState Create(IScoreMachineState last, byte[] frame)
         {
-            if (frame == null || frame.Length == 0 || frame[0] != 0x13) return last;
+            if (frame == null || frame.Length == 0) return last;
 
+            //  1° byte: FFh  = Start string
+            // The FFh value identifies the beginning of the string.
             if (frame[0] != 0xff)
                 throw new ArgumentException("invalid prefix", nameof(frame));
 
@@ -23,23 +26,87 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
             ////if (message[9] != crc)
             ////    throw new InvalidOperationException("invalid CRC");
 
-            //this.Match = (int)(frame[6] & 0x3);
-            //this.Priority = (PriorityValues)(frame[6] >> 2 & 0x3);
+            /*		
+	         10° byte:  CRC , it is the sum without carry of the 9 previous bytes.
+	         */
+            byte crc = 0; // frame[0];
+            for (var x = 1; x < 10; x++)
+            {
+                crc = (byte)(crc ^ frame[x]);
+            }
+            //var crc = frame.Take(9).Aggregate(0, (a, i) => a ^ i);
+
+            // 6° byte: XXh  = Define the state of the lamps
+            var lamps = ParseLights(frame[5]);
+
+            // 7° byte: 0Xh  = Number of matches and Priority signals.
+            var match = Match(frame[6]);
+            var priority = ParsePriority(frame[6]);
+
+            // 8° byte: XXh  This byte is only for our use. Do not consider this byte.
+
+            // 9° byte:  Red and Yellow penalty cards.
+            var cards = ParseCards(frame[8]);
+
             return new ScoreMachineState(
-                red: new Fencer(
+                left: new Fencer(
+                    // 3° byte: XXh  = Left score
+                    score: (byte)frame[2].AsBCD(),
+                    cards: cards.left,
+                    lights: lamps.left,
+                    priority: priority.left),
+
+                right: new Fencer(
+                    // 2° byte: XXh  = Right score
                     score: (byte)frame[1].AsBCD(),
-                    cards: (Cards)(frame[8] & 0x5), 
-                    lights: (Lights)(((frame[5] >> 1) & 0x5) | (frame[5] >> 3 & 0x2)),
-                    priority: false
-                    ),
-                green: new Fencer(
-                    score: (byte)frame[2].AsBCD(), 
-                    cards: (Cards)(frame[8] >> 1 & 0x5),
-                    lights: (Lights)((frame[5] & 0x5) | (frame[5] >> 4 & 0x2)),
-                    priority: false)
-                ,
-                clock: new TimeSpan(0, frame[4].AsBCD(), frame[3].AsBCD())
+                    cards: cards.right,
+                    lights: lamps.right,
+                    priority: priority.right),
+
+                // 4° byte: XXh  = Seconds of the time (units and tens)	
+                // 5° byte: 0Xh  = Minutes of the time (only units)
+                clock: new TimeSpan(0, ((byte)(frame[4] & 0x0f)).AsBCD(), frame[3].AsBCD()),
+                match: match
                 );
+
+            //Bit D0 = Left white lamp
+            //Bit D1 = Right white lamp
+            //Bit D2 = RED lamp(left)
+            //Bit D3 = GREEN lamp(right)
+            //Bit D4 = Right yellow lamp
+            //Bit D5 = Left yellow lamp
+            //Bit D6 = 0  not used
+            //Bit D7 = 0  not used
+            (Lights left, Lights right) ParseLights(byte subFrame) => (
+                left: (Lights)((frame[5] & 0x5) | (frame[5] >> 4 & 0x2)),
+                right: (Lights)(((frame[5] >> 1) & 0x5) | (frame[5] >> 3 & 0x2))
+                );
+
+            // The D0 e D1 bits define the number of matches (from 0 to 3):
+            //    D1=0 D0=0  Num.Matchs = 0
+            //    D1=0 D0=1  Num.Matchs = 1
+            //    D1=1 D0=0  Num.Matchs = 2
+            //    D1=1 D0=1  Num.Matchs = 3
+            byte Match(byte subFrame) => (byte)(subFrame & 0x3);
+
+            //The D2 e D3 bits define the signals of Priorite:
+            //   D2 = Right Priorite(if= 1 is ON)
+            //   D3 = Left Priorite(if= 1 is ON)
+            (bool left, bool right) ParsePriority(byte subFrame) => (
+                left: (subFrame & 0x08) != 0x00,
+                right: (subFrame & 0x04) != 0x00
+                );
+
+            //D0 = Right RED penalty card
+            //D1 = Left RED penalty card
+            //D2 = Right YELLOW penalty card
+            //D3 = Left YELLOW penalty card
+            (Cards left, Cards right) ParseCards(byte subFrame) => (
+              left: Card((byte)((subFrame >> 1) & 0x5)),
+              right: Card((byte)(subFrame & 0x5))
+              );
+            Cards Card(byte subFrame) => ((subFrame & 0x01) != 0 ? Cards.Red : Cards.None) | ((subFrame & 0x04) != 0 ? Cards.Yellow : Cards.None);
+
         }
     }
 }

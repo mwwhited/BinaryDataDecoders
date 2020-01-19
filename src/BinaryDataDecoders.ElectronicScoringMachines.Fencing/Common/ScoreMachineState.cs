@@ -4,32 +4,38 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common
 {
     public class ScoreMachineState : IScoreMachineState
     {
-        public static readonly IScoreMachineState Empty = new ScoreMachineState(default, default, default);
+        public static readonly IScoreMachineState Empty = new ScoreMachineState(default, default, default, default);
 
-        public ScoreMachineState(Fencer red, Fencer green, TimeSpan clock)
+        /// <summary>
+        /// </summary>
+        /// <param name="left">Left</param>
+        /// <param name="right">Right</param>
+        /// <param name="clock"></param>
+        public ScoreMachineState(Fencer left, Fencer right, TimeSpan clock, byte match)
         {
-            Red = red;
-            Green = green;
+            Left = left;
+            Right = right;
             Clock = clock;
         }
 
-        public Fencer Red { get; }
-        public Fencer Green { get; }
+        public Fencer Left { get; }
+        public Fencer Right { get; }
         public TimeSpan Clock { get; }
+        public byte Match { get; }
 
         public override string ToString()
         {
-            return $"R:{Red} G:{Green} T:{Clock}";
+            return $"R:{Left} G:{Right} T:{Clock} M:{Match}";
         }
 
         public override bool Equals(object obj)
         {
-            return obj is IScoreMachineState i && Red.Equals(i.Red) && Green.Equals(i.Green) && Clock.Equals(i.Clock);
+            return obj is IScoreMachineState i && Left.Equals(i.Left) && Right.Equals(i.Right) && Clock.Equals(i.Clock) && Match.Equals(i.Match);
         }
 
         public override int GetHashCode()
         {
-            return (Red, Green, Clock).GetHashCode();
+            return (Left, Right, Clock).GetHashCode();
         }
     }
 }
