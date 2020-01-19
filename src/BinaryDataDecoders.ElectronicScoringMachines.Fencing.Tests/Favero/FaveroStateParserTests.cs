@@ -8,7 +8,7 @@ using System.Text;
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
 {
     [TestClass]
-    public class FaveroStateTests
+    public class FaveroStateParserTests
     {
         public TestContext TestContext { get; set; }
 
@@ -25,18 +25,19 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
 	             Number of Matchs = 2
 	             Left yellow penalty lamp = ON. 
             */
-            var input = new byte[]
+            var frame = new byte[]
             {
                 0xff, 0x06, 0x12, 0x56, 0x02, 0x14, 0x0a, 0x00, 0x38, 0x56,
             };
 
-            var state = FaveroState.Create(ScoreMachineState.Empty, input);
+            var parser = new FaveroStateParser();
+            var state = parser.Parse(frame);
 
             this.TestContext.WriteLine(state.ToString());
             // R:S>012 L>Yellow C>None P>False G:S>006 L>Touch C>None P>True T:00:02:56 M:0
 
             Assert.AreEqual(12, state.Left.Score, "Check Left Score");
-            Assert.AreEqual(Lights.Touch , state.Left.Lights, "Check Left Lights");
+            Assert.AreEqual(Lights.Touch, state.Left.Lights, "Check Left Lights");
             Assert.AreEqual(Cards.Yellow, state.Left.Cards, "Check Left Cards");
             Assert.AreEqual(true, state.Left.Priority, "Check Left Priority");
 
@@ -48,5 +49,6 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
             Assert.AreEqual(new TimeSpan(0, 2, 56), state.Clock, "Check Clock");
             Assert.AreEqual(0, state.Match, "Check Match");
         }
+
     }
 }

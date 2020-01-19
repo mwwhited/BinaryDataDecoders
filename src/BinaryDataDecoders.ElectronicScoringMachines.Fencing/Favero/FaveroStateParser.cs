@@ -1,17 +1,14 @@
 ﻿using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
 using BinaryDataDecoders.ToolKit;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
 {
-    public class FaveroState
+    public class FaveroStateParser : IParseScoreMachineState
     {
-        public static IScoreMachineState Create(IScoreMachineState last, byte[] frame)
+        public IScoreMachineState Parse(ReadOnlySpan<byte> frame)
         {
-            if (frame == null || frame.Length == 0) return last;
+            if (frame == null || frame.Length == 0) return null;
 
             //  1° byte: FFh  = Start string
             // The FFh value identifies the beginning of the string.
@@ -78,8 +75,8 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
             //Bit D6 = 0  not used
             //Bit D7 = 0  not used
             (Lights left, Lights right) ParseLights(byte subFrame) => (
-                left: (Lights)((frame[5] & 0x5) | (frame[5] >> 4 & 0x2)),
-                right: (Lights)(((frame[5] >> 1) & 0x5) | (frame[5] >> 3 & 0x2))
+                left: (Lights)((subFrame & 0x5) | (subFrame >> 4 & 0x2)),
+                right: (Lights)(((subFrame >> 1) & 0x5) | (subFrame >> 3 & 0x2))
                 );
 
             // The D0 e D1 bits define the number of matches (from 0 to 3):

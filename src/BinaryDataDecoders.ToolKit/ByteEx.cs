@@ -31,5 +31,6 @@ namespace BinaryDataDecoders.ToolKit
         {
             return string.Join(delimiter ?? "", (data ?? Enumerable.Empty<byte>()).Select(b => b.ToString("x2")));
         }
+
     }
 }

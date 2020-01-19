@@ -14,11 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.ElectronicScoringMachines.Fencing\BinaryDataDecoders.ElectronicScoringMachines.Fencing.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
   </ItemGroup>
 
 </Project>

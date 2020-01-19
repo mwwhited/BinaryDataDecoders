@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Electron
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests", "BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests\BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.csproj", "{042BA283-D97F-40CF-92E1-0A36F088C4AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.ToolKit.Tests", "BinaryDataDecoders.ToolKit.Tests\BinaryDataDecoders.ToolKit.Tests.csproj", "{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{042BA283-D97F-40CF-92E1-0A36F088C4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{042BA283-D97F-40CF-92E1-0A36F088C4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{042BA283-D97F-40CF-92E1-0A36F088C4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

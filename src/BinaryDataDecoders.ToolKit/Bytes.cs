@@ -3,12 +3,33 @@ namespace BinaryDataDecoders.ToolKit
 {
     public static class Bytes
     {
+        /// <summary>
+        /// Start Of Heading
+        /// </summary>
         public const byte Soh = (byte)ControlCharacters.StartOfHeading;
+        /// <summary>
+        /// Start Of Text
+        /// </summary>
         public const byte Sotx = (byte)ControlCharacters.StartOfText;
+        /// <summary>
+        /// End Of Text
+        /// </summary>
         public const byte Eotx = (byte)ControlCharacters.EndOfText;
+        /// <summary>
+        /// End Of Transmission
+        /// </summary>
         public const byte Eotr = (byte)ControlCharacters.EndOfTransmission;
+        /// <summary>
+        /// Line Feed
+        /// </summary>
         public const byte Lf = (byte)ControlCharacters.LineFeed;
+        /// <summary>
+        /// Device Control 2
+        /// </summary>
         public const byte Dc2 = (byte)ControlCharacters.DeviceControl2;
+        /// <summary>
+        /// Device Control 3
+        /// </summary>
         public const byte Dc3 = (byte)ControlCharacters.DeviceControl3;
         /// <summary>
         /// $
