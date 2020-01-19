@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using static BinaryDataDecoders.ToolKit.DelimiterOptions;
 
@@ -10,51 +11,63 @@ namespace BinaryDataDecoders.ToolKit.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void SplitTest_Exclude()
         {
             var data = GetTestData();
             var segments = data.Split(0x08, Exclude);
 
-            byte[] left = { 0, 1, 2, 3, 4, 5, 6, 7, };
-            byte[] right = { 9, 10, 11, 12, 13, 14, 15, };
-
-            Assert.AreEqual(0, segments.ElementAt(0).Span.IndexOf(new ReadOnlySpan<byte>(left)));
-            Assert.AreEqual(left.Length, segments.ElementAt(0).Length);
-
-            Assert.AreEqual(0, segments.ElementAt(1).Span.IndexOf(new ReadOnlySpan<byte>(right)));
-            Assert.AreEqual(right.Length, segments.ElementAt(1).Length);
+            CheckResults(segments,
+                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, },
+                new byte[] { 9, 10, 11, 12, 13, 14, 15, }
+                );
         }
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void SplitTest_Carry()
         {
             var data = GetTestData();
             var segments = data.Split(0x08, Carry);
 
-            byte[] left = { 0, 1, 2, 3, 4, 5, 6, 7, };
-            byte[] right = { 8, 9, 10, 11, 12, 13, 14, 15, };
-
-            Assert.AreEqual(0, segments.ElementAt(0).Span.IndexOf(new ReadOnlySpan<byte>(left)));
-            Assert.AreEqual(left.Length, segments.ElementAt(0).Length);
-
-            Assert.AreEqual(0, segments.ElementAt(1).Span.IndexOf(new ReadOnlySpan<byte>(right)));
-            Assert.AreEqual(right.Length, segments.ElementAt(1).Length);
+            CheckResults(segments,
+                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, },
+                new byte[] { 8, 9, 10, 11, 12, 13, 14, 15, }
+                );
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void SplitTest_Return()
         {
             var data = GetTestData();
             var segments = data.Split(0x08, Return);
 
-            byte[] left = { 0, 1, 2, 3, 4, 5, 6, 7, 8, };
-            byte[] right = { 9, 10, 11, 12, 13, 14, 15, };
+            CheckResults(segments,
+                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, },
+                new byte[] { 9, 10, 11, 12, 13, 14, 15, }
+                );
+        }
 
-            Assert.AreEqual(0, segments.ElementAt(0).Span.IndexOf(new ReadOnlySpan<byte>(left)));
-            Assert.AreEqual(left.Length, segments.ElementAt(0).Length);
+        [TestMethod, TestCategory("Unit")]
+        public void SplitTest_Exclude3()
+        {
+            var data = GetBigTestData();
+            var segments = data.Split(0x08, Exclude);
 
-            Assert.AreEqual(0, segments.ElementAt(1).Span.IndexOf(new ReadOnlySpan<byte>(right)));
-            Assert.AreEqual(right.Length, segments.ElementAt(1).Length);
+            CheckResults(segments,
+                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, },
+                new byte[] { 9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7, },
+                new byte[] { 9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7, },
+                new byte[] { 9, 10, 11, 12, 13, 14, 15, }
+                );
+        }
+
+        private void CheckResults(IEnumerable<Memory<byte>> results, params byte[][] expected)
+        {
+            var checks = expected.Select((exp, index) => (exp, index));
+            foreach (var check in checks)
+            {
+                Assert.AreEqual(check.exp.Length, results.ElementAt(check.index).Length);
+                Assert.AreEqual(0, results.ElementAt(check.index).Span.IndexOf(new ReadOnlySpan<byte>(check.exp)));
+            }
         }
 
 
@@ -63,6 +76,15 @@ namespace BinaryDataDecoders.ToolKit.Tests
             return new Memory<byte>(new byte[]
             {
                 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+            });
+        }
+        private Memory<byte> GetBigTestData()
+        {
+            return new Memory<byte>(new byte[]
+            {
+                0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
+                0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
+                0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
             });
         }
     }

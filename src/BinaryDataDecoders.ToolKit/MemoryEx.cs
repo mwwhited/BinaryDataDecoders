@@ -7,13 +7,63 @@ namespace BinaryDataDecoders.ToolKit
     {
         public static IEnumerable<Memory<byte>> Split(this Memory<byte> memory, byte delimiter, DelimiterOptions option = DelimiterOptions.Exclude)
         {
-            if (option != DelimiterOptions.Carry)
+            switch (option)
             {
-                //Haven't finished support for the other operations yet.
-                throw new NotSupportedException();
+                default:
+                case DelimiterOptions.Exclude:
+                    return SplitWithExclude(memory, delimiter);
+                case DelimiterOptions.Return:
+                    return SplitWithReturn(memory, delimiter);
+                case DelimiterOptions.Carry:
+                    return SplitWithCarry(memory, delimiter);
             }
 
-            var chunks = new List<Memory<byte>>();
+            throw new NotSupportedException();
+        }
+        private static IEnumerable<Memory<byte>> SplitWithExclude(this Memory<byte> memory, byte delimiter)
+        {
+            var pointer = 0;
+            while (memory.Length > pointer)
+            {
+                var segment = memory.Span.Slice(pointer);
+                var next = segment.IndexOf(delimiter) + 1;
+
+                if (next <= 0)
+                {
+                    yield return memory.Slice(pointer);
+                    yield break;
+                }
+                else
+                {
+                    yield return memory.Slice(pointer, next - 1);
+                    pointer += next;
+                }
+            }
+        }
+
+        private static IEnumerable<Memory<byte>> SplitWithReturn(this Memory<byte> memory, byte delimiter)
+        {
+            var pointer = 0;
+            while (memory.Length > pointer)
+            {
+                var segment = memory.Span.Slice(pointer);
+                var next = segment.IndexOf(delimiter) + 1;
+
+                if (next <= 0)
+                {
+                    yield return memory.Slice(pointer);
+                    yield break;
+                }
+                else
+                {
+                    yield return memory.Slice(pointer, next);
+                    pointer += next;
+                }
+            }
+        }
+
+        private static IEnumerable<Memory<byte>> SplitWithCarry(this Memory<byte> memory, byte delimiter)
+        {
             var pointer = 0;
             while (memory.Length > pointer)
             {
