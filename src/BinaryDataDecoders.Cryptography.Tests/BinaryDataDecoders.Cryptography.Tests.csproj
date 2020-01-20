@@ -1,11 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
-
     <Copyright>Matthew Whited 2020</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
+    <RepositoryType>GidHub</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">

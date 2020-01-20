@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Copyright>Matthew Whited 2020</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
+    <RepositoryType>GidHub</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">
