@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Apple2",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.FileSystems", "BinaryDataDecoders.FileSystems\BinaryDataDecoders.FileSystems.csproj", "{99950CC1-F04E-4A88-935F-6AA5D635FE11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Archives", "BinaryDataDecoders.Archives\BinaryDataDecoders.Archives.csproj", "{1F4C8246-0359-46A5-8255-1733B0ACC57F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{99950CC1-F04E-4A88-935F-6AA5D635FE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99950CC1-F04E-4A88-935F-6AA5D635FE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99950CC1-F04E-4A88-935F-6AA5D635FE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F4C8246-0359-46A5-8255-1733B0ACC57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4C8246-0359-46A5-8255-1733B0ACC57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4C8246-0359-46A5-8255-1733B0ACC57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4C8246-0359-46A5-8255-1733B0ACC57F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
