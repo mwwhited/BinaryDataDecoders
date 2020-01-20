@@ -1,0 +1,262 @@
+﻿Taken without permission from _Beneath Apple DOS_, by Don Worth and Pieter Lechner. 
+
+       Most existing Apple disk manipulation utilities run on MS-DOS
+       systems, and even that set of utilities is not complete. I would
+       like utilities that read the disk catalog, extract all files from
+       the disk image, put files into a disk image, and convert
+       tokenized BASIC programs to and from ASCII source. And I'd like
+       portable source code in the archive so that the utilities could
+       run on more than one platform.  Others may want additional
+       utilities. I hope that this file will be useful to programmers
+       more skillful than I am.
+
+
+              ******    The Apple ][ DOS 3.3 Disk Format   *****
+
+       (Taken without permission from _Beneath Apple DOS_, by Don Worth
+       and Pieter Lechner.)
+
+       Note: In the following description, any number beginning with a $
+       is in hexadecimal (base 16) format.  Numbers without an initial $
+       are in decimal (base 10) format.
+
+       A normal Apple ][ DOS 3.3 format disk is divided into 35 tracks
+       (numbered 0-34).  Each track contains 16 sectors (numbered 0-15).
+       Sectors are 256 bytes.  35 * 16 * 256 = 143360, the exact number
+       of bytes in a disk image. If the <DiskName>.bin file size is
+       either 143488 or 143616 bytes, then additional bytes have been
+       added to the file.  This may be in the form of a header for the
+       Apple Macintosh.
+
+       The Apple2000 emulator for the Amiga computer and apple emulators
+       for MS-DOS systems use 143360 byte disk images.  Any extra bytes
+       should be removed.  In 143488 and 143616 byte files, the disk
+       image's sector 0 probably starts at offset $00080 (decimal 128)
+       in the file.  A utility such as StripQ (for the Amiga, on Fish
+       disk 750) will do the job, and similar utilities exist for other
+       systems.  Once the 143360 byte disk file has been written, sector
+       0 begins at offset $00000 in the file, sector 1 is at offset
+       $00100, and so on.
+
+       The catalog lies on track 17.  The beginning of track 17 is at
+       offset $11000 (decimal 69632) of a 143360 byte file.  Track 17's
+       sector zero holds the Volume Table of Contents, and the other
+       sectors hold file names.
+
+       The following information is for track 17 ($11):
+       sector 0 =      Volume Table of Contents (VTOC)
+           BYTE        DESCRIPTION
+           ----        -----------
+           $00         Not used.
+           $01         Track number of first catalog sector
+           $02         Sector number of first catalog sector
+           $03         Release number of DOS used to INIT this diskette
+           $04-$05     Not used
+           $06         Diskette volume number
+           $07-$26     Not used
+           $27         Maximum number of track/sector pairs that will
+                       fit in one file/track sector list sector (122
+                       for 256 byte sectors)
+           $28-$2F     Not used
+           $30         Last track where sectors were allocated
+           $31         Direction of track allocation (+1 or -1)
+           $32-$33     Not used
+           $34         Number of tracks per diskette (normally 35)
+           $35         Number of sectors per track
+           $36-$37     Number of bytes per sector (LO/HI format)
+           $38-$3B     Bit map of free sectors in track 0
+           $3C-$3F     Bit map of free sectors in track 1
+           $40-$43     Bit map of free sectors in track 2
+                       Bit map continues ...
+           $BC-$BF     Bit map of free sectors in track 33
+           $C0-$C3     Bit map of free sectors in track 34
+           $C4-$FF     Bit maps for additional tracks if there are more
+                       than 35 tracks per diskette
+
+       BIT MAPS OF FREE SECTORS ON A GIVEN TRACK.
+
+       A four byte binary string of ones and zeros, representing free
+       and allocated sectors respectively.  Hexadecimal sector numbers
+       are assigned to bit positions as follows:
+           BYTE        SECTORS
+           ----        -------
+           +1          FEDC BA98
+           +2          7654 3210
+           +3          .... .... (Not used)
+           +4          .... .... (Not used)
+
+       Thus if only sectors E and 8 are free and all others are
+       allocated, the bit map will be 41000000 where byte 1 = $41, byte
+       2 = $00, byte 3 = $00, byte 4 = $00.  (The bit map will be 0100
+       0001   0000 0000   0000 000   0000 0000.) If all sectors are
+       free, the bit map will be FFFF0000
+
+       THE CATALOG
+
+       The locations of the first catalog track and sector are held in
+       bytes $01 and $02 of the VTOC.  Typically the catalog resides in
+       the rest of the sectors of track 17.  Typically the first set of
+       seven files names are in track 17, sector 15; the second set of
+       seven file names are in track 17, sector 14; and so on to track
+       17, sector 1.  Thus a typical catalog can hold 7*15 names, or a
+       maximum of 105 files.
+
+       CATALOG SECTOR FORMAT
+
+           BYTE        DESCRIPTION
+           ----        -----------
+           $00         Not used
+           $01         Track number of the next catalog sector (usually
+                       $11)
+
+
+
+
+
+
+
+           $02         Sector number of next catalog sector
+           $03-$0A     Not used
+           $0B-$2D     First file descriptive entry
+           $2E-$50     Second file descriptive entry
+           $51-$73     Third file descriptive entry
+           $74-$96     Fourth file descriptive entry
+           $97-$B9     Fifth file descriptive entry
+           $BA-$DC     Sixth file descriptive entry
+           $DD-$FF     Seventh file descriptive entry
+
+       FILE DESCRIPTIVE ENTRY FORMAT
+
+       Each file descriptive entry contains a total of 35 ($23) bytes. 
+       The relative byte is the number starting at the beginning of each
+       file descriptive entry.
+
+       RELATIVE BYTE   DESCRIPTION
+       -------------   -----------
+           $00         Track of first track/sector list sector.  If
+                       this is a deleted file, this byte contains $FF
+                       and the original track number is copied to last
+                       byte of the file name field (BYTE $20).  If this
+                       byte contains a $00, the entry is assumed to
+                       have never been used and is available for use.
+                       (This means that track 0 can never be used for
+                       data entry if the DOS image is wiped off the
+                       diskette.)
+           $01         Sector of the first track/sector list sector
+           $02         File type and sector flags:
+                           $80 + file type - file is locked
+                           $00 + file type - file is not locked
+                           $00 - TEXT file
+                           $01 - INTEGER BASIC file
+                           $02 - APPLESOFT BASIC file
+                           $04 - BINARY file
+                           $08 - S type file
+                           $10 - RELOCATABLE object module file
+                           $20 - A type file
+                           $40 - B type file
+                         (Thus, $84 is a locked BINARY file, and $90 is
+                         a locked R type file.)
+           $03-$20     File name (30 characters)
+           $21-$22     Length of the file in sectors (LO/HI format).
+                       The CATALOG command will only format the LO byte
+                       of this length giving 1-255, but a full 65535
+                       may be stored here.
+
+       TRACK/SECTOR LIST
+
+       Each file has associated with it a "track/sector" list sector. 
+       This sector contains a list of track/sector pointer pairs that
+       sequentially list the data sectors which make up the file.  The
+       file descriptive entry in the catalog sector points to this T/S
+       list sector which, in turn, points to each sector in the file.
+
+
+
+
+
+
+
+       The format of a Track/Sector List sector is given below.  Note
+       that since even a minimal file requires one T/S List sector and
+       one data sector, the least number of sectors a non-empty file can
+       have is 2, the value given when the CATALOG command is done. 
+       Also, note that a very large file, having more than 122 data
+       sectors, will need more than one Track/Sector List to hold all
+       the Track/Sector pointer pairs.
+
+       TRACK/SECTOR LIST FORMAT
+
+           BYTE        DESCRIPTION
+           ----        -----------
+           $00         Not used
+           $01         Track number of next T/S List sector if one was
+                       needed or zero if no more T/S List sectors
+           $02         Sector number of next T/S List sector (if
+                       present)
+           $03-$04     Not used
+           $05-$06     Sector offset in this file of the first sector
+                       described by this list (probably 0000, meaning
+                       zero bytes offset from byte $0C)
+           $07-$0B     Not used
+           $0C-$0D     Track and sector of first data sector or zeros
+           $0E-$0F     Track and sector of second data sector or zeros
+           $10-$FF     Up to 120 more Track/Sector pairs
+
+       A sequential file ends when the first zero T/S List entry is
+       encountered. A random file, however, can have spaces within it
+       which were never allocated and therefor have no data sectors
+       allocated in the T/S List. This distinction is not always handled
+       correctly by DOS.  The VERIFY command, for instance, stops when
+       it gets to the first zero T/S List entry and can not be used to
+       verify some random organization text files.
+
+       Following the Track/Sector pointer in the T/S List, we come to
+       the first data sector of the file.  As we examine the data
+       sectors, the differences between the file types become apparent.
+       All file (except perhaps a random TEXT file) are considered to be
+       continuous streams of data, even though they are broken up into
+       256 byte chunks to fit in a sector.  Using the Track/Sector List,
+       DOS can read each sector of the file in the correct order.
+
+       TEXT FILES
+
+       The TEXT data type consists of one or more records, separated by
+       a carriage return character ($8D).  Usually the end of a TEXT
+       file is signalled by either a $00 or the lack of any more data.
+
+       BINARY FILES
+
+       A BINARY file is an exact copy of the memory involved, that is
+       written to the disk sector(s).  The first four bytes of the file
+       are a two byte memory address where the file is loaded into
+       memory, followed by a two byte length of the file.  Both the load
+
+
+
+
+
+
+
+       address and the length are in LO/HI format. The address and
+       length are those given in the A and L keywords from the BSAVE
+       command that created the file.  Note that DOS writes one extra
+       byte to the file, though that does not matter because DOS only
+       reads the exact number of bytes given in the length field.
+
+       APPLESOFT AND INTEGER FILES
+
+       A BASIC program, be it APPLESOFT or INTEGER, is saved to the
+       diskette in a way that is similar to BSAVE.  DOS determines the
+       location of the BASIC program image in memory and its length. 
+       Since all BASIC programs have the same start address, it is not
+       necessary to store the start address in the file as is necessary
+       for binary files.  The length is stored, however, as the first
+       two bytes, followed by the tokenized program image from memory.
+       Notice that again DOS writes an additional byte, even though it
+       will be ignored by the LOAD command.
+
+       OTHER FILE TYPES (S, R, NEW A, NEW B)
+
+       While provision was made for additional file types, no DOS
+       commands use them.  The only exception is the R type, the output
+       file type produced by the DOS TOOLKIT assembler.

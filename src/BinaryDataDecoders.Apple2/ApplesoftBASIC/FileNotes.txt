@@ -1,0 +1,43 @@
+﻿Text File I/O
+Text files written to under Basic can be of two forms: "Sequential Access" and "Random Access." 
+Sequential files can only be accessed a line at a time, with each line accessed after the one before
+ them. Random Access files allow you to define 'records' for your input, and then go to any records at
+ will. 
+Both methods require you to 'OPEN' a file before any reading or writing to it take place. 'OPEN'ing a
+ file creates it on disk if it does not exist. A sequential file is opened with a 'PRINT CHR$(4)"OPEN filename"'. 
+
+A random access file has record of a certain length in bytes. Each one may contain multiple pieces of text, but the text in them should not go over the length, 
+or you will write into the next record. When first opened, you must specify the 
+field length, e.g. 'PRINT CHR$(4)"OPEN filename,Llen"'. Under DOS 3.3, you must
+ specify the record length each time you open the file; ProDOS recalls that for you 
+from the first time you created the file and can omit that parameter when reopening
+ a file. 
+
+
+When done with a file, your program should 'PRINT CHR$(4)"CLOSE filename"' to close 
+that specific file, or 'PRINT CHR$(4)"CLOSE"' to close all open files. Applesoft 
+or ProDOS does not automatically close all open files when your program ends, 
+and as output is buffered, your disk file may not be complete. 
+
+After opening, you need to speficy whether the file is to be read or written to.
+ 'PRINT CHR$(4)"READ filename"' and 'PRINT CHR$(4)"WRITE filename"' do the appropriate 
+action. It is not possible to have a file open for both reading and writing at once.
+ With random access files, you can specify which record you want to move to in the 
+READ or WRITE statement (it is allowable to READ or WRITE an open file multiple times)
+ with the ',Rrecord' parameter-- the first record is record 0. For example, to read
+ from the 10th record, 'PRINT CHR$(4)"READ filename,R9"' 
+
+Once your file is ready for reading or writing, you can use simple INPUT or GET 
+commands to read data, and PRINT to write to the file. All input or output is
+ redirected to the files until you either close off the file, or issue any DOS 
+command, including the DOS null command of a single control-D, e.g. 'PRINT CHR$(4)'. 
+
+If you OPEN an existing file, and try to WRITE to it, you'll write to the start of 
+it. If you wish to WRITE to the end of an existing file, you can 'PRINT CHR$(4)"APPEND filename"' 
+before WRITEing to it instead of OPENing the file. DOS 3.3 had several 
+nasty bugs in the APPEND code that made it not always correctly locate the end of
+ the file; you should write a null character (CHR$(0)) at the end of your last data to go into the
+ file. ProDOS finally fixed that bug. 
+
+
+

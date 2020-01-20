@@ -1,0 +1,291 @@
+﻿http://mirrors.apple2.org.za/apple.cabi.net/Languages.Programming/BASIC.keywords.tokens.txt
+
+
+                      Applesoft BASIC keywords and tokens
+
+
+from: From: "kroma" <kroma@worldnet.att.net> 
+
+Applesoft
+
+$80: END
+$81: FOR
+$82: NEXT
+$83: DATA
+$84: INPUT
+$85:  DEL
+$86: DIM
+$87: READ
+$88: GR
+$89: TEXT
+$8A: PR #
+$8B: IN #
+$8C: CALL
+$8D: PLOT
+$8E: HLIN
+$8F: VLIN
+$90: HGR2
+$91: HGR
+$92: HCOLOR=
+$93: HPLOT
+$94: DRAW
+$95: XDRAW
+$96: HTAB
+$97: HOME
+$98: ROT=
+$99: SCALE=
+$9A: SHLOAD
+$9B: TRACE
+$9C: NOTRACE
+$9D: NORMAL
+$9E: INVERSE
+$9F: FLASH
+$A0: COLOR=
+$A1: POP
+$A2: VTAB
+$A3: HIMEM:
+$A4: LOMEM:
+$A5: ONERR
+$A6: RESUME
+$A7: RECALL
+$A8: STORE
+$A9: SPEED=
+$AA: LET
+$AB:  GOTO
+$AC: RUN
+$AD: IF
+$AE: RESTORE
+$AF: &
+$B0: GOSUB
+$B1: RETURN
+$B2: REM
+$B3: STOP
+$B4: ON
+$B5: WAIT
+$B6: LOAD
+$B7: SAVE
+$B8: DEF FN
+$B9: POKE
+$BA: PRINT
+$BB: CONT
+$BC: LIST
+$BD: CLEAR
+$BE: GET
+$BF: NEW
+$C0: TAB
+$C1:  TO
+$C2: FN
+$C3: SPC(
+$C4:  THEN
+$C5:  AT
+$C6: NOT
+$C7:  STEP
+$C8:  +
+$C9:  -
+$CA:  *
+$CB:  /
+$CC: ;
+$CD:  AND
+$CE:  OR
+$CF:  >
+$D0: =
+$D1:  <
+$D2: SGN
+$D3: INT
+$D4: ABS
+$D5: USR
+$D6: FRE
+$D7: SCRN (
+$D8: PDL
+$D9: POS
+$DA: SQR
+$DB: RND
+$DC: LOG
+$DD: EXP
+$DE: COS
+$DF: SIN
+$E0: TAN
+$E1: ATN
+$E2: PEEK
+$E3: LEN
+$E4: STR$
+$E5: VAL
+$E6: ASC
+$E7: CHR$
+$E8: LEFT$
+$E9: RIGHT$
+$EA: MID$
+$FD: (
+$FE: (
+$FF: (
+
+Integer Basic
+
+         $03: :
+         $04: LOAD
+         $05: SAVE
+         $07: RUN
+         $09: DEL
+         $0A: ,
+         $0B: NEW
+         $0C: CLR
+         $0D: AUTO
+         $0F: MAN
+         $10: HIMEM:
+         $11: LOMEM:
+         $12: +
+         $13: -
+         $14: *
+         $15: /
+         $16: =
+         $17: #
+         $18: >=
+         $19: >
+         $1A: <=
+         $1B: <>
+         $1C: <
+         $1D:  AND
+         $1E:  OR
+         $1F:  MOD
+         $20: ^
+         $22: (
+         $23: ,
+         $24,
+         $25:  THEN
+         $26,
+         $27: ,
+         $28, $29: "
+         $2A: (
+         $2D: (
+         $2E:  PEEK
+         $2F: RND
+         $30: SGN
+         $31: ABS
+         $32: PDL
+         $34: (
+         $35: +
+         $36: -
+         $37: NOT
+         $38: (
+         $39: =
+         $3A: #
+         $3B: LEN (
+         $3C: ASC (
+         $3D: SCRN (
+         $3E: ,
+         $3F:  (
+         $40: $
+         $42: (
+         $43,
+         $44: ,
+         $45,
+         $46,
+         $47: ;
+         $48,
+         $49: ,
+         $4A: ,
+         $4B: TEXT
+         $4C: GR
+         $4D: CALL
+         $4E,
+         $4F: DIM
+         $50: TAB
+         $51: END
+         $52,  $53,  $54: INPUT
+         $55: FOR
+         $56:  =
+         $57:  TO
+         $58:  STEP
+         $59: NEXT
+         $5A: ,
+         $5B: RETURN
+         $5C: GOSUB
+         $5D: REM
+         $5E: LET
+         $5F: GOTO
+         $60: IF
+         $61,
+         $62: PRINT
+         $63: PRINT
+         $64:    POKE
+         $65: ,
+         $66: COLOR=
+         $67: PLOT
+         $68: ,
+         $69: HLIN
+         $6A: ,
+         $6B:  AT
+         $6C: VLIN
+         $6D: ,
+         $6E:  AT
+         $6F: VTAB
+         $70,
+         $71:  =
+         $72: )
+         $74: LIST
+         $75: ,
+         $77: POP
+         $79: NO DSP
+         $7A: NO TRACE
+         $7B,
+         $7C: DSP
+         $7D: TRACE
+         $7E: PR #
+         $7F: IN #
+
+-------------------------------------------------------------------------------------
+ 
+ " END " add: tokens      " FOR " add: tokens      " NEXT " add: tokens
+  " DATA " add: tokens     " INPUT " add: tokens    " DEL " add: tokens
+  " DIM " add: tokens      " READ " add: tokens     " GR " add: tokens
+  " TEXT " add: tokens     " PR# " add: tokens      " IN# " add: tokens
+  " CALL " add: tokens     " PLOT " add: tokens     " HLIN " add: tokens
+  " VLIN " add: tokens     " HGR2 " add: tokens     " HGR " add: tokens
+  " HCOLOR= " add: tokens  " HPLOT " add: tokens    " DRAW " add: tokens
+  " XDRAW " add: tokens    " HTAB " add: tokens     " HOME " add: tokens
+  " ROT= " add: tokens     " SCALE= " add: tokens   " SHLOAD " add: tokens
+  " TRACE " add: tokens    " NOTRACE " add: tokens  " NORMAL " add: tokens
+  " INVERSE " add: tokens  " FLASH " add: tokens    " COLOR= " add: tokens
+  " POP " add: tokens      " VTAB " add: tokens     " HIMEM: " add: tokens
+  " LOMEM: " add: tokens   " ONERR " add: tokens    " RESUME " add: tokens
+  " RECALL " add: tokens   " STORE " add: tokens    " SPEED= " add: tokens
+  " LET " add: tokens      " GOTO " add: tokens     " RUN " add: tokens
+  " IF " add: tokens       " RESTORE " add: tokens  " & " add: tokens
+  " GOSUB " add: tokens    " RETURN " add: tokens   " REM " add: tokens
+  " STOP " add: tokens     " ON " add: tokens       " WAIT " add: tokens
+  " LOAD " add: tokens     " SAVE " add: tokens     " DEF " add: tokens
+  " POKE " add: tokens     " PRINT " add: tokens    " CONT " add: tokens
+  " LIST " add: tokens     " CLEAR " add: tokens    " GET " add: tokens
+  " NEW " add: tokens      " TAB( " add: tokens     "  TO " add: tokens
+  " FN " add: tokens       " SPC( " add: tokens     "  THEN " add: tokens
+  " AT " add: tokens       "  NOT " add: tokens     "  STEP " add: tokens
+  " +" add: tokens         " -" add: tokens         " *" add: tokens
+  " /" add: tokens         " ^" add: tokens         "  AND " add: tokens
+  "  OR " add: tokens      " >" add: tokens         " =" add: tokens
+  " <" add: tokens         " SGN" add: tokens       " INT" add: tokens
+  " ABS" add: tokens       " USR" add: tokens       " FRE" add: tokens
+  " SCRN( " add: tokens    " PDL" add: tokens       " POS" add: tokens
+  " SQR" add: tokens       " RND" add: tokens       " LOG" add: tokens
+  " EXP" add: tokens       " COS" add: tokens       " SIN" add: tokens
+  " TAN" add: tokens       " ATN" add: tokens       " PEEK" add: tokens
+  " LEN" add: tokens       " STR$" add: tokens      " VAL" add: tokens
+  " ASC" add: tokens       " CHR$" add: tokens      " LEFT$" add: tokens
+  " RIGHT$" add: tokens    " MID$ " add: tokens
+
+This is directly from my Image2File source code.  *NOW*  how to use these:
+
+Token values start with 128 and go up from there.  So, simply read across to
+get the proper value.  (No, I didn't feel like retyping it for you)
+
+I.e.
+
+128 = END
+129 = FOR
+130 = NEXT
+131 = DATA
+
+etc.
+
+- Ron Kneusel
+  rkneusel@mcw.edu
+  

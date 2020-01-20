@@ -1,0 +1,541 @@
+﻿https://www.calormen.com/jsbasic/reference.html
+
+Statements
+Variable Control
+Flow Control
+Error Handling
+Text Input/Output
+Lo-Res Graphics
+Hi-Res Graphics
+Inline Data
+Miscellaneous
+Hi-Res Shape Tables - NOT IMPLEMENTED
+Interpreter and Program State - NOT IMPLEMENTED
+Native Platform Interaction - NOT IMPLEMENTED
+Cassette Tape - NOT IMPLEMENTED
+Compatibility Shims
+Functions
+Numeric Functions
+String Functions
+Type Conversion Functions
+System Interaction Functions
+User Defined Functions
+Function Compatibility Shims
+Operators
+Comparison Operators
+Boolean Operators
+Arithmetic Operators
+String Operators
+Error Codes
+DOS 3.3 / ProDOS Quick Reference
+DOS Commands
+DOS Error Codes
+Input and Output
+Input
+Output
+Process and Grammars
+Extensions beyond Standard Applesoft
+Applesoft BASIC Quick Reference
+This is intended as a quick reference for the Applesoft BASIC in JavaScript by Joshua Bell. 
+Extensions beyond Applesoft BASIC are called out with footnotes. 
+See also:
+Apple II Programmer's Reference: Applesoft Commands 
+Applesoft BASIC Frequently Asked Questions (FAQ) 
+Beagle Bros. Peeks, Pokes & Pointers Chart (Colors, ASCII values, etc) 
+More Beagle Bros. Posters — including Apple Commands Chart, in PDF format 
+Applesoft Basic Programming Reference Manual 
+Statements
+Variable Control
+CLEAR
+Clear all variables 
+[LET] var = expr
+Assign variable 
+DIM var( size [, size ...] ) [, var( size [, size ...] ) ...] 
+Allocate array(s) with given dimension(s) 
+DEF FN name(var) = aexpr
+Define function of a single variable [1] 
+Flow Control
+GOTO linenum
+Jump to line number 
+GOSUB linenum
+Enter subroutine at line number 
+RETURN
+Return from subroutine 
+ON aexpr GOTO linenum [, linenum ...]
+Branch based on index (value = 1, 2, ...) 
+ON aexpr GOSUB linenum [, linenum ...]
+Subroutine branch based on index (value = 1, 2, ...) 
+POP
+Convert last GOSUB into a GOTO 
+FOR var = aexpr TO aexpr [ STEP aexpr ]
+Loop with counter variable 
+NEXT [var [, var ...] ]
+End of loop(s) 
+IF expr THEN statement 
+IF expr GOTO linenum
+Conditional; if expr is false, rest of line is skipped 
+END
+Terminate program cleanly 
+STOP
+Break, as if an error occurred 
+Error Handling
+ONERR GOTO linenum
+Set error hook 
+RESUME
+Retry line that caused ONERR GOTO 
+Text Input/Output
+PRINT expr [ [;,] expr ... ] [;]
+Output text. ; concatenates, , advances to next tab stop. A trailing ; suppresses line break. 
+INPUT [string ;] var [, var ...]
+Read line of comma-delimited input, with optional prompt 
+GET var
+Read single key 
+HOME
+Clear text display 
+HTAB aexpr
+Position text cursor horizontally (1...40 or 1...80) 
+VTAB aexpr
+Position text cursor vertically (1...24) 
+INVERSE
+Set output mode to black-on-white 
+FLASH
+Set output mode to flashing 
+NORMAL
+Set output mode to white-on-black 
+TEXT
+Set display to text mode 
+Lo-Res Graphics
+GR
+Set display to mixed test/low resolution ("lores") graphics mode, clear screen to black 
+COLOR= aexpr
+Set lores color (0...15) 
+PLOT aexpr, aexpr
+Plot lores point (x = 0...39, y = 0...39/47) 
+HLIN aexpr, aexpr AT aexpr
+Plot horizontal line (x1, x2 at y) 
+VLIN aexpr, aexpr AT aexpr
+Plot vertical line (y1, y2 at x) 
+Hi-Res Graphics
+HGR
+Set display to mixed/high resolution ("hires") graphics mode, clear screen to black 
+HGR2
+Set display to full hires mode (page 2), clear screen to black 
+HPLOT [TO] aexpr, aexpr [ TO aexpr, aexpr ] ... 
+Plot hires point/line (x=0...279, y=0...191) 
+HCOLOR= aexpr
+Set hires color (0...7) 
+Inline Data
+DATA value [, value ...]
+Define inline data. Values can be literals (unquoted strings), strings, or numbers 
+READ var [, var ...]
+Read the next DATA value 
+RESTORE
+Restore the DATA pointer to the first value 
+Miscellaneous
+REM [comment]
+Begin a comment; rest of line is skipped 
+TRACE
+Turn on trace mode (line numbers printed) 
+NOTRACE
+Turn off trace mode 
+Hi-Res Shape Tables - NOT IMPLEMENTED
+ROT= aexpr
+Set hires shape table rotation (0...63) 
+SCALE= aexpr
+Set hires shape table scale (1...255) 
+DRAW aexpr [ AT aexpr, aexpr ]
+Draw hires shape table shape in color 
+XDRAW aexpr [ AT aexpr, aexpr ]
+Draw hires shape table shape with XOR 
+Interpreter and Program State - NOT IMPLEMENTED
+CONT
+Continue from a STOP 
+DEL
+Delete lines of program 
+LIST [ linenum [, linenum ] ]
+List lines of program 
+NEW
+Clear program and variables 
+RUN [ linenum ]
+Start program execution at line 
+Native Platform Interaction - NOT IMPLEMENTED
+HIMEM: aexpr
+Set upper address of variable memory 
+IN# aexpr
+Direct input from slot 
+LOMEM: aexpr
+Set lower address of variable memory 
+WAIT aexpr, aexpr [, aexpr]
+Wait until memory location masked by second argument equals third argument (or zero) 
+Cassette Tape - NOT IMPLEMENTED
+LOAD
+Load program from cassette 
+RECALL
+Load variables from cassette 
+SAVE
+Save program to cassette 
+STORE
+Save variables to cassette 
+SHLOAD
+Load hires shape table from cassette 
+Compatibility Shims
+SPEED= aexpr
+Set character output delay — has no effect 
+POKE aexpr, aexpr
+Set memory location to value 
+POKE 32,n — Text window left edge 
+POKE 33,n — Text window width 
+POKE 34,n — Text window top edge 
+POKE 35,n — Text window bottom 
+POKE 36,n — Text cursor x 
+POKE 37,n — Text cursor y 
+POKE 216,n — ONERR flag (n < 128 disables ONERR handler) 
+POKE 230,n — Hi-Res plotting page (32 = page 1, 64 = page 2) 
+POKE 49168,0 — clear keyboard strobe 
+POKE 49200,0 — toggle speaker (no-op) 
+POKE 49232,0 — graphics mode 
+POKE 49233,0 — text mode 
+POKE 49234,0 — full graphics mode 
+POKE 49235,0 — mixed text/graphics mode 
+POKE 49236,0 — display page 1 
+POKE 49237,0 — display page 2 
+POKE 49238,0 — lores graphics mode 
+POKE 49239,0 — hires graphics mode 
+CALL aexpr
+Call native routine 
+CALL 54915 or CALL -10621 — clear stack (pop all FOR/NEXT, GOSUB/RETURN, and ONERR/RESUME entries) 
+CALL 62248 or CALL -3288 — pop ONERR/RESUME entry from stack 
+CALL 62436 or CALL -3100 — reveal hi-res page 1 
+CALL 62450 or CALL -3086 — clear current hi-res page to black 
+CALL 62454 or CALL -3082 — clear current hi-res page to current color 
+CALL 64500 or CALL -1036 — move cursor right 
+CALL 64528 or CALL -1008 — move cursor left 
+CALL 64538 or CALL -998 — move cursor up 
+CALL 64578 or CALL -958 — clear text from cursor to bottom of window 
+CALL 64614 or CALL -922 — move cursor down 
+CALL 64668 or CALL -868 — clear text from cursor to end of line 
+CALL 64780 or CALL -756 — wait for keypress 
+CALL 65152 or CALL -384 — set inverse text mode 
+CALL 65156 or CALL -380 — set normal text mode 
+PR# aexpr
+Direct output to slot 
+PR#0 — set 40 column mode 
+PR#3 — set 80 column mode 
+Functions
+Numeric Functions
+ABS( aexpr )
+Absolute value of number 
+ATN( aexpr )
+Arctangent of number 
+COS( aexpr )
+Cosine of number 
+EXP( aexpr )
+Raise e to number 
+INT( aexpr )
+Integer part of number 
+LOG( aexpr )
+Natural log of number 
+RND( aexpr )
+Pseudo-random number generator. If aexpr is positive, returns a random number from 0 to 0.999.... If aexpr is zero, repeats the last result. If aexpr is negative, reseeds the generator. 
+SGN( aexpr )
+Sign of number (-1, 0, 1) 
+SIN( aexpr )
+Sine of number 
+SQR( aexpr )
+Square root of number 
+TAN( aexpr )
+Tangent of number 
+String Functions
+LEN( sexpr )
+Length of string 
+LEFT$( sexpr, aexpr )
+Left portion of (string, length) 
+MID$( sexpr, aexpr [, aexpr] )
+Substring of (string, start character, length) 
+RIGHT$( sexpr, aexpr )
+Right portion of (string, length) 
+Type Conversion Functions
+ASC( sexpr )
+ASCII code for first character of string 
+CHR$( aexpr )
+Character at specified ASCII code point [3] 
+STR$( aexpr )
+String representation of number 
+VAL( sexpr )
+Parse string into number 
+System Interaction Functions
+FRE( aexpr )
+Garbage collect strings (returns 0) 
+PDL( aexpr )
+Paddle position (paddle number) 
+POS( aexpr )
+Horizontal cursor position 
+SCRN( aexpr, aexpr )
+Lores color at pixel (x,y) [4] 
+USR( aexpr )
+Execute assembly code at address, return accumulator value - NOT IMPLEMENTED 
+User Defined Functions
+FN name( expr )
+Execute user defined function [1] 
+Function Compatibility Shims
+PEEK( aexpr )
+Value at memory location 
+PEEK(32) — Text window left edge 
+PEEK(33) — Text window width 
+PEEK(34) — Text window top edge 
+PEEK(35) — Text window bottom 
+PEEK(36) — Text cursor x 
+PEEK(37) — Text cursor y 
+PEEK(78) & PEEK(79) — Random-Number Field 
+PEEK(222) — Last error code 
+PEEK(230) — Hi-Res plotting page (32 = page 1, 64 = page 2) 
+PEEK(49152) — Read Keyboard 
+PEEK(49168) — Clear Keyboard strobe 
+PEEK(49200) — Click Speaker (no-op) 
+PEEK(49248) — Read Paddle Button #3 — Use the PageDown key 
+PEEK(49249) — Read Paddle Button #0 — Use the Home key 
+PEEK(49250) — Read Paddle Button #1 — Use the End key 
+PEEK(49251) — Read Paddle Button #2 — Use the PageUp or Shift key 
+Operators
+Comparison Operators
+=
+Equality [2] 
+<
+Less than 
+>
+Greater than 
+<=
+=<
+Less than or equal 
+>=
+=>
+Greater than or equal 
+<>
+><
+Not equal 
+Boolean Operators
+AND
+Conjunction 
+OR
+Disjunction 
+NOT
+Negation 
+Arithmetic Operators
+^
+Exponentiation 
+*
+Multiplication 
+/
+Division 
++
+Addition 
+-
+Subtraction 
+String Operators
++
+String Concatenation 
+Error Codes
+Error codes can be determined by calling PEEK(222) in an ONERR handler.
+0
+Next without for 
+16
+Syntax error — Not generated 
+22
+Return without gosub 
+42
+Out of data 
+53
+Illegal quantity 
+69
+Overflow 
+77
+Out of memory — Not generated by all browsers 
+90
+Undefined statement 
+107
+Bad subscript 
+120
+Redimensioned array 
+133
+Division by zero 
+163
+Type mismatch 
+176
+String too long — Not generated 
+191
+Formula too complex — Not generated by all browsers 
+224
+Undefined function 
+254
+Re-enter 
+255
+Break 
+DOS 3.3 / ProDOS Quick Reference
+See also
+Apple II DOS & Commands FAQ 
+Apple II Textfiles: the DOS 3.3 Anatomy 
+Vectronic's Apple World DOS 3.3 and ProDOS Guide 
+DOS Commands
+MON[,C][,I][,O]
+Traces DOS 3.3 commands ('Commands', 'Input' and 'Output') 
+NOMON[,C][,I][,O] 
+Cancels tracing of DOS 3.3 commands ('Commands', 'Input' and 'Output') 
+OPEN filename[,Llen] 
+Opens a text file. 
+APPEND filename 
+Appends to a text file. 
+CLOSE [filename] 
+Closes specified (or all) open text files. 
+POSITION filename[,Rnum] 
+Advances position in text file. 
+READ filename[,Rnum][,Bbyte] 
+Reads from a text file. 
+WRITE filename[,Rnum][,Bbyte]
+Writes to a text file 
+DELETE filename 
+Delete a file 
+RENAME oldname,newname 
+Rename a file 
+PR# slot 
+Same as the BASIC command 
+Other DOS commands are NOT IMPLEMENTED.
+Some sample files are present in a server-side store loaded on-demand into a client-side virtual file system (VFS). Creating or writing to a file will write to the VFS. Subsequent reads will read from the VFS. Files may be deleted from the VFS. These changes will not persist if the browser is refreshed or closed.
+DOS Error Codes
+Error codes can be determined by calling PEEK(222) in an ONERR handler.
+1
+Language not available — Not generated 
+2
+Range error — Not generated 
+4
+Write protected — Not generated 
+5
+End of data 
+6
+File not found 
+7
+Volume mismatch — Not generated 
+8
+I/O error — Not generated 
+9
+Disk full — Not generated 
+10
+File locked — Not generated 
+11
+Invalid option 
+12
+No buffers available — Not generated 
+13
+File type mismatch — Not generated 
+14
+Program too large — Not generated 
+15
+Not direct command — Not generated 
+Input and Output
+Input
+The page attempts to emulate an Apple II keyboard. Note that the keyboard API available in Web browsers is not standardized and is poorly defined; a best-effort has been made testing on available systems and browsers. 
+The Open Apple and Closed Apple keys on later Apple II models correspond to the Button #0 and Button #1 inputs and are emulated on modern keyboards with the Left Alt and Right Alt keys respectively if possible, otherwise the Home and End keys respectively. 
+Since the Tab key is necessary for keyboard access to browser functions and the rest of the web page, it is not available. Otherwise, special keys can be detected using GET (blocking) or PEEK(49152) (non-blocking): 
+CHR$(8)
+Left arrow 
+CHR$(10)
+Down arrow 
+CHR$(11)
+Up arrow 
+CHR$(13)
+Enter or Return 
+CHR$(21)
+Right arrow 
+CHR$(24)
+Clear 
+CHR$(27)
+Escape 
+CHR$(127)
+Delete or Backspace 
+Output
+The page attempts to emulate the display of an Apple II system with 80-column card firmware, which can be activated with the PR#3 statement. 
+When printing characters, CHR$() functions as expected for values from 32-126 (printable ASCII). Control characters have the typical Apple II meanings: 
+CHR$(4)
+DOS command escape prefix 
+CHR$(7)
+Make a "beep" (if your browser supports it) 
+CHR$(8)
+Backspace (move cursor left, wrap up) 
+CHR$(10)
+Line feed (move cursor down) 
+CHR$(13)
+Carriage return (move cursor down and to left edge) 
+CHR$(127)
+Displays a cursor glyph 
+If 80-column firmware is active, the following additional codes are available: 
+CHR$(11)
+Clears from the cursor position to the end of the window 
+CHR$(12)
+Move cursor to upper left and clear window 
+CHR$(14)
+Set normal text output 
+CHR$(15)
+Set inverse text output 
+CHR$(17)
+Set display to 40 columns 
+CHR$(18)
+Set display to 80 columns 
+CHR$(21)
+Deactivate the 80-column firmware 
+CHR$(22)
+Scroll display down, preserving cursor position 
+CHR$(23)
+Scroll display up, preserving cursor position 
+CHR$(24)
+Disable mousetext 
+CHR$(25)
+Move cursor to upper left (but do not clear window) 
+CHR$(26)
+Clear the current line 
+CHR$(27)
+Enable mousetext 
+CHR$(28)
+Forward space (move cursor right, wrap down) 
+CHR$(29)
+Clear from cursor position to end of line 
+The text window can be changed and cursor finely controlled with POKE 32,n ... POKE 37,n 
+Process and Grammars
+For the even geekier in the audience...
+Compilation is done by splitting the input into tokens which are then consumed by a recursive descent parser which outputs a JavaScript object representing the program.
+The token types (treated as terminals) are reserved, identifier, string-literal, number-literal [5], operator, line-number, separator, remark, data-declaration — take a peek at the code if you want the gruesome details. Source lines may only start with line numbers or (as an extension) separators. Special statement parsing is done while lexing: REM consumes anything to the next line break, and DATA statements yield an array of strings from the comma-delimited, optionally-quoted values in the source. 
+[x]
+zero or one occurences of x 
+{x}
+zero or more occurences of x 
+x|y
+one of either x or y 
+(x)
+grouping construct 
+Overall program parsing is done with a recursive descent parser.
+Program                  = Line { Line }
+Line                     = line-number Statement { separator Statement }
+Statement                = data-declaration | remark | Command | EmptyStatement
+Command                  = identifier /*...*/ | reserved /*...*/
+Due to the irregular structure of the BASIC language, statements ("commands" in the above grammar) are parsed with distinct cases for each statement type. Most statements compile into a function call to a library of Applesoft routines. Expressions are parsed with a standard recursive descent parser. The parser generates JavaScript expressions for each expression, which are used as arguments for the library calls.
+Expression               = OrExpression
+OrExpression             = AndExpression { 'OR' AndExpression  }
+AndExpression            = RelationalExpression { 'AND' RelationalExpression }
+RelationalExpression     = AdditiveExpression { ('=' | '<' | '>' | '<=' | '=<' | '>=' | '=>' | '<>' | '><') AdditiveExpression }
+AdditiveExpression       = MultiplicativeExpression { ( '+' | '-' ) MultiplicativeExpression }
+MultiplicativeExpression = PowerExpression { ( '*' | '/' ) PowerExpression }
+PowerExpression          = UnaryExpression { '^' UnaryExpression }
+UnaryExpression          = ( '+' | '-' | 'NOT' ) UnaryExpression
+                         | FinalExpression
+FinalExpression          = number-literal
+                         | string-literal
+                         | 'FN' user_function_name '(' Expression ')'
+                         | reserved '(' Expression { ',' Expression } ')'
+                         | identifier [ '(' Expression { ',' Expression } ')' ]
+                         | '(' Expression ')'
+Since Applesoft supports re-entrant error handling and synchronous input, the output of the compiler is an array of statement-functions plus an executor function which implements the logic for walking over the array.
+
+Extensions beyond Standard Applesoft
+DEF FN supports string and integer functions e.g. DEF FN IN$(X$) = " " + X$ — the return type must match the argument type, so string-to-number or number-to-string functions can not be implemented. 
+"Double equals" == is supported for equality comparisons, with the same meaning as "single equals" = 
+When printing characters, CHR$() values greater than 255 generate glyphs that might be useful for implementing certain maze games. (An earlier version of this page allowed arbitrary Unicode characters to be displayed, but the text is now displayed using bitmaps so that is not possible.) 
+HSCRN(x,y) is added to allow reading the hires screen. On a real Apple II this required a machine-language routine (or a shape table and XDRAW) and extensive knowledge of the Apple II's color generation scheme. 
+Hexadecimal number literals are permitted, with $ as a prefix, e.g. POKE $C010, 0 

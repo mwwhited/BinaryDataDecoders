@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.ToolKit"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.ElectronicScoringMachines.Fencing", "BinaryDataDecoders.ElectronicScoringMachines.Fencing\BinaryDataDecoders.ElectronicScoringMachines.Fencing.csproj", "{19BF4DDD-5A59-4D29-AA5E-B6F2251D3AAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests", "BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests\BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.csproj", "{042BA283-D97F-40CF-92E1-0A36F088C4AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests", "BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests\BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.csproj", "{042BA283-D97F-40CF-92E1-0A36F088C4AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.ToolKit.Tests", "BinaryDataDecoders.ToolKit.Tests\BinaryDataDecoders.ToolKit.Tests.csproj", "{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.ToolKit.Tests", "BinaryDataDecoders.ToolKit.Tests\BinaryDataDecoders.ToolKit.Tests.csproj", "{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Apple2", "BinaryDataDecoders.Apple2\BinaryDataDecoders.Apple2.csproj", "{196C12EC-4ED9-47AA-97EC-6B9CD7EDD3AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.FileSystems", "BinaryDataDecoders.FileSystems\BinaryDataDecoders.FileSystems.csproj", "{99950CC1-F04E-4A88-935F-6AA5D635FE11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{196C12EC-4ED9-47AA-97EC-6B9CD7EDD3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196C12EC-4ED9-47AA-97EC-6B9CD7EDD3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196C12EC-4ED9-47AA-97EC-6B9CD7EDD3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196C12EC-4ED9-47AA-97EC-6B9CD7EDD3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99950CC1-F04E-4A88-935F-6AA5D635FE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99950CC1-F04E-4A88-935F-6AA5D635FE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99950CC1-F04E-4A88-935F-6AA5D635FE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99950CC1-F04E-4A88-935F-6AA5D635FE11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
