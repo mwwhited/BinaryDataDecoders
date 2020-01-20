@@ -6,7 +6,8 @@
     <Copyright>Matthew Whited 2020</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-    <RepositoryType>GidHub</RepositoryType>
+    <RepositoryType>GitHub</RepositoryType>
+    <Authors>Matthew Whited</Authors>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">
