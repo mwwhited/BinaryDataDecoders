@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Electron
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.ToolKit.Tests", "BinaryDataDecoders.ToolKit.Tests\BinaryDataDecoders.ToolKit.Tests.csproj", "{F779201E-2DCC-4C6E-B46C-574F9FAA7D5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Apple2", "BinaryDataDecoders.Apple2\BinaryDataDecoders.Apple2.csproj", "{196C12EC-4ED9-47AA-97EC-6B9CD7EDD3AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Apple2", "BinaryDataDecoders.Apple2\BinaryDataDecoders.Apple2.csproj", "{196C12EC-4ED9-47AA-97EC-6B9CD7EDD3AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.FileSystems", "BinaryDataDecoders.FileSystems\BinaryDataDecoders.FileSystems.csproj", "{99950CC1-F04E-4A88-935F-6AA5D635FE11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.FileSystems", "BinaryDataDecoders.FileSystems\BinaryDataDecoders.FileSystems.csproj", "{99950CC1-F04E-4A88-935F-6AA5D635FE11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Archives", "BinaryDataDecoders.Archives\BinaryDataDecoders.Archives.csproj", "{1F4C8246-0359-46A5-8255-1733B0ACC57F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Archives", "BinaryDataDecoders.Archives\BinaryDataDecoders.Archives.csproj", "{1F4C8246-0359-46A5-8255-1733B0ACC57F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Cryptography", "BinaryDataDecoders.Cryptography\BinaryDataDecoders.Cryptography.csproj", "{C11A466D-3541-446D-BAF9-BEC92A0021E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{1F4C8246-0359-46A5-8255-1733B0ACC57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F4C8246-0359-46A5-8255-1733B0ACC57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F4C8246-0359-46A5-8255-1733B0ACC57F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C11A466D-3541-446D-BAF9-BEC92A0021E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C11A466D-3541-446D-BAF9-BEC92A0021E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C11A466D-3541-446D-BAF9-BEC92A0021E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C11A466D-3541-446D-BAF9-BEC92A0021E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
