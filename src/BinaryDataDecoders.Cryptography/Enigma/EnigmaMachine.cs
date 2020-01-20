@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Enigma.Machine
+namespace BinaryDataDecoders.Cryptography.Enigma
 {
     // https://en.wikipedia.org/wiki/Enigma_rotor_details
     // http://enigmaco.de/enigma/enigma.html

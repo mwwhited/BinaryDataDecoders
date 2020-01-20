@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enigma.Machine
+namespace BinaryDataDecoders.Cryptography.Enigma
 {
     public static class EnigmaTools
     {

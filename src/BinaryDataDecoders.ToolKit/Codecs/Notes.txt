@@ -1,0 +1,22 @@
+﻿https://en.wikipedia.org/wiki/Base32 => https://tools.ietf.org/html/rfc4648#page-10
+https://en.wikipedia.org/wiki/Base36
+https://en.wikipedia.org/wiki/Base58
+https://en.wikipedia.org/wiki/Ascii85
+
+https://stackoverflow.com/questions/971211/what-is-the-most-efficient-binary-to-text-encoding
+
+https://en.wikipedia.org/wiki/Binary-to-text_encoding
+
+https://en.wikipedia.org/wiki/BinHex
+https://en.wikipedia.org/wiki/Uuencoding
+https://en.wikipedia.org/wiki/Xxencoding
+https://en.wikipedia.org/wiki/Intel_HEX
+https://en.wikipedia.org/wiki/Tektronix_extended_HEX
+https://en.wikipedia.org/wiki/SREC_(file_format)
+https://en.wikipedia.org/wiki/Quoted-printable
+https://en.wikipedia.org/wiki/Percent-encoding
+
+https://en.wikipedia.org/wiki/ASC_X12
+https://en.wikipedia.org/wiki/EDIFACT
+
+https://github.com/kosarev/escapeless
