@@ -3,3 +3,5 @@ https://macgui.com/kb/article/336
 http://www.textfiles.com/apple/ANATOMY/
 https://www.calormen.com/jsbasic/reference.html
 http://fileformats.archiveteam.org/wiki/ProDOS_file_system
+
+https://docs.microsoft.com/en-us/dotnet/standard/io/buffers
