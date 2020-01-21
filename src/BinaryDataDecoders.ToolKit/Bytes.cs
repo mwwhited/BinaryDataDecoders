@@ -39,6 +39,14 @@ namespace BinaryDataDecoders.ToolKit
         /// 0
         /// </summary>
         public const byte _0 = 0x30;
+        /// <summary>
+        /// 1
+        /// </summary>
+        public const byte _1 = 0x31;
+        /// <summary>
+        /// :
+        /// </summary>
+        public const byte _C = 0x3a;
         public const byte F = 0x46;
         public const byte G = 0x47;
         public const byte L = 0x4c;
