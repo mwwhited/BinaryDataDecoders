@@ -1,10 +1,10 @@
 ﻿using System.Buffers;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO.Pipelines.Segmenters
 {
     public interface ISegmentReadResult
     {
-        bool ContinueReading { get; }
+        SegmentationStatus Status { get; }
         ReadOnlySequence<byte> RemainingData { get; }
     }
 }

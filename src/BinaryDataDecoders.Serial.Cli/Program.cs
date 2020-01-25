@@ -39,7 +39,6 @@ namespace BinaryDataDecoders.Serial.Cli
             foreach (var port in ports)
                 Console.WriteLine(port);
 
-
             Console.WriteLine($"Enter Port: (Default { ports.FirstOrDefault()})");
             var portName = Console.ReadLine();
 

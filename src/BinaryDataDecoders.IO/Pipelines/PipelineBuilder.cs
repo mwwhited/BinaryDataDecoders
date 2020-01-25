@@ -1,24 +1,89 @@
-﻿using System.IO.Pipelines;
+﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
+using BinaryDataDecoders.IO.Pipelines.Factories;
+using System;
+using System.IO;
+using System.IO.Pipelines;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.IO.Pipelines
 {
-    internal class PipelineBuilder : IPipelineBuilder
+    public static class PipelineBuilder
     {
-        internal PipelineBuilder(Pipe pipe)
+        public static IPipelineBuildDefinition Follow(this Stream stream, int minimumBufferSize = 4096)
         {
-            this.Pipe = pipe;
+            return new Pipe().FollowStream(stream, minimumBufferSize);
+        }
+        internal static IPipelineBuildDefinition FollowStream(this Pipe pipe, Stream stream, int minimumBufferSize = 4096)
+        {
+            return new PipelineBuildDefinition(pipe).FollowStream(stream, minimumBufferSize);
+        }
+        internal static IPipelineBuildDefinition FollowStream(this IPipelineBuildDefinition pipeline, Stream stream, int minimumBufferSize = 4096)
+        {
+            if (!(pipeline is PipelineBuildDefinition wrapped))
+            {
+                throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+            }
+            else if (wrapped.PipeWriter != null)
+            {
+                throw new NotSupportedException("this pipeline already has a writer");
+            }
+            wrapped.PipeWriter = new StreamPipelineFactory().CreateWriter(wrapped, stream, minimumBufferSize);
+            return wrapped;
         }
 
-        public Pipe Pipe { get; }
+        public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, ISegmenter segmenter)
+        {
+            if (!(pipeline is PipelineBuildDefinition wrapped))
+            {
+                throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+            }
+            else if (wrapped.PipeReader != null)
+            {
+                throw new NotSupportedException("this pipeline already has a reader");
+            }
+            wrapped.PipeReader = new SegmentPipeFactory().CreateReader(wrapped, segmenter);
+            return wrapped;
+        }
+        public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, Stream stream)
+        {
+            if (!(pipeline is PipelineBuildDefinition wrapped))
+            {
+                throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+            }
+            else if (wrapped.PipeReader != null)
+            {
+                throw new NotSupportedException("this pipeline already has a reader");
+            }
+            wrapped.PipeReader = new StreamPipelineFactory().CreateReader(pipeline: wrapped, stream);
+            return wrapped;
+        }
 
-        public Task? PipeWriter { get; internal set; }
-        public OnPipelineError? OnWriterError { get; internal set; }
-        public Task? PipeReader { get; internal set; }
+        //OnError
+        //OnReadError
+        //OnWriteError
 
-        public OnPipelineError? OnReaderError { get; internal set; }
+        public static Task RunAsync(this IPipelineBuildDefinition pipeline, CancellationToken cancellationToken = default)
+        {
+            if (!(pipeline is PipelineBuildDefinition wrapped))
+            {
+                throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+            }
+            else if (wrapped.PipeWriter == null)
+            {
+                throw new NotSupportedException("this pipeline is not configured with a writer");
+            }
+            else if (wrapped.PipeReader == null)
+            {
+                throw new NotSupportedException("this pipeline is not configured with a reader");
+            }
 
-        public CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
+            cancellationToken.Register(() => wrapped.CancellationTokenSource.Cancel());
+
+            return Task.WhenAll(
+                Task.Run(async () => await wrapped.PipeWriter),
+                Task.Run(async () => await wrapped.PipeReader)
+                );
+        }
     }
 }

@@ -1,45 +1,63 @@
-﻿using BinaryDataDecoders.ToolKit;
+﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
+using BinaryDataDecoders.IO.Pipelines.Segmenters;
+using BinaryDataDecoders.ToolKit;
 using System;
 
 namespace BinaryDataDecoders.IO.Pipelines
 {
     public static class Segment
     {
-        public static ISegmentBuilder StartsWith(ControlCharacters start)
+        public static ISegmentBuildDefinition StartsWith(ControlCharacters start)
         {
             return StartsWith((byte)start);
         }
-        public static ISegmentBuilder StartsWith(byte start)
+        public static ISegmentBuildDefinition StartsWith(byte start)
         {
-            return new SegmentBuilder(start);
+            return new SegmentBuildDefinition(start);
         }
 
-        public static ISegmentBuilder AndEndsWith(this ISegmentBuilder builder, ControlCharacters end)
+        public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end)
         {
             return AndEndsWith(builder, (byte)end);
         }
-        public static ISegmentBuilder AndEndsWith(this ISegmentBuilder builder, byte end)
+        public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, byte end)
         {
-            if (!(builder is SegmentBuilder segmentBuilder)) throw new NotSupportedException($"{builder.GetType()} is not supported");
-            if (segmentBuilder.Length != null) throw new NotSupportedException("May not set end byte if using length");
-            segmentBuilder.EndsWith = end;
-            return builder;
-        }
-        public static ISegmentBuilder AndIsLength(this ISegmentBuilder builder, long length)
-        {
-            if (!(builder is SegmentBuilder segmentBuilder)) throw new NotSupportedException($"{builder.GetType()} is not supported");
-            if (segmentBuilder.EndsWith != null) throw new NotSupportedException("May not set length if using Ends With");
-            segmentBuilder.Length = length;
+            if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+            if (def.Length.HasValue) throw new NotSupportedException("May not set end byte if using length");
+            def.EndsWith = end;
             return builder;
         }
 
-        public static ISegmenter ThenDo(this ISegmentBuilder builder, OnSegmentReceived onSegmentReceived)
+        public static ISegmentBuildDefinition WithMaxLength(this ISegmentBuildDefinition builder, long maxLength)
         {
-            if (!(builder is SegmentBuilder segmentBuilder)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+            if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+            if (def.Length.HasValue) throw new NotSupportedException("May not set end byte if using length");
+            def.MaxLength = maxLength == 0 ? (long?)null : maxLength;
+            return builder;
+        }
+        public static ISegmentBuildDefinition WithOptions(this ISegmentBuildDefinition builder, SegmentionOptions options)
+        {
+            if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+            def.Options = options;
+            return builder;
+        }
+
+        public static ISegmentBuildDefinition AndIsLength(this ISegmentBuildDefinition builder, long length)
+        {
+            if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+            if (def.EndsWith.HasValue) throw new NotSupportedException("May not set length if using Ends With");
+            if (def.MaxLength.HasValue) throw new NotSupportedException("May not set length if using Ends With");
+            def.Length = length;
+            return builder;
+        }
+
+        public static ISegmenter ThenDo(this ISegmentBuildDefinition builder, OnSegmentReceived onSegmentReceived)
+        {
+            if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
 
             ISegmenter? built =
-                segmentBuilder.EndsWith != null ? (ISegmenter)new BetweenSegmenter(onSegmentReceived, segmentBuilder.StartsWith, segmentBuilder.EndsWith.Value) :
-                segmentBuilder.Length != null ? new StartAndFixLengthSegmenter(onSegmentReceived, segmentBuilder.StartsWith, segmentBuilder.Length.Value) :
+                def.EndsWith.HasValue ? (ISegmenter)new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith.Value, def.MaxLength, def.Options) :
+                def.Length.HasValue ? new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options) :
                 null;
 
             if (built == null)

@@ -2,11 +2,11 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO.Pipelines.Definitions
 {
-    internal static class PipelineErrorEx
+    internal static class OnPipelineErrorExtensions
     {
-        public static async Task<PipelineErrorHandling> Handle(this OnPipelineError? handler, object sender, Exception exception)
+        internal static async Task<PipelineErrorHandling> Handle(this OnPipelineError? handler, object sender, Exception exception)
         {
             return await (handler ?? DefaultPipelineError).Invoke(sender, exception);
         }

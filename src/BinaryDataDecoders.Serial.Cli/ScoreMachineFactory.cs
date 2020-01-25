@@ -2,6 +2,7 @@
 using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero;
 using BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge;
 using BinaryDataDecoders.IO.Pipelines;
+using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.ToolKit;
 using System.IO.Ports;
 
@@ -21,8 +22,8 @@ namespace BinaryDataDecoders.Serial.Cli
         internal ISegmenter GetSegmenter(MachineType machine, OnSegmentReceived received) =>
             (machine == MachineType.Favero ?
                 Segment.StartsWith(0xff).AndIsLength(10) :
-                Segment.StartsWith(ControlCharacters.StartOfHeading).AndEndsWith(ControlCharacters.EndOfTransmission)
-            ).ThenDo(received);
+                Segment.StartsWith(ControlCharacters.StartOfHeading).AndEndsWith(ControlCharacters.EndOfTransmission).WithMaxLength(100)
+            ).WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid).ThenDo(received);
 
         public IParseScoreMachineState GetParser(MachineType machine) => machine == MachineType.Favero ? (IParseScoreMachineState)new FaveroStateParser() : new SgStateParser();
     }

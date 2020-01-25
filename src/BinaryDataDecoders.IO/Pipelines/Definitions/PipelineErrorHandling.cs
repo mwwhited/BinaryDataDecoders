@@ -1,4 +1,4 @@
-﻿namespace BinaryDataDecoders.IO.Pipelines
+﻿namespace BinaryDataDecoders.IO.Pipelines.Definitions
 {
     public enum PipelineErrorHandling
     {

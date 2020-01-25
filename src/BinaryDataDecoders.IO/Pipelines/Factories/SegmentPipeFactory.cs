@@ -1,11 +1,13 @@
-﻿using System;
+﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
+using BinaryDataDecoders.IO.Pipelines.Segmenters;
+using System;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO.Pipelines.Factories
 {
     internal class SegmentPipeFactory
     {
-        internal async Task CreateReader(PipelineBuilder pipeline, ISegmenter segmenter)
+        internal async Task CreateReader(PipelineBuildDefinition pipeline, ISegmenter segmenter)
         {
             var context = new
             {
@@ -21,16 +23,19 @@ namespace BinaryDataDecoders.IO.Pipelines
                 var result = await context.pipeline.ReadAsync(context.cancellationToken);
                 try
                 {
-
                     var buffer = result.Buffer;
 
                     while (!context.cancellationToken.IsCancellationRequested)
                     {
                         var read = await segmenter.TryReadAsync(buffer);
                         buffer = read.RemainingData;
-                        if (!read.ContinueReading)
+                        if (read.Status == SegmentationStatus.Incomplete)
                         {
                             break;
+                        }
+                        else if (read.Status == SegmentationStatus.Invalid)
+                        {
+                            throw new InvalidSegmentationException();
                         }
                     }
 

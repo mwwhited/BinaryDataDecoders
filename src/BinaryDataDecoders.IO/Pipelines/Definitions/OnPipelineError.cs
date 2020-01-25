@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO.Pipelines.Definitions
 {
     /// <summary>
     /// Delegate declaration for Pipeline Exceptions

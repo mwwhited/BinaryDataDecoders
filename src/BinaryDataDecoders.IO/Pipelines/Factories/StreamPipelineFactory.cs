@@ -1,14 +1,15 @@
-﻿using System;
+﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO.Pipelines.Factories
 {
 
     internal class StreamPipelineFactory
     {
         //https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/
-        internal async Task CreateWriter(PipelineBuilder wrapped, Stream stream, int minimumBufferSize)
+        internal async Task CreateWriter(PipelineBuildDefinition wrapped, Stream stream, int minimumBufferSize)
         {
             var context = new
             {
@@ -66,7 +67,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             context.pipeline.Complete();
         }
 
-        internal Task? CreateReader(PipelineBuilder pipeline, Stream stream)
+        internal Task? CreateReader(PipelineBuildDefinition pipeline, Stream stream)
         {
             throw new NotImplementedException();
         }
