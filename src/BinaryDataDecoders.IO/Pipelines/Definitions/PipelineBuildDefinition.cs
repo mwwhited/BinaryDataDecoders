@@ -11,14 +11,17 @@ namespace BinaryDataDecoders.IO.Pipelines.Definitions
             this.Pipe = pipe;
         }
 
-        public Pipe Pipe { get; }
+        internal Pipe Pipe { get; }
 
-        public Task? PipeWriter { get; internal set; }
-        public OnPipelineError? OnWriterError { get; internal set; }
-        public Task? PipeReader { get; internal set; }
+        internal OnPipelineError? OnError { get; set; }
 
-        public OnPipelineError? OnReaderError { get; internal set; }
 
-        public CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
+        internal Task? PipeWriter { get; set; }
+        internal OnPipelineError? OnWriterError { get; set; }
+
+        internal Task? PipeReader { get; set; }
+        internal OnPipelineError? OnReaderError { get; set; }
+
+        internal CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
     }
 }

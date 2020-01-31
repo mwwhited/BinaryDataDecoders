@@ -20,69 +20,105 @@ namespace BinaryDataDecoders.IO.Pipelines
         }
         internal static IPipelineBuildDefinition FollowStream(this IPipelineBuildDefinition pipeline, Stream stream, int minimumBufferSize = 4096)
         {
-            if (!(pipeline is PipelineBuildDefinition wrapped))
+            if (!(pipeline is PipelineBuildDefinition def))
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
-            else if (wrapped.PipeWriter != null)
+            else if (def.PipeWriter != null)
             {
                 throw new NotSupportedException("this pipeline already has a writer");
             }
-            wrapped.PipeWriter = new StreamPipelineFactory().CreateWriter(wrapped, stream, minimumBufferSize);
-            return wrapped;
+            def.PipeWriter = new StreamPipelineFactory().CreateWriter(def, stream, minimumBufferSize);
+            return def;
         }
 
         public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, ISegmenter segmenter)
         {
-            if (!(pipeline is PipelineBuildDefinition wrapped))
+            if (!(pipeline is PipelineBuildDefinition def))
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
-            else if (wrapped.PipeReader != null)
+            else if (def.PipeReader != null)
             {
                 throw new NotSupportedException("this pipeline already has a reader");
             }
-            wrapped.PipeReader = new SegmentPipeFactory().CreateReader(wrapped, segmenter);
-            return wrapped;
+            def.PipeReader = new SegmentPipeFactory().CreateReader(def, segmenter);
+            return def;
         }
         public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, Stream stream)
         {
-            if (!(pipeline is PipelineBuildDefinition wrapped))
+            if (!(pipeline is PipelineBuildDefinition def))
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
-            else if (wrapped.PipeReader != null)
+            else if (def.PipeReader != null)
             {
                 throw new NotSupportedException("this pipeline already has a reader");
             }
-            wrapped.PipeReader = new StreamPipelineFactory().CreateReader(pipeline: wrapped, stream);
-            return wrapped;
+            def.PipeReader = new StreamPipelineFactory().CreateReader(pipeline: def, stream);
+            return def;
         }
 
-        //OnError
-        //OnReadError
-        //OnWriteError
-
-        public static Task RunAsync(this IPipelineBuildDefinition pipeline, CancellationToken cancellationToken = default)
+        public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
         {
-            if (!(pipeline is PipelineBuildDefinition wrapped))
+            if (!(pipeline is PipelineBuildDefinition def))
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
-            else if (wrapped.PipeWriter == null)
+            else if (def.PipeReader != null)
+            {
+                throw new NotSupportedException("this pipeline already has a reader");
+            }
+            def.OnError = onPipelineError;
+            return def;
+        }
+        public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        {
+            if (!(pipeline is PipelineBuildDefinition def))
+            {
+                throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+            }
+            else if (def.PipeReader != null)
+            {
+                throw new NotSupportedException("this pipeline already has a reader");
+            }
+            def.OnReaderError = onPipelineError;
+            return def;
+        }
+        public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        {
+            if (!(pipeline is PipelineBuildDefinition def))
+            {
+                throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+            }
+            else if (def.PipeReader != null)
+            {
+                throw new NotSupportedException("this pipeline already has a reader");
+            }
+            def.OnWriterError = onPipelineError;
+            return def;
+        }
+
+        public static Task RunAsync(this IPipelineBuildDefinition pipeline, CancellationToken cancellationToken = default)
+        {
+            if (!(pipeline is PipelineBuildDefinition def))
+            {
+                throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+            }
+            else if (def.PipeWriter == null)
             {
                 throw new NotSupportedException("this pipeline is not configured with a writer");
             }
-            else if (wrapped.PipeReader == null)
+            else if (def.PipeReader == null)
             {
                 throw new NotSupportedException("this pipeline is not configured with a reader");
             }
 
-            cancellationToken.Register(() => wrapped.CancellationTokenSource.Cancel());
+            cancellationToken.Register(() => def.CancellationTokenSource.Cancel());
 
             return Task.WhenAll(
-                Task.Run(async () => await wrapped.PipeWriter),
-                Task.Run(async () => await wrapped.PipeReader)
+                Task.Run(async () => await def.PipeWriter),
+                Task.Run(async () => await def.PipeReader)
                 );
         }
     }

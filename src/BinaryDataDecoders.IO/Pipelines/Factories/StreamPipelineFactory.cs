@@ -9,13 +9,13 @@ namespace BinaryDataDecoders.IO.Pipelines.Factories
     internal class StreamPipelineFactory
     {
         //https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/
-        internal async Task CreateWriter(PipelineBuildDefinition wrapped, Stream stream, int minimumBufferSize)
+        internal async Task CreateWriter(PipelineBuildDefinition def, Stream stream, int minimumBufferSize)
         {
             var context = new
             {
-                pipeline = wrapped.Pipe.Writer,
-                onError = wrapped.OnWriterError,
-                cancellationToken = wrapped.CancellationTokenSource.Token,
+                pipeline = def.Pipe.Writer,
+                onError = def.OnWriterError ?? def.OnError,
+                cancellationToken = def.CancellationTokenSource.Token,
                 owner = stream,
             };
 

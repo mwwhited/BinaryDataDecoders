@@ -7,13 +7,13 @@ namespace BinaryDataDecoders.IO.Pipelines.Factories
 {
     internal class SegmentPipeFactory
     {
-        internal async Task CreateReader(PipelineBuildDefinition pipeline, ISegmenter segmenter)
+        internal async Task CreateReader(PipelineBuildDefinition def, ISegmenter segmenter)
         {
             var context = new
             {
-                pipeline = pipeline.Pipe.Reader,
-                onError = pipeline.OnReaderError,
-                cancellationToken = pipeline.CancellationTokenSource.Token,
+                pipeline = def.Pipe.Reader,
+                onError = def.OnReaderError ?? def.OnError,
+                cancellationToken = def.CancellationTokenSource.Token,
                 owner = segmenter,
             };
 

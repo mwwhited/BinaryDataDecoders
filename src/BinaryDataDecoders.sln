@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Cryptogr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Serial.Cli", "BinaryDataDecoders.Serial.Cli\BinaryDataDecoders.Serial.Cli.csproj", "{5EB159DD-6468-4930-B54B-A864DA887EF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO", "BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj", "{133E7C19-78A9-4665-B69F-ADC70A1BEA30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO", "BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj", "{133E7C19-78A9-4665-B69F-ADC70A1BEA30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
