@@ -1,0 +1,2 @@
+﻿https://www.nmea.org/
+https://github.com/ucnl/UCNLNMEA/blob/master/NMEAParser.cs

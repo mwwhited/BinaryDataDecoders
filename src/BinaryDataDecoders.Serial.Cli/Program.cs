@@ -1,10 +1,4 @@
-﻿using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
-using BinaryDataDecoders.IO.Pipelines;
-using System;
-using System.Buffers;
-using System.IO.Ports;
-using System.Linq;
-using System.Threading;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
@@ -13,51 +7,11 @@ namespace BinaryDataDecoders.Serial.Cli
     {
         static void Main(string[] args)
         {
-            var factory = new ScoreMachineFactory(new ScoreMachinePortProvider());
-
-            Console.WriteLine("Favero or SG (Default SG)");
-            var machine = factory.GetMachineType(Console.ReadLine());
-
-            var parser = factory.GetParser(machine);
-
-            var last = ScoreMachineState.Empty;
-            var segmenter = factory.GetSegmenter(machine, data =>
-            {
-                var state = parser.Parse(data.ToArray().AsSpan());
-                if (!last.Equals(state))
-                {
-                    var org = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine($"S> {state}");
-                    Console.ForegroundColor = org;
-                    last = state;
-                }
-                return Task.FromResult(0);
-            });
-
-            var ports = SerialPort.GetPortNames().OrderBy(s => s);
-            foreach (var port in ports)
-                Console.WriteLine(port);
-
-            Console.WriteLine($"Enter Port: (Default { ports.FirstOrDefault()})");
-            var portName = Console.ReadLine();
-
-            using (var port = factory.GetPort(machine, !string.IsNullOrWhiteSpace(portName) ? portName : ports.FirstOrDefault()))
-            using (var cts = new CancellationTokenSource())
-            {
-                port.Open();
-
-                Console.Write("Enter to exit");
-
-                Task.WaitAll(
-                  Task.Run(async () => await ReadLineAsync().ContinueWith(t => cts.Cancel(false))),
-                  Task.Run(async () => await port.BaseStream.Follow().With(segmenter).RunAsync(cts.Token))
-                  );
-            }
+            // SerialScoreMachine.Execute();
+            SerialNmea0183.Execute();
         }
 
-
-        private static Task<string> ReadLineAsync()
+        public static Task<string> ReadLineAsync()
         {
             return Task.FromResult(Console.ReadLine());
         }

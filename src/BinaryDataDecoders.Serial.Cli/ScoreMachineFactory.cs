@@ -10,8 +10,8 @@ namespace BinaryDataDecoders.Serial.Cli
 {
     public class ScoreMachineFactory
     {
-        private readonly ScoreMachinePortProvider _provider;
-        public ScoreMachineFactory(ScoreMachinePortProvider provider)
+        private readonly PortProvider _provider;
+        public ScoreMachineFactory(PortProvider provider)
         {
             _provider = provider;
         }
