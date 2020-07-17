@@ -29,7 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.FocusRit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.EByteElectronicTechnology", "BinaryDataDecoders.EByteElectronicTechnology\BinaryDataDecoders.EByteElectronicTechnology.csproj", "{897B7D4E-816C-455E-8F29-7C1F510C7CBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Nmea", "BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj", "{84E594E1-EC9F-4092-95C8-D18AD9B1801B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Nmea", "BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj", "{84E594E1-EC9F-4092-95C8-D18AD9B1801B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.ExpressionCalculator", "BinaryDataDecoders.ExpressionCalculator\BinaryDataDecoders.ExpressionCalculator.csproj", "{226A3278-A321-40CC-A2A3-17591D41298C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.ExpressionCalculator.Tests", "BinaryDataDecoders.ExpressionCalculator.Tests\BinaryDataDecoders.ExpressionCalculator.Tests.csproj", "{9B4960F8-64FD-4780-B9E3-1C296C7729B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +97,14 @@ Global
 		{84E594E1-EC9F-4092-95C8-D18AD9B1801B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84E594E1-EC9F-4092-95C8-D18AD9B1801B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84E594E1-EC9F-4092-95C8-D18AD9B1801B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{226A3278-A321-40CC-A2A3-17591D41298C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{226A3278-A321-40CC-A2A3-17591D41298C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{226A3278-A321-40CC-A2A3-17591D41298C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{226A3278-A321-40CC-A2A3-17591D41298C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4960F8-64FD-4780-B9E3-1C296C7729B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4960F8-64FD-4780-B9E3-1C296C7729B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4960F8-64FD-4780-B9E3-1C296C7729B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4960F8-64FD-4780-B9E3-1C296C7729B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
