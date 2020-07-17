@@ -25,6 +25,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
         // 0+B | B+0 => B
         // B-0 => B
         // 0-B=>-B
+        // -(1) => -1
         private ExpressionBase<T> Optimize(BinaryOperatorExpression<T> expression)
         {
             var left = Optimize(expression.Left);
@@ -48,7 +49,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
                 (Subtract, _, 0) => left,
                 (Subtract, 0, _) => new UnaryOperatorExpression<T>(Negate, right),
 
-                _ => expression
+                _ => new BinaryOperatorExpression<T>(left, expression.Operator, right)
             };
 
             return result;

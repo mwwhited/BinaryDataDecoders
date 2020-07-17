@@ -10,6 +10,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
             left.Evaluate(variables) + right.Evaluate(variables);
         public int Divide(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
             left.Evaluate(variables) / right.Evaluate(variables);
+
+        public int GetValue(int value) => value;
+
         public int Modulo(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
             left.Evaluate(variables) % right.Evaluate(variables);
         public int Multiple(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>

@@ -1,11 +1,8 @@
-﻿using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
+﻿using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 using BinaryDataDecoders.ExpressionCalculator.Evaluators;
 using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Visitors
 {
@@ -57,15 +54,3 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
                 );
     }
 }
-/*
-start : expression;
-
-value : NUMBER | VARIABLE;
-
-expression
-   : value   
-   | left=expression operator=POW right=expression
-   | left=expression operator=(MUL|DIV|MOD) right=expression
-   | left=expression operator=(ADD|SUB) right=expression
-   ;
-*/

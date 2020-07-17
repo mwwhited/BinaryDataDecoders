@@ -1,9 +1,5 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Parser;
-using BinaryDataDecoders.ExpressionCalculator.Expressions;
+﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using ExpressionParser = BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser<double>;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
@@ -42,6 +38,19 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("B-0", "B", DisplayName = "Reduce B - 0")]
         [DataRow("0-B", "-B", DisplayName = "Reduce 0 - B")]
 
+        [DataRow("2+3*4^5%6/7-8", "-6", DisplayName = "Simplify all operators test")]
+
+        [DataRow("2+3", "5", DisplayName = "Simplify 2+3")]
+        [DataRow("B/B", "1", DisplayName = "Simplify B/B")]
+        [DataRow("B%B", "0", DisplayName = "Simplify B%B")]
+        [DataRow("B^0", "1", DisplayName = "Simplify B^0")]
+        [DataRow("0^B", "0", DisplayName = "Simplify 0^B")]
+        [DataRow("0*B", "0", DisplayName = "Simplify 0*B")]
+        [DataRow("B*0", "0", DisplayName = "Simplify B*0")]
+        [DataRow("0/B", "0", DisplayName = "Simplify 0/B")]
+        [DataRow("0%B", "0", DisplayName = "Simplify 0%B")]
+        [DataRow("B%1", "0", DisplayName = "Simplify B%1")]
+        [DataRow("B%-1", "0", DisplayName = "Simplify B%-1")]
         public void OptimizerTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
@@ -52,20 +61,16 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             Assert.AreEqual(result, optimized.ToString());
         }
 
+        // B/0 => exception!
+        // B%0 => exception!
+
+
+
         //[TestMethod]
         //public void ParseAllOperatorsTest() => Assert.AreEqual("2 + 3 * 4 ^ 5 % 6 / 7 - 8", new Exp().Parse("2+3*4^5%6/7-8").ToString());
 
         /*
-        package tests;
-
-        import static org.junit.jupiter.api.Assertions.*;
-
-        import java.math.BigDecimal;
-        import java.util.*;
-        import org.junit.jupiter.api.*;
-        import expressions.NotSupportedException;
-        import tools.*;
-
+ 
         public class OptimizerTests {
 
             @Test

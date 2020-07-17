@@ -1,99 +1,80 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
+using System.Collections.Generic;
+using static BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperators;
+using static BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperators;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
 {
     public sealed class DeterminedExpressionReducer<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
     {
-        public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
-		/*
-         	// simplify determined
-		// #`?#`` => #```
-		// B^0 => 1
-		// 0^B => 0
+        public ExpressionBase<T> Optimize(ExpressionBase<T> expression) =>
+            expression switch
+            {
+                InnerExpression<T> inner => new InnerExpression<T>(Optimize(inner.Expression)),
+                BinaryOperatorExpression<T> binaryOperator => Optimize(binaryOperator),
+                _ => expression
+            };
 
-		// B*0 | 0*B => 0
 
-		// B/0 => exception!
-		// 0/B => 0
-		// B/B => 1
+        /// simplify determined
+        // #`?#`` => #```
+        // B/B => 1
+        // B%B => 0
+        // B^0 => 1
+        // 0^B => 0
+        // B*0 | 0*B => 0
+        // B/0 => exception!
+        // 0/B => 0
+        // B%0 => exception!
+        // 0%B => 0
+        // B%1 => 0
+        // B%-1 => 0	
+        private ExpressionBase<T> Optimize(BinaryOperatorExpression<T> expression)
+        {
+            var left = Optimize(expression.Left);
+            var right = Optimize(expression.Right);
 
-		// B%0 => exception!
-		// 0%B => 0
-		// B%1 => 0
-		// B%B => 0
-		// B%-1 => 0	
+            if (left is NumberExpression<T> && right is NumberExpression<T>)
+            {
+                return new NumberExpression<T>(
+                    new BinaryOperatorExpression<T>(left, expression.Operator, right).Evaluate(
+                        new Dictionary<string, T>()
+                        )
+                    );
+            }
 
-		if (expression instanceof InnerExpression) {	
-			var inner =(InnerExpression) expression;
-			var child = reduceDeterminedExpressions(inner.getInner());
-			inner.setInner(child);
-			return inner;
-		}
-		else if (expression instanceof BinaryOperatorExpression) {
-			var binOpExp = (BinaryOperatorExpression) expression;
+            ExpressionBase<T> result = (expression.Operator, GetValue(left), GetValue(right)) switch
+            {
+                (Power, _, 0) => NumberExpression<T>.One,
+                (Power, 0, _) => NumberExpression<T>.Zero,
 
-			var left = reduceDeterminedExpressions(binOpExp.getLeft());
-			var right = reduceDeterminedExpressions(binOpExp.getRight());
+                (Multiply, 0, _) => NumberExpression<T>.Zero,
+                (Multiply, _, 0) => NumberExpression<T>.Zero,
 
-			if (left instanceof NumberExpression && right instanceof NumberExpression) {
-				try {
-					return new NumberExpression(
-							new BinaryOperatorExpression(left, binOpExp.getOperator(), right).Evaluate(null));
-				} catch (NotSupportedException e) {
-					e.printStackTrace();
-					throw new ArithmeticException("Invalid operation: " + e.getMessage());
-				}
-			}
+                (Divide, _, 0) => throw new DivideByZeroException(),
+                (Divide, 0, _) => NumberExpression<T>.Zero,
+                (Divide, _, _) when left.Equals(right) => NumberExpression<T>.One,
 
-			switch (binOpExp.getOperator()) {
-			case Power: {
-				if (isZero(right)) {
-					return NumberExpression.ONE;
-				} else if (isZero(left)) {
-					return NumberExpression.ZERO;
-				}
-				break;
-			}
+                (Modulo, _, 0) => throw new DivideByZeroException(),
+                (Modulo, 0, _) => NumberExpression<T>.Zero,
+                (Modulo, _, 1) => NumberExpression<T>.Zero,
+                (Modulo, _, -1) => NumberExpression<T>.Zero,
+                (Modulo, _, _) when left.Equals(right) => NumberExpression<T>.Zero,
 
-			case Multiply: {
-				if (isZero(left) || isZero(right)) {
-					return NumberExpression.ZERO;
-				}
-				break;
-			}
+                _ => new BinaryOperatorExpression<T>(left, expression.Operator, right)
+            };
 
-			case Divide: {
-				if (isZero(right)) {
-					throw new ArithmeticException("Divide by Zero");
-				} else if (isZero(left)) {
-					return NumberExpression.ZERO;
-				} else if (left.equals(right)) {
-					return NumberExpression.ONE;
-				}
-				break;
-			}
+            return result;
+        }
 
-			case Moduluo: {
-				if (isZero(right)) {
-					throw new ArithmeticException("Divide by Zero");
-				} else if (isZero(left) || isOne(right) || isNegativeOne(right) || left.equals(right)) {
-					return NumberExpression.ZERO;
-				}
-				break;
-			}
+        private int? GetValue(ExpressionBase<T> expression) =>
+            expression switch
+            {
+                NumberExpression<T> num => Convert.ToInt32(num.Value),
+                UnaryOperatorExpression<T> unaryOp => 0 - GetValue(unaryOp.Operand),
+                _ => null
+            };
 
-			default:
-				break;
-			}
-
-			binOpExp.setLeft(left);
-			binOpExp.setRight(right);
-			return binOpExp;
-		} else {
-			return expression;
-		}
-		*/
     }
 }
- 
