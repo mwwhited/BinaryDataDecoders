@@ -32,7 +32,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
                 InnerExpression<T> inner =>
                     inner.Expression switch
                     {
-                        BinaryOperatorExpression<T> binaryOperator => TryReduce(parentOperator, binaryOperator),
+                        BinaryOperatorExpression<T> binaryOperator => Optimize(parentOperator, binaryOperator),
                         _ => Optimize(inner.Expression)
                     },
 
@@ -46,7 +46,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
                 _ => expression
             };
 
-        private ExpressionBase<T> TryReduce(BinaryOperators parentOperator, BinaryOperatorExpression<T> expression) =>
+        private ExpressionBase<T> Optimize(BinaryOperators parentOperator, BinaryOperatorExpression<T> expression) =>
             parentOperator.GetPriority() > expression.Operator.GetPriority() ?
                 (ExpressionBase<T>)new InnerExpression<T>(expression) : expression;
     }

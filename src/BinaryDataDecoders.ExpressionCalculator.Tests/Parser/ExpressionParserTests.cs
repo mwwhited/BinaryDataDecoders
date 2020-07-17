@@ -28,6 +28,20 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 
         [DataTestMethod]
         [DataRow("(A)", "A", DisplayName = "Reduce extra outer wrapping expression")]
+        [DataRow("(A+(B))", "A + B", DisplayName = "Reduce extra wrapping expression")]
+
+        [DataRow("B^1", "B", DisplayName = "Reduce raised to power of 1")]
+        [DataRow("B*1", "B", DisplayName = "Reduce B times 1")]
+        [DataRow("1*B", "B", DisplayName = "Reduce 1 times B")]
+        [DataRow("B*-1", "-B", DisplayName = "Reduce B times -1")]
+        [DataRow("-1*B", "-B", DisplayName = "Reduce -1 times B")]
+        [DataRow("B/*1", "B", DisplayName = "Reduce B divided 1")]
+        [DataRow("B/-1", "-B", DisplayName = "Reduce B divided -1")]
+        [DataRow("B+0", "B", DisplayName = "Reduce B + 0")]
+        [DataRow("0+B", "B", DisplayName = "Reduce 0 + B")]
+        [DataRow("B-0", "B", DisplayName = "Reduce B - 0")]
+        [DataRow("0-B", "-B", DisplayName = "Reduce 0 - B")]
+
         public void OptimizerTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
@@ -37,7 +51,6 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             TestContext.WriteLine($"As optimized: {optimized}");
             Assert.AreEqual(result, optimized.ToString());
         }
-
 
         //[TestMethod]
         //public void ParseAllOperatorsTest() => Assert.AreEqual("2 + 3 * 4 ^ 5 % 6 / 7 - 8", new Exp().Parse("2+3*4^5%6/7-8").ToString());
