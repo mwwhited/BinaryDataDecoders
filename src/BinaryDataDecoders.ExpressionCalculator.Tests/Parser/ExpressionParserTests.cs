@@ -1,9 +1,10 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Parser;
+using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Exp = BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser<double>;
+using ExpressionParser = BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser<double>;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 {
@@ -20,9 +21,21 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         public void SimpleParserTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
-            var parsed = new Exp().Parse(input);
+            var parsed = new ExpressionParser().Parse(input);
             TestContext.WriteLine($"As Parsed: {parsed}");
             Assert.AreEqual(result, parsed.ToString());
+        }
+
+        [DataTestMethod]
+        [DataRow("(A)", "A", DisplayName = "Reduce extra outer wrapping expression")]
+        public void OptimizerTests(string input, string result)
+        {
+            TestContext.WriteLine($"Input: {input}");
+            var parsed = new ExpressionParser().Parse(input);
+            TestContext.WriteLine($"As Parsed: {parsed}");
+            var optimized = parsed.Optimize();
+            TestContext.WriteLine($"As optimized: {optimized}");
+            Assert.AreEqual(result, optimized.ToString());
         }
 
 

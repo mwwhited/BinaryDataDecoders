@@ -56,14 +56,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
         public static int GetPriority(this BinaryOperators @operator) =>
             @operator switch
             {
-                Power => 1,
+                Power => 3,
 
                 Multiply => 2,
                 Divide => 2,
                 Modulo => 2,
 
-                Add => 3,
-                Subtract => 3,
+                Add => 1,
+                Subtract => 1,
 
                 _ => int.MaxValue,
             };
