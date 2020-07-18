@@ -3,6 +3,7 @@ using Antlr4.Runtime.Tree;
 using BinaryDataDecoders.ExpressionCalculator.Evaluators;
 using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
+using System.Linq;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Visitors
 {
@@ -33,7 +34,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
 
 
         public override ExpressionBase<T> VisitValue([NotNull] ExpressionTreeParser.ValueContext context) =>
-            VisitNumber(context.NUMBER()) ?? 
+            VisitNumber(context.NUMBER()) ??
             VisitVariable(context.VARIABLE()) ??
                 throw new NotSupportedException($"Unable to parse \"{context.GetText()}\"")
             ;
@@ -50,7 +51,10 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
         public override ExpressionBase<T> VisitUnaryOperatorExpression([NotNull] ExpressionTreeParser.UnaryOperatorExpressionContext context) =>
             new UnaryOperatorExpression<T>(
                 context.@operator.Text.AsUnaryOperator(),
-                Visit(context.value()) ?? Visit(context.innerExpression())
+                ChainVisit(context.value(), context.innerExpression(), context.unaryOperatorExpression())
                 );
+
+        private ExpressionBase<T> ChainVisit(params IParseTree[] nodes) =>
+            Visit(nodes.FirstOrDefault(n => n != null) ?? throw new NotSupportedException($"No non-null node provided"));
     }
 }

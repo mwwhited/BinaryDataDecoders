@@ -15,7 +15,7 @@ innerExpression
 	;
 
 unaryOperatorExpression
-	: operator=SUB (value | innerExpression)
+	: operator=SUB (value | innerExpression | unaryOperatorExpression)
 	;
 
 expression

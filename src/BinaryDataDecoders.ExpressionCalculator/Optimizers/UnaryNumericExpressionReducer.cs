@@ -5,58 +5,56 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
 {
     public sealed class UnaryNumericExpressionReducer<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
     {
-        public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
-		/*
-         	if (expression instanceof InnerExpression) {
-			var inner =(InnerExpression) expression;
-			var child = reduceUnaryNumeric(inner.getInner());
-			inner.setInner(child);
-			return inner;
-		}
-		else if (expression instanceof BinaryOperatorExpression) {
-			var binOpExp = (BinaryOperatorExpression) expression;
+        public ExpressionBase<T> Optimize(ExpressionBase<T> expression) =>
+            expression switch
+            {
+                InnerExpression<T> inner => Optimize(inner),
+                BinaryOperatorExpression<T> binaryOperator => new BinaryOperatorExpression<T>(
+                    Optimize(binaryOperator.Left),
+                    binaryOperator.Operator,
+                    Optimize(binaryOperator.Right)
+                    ),
+                UnaryOperatorExpression<T> unary => Optimize(unary),
 
-			var left = reduceUnaryNumeric(binOpExp.getLeft());
-			var right = reduceUnaryNumeric(binOpExp.getRight());
-			
-			binOpExp.setLeft(left);
-			binOpExp.setRight(right);
-			return binOpExp;
-		}
-		else if (expression instanceof UnaryOperatorExpression) {
-			var unOpExp = (UnaryOperatorExpression) expression;
-			var operator = unOpExp.getOperator();
+                _ => expression
+            };
 
-			var operand =  reduceUnaryNumeric(unOpExp.getOperand());
-			
-			if (operand instanceof NumberExpression) {				
-				try {
-					return new NumberExpression ( unOpExp.Evaluate(null));
-				} catch (NotSupportedException e) {
-					e.printStackTrace();
-					throw new ArithmeticException("Invalid operation: " + e.getMessage());
-				}
-			}
-			else if  (operand instanceof UnaryOperatorExpression) {	
-				var inner = (UnaryOperatorExpression)operand;
-				var innerOperator = inner.getOperator();
+        public ExpressionBase<T> Optimize(InnerExpression<T> expression) =>
+            expression.Expression switch
+            {
+                NumberExpression<T> number => number,
+                VariableExpression<T> variable => variable,
+                _ => new InnerExpression<T>(Optimize(expression.Expression)),
+            };
 
-				var innerOperand = reduceUnaryNumeric(inner.getOperand());
-			
-				if (operator == OperationTypes.Subtract && innerOperator == OperationTypes.Subtract) {
-					return innerOperand;
-				}		
-				
-				inner.setOperand(innerOperand);
-			}
+        public ExpressionBase<T> Optimize(UnaryOperatorExpression<T> expression)
+        {
+            var operand = Optimize(expression.Operand);
+            return operand switch
+            {
+                NumberExpression<T> _=> new NumberExpression<T>(expression.Evaluate(ExpressionBaseExtensions.EmptySet<T>())),
+                UnaryOperatorExpression<T> unaryOperator => Reduce(expression, unaryOperator),
+                InnerExpression<T> _ =>Optimize(operand),
+                BinaryOperatorExpression<T> _ => Optimize(operand),
+                _ => new UnaryOperatorExpression<T>(expression.Operator, operand)
+            };
+        }
 
-			unOpExp.setOperand(operand);
-			return unOpExp;
-		}
-		else {
-			return expression;
-		}		
-		*/
+        private ExpressionBase<T> Reduce(UnaryOperatorExpression<T> expression, UnaryOperatorExpression<T> unaryOperator)
+        {
+            var unary = Optimize(unaryOperator.Operand);
+            if (unaryOperator.Operator == UnaryOperators.Negate && unaryOperator.Operator == UnaryOperators.Negate)
+            {
+                return new InnerExpression<T>(unary);
+            }
+            else
+            {
+                return new UnaryOperatorExpression<T>(expression.Operator,
+                    new UnaryOperatorExpression<T>(unaryOperator.Operator,
+                        unary
+                    )
+                );
+            }
+        }
     }
 }
- 

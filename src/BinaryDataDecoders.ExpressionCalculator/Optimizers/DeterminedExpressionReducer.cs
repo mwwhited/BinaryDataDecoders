@@ -39,7 +39,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
             {
                 return new NumberExpression<T>(
                     new BinaryOperatorExpression<T>(left, expression.Operator, right).Evaluate(
-                        new Dictionary<string, T>()
+                        ExpressionBaseExtensions.EmptySet<T>()
                         )
                     );
             }

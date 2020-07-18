@@ -51,6 +51,11 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("0%B", "0", DisplayName = "Simplify 0%B")]
         [DataRow("B%1", "0", DisplayName = "Simplify B%1")]
         [DataRow("B%-1", "0", DisplayName = "Simplify B%-1")]
+
+        [DataRow("-(B)", "-B", DisplayName = "Simplify -(B)")]
+        [DataRow("-(3)", "-3", DisplayName = "Simplify -(3)")]
+        [DataRow("-3", "-3", DisplayName = "Simplify -3")]
+        [DataRow("--B", "B", DisplayName = "Simplify --B")]
         public void OptimizerTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
