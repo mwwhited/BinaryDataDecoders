@@ -1,7 +1,11 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
+using Microsoft.VisualBasic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using ExpressionParser = BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser<double>;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using ExpressionParser = BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser<decimal>;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 {
@@ -63,7 +67,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             var parsed = new ExpressionParser().Parse(input);
             TestContext.WriteLine($"As Parsed: {parsed}");
             var optimized = parsed.Optimize();
-            TestContext.WriteLine($"As optimized: {optimized}");
+            TestContext.WriteLine($"As Optimized: {optimized}");
             Assert.AreEqual(result, optimized.ToString());
         }
 
@@ -77,8 +81,133 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             var parsed = new ExpressionParser().Parse(input);
             TestContext.WriteLine($"As Parsed: {parsed}");
             var optimized = parsed.Optimize();
-            TestContext.WriteLine($"As optimized: {optimized}");
+            TestContext.WriteLine($"As Optimized: {optimized}");
             Assert.Fail("You shouldn't get here");
+        }
+
+        [DataTestMethod]
+        [DataRow("A+B+C", "A, B, C", DisplayName = "Get Distinct Variables")]
+        [DataRow("A+B+B", "A, B", DisplayName = "Get Distinct Variables (ignore duplicate)")]
+        public void GetDistinctVariablesTests(string input, string result)
+        {
+            TestContext.WriteLine($"Input: {input}");
+            var parsed = new ExpressionParser().Parse(input);
+            TestContext.WriteLine($"As Parsed: {parsed}");
+            var variables = string.Join(", ", parsed.GetDistinctVariableNames());
+            TestContext.WriteLine($"Variables: {variables}");
+            Assert.AreEqual(result, variables.ToString());
+        }
+
+        [DataTestMethod]
+        [DataRow("A", DisplayName = "Check Expressions \"A\"")]
+        [DataRow("A*1", DisplayName = "Check Expressions \"A*1\"")]
+        [DataRow("(A*B)+C", DisplayName = "Check Expressions \"(A*B)+C\"")]
+        [DataRow("(A*B)", DisplayName = "Check Expressions \"(A*B)\"")]
+        [DataRow("(A-B)/A", DisplayName = "Check Expressions \"(A-B)/A\"")]
+        [DataRow("(A*((B+(-1*C))+((D*(B+(-1*C)))+E)+((F*G)+H))+((D*(B+(-1*C)))+E))", DisplayName = "Check Expressions \"(A*((B+(-1*C))+((D*(B+(-1*C)))+E)+((F*G)+H))+((D*(B+(-1*C)))+E))\"")]
+        [DataRow("((A+B+((C*D)+E))*F)+G+((D/H)*I)+J", DisplayName = "Check Expressions \"((A+B+((C*D)+E))*F)+G+((D/H)*I)+J\"")]
+        [DataRow("A*(B/C)+D", DisplayName = "Check Expressions \"A*(B/C)+D\"")]
+        [DataRow("A*B+C", DisplayName = "Check Expressions \"A*B+C\"")]
+        [DataRow("(((A-(B*C))/D)*E)+F", DisplayName = "Check Expressions \"(((A-(B*C))/D)*E)+F\"")]
+        [DataRow("(A/B)-(C+D+E+F)", DisplayName = "Check Expressions \"(A/B)-(C+D+E+F)\"")]
+        [DataRow("((A*B)*C)+D", DisplayName = "Check Expressions \"((A*B)*C)+D\"")]
+        [DataRow("(((A*B)*C)*D)+E", DisplayName = "Check Expressions \"(((A*B)*C)*D)+E\"")]
+        [DataRow("(((A/B)+(-1*C))*(D*E)*F)+G", DisplayName = "Check Expressions \"(((A/B)+(-1*C))*(D*E)*F)+G\"")]
+        [DataRow("(A*B*(C/D))+E", DisplayName = "Check Expressions \"(A*B*(C/D))+E\"")]
+        [DataRow("(A*(B/C)+D)", DisplayName = "Check Expressions \"(A*(B/C)+D)\"")]
+        [DataRow("A+B", DisplayName = "Check Expressions \"A+B\"")]
+        [DataRow("((A/B)*(C*D)*E)+F", DisplayName = "Check Expressions \"((A/B)*(C*D)*E)+F\"")]
+        [DataRow("((A+((B*C)+D))*E)+F+(C*G)+H", DisplayName = "Check Expressions \"((A+((B*C)+D))*E)+F+(C*G)+H\"")]
+        [DataRow("(A+((B*C)+D))*E+F+(A+((B*C)+D))*G+H", DisplayName = "Check Expressions \"(A+((B*C)+D))*E+F+(A+((B*C)+D))*G+H\"")]
+        [DataRow("(((((A*B)+C)+((D*E)+F))*G)+H)+(-1*((A+(-1*(A*B)))+C))", DisplayName = "Check Expressions \"(((((A*B)+C)+((D*E)+F))*G)+H)+(-1*((A+(-1*(A*B)))+C))\"")]
+        [DataRow("((A*B)+C)+((D*B)+E)", DisplayName = "Check Expressions \"((A*B)+C)+((D*B)+E)\"")]
+        [DataRow("(A*(((B*C)+D)+((E*F)+G))+H)+(-1*(B+(-1*((B*C)+D))))+(I*(((B*J)+K)+((E*F)+G))+L)", DisplayName = "Check Expressions \"(A*(((B*C)+D)+((E*F)+G))+H)+(-1*(B+(-1*((B*C)+D))))+(I*(((B*J)+K)+((E*F)+G))+L)\"")]
+        [DataRow("(A*(((B*C)+D)+((E*((F*G)+H))+I))+J)+(-1*(B+(-1*((B*C)+D))))", DisplayName = "Check Expressions \"(A*(((B*C)+D)+((E*((F*G)+H))+I))+J)+(-1*(B+(-1*((B*C)+D))))\"")]
+        [DataRow("(A*(B+((C*D)+E))+F)+(G*(B+((C*D)+E)+(A*(B+((C*D)+E))+F))+H)", DisplayName = "Check Expressions \"(A*(B+((C*D)+E))+F)+(G*(B+((C*D)+E)+(A*(B+((C*D)+E))+F))+H)\"")]
+        [DataRow("(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D))))+(H*(((B*I)+J)+((E*F)+G)+(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D)))))+K)", DisplayName = "Check Expressions \"(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D))))+(H*(((B*I)+J)+((E*F)+G)+(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D)))))+K)\"")]
+        [DataRow("((A*B)+C)+(-1*A)", DisplayName = "Check Expressions \"((A*B)+C)+(-1*A)\"")]
+        [DataRow("(((A+(-1*B))+((C*D)+E))*F)+G+(D*H)+I", DisplayName = "Check Expressions \"(((A+(-1*B))+((C*D)+E))*F)+G+(D*H)+I\"")]
+        [DataRow("((A+(-1*B))+((C*D)+E))*F+G+((A+(-1*B))+((C*D)+E))*H+I", DisplayName = "Check Expressions \"((A+(-1*B))+((C*D)+E))*F+G+((A+(-1*B))+((C*D)+E))*H+I\"")]
+        [DataRow("((A*(B+(-1*C)))+D)+((E*(B+(-1*C)))+F)", DisplayName = "Check Expressions \"((A*(B+(-1*C)))+D)+((E*(B+(-1*C)))+F)\"")]
+        [DataRow("(A*((((B+(-1*C))*D)+E)+((F*((G*H)+I))+J))+K)+(-1*((B+(-1*C))+(-1*(((B+(-1*C))*D)+E))))", DisplayName = "Check Expressions \"(A*((((B+(-1*C))*D)+E)+((F*((G*H)+I))+J))+K)+(-1*((B+(-1*C))+(-1*(((B+(-1*C))*D)+E))))\"")]
+        [DataRow("(A*((B+(-1*C))+((D*E)+F))+G)+(H*((B+(-1*C))+((D*E)+F)+(A*((B+(-1*C))+((D*E)+F))+G))+I)", DisplayName = "Check Expressions \"(A*((B+(-1*C))+((D*E)+F))+G)+(H*((B+(-1*C))+((D*E)+F)+(A*((B+(-1*C))+((D*E)+F))+G))+I)\"")]
+        [DataRow("(A*((B+(-1*C))*D+E+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E))))+I*((B+(-1*C))*J+K+(F*G)+H+(A*((((B+(-1*C))*D)+E)+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E)))))+L", DisplayName = "Check Expressions \"(A*((B+(-1*C))*D+E+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E))))+I*((B+(-1*C))*J+K+(F*G)+H+(A*((((B+(-1*C))*D)+E)+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E)))))+L\"")]
+        [DataRow("(((A+(-1*B))*C)+D)+(B+(-1*A))", DisplayName = "Check Expressions \"(((A+(-1*B))*C)+D)+(B+(-1*A))\"")]
+        [DataRow("((A*(((B*C)+D)+(E*F)))+(-1*(B*(1+(-1*C))+D)+G))", DisplayName = "Check Expressions \"((A*(((B*C)+D)+(E*F)))+(-1*(B*(1+(-1*C))+D)+G))\"")]
+        [DataRow("((A+((B*C)+D))*E)+F+((C/G)*H)+I", DisplayName = "Check Expressions \"((A+((B*C)+D))*E)+F+((C/G)*H)+I\"")]
+        [DataRow("(A+B)*C+D+(A+B)*E+F", DisplayName = "Check Expressions \"(A+B)*C+D+(A+B)*E+F\"")]
+        [DataRow("A*B", DisplayName = "Check Expressions \"A*B\"")]
+        [DataRow("((A+((-1*B)*(C/D)))*(E/C))+(-1*F)+G", DisplayName = "Check Expressions \"((A+((-1*B)*(C/D)))*(E/C))+(-1*F)+G\"")]
+        [DataRow("((A/(1-B))*C)+D", DisplayName = "Check Expressions \"((A/(1-B))*C)+D\"")]
+        [DataRow("(((A-(B*C))/(1-D))*E)+F", DisplayName = "Check Expressions \"(((A-(B*C))/(1-D))*E)+F\"")]
+        [DataRow("(A*(1+(-1*B))+C)*D+E", DisplayName = "Check Expressions \"(A*(1+(-1*B))+C)*D+E\"")]
+        [DataRow("(A+B)*C+D", DisplayName = "Check Expressions \"(A+B)*C+D\"")]
+        [DataRow("(((A/B)*C*D)*E*F)+G", DisplayName = "Check Expressions \"(((A/B)*C*D)*E*F)+G\"")]
+        [DataRow("((A-B)*C)+D", DisplayName = "Check Expressions \"((A-B)*C)+D\"")]
+        [DataRow("((A/B)*C)+D", DisplayName = "Check Expressions \"((A/B)*C)+D\"")]
+        [DataRow("((((A*B)+C)/D)*E)+F", DisplayName = "Check Expressions \"((((A*B)+C)/D)*E)+F\"")]
+        [DataRow("((A/B)*C*D*E)+F", DisplayName = "Check Expressions \"((A/B)*C*D*E)+F\"")]
+        [DataRow("(A*B*C)+D", DisplayName = "Check Expressions \"(A*B*C)+D\"")]
+        [DataRow("(((A*B)+C)*D)+E", DisplayName = "Check Expressions \"(((A*B)+C)*D)+E\"")]
+        [DataRow("(((A/B)*C*D)*E)+F", DisplayName = "Check Expressions \"(((A/B)*C*D)*E)+F\"")]
+        [DataRow("(A*1)", DisplayName = "Check Expressions \"(A*1)\"")]
+        [DataRow("(((A/B)+(-1*C))*D*E*F)+G", DisplayName = "Check Expressions \"(((A/B)+(-1*C))*D*E*F)+G\"")]
+        [DataRow("((A*B)+C)+(D*E*F)", DisplayName = "Check Expressions \"((A*B)+C)+(D*E*F)\"")]
+        [DataRow("((A/(1+(-1*(B+C))))*D)+E", DisplayName = "Check Expressions \"((A/(1+(-1*(B+C))))*D)+E\"")]
+        [DataRow("((A-(B*C))*D)+E", DisplayName = "Check Expressions \"((A-(B*C))*D)+E\"")]
+        [DataRow("(((A+(-1*B))/C)*(D*E)*F)+G", DisplayName = "Check Expressions \"(((A+(-1*B))/C)*(D*E)*F)+G\"")]
+        [DataRow("((A/B)*((C*D)*E)*F)+G", DisplayName = "Check Expressions \"((A/B)*((C*D)*E)*F)+G\"")]
+        [DataRow("((((A/B)*C)+D)*((E*F)*G))+H", DisplayName = "Check Expressions \"((((A/B)*C)+D)*((E*F)*G))+H\"")]
+        [DataRow("(((A/B)+(-1*C))*((D*E)*F)*G)+H", DisplayName = "Check Expressions \"(((A/B)+(-1*C))*((D*E)*F)*G)+H\"")]
+        [DataRow("(((A+(-1*B))/C)*((D*E)*F)*G)+H", DisplayName = "Check Expressions \"(((A+(-1*B))/C)*((D*E)*F)*G)+H\"")]
+        [DataRow("(((A/B)*(((C*D)*E)*F))+(C*D*G))+H", DisplayName = "Check Expressions \"(((A/B)*(((C*D)*E)*F))+(C*D*G))+H\"")]
+        [DataRow("((A*B)+((A*C)-A)*D)+E", DisplayName = "Check Expressions \"((A*B)+((A*C)-A)*D)+E\"")]
+        [DataRow("((((((A-B-1E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H", DisplayName = "Check Expressions \"((((((A-B-1E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H\"")]
+        [DataRow("(((A/B)*((C*D)*E)*F)*G)+H", DisplayName = "Check Expressions \"(((A/B)*((C*D)*E)*F)*G)+H\"")]
+        [DataRow("((A/B)*(((C*D)*E)*F))+G", DisplayName = "Check Expressions \"((A/B)*(((C*D)*E)*F))+G\"")]
+        [DataRow("((A/B)*((C*D)*E))+F", DisplayName = "Check Expressions \"((A/B)*((C*D)*E))+F\"")]
+        [DataRow("(A/(A+B))", DisplayName = "Check Expressions \"(A/(A+B))\"")]
+        public void VerifyOptimizerForComplexExpressions(string input)
+        {
+            TestContext.WriteLine($"Input: {input}");
+            var parsed = new ExpressionParser().Parse(input);
+            TestContext.WriteLine($"As Parsed: {parsed}");
+            var optimized = parsed.Optimize();
+            TestContext.WriteLine($"As Optimized: {optimized}");
+
+            var testValues = parsed.GenerateTestValues(includeNegatives: true);
+            var variables = string.Join(", ", testValues.Select(kvp => (Name: kvp.Key, Value: kvp.Value)));
+            TestContext.WriteLine($"Variables: {variables}");
+
+            var resultAsParsed = parsed.Evaluate(testValues);
+            var resultAsOptimized = optimized.Evaluate(testValues);
+
+            TestContext.WriteLine($"Parsed Result: {resultAsParsed}");
+            TestContext.WriteLine($"Optimized Result: {resultAsOptimized}");
+
+            Assert.AreEqual(resultAsParsed, resultAsOptimized);
+        }
+
+        [TestMethod, Ignore]
+        public void TestBuilder()
+        {
+            var formulas = @"XYZ";
+
+            var expressions = from line in formulas.Split(Environment.NewLine)
+                              let expression = line.ParseAsExpression<double>()
+                              where expression != null
+                              let variables = expression.GetDistinctVariableNames()
+                              let replacements = variables.Select((v, i) => (v, new string((char)('A' + i), 1)))
+                              let replaced = expression.ReplaceVariables(replacements)
+                              select replaced; //.Distinct();
+
+            var expressionStrings = expressions.Select(s => s.ToString().Replace(" ", "")).Distinct();
+
+            foreach (var expression in expressionStrings)
+            {
+                this.TestContext.WriteLine($"{expression}");
+                // this.TestContext.WriteLine($@"[DataRow(""{expression}"",DisplayName = ""Check Expressions \""{expression}\"""")]");
+            }
         }
 
         //[TestMethod]
@@ -241,25 +370,6 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
                 assertEquals("5 * A", result);
             }
 
-            @Test
-            @DisplayName("Execute all supported operations")
-            public void simplify_allOperators_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("2+3*4^5%6/7-8");
-                var optimized = ExpressionOptimizer.Optimize(expression, null);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("-6", result);
-            }
-
-            @Test
-            @DisplayName("Execute all supported operations")
-            public void parse_allOperators_test(TestInfo testInfo) {
-                var input = "2+3*4^5%6/7-8";
-                var expression = ExpressionParser.Parse(input);
-                var result = expression.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + input + "\t=>\t" + expression);
-                assertEquals("2 + 3 * 4 ^ 5 % 6 / 7 - 8", result);
-            }
 
             @Test
             @DisplayName("Optimize complex reduction and trim")
@@ -281,210 +391,6 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
                 assertEquals("A + B", result);
             }
 
-            @Test
-            public void power_NToZero_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N^0");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("1", result);
-            }
-
-            @Test
-            public void power_Zero2Zero_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("0^0");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("1", result);
-            }
-
-            @Test
-            public void power_ZeroToN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("0^N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test
-            public void power_NToOne_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N^1");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("N", result);
-            }
-
-            @Test
-            public void multiply_ZeroToN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("0*N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test
-            public void multiply_NToZero_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N*0");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test
-            public void multiply_OneoToN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("1*N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("N", result);
-            }
-
-            @Test
-            public void multiply_NToOne_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N*1");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("N", result);
-            }
-
-            @Test
-            public void multiply_NegativeOneToN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("-1*N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("-N", result);
-            }
-
-            @Test
-            public void multiply_NToNegativeOne_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N*-1");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("-N", result);
-            }
-
-            @Test
-            public void divide_ZeroByN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("0/N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test // ArithmeticException
-            public void divide_NByZero_test(TestInfo testInfo) { // expect throw
-                var expression = ExpressionParser.Parse("N/0");
-                try {
-                    ExpressionOptimizer.Optimize(expression);
-                    fail("Expeced Divide by Zero Exception");
-                } catch (java.lang.ArithmeticException e) {
-                    // Note: Expected to get here!
-                    System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\tERROR: " + e.getMessage() + "!");
-                }
-            }
-
-            @Test
-            public void divide_NByN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N/N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("1", result);
-            }
-
-            @Test
-            public void divide_NBy1_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N/1");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("N", result);
-            }
-
-            @Test
-            public void modulo_ZeroByN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("0%N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test
-            public void modulo_NByZero_test(TestInfo testInfo) { // expect throw
-                var expression = ExpressionParser.Parse("N%0");
-                try {
-                    ExpressionOptimizer.Optimize(expression);
-                    fail("Expeced Divide by Zero Exception");
-                } catch (java.lang.ArithmeticException e) {
-                    // Note: Expected to get here!
-                    System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\tERROR: " + e.getMessage() + "!");
-                }
-            }
-
-            @Test
-            public void modulo_NByN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N%N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test
-            public void modulo_NByOne_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N%1");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test
-            public void modulo_NByNegativeOne_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N%-1");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("0", result);
-            }
-
-            @Test
-            public void add_ZeroToN_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("0+N");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("N", result);
-            }
-
-            @Test
-            public void add_NToZero_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N+0");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("N", result);
-            }
-
-            @Test
-            public void subtract_NLessZero_test(TestInfo testInfo) {
-                var expression = ExpressionParser.Parse("N-0");
-                var optimized = ExpressionOptimizer.Optimize(expression);
-                var result = optimized.toString();
-                System.out.println(testInfo.getDisplayName() + ":\t" + expression + "\t=>\t" + optimized);
-                assertEquals("N", result);
-            }
-        }
 
                 */
 

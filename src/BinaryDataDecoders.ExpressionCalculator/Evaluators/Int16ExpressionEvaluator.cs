@@ -11,8 +11,6 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
         public short Divide(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
            (short)(left.Evaluate(variables) / right.Evaluate(variables));
 
-        public short GetValue(int value) => (short)value;
-
         public short Modulo(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
             (short)(left.Evaluate(variables) % right.Evaluate(variables));
         public short Multiple(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
@@ -24,5 +22,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
             (short)(left.Evaluate(variables) - right.Evaluate(variables));
 
         public short? TryParse(string input) => short.TryParse(input, out var ret) ? (short?)ret : null;
+        public short GetValue(int value) => (short)value;
+        public short GetValue(double value) => (short)value;
     }
 }

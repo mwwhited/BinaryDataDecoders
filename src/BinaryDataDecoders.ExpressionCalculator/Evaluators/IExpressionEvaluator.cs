@@ -15,9 +15,10 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 
         T Add(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
         T Subtract(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
-        T GetValue(int value);
         T Negate(ExpressionBase<T> operand, IDictionary<string, T> variables);
 
         T? TryParse(string input);
+        T GetValue(int value);
+        T GetValue(double value);
     }
 }

@@ -15,6 +15,11 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
         public override ExpressionBase<T> VisitStart([NotNull] ExpressionTreeParser.StartContext context) =>
             Visit(context.expression());
 
+        public override ExpressionBase<T> VisitErrorNode(IErrorNode node)
+        {
+            return base.VisitErrorNode(node);
+        }
+
         public override ExpressionBase<T> VisitExpression([NotNull] ExpressionTreeParser.ExpressionContext context)
         {
             var op = context.@operator?.Text.AsBinaryOperators();
