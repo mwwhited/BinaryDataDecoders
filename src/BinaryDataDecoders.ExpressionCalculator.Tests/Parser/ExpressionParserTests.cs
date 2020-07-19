@@ -1,14 +1,63 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
+using BinaryDataDecoders.ExpressionCalculator.Parser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using ExpressionParser = BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser<decimal>;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 {
+    #region Per Numeric Type
     [TestClass]
-    public class ExpressionParserTests
+    public class DecimalExpressionParserTests : ExpressionParserTests<decimal>
     {
+    }
+    [TestClass]
+    public class DoubleExpressionParserTests : ExpressionParserTests<double>
+    {
+    }
+    [TestClass]
+    public class FloatExpressionParserTests : ExpressionParserTests<float>
+    {
+    }
+    [TestClass]
+    public class Int32ExpressionParserTests : ExpressionParserTests<int>
+    {
+        public Int32ExpressionParserTests() : base(skipDecimal:true) { }
+    }
+    [TestClass]
+    public class Int16ExpressionParserTests : ExpressionParserTests<short>
+    {
+        public Int16ExpressionParserTests() : base(skipDecimal: true) { }
+    }
+    [TestClass]
+    public class Int64ExpressionParserTests : ExpressionParserTests<long>
+    {
+        public Int64ExpressionParserTests() : base(skipDecimal: true) { }
+    }
+    [TestClass]
+    public class UInt32ExpressionParserTests : ExpressionParserTests<uint>
+    {
+        public UInt32ExpressionParserTests() : base(skipDecimal: true) { }
+    }
+    [TestClass]
+    public class UInt16ExpressionParserTests : ExpressionParserTests<ushort>
+    {
+        public UInt16ExpressionParserTests() : base(skipDecimal: true) { }
+    }
+    [TestClass]
+    public class UInt64ExpressionParserTests : ExpressionParserTests<ulong>
+    {
+        public UInt64ExpressionParserTests() : base(skipDecimal: true) { }
+    }
+    #endregion Per Numeric Type
+
+    //[TestClass]
+    public abstract class ExpressionParserTests<T>
+        where T : struct, IComparable<T>, IEquatable<T>
+    {
+        private readonly bool _skipDecimal;
+        protected ExpressionParserTests(bool skipDecimal = false) => _skipDecimal = skipDecimal;
+
         public TestContext TestContext { get; set; }
 
         [DataTestMethod, TestCategory("Unit")]
@@ -18,10 +67,17 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("1.34", "1.34", DisplayName = "Just decimal value")]
         public void SimpleParserTests(string input, string result)
         {
-            TestContext.WriteLine($"Input: {input}");
-            var parsed = new ExpressionParser().Parse(input);
-            TestContext.WriteLine($"As Parsed: {parsed}");
-            Assert.AreEqual(result, parsed.ToString());
+            if (_skipDecimal && input.Contains("."))
+            {
+                Assert.Inconclusive("Decimals not supported");
+            }
+            else
+            {
+                TestContext.WriteLine($"Input: {input}");
+                var parsed = new ExpressionParser<T>().Parse(input);
+                TestContext.WriteLine($"As Parsed: {parsed}");
+                Assert.AreEqual(result, parsed.ToString());
+            }
         }
 
         [DataTestMethod, TestCategory("Unit")]
@@ -61,7 +117,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         public void OptimizerTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
-            var parsed = new ExpressionParser().Parse(input);
+            var parsed = new ExpressionParser<T>().Parse(input);
             TestContext.WriteLine($"As Parsed: {parsed}");
             var optimized = parsed.Optimize();
             TestContext.WriteLine($"As Optimized: {optimized}");
@@ -75,7 +131,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         public void OptimizerTests_WithExceptions(string input)
         {
             TestContext.WriteLine($"Input: {input}");
-            var parsed = new ExpressionParser().Parse(input);
+            var parsed = new ExpressionParser<T>().Parse(input);
             TestContext.WriteLine($"As Parsed: {parsed}");
             var optimized = parsed.Optimize();
             TestContext.WriteLine($"As Optimized: {optimized}");
@@ -88,7 +144,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         public void GetDistinctVariablesTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
-            var parsed = new ExpressionParser().Parse(input);
+            var parsed = new ExpressionParser<T>().Parse(input);
             TestContext.WriteLine($"As Parsed: {parsed}");
             var variables = string.Join(", ", parsed.GetDistinctVariableNames());
             TestContext.WriteLine($"Variables: {variables}");
@@ -166,23 +222,30 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("(A/(A+B))", DisplayName = "Check Expressions \"(A/(A+B))\"")]
         public void VerifyOptimizerForComplexExpressions(string input)
         {
-            TestContext.WriteLine($"Input: {input}");
-            var parsed = new ExpressionParser().Parse(input);
-            TestContext.WriteLine($"As Parsed: {parsed}");
-            var optimized = parsed.Optimize();
-            TestContext.WriteLine($"As Optimized: {optimized}");
+            if (_skipDecimal && input.Contains("."))
+            {
+                Assert.Inconclusive("Decimals not supported");
+            }
+            else
+            {
+                TestContext.WriteLine($"Input: {input}");
+                var parsed = new ExpressionParser<T>().Parse(input);
+                TestContext.WriteLine($"As Parsed: {parsed}");
+                var optimized = parsed.Optimize();
+                TestContext.WriteLine($"As Optimized: {optimized}");
 
-            var testValues = parsed.GenerateTestValues(includeNegatives: true);
-            var variables = string.Join(", ", testValues.Select(kvp => (Name: kvp.Key, Value: kvp.Value)));
-            TestContext.WriteLine($"Variables: {variables}");
+                var testValues = parsed.GenerateTestValues(includeNegatives: true);
+                var variables = string.Join(", ", testValues.Select(kvp => (Name: kvp.Key, Value: kvp.Value)));
+                TestContext.WriteLine($"Variables: {variables}");
 
-            var resultAsParsed = parsed.Evaluate(testValues);
-            var resultAsOptimized = optimized.Evaluate(testValues);
+                var resultAsParsed = parsed.Evaluate(testValues);
+                var resultAsOptimized = optimized.Evaluate(testValues);
 
-            TestContext.WriteLine($"Parsed Result: {resultAsParsed}");
-            TestContext.WriteLine($"Optimized Result: {resultAsOptimized}");
+                TestContext.WriteLine($"Parsed Result: {resultAsParsed}");
+                TestContext.WriteLine($"Optimized Result: {resultAsOptimized}");
 
-            Assert.AreEqual(resultAsParsed, resultAsOptimized);
+                Assert.AreEqual(resultAsParsed, resultAsOptimized);
+            }
         }
 
         [TestMethod, Ignore]
