@@ -32,10 +32,10 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
             var operand = Optimize(expression.Operand);
             return operand switch
             {
-                NumberExpression<T> _=> new NumberExpression<T>(expression.Evaluate(ExpressionBaseExtensions.EmptySet<T>())),
+                NumberExpression<T> _ => new NumberExpression<T>(expression.Evaluate(ExpressionBaseExtensions.EmptySet<T>())),
                 UnaryOperatorExpression<T> unaryOperator => Reduce(expression, unaryOperator),
-                InnerExpression<T> _ =>Optimize(operand),
-                BinaryOperatorExpression<T> _ => Optimize(operand),
+                InnerExpression<T> _ => new UnaryOperatorExpression<T>(expression.Operator, Optimize(operand)),
+                BinaryOperatorExpression<T> _ => new UnaryOperatorExpression<T>(expression.Operator, Optimize(operand)),
                 _ => new UnaryOperatorExpression<T>(expression.Operator, operand)
             };
         }

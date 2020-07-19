@@ -30,7 +30,6 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataTestMethod]
         [DataRow("(A)", "A", DisplayName = "Reduce extra outer wrapping expression")]
         [DataRow("(A+(B))", "A + B", DisplayName = "Reduce extra wrapping expression")]
-
         [DataRow("B^1", "B", DisplayName = "Reduce raised to power of 1")]
         [DataRow("B*1", "B", DisplayName = "Reduce B times 1")]
         [DataRow("1*B", "B", DisplayName = "Reduce 1 times B")]
@@ -61,6 +60,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("-(3)", "-3", DisplayName = "Simplify -(3)")]
         [DataRow("-3", "-3", DisplayName = "Simplify -3")]
         [DataRow("--B", "B", DisplayName = "Simplify --B")]
+        [DataRow("-1*(A*B)", "-(A * B)", DisplayName = "Reduce extra wrapping expression")]
         public void OptimizerTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
