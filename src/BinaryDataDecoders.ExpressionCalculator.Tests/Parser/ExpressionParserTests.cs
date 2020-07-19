@@ -1,10 +1,7 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using Microsoft.VisualBasic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using ExpressionParser = BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser<decimal>;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
@@ -14,7 +11,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
     {
         public TestContext TestContext { get; set; }
 
-        [DataTestMethod]
+        [DataTestMethod, TestCategory("Unit")]
         [DataRow("2+3*4^5%6/7-8", "2 + 3 * 4 ^ 5 % 6 / 7 - 8", DisplayName = "Parse all operators test")]
         [DataRow("A+B+1", "A + B + 1", DisplayName = "Simple test with variable")]
         [DataRow("Abc1", "Abc1", DisplayName = "Just variable")]
@@ -27,7 +24,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             Assert.AreEqual(result, parsed.ToString());
         }
 
-        [DataTestMethod]
+        [DataTestMethod, TestCategory("Unit")]
         [DataRow("(A)", "A", DisplayName = "Reduce extra outer wrapping expression")]
         [DataRow("(A+(B))", "A + B", DisplayName = "Reduce extra wrapping expression")]
         [DataRow("B^1", "B", DisplayName = "Reduce raised to power of 1")]
@@ -71,7 +68,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             Assert.AreEqual(result, optimized.ToString());
         }
 
-        [DataTestMethod]
+        [DataTestMethod, TestCategory("Unit")]
         [DataRow("B/0", DisplayName = "Simplify B/0")]
         [DataRow("B%0", DisplayName = "Simplify B%0")]
         [ExpectedException(typeof(DivideByZeroException))]
@@ -85,7 +82,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             Assert.Fail("You shouldn't get here");
         }
 
-        [DataTestMethod]
+        [DataTestMethod, TestCategory("Unit")]
         [DataRow("A+B+C", "A, B, C", DisplayName = "Get Distinct Variables")]
         [DataRow("A+B+B", "A, B", DisplayName = "Get Distinct Variables (ignore duplicate)")]
         public void GetDistinctVariablesTests(string input, string result)
@@ -98,7 +95,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             Assert.AreEqual(result, variables.ToString());
         }
 
-        [DataTestMethod]
+        [DataTestMethod, TestCategory("Unit")]
         [DataRow("A", DisplayName = "Check Expressions \"A\"")]
         [DataRow("A*1", DisplayName = "Check Expressions \"A*1\"")]
         [DataRow("(A*B)+C", DisplayName = "Check Expressions \"(A*B)+C\"")]

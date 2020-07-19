@@ -1,7 +1,6 @@
-﻿using static BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperators;
+﻿using System;
 using static BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperators;
-using System;
-using System.Runtime.InteropServices;
+using static BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperators;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Expressions
 {

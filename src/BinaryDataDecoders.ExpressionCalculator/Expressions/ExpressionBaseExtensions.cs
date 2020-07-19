@@ -5,8 +5,6 @@ using BinaryDataDecoders.ExpressionCalculator.Visitors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Expressions
 {
@@ -25,27 +23,23 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
         {
             yield return expression;
 
-            if (expression is InnerExpression<T> inner)
+            var subExpressions = expression switch
             {
-                var subs = GetAllExpressions(inner.Expression);
-                foreach (var sub in subs)
-                    yield return sub;
-            }
-            else if (expression is UnaryOperatorExpression<T> unary)
-            {
-                var subs = GetAllExpressions(unary.Operand);
-                foreach (var sub in subs)
-                    yield return sub;
-            }
-            else if (expression is BinaryOperatorExpression<T> binary)
-            {
-                var subs = GetAllExpressions(binary.Left).Concat(
-                           GetAllExpressions(binary.Right)
-                           );
-                foreach (var sub in subs)
-                    yield return sub;
-            }
+                InnerExpression<T> inner => GetAllExpressions(inner.Expression),
+                UnaryOperatorExpression<T> unary => GetAllExpressions(unary.Operand),
+                BinaryOperatorExpression<T> binary => GetAllExpressions(binary.Left).Concat(GetAllExpressions(binary.Right)),
+                _ => Enumerable.Empty<ExpressionBase<T>>()
+            };
+
+            foreach (var sub in subExpressions)
+                yield return sub;
         }
+
+        public static T Evaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, T value)> variables)
+            where T : struct, IComparable<T>, IEquatable<T> =>
+            expression.Evaluate(variables.ToDictionary(k => k.name, v => v.value));
+        public static T Evaluate<T>(this ExpressionBase<T> expression, params (string name, T value)[] variables)
+            where T : struct, IComparable<T>, IEquatable<T> => expression.Evaluate(variables.AsEnumerable());
 
         public static IEnumerable<string> GetDistinctVariableNames<T>(this ExpressionBase<T> expression)
             where T : struct, IComparable<T>, IEquatable<T> =>
@@ -54,7 +48,6 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
                       .Select(s => s.Name)
                       .Distinct();
 
-        //
         public static IDictionary<string, T> GenerateTestValues<T>(this ExpressionBase<T> expression, int scale = 4, bool includeNegatives = false, int places = 2)
             where T : struct, IComparable<T>, IEquatable<T>
         {
@@ -80,5 +73,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
         public static ExpressionBase<T> ReplaceVariables<T>(this ExpressionBase<T> expression, IEnumerable<(string input, string output)> variables)
             where T : struct, IComparable<T>, IEquatable<T> =>
             new ExpressionVariableReplacementVistor<T>().Process(expression, variables);
+
+        public static ExpressionBase<T> ReplaceVariables<T>(this ExpressionBase<T> expression, params (string input, string output)[] variables)
+            where T : struct, IComparable<T>, IEquatable<T> => expression.ReplaceVariables(variables.AsEnumerable());
+
+        public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, T value)> variables)
+            where T : struct, IComparable<T>, IEquatable<T> =>
+            new ExpressionVariableReplacementVistor<T>().Process(expression, variables);
+        public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, params (string name, T value)[] variables)
+            where T : struct, IComparable<T>, IEquatable<T> => expression.PreEvaluate(variables.AsEnumerable());
     }
 }
