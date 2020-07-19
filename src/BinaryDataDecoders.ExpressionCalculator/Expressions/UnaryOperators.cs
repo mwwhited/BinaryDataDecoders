@@ -5,5 +5,6 @@
         Unknown,
 
         Negate,
+        Factorial,
     }
 }

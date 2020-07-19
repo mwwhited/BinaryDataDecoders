@@ -5,7 +5,7 @@
  This version supports defined order of operations
  */
  
-start : expression;
+start : expression EOF;
 
 value : NUMBER | VARIABLE;
 
@@ -14,18 +14,25 @@ innerExpression
 	| '(' inner=expression ')'
 	;
 
-unaryOperatorExpression
-	: operator=SUB (value | innerExpression | unaryOperatorExpression)
+unaryOperatorLeftExpression
+	: operator=SUB (value | innerExpression | unaryOperatorLeftExpression)
+	;
+	
+unaryOperatorRightExpression
+	: value  operator=FACTORIAL
+	| innerExpression  operator=FACTORIAL
+	| unaryOperatorRightExpression operator=FACTORIAL 
 	;
 
 expression
-   : value                 
-   | unaryOperatorExpression      
-   | innerExpression
-   | left=expression operator=POW right=expression
-   | left=expression operator=(MUL|DIV|MOD) right=expression
-   | left=expression operator=(ADD|SUB) right=expression
-   ;
+	: value                 
+	| unaryOperatorLeftExpression 
+	| unaryOperatorRightExpression          
+	| innerExpression
+	| left=expression operator=POW right=expression
+	| left=expression operator=(MUL|DIV|MOD) right=expression
+	| left=expression operator=(ADD|SUB) right=expression
+	;
 
 /*
  * Lexer Rules
@@ -37,6 +44,7 @@ DIV: '/';
 ADD: '+';
 SUB: '-';
 MOD: '%';
+FACTORIAL: '!';
 
 NUMBER: /*'-'?*/ [0-9]+ ('.' [0-9]+)?;
 /* Allowed Examples

@@ -83,11 +83,38 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 
         public TestContext TestContext { get; set; }
 
+
+        [DataTestMethod, TestCategory("Unit")]
+        [ExpectedException(typeof(NotSupportedException))]
+        [DataRow("-A!")]
+        [DataRow("B/*1")]
+        [DataRow("B**")]
+        [DataRow("B**A")]
+       //TODO: parser shouldn't suport this!!! [DataRow("B*-*A")]
+        public void PoorlyFormedExpressions(string input)
+        {
+            try
+            {
+                TestContext.WriteLine($"Input: {input}");
+                var parsed = new ExpressionParser<T>().Parse(input);
+                Assert.Fail("You shouldn't get here!");
+            }
+            catch (Exception ex)
+            {
+                this.TestContext.WriteLine(ex.Message);
+                this.TestContext.WriteLine(ex.GetType().ToString());
+                throw;
+            }
+        }
+
         [DataTestMethod, TestCategory("Unit")]
         [DataRow("2+3*4^5%6/7-8", "2 + 3 * 4 ^ 5 % 6 / 7 - 8", DisplayName = "Parse all operators test")]
         [DataRow("A+B+1", "A + B + 1", DisplayName = "Simple test with variable")]
         [DataRow("Abc1", "Abc1", DisplayName = "Just variable")]
         [DataRow("1.34", "1.34", DisplayName = "Just decimal value")]
+        [DataRow("A!", "A!", DisplayName = "Simple factorial")]
+        [DataRow("-(A!)", "-(A!)", DisplayName = "Negative factorial")]
+        [DataRow("((((((A-B-1*E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H", "((((((A - B - 1 * E - 6) / C) + 0.999999) / 1000000) * 1000000) * ((D * E) * F) * G) + H", DisplayName = "Parse Complex Expression")]
         public void SimpleParserTests(string input, string result)
         {
             if (_skipDecimal && input.Contains("."))
@@ -111,7 +138,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("1*B", "B", DisplayName = "Reduce 1 times B")]
         [DataRow("B*-1", "-B", DisplayName = "Reduce B times -1")]
         [DataRow("-1*B", "-B", DisplayName = "Reduce -1 times B")]
-        [DataRow("B/*1", "B", DisplayName = "Reduce B divided 1")]
+        [DataRow("B/1", "B", DisplayName = "Reduce B divided 1")]
         [DataRow("B/-1", "-B", DisplayName = "Reduce B divided -1")]
         [DataRow("B+0", "B", DisplayName = "Reduce B + 0")]
         [DataRow("0+B", "B", DisplayName = "Reduce 0 + B")]
@@ -137,7 +164,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("-3", "-3", DisplayName = "Simplify -3")]
         [DataRow("--B", "B", DisplayName = "Simplify --B")]
         [DataRow("---B", "-B", DisplayName = "Simplify ---B")]
-        [DataRow("-1*(A*B)", "-(A * B)", DisplayName = "Reduce extra wrapping expression")]
+        [DataRow("-1*(A*B)", "-(A * B)", DisplayName = "Negate Inner Expression")]
         public void OptimizerTests(string input, string result)
         {
             try
@@ -254,7 +281,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("(((A+(-1*B))/C)*((D*E)*F)*G)+H", DisplayName = "Check Expressions \"(((A+(-1*B))/C)*((D*E)*F)*G)+H\"")]
         [DataRow("(((A/B)*(((C*D)*E)*F))+(C*D*G))+H", DisplayName = "Check Expressions \"(((A/B)*(((C*D)*E)*F))+(C*D*G))+H\"")]
         [DataRow("((A*B)+((A*C)-A)*D)+E", DisplayName = "Check Expressions \"((A*B)+((A*C)-A)*D)+E\"")]
-        [DataRow("((((((A-B-1E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H", DisplayName = "Check Expressions \"((((((A-B-1E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H\"")]
+        [DataRow("((((((A-B-1*E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H", DisplayName = "Check Expressions \"((((((A-B-1E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H\"")]
         [DataRow("(((A/B)*((C*D)*E)*F)*G)+H", DisplayName = "Check Expressions \"(((A/B)*((C*D)*E)*F)*G)+H\"")]
         [DataRow("((A/B)*(((C*D)*E)*F))+G", DisplayName = "Check Expressions \"((A/B)*(((C*D)*E)*F))+G\"")]
         [DataRow("((A/B)*((C*D)*E))+F", DisplayName = "Check Expressions \"((A/B)*((C*D)*E))+F\"")]

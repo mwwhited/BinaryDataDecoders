@@ -10,6 +10,16 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
             @operator switch
             {
                 Negate => "-",
+                Factorial => "!",
+
+                _ => throw new NotSupportedException($"Operator {@operator} not supported")
+            };
+
+        public static bool IsRight(this UnaryOperators @operator) =>
+            @operator switch
+            {
+                Negate => false,
+                Factorial => true,
 
                 _ => throw new NotSupportedException($"Operator {@operator} not supported")
             };
@@ -18,6 +28,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
             input switch
             {
                 "-" => Negate,
+                "!" => Factorial,
 
                 _ => UnaryOperators.Unknown
             };

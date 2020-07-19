@@ -12,13 +12,30 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
     {
         private static readonly IExpressionEvaluator<T> _evaluator = ExpressionEvaluatorFactory.Create<T>();
 
-        public override ExpressionBase<T> VisitStart([NotNull] ExpressionTreeParser.StartContext context) =>
-            Visit(context.expression());
-
-        public override ExpressionBase<T> VisitErrorNode(IErrorNode node)
+        public override ExpressionBase<T> VisitStart([NotNull] ExpressionTreeParser.StartContext context)
         {
-            return base.VisitErrorNode(node);
+            var entryPoint = Visit(context.expression());
+
+            if (context.children.Count != 2)
+            {
+                var extraChildren = context.children.Skip(1).Take(context.children.Count - 2);
+                var extras = string.Join(";", extraChildren.Select(c => c.GetText()));
+
+                if (string.IsNullOrWhiteSpace(extras))
+                {
+                    throw new NotSupportedException($"Missing Expression");
+                }
+                else
+                {
+                    throw new NotSupportedException($"Expected <EOF>, Found: {extras}");
+                }
+            }
+
+            return entryPoint;
         }
+
+        public override ExpressionBase<T> VisitErrorNode(IErrorNode node) =>
+            throw new NotSupportedException(node.ToString());
 
         public override ExpressionBase<T> VisitExpression([NotNull] ExpressionTreeParser.ExpressionContext context)
         {
@@ -26,9 +43,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
             if (op.HasValue && op.Value != BinaryOperators.Unknown)
             {
                 return new BinaryOperatorExpression<T>(
-                    Visit(context.left),
+                    Visit(context.left) ?? throw new NotSupportedException($"Missing Left Expression: {context.GetText()}"),
                     op.Value,
-                    Visit(context.right)
+                    Visit(context.right) ?? throw new NotSupportedException($"Missing Right Expression: {context.GetText()}")
                     );
             }
             return base.VisitExpression(context);
@@ -53,10 +70,15 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
                 throw new NotSupportedException($"Unable to parse \"{node.GetText()}\" to type \"{typeof(T)}\"")
                 ) : null;
 
-        public override ExpressionBase<T> VisitUnaryOperatorExpression([NotNull] ExpressionTreeParser.UnaryOperatorExpressionContext context) =>
+        public override ExpressionBase<T> VisitUnaryOperatorLeftExpression([NotNull] ExpressionTreeParser.UnaryOperatorLeftExpressionContext context) =>
             new UnaryOperatorExpression<T>(
                 context.@operator.Text.AsUnaryOperator(),
-                ChainVisit(context.value(), context.innerExpression(), context.unaryOperatorExpression())
+                ChainVisit(context.value(), context.innerExpression(), context.unaryOperatorLeftExpression())
+                );
+        public override ExpressionBase<T> VisitUnaryOperatorRightExpression([NotNull] ExpressionTreeParser.UnaryOperatorRightExpressionContext context) =>
+            new UnaryOperatorExpression<T>(
+                context.@operator.Text.AsUnaryOperator(),
+                ChainVisit(context.value(), context.innerExpression(), context.unaryOperatorRightExpression())
                 );
 
         private ExpressionBase<T> ChainVisit(params IParseTree[] nodes) =>

@@ -32,11 +32,18 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
                 _ => throw new NotSupportedException($"Operator {Operator} not supported")
             };
 
+        private string OperandString =>
+                Operand switch
+                {
+                    BinaryOperatorExpression<T> _ => $"({Operand})",
+                    _ => $"{Operand}",
+                };
+
+        private string OperatorString => Operator.AsString();
+
         public override string ToString() =>
-            Operand switch
-            {
-                BinaryOperatorExpression<T> _ => $"{Operator.AsString()}({Operand})",
-                _ => $"{Operator.AsString()}{Operand}",
-            };
+            Operator.IsRight() ?
+                $"{OperandString}{OperatorString}" :
+                $"{OperatorString}{OperandString}";
     }
 }
