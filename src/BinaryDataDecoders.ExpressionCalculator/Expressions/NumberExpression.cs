@@ -17,7 +17,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
 
         public override bool Equals(object obj) =>
             this == obj ||
-            obj is NumberExpression<T> no && Value.Equals(no.Value);
+            obj is NumberExpression<T> no && Value.Equals(no.Value) ||
+            obj is T && Value.Equals(obj);
 
         public static readonly ExpressionBase<T> One = new NumberExpression<T>(_evaluator.GetValue(1));
         public static readonly ExpressionBase<T> Zero = new NumberExpression<T>(_evaluator.GetValue(0));

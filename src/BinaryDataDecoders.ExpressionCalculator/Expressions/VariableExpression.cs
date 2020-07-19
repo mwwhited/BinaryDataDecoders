@@ -16,6 +16,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
 
         public override bool Equals(object obj) =>
             this == obj ||
-            obj is VariableExpression<T> vari && Name.Equals(vari.Name);
+            obj is VariableExpression<T> vari && Name.Equals(vari.Name) ||
+            obj is string && Name.Equals(obj);
     }
 }

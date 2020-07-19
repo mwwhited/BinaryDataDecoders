@@ -137,6 +137,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("-(3)", "-3", DisplayName = "Simplify -(3)")]
         [DataRow("-3", "-3", DisplayName = "Simplify -3")]
         [DataRow("--B", "B", DisplayName = "Simplify --B")]
+        [DataRow("---B", "-B", DisplayName = "Simplify ---B")]
         [DataRow("-1*(A*B)", "-(A * B)", DisplayName = "Reduce extra wrapping expression")]
         public void OptimizerTests(string input, string result)
         {
