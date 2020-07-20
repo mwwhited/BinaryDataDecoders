@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 
         public sbyte Modulo(ExpressionBase<sbyte> left, ExpressionBase<sbyte> right, IDictionary<string, sbyte> variables) =>
             (sbyte)(left.Evaluate(variables) % right.Evaluate(variables));
-        public sbyte Multiple(ExpressionBase<sbyte> left, ExpressionBase<sbyte> right, IDictionary<string, sbyte> variables) =>
+        public sbyte Multiply(ExpressionBase<sbyte> left, ExpressionBase<sbyte> right, IDictionary<string, sbyte> variables) =>
            (sbyte)(left.Evaluate(variables) * right.Evaluate(variables));
         public sbyte Negate(ExpressionBase<sbyte> operand, IDictionary<string, sbyte> variables) => (sbyte)(-operand.Evaluate(variables));
         public sbyte Power(ExpressionBase<sbyte> left, ExpressionBase<sbyte> right, IDictionary<string, sbyte> variables) =>

@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 
         public ushort Modulo(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
             (ushort)(left.Evaluate(variables) % right.Evaluate(variables));
-        public ushort Multiple(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
+        public ushort Multiply(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
            (ushort)(left.Evaluate(variables) * right.Evaluate(variables));
         public ushort Negate(ExpressionBase<ushort> operand, IDictionary<string, ushort> variables) => throw new NotSupportedException(nameof(Negate));
         public ushort Power(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>

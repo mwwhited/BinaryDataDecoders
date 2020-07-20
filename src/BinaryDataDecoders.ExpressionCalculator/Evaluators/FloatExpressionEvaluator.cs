@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 
         public float Modulo(ExpressionBase<float> left, ExpressionBase<float> right, IDictionary<string, float> variables) =>
             left.Evaluate(variables) % right.Evaluate(variables);
-        public float Multiple(ExpressionBase<float> left, ExpressionBase<float> right, IDictionary<string, float> variables) =>
+        public float Multiply(ExpressionBase<float> left, ExpressionBase<float> right, IDictionary<string, float> variables) =>
             left.Evaluate(variables) * right.Evaluate(variables);
         public float Negate(ExpressionBase<float> operand, IDictionary<string, float> variables) => -operand.Evaluate(variables);
         public float Power(ExpressionBase<float> left, ExpressionBase<float> right, IDictionary<string, float> variables) =>

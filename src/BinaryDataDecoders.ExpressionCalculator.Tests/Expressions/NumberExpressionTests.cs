@@ -7,20 +7,20 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
     public class NumberExpressionTests
     {
         [TestMethod, TestCategory("Unit")]
-        public void Equals_SameReference_Tests()
+        public void Equals_SameReference_Test()
         {
             var exp = new NumberExpression<double>(1.1);
             Assert.IsTrue(exp.Equals(exp));
         }
         [TestMethod, TestCategory("Unit")]
-        public void Equals_SameValue_Tests()
+        public void Equals_SameValue_Test()
         {
             var num1 = new NumberExpression<double>(1.1);
             var num2 = new NumberExpression<double>(1.1);
             Assert.IsTrue(num1.Equals(num2));
         }
         [TestMethod, TestCategory("Unit")]
-        public void Equals_DifferentValue_Tests()
+        public void Equals_DifferentValue_Test()
         {
             var num1 = new NumberExpression<double>(1.1);
             var num2 = new NumberExpression<double>(1.2);
@@ -28,14 +28,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         }
 
         [TestMethod, TestCategory("Unit")]
-        public void Equals_SameNumber_Tests()
+        public void Equals_SameNumber_Test()
         {
             var num1 = new NumberExpression<double>(1.1);
             var num2 = 1.1;
             Assert.IsTrue(num1.Equals(num2));
         }
         [TestMethod, TestCategory("Unit")]
-        public void Equals_DifferentNumber_Tests()
+        public void Equals_DifferentNumber_Test()
         {
             var num1 = new NumberExpression<double>(1.1);
             var num2 = 1.2;

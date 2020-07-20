@@ -9,7 +9,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
     {
         T Power(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
 
-        T Multiple(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
+        T Multiply(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
         T Divide(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
         T Modulo(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
 

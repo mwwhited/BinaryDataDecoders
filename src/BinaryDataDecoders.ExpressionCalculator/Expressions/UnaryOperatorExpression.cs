@@ -28,6 +28,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
             Operator switch
             {
                 Negate => _evaluator.Negate(Operand, variables),
+                Factorial => _evaluator.Factorial(Operand.Evaluate(variables)),
 
                 _ => throw new NotSupportedException($"Operator {Operator} not supported")
             };

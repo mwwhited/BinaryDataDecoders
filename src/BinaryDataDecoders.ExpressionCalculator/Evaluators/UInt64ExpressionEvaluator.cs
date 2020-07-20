@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 
         public ulong Modulo(ExpressionBase<ulong> left, ExpressionBase<ulong> right, IDictionary<string, ulong> variables) =>
             left.Evaluate(variables) % right.Evaluate(variables);
-        public ulong Multiple(ExpressionBase<ulong> left, ExpressionBase<ulong> right, IDictionary<string, ulong> variables) =>
+        public ulong Multiply(ExpressionBase<ulong> left, ExpressionBase<ulong> right, IDictionary<string, ulong> variables) =>
             left.Evaluate(variables) * right.Evaluate(variables);
         public ulong Negate(ExpressionBase<ulong> operand, IDictionary<string, ulong> variables) => throw new NotSupportedException(nameof(Negate));
         public ulong Power(ExpressionBase<ulong> left, ExpressionBase<ulong> right, IDictionary<string, ulong> variables) =>

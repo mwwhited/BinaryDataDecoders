@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 
         public byte Modulo(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
             (byte)(left.Evaluate(variables) % right.Evaluate(variables));
-        public byte Multiple(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
+        public byte Multiply(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
            (byte)(left.Evaluate(variables) * right.Evaluate(variables));
         public byte Negate(ExpressionBase<byte> operand, IDictionary<string, byte> variables) => throw new NotSupportedException(nameof(Negate));
         public byte Power(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>

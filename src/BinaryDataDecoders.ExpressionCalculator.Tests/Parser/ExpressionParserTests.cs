@@ -90,7 +90,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("B/*1")]
         [DataRow("B**")]
         [DataRow("B**A")]
-       //TODO: parser shouldn't suport this!!! [DataRow("B*-*A")]
+        [DataRow("B***A")]
+        [DataRow("B*+*A")]
+        [DataRow("B*-*A")]
         public void PoorlyFormedExpressions(string input)
         {
             try
@@ -115,6 +117,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("A!", "A!", DisplayName = "Simple factorial")]
         [DataRow("-(A!)", "-(A!)", DisplayName = "Negative factorial")]
         [DataRow("((((((A-B-1*E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H", "((((((A - B - 1 * E - 6) / C) + 0.999999) / 1000000) * 1000000) * ((D * E) * F) * G) + H", DisplayName = "Parse Complex Expression")]
+        [DataRow("B*--A", "B * --A")]
         public void SimpleParserTests(string input, string result)
         {
             if (_skipDecimal && input.Contains("."))
@@ -165,6 +168,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("--B", "B", DisplayName = "Simplify --B")]
         [DataRow("---B", "-B", DisplayName = "Simplify ---B")]
         [DataRow("-1*(A*B)", "-(A * B)", DisplayName = "Negate Inner Expression")]
+        [DataRow("A!", "A!")]
+        [DataRow("(A)!", "A!")]
         public void OptimizerTests(string input, string result)
         {
             try
@@ -286,8 +291,10 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("((A/B)*(((C*D)*E)*F))+G", DisplayName = "Check Expressions \"((A/B)*(((C*D)*E)*F))+G\"")]
         [DataRow("((A/B)*((C*D)*E))+F", DisplayName = "Check Expressions \"((A/B)*((C*D)*E))+F\"")]
         [DataRow("(A/(A+B))", DisplayName = "Check Expressions \"(A/(A+B))\"")]
+        [DataRow("A!")]
         public void VerifyOptimizerForComplexExpressions(string input)
         {
+            var includesFactorial = input.Contains("!");
             var x = 0;
         tryAgain:
             try
@@ -304,8 +311,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
                     var optimized = parsed.Optimize();
                     TestContext.WriteLine($"As Optimized: {optimized}");
 
-                    var testValues = parsed.GenerateTestValues(includeNegatives: true);
-                    var variables = string.Join(", ", testValues.Select(kvp => (Name: kvp.Key, Value: kvp.Value)));
+                    var testValues = parsed.GenerateTestValues(includeNegatives: !includesFactorial, scale: includesFactorial ? 1 : 4);
+
+                    var variables = string.Join(", ", testValues.Select(kvp => (Name: kvp.Key, kvp.Value)));
                     TestContext.WriteLine($"Variables: {variables}");
 
                     var resultAsParsed = parsed.Evaluate(testValues);

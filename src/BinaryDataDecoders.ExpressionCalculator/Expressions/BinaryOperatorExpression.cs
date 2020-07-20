@@ -32,7 +32,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
             {
                 Power => _evaluator.Power(Left, Right, variables),
 
-                Multiply => _evaluator.Multiple(Left, Right, variables),
+                Multiply => _evaluator.Multiply(Left, Right, variables),
                 Divide => _evaluator.Divide(Left, Right, variables),
                 Modulo => _evaluator.Modulo(Left, Right, variables),
 
