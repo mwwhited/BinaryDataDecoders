@@ -15,12 +15,13 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
 
         public override ExpressionBase<T> VisitStart([NotNull] ExpressionTreeParser.StartContext context)
         {
-            var entryPoint = Visit(context.expression());
+            var entryPoint = Visit(context.expression()) ??
+                throw new NotSupportedException($"No expression parsed: \"{context.GetText()}\"");
             EnsureChildCount(context, expected: "Expected <EOF>");
             return entryPoint;
         }
 
-        private TParserRuleContext EnsureChildCount<TParserRuleContext>(TParserRuleContext context, string expected = null, int childCount = 2)
+        private TParserRuleContext EnsureChildCount<TParserRuleContext>(TParserRuleContext context, string? expected = null, int childCount = 2)
             where TParserRuleContext : ParserRuleContext
         {
             if (context.children.Count != childCount)

@@ -1,8 +1,5 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Evaluators;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
 {
@@ -11,7 +8,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void Sequence_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
@@ -20,7 +17,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
             Assert.AreEqual("5;4;3;2;1", result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void Product_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
@@ -29,7 +26,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
             Assert.AreEqual(24m, result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void Sum_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
@@ -38,12 +35,12 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
             Assert.AreEqual(15m, result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void Factorial_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
             var result = evaluator.Factorial(5);
-            Assert.AreEqual(15m, result);
+            Assert.AreEqual(120m, result);
         }
     }
 }

@@ -4,6 +4,7 @@ using BinaryDataDecoders.ExpressionCalculator.Parser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 {
@@ -93,6 +94,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("B***A")]
         [DataRow("B*+*A")]
         [DataRow("B*-*A")]
+        [DataRow("")]
         public void PoorlyFormedExpressions(string input)
         {
             try
@@ -134,44 +136,53 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         }
 
         [DataTestMethod, TestCategory("Unit")]
-        [DataRow("(A)", "A", DisplayName = "Reduce extra outer wrapping expression")]
-        [DataRow("(A+(B))", "A + B", DisplayName = "Reduce extra wrapping expression")]
-        [DataRow("B^1", "B", DisplayName = "Reduce raised to power of 1")]
-        [DataRow("B*1", "B", DisplayName = "Reduce B times 1")]
-        [DataRow("1*B", "B", DisplayName = "Reduce 1 times B")]
-        [DataRow("B*-1", "-B", DisplayName = "Reduce B times -1")]
-        [DataRow("-1*B", "-B", DisplayName = "Reduce -1 times B")]
-        [DataRow("B/1", "B", DisplayName = "Reduce B divided 1")]
-        [DataRow("B/-1", "-B", DisplayName = "Reduce B divided -1")]
-        [DataRow("B+0", "B", DisplayName = "Reduce B + 0")]
-        [DataRow("0+B", "B", DisplayName = "Reduce 0 + B")]
-        [DataRow("B-0", "B", DisplayName = "Reduce B - 0")]
-        [DataRow("0-B", "-B", DisplayName = "Reduce 0 - B")]
+        [DataRow("(A)", "A")]
+        [DataRow("(A+(B))", "A + B")]
+        [DataRow("B^1", "B")]
+        [DataRow("B*1", "B")]
+        [DataRow("1*B", "B")]
+        [DataRow("B*-1", "-B")]
+        [DataRow("-1*B", "-B")]
+        [DataRow("B/1", "B")]
+        [DataRow("B/-1", "-B")]
+        [DataRow("B+0", "B")]
+        [DataRow("0+B", "B")]
+        [DataRow("B-0", "B")]
+        [DataRow("0-B", "-B")]
 
-        [DataRow("2+3*4^5%6/7-8", "-6", DisplayName = "Simplify all operators test")]
+        [DataRow("2+3*4^5%6/7-8", "-6")]
 
-        [DataRow("2+3", "5", DisplayName = "Simplify 2+3")]
-        [DataRow("B/B", "1", DisplayName = "Simplify B/B")]
-        [DataRow("B%B", "0", DisplayName = "Simplify B%B")]
-        [DataRow("B^0", "1", DisplayName = "Simplify B^0")]
-        [DataRow("0^B", "0", DisplayName = "Simplify 0^B")]
-        [DataRow("0*B", "0", DisplayName = "Simplify 0*B")]
-        [DataRow("B*0", "0", DisplayName = "Simplify B*0")]
-        [DataRow("0/B", "0", DisplayName = "Simplify 0/B")]
-        [DataRow("0%B", "0", DisplayName = "Simplify 0%B")]
-        [DataRow("B%1", "0", DisplayName = "Simplify B%1")]
-        [DataRow("B%-1", "0", DisplayName = "Simplify B%-1")]
+        [DataRow("2+3", "5")]
+        [DataRow("B/B", "1")]
+        [DataRow("B%B", "0")]
+        [DataRow("B^0", "1")]
+        [DataRow("0^B", "0")]
+        [DataRow("0*B", "0")]
+        [DataRow("B*0", "0")]
+        [DataRow("0/B", "0")]
+        [DataRow("0%B", "0")]
+        [DataRow("B%1", "0")]
+        [DataRow("B%-1", "0")]
 
-        [DataRow("-(B)", "-B", DisplayName = "Simplify -(B)")]
-        [DataRow("-(3)", "-3", DisplayName = "Simplify -(3)")]
-        [DataRow("-3", "-3", DisplayName = "Simplify -3")]
-        [DataRow("--B", "B", DisplayName = "Simplify --B")]
-        [DataRow("---B", "-B", DisplayName = "Simplify ---B")]
-        [DataRow("-1*(A*B)", "-(A * B)", DisplayName = "Negate Inner Expression")]
+        [DataRow("-(B)", "-B")]
+        [DataRow("-(3)", "-3")]
+        [DataRow("-3", "-3")]
+        [DataRow("--B", "B")]
+        [DataRow("---B", "-B")]
+        [DataRow("-1*(A*B)", "-(A * B)")]
         [DataRow("A!", "A!")]
         [DataRow("(A)!", "A!")]
+        [DataRow("3!!", "720")]
+        [DataRow("2!!!", "2")]
+        [DataRow("N!!", "N!!")]
+        [DataRow("N!!!", "N!!!")]
         public void OptimizerTests(string input, string result)
         {
+            if (Marshal.SizeOf<T>() == 1 && input.Contains("!!"))
+            {
+                Assert.Inconclusive($"{nameof(input)}: \"{input}\" not supported");
+                return;
+            }
             try
             {
                 TestContext.WriteLine($"Input: {input}");
@@ -196,8 +207,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         }
 
         [DataTestMethod, TestCategory("Unit")]
-        [DataRow("B/0", DisplayName = "Simplify B/0")]
-        [DataRow("B%0", DisplayName = "Simplify B%0")]
+        [DataRow("B/0")]
+        [DataRow("B%0")]
         [ExpectedException(typeof(DivideByZeroException))]
         public void OptimizerTests_WithExceptions(string input)
         {
@@ -210,8 +221,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         }
 
         [DataTestMethod, TestCategory("Unit")]
-        [DataRow("A+B+C", "A, B, C", DisplayName = "Get Distinct Variables")]
-        [DataRow("A+B+B", "A, B", DisplayName = "Get Distinct Variables (ignore duplicate)")]
+        [DataRow("A+B+C", "A, B, C")]
+        [DataRow("A+B+B", "A, B")]
+        [DataRow("Abc+XyW1", "Abc, XyW1")]
         public void GetDistinctVariablesTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
