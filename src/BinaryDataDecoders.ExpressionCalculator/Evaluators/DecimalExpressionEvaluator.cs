@@ -1,26 +1,16 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
     public sealed class DecimalExpressionEvaluator : IExpressionEvaluator<decimal>
     {
-        public decimal Add(ExpressionBase<decimal> left, ExpressionBase<decimal> right, IDictionary<string, decimal> variables) => 
-            left.Evaluate(variables) + right.Evaluate(variables);
-        public decimal Divide(ExpressionBase<decimal> left, ExpressionBase<decimal> right, IDictionary<string, decimal> variables) =>
-            left.Evaluate(variables) / right.Evaluate(variables);
-
-        public decimal Modulo(ExpressionBase<decimal> left, ExpressionBase<decimal> right, IDictionary<string, decimal> variables) =>
-            left.Evaluate(variables) % right.Evaluate(variables);
-        public decimal Multiply(ExpressionBase<decimal> left, ExpressionBase<decimal> right, IDictionary<string, decimal> variables) =>
-            left.Evaluate(variables) * right.Evaluate(variables);
-        public decimal Negate(ExpressionBase<decimal> operand, IDictionary<string, decimal> variables) => -operand.Evaluate(variables);
-        public decimal Power(ExpressionBase<decimal> left, ExpressionBase<decimal> right, IDictionary<string, decimal> variables) =>
-            (decimal)Math.Pow((double)left.Evaluate(variables), (double)right.Evaluate(variables));
-        public decimal Subtract(ExpressionBase<decimal> left, ExpressionBase<decimal> right, IDictionary<string, decimal> variables) => 
-            left.Evaluate(variables) - right.Evaluate(variables);
-
+        public decimal Add(decimal left, decimal right) => left + right;
+        public decimal Divide(decimal left, decimal right) => left / right;
+        public decimal Modulo(decimal left, decimal right) => left % right;
+        public decimal Multiply(decimal left, decimal right) => left * right;
+        public decimal Negate(decimal operand) => -operand;
+        public decimal Power(decimal left, decimal right) => (decimal)Math.Pow((double)left, (double)right);
+        public decimal Subtract(decimal left, decimal right) => left - right;
         public decimal? TryParse(string input) => decimal.TryParse(input, out var ret) ? (decimal?)ret : null;
         public decimal GetValue(int value) => (decimal)value;
         public decimal GetValue(double value) => (decimal)value;

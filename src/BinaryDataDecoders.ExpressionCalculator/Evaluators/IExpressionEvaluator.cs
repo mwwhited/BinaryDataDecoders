@@ -1,21 +1,19 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
     public interface IExpressionEvaluator<T>
         where T : struct, IComparable<T>, IEquatable<T>
     {
-        T Power(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
+        T Power(T left, T right);
 
-        T Multiply(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
-        T Divide(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
-        T Modulo(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
+        T Multiply(T left, T right);
+        T Divide(T left, T right);
+        T Modulo(T left, T right);
 
-        T Add(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
-        T Subtract(ExpressionBase<T> left, ExpressionBase<T> right, IDictionary<string, T> variables);
-        T Negate(ExpressionBase<T> operand, IDictionary<string, T> variables);
+        T Add(T left, T right);
+        T Subtract(T left, T right);
+        T Negate(T operand);
 
         T? TryParse(string input);
         T GetValue(int value);

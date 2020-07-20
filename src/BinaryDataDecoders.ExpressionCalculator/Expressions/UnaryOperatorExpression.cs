@@ -27,7 +27,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
         public override T Evaluate(IDictionary<string, T> variables) =>
             Operator switch
             {
-                Negate => _evaluator.Negate(Operand, variables),
+                Negate => _evaluator.Negate(Operand.Evaluate(variables)),
                 Factorial => _evaluator.Factorial(Operand.Evaluate(variables)),
 
                 _ => throw new NotSupportedException($"Operator {Operator} not supported")

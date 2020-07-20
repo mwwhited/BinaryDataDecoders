@@ -1,8 +1,6 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
@@ -56,47 +54,5 @@ namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
             var result = evaluator.Product(sequence);
             return result;
         }
-
-        public static T Power<T>(
-                this IExpressionEvaluator<T> evaluator,
-                T left, T right
-                ) where T : struct, IComparable<T>, IEquatable<T> =>
-                evaluator.Power(new NumberExpression<T>(left), new NumberExpression<T>(right), ExpressionBaseExtensions.EmptySet<T>());
-
-        public static T Multiply<T>(
-                this IExpressionEvaluator<T> evaluator,
-                T left, T right
-                ) where T : struct, IComparable<T>, IEquatable<T> =>
-                evaluator.Multiply(new NumberExpression<T>(left), new NumberExpression<T>(right), ExpressionBaseExtensions.EmptySet<T>());
-        public static T Divide<T>(
-                this IExpressionEvaluator<T> evaluator,
-                T left, T right
-                ) where T : struct, IComparable<T>, IEquatable<T> =>
-                evaluator.Divide(new NumberExpression<T>(left), new NumberExpression<T>(right), ExpressionBaseExtensions.EmptySet<T>());
-        public static T Modulo<T>(
-                this IExpressionEvaluator<T> evaluator,
-                T left, T right
-                ) where T : struct, IComparable<T>, IEquatable<T> =>
-                evaluator.Modulo(new NumberExpression<T>(left), new NumberExpression<T>(right), ExpressionBaseExtensions.EmptySet<T>());
-
-        public static T Add<T>(
-                this IExpressionEvaluator<T> evaluator,
-                T left, T right
-                ) where T : struct, IComparable<T>, IEquatable<T> =>
-                evaluator.Add(new NumberExpression<T>(left), new NumberExpression<T>(right), ExpressionBaseExtensions.EmptySet<T>());
-        public static T Subtract<T>(
-                this IExpressionEvaluator<T> evaluator,
-                T left, T right
-                ) where T : struct, IComparable<T>, IEquatable<T> =>
-                evaluator.Subtract(new NumberExpression<T>(left), new NumberExpression<T>(right), ExpressionBaseExtensions.EmptySet<T>());
-        public static T Negate<T>(
-                this IExpressionEvaluator<T> evaluator,
-                T operand
-                ) where T : struct, IComparable<T>, IEquatable<T> =>
-                evaluator.Negate(new NumberExpression<T>(operand), ExpressionBaseExtensions.EmptySet<T>());
-
-        //T? TryParse(string input);
-        //T GetValue(int value);
-        //T GetValue(double value);
     }
 }

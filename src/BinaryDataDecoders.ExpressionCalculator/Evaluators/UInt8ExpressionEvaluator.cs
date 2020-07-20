@@ -1,25 +1,17 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
     public sealed class UInt8ExpressionEvaluator : IExpressionEvaluator<byte>
     {
-        public byte Add(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
-           (byte)(left.Evaluate(variables) + right.Evaluate(variables));
-        public byte Divide(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
-           (byte)(left.Evaluate(variables) / right.Evaluate(variables));
+        public byte Add(byte left, byte right) => (byte)(left + right);
+        public byte Divide(byte left, byte right) => (byte)(left / right);
 
-        public byte Modulo(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
-            (byte)(left.Evaluate(variables) % right.Evaluate(variables));
-        public byte Multiply(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
-           (byte)(left.Evaluate(variables) * right.Evaluate(variables));
-        public byte Negate(ExpressionBase<byte> operand, IDictionary<string, byte> variables) => throw new NotSupportedException(nameof(Negate));
-        public byte Power(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
-            (byte)Math.Pow((double)left.Evaluate(variables), (double)right.Evaluate(variables));
-        public byte Subtract(ExpressionBase<byte> left, ExpressionBase<byte> right, IDictionary<string, byte> variables) =>
-            (byte)(left.Evaluate(variables) - right.Evaluate(variables));
+        public byte Modulo(byte left, byte right) => (byte)(left % right);
+        public byte Multiply(byte left, byte right) => (byte)(left * right);
+        public byte Negate(byte operand) => throw new NotSupportedException(nameof(Negate));
+        public byte Power(byte left, byte right) => (byte)Math.Pow((double)left, (double)right);
+        public byte Subtract(byte left, byte right) => (byte)(left - right);
 
         public byte? TryParse(string input) => byte.TryParse(input, out var ret) ? (byte?)ret : null;
         public byte GetValue(int value) => (byte)value;

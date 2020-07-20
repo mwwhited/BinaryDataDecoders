@@ -1,25 +1,17 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
     public sealed class Int16ExpressionEvaluator : IExpressionEvaluator<short>
     {
-        public short Add(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
-           (short)(left.Evaluate(variables) + right.Evaluate(variables));
-        public short Divide(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
-           (short)(left.Evaluate(variables) / right.Evaluate(variables));
+        public short Add(short left, short right) => (short)(left + right);
+        public short Divide(short left, short right) => (short)(left / right);
 
-        public short Modulo(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
-            (short)(left.Evaluate(variables) % right.Evaluate(variables));
-        public short Multiply(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
-           (short)(left.Evaluate(variables) * right.Evaluate(variables));
-        public short Negate(ExpressionBase<short> operand, IDictionary<string, short> variables) => (short)(-operand.Evaluate(variables));
-        public short Power(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
-            (short)Math.Pow((double)left.Evaluate(variables), (double)right.Evaluate(variables));
-        public short Subtract(ExpressionBase<short> left, ExpressionBase<short> right, IDictionary<string, short> variables) =>
-            (short)(left.Evaluate(variables) - right.Evaluate(variables));
+        public short Modulo(short left, short right) => (short)(left % right);
+        public short Multiply(short left, short right) => (short)(left * right);
+        public short Negate(short operand) => (short)(-operand);
+        public short Power(short left, short right) => (short)Math.Pow((double)left, (double)right);
+        public short Subtract(short left, short right) => (short)(left - right);
 
         public short? TryParse(string input) => short.TryParse(input, out var ret) ? (short?)ret : null;
         public short GetValue(int value) => (short)value;

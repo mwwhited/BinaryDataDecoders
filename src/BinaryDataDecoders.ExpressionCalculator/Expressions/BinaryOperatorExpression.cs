@@ -30,14 +30,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
         public override T Evaluate(IDictionary<string, T> variables) =>
             Operator switch
             {
-                Power => _evaluator.Power(Left, Right, variables),
+                Power => _evaluator.Power(Left.Evaluate(variables), Right.Evaluate(variables)),
 
-                Multiply => _evaluator.Multiply(Left, Right, variables),
-                Divide => _evaluator.Divide(Left, Right, variables),
-                Modulo => _evaluator.Modulo(Left, Right, variables),
+                Multiply => _evaluator.Multiply(Left.Evaluate(variables), Right.Evaluate(variables)),
+                Divide => _evaluator.Divide(Left.Evaluate(variables), Right.Evaluate(variables)),
+                Modulo => _evaluator.Modulo(Left.Evaluate(variables), Right.Evaluate(variables)),
 
-                Add => _evaluator.Add(Left, Right, variables),
-                Subtract => _evaluator.Subtract(Left, Right, variables),
+                Add => _evaluator.Add(Left.Evaluate(variables), Right.Evaluate(variables)),
+                Subtract => _evaluator.Subtract(Left.Evaluate(variables), Right.Evaluate(variables)),
 
                 _ => throw new NotSupportedException($"Operator {Operator} not supported")
             };

@@ -1,25 +1,17 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
     public sealed class DoubleExpressionEvaluator : IExpressionEvaluator<double>
     {
-        public double Add(ExpressionBase<double> left, ExpressionBase<double> right, IDictionary<string, double> variables) =>
-            left.Evaluate(variables) + right.Evaluate(variables);
-        public double Divide(ExpressionBase<double> left, ExpressionBase<double> right, IDictionary<string, double> variables) =>
-            left.Evaluate(variables) / right.Evaluate(variables);
+        public double Add(double left, double right) => left + right;
+        public double Divide(double left, double right) => left / right;
 
-        public double Modulo(ExpressionBase<double> left, ExpressionBase<double> right, IDictionary<string, double> variables) =>
-            left.Evaluate(variables) % right.Evaluate(variables);
-        public double Multiply(ExpressionBase<double> left, ExpressionBase<double> right, IDictionary<string, double> variables) =>
-            left.Evaluate(variables) * right.Evaluate(variables);
-        public double Negate(ExpressionBase<double> operand, IDictionary<string, double> variables) => -operand.Evaluate(variables);
-        public double Power(ExpressionBase<double> left, ExpressionBase<double> right, IDictionary<string, double> variables) =>
-            (double)Math.Pow((double)left.Evaluate(variables), (double)right.Evaluate(variables));
-        public double Subtract(ExpressionBase<double> left, ExpressionBase<double> right, IDictionary<string, double> variables) =>
-            left.Evaluate(variables) - right.Evaluate(variables);
+        public double Modulo(double left, double right) => left % right;
+        public double Multiply(double left, double right) => left * right;
+        public double Negate(double operand) => -operand;
+        public double Power(double left, double right) => (double)Math.Pow((double)left, (double)right);
+        public double Subtract(double left, double right) => left - right;
 
         public double? TryParse(string input) => double.TryParse(input, out var ret) ? (double?)ret : null;
         public double GetValue(int value) => (double)value;

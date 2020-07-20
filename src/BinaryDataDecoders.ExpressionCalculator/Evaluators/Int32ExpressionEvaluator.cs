@@ -1,25 +1,17 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
     public sealed class Int32ExpressionEvaluator : IExpressionEvaluator<int>
     {
-        public int Add(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
-            left.Evaluate(variables) + right.Evaluate(variables);
-        public int Divide(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
-            left.Evaluate(variables) / right.Evaluate(variables);
+        public int Add(int left, int right) => left + right;
+        public int Divide(int left, int right) => left / right;
 
-        public int Modulo(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
-            left.Evaluate(variables) % right.Evaluate(variables);
-        public int Multiply(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
-            left.Evaluate(variables) * right.Evaluate(variables);
-        public int Negate(ExpressionBase<int> operand, IDictionary<string, int> variables) => -operand.Evaluate(variables);
-        public int Power(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
-            (int)Math.Pow((double)left.Evaluate(variables), (double)right.Evaluate(variables));
-        public int Subtract(ExpressionBase<int> left, ExpressionBase<int> right, IDictionary<string, int> variables) =>
-            left.Evaluate(variables) - right.Evaluate(variables);
+        public int Modulo(int left, int right) => left % right;
+        public int Multiply(int left, int right) => left * right;
+        public int Negate(int operand) => -operand;
+        public int Power(int left, int right) => (int)Math.Pow((double)left, (double)right);
+        public int Subtract(int left, int right) => left - right;
 
         public int? TryParse(string input) => int.TryParse(input, out var ret) ? (int?)ret : null;
         public int GetValue(int value) => value;

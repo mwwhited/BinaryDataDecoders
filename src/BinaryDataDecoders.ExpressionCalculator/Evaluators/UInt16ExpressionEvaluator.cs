@@ -1,25 +1,17 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
 {
     public sealed class UInt16ExpressionEvaluator : IExpressionEvaluator<ushort>
     {
-        public ushort Add(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
-           (ushort)(left.Evaluate(variables) + right.Evaluate(variables));
-        public ushort Divide(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
-           (ushort)(left.Evaluate(variables) / right.Evaluate(variables));
+        public ushort Add(ushort left, ushort right) => (ushort)(left + right);
+        public ushort Divide(ushort left, ushort right) => (ushort)(left / right);
 
-        public ushort Modulo(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
-            (ushort)(left.Evaluate(variables) % right.Evaluate(variables));
-        public ushort Multiply(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
-           (ushort)(left.Evaluate(variables) * right.Evaluate(variables));
-        public ushort Negate(ExpressionBase<ushort> operand, IDictionary<string, ushort> variables) => throw new NotSupportedException(nameof(Negate));
-        public ushort Power(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
-            (ushort)Math.Pow((double)left.Evaluate(variables), (double)right.Evaluate(variables));
-        public ushort Subtract(ExpressionBase<ushort> left, ExpressionBase<ushort> right, IDictionary<string, ushort> variables) =>
-            (ushort)(left.Evaluate(variables) - right.Evaluate(variables));
+        public ushort Modulo(ushort left, ushort right) => (ushort)(left % right);
+        public ushort Multiply(ushort left, ushort right) => (ushort)(left * right);
+        public ushort Negate(ushort operand) => throw new NotSupportedException(nameof(Negate));
+        public ushort Power(ushort left, ushort right) => (ushort)Math.Pow((double)left, (double)right);
+        public ushort Subtract(ushort left, ushort right) => (ushort)(left - right);
 
         public ushort? TryParse(string input) => ushort.TryParse(input, out var ret) ? (ushort?)ret : null;
         public ushort GetValue(int value) => (ushort)value;
