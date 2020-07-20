@@ -42,7 +42,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
         public void Factorial_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
-            var sequence = evaluator.Factorial(5);
+            var result = evaluator.Factorial(5);
+            Assert.AreEqual(15m, result);
         }
     }
 }
