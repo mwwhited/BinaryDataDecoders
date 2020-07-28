@@ -21,26 +21,6 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
             return entryPoint;
         }
 
-        private TParserRuleContext EnsureChildCount<TParserRuleContext>(TParserRuleContext context, string? expected = null, int childCount = 2)
-            where TParserRuleContext : ParserRuleContext
-        {
-            if (context.children.Count != childCount)
-            {
-                var extraChildren = context.children.Skip(1).Take(context.children.Count - childCount);
-                var extras = string.Join(";", extraChildren.Select(c => c.GetText()));
-
-                if (string.IsNullOrWhiteSpace(extras))
-                {
-                    throw new NotSupportedException($"Missing Expression");
-                }
-                else
-                {
-                    throw new NotSupportedException(string.Join(", ", new[] { expected, $"Found: {extras}" }.Where(s => !string.IsNullOrWhiteSpace(s))));
-                }
-            }
-            return context;
-        }
-
         public override ExpressionBase<T> VisitErrorNode(IErrorNode node) =>
             throw new NotSupportedException(node.ToString());
 
@@ -63,11 +43,16 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
             new InnerExpression<T>(Visit(context.inner));
 
 
-        public override ExpressionBase<T> VisitValue([NotNull] ExpressionTreeParser.ValueContext context) =>
-            VisitNumber(context.NUMBER()) ??
-            VisitVariable(context.VARIABLE()) ??
-                throw new NotSupportedException($"Unable to parse \"{context.GetText()}\"")
-            ;
+        public override ExpressionBase<T> VisitValue([NotNull] ExpressionTreeParser.ValueContext context)
+        {
+            var result = VisitNumber(context.NUMBER()) ??
+             VisitVariable(context.VARIABLE()) ??
+                 throw new NotSupportedException($"Unable to parse \"{context.GetText()}\"")
+             ;
+            EnsureChildCount(context, expected: $"Expected {nameof(context.NUMBER)}|{nameof(context.VARIABLE)}", childCount: 1);
+
+            return result;
+        }
 
         private ExpressionBase<T>? VisitVariable(ITerminalNode node) =>
             node != null ? new VariableExpression<T>(node.GetText()) : null;
@@ -99,5 +84,25 @@ namespace BinaryDataDecoders.ExpressionCalculator.Visitors
 
         private ExpressionBase<T> ChainVisit(params IParseTree[] nodes) =>
             Visit(nodes.FirstOrDefault(n => n != null) ?? throw new NotSupportedException($"No non-null node provided"));
+
+        private TParserRuleContext EnsureChildCount<TParserRuleContext>(TParserRuleContext context, string? expected = null, int childCount = 2)
+            where TParserRuleContext : ParserRuleContext
+        {
+            if (context.children.Count != childCount)
+            {
+                var extraChildren = context.children.Skip(1).Take(context.children.Count - childCount);
+                var extras = string.Join(";", extraChildren.Select(c => c.GetText()));
+
+                if (string.IsNullOrWhiteSpace(extras))
+                {
+                    throw new NotSupportedException($"Missing Expression");
+                }
+                else
+                {
+                    throw new NotSupportedException(string.Join(", ", new[] { expected, $"Found: {extras}" }.Where(s => !string.IsNullOrWhiteSpace(s))));
+                }
+            }
+            return context;
+        }
     }
 }

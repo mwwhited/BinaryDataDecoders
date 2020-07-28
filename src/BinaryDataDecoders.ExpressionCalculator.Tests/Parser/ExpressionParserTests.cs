@@ -95,6 +95,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("B*+*A")]
         [DataRow("B*-*A")]
         [DataRow("")]
+        [DataRow("b")]
+        [DataRow("b+1")]
+        //TODO: this should throw a parse error !!![DataRow("1e")]
         public void PoorlyFormedExpressions(string input)
         {
             try
