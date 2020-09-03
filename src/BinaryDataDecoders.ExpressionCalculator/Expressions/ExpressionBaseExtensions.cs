@@ -72,15 +72,31 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
 
         public static ExpressionBase<T> ReplaceVariables<T>(this ExpressionBase<T> expression, IEnumerable<(string input, string output)> variables)
             where T : struct, IComparable<T>, IEquatable<T> =>
-            new ExpressionVariableReplacementVistor<T>().Process(expression, variables);
+            new ExpressionVariableReplacementVistor<T>().Visit(expression, variables);
 
         public static ExpressionBase<T> ReplaceVariables<T>(this ExpressionBase<T> expression, params (string input, string output)[] variables)
             where T : struct, IComparable<T>, IEquatable<T> => expression.ReplaceVariables(variables.AsEnumerable());
 
         public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, T value)> variables)
             where T : struct, IComparable<T>, IEquatable<T> =>
-            new ExpressionVariableReplacementVistor<T>().Process(expression, variables);
+            new ExpressionVariableReplacementVistor<T>().Visit(expression, variables);
         public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, params (string name, T value)[] variables)
             where T : struct, IComparable<T>, IEquatable<T> => expression.PreEvaluate(variables.AsEnumerable());
+
+        public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, ExpressionBase<T> value)> variables)
+            where T : struct, IComparable<T>, IEquatable<T> =>
+            variables.Aggregate(expression, (exp, v) => new ExpressionVariableReplacementVistor<T>().Visit(exp, new[] { v }));
+        public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, params (string name, ExpressionBase<T> value)[] variables)
+            where T : struct, IComparable<T>, IEquatable<T> => expression.PreEvaluate(variables.AsEnumerable());
+
+        public static ExpressionBase<T> PreEvaluate<T>(this string expression, IEnumerable<(string name, ExpressionBase<T> value)> variables)
+            where T : struct, IComparable<T>, IEquatable<T> => ((ExpressionBase<T>)expression).PreEvaluate(variables);
+        public static ExpressionBase<T> PreEvaluate<T>(this string expression, params (string name, ExpressionBase<T> value)[] variables)
+            where T : struct, IComparable<T>, IEquatable<T> => ((ExpressionBase<T>)expression).PreEvaluate(variables);
+
+        public static ExpressionBase<decimal> PreEvaluate(this string expression, IEnumerable<(string name, ExpressionBase<decimal> value)> variables) =>
+            ((ExpressionBase<decimal>)expression).PreEvaluate(variables);
+        public static ExpressionBase<decimal> PreEvaluate(this string expression, params (string name, ExpressionBase<decimal> value)[] variables) =>
+            ((ExpressionBase<decimal>)expression).PreEvaluate(variables);
     }
 }
