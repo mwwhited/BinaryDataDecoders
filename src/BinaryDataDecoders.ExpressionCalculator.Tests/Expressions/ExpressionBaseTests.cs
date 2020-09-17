@@ -55,8 +55,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         [TestMethod]
         public void ImplicitConvertTest_WayMoreOverlyComplex()
         {
-            double result = "A+B".PreEvaluate(("A", "B"), ("B", 2.3));
-            Assert.AreEqual(4.6, result);
+            double result = "A+B".PreEvaluate(("A", "B+B"), ("B", 2.3));
+            Assert.AreEqual(6.9, result);
         }
     }
 }
