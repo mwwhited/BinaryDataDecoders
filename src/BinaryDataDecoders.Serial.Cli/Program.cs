@@ -8,7 +8,8 @@ namespace BinaryDataDecoders.Serial.Cli
         static void Main(string[] args)
         {
             // SerialScoreMachine.Execute();
-            SerialNmea0183.Execute();
+            // SerialNmea0183.Execute();
+            SerialRadexOne.Execute();
         }
 
         public static Task<string> ReadLineAsync()

@@ -27,7 +27,7 @@ namespace BinaryDataDecoders.IO.Pipelines.Segmenters
                 if (result.segment == null) throw new NotSupportedException("\"Valid\" segmentation without data is not possible");
 
                 await OnSegmentReceived(result.segment.Value);
-                buffer = buffer.Slice(buffer.GetPosition(1, result.segment.Value.End));
+                buffer = buffer.Slice(buffer.GetPosition(0, result.segment.Value.End));
             }
             else if (result.status == SegmentationStatus.Invalid && Options.HasFlag(SegmentionOptions.SkipInvalidSegment))
             {

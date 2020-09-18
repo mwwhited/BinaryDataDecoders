@@ -7,6 +7,7 @@
             this.StartsWith = startsWith;
         }
 
+        internal SegmentExtensionDefinition? ExtensionDefinition { get; set; }
         internal SegmentionOptions Options { get; set; }
         internal byte StartsWith { get; }
         internal byte? EndsWith { get; set; }

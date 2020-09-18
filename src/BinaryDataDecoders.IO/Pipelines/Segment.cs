@@ -28,6 +28,19 @@ namespace BinaryDataDecoders.IO.Pipelines
             return builder;
         }
 
+        public static ISegmentBuildDefinition ExtendedWithLengthAt<TOfType>(this ISegmentBuildDefinition builder, long position, Endianness endianness)
+            where TOfType : unmanaged
+        {
+            if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+            if (!def.Length.HasValue) throw new NotSupportedException("Must start with fixed length");
+
+            unsafe
+            {
+                def.ExtensionDefinition = new SegmentExtensionDefinition(type: typeof(TOfType), length: sizeof(TOfType), postion: position, endianness: endianness);
+            }
+            return builder;
+        }
+
         public static ISegmentBuildDefinition WithMaxLength(this ISegmentBuildDefinition builder, long maxLength)
         {
             if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
@@ -57,7 +70,7 @@ namespace BinaryDataDecoders.IO.Pipelines
 
             ISegmenter? built =
                 def.EndsWith.HasValue ? (ISegmenter)new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith.Value, def.MaxLength, def.Options) :
-                def.Length.HasValue ? new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options) :
+                def.Length.HasValue ? new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options, def.ExtensionDefinition) :
                 null;
 
             if (built == null)
