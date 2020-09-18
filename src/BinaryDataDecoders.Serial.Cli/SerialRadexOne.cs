@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.IO.Pipelines;
+using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.Quarta.RadexOne;
 using BinaryDataDecoders.ToolKit;
 using System;
@@ -18,6 +19,7 @@ namespace BinaryDataDecoders.Serial.Cli
           .WithOptions(SegmentionOptions.SkipInvalidSegment).ThenDo(received);
 
     }
+    [SerialPort(BaudRate = 9600)]
     public class SerialRadexOne
     {
         public static void Execute()

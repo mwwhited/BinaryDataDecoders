@@ -1,5 +1,5 @@
-﻿using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
-using BinaryDataDecoders.IO.Pipelines;
+﻿using BinaryDataDecoders.IO.Pipelines;
+using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.Nmea;
 using System;
 using System.Buffers;
@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
+
+    [SerialPort(BaudRate = 4800)]
     public static class SerialNmea0183
     {
         public static void Execute()
@@ -20,24 +22,23 @@ namespace BinaryDataDecoders.Serial.Cli
             var segmenter = factory.GetSegmenter(OnReceived);
 
             var ports = SerialPort.GetPortNames().OrderBy(s => s);
-            foreach (var port in ports)
-                Console.WriteLine(port);
+            foreach (var p in ports)
+                Console.WriteLine(p);
 
             Console.WriteLine($"Enter Port: (Default { ports.LastOrDefault()})");
             var portName = Console.ReadLine();
 
-            using (var port = portProvider.GetNmea0183Port(!string.IsNullOrWhiteSpace(portName) ? portName : ports.LastOrDefault()))
-            using (var cts = new CancellationTokenSource())
-            {
-                port.Open();
+            using var port = portProvider.GetNmea0183Port(!string.IsNullOrWhiteSpace(portName) ? portName : ports.LastOrDefault());
+            using var cts = new CancellationTokenSource();
 
-                Console.Write("Enter to exit");
+            port.Open();
 
-                Task.WaitAll(
-                  Task.Run(async () => await Program.ReadLineAsync().ContinueWith(t => cts.Cancel(false))),
-                  Task.Run(async () => await port.BaseStream.Follow().With(segmenter).RunAsync(cts.Token))
-                  );
-            }
+            Console.Write("Enter to exit");
+
+            Task.WaitAll(
+              Task.Run(async () => await Program.ReadLineAsync().ContinueWith(t => cts.Cancel(false))),
+              Task.Run(async () => await port.BaseStream.Follow().With(segmenter).RunAsync(cts.Token))
+              );
         }
 
         private static Task OnReceived(ReadOnlySequence<byte> segment)
