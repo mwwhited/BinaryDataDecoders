@@ -41,9 +41,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Templati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Templating.Html.Tests", "BinaryDataDecoders.Templating.Html.Tests\BinaryDataDecoders.Templating.Html.Tests.csproj", "{C75C7AA5-CF21-4A67-B38A-FF35F96EBB38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Quarta.RadexOne", "BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Quarta.RadexOne.csproj", "{D90917FB-5FE4-4B07-8622-4511A641D979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Quarta.RadexOne", "BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Quarta.RadexOne.csproj", "{D90917FB-5FE4-4B07-8622-4511A641D979}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Quarta.RadexOne.Tests", "BinaryDataDecoders.Quarta.RadexOne.Tests\BinaryDataDecoders.Quarta.RadexOne.Tests.csproj", "{180F5176-1991-4ADE-822F-C09B750481BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Quarta.RadexOne.Tests", "BinaryDataDecoders.Quarta.RadexOne.Tests\BinaryDataDecoders.Quarta.RadexOne.Tests.csproj", "{180F5176-1991-4ADE-822F-C09B750481BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Abstractions", "BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj", "{ED3DF8A7-3455-4466-944D-6E28ED8F4A1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Pipelines", "BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj", "{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +139,14 @@ Global
 		{180F5176-1991-4ADE-822F-C09B750481BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{180F5176-1991-4ADE-822F-C09B750481BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{180F5176-1991-4ADE-822F-C09B750481BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED3DF8A7-3455-4466-944D-6E28ED8F4A1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED3DF8A7-3455-4466-944D-6E28ED8F4A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED3DF8A7-3455-4466-944D-6E28ED8F4A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED3DF8A7-3455-4466-944D-6E28ED8F4A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,14 +6,6 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.IO.Pipelines" Version="4.7.2" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
   </ItemGroup>

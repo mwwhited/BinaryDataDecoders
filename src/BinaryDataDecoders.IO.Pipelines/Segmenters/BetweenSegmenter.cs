@@ -1,5 +1,4 @@
-﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
-using System.Buffers;
+﻿using System.Buffers;
 
 namespace BinaryDataDecoders.IO.Pipelines.Segmenters
 {

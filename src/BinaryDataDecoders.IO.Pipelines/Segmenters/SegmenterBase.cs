@@ -1,5 +1,4 @@
-﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
-using System;
+﻿using System;
 using System.Buffers;
 using System.Threading.Tasks;
 

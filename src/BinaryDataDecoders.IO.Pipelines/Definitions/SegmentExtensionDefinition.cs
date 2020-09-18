@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO.Pipelines.Definitions
 {
     public class SegmentExtensionDefinition
     {
