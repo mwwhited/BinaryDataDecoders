@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryDataDecoders.ToolKit;
+using System;
 
 namespace BinaryDataDecoders.IO.Pipelines.Definitions
 {

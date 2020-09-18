@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.ToolKit
 {
@@ -26,11 +25,21 @@ namespace BinaryDataDecoders.ToolKit
             }
         }
 
+        public static ulong ToNumber(this IEnumerable<byte> data, int offset, int byteCount = 2, Endianness endianness = Endianness.Little)
+        {
+            data = data.Skip(offset).Take(byteCount);
+            if (endianness == Endianness.Big) data = data.Reverse();
+            var result = data.Select((v, i) => ((ulong)v) << (8 * i))
+                             .Aggregate(default(ulong), (r, v) => r | v);
+            return result;
+        }
+        public static decimal ToDecimal(this IEnumerable<byte> data, int offset, decimal mag = 1m, int byteCount = 2, Endianness endianness = Endianness.Little) =>
+           ((decimal)ToNumber(data, offset, byteCount, endianness)) / mag;
 
         public static string ToHexString(this IEnumerable<byte> data, string delimiter = "")
         {
             return string.Join(delimiter ?? "", (data ?? Enumerable.Empty<byte>()).Select(b => b.ToString("x2")));
         }
-        
+
     }
 }

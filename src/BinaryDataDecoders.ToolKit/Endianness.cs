@@ -1,4 +1,4 @@
-﻿namespace BinaryDataDecoders.IO.Pipelines
+﻿namespace BinaryDataDecoders.ToolKit
 {
     public enum Endianness
     {

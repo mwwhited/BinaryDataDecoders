@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
+using BinaryDataDecoders.ToolKit;
 using System;
 using System.Buffers;
 using System.Linq;

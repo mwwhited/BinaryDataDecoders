@@ -1,4 +1,6 @@
 ﻿using BinaryDataDecoders.IO.Pipelines;
+using BinaryDataDecoders.Quarta.RadexOne;
+using BinaryDataDecoders.ToolKit;
 using System;
 using System.Buffers;
 using System.IO.Ports;
@@ -16,27 +18,6 @@ namespace BinaryDataDecoders.Serial.Cli
           .WithOptions(SegmentionOptions.SkipInvalidSegment).ThenDo(received);
 
     }
-    public static class RadexOneToolsEx
-    {
-        public static decimal ToNumber(this byte[] buffer, int offset, decimal mag = 1m) =>
-             (
-                 buffer[offset] +
-                 ((buffer[offset + 1]) << 8) +
-                 ((buffer[offset + 2]) << 16) +
-                 ((buffer[offset + 3]) << 24)
-             ) / mag;
-
-        public static string ToHexString(this byte[] buffer) =>
-             buffer.Aggregate(new StringBuilder(), (sb, v) => sb.Append(v.ToString("X2")))
-                   .ToString();
-    }
-    [Flags]
-    public enum AlarmSettings
-    {
-        Off = 0x00,
-        Audio = 0x02,
-        Vibrate = 0x01,
-    }
     public class SerialRadexOne
     {
         public static void Execute()
@@ -50,16 +31,16 @@ namespace BinaryDataDecoders.Serial.Cli
 
                if (buffer[4] == 0x16 && buffer[5] == 0x00) // response from 0x0600:0008
                {
-                   var ambient = buffer.ToNumber(20, 100m);
-                   var accumulated = buffer.ToNumber(24, 100m);
-                   var cpm = buffer.ToNumber(28);
+                   var ambient = buffer.ToDecimal(20, 100m);
+                   var accumulated = buffer.ToDecimal(24, 100m);
+                   var cpm = buffer.ToDecimal(28);
 
                    Console.WriteLine("D: " + string.Join("\t", ambient, accumulated, cpm));
                }
                else if (buffer[4] == 0x10 && buffer[5] == 0x00) // response from 0x0600:0108
                {
                    var flag = (AlarmSettings)(buffer[20]);
-                   var threshhold = buffer.ToNumber(21, 100m);
+                   var threshhold = buffer.ToDecimal(21, 100m);
 
                    Console.WriteLine("\tS: " + string.Join("\t", threshhold, flag));
                }
