@@ -84,6 +84,13 @@ namespace BinaryDataDecoders.Quarta.RadexOne
                             IRadexObject result = read[0];
                             return result;
                         }
+						
+                    case 0x08_03:
+                        {
+                            var read = MemoryMarshal.Cast<byte, ResetAccumulatedResponse>(data);
+                            IRadexObject result = read[0];
+                            return result;
+                        }
 
                     default:
                         throw new NotSupportedException();

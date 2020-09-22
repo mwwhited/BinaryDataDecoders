@@ -15,7 +15,15 @@
 			//Read settings request
 			>: 7BFF 2000 0600 FD05 ____ 60FA 0108 _C00 F2F7
 			<: 7AFF 2080 1000 FD05 ____ 577A 0108 ____ 0500 ____ 020A ____ ____ F7ED
-			§ 
+
+//reset accumulated	
+>: 7bff 2000 0600 4e01 0000 0fff 0308 0100 fbf7	
+<: 7aff 2080 0600 4e01 0000 107f 0308 0000 fcf7
+
+ResetAccumulatedRequest
+		
+
+	§ 
 		○ Output
 			§ Prefix [0x7b, 0xff]
 			§ Request? [0x20, 0x00]

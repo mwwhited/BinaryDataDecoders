@@ -85,17 +85,18 @@ namespace BinaryDataDecoders.Serial.Cli
                           {
                               IRadexObject requestObject = (x % 10) switch
                               {
-                                  8 => new ReadSettingsRequest(x),
-
                                   1 => new ReadSerialNumberRequest(x),
-                                  2 => new ReadSerialNumberRequest(x),
+                                  // 2 => new ReadSerialNumberRequest(x),
 
-                                  3 => new DevicePing(x),
-                                  0 => new DevicePing(x),
+                                  //3 => new DevicePing(x),
+                                  //0 => new DevicePing(x),
 
                                   //4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
                                   //5 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
                                   //6 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                                  7 => new ReadSettingsRequest(x),
+
+                                  //8 => new ResetAccumulatedRequest(x),
 
                                   _ => new ReadValuesRequest(x)
                               };
