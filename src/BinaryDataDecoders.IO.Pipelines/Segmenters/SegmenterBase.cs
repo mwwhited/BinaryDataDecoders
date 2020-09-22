@@ -18,7 +18,7 @@ namespace BinaryDataDecoders.IO.Pipelines.Segmenters
         private OnSegmentReceived OnSegmentReceived { get; }
         public SegmentionOptions Options { get; }
 
-        public async Task<ISegmentReadResult> TryReadAsync(ReadOnlySequence<byte> buffer)
+        public async ValueTask<ISegmentReadResult> TryReadAsync(ReadOnlySequence<byte> buffer)
         {
             var result = Read(buffer);
             if (result.status == SegmentationStatus.Complete)
@@ -38,6 +38,7 @@ namespace BinaryDataDecoders.IO.Pipelines.Segmenters
                 {
                     buffer = buffer.Slice(buffer.GetPosition(0, buffer.End)); // if segment isn't provided just fast forward to end
                 }
+
                 return new SegmentReadResult(SegmentationStatus.Complete, buffer);
             }
 

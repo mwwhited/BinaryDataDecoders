@@ -3,10 +3,9 @@ using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.Quarta.RadexOne;
 using BinaryDataDecoders.ToolKit;
 using System;
-using System.Buffers;
 using System.IO.Ports;
 using System.Linq;
-using System.Text;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,40 +14,34 @@ namespace BinaryDataDecoders.Serial.Cli
     public class RadexOneFactory
     {
         public ISegmenter GetSegmenter(OnSegmentReceived received) =>
-              Segment.StartsWith(0x7a).AndIsLength(12).ExtendedWithLengthAt<ushort>(4, Endianness.Little)
-          .WithOptions(SegmentionOptions.SkipInvalidSegment).ThenDo(received);
-
+              Segment.StartsWith(0x7a)
+                     .AndIsLength(12)
+                     .ExtendedWithLengthAt<ushort>(4, Endianness.Little)
+                     .WithOptions(SegmentionOptions.SkipInvalidSegment)
+                     .ThenDo(received);
     }
     [SerialPort(BaudRate = 9600)]
     public class SerialRadexOne
     {
         public static void Execute()
         {
+            //var ws = Enumerable.Range(0, 100)
+            //                   .Select(i => new WriteSettingsRequest((ushort)i, (AlarmSettings)(i % 4), (ushort)(i * 10)))
+            //                   .ToArray();
+            //var sws = ws.AsSpan();
+            //var swsd = MemoryMarshal.Cast<WriteSettingsRequest, byte>(sws);
+            //var swsa = swsd.ToArray();
+
             var factory = new RadexOneFactory();
+            var decoder = new RadexOneDecoder();
 
             var segmenter = factory.GetSegmenter(data =>
-           {
-               var buffer = data.ToArray();
-               var result = buffer.ToHexString();
+            {
+                var result = decoder.Decode(data);
+                Console.WriteLine(result);
 
-               if (buffer[4] == 0x16 && buffer[5] == 0x00) // response from 0x0600:0008
-               {
-                   var ambient = buffer.ToDecimal(20, 100m);
-                   var accumulated = buffer.ToDecimal(24, 100m);
-                   var cpm = buffer.ToDecimal(28);
-
-                   Console.WriteLine("D: " + string.Join("\t", ambient, accumulated, cpm));
-               }
-               else if (buffer[4] == 0x10 && buffer[5] == 0x00) // response from 0x0600:0108
-               {
-                   var flag = (AlarmSettings)(buffer[20]);
-                   var threshhold = buffer.ToDecimal(21, 100m);
-
-                   Console.WriteLine("\tS: " + string.Join("\t", threshhold, flag));
-               }
-
-               return Task.FromResult(0);
-           });
+                return Task.FromResult(0);
+            });
 
             var ports = SerialPort.GetPortNames().OrderBy(s => s);
             foreach (var port in ports)
@@ -84,11 +77,35 @@ namespace BinaryDataDecoders.Serial.Cli
                   }),
                   Task.Run(async () =>
                   {
+                      ushort x = 0;
                       while (!cts.IsCancellationRequested)
                       {
+                          x++;
                           try
                           {
-                              var requestBuffer = new byte[] { 0x7B, 0xFF, 0x20, 0x00, 0x06, 0x00, 0x18, 0x00, 0x00, 0x00, 0x46, 0x00, 0x00, 0x08, 0x0C, 0x00, 0xF3, 0xF7 };
+                              IRadexObject requestObject = (x % 10) switch
+                              {
+                                  8 => new ReadSettingsRequest(x),
+
+                                  1 => new ReadSerialNumberRequest(x),
+                                  2 => new ReadSerialNumberRequest(x),
+
+                                  3 => new DevicePing(x),
+                                  0 => new DevicePing(x),
+
+                                  4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                                  5 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                                  6 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+
+                                  _ => new ReadValuesRequest(x)
+                              };
+                              var requestBuffer = new byte[Marshal.SizeOf(requestObject)];
+                              IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);
+                              Marshal.StructureToPtr(requestObject, ptr, true);
+                              Marshal.Copy(ptr, requestBuffer, 0, requestBuffer.Length);
+                              Marshal.FreeHGlobal(ptr);
+
+                              var hex = requestBuffer.ToHexString();
 
                               //7BFF 2000 _600 1800 ____ 4600 __08 _C00 F3F7
                               await port.BaseStream.WriteAsync(requestBuffer, 0, requestBuffer.Length, cts.Token);

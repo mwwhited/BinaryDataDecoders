@@ -48,6 +48,7 @@ namespace BinaryDataDecoders.IO.Pipelines.Segmenters
                     if (ExtensionDefinition != null)
                     {
                         var valueData = completeSegment.Slice(ExtensionDefinition.Postion, ExtensionDefinition.Length);
+                        //TODO, drop the endian check... only support little and convert 
                         var set = this.ExtensionDefinition.Endianness == Endianness.Little ? valueData.ToArray() : valueData.ToArray().Reverse().ToArray();
 
                         ulong extendedLength = 0;

@@ -6,6 +6,6 @@ namespace BinaryDataDecoders.IO.Pipelines
 {
     public interface ISegmenter
     {
-        Task<ISegmentReadResult> TryReadAsync(ReadOnlySequence<byte> buffer);
+        ValueTask<ISegmentReadResult> TryReadAsync(ReadOnlySequence<byte> buffer);
     }
 }
