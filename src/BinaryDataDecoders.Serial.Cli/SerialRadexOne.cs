@@ -93,9 +93,9 @@ namespace BinaryDataDecoders.Serial.Cli
                                   3 => new DevicePing(x),
                                   0 => new DevicePing(x),
 
-                                  4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
-                                  5 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
-                                  6 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                                  //4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                                  //5 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                                  //6 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
 
                                   _ => new ReadValuesRequest(x)
                               };
