@@ -1,5 +1,6 @@
 ﻿using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
 using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void DecodeTest()
         {
             /*

@@ -1,3 +1,4 @@
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void SplitTest_Exclude()
         {
             var data = GetTestData();
@@ -22,7 +23,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
                 new byte[] { 9, 10, 11, 12, 13, 14, 15, }
                 );
         }
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void SplitTest_Carry()
         {
             var data = GetTestData();
@@ -34,7 +35,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
                 );
         }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void SplitTest_Return()
         {
             var data = GetTestData();
@@ -46,7 +47,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
                 );
         }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void SplitTest_Exclude3()
         {
             var data = GetBigTestData();

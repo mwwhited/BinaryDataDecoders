@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
@@ -9,7 +10,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void ParseAndEvaluateTest()
         {
             var input = "A+B";
@@ -32,7 +33,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.AreEqual(5.5, result);
         }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void ParseAndPreEvaluateTest()
         {
             var input = "A+B";
@@ -55,7 +56,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.AreEqual("2.1 + 3.4", result.ToString());
         }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void ParseAndReplaceVariablesTest()
         {
             var input = "A+B";

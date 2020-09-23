@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -7,20 +8,20 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
     [TestClass]
     public class VariableExpressionTests
     {
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void Equals_SameReference_Test()
         {
             var exp = new VariableExpression<double>("Test");
             Assert.IsTrue(exp.Equals(exp));
         }
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void Equals_SameValue_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
             var var2 = new VariableExpression<double>("Test1");
             Assert.IsTrue(var1.Equals(var2));
         }
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void Equals_DifferentValue_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
@@ -28,14 +29,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.IsFalse(var1.Equals(var2));
         }
 
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void Equals_SameString_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
             var var2 = "Test1";
             Assert.IsTrue(var1.Equals(var2));
         }
-        [TestMethod, TestCategory("Unit")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void Equals_DifferentString_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
@@ -43,14 +44,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.IsFalse(var1.Equals(var2));
         }
 
-        [TestMethod, TestCategory("Unit"), ExpectedException(typeof(InvalidOperationException))]
+        [TestMethod, TestCategory(TestCategories.Unit), ExpectedException(typeof(InvalidOperationException))]
         public void NullVariableName_Test()
         {
            _ = new VariableExpression<double>(null);
             Assert.Fail("you should not get here!");
         }
 
-        [TestMethod, TestCategory("Unit"), ExpectedException(typeof(InvalidOperationException))]
+        [TestMethod, TestCategory(TestCategories.Unit), ExpectedException(typeof(InvalidOperationException))]
         public void EmptyVariableName_Test()
         {
             _= new VariableExpression<double>("");

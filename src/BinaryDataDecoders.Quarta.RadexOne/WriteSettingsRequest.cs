@@ -31,8 +31,10 @@ namespace BinaryDataDecoders.Quarta.RadexOne
             Reserved1 = 0x000e;
             Reserved2 = 0x0005;
 
-            Composite0 = (ushort)((((byte)alarmSetting) & 0x03) | ((threshold & 0xff) << 8));
-            Composite1 = (ushort)((threshold & 0xff00) >> 8);
+            Composite0 = 0; // (ushort)((((byte)alarmSetting) & 0x03) | ((threshold & 0xff) << 8));
+            Composite1 = 0; // (ushort)((threshold & 0xff00) >> 8);
+            AlarmSetting = alarmSetting;
+            Threshold = threshold;
 
             CheckSum1 = (ushort)((0xffff - ((SubCommand + Reserved1 + Reserved2 + Composite0 + Composite1) % 65535)) & 0xffff);
         }
@@ -56,7 +58,11 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         private ushort Reserved2;
 
         [FieldOffset(20)]
+        public AlarmSettings AlarmSetting;
+        [FieldOffset(20)]
         private ushort Composite0;
+        [FieldOffset(21)]
+        public ushort Threshold;
         [FieldOffset(22)]
         private ushort Composite1;
 
@@ -64,7 +70,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         private ushort CheckSum1;
 
         //TODO: should just make this a byte at 20 and a ushort at 21;
-        public AlarmSettings AlarmSetting => (AlarmSettings)(Composite0 & 0x03);
-        public ushort Threshold => (ushort)((Composite0 & 0xff00) >> 8 | (Composite1 & 0xff) << 8);
+       // public AlarmSettings AlarmSetting => (AlarmSettings)(Composite0 & 0x03);
+        //public ushort Threshold => (ushort)((Composite0 & 0xff00) >> 8 | (Composite1 & 0xff) << 8);
     }
 }

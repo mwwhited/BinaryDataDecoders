@@ -13,4 +13,9 @@
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Quarta.RadexOne.csproj" />
+	  <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
+  </ItemGroup>
+
 </Project>

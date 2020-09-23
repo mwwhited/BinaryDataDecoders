@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.Cryptography\BinaryDataDecoders.Cryptography.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
   </ItemGroup>
 
 </Project>

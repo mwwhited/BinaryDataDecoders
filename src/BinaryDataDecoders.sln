@@ -45,9 +45,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Quarta.R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Quarta.RadexOne.Tests", "BinaryDataDecoders.Quarta.RadexOne.Tests\BinaryDataDecoders.Quarta.RadexOne.Tests.csproj", "{180F5176-1991-4ADE-822F-C09B750481BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Abstractions", "BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj", "{ED3DF8A7-3455-4466-944D-6E28ED8F4A1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Abstractions", "BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj", "{ED3DF8A7-3455-4466-944D-6E28ED8F4A1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Pipelines", "BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj", "{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Pipelines", "BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj", "{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.TestUtilities", "BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj", "{9B125317-A5A9-4173-8F62-AF2E4837DF39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
+	ProjectSection(SolutionItems) = preProject
+		.runsettings = .runsettings
+		LocalUnitTestRun.bat = LocalUnitTestRun.bat
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +155,10 @@ Global
 		{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B125317-A5A9-4173-8F62-AF2E4837DF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B125317-A5A9-4173-8F62-AF2E4837DF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B125317-A5A9-4173-8F62-AF2E4837DF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B125317-A5A9-4173-8F62-AF2E4837DF39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

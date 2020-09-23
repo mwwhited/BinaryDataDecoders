@@ -1,6 +1,7 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Evaluators;
 using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using BinaryDataDecoders.ExpressionCalculator.Parser;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
@@ -85,7 +86,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         public TestContext TestContext { get; set; }
 
 
-        [DataTestMethod, TestCategory("Unit")]
+        [DataTestMethod, TestCategory(TestCategories.Unit)]
         [ExpectedException(typeof(NotSupportedException))]
         [DataRow("-A!")]
         [DataRow("B/*1")]
@@ -114,7 +115,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             }
         }
 
-        [DataTestMethod, TestCategory("Unit")]
+        [DataTestMethod, TestCategory(TestCategories.Unit)]
         [DataRow("2+3*4^5%6/7-8", "2 + 3 * 4 ^ 5 % 6 / 7 - 8", DisplayName = "Parse all operators test")]
         [DataRow("A+B+1", "A + B + 1", DisplayName = "Simple test with variable")]
         [DataRow("Abc1", "Abc1", DisplayName = "Just variable")]
@@ -138,7 +139,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             }
         }
 
-        [DataTestMethod, TestCategory("Unit")]
+        [DataTestMethod, TestCategory(TestCategories.Unit)]
         [DataRow("(A)", "A")]
         [DataRow("(A+(B))", "A + B")]
         [DataRow("B^1", "B")]
@@ -209,7 +210,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             }
         }
 
-        [DataTestMethod, TestCategory("Unit")]
+        [DataTestMethod, TestCategory(TestCategories.Unit)]
         [DataRow("B/0")]
         [DataRow("B%0")]
         [ExpectedException(typeof(DivideByZeroException))]
@@ -223,7 +224,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             Assert.Fail("You shouldn't get here");
         }
 
-        [DataTestMethod, TestCategory("Unit")]
+        [DataTestMethod, TestCategory(TestCategories.Unit)]
         [DataRow("A+B+C", "A, B, C")]
         [DataRow("A+B+B", "A, B")]
         [DataRow("Abc+XyW1", "Abc, XyW1")]
@@ -237,7 +238,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
             Assert.AreEqual(result, variables.ToString());
         }
 
-        [DataTestMethod, TestCategory("Unit")]
+        [DataTestMethod, TestCategory(TestCategories.Unit)]
         [DataRow("A", DisplayName = "Check Expressions \"A\"")]
         [DataRow("A*1", DisplayName = "Check Expressions \"A*1\"")]
         [DataRow("(A*B)+C", DisplayName = "Check Expressions \"(A*B)+C\"")]

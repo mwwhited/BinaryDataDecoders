@@ -2,7 +2,7 @@
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
-    [StructLayout(LayoutKind.Explicit)]
+    [StructLayout(LayoutKind.Explicit, Size = 18)]
     public struct WriteSettingsResponse : IRadexObject
     {
         [FieldOffset(0)]

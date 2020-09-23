@@ -77,7 +77,7 @@ namespace BinaryDataDecoders.Serial.Cli
                   }),
                   Task.Run(async () =>
                   {
-                      ushort x = 0;
+                      uint x = 0;
                       while (!cts.IsCancellationRequested)
                       {
                           x++;
@@ -88,17 +88,18 @@ namespace BinaryDataDecoders.Serial.Cli
                                   1 => new ReadSerialNumberRequest(x),
                                   // 2 => new ReadSerialNumberRequest(x),
 
-                                  //3 => new DevicePing(x),
-                                  //0 => new DevicePing(x),
+                                  // 3 => new DevicePing(x),
+                                  // 0 => new DevicePing(x),
 
-                                  //4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
-                                  //5 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
-                                  //6 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                                  // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
+                                  // 5 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
+                                  // 6 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
+                                  // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
                                   7 => new ReadSettingsRequest(x),
 
                                   //8 => new ResetAccumulatedRequest(x),
 
-                                  _ => new ReadValuesRequest((uint)(x))
+                                  _ => new ReadValuesRequest(x)
                               };
                               var requestBuffer = new byte[Marshal.SizeOf(requestObject)];
                               IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);

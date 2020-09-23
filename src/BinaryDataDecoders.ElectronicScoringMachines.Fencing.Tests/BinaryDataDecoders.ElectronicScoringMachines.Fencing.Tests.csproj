@@ -42,6 +42,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.ElectronicScoringMachines.Fencing\BinaryDataDecoders.ElectronicScoringMachines.Fencing.csproj" />
+	  <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
   </ItemGroup>
 
 </Project>

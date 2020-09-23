@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.Templating.Abstractions\BinaryDataDecoders.Templating.Abstractions.csproj" />
     <ProjectReference Include="..\BinaryDataDecoders.Templating.Html\BinaryDataDecoders.Templating.Html.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
   </ItemGroup>
 
 </Project>

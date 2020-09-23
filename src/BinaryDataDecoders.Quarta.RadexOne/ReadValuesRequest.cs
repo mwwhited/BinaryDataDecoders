@@ -2,7 +2,7 @@
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
-    [StructLayout(LayoutKind.Explicit)]
+    [StructLayout(LayoutKind.Explicit,Size = 18)]
     public struct ReadValuesRequest : IRadexObject
     {
         public ReadValuesRequest(uint packetNumber)
