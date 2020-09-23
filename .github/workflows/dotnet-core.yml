@@ -77,12 +77,13 @@ jobs:
       with:
         name: BinaryDataDecoders_${{ steps.gitversion.outputs.fullSemVer }}_TestResults
         path: ./TestResults/Coverage/Reports
-                 
-    - name: Package
-      run: dotnet pack --no-build --no-restore ./src/BinaryDataDecoders.sln  -o "./Nuget"
-    - name: Publish Packages
-      uses: actions/upload-artifact@v2
-      with:
-        name: BinaryDataDecoders_${{ steps.gitversion.outputs.fullSemVer }}_Nuget
-        path: ./Nuget
+    
+    # Worry about this later
+    #- name: Package
+    #  run: dotnet pack --no-build --no-restore ./src/BinaryDataDecoders.sln  -o "./Nuget"
+    #- name: Publish Packages
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: BinaryDataDecoders_${{ steps.gitversion.outputs.fullSemVer }}_Nuget
+    #    path: ./Nuget
       
