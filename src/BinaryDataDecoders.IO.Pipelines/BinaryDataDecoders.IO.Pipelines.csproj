@@ -1,11 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-	  <Nullable>enable</Nullable>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Copyright>Matthew Whited 2020</Copyright>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
+		<RepositoryType>GitHub</RepositoryType>
+		<Authors>Matthew Whited</Authors>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\LICENSE" Link="LICENSE">
+	    <PackagePath></PackagePath>
+	    <Pack>True</Pack>
+	  </None>
+	</ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.IO.Pipelines" Version="4.7.2" />

@@ -1,23 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <Copyright>Matthew Whited 2020</Copyright>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <Authors>Matthew Whited</Authors>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.IO.Pipelines" Version="4.7.2" />
-    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.ElectronicScoringMachines.Fencing\BinaryDataDecoders.ElectronicScoringMachines.Fencing.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Quarta.RadexOne.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\LICENSE" Link="LICENSE">
+			<PackagePath></PackagePath>
+			<Pack>True</Pack>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.IO.Pipelines" Version="4.7.2" />
+		<PackageReference Include="System.IO.Ports" Version="4.7.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BinaryDataDecoders.ElectronicScoringMachines.Fencing\BinaryDataDecoders.ElectronicScoringMachines.Fencing.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Quarta.RadexOne.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
+	</ItemGroup>
 
 </Project>
