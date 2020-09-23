@@ -63,7 +63,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore ./src/BinaryDataDecoders.sln
     - name: Build
-      run: dotnet build ./src/BinaryDataDecoders.sln --configuration Release --no-restore
+      run: dotnet build ./src/BinaryDataDecoders.sln --configuration Release --no-restore -p "${{ steps.gitversion.outputs.fullSemVer }}"
     - name: Test
       run: dotnet test ./src/BinaryDataDecoders.sln --no-restore --verbosity normal --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s ./src/.runsettings
       
