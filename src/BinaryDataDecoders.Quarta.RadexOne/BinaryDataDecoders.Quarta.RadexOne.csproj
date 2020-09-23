@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj" />
   </ItemGroup>
 
 </Project>
