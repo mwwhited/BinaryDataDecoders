@@ -3,7 +3,7 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-    paths: ['src/**']    
+    #paths: ['src/**']    
   pull_request:
     branches: [ master ]
     paths: ['src/**']    
@@ -25,7 +25,7 @@ jobs:
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.2
       with:
-        versionSpec: '5.2.X'
+        versionSpec: '5.2.4'
     - name: Use GitVersion
       id: gitversion # step id used as reference for output values
       uses: gittools/actions/gitversion/execute@v0.9.2
@@ -61,10 +61,20 @@ jobs:
         echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.commitsSinceVersionSource }}"
         echo "CommitsSinceVersionSourcePadded: ${{ steps.gitversion.outputs.commitsSinceVersionSourcePadded }}"
         echo "CommitDate: ${{ steps.gitversion.outputs.commitDate }}"  
+        
     - name: Install dependencies
       run: dotnet restore ./src/BinaryDataDecoders.sln
     - name: Build
       run: dotnet build ./src/BinaryDataDecoders.sln --configuration Release --no-restore -p:Version=${{ steps.gitversion.outputs.fullSemVer }}
     - name: Test
-      run: dotnet test ./src/BinaryDataDecoders.sln --no-restore --verbosity normal --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s ./src/.runsettings
+      run: dotnet test ./src/BinaryDataDecoders.sln --no-restore --verbosity normal --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s ./src/.runsettings -r .\TestResults
       
+    - name: Build Test Reports
+      run: |
+        dotnet tool install --global dotnet-reportgenerator-globaltool
+        reportgenerator "-reports:./TestResults/**/coverage.cobertura.xml" "-targetDir:./TestResults/Coverage/Reports" -reportTypes:HtmlInline;Cobertura "-title:BinaryDataDecoders - ${{ steps.gitversion.outputs.fullSemVer }}"
+    - name: Publish Test Reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: BinaryDataDecoders_${{ steps.gitversion.outputs.fullSemVer }}
+        path: ./TestResults/Coverage/Reports
