@@ -11,17 +11,17 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
-    public class RadexOneFactory
+    public class ZStickFactory
     {
         public ISegmenter GetSegmenter(OnSegmentReceived received) =>
-              Segment.StartsWith(0x7a)
+              Segment.StartsWith(0x06)
                      .AndIsLength(12)
-                     .ExtendedWithLengthAt<ushort>(4, Endianness.Little)
+                     .ExtendedWithLengthAt<ushort>(1, Endianness.Little)
                      .WithOptions(SegmentionOptions.SkipInvalidSegment)
                      .ThenDo(received);
     }
-    [SerialPort(BaudRate = 9600)]
-    public class SerialRadexOne
+    [SerialPort(BaudRate = 115200)]
+    public class SerialZStick
     {
         public static void Execute()
         {
@@ -98,7 +98,7 @@ namespace BinaryDataDecoders.Serial.Cli
 
                                   //8 => new ResetAccumulatedRequest(x),
 
-                                  _ => new ReadValuesRequest((uint)(x))
+                                  _ => new ReadValuesRequest(x)
                               };
                               var requestBuffer = new byte[Marshal.SizeOf(requestObject)];
                               IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);

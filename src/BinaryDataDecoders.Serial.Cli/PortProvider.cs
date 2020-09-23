@@ -44,5 +44,15 @@ namespace BinaryDataDecoders.Serial.Cli
                 Parity = Parity.None,
             };
         }
+        public SerialPort GetZStickPort(string portName)
+        {
+            return new SerialPort(portName)
+            {
+                BaudRate = 115200,
+                DataBits = 8,
+                StopBits = StopBits.One,
+                Parity = Parity.None,
+            };
+        }
     }
 }

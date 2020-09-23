@@ -5,13 +5,19 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     [StructLayout(LayoutKind.Explicit)]
     public struct ReadValuesRequest : IRadexObject
     {
-        public ReadValuesRequest(ushort packetNumber)
+        public ReadValuesRequest(uint packetNumber)
         {
             Prefix = 0xff7b;
             Command = 0x0020;
             ExtensionLength = 0x0006;
             PacketNumber = packetNumber;
-            CheckSum0 = (ushort)((0xffff - ((Prefix + Command + ExtensionLength + PacketNumber) % 65535)) & 0xffff);
+            CheckSum0 = (ushort)((0xffff - ((
+                Prefix +
+                Command +
+                ExtensionLength +
+                ((PacketNumber & 0xffff0000) >> 16) +
+                (PacketNumber & 0xffff)
+                ) % 65535)) & 0xffff);
             SubCommand = 0x0800;
             Reserved1 = 0x000c;
             CheckSum1 = (ushort)((0xffff - ((SubCommand + Reserved1) % 65535)) & 0xffff);
@@ -24,7 +30,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(4)]
         private ushort ExtensionLength;
         [FieldOffset(6)]
-        private ushort PacketNumber;
+        private uint PacketNumber;
         [FieldOffset(10)]
         private ushort CheckSum0;
 

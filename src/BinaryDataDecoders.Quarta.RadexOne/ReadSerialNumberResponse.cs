@@ -12,9 +12,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(4)]
         public ushort ExtensionLength;
         [FieldOffset(6)]
-        public ushort PacketNumber;
-        [FieldOffset(8)]
-        private ushort Reserved0;
+        public uint PacketNumber;
         [FieldOffset(10)]
         public ushort CheckSum0;
 
@@ -61,7 +59,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
 
         public override string ToString()
         {
-            return $"N: {ReservedL1:X2}-{ReservedL2:X2}-{ReservedL3:X2}-{ReservedD:X2}\t({PacketNumber})";
+            return $"SN: {SubCommand:X2}-{ReservedL1:X2}-{ReservedL2:X2}-{ReservedL3:X2}-{ReservedD:X2}\t({PacketNumber}:0x{PacketNumber:X2})";
         }
     }
 }

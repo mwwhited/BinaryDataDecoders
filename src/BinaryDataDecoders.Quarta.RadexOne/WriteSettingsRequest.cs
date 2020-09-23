@@ -5,7 +5,13 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     [StructLayout(LayoutKind.Explicit, Size = 28)]
     public struct WriteSettingsRequest : IRadexObject
     {
-        public WriteSettingsRequest(ushort packetNumber, AlarmSettings alarmSetting, ushort threshold)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="packetNumber"></param>
+        /// <param name="alarmSetting">Flagged byte: 0x01=Vibrate | 0x02=Audio </param>
+        /// <param name="threshold">μSv/h  * 100: Alarm trigger threshold: range .01 to 10.00</param>
+        public WriteSettingsRequest(uint packetNumber, AlarmSettings alarmSetting, ushort threshold)
         {
             if (threshold > 1000) threshold = 1000;
 
@@ -13,7 +19,13 @@ namespace BinaryDataDecoders.Quarta.RadexOne
             Command = 0x0020;
             ExtensionLength = 28 - 12;
             PacketNumber = packetNumber;
-            CheckSum0 = (ushort)((0xffff - ((Prefix + Command + ExtensionLength + PacketNumber) % 65535)) & 0xffff);
+            CheckSum0 = (ushort)((0xffff - ((
+                Prefix +
+                Command +
+                ExtensionLength +
+                ((PacketNumber & 0xffff0000) >> 16) +
+                (PacketNumber & 0xffff)
+                ) % 65535)) & 0xffff);
 
             SubCommand = 0x0802;
             Reserved1 = 0x000e;
@@ -32,7 +44,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(4)]
         private ushort ExtensionLength;
         [FieldOffset(6)]
-        private ushort PacketNumber;
+        private uint PacketNumber;
         [FieldOffset(10)]
         private ushort CheckSum0;
 
@@ -51,6 +63,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(26)]
         private ushort CheckSum1;
 
+        //TODO: should just make this a byte at 20 and a ushort at 21;
         public AlarmSettings AlarmSetting => (AlarmSettings)(Composite0 & 0x03);
         public ushort Threshold => (ushort)((Composite0 & 0xff00) >> 8 | (Composite1 & 0xff) << 8);
     }

@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(4)]
         public ushort ExtensionLength;
         [FieldOffset(6)]
-        public ushort PacketNumber;
+        public uint PacketNumber;
         [FieldOffset(10)]
         public ushort CheckSum0;
 
@@ -20,5 +20,10 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         public ushort SubCommand;
         [FieldOffset(16)]
         public ushort CheckSum1;
+
+        public override string ToString()
+        {
+            return $"Write Settings:\t({PacketNumber}:0x{PacketNumber:X2})";
+        }
     }
 }

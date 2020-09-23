@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryDataDecoders.ToolKit;
+using System;
 using System.Buffers;
 using System.Runtime.InteropServices;
 
@@ -84,7 +85,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
                             IRadexObject result = read[0];
                             return result;
                         }
-						
+
                     case 0x08_03:
                         {
                             var read = MemoryMarshal.Cast<byte, ResetAccumulatedResponse>(data);
