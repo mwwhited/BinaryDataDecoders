@@ -15,18 +15,24 @@ jobs:
     steps:
     - uses: actions/checkout@v2      
     - name: Fetch all history for all tags and branches
-      run: git fetch --prune
+      run: git fetch --prune --unshallow
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-    - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9
+      
+    - name: use-actions
+      # You may pin to the exact commit or the version.
+      # uses: GitTools/actions@0333200fa748a48465f646c12992008d01cf777d
+      uses: GitTools/actions@v0.9.4
       with:
-        versionSpec: '5.3.x'
+        # Required version in the form of 5.x or exact version like 5.0.0
+        versionSpec: 5.x # default is 
+        # Include pre-release versions when matching a version
+        #includePrerelease: # optional
     - name: Use GitVersion
       id: gitversion # step id used as reference for output values
-      uses: gittools/actions/gitversion/execute@v0.9
+      uses: gittools/actions/gitversion/execute@v0.9.4
     - name: Display Version
       run: |
         echo "Major: ${{ steps.gitversion.outputs.major }}"
