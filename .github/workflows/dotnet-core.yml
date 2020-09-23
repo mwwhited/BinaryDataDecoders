@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./src/BinaryDataDecoders.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ./src/BinaryDataDecoders.sln --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings
+      run: dotnet test ./src/BinaryDataDecoders.sln --no-restore --verbosity normal --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s ./src/.runsettings
