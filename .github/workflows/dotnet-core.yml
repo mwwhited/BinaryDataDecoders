@@ -67,12 +67,12 @@ jobs:
     - name: Build
       run: dotnet build ./src/BinaryDataDecoders.sln --configuration Release --no-restore -p:Version=${{ steps.gitversion.outputs.fullSemVer }}
     - name: Test
-      run: dotnet test ./src/BinaryDataDecoders.sln --no-restore --verbosity normal --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s ./src/.runsettings  --collect:"XPlat Code Coverage" -r ./TestResults
+      run: dotnet test ./src/BinaryDataDecoders.sln --no-restore --verbosity normal --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s ./src/.runsettings --collect:"XPlat Code Coverage" -r ./TestResults
       
     - name: Build Test Reports
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool
-        reportgenerator "-reports:./TestResults/**/coverage.cobertura.xml" "-targetDir:./TestResults/Coverage/Reports" -reportTypes:HtmlInline;Cobertura "-title:BinaryDataDecoders - ${{ steps.gitversion.outputs.fullSemVer }}"
+        reportgenerator "-reports:./TestResults/**/coverage.cobertura.xml" "-targetDir:./TestResults/Coverage/Reports" "-reportTypes:HtmlInline;Cobertura" "-title:BinaryDataDecoders - ${{ steps.gitversion.outputs.fullSemVer }}"
     - name: Publish Test Reports
       uses: actions/upload-artifact@v2
       with:
