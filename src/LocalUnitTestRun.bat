@@ -29,7 +29,7 @@ dotnet build "%TestProject%" --configuration %Configuration% --no-restore
 echo "Run Tests"
 dotnet test "%TestProject%" --no-build --no-restore --collect:"XPlat Code Coverage" -r .\TestResults --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings
 SET TEST_ERR=%ERRORLEVEL%
-reportgenerator "-reports:.\TestResults\**\coverage.cobertura.xml" "-targetDir:.\TestResults\Coverage\Reports" -reportTypes:HtmlInline;Cobertura "-title:%TestProject% - (%USERNAME%)"
+reportgenerator "-reports:.\TestResults\**\coverage.cobertura.xml" "-targetDir:.\TestResults\Coverage\Reports" -reportTypes:HtmlInline;Cobertura;PngChart "-title:%TestProject% - (%USERNAME%)"
 start ./TestResults/Coverage/Reports\index.html
 
 echo "Pack Projects"
