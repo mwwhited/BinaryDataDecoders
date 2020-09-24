@@ -24,21 +24,21 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         }
 
         [FieldOffset(0)]
-        private ushort Prefix;
+        private readonly ushort Prefix;
         [FieldOffset(2)]
-        private ushort Command;
+        private readonly ushort Command;
         [FieldOffset(4)]
-        private ushort ExtensionLength;
+        private readonly ushort ExtensionLength;
         [FieldOffset(6)]
-        private uint PacketNumber;
+        private readonly uint PacketNumber;
         [FieldOffset(10)]
-        private ushort CheckSum0;
+        private readonly ushort CheckSum0;
 
         [FieldOffset(12)]
-        private ushort SubCommand;
+        private readonly ushort SubCommand;
         [FieldOffset(14)]
-        private ushort Reserved1;
+        private readonly ushort Reserved1;
         [FieldOffset(16)]
-        private ushort CheckSum1;
+        private readonly ushort CheckSum1;
     }
 }

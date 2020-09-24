@@ -13,15 +13,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\..\LICENSE" Link="LICENSE">
-			<PackagePath></PackagePath>
-			<Pack>True</Pack>
-		</None>
+	  <None Include="..\..\LICENSE" Link="LICENSE">
+	    <PackagePath></PackagePath>
+	    <Pack>True</Pack>
+	  </None>
 	</ItemGroup>
 
 
-	<ItemGroup>
-		<ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
+  </ItemGroup>
 
 </Project>

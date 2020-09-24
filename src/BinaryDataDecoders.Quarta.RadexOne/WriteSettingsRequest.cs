@@ -40,37 +40,37 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         }
 
         [FieldOffset(0)]
-        private ushort Prefix;
+        private readonly ushort Prefix;
         [FieldOffset(2)]
-        private ushort Command;
+        private readonly ushort Command;
         [FieldOffset(4)]
-        private ushort ExtensionLength;
+        private readonly ushort ExtensionLength;
         [FieldOffset(6)]
-        private uint PacketNumber;
+        private readonly uint PacketNumber;
         [FieldOffset(10)]
-        private ushort CheckSum0;
+        private readonly ushort CheckSum0;
 
         [FieldOffset(12)]
-        private ushort SubCommand;
+        private readonly ushort SubCommand;
         [FieldOffset(14)]
-        private ushort Reserved1;
+        private readonly ushort Reserved1;
         [FieldOffset(16)]
-        private ushort Reserved2;
+        private readonly ushort Reserved2;
 
         [FieldOffset(20)]
-        public AlarmSettings AlarmSetting;
+        public readonly AlarmSettings AlarmSetting;
         [FieldOffset(20)]
-        private ushort Composite0;
+        private readonly ushort Composite0;
         [FieldOffset(21)]
-        public ushort Threshold;
+        public readonly ushort Threshold;
         [FieldOffset(22)]
-        private ushort Composite1;
+        private readonly ushort Composite1;
 
         [FieldOffset(26)]
-        private ushort CheckSum1;
+        private readonly ushort CheckSum1;
 
         //TODO: should just make this a byte at 20 and a ushort at 21;
-       // public AlarmSettings AlarmSetting => (AlarmSettings)(Composite0 & 0x03);
+        // public AlarmSettings AlarmSetting => (AlarmSettings)(Composite0 & 0x03);
         //public ushort Threshold => (ushort)((Composite0 & 0xff00) >> 8 | (Composite1 & 0xff) << 8);
     }
 }

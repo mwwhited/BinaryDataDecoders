@@ -7,75 +7,74 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     public struct ReadSerialNumberResponse : IRadexObject
     {
         [FieldOffset(0)]
-        private ushort Prefix;
+        private readonly ushort Prefix;
         [FieldOffset(2)]
-        private ushort Command;
+        private readonly ushort Command;
         [FieldOffset(4)]
-        private ushort ExtensionLength;
+        private readonly ushort ExtensionLength;
         [FieldOffset(6)]
-        private uint PacketNumber;
+        private readonly uint PacketNumber;
         [FieldOffset(10)]
-        private ushort CheckSum0;
+        private readonly ushort CheckSum0;
 
         [FieldOffset(12)]
-        private ushort SubCommand;
+        private readonly ushort SubCommand;
 
         [FieldOffset(14)]
-        private ulong ReservedL1;
+        private readonly ulong ReservedL1;
         [FieldOffset(14)]
-        private ushort Reserved1;
+        private readonly ushort Reserved1;
         [FieldOffset(16)]
-        private ushort Reserved2;
+        private readonly ushort Reserved2;
         [FieldOffset(18)]
-        private ushort Reserved3;
+        private readonly ushort Reserved3;
         [FieldOffset(20)]
-        private ushort Reserved4;
+        private readonly ushort Reserved4;
 
         [FieldOffset(22)]
-        private ulong ReservedL2;
+        private readonly ulong ReservedL2;
         [FieldOffset(22)]
-        private ushort Reserved5;
+        private readonly ushort Reserved5;
         [FieldOffset(24)]
-        private ushort Reserved6;
+        private readonly ushort Reserved6;
         [FieldOffset(26)]
-        private ushort Reserved7;
+        private readonly ushort Reserved7;
         [FieldOffset(28)]
-        private ushort Reserved8;
+        private readonly ushort Reserved8;
 
         [FieldOffset(30)]
-        private ulong ReservedL3;
+        private readonly ulong ReservedL3;
         [FieldOffset(30)]
-        private ushort Reserved9;
+        private readonly ushort Reserved9;
         [FieldOffset(32)]
-        private ushort ReservedA;
+        private readonly ushort ReservedA;
         [FieldOffset(34)]
-        private ushort ReservedB;
+        private readonly ushort ReservedB;
         [FieldOffset(36)]
-        private ushort ReservedC;
+        private readonly ushort ReservedC;
 
         [FieldOffset(38)]
-        private ushort ReservedD;
+        private readonly ushort ReservedD;
         [FieldOffset(40)]
-        private ushort CheckSum1;
-
+        private readonly ushort CheckSum1;
 
         [FieldOffset(31)]
-        public byte Sn1;
+        public readonly byte Sn1;
         [FieldOffset(30)]
-        public byte Sn2;
+        public readonly byte Sn2;
         [FieldOffset(29)]
-        private byte Sn3;
+        private readonly byte Sn3;
         [FieldOffset(28)]
-        public byte Sn4;
+        public readonly byte Sn4;
         [FieldOffset(34)]
-        public ushort Sn5;
+        public readonly ushort Sn5;
         [FieldOffset(24)]
-        public uint Sn6;
+        public readonly uint Sn6;
 
         [FieldOffset(32)]
-        public byte Major;
+        public readonly byte Major;
         [FieldOffset(33)]
-        public byte Minor;
+        public readonly byte Minor;
 
         public string SerialNumber => $"{Sn1:00}{Sn2:00}{Sn4:00}-{Sn5:0000}-{Sn6:000000}";
         public string Version => $"{Major}.{Minor}";
@@ -84,16 +83,16 @@ namespace BinaryDataDecoders.Quarta.RadexOne
             return $"SN:\t{SerialNumber}; v{Version}\t({PacketNumber}:0x{PacketNumber:X2})\t[{SubCommand:X2}-{ReservedL1:X2}-{ReservedL2:X2}-{ReservedL3:X2}-{ReservedD:X2}]";
         }
 
-        private void Compute()
-        {
-            var sum = new[] {
-                SubCommand, Reserved1, Reserved2, Reserved3,
-                Reserved4,Reserved5,Reserved6,Reserved7,
-                Reserved8,Reserved9,ReservedA,ReservedB,
-                ReservedC,ReservedD,
-            }.Aggregate((ushort)0, (u, i) => (ushort)((u + i) % 0xffff));
-            var check = (ushort)((0xffff - sum) & 0xffff);
-            CheckSum1 = check;
-        }
+        //private void Compute()
+        //{
+        //    var sum = new[] {
+        //        SubCommand, Reserved1, Reserved2, Reserved3,
+        //        Reserved4,Reserved5,Reserved6,Reserved7,
+        //        Reserved8,Reserved9,ReservedA,ReservedB,
+        //        ReservedC,ReservedD,
+        //    }.Aggregate((ushort)0, (u, i) => (ushort)((u + i) % 0xffff));
+        //    var check = (ushort)((0xffff - sum) & 0xffff);
+        //    CheckSum1 = check;
+        //}
     }
 }

@@ -6,36 +6,36 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     public struct ReadSettingsResponse : IRadexObject
     {
         [FieldOffset(0)]
-        public ushort Prefix;
+        private readonly ushort Prefix;
         [FieldOffset(2)]
-        public ushort Command;
+        private readonly ushort Command;
         [FieldOffset(4)]
-        public ushort ExtensionLength;
+        private readonly ushort ExtensionLength;
         [FieldOffset(6)]
-        public uint PacketNumber;
+        private readonly uint PacketNumber;
         [FieldOffset(10)]
-        public ushort CheckSum0;
+        private readonly ushort CheckSum0;
 
         [FieldOffset(12)]
-        public ulong SubCommandL;
+        private readonly ulong SubCommandL;
         [FieldOffset(12)]
-        public ushort SubCommand;
+        private readonly ushort SubCommand;
 
         [FieldOffset(20)]
-        public ulong Settings;
+        private readonly ulong Settings;
 
         /// <summary>
         /// Off; Audio; Vibrate; Audio|Vibrate
         /// </summary>
         [FieldOffset(20)]
-        public AlarmSettings AlarmSetting;
+        public readonly AlarmSettings AlarmSetting;
         /// <summary>
         /// μSv/h  * 100: Alarm trigger threshold: range .01 to 10.00
         /// </summary>
         [FieldOffset(21)]
-        public ushort Threshold;
+        public readonly ushort Threshold;
         [FieldOffset(26)]
-        public ushort CheckSum1;
+        private readonly ushort CheckSum1;
 
         public override string ToString()
         {

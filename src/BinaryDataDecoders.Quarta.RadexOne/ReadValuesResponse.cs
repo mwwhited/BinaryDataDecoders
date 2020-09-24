@@ -6,43 +6,43 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     public struct ReadValuesResponse : IRadexObject
     {
         [FieldOffset(0)]
-        public ushort Prefix;
+        private readonly ushort Prefix;
         [FieldOffset(2)]
-        public ushort Command;
+        private readonly ushort Command;
         [FieldOffset(4)]
-        public ushort ExtensionLength;
+        private readonly ushort ExtensionLength;
         [FieldOffset(6)]
-        public uint PacketNumber;
+        private readonly uint PacketNumber;
         [FieldOffset(10)]
-        public ushort CheckSum0;
+        private readonly ushort CheckSum0;
 
         [FieldOffset(12)]
-        public ulong SubCommandL;
+        private readonly ulong SubCommandL;
         [FieldOffset(12)]
-        public ushort SubCommand;
+        private readonly ushort SubCommand;
         [FieldOffset(14)]
-        public ushort Reserved1;
+        private readonly ushort Reserved1;
         [FieldOffset(16)]
-        public ushort Reserved2;
+        private readonly ushort Reserved2;
         [FieldOffset(18)]
-        public ushort Reserved3;
+        private readonly ushort Reserved3;
         /// <summary>
         /// μSv/h * 100: Stated range .05 to 999.00 (Requires 17 bits?)
         /// </summary>
         [FieldOffset(20)]
-        public int Ambient;
+        public readonly int Ambient;
         /// <summary>
         /// μSv * 100: Stated range 0 to 9,990,000 (Requires 30 bits?)
         /// </summary>
         [FieldOffset(24)]
-        public int Accumulated;
+        public readonly int Accumulated;
         /// <summary>
         /// clicks/minute: State range 0 to 99,900 (Requires 17 bits?)
         /// </summary>
         [FieldOffset(28)]
-        public int ClicksPerMinute;
-        [FieldOffset(30)]
-        public ushort CheckSum1;
+        public readonly int ClicksPerMinute;
+        [FieldOffset(32)]
+        private readonly ushort CheckSum1;
 
         public override string ToString()
         {

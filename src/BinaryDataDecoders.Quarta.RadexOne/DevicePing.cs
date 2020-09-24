@@ -21,15 +21,15 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         }
 
         [FieldOffset(0)]
-        public ushort Prefix;
+        public readonly ushort Prefix;
         [FieldOffset(2)]
-        public ushort Command;
+        public readonly ushort Command;
         [FieldOffset(4)]
-        public ushort ExtensionLength;
+        public readonly ushort ExtensionLength;
         [FieldOffset(6)]
-        public uint PacketNumber;
+        public readonly uint PacketNumber;
         [FieldOffset(10)]
-        public ushort CheckSum0;
+        public readonly ushort CheckSum0;
 
         public override string ToString()
         {

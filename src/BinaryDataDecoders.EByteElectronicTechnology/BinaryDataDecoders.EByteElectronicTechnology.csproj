@@ -12,11 +12,11 @@
 		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<None Include="..\..\LICENSE" Link="LICENSE">
-			<PackagePath></PackagePath>
-			<Pack>True</Pack>
-		</None>
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Link="LICENSE">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
 
 </Project>
