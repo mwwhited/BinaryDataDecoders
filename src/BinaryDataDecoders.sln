@@ -25,8 +25,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Serial.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO", "BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj", "{133E7C19-78A9-4665-B69F-ADC70A1BEA30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.FocusRite", "BinaryDataDecoders.FocusRite\BinaryDataDecoders.FocusRite.csproj", "{11C08328-3BC1-43EC-833D-29FF958FE9F0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.EByteElectronicTechnology", "BinaryDataDecoders.EByteElectronicTechnology\BinaryDataDecoders.EByteElectronicTechnology.csproj", "{897B7D4E-816C-455E-8F29-7C1F510C7CBE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Nmea", "BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj", "{84E594E1-EC9F-4092-95C8-D18AD9B1801B}"
@@ -49,13 +47,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Abstr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Pipelines", "BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj", "{CEA336D2-0E62-4F6C-9C0A-622AD3EAC08F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.TestUtilities", "BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj", "{9B125317-A5A9-4173-8F62-AF2E4837DF39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.TestUtilities", "BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj", "{9B125317-A5A9-4173-8F62-AF2E4837DF39}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
 	ProjectSection(SolutionItems) = preProject
 		.runsettings = .runsettings
 		LocalUnitTestRun.bat = LocalUnitTestRun.bat
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Apple2.Tests", "BinaryDataDecoders.Apple2.Tests\BinaryDataDecoders.Apple2.Tests.csproj", "{24C446C8-9468-4BE1-B4DA-E95039FC8915}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Archives.Tests", "BinaryDataDecoders.Archives.Tests\BinaryDataDecoders.Archives.Tests.csproj", "{CF87B846-A6DC-4E72-BCEB-6B594676757B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.EByteElectronicTechnology.Tests", "BinaryDataDecoders.EByteElectronicTechnology.Tests\BinaryDataDecoders.EByteElectronicTechnology.Tests.csproj", "{C4C6D0C1-286A-49D5-A1DD-E4625B63A239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.FileSystems.Tests", "BinaryDataDecoders.FileSystems.Tests\BinaryDataDecoders.FileSystems.Tests.csproj", "{A0717E39-1172-4190-A463-D4C7D6A2F917}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Tests", "BinaryDataDecoders.IO.Tests\BinaryDataDecoders.IO.Tests.csproj", "{3C0587F1-7594-4A4C-8EC3-30173461A1F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Pipelines.Tests", "BinaryDataDecoders.IO.Pipelines.Tests\BinaryDataDecoders.IO.Pipelines.Tests.csproj", "{177CE3B1-C406-4C0B-931C-395E180027C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Nmea.Tests", "BinaryDataDecoders.Nmea.Tests\BinaryDataDecoders.Nmea.Tests.csproj", "{BD7DAB78-FC00-4FE6-8855-1B53D7BD83E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,10 +119,6 @@ Global
 		{133E7C19-78A9-4665-B69F-ADC70A1BEA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{133E7C19-78A9-4665-B69F-ADC70A1BEA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133E7C19-78A9-4665-B69F-ADC70A1BEA30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11C08328-3BC1-43EC-833D-29FF958FE9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11C08328-3BC1-43EC-833D-29FF958FE9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11C08328-3BC1-43EC-833D-29FF958FE9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11C08328-3BC1-43EC-833D-29FF958FE9F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{897B7D4E-816C-455E-8F29-7C1F510C7CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{897B7D4E-816C-455E-8F29-7C1F510C7CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{897B7D4E-816C-455E-8F29-7C1F510C7CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -159,6 +167,34 @@ Global
 		{9B125317-A5A9-4173-8F62-AF2E4837DF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B125317-A5A9-4173-8F62-AF2E4837DF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B125317-A5A9-4173-8F62-AF2E4837DF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24C446C8-9468-4BE1-B4DA-E95039FC8915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C446C8-9468-4BE1-B4DA-E95039FC8915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C446C8-9468-4BE1-B4DA-E95039FC8915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C446C8-9468-4BE1-B4DA-E95039FC8915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF87B846-A6DC-4E72-BCEB-6B594676757B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF87B846-A6DC-4E72-BCEB-6B594676757B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF87B846-A6DC-4E72-BCEB-6B594676757B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF87B846-A6DC-4E72-BCEB-6B594676757B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4C6D0C1-286A-49D5-A1DD-E4625B63A239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4C6D0C1-286A-49D5-A1DD-E4625B63A239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4C6D0C1-286A-49D5-A1DD-E4625B63A239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4C6D0C1-286A-49D5-A1DD-E4625B63A239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0717E39-1172-4190-A463-D4C7D6A2F917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0717E39-1172-4190-A463-D4C7D6A2F917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0717E39-1172-4190-A463-D4C7D6A2F917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0717E39-1172-4190-A463-D4C7D6A2F917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C0587F1-7594-4A4C-8EC3-30173461A1F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C0587F1-7594-4A4C-8EC3-30173461A1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C0587F1-7594-4A4C-8EC3-30173461A1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C0587F1-7594-4A4C-8EC3-30173461A1F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{177CE3B1-C406-4C0B-931C-395E180027C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{177CE3B1-C406-4C0B-931C-395E180027C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{177CE3B1-C406-4C0B-931C-395E180027C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{177CE3B1-C406-4C0B-931C-395E180027C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD7DAB78-FC00-4FE6-8855-1B53D7BD83E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD7DAB78-FC00-4FE6-8855-1B53D7BD83E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD7DAB78-FC00-4FE6-8855-1B53D7BD83E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD7DAB78-FC00-4FE6-8855-1B53D7BD83E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
