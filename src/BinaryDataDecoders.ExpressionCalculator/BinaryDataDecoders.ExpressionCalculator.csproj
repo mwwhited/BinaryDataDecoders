@@ -3,6 +3,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Copyright>Matthew Whited 2020</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -12,26 +13,26 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Parser\ExpressionTree.g4" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Parser\ExpressionTree.g4" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Antlr4 Include="Parser\ExpressionTree.g4">
-      <Listener>false</Listener>
-    </Antlr4>
-  </ItemGroup>
+	<ItemGroup>
+		<Antlr4 Include="Parser\ExpressionTree.g4">
+			<Listener>false</Listener>
+		</Antlr4>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\..\LICENSE" Link="LICENSE">
-      <PackagePath></PackagePath>
-      <Pack>True</Pack>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\LICENSE" Link="LICENSE">
+			<PackagePath></PackagePath>
+			<Pack>True</Pack>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
-    <PackageReference Include="Antlr4BuildTasks" Version="8.3.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
+		<PackageReference Include="Antlr4BuildTasks" Version="8.3.0" />
+	</ItemGroup>
 
 </Project>
