@@ -12,8 +12,11 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         private readonly ushort Command;
         [FieldOffset(4)]
         private readonly ushort ExtensionLength;
+        /// <summary>
+        /// packetnumber is returned by response and may be used for correlation.
+        /// </summary>
         [FieldOffset(6)]
-        private readonly uint PacketNumber;
+        public readonly uint PacketNumber;
         [FieldOffset(10)]
         private readonly ushort CheckSum0;
 
@@ -78,7 +81,9 @@ namespace BinaryDataDecoders.Quarta.RadexOne
 
         public string SerialNumber => $"{Sn1:00}{Sn2:00}{Sn4:00}-{Sn5:0000}-{Sn6:000000}";
         public string Version => $"{Major}.{Minor}";
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             return $"SN:\t{SerialNumber}; v{Version}\t({PacketNumber}:0x{PacketNumber:X2})\t[{SubCommand:X2}-{ReservedL1:X2}-{ReservedL2:X2}-{ReservedL3:X2}-{ReservedD:X2}]";
         }

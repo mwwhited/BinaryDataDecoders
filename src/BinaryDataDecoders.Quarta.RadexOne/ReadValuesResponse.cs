@@ -1,7 +1,9 @@
 ﻿using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
-{
+{   /// <summary>
+    /// Read Values result from current device values
+    /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 32)]
     public struct ReadValuesResponse : IRadexObject
     {
@@ -11,8 +13,11 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         private readonly ushort Command;
         [FieldOffset(4)]
         private readonly ushort ExtensionLength;
+        /// <summary>
+        /// packetnumber is returned by response and may be used for correlation.
+        /// </summary>
         [FieldOffset(6)]
-        private readonly uint PacketNumber;
+        public readonly uint PacketNumber;
         [FieldOffset(10)]
         private readonly ushort CheckSum0;
 
@@ -44,7 +49,10 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(32)]
         private readonly ushort CheckSum1;
 
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             return $"Data:\t{Ambient / 100m} μSv/h\t{Accumulated / 100m} μSv\t{ClicksPerMinute} cpm\t({PacketNumber}:0x{PacketNumber:X2})\t[{SubCommandL:X2}]";
         }

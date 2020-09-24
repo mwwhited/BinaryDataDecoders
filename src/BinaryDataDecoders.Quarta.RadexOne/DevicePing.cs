@@ -21,17 +21,22 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         }
 
         [FieldOffset(0)]
-        public readonly ushort Prefix;
+        private readonly ushort Prefix;
         [FieldOffset(2)]
-        public readonly ushort Command;
+        private readonly ushort Command;
         [FieldOffset(4)]
-        public readonly ushort ExtensionLength;
+        private readonly ushort ExtensionLength;
+        /// <summary>
+        /// packetnumber is returned by response and may be used for correlation.
+        /// </summary>
         [FieldOffset(6)]
         public readonly uint PacketNumber;
         [FieldOffset(10)]
-        public readonly ushort CheckSum0;
+        private readonly ushort CheckSum0;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             return $"Ping:\t({PacketNumber}:0x{PacketNumber:X2})";
         }

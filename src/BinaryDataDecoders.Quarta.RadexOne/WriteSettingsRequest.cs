@@ -2,11 +2,14 @@
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
+    /// <summary>
+    /// Write Settings will allow for the current device configuratin to be updated
+    /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 28)]
     public struct WriteSettingsRequest : IRadexObject
     {
         /// <summary>
-        /// 
+        /// Write Settings will allow for the current device configuratin to be updated
         /// </summary>
         /// <param name="packetNumber"></param>
         /// <param name="alarmSetting">Flagged byte: 0x01=Vibrate | 0x02=Audio </param>
@@ -45,8 +48,11 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         private readonly ushort Command;
         [FieldOffset(4)]
         private readonly ushort ExtensionLength;
+        /// <summary>
+        /// packetnumber is returned by response and may be used for correlation.
+        /// </summary>
         [FieldOffset(6)]
-        private readonly uint PacketNumber;
+        public readonly uint PacketNumber;
         [FieldOffset(10)]
         private readonly ushort CheckSum0;
 
@@ -57,10 +63,16 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(16)]
         private readonly ushort Reserved2;
 
+        /// <summary>
+        /// Flagged byte: 0x01=Vibrate | 0x02=Audio 
+        /// </summary>
         [FieldOffset(20)]
         public readonly AlarmSettings AlarmSetting;
         [FieldOffset(20)]
         private readonly ushort Composite0;
+        /// <summary>
+        /// μSv/h  * 100: Alarm trigger threshold: range .01 to 10.00
+        /// </summary>
         [FieldOffset(21)]
         public readonly ushort Threshold;
         [FieldOffset(22)]

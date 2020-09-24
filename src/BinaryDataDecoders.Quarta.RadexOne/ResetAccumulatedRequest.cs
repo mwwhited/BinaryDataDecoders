@@ -2,9 +2,18 @@
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
+    /// <summary>
+    /// Reset Accumulated will clear the current accumulated value
+    /// </summary>
+
     [StructLayout(LayoutKind.Explicit)]
     public struct ResetAccumulatedRequest : IRadexObject
     {
+
+        /// <summary>
+        /// Constructor to create a new Reset Accumulated request
+        /// </summary>
+        /// <param name="packetNumber">packetnumber is returned by response and may be used for correlation.</param>
         public ResetAccumulatedRequest(uint packetNumber)
         {
             Prefix = 0xff7b;
@@ -29,8 +38,11 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         private readonly ushort Command;
         [FieldOffset(4)]
         private readonly ushort ExtensionLength;
+        /// <summary>
+        /// packetnumber is returned by response and may be used for correlation.
+        /// </summary>
         [FieldOffset(6)]
-        private readonly uint PacketNumber;
+        public readonly uint PacketNumber;
         [FieldOffset(10)]
         private readonly ushort CheckSum0;
 

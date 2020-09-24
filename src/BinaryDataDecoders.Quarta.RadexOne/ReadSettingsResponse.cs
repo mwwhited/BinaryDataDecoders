@@ -11,8 +11,11 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         private readonly ushort Command;
         [FieldOffset(4)]
         private readonly ushort ExtensionLength;
+        /// <summary>
+        /// packetnumber is returned by response and may be used for correlation.
+        /// </summary>
         [FieldOffset(6)]
-        private readonly uint PacketNumber;
+        public readonly uint PacketNumber;
         [FieldOffset(10)]
         private readonly ushort CheckSum0;
 
@@ -37,7 +40,9 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(26)]
         private readonly ushort CheckSum1;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             return $"Settings:\t{AlarmSetting}\t{Threshold / 100m} μSv/h\t({PacketNumber}:0x{PacketNumber:X2}) [{SubCommandL:X2}-{Settings:X2}]";
         }
