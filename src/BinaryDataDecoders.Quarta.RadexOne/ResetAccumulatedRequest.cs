@@ -5,7 +5,6 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     /// <summary>
     /// Reset Accumulated will clear the current accumulated value
     /// </summary>
-
     [StructLayout(LayoutKind.Explicit)]
     public struct ResetAccumulatedRequest : IRadexObject
     {

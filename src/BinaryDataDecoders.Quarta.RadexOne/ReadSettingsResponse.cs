@@ -2,6 +2,9 @@
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
+    /// <summary>
+    /// respone fom device with current settings
+    /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 28)]
     public struct ReadSettingsResponse : IRadexObject
     {

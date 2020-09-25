@@ -8,7 +8,6 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     [StructLayout(LayoutKind.Explicit,Size = 18)]
     public struct ReadValuesRequest : IRadexObject
     {
-
         /// <summary>
         /// Constructor to create a new read values request
         /// </summary>

@@ -2,9 +2,16 @@
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
+    /// <summary>
+    /// request serial number from Radex One device
+    /// </summary>
     [StructLayout(LayoutKind.Explicit)]
     public struct ReadSerialNumberRequest : IRadexObject
     {
+        /// <summary>
+        /// request serial number from Radex One device
+        /// </summary>
+        /// <param name="packetNumber">packetnumber is returned by response and may be used for correlation.</param>
         public ReadSerialNumberRequest(uint packetNumber)
         {
             Prefix = 0xff7b;

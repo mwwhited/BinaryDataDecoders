@@ -2,9 +2,16 @@
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
+    /// <summary>
+    /// Empty request object for radex one.
+    /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 12)]
     public struct DevicePing : IRadexObject
     {
+        /// <summary>
+        /// Empty request object for radex one.
+        /// </summary>
+        /// <param name="packetNumber">packetnumber is returned by response and may be used for correlation.</param>
         public DevicePing(uint packetNumber)
         {
             Prefix = 0xff7b;

@@ -1,10 +1,11 @@
-﻿using System.Linq;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
     [StructLayout(LayoutKind.Explicit, Size = 42)]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public struct ReadSerialNumberResponse : IRadexObject
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         [FieldOffset(0)]
         private readonly ushort Prefix;
@@ -61,6 +62,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         [FieldOffset(40)]
         private readonly ushort CheckSum1;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         [FieldOffset(31)]
         public readonly byte Sn1;
         [FieldOffset(30)]
@@ -78,8 +80,15 @@ namespace BinaryDataDecoders.Quarta.RadexOne
         public readonly byte Major;
         [FieldOffset(33)]
         public readonly byte Minor;
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
+        /// <summary>
+        /// Formatted serial number
+        /// </summary>
         public string SerialNumber => $"{Sn1:00}{Sn2:00}{Sn4:00}-{Sn5:0000}-{Sn6:000000}";
+        /// <summary>
+        /// Formatted version number
+        /// </summary>
         public string Version => $"{Major}.{Minor}";
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString()
