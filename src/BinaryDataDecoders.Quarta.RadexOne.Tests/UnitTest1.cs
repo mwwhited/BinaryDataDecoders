@@ -86,11 +86,6 @@ namespace BinaryDataDecoders.Quarta.RadexOne.Tests
                     var subBuffer = firstPass.Slice(0, pattern.length);
                     if (checkPattern(subBuffer, pattern.pattern))
                     {
-                        //
-                        //var methods = from m in typeof(MemoryMarshal).GetMethods(BindingFlags.Static | BindingFlags.Public)
-                        //              where m.Name == nameof(MemoryMarshal.Cast)
-                        //              select m.MakeGenericMethod(typeof(byte), pattern.type);
-                        //var method = methods.First(m => m.GetParameters()[0].ParameterType == typeof(ReadOnlySpan<byte>));
                         var innerBuffer = subBuffer.ToArray();
                         var handle = GCHandle.Alloc(innerBuffer, GCHandleType.Pinned);
                         try
@@ -102,13 +97,6 @@ namespace BinaryDataDecoders.Quarta.RadexOne.Tests
                         {
                             handle.Free();
                         }
-                        //  Marshal.PtrToStructure<>
-
-                        //var requestBuffer = new byte[Marshal.SizeOf(requestObject)];
-                        //IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);
-                        //Marshal.StructureToPtr(requestObject, ptr, true);
-                        //Marshal.Copy(ptr, requestBuffer, 0, requestBuffer.Length);
-                        //Marshal.FreeHGlobal(ptr);
 
                     }
                 }
@@ -178,59 +166,6 @@ namespace BinaryDataDecoders.Quarta.RadexOne.Tests
                     };
                 }
                 return matchChain.Zip(maskChain);
-            }
-        }
-
-        [TestMethod]
-        public void ChecksumCalculator()
-        {
-            //// read data request
-            //>: 7BFF 2000 0600 1800 ____ 4600 0008 0C00 F3F7
-            //<: 7AFF 2080 1600 1800 ____ 3680 0008 ____ 0C00 ____ 1200 ____ 1200 ____ 1500 ____ BAF7
-
-            ////read serial number request (SN: 180620-0840-008344 v1.8)
-            //>: 7BFF 2000 0600 9B0D ____ C2F2 0100 0C00 F2FF
-            //<: 7AFF 2080 1E00 9B0D ____ AB72 0100 ____ 1400 ____ 11A4 ____ 9820 ____ 1400 0612 0108 4803 0800 ____ D61D
-
-            ////Write request... repeat three times
-            //>: 7BFF 2000 1000 FA05 ____ 59FA 0208 0E00 0500 ____ 020A ____ ____ E8ED
-            //<: 7AFF 2080 0600 FA05 ____ 647A 0208 ____ FDF7
-
-            ////Read settings request
-            //>: 7BFF 2000 0600 FD05 ____ 60FA 0108 _C00 F2F7
-            //<: 7AFF 2080 1000 FD05 ____ 577A 0108 ____ 0500 ____ 020A ____ ____ F7ED
-
-            ////reset accumulated	
-            //>: 7bff 2000 0600 4e01 0000 0fff 0308 0100 fbf7
-            //<: 7aff 2080 0600 4e01 0000 107f 0308 0000 fcf7
-
-            Span<byte> bytes = new byte[] {
-                0x7B, 0xFF, //prefix
-                0x20, 0x00, // request
-                0x06, 0x00, // extended length
-                0x4e, 0x01, 0x00, 0x00, //packet number                
-                0x00, 0x00, //checksum 0
-
-                0x03, 0x08, // request type
-                0x00, 0x00, // request type 2
-                0x00, 0x00, // checksum1
-            };
-
-            var shorts = MemoryMarshal.Cast<byte, ushort>(bytes);
-
-            applyChecksum(shorts.Slice(0, 6));
-            applyChecksum(shorts.Slice(6, 3));
-
-            void applyChecksum(Span<ushort> input)
-            {
-                input[input.Length - 1] = getCheckSum(input);
-                ushort getCheckSum(ReadOnlySpan<ushort> buffer)
-                {
-                    int sum = 0;
-                    foreach (var v in buffer)
-                        sum += v;
-                    return (ushort)(0xffff - (sum % 0xffff));
-                }
             }
         }
     }

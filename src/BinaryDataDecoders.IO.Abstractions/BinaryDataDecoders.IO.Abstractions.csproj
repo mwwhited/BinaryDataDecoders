@@ -10,6 +10,7 @@
 		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
+		<RootNamespace>BinaryDataDecoders.IO</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Buffers;
-using System.Linq;
 
-namespace BinaryDataDecoders.IO.Abstractions.Messages
+namespace BinaryDataDecoders.IO.Messages
 {
     /// <summary>
     /// prefix pattern to identify decoding patterns
