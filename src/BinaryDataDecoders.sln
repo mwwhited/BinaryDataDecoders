@@ -69,11 +69,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Pipel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Nmea.Tests", "BinaryDataDecoders.Nmea.Tests\BinaryDataDecoders.Nmea.Tests.csproj", "{BD7DAB78-FC00-4FE6-8855-1B53D7BD83E2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StyleSheets", "StyleSheets", "{532CB21B-C302-40DB-8686-4F89ADC000D9}"
-	ProjectSection(SolutionItems) = preProject
-		StyleSheets\TestResultsToMarkdown.xslt = StyleSheets\TestResultsToMarkdown.xslt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
