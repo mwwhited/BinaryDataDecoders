@@ -41,13 +41,34 @@ https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-ana
 			<DataCollector friendlyName="XPlat code coverage">
 				<Configuration>
 					<ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
-					<Exclude>[coverlet.*.tests?]*,[*]Coverlet.Core*,[BinaryDataDecoders.*.Abstractions?]*</Exclude>
+					<Exclude>[coverlet.*.tests?]*,[*]Coverlet.Core*,[BinaryDataDecoders.*.Abstractions?]*,[BinaryDataDecoders.*.Tests?]*</Exclude>
 					<ExcludeByFile>**/*Registrar.cs,**/ServiceCollectionEx.cs,</ExcludeByFile>
 				</Configuration>
 			</DataCollector>
 
 		</DataCollectors>
 	</DataCollectionRunSettings>
+	
+	<LoggerRunSettings>
+		<!--https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019#loggerrunsettings-element-->
+		<Loggers>
+			<Logger friendlyName="console" enabled="True">
+				<Configuration>
+					<Verbosity>normal</Verbosity>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="trx" enabled="True">
+				<Configuration>
+					<LogFileName>TestResult.trx</LogFileName>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="html" enabled="True">
+				<Configuration>
+					<LogFileName>TestResult.html</LogFileName>
+				</Configuration>
+			</Logger>
+		</Loggers>
+	</LoggerRunSettings>
 
 	<!-- MSTest adapter -->
 	<MSTest>

@@ -1,4 +1,4 @@
-﻿using BinaryDataDecoders.IO.Abstractions.Messages;
+﻿using BinaryDataDecoders.IO.Messages;
 using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne

@@ -1,4 +1,4 @@
-using BinaryDataDecoders.IO.Abstractions.Messages;
+using BinaryDataDecoders.IO.Messages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;

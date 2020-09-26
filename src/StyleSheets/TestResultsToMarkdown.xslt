@@ -62,7 +62,7 @@
 		</xsl:if>
 		<xsl:text> * Duration: </xsl:text><xsl:value-of select="./@duration" />&cr;
 
-		<xsl:if test="$test-output">
+		<xsl:if test="$test-output"> 
 
 			<xsl:for-each select="$test-output/*">
 				&cr;
