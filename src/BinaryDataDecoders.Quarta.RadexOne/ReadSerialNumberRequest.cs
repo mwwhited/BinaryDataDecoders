@@ -5,9 +5,11 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     /// <summary>
     /// request serial number from Radex One device
     /// </summary>
-    [StructLayout(LayoutKind.Explicit)]
+    [StructLayout(LayoutKind.Explicit, Size = 12 + 6)]
     public struct ReadSerialNumberRequest : IRadexObject
     {
+        // >7BFF 2000 0600 9B0D ____ C2F2 0100 0C00 F2FF
+
         /// <summary>
         /// request serial number from Radex One device
         /// </summary>

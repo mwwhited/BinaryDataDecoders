@@ -1,13 +1,19 @@
-﻿using System.Runtime.InteropServices;
+﻿using BinaryDataDecoders.IO.Abstractions.Messages;
+using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
     /// <summary>
     /// Response message after Write Settings is requested
     /// </summary>
+    [MessageMatchPattern(
+        "7AFF-2080-0600-00000000-0000|0208+",
+        Mask = "ffff-ffff-ffff-00000000-0000|ffff+"
+        )]
     [StructLayout(LayoutKind.Explicit, Size = 18)]
     public struct WriteSettingsResponse : IRadexObject
     {
+        //<: 7AFF 2080 0600 FA05 ____ 647A 0208 ____ FDF7
         [FieldOffset(0)]
         private readonly ushort Prefix;
         [FieldOffset(2)]

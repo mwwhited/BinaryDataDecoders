@@ -1,13 +1,20 @@
-﻿using System.Runtime.InteropServices;
+﻿using BinaryDataDecoders.IO.Abstractions.Messages;
+using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
     /// <summary>
     /// Response from device when Reset Accumulated is requested
     /// </summary>
-    [StructLayout(LayoutKind.Explicit)]
+    [MessageMatchPattern(
+        "7AFF-2080-1600-00000000-0000|0308+",
+        Mask = "ffff-ffff-ffff-00000000-0000|ffff+"
+        )]
+    [StructLayout(LayoutKind.Explicit, Size = 18)]
     public struct ResetAccumulatedResponse : IRadexObject
     {
+        // <: 7aff 2080 0600 4e01 0000 107f 0308 0000 fcf7
+
         [FieldOffset(0)]
         private readonly ushort Prefix;
         [FieldOffset(2)]

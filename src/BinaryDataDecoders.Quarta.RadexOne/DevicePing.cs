@@ -1,13 +1,18 @@
-﻿using System.Runtime.InteropServices;
+﻿using BinaryDataDecoders.IO.Abstractions.Messages;
+using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
     /// <summary>
     /// Empty request object for radex one.
     /// </summary>
+    [MessageMatchPattern("7AFF-2080-0000-********-****")]
     [StructLayout(LayoutKind.Explicit, Size = 12)]
     public struct DevicePing : IRadexObject
     {
+        // >7BFF 2000 0000 18000000 4600
+        // <7BFF 2080 0000 18000000 4600
+
         /// <summary>
         /// Empty request object for radex one.
         /// </summary>

@@ -8,6 +8,8 @@ namespace BinaryDataDecoders.Quarta.RadexOne
     [StructLayout(LayoutKind.Explicit, Size = 28)]
     public struct WriteSettingsRequest : IRadexObject
     {
+        //>: 7BFF 2000 0600 FD05 ____ 60FA 0108 _C00 F2F7
+
         /// <summary>
         /// Write Settings will allow for the current device configuratin to be updated
         /// </summary>

@@ -1,12 +1,15 @@
-﻿using System.Runtime.InteropServices;
+﻿using BinaryDataDecoders.IO.Abstractions.Messages;
+using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
+    [MessageMatchPattern("7AFF-2080-1E00-????????-????|0100+")]
     [StructLayout(LayoutKind.Explicit, Size = 42)]
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public struct ReadSerialNumberResponse : IRadexObject
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
+        // <7AFF 2080 1E00 9B0D ____ AB72 0100 ____ 1400 ____ 11A4 ____ 9820 ____ 1400 0612 0108 4803 0800 ____ D61D
         [FieldOffset(0)]
         private readonly ushort Prefix;
         [FieldOffset(2)]

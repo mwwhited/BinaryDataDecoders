@@ -1,13 +1,17 @@
-﻿using System.Runtime.InteropServices;
+﻿using BinaryDataDecoders.IO.Abstractions.Messages;
+using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
     /// <summary>
-    /// respone fom device with current settings
+    /// response from device with current settings
     /// </summary>
+    [MessageMatchPattern("7AFF-2080-1000-********-****|0108+")]
     [StructLayout(LayoutKind.Explicit, Size = 28)]
     public struct ReadSettingsResponse : IRadexObject
     {
+        // <: 7AFF 2080 1000 FD05 ____ 577A 0108 ____ 0500 ____ 020A ____ ____ F7ED
+
         [FieldOffset(0)]
         private readonly ushort Prefix;
         [FieldOffset(2)]
