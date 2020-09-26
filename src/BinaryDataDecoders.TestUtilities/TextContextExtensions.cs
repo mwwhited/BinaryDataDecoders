@@ -2,7 +2,9 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
+using BinaryDataDecoders.ToolKit;
 
 namespace BinaryDataDecoders.TestUtilities
 {
@@ -40,6 +42,19 @@ namespace BinaryDataDecoders.TestUtilities
             File.WriteAllBytes(outFile, content);
             context.AddResultFile(outFile);
             return context;
+        }
+
+        public static Stream GetTestDataAsync<T>(this TestContext context, string target )
+        {
+            var typeQuery = from assembly in AppDomain.CurrentDomain.GetAssemblies()
+                            from type in assembly.GetTypes()
+                            where type.FullName == context.FullyQualifiedTestClassName
+                            select type;
+            var testType = typeQuery.First();
+            var testClass = Activator.CreateInstance(typeQuery.First());
+
+
+
         }
 
         //public static async Task<T> GetTestDataAsync<T>(this TestContext context, string target = null)

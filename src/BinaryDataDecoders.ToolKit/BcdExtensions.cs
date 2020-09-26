@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class BcdEx
+    public static class BcdExtensions
     {
         public static int AsBCD(this byte input)
         {

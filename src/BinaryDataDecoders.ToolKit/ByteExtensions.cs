@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class ByteEx
+    public static class ByteExtensions
     {
         public static IEnumerable<byte[]> Chunk(this IEnumerable<byte> data, byte splitter = 0x04, bool exclude = false)
         {
@@ -36,10 +36,7 @@ namespace BinaryDataDecoders.ToolKit
         public static decimal ToDecimal(this IEnumerable<byte> data, int offset, decimal mag = 1m, int byteCount = 2, Endianness endianness = Endianness.Little) =>
            ((decimal)ToNumber(data, offset, byteCount, endianness)) / mag;
 
-        public static string ToHexString(this IEnumerable<byte> data, string delimiter = "")
-        {
-            return string.Join(delimiter ?? "", (data ?? Enumerable.Empty<byte>()).Select(b => b.ToString("x2")));
-        }
-
+        public static string ToHexString(this IEnumerable<byte> data, string delimiter = "")=>
+            string.Join(delimiter ?? "", (data ?? Enumerable.Empty<byte>()).Select(b => b.ToString("x2")));
     }
 }

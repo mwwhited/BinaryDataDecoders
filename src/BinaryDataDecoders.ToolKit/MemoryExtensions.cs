@@ -4,21 +4,17 @@ using System.Linq;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class MemoryEx
+    public static class MemoryExtensions
     {
-        public static Memory<char> AsMemory(this IEnumerable<char> input)
-        {
-            return new Memory<char>(input.ToArray());
-        }
+        public static Memory<char> AsMemory(this IEnumerable<char> input) =>
+            new Memory<char>(input.ToArray());
 
-        public static IEnumerable<Memory<T>> Distinct<T>(this IEnumerable<Memory<T>> segments) where T : IEquatable<T>
-        {
-            return segments.Distinct(new MemoryCompare<T>());
-        }
+        public static IEnumerable<Memory<T>> Distinct<T>(this IEnumerable<Memory<T>> segments) where T : IEquatable<T> =>
+            segments.Distinct(new MemoryCompare<T>());
 
         public static Memory<byte> BytesFromHexString(this Memory<char> input)
         {
-            byte charToNibble(char input)
+            static byte charToNibble(char input)
             {
                 unchecked
                 {
@@ -43,29 +39,20 @@ namespace BinaryDataDecoders.ToolKit
             return memory;
         }
 
-        public static IEnumerable<Memory<byte>> Split(this Memory<byte> memory, byte delimiter, DelimiterOptions option = DelimiterOptions.Exclude)
-        {
-            return memory.Split<byte>(delimiter, option);
-        }
-        public static IEnumerable<Memory<char>> Split(this Memory<char> memory, char delimiter, DelimiterOptions option = DelimiterOptions.Exclude)
-        {
-            return memory.Split<char>(delimiter, option);
-        }
-        public static IEnumerable<Memory<T>> Split<T>(this Memory<T> memory, T delimiter, DelimiterOptions option = DelimiterOptions.Exclude) where T : IEquatable<T>
-        {
-            switch (option)
-            {
-                default:
-                case DelimiterOptions.Exclude:
-                    return SplitWithExclude<T>(memory, delimiter);
-                case DelimiterOptions.Return:
-                    return SplitWithReturn<T>(memory, delimiter);
-                case DelimiterOptions.Carry:
-                    return SplitWithCarry<T>(memory, delimiter);
-            }
+        public static IEnumerable<Memory<byte>> Split(this Memory<byte> memory, byte delimiter, DelimiterOptions option = DelimiterOptions.Exclude) =>
+            memory.Split<byte>(delimiter, option);
 
-            throw new NotSupportedException();
-        }
+        public static IEnumerable<Memory<char>> Split(this Memory<char> memory, char delimiter, DelimiterOptions option = DelimiterOptions.Exclude) =>
+            memory.Split<char>(delimiter, option);
+
+        public static IEnumerable<Memory<T>> Split<T>(this Memory<T> memory, T delimiter, DelimiterOptions option = DelimiterOptions.Exclude) where T : IEquatable<T> =>
+            option switch
+            {
+                DelimiterOptions.Return => SplitWithReturn(memory, delimiter),
+                DelimiterOptions.Carry => SplitWithCarry(memory, delimiter),
+                _ => SplitWithExclude(memory, delimiter),
+            };
+
         private static IEnumerable<Memory<T>> SplitWithExclude<T>(this Memory<T> memory, T delimiter) where T : IEquatable<T>
         {
             var pointer = 0;
