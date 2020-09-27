@@ -9,8 +9,10 @@ namespace BinaryDataDecoders.IO.Tests.Functions
     [TestClass]
     public class ChecksumCalculatorTests
     {
+        public TestContext TestContext { get; set; }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ChecksumCalculator), Member = nameof(ChecksumCalculator.Simple16))]
         public void Simple16Test()
         {
             //Stage

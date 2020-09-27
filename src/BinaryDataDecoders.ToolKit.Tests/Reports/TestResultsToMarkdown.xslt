@@ -6,11 +6,16 @@
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
 	xmlns:tt="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
+	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+	xmlns:ex-path="clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.Path, BinaryDataDecoders.ToolKit"
+	xmlns:ex-trx="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities"
+	xmlns:trx-o="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities:out"
 	>
 	<xsl:output method="text" indent="no"/>
 
 	<xsl:template match="/">
-		<xsl:text># Test Run - </xsl:text><xsl:value-of select="tt:TestRun/@name" />&cr;&cr;
+		<xsl:text># Test Run - </xsl:text><xsl:value-of select="tt:TestRun/@name" />&cr;
+		&cr;
 		<xsl:text>Run Time - </xsl:text>
 		<xsl:value-of select="tt:TestRun/tt:Times/@start" />
 		<xsl:text> to </xsl:text>
@@ -22,7 +27,8 @@
 		<xsl:for-each select="$test-classes">
 			<xsl:variable name="test-class-name" select="." />
 			<xsl:variable name="tests" select="/tt:TestRun/tt:TestDefinitions/tt:UnitTest[tt:TestMethod/@className=$test-class-name]" />
-			<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;&cr;
+			<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
+			&cr;
 
 			<xsl:apply-templates select="$tests" />
 		</xsl:for-each>
@@ -31,8 +37,21 @@
 
 	<xsl:template match="tt:UnitTest">
 		<xsl:variable name="test-id" select="./@id" />
-		<xsl:text>### </xsl:text><xsl:value-of select="./@name" />
-		&cr;&cr;
+		<xsl:text>### </xsl:text><xsl:value-of select="./@name" />&cr;
+		<xsl:text> Location: </xsl:text><xsl:value-of select="ex-path:GetFileName(./@storage)" />&cr;
+
+		<xsl:variable name="targets" select="ex-trx:GetTestTargets(./tt:TestMethod)/trx-o:target" />
+
+		<xsl:if test="targets">
+			<xsl:text>#### Targets </xsl:text>&cr;
+			<xsl:for-each select="$targets">
+				<xsl:text> * </xsl:text><xsl:value-of select="@name" /><xsl:text>::</xsl:text><xsl:text>=</xsl:text><xsl:value-of select="@member" />&cr;
+				<xsl:text>   * </xsl:text><xsl:value-of select="@assembly" /><xsl:text> => </xsl:text><xsl:text>=</xsl:text><xsl:value-of select="@namespace" />&cr;
+			</xsl:for-each>
+			&cr;
+		</xsl:if>
+
+		<!--
 		<xsl:text>Categories: </xsl:text>
 		<xsl:for-each select="tt:TestCategory/tt:TestCategoryItem/@TestCategory">
 			<xsl:value-of select="." />
@@ -41,11 +60,13 @@
 			</xsl:if>
 		</xsl:for-each>&cr;
 		&cr;
+		-->
 
 		<xsl:variable name="test-results" select="/tt:TestRun/tt:Results/tt:UnitTestResult[@testId=$test-id]" />
 		<xsl:text>| Result                   | Duration         | Test Name                                          |</xsl:text>&cr;
 		<xsl:text>| :----------------------- | ---------------: | :------------------------------------------------- |</xsl:text>&cr;
 		<xsl:apply-templates select="$test-results" />
+		<xsl:text>| :----------------------- | ---------------: | :------------------------------------------------- |</xsl:text>&cr;
 		&cr;
 
 	</xsl:template>

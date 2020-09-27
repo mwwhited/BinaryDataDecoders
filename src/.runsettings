@@ -62,7 +62,7 @@ https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-ana
 					<LogFileName>TestResult.trx</LogFileName>
 				</Configuration>
 			</Logger>
-			<Logger friendlyName="html" enabled="True">
+			<Logger friendlyName="html" enabled="False">
 				<Configuration>
 					<LogFileName>TestResult.html</LogFileName>
 				</Configuration>

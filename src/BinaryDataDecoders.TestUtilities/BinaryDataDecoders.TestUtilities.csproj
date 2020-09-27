@@ -9,6 +9,7 @@
 		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="..\..\LICENSE" Link="LICENSE">
@@ -20,6 +21,10 @@
 	<ItemGroup>
 		<PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
 		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
 	</ItemGroup>
 
 </Project>

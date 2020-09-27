@@ -9,6 +9,7 @@
 		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">

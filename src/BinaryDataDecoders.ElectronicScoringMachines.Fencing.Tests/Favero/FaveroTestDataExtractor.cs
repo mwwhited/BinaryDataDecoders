@@ -2,8 +2,6 @@
 using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using static BinaryDataDecoders.ToolKit.DelimiterOptions;
@@ -15,7 +13,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, Ignore]
         public void TestDataExtractor()
         {
             var path = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\RawData.txt";
@@ -48,7 +46,6 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
                     this.TestContext.WriteLine($"ERROR Decoding {c.ToArray().ToHexString()}");
                 }
             }
-
         }
     }
 }

@@ -98,6 +98,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("")]
         [DataRow("b")]
         [DataRow("b+1")]
+        [TestTarget(typeof(ExpressionParser<>), Member = nameof(ExpressionParser<double>.Parse))]
         //TODO: this should throw a parse error !!![DataRow("1e")]
         public void PoorlyFormedExpressions(string input)
         {
@@ -124,6 +125,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("-(A!)", "-(A!)", DisplayName = "Negative factorial")]
         [DataRow("((((((A-B-1*E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H", "((((((A - B - 1 * E - 6) / C) + 0.999999) / 1000000) * 1000000) * ((D * E) * F) * G) + H", DisplayName = "Parse Complex Expression")]
         [DataRow("B*--A", "B * --A")]
+        [TestTarget(typeof(ExpressionParser<>), Member = nameof(ExpressionParser<double>.Parse))]
         public void SimpleParserTests(string input, string result)
         {
             if (_skipDecimal && input.Contains("."))
@@ -180,6 +182,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("2!!!", "2")]
         [DataRow("N!!", "N!!")]
         [DataRow("N!!!", "N!!!")]
+        [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Optimize))]
         public void OptimizerTests(string input, string result)
         {
             if (Marshal.SizeOf<T>() == 1 && input.Contains("!!"))
@@ -214,6 +217,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("B/0")]
         [DataRow("B%0")]
         [ExpectedException(typeof(DivideByZeroException))]
+        [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Optimize))]
         public void OptimizerTests_WithExceptions(string input)
         {
             TestContext.WriteLine($"Input: {input}");
@@ -228,6 +232,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("A+B+C", "A, B, C")]
         [DataRow("A+B+B", "A, B")]
         [DataRow("Abc+XyW1", "Abc, XyW1")]
+        [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.GetDistinctVariableNames))]
         public void GetDistinctVariablesTests(string input, string result)
         {
             TestContext.WriteLine($"Input: {input}");
@@ -308,6 +313,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
         [DataRow("((A/B)*((C*D)*E))+F", DisplayName = "Check Expressions \"((A/B)*((C*D)*E))+F\"")]
         [DataRow("(A/(A+B))", DisplayName = "Check Expressions \"(A/(A+B))\"")]
         [DataRow("A!")]
+        [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Optimize))]
         public void VerifyOptimizerForComplexExpressions(string input)
         {
             var includesFactorial = input.Contains("!");

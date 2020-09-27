@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.Cryptography.Enigma;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
@@ -8,7 +9,8 @@ namespace BinaryDataDecoders.Cryptography.Tests.Enigma
     [TestClass]
     public class EnigmaMachineTests
     {
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(EnigmaMachine), Member = nameof(EnigmaMachine.Process))]
         public void ProcessTest_EnigmaI_I_II_III_RefB_ABDEYZ_AAA()
         {
             var rotors = EnigmaRotor.Rotors
@@ -22,7 +24,7 @@ namespace BinaryDataDecoders.Cryptography.Tests.Enigma
 
             em.PlugBoard = "AB DE YZ";
             var start = em.Position = "AAA";
-            
+
             var ret = em.Process("AAAAA");
             Assert.AreEqual("BJLCS", ret);
         }

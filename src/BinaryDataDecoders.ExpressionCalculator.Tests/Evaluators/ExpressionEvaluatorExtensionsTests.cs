@@ -10,6 +10,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
         public TestContext TestContext { get; set; }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Sequence))]
         public void Sequence_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
@@ -19,6 +20,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Product))]
         public void Product_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
@@ -28,6 +30,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Sum))]
         public void Sum_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
@@ -37,6 +40,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Factorial))]
         public void Factorial_Test()
         {
             var evaluator = ExpressionEvaluatorFactory.Create<decimal>();

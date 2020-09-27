@@ -11,6 +11,9 @@ namespace BinaryDataDecoders.ToolKit
         public static Task<string> GetResourceAsStringAsync(this object context, string filename) =>
             context.GetResourceStream(filename).ReadAsStringAsync();
 
+        public static string GetXmlNamespace(this object obj) =>
+            obj?.GetType().GetXmlNamespace();
+
         //public static async Task<T> GetResourceFromJsonAsync<T>(this object context, string filename, JsonSerializerSettings settings = null)
         //{
         //    var json = await context.GetResourceAsStringAsync(filename);

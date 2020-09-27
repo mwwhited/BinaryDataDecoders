@@ -8,12 +8,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
     public class NumberExpressionTests
     {
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(NumberExpression<>), Member = nameof(NumberExpression<double>.Equals))]
         public void Equals_SameReference_Test()
         {
             var exp = new NumberExpression<double>(1.1);
             Assert.IsTrue(exp.Equals(exp));
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(NumberExpression<>), Member = nameof(NumberExpression<double>.Equals))]
         public void Equals_SameValue_Test()
         {
             var num1 = new NumberExpression<double>(1.1);
@@ -21,6 +23,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.IsTrue(num1.Equals(num2));
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(NumberExpression<>), Member = nameof(NumberExpression<double>.Equals))]
         public void Equals_DifferentValue_Test()
         {
             var num1 = new NumberExpression<double>(1.1);
@@ -29,6 +32,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(NumberExpression<>), Member = nameof(NumberExpression<double>.Equals))]
         public void Equals_SameNumber_Test()
         {
             var num1 = new NumberExpression<double>(1.1);
@@ -36,6 +40,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.IsTrue(num1.Equals(num2));
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(NumberExpression<>), Member = nameof(NumberExpression<double>.Equals))]
         public void Equals_DifferentNumber_Test()
         {
             var num1 = new NumberExpression<double>(1.1);

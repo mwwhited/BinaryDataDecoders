@@ -2,8 +2,10 @@
 {
     public static class TestCategories
     {
-        public const string Unit = "Unit";
-        public const string Simulation = "Simulate";
-        public const string Integration = "Integration";
+        public const string Unit = nameof(Unit);
+        public const string Simulation = nameof(Simulation);
+        public const string Integration = nameof(Integration);
+
+        public const string Reports = nameof(Reports);
     }
 }

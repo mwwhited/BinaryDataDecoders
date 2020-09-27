@@ -11,6 +11,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         public TestContext TestContext { get; set; }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Evaluate))]
         public void ParseAndEvaluateTest()
         {
             var input = "A+B";
@@ -34,6 +35,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.PreEvaluate))]
         public void ParseAndPreEvaluateTest()
         {
             var input = "A+B";
@@ -57,6 +59,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.ReplaceVariables))]
         public void ParseAndReplaceVariablesTest()
         {
             var input = "A+B";

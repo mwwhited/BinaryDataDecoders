@@ -9,12 +9,14 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
     public class VariableExpressionTests
     {
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(VariableExpression<>), Member = nameof(VariableExpression<double>.Equals))]
         public void Equals_SameReference_Test()
         {
             var exp = new VariableExpression<double>("Test");
             Assert.IsTrue(exp.Equals(exp));
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(VariableExpression<>), Member = nameof(VariableExpression<double>.Equals))]
         public void Equals_SameValue_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
@@ -22,6 +24,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.IsTrue(var1.Equals(var2));
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(VariableExpression<>), Member = nameof(VariableExpression<double>.Equals))]
         public void Equals_DifferentValue_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
@@ -30,6 +33,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(VariableExpression<>), Member = nameof(VariableExpression<double>.Equals))]
         public void Equals_SameString_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
@@ -37,6 +41,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.IsTrue(var1.Equals(var2));
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(VariableExpression<>), Member = nameof(VariableExpression<double>.Equals))]
         public void Equals_DifferentString_Test()
         {
             var var1 = new VariableExpression<double>("Test1");
@@ -45,6 +50,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         }
 
         [TestMethod, TestCategory(TestCategories.Unit), ExpectedException(typeof(InvalidOperationException))]
+        [TestTarget(typeof(VariableExpression<>))]
         public void NullVariableName_Test()
         {
            _ = new VariableExpression<double>(null);
@@ -52,6 +58,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
         }
 
         [TestMethod, TestCategory(TestCategories.Unit), ExpectedException(typeof(InvalidOperationException))]
+        [TestTarget(typeof(VariableExpression<>))]
         public void EmptyVariableName_Test()
         {
             _= new VariableExpression<double>("");

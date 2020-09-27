@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
     [TestClass]
     public class ExpressionBaseTests
     {
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBase<>), Member = "implicit operator")]
         public void ImplicitConvertTest_Expression()
         {
             ExpressionBase<decimal> exp = "A+B";
@@ -19,7 +21,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.AreEqual("A + B", result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBase<>), Member = "implicit operator")]
         public void ImplicitConvertTest_Variable()
         {
             ExpressionBase<decimal> exp = "A";
@@ -28,7 +31,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.AreEqual("A", result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBase<>), Member = "implicit operator")]
         public void ImplicitConvertTest_Number()
         {
             ExpressionBase<decimal> exp = "1.45";
@@ -37,14 +41,16 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.AreEqual("1.45", result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBase<>), Member = "implicit operator")]
         public void ImplicitConvertTest_OverlyComplex()
         {
             double result = ((ExpressionBase<decimal>)"A+B").PreEvaluate(("A", 1), ("B", 2.3));
             Assert.AreEqual(3.3, result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBase<>), Member = "implicit operator")]
         public void ImplicitConvertTest_MoreOverlyComplex()
         {
             ExpressionBase<decimal> exp = "A+B";
@@ -52,7 +58,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Expressions
             Assert.AreEqual(4.6, result);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(ExpressionBase<>), Member = "implicit operator")]
         public void ImplicitConvertTest_WayMoreOverlyComplex()
         {
             double result = "A+B".PreEvaluate(("A", "B+B"), ("B", 2.3));
