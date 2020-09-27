@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class MemoryExtensions
+    public static class MemoryEx
     {
         public static Memory<char> AsMemory(this IEnumerable<char> input) =>
             new Memory<char>(input.ToArray());

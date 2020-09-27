@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class TypeExtensions
+    public static class TypeEx
     {
         public static Stream GetResourceStream(this Type classType, string filename) =>
              classType?.Assembly.GetManifestResourceStream($"{classType.Namespace}.{filename}");

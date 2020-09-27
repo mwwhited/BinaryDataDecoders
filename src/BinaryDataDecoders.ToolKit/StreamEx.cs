@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class StreamExtensions
+    public static class StreamEx
     {
         public static async Task<string> ReadAsStringAsync(this Stream stream)
         {

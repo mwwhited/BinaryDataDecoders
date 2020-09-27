@@ -12,18 +12,6 @@
 		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
 
-
-	<ItemGroup>
-	  <None Remove="Reports\TestResultsToMarkdown.xslt" />
-	  <None Remove="Reports\TestResultsToMarkdownDetailed.xslt" />
-	</ItemGroup>
-
-
-	<ItemGroup>
-	  <EmbeddedResource Include="Reports\TestResultsToMarkdown.xslt" />
-	  <EmbeddedResource Include="Reports\TestResultsToMarkdownDetailed.xslt" />
-	</ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />

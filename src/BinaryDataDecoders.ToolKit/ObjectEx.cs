@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class ObjectExtensions
+    public static class ObjectEx
     {
         public static Stream GetResourceStream(this object context, string filename) =>
             context?.GetType().GetResourceStream(filename);

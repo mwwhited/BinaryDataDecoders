@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BinaryDataDecoders.Xslt.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)TestResults\\TestResult.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\index.md\""
+    }
+  }
+}

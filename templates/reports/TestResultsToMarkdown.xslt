@@ -7,7 +7,8 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
 	xmlns:tt="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-	xmlns:ex-path="clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.Path, BinaryDataDecoders.ToolKit"
+	xmlns:ex-path="clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions, BinaryDataDecoders.ToolKit"
+	xmlns:ex-file="clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.FileExtensions, BinaryDataDecoders.ToolKit"
 	xmlns:ex-trx="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities"
 	xmlns:trx-o="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities:out"
 	>
@@ -26,11 +27,14 @@
 
 		<xsl:for-each select="$test-classes">
 			<xsl:variable name="test-class-name" select="." />
-			<xsl:variable name="tests" select="/tt:TestRun/tt:TestDefinitions/tt:UnitTest[tt:TestMethod/@className=$test-class-name]" />
-			<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
-			&cr;
+			<xsl:variable name="test-report">
+				<xsl:variable name="tests" select="/tt:TestRun/tt:TestDefinitions/tt:UnitTest[tt:TestMethod/@className=$test-class-name]" />
+				<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
+				&cr;
+				<xsl:apply-templates select="$tests" />
+			</xsl:variable>
 
-			<xsl:apply-templates select="$tests" />
+			<xsl:value-of select="ex-file:WriteToFile($test-report, concat($test-class-name, '.md'))" />
 		</xsl:for-each>
 
 	</xsl:template>
@@ -66,7 +70,6 @@
 		<xsl:text>| Result                   | Duration         | Test Name                                          |</xsl:text>&cr;
 		<xsl:text>| :----------------------- | ---------------: | :------------------------------------------------- |</xsl:text>&cr;
 		<xsl:apply-templates select="$test-results" />
-		<xsl:text>| :----------------------- | ---------------: | :------------------------------------------------- |</xsl:text>&cr;
 		&cr;
 
 	</xsl:template>

@@ -33,24 +33,28 @@ echo "Build Packages"
 dotnet build "%TestProject%" --configuration %Configuration% --no-restore
 
 echo "Run Tests"
-dotnet test "%TestProject%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TestOutput%" --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings --logger trx
+dotnet test "%TestProject%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TestOutput%" --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings 
+REM --logger trx
 SET TEST_ERR=%ERRORLEVEL%
 reportgenerator "-reports:%TestOutput%\**\coverage.cobertura.xml" "-targetDir:%TestOutput%\Coverage\Reports" "-reportTypes:HtmlInline;PngChart;Xml;Badges" "-title:%TestProject% - (%USERNAME%)"
-start "%TestOutput%\Coverage\Reports\index.html"
+REM start "%TestOutput%\Coverage\Reports\index.html"
 
 echo "Pack Projects"
-dotnet pack --no-build --no-restore "%TestProject%"  -o "%OutputPath%/Nuget"
+dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget"
 
 echo "Output Test Reports"
 copy "%TestOutput%\Coverage\Reports\*.html" "%OutputPath%\Coverage" /Y
 copy "%TestOutput%\Coverage\Reports\*.xml" "%OutputPath%\Coverage" /Y
-copy "%TestOutput%\Coverage\Reports\*.png" "%OutputPath%\Coverage" /Y
-  
+copy "%TestOutput%\Coverage\Reports\*.png" "%OutputPath%\Coverage" /Y  
 copy "%TestOutput%\*.trx" "%OutputPath%\Results" /Y
+
+echo "Build Reports"
+dotnet test "BinaryDataDecoders.ToolKit.Tests" --no-build --no-restore --nologo -r "%TestOutput%" --filter "TestCategory=Reports" "/P:TestResultsSource=%TestOutput%\TestResults.trx"
+
 
 ECHO TEST_ERR=%TEST_ERR%
 IF %TEST_ERR%==0 (
 	ECHO "No Errors :)"
 	REM EXIT 0
 )
-PAUSE
+REM Pause

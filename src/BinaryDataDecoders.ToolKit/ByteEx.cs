@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BinaryDataDecoders.ToolKit
 {
-    public static class ByteExtensions
+    public static class ByteEx
     {
         public static IEnumerable<byte[]> Chunk(this IEnumerable<byte> data, byte splitter = 0x04, bool exclude = false)
         {

@@ -2,7 +2,7 @@
 
 namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
 {
-    public class Path
+    public class PathExtensions
     {
         public string GetFileName(string file) => _Path.GetFileName(file);
         public string GetFileNameWithoutExtension(string file) => _Path.GetFileNameWithoutExtension(file);

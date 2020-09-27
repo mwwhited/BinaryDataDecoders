@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
         public TestContext TestContext { get; set; }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
-        [TestTarget(typeof(MemoryExtensions), Member = nameof(MemoryExtensions.Split))]
+        [TestTarget(typeof(MemoryEx), Member = nameof(MemoryEx.Split))]
         public void SplitTest_Exclude()
         {
             var data = GetTestData();
@@ -25,7 +25,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
                 );
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
-        [TestTarget(typeof(MemoryExtensions), Member = nameof(MemoryExtensions.Split))]
+        [TestTarget(typeof(MemoryEx), Member = nameof(MemoryEx.Split))]
         public void SplitTest_Carry()
         {
             var data = GetTestData();
@@ -38,7 +38,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
-        [TestTarget(typeof(MemoryExtensions), Member = nameof(MemoryExtensions.Split))]
+        [TestTarget(typeof(MemoryEx), Member = nameof(MemoryEx.Split))]
         public void SplitTest_Return()
         {
             var data = GetTestData();
@@ -51,7 +51,7 @@ namespace BinaryDataDecoders.ToolKit.Tests
         }
 
         [TestMethod, TestCategory(TestCategories.Unit)]
-        [TestTarget(typeof(MemoryExtensions), Member = nameof(MemoryExtensions.Split))]
+        [TestTarget(typeof(MemoryEx), Member = nameof(MemoryEx.Split))]
         public void SplitTest_Exclude3()
         {
             var data = GetBigTestData();
