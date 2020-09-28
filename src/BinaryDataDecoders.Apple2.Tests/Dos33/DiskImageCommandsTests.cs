@@ -74,7 +74,7 @@ namespace BinaryDataDecoders.Apple2.Tests.Dos33
                 this.TestContext.WriteLine($"{catalog}");
                 foreach (var file in catalog.FileEntries)
                 {
-                    this.TestContext.WriteLine($"{file}");
+                    this.TestContext.WriteLine($"~{file}");
                 }
             }
 
@@ -85,6 +85,45 @@ namespace BinaryDataDecoders.Apple2.Tests.Dos33
 
             //Assert
             Assert.AreEqual("HELLO|COPY|CONVERT13", string.Join("|", files));
+
+            //Verify
+        }
+
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(DiskImageCommands), Member = nameof(DiskImageCommands.GetTrackSectorListForFileEntry))]
+        public void GetTrackSectorListForFileEntryTest()
+        {
+            //IEnumerable<TrackSectorList> GetTrackSectorListForFileEntry(Stream diskImage, FileEntry fileEntry)
+
+            // IEnumerable<CatalogEntry> GetCatalogs(Stream diskImage, VolumeTableOfContents vtoc);
+            //Stage
+            using var diskImageStream = this.GetResourceStream("1983_dos33c.dsk");
+
+            //Mock
+
+            //Test
+            var dic = new DiskImageCommands();
+            var target = (from catalog in dic.GetCatalogs(diskImageStream)
+                          from file in catalog.FileEntries
+                          where file.Exists
+                          select file).First();
+            var results = dic.GetTrackSectorListForFileEntry(diskImageStream, target).ToArray();
+
+            //Output
+            foreach (var tsl in results)
+            {
+                this.TestContext.WriteLine($"{tsl.NextTrack}/{tsl.NextSector}: {tsl.SectorOffset}");
+                foreach (var ts in tsl.TrackSectorPairs.Where(i => i.Track != 0 || i.Sector != 0))
+                {
+                    this.TestContext.WriteLine($"~{ts}");
+                }
+            }
+
+            //Assert
+            Assert.AreEqual(19, results[0].TrackSectorPairs.ElementAt(0).Track);
+            Assert.AreEqual(14, results[0].TrackSectorPairs.ElementAt(0).Sector);
+            Assert.AreEqual(19, results[0].TrackSectorPairs.ElementAt(1).Track);
+            Assert.AreEqual(13, results[0].TrackSectorPairs.ElementAt(1).Sector);
 
             //Verify
         }

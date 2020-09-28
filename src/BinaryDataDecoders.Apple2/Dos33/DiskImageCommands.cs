@@ -29,27 +29,55 @@ namespace BinaryDataDecoders.Apple2.Dos33
         {
             var vtoc = GetVolumeTableOfContents(diskImage);
 
-            var catalogTrack = vtoc.FirstCatalogTrack;
-            var catalogSector = vtoc.FirstCatalogSector;
+            var track = vtoc.FirstCatalogTrack;
+            var sector = vtoc.FirstCatalogSector;
             var trackSectors = vtoc.NumberOfSectorsPerTrack;
             var sectorLength = vtoc.NumberOfBytesPerSector;
 
             var buffer = new byte[sectorLength];
-        nextCatalog:
+        next:
 
             Span<byte> catalogSpan = buffer;
-            var catalogLocation = catalogTrack * trackSectors * sectorLength + catalogSector * sectorLength;
+            var location = track * trackSectors * sectorLength + sector * sectorLength;
 
-            diskImage.Position = catalogLocation;
+            diskImage.Position = location;
             diskImage.Read(catalogSpan);
-            var catalog = new CatalogEntry(catalogSpan);
-            yield return catalog;
+            var item = new CatalogEntry(catalogSpan);
+            yield return item;
 
-            if (catalog.NextCatalogTrack != 0 && catalog.NextSectorTrack != 0)
+            if (item.NextCatalogTrack != 0 && item.NextSectorTrack != 0)
             {
-                catalogTrack = catalog.NextCatalogTrack;
-                catalogSector = catalog.NextSectorTrack;
-                goto nextCatalog;
+                track = item.NextCatalogTrack;
+                sector = item.NextSectorTrack;
+                goto next;
+            }
+        }
+
+        public IEnumerable<TrackSectorList> GetTrackSectorListForFileEntry(Stream diskImage, FileEntry fileEntry)
+        {
+            var vtoc = GetVolumeTableOfContents(diskImage);
+
+            var track = fileEntry.Track;
+            var sector = fileEntry.Sector;
+            var trackSectors = vtoc.NumberOfSectorsPerTrack;
+            var sectorLength = vtoc.NumberOfBytesPerSector;
+
+            var buffer = new byte[sectorLength];
+        next:
+
+            Span<byte> span = buffer;
+            var location = track * trackSectors * sectorLength + sector * sectorLength;
+
+            diskImage.Position = location;
+            diskImage.Read(span);
+            var item = new TrackSectorList(span);
+            yield return item;
+
+            if (item.NextTrack != 0 && item.NextSector != 0)
+            {
+                track = item.NextTrack;
+                sector = item.NextSector;
+                goto next;
             }
         }
     }

@@ -71,9 +71,15 @@ namespace BinaryDataDecoders.Apple2.Dos33
         /// Simple mapping to the deleted flag in FileType
         /// </summary>
         public bool IsDeleted => Track == 0xff;
+        /// <summary>
+        /// file is readonly
+        /// </summary>
         public bool IsLocked => FileType.HasFlag(AppleFileType.Locked);
+        /// <summary>
+        /// file does not exist
+        /// </summary>
         public bool Exists => Track != 0x00 && Track != 0xff;
 
-        public override string ToString() => $"{Name} - {FileType} ({Track}/{Sector})";
+        public override string ToString() => $"\"{Name}\" - {FileType} ({Track}/{Sector}) {FileSize}S";
     }
 }

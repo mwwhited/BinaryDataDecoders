@@ -106,14 +106,7 @@
            BYTE        DESCRIPTION
            ----        -----------
            $00         Not used
-           $01         Track number of the next catalog sector (usually
-                       $11)
-
-
-
-
-
-
+           $01         Track number of the next catalog sector (usually $11)
 
            $02         Sector number of next catalog sector
            $03-$0A     Not used
@@ -170,12 +163,6 @@
        file descriptive entry in the catalog sector points to this T/S
        list sector which, in turn, points to each sector in the file.
 
-
-
-
-
-
-
        The format of a Track/Sector List sector is given below.  Note
        that since even a minimal file requires one T/S List sector and
        one data sector, the least number of sectors a non-empty file can
@@ -230,13 +217,6 @@
        written to the disk sector(s).  The first four bytes of the file
        are a two byte memory address where the file is loaded into
        memory, followed by a two byte length of the file.  Both the load
-
-
-
-
-
-
-
        address and the length are in LO/HI format. The address and
        length are those given in the A and L keywords from the BSAVE
        command that created the file.  Note that DOS writes one extra
