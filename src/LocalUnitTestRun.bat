@@ -37,17 +37,17 @@ echo "Run Tests"
 dotnet test "%TestProject%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TestOutput%" --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings
 REM --logger trx
 SET TEST_ERR=%ERRORLEVEL%
-reportgenerator "-reports:%TestOutput%\**\coverage.cobertura.xml" "-targetDir:%TestOutput%\Coverage\Reports" "-reportTypes:HtmlInline;PngChart;Xml;Badges" "-title:%TestProject% - (%USERNAME%)"
-REM start "%TestOutput%\Coverage\Reports\index.html"
+reportgenerator "-reports:%TestOutput%\**\coverage.cobertura.xml" "-targetDir:%TestOutput%\Coverage\Reports" "-reportTypes:HtmlInline" "-title:%TestProject% - (%USERNAME%)"
+REM start "%TestOutput%\Coverage\Reports\index.html" ;PngChart;Xml;Badges
 
-echo "Pack Projects"
-dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget"
+REM echo "Pack Projects"
+REM dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget"
 
-echo "Output Test Reports"
-copy "%TestOutput%\Coverage\Reports\*.html" "%OutputPath%\Coverage" /Y
-copy "%TestOutput%\Coverage\Reports\*.xml" "%OutputPath%\Coverage" /Y
-copy "%TestOutput%\Coverage\Reports\*.png" "%OutputPath%\Coverage" /Y  
-copy "%TestOutput%\*.trx" "%OutputPath%\Results" /Y
+REM echo "Output Test Reports"
+REM copy "%TestOutput%\Coverage\Reports\*.html" "%OutputPath%\Coverage" /Y
+REM copy "%TestOutput%\Coverage\Reports\*.xml" "%OutputPath%\Coverage" /Y
+REM copy "%TestOutput%\Coverage\Reports\*.png" "%OutputPath%\Coverage" /Y  
+REM copy "%TestOutput%\*.trx" "%OutputPath%\Results" /Y
 
 echo "Build Reports"
 dotnet publish BinaryDataDecoders.Xslt.Cli -o "%OutputPath%\Tools" --no-build --no-restore 
