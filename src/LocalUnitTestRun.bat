@@ -16,9 +16,7 @@ rmdir /s/q "%TestOutput%"
 rmdir /s/q "%OutputPath%"
 
 mkdir "%OutputPath%\Nuget"
-mkdir "%OutputPath%\Coverage"
 mkdir "%OutputPath%\Results"
-mkdir "%OutputPath%\Documents"
 mkdir "%OutputPath%\Tools"
 
 echo "Git fetch"
@@ -34,25 +32,24 @@ echo "Build Packages"
 dotnet build "%TestProject%" --configuration %Configuration% --no-restore
 
 echo "Run Tests"
-dotnet test "%TestProject%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TestOutput%" --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings /p:CollectCoverage=true
-REM --logger trx
+FOR /D %%T IN (*.Tests) DO ^
+dotnet test "%%T" --no-build --no-restore ^
+--collect:"XPlat Code Coverage" -r "%TestOutput%" ^
+--nologo --filter "TestCategory=Unit|TestCategory=Simulate" ^
+-s .runsettings /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true ^
+--logger "trx;LogFileName=%%T.trx"
+
+
 SET TEST_ERR=%ERRORLEVEL%
-reportgenerator "-reports:%TestOutput%\**\coverage.cobertura.xml" "-targetDir:%TestOutput%\Coverage\Reports" "-reportTypes:HtmlInline" "-title:%TestProject% - (%USERNAME%)"
+reportgenerator "-reports:%TestOutput%\**\coverage.cobertura.xml" "-targetDir:%OutputPath%\docs\Coverage" "-reportTypes:HtmlInline;Badges" "-title:%TestProject% - (%USERNAME%)"
 REM start "%TestOutput%\Coverage\Reports\index.html" ;PngChart;Xml;Badges
 
-REM echo "Pack Projects"
-REM dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget"
-
-REM echo "Output Test Reports"
-REM copy "%TestOutput%\Coverage\Reports\*.html" "%OutputPath%\Coverage" /Y
-REM copy "%TestOutput%\Coverage\Reports\*.xml" "%OutputPath%\Coverage" /Y
-REM copy "%TestOutput%\Coverage\Reports\*.png" "%OutputPath%\Coverage" /Y  
-REM copy "%TestOutput%\*.trx" "%OutputPath%\Results" /Y
+echo "Pack Projects"
+dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget"
 
 echo "Build Reports"
-dotnet publish BinaryDataDecoders.Xslt.Cli -o "%OutputPath%\Tools" --no-build --no-restore 
-"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\TestResultsToMarkdown.xslt" -i "%TestOutput%\TestResult.trx" -o "%OutputPath%\docs\TestResults\index.md"
-
+dotnet publish BinaryDataDecoders.Xslt.Cli -o "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli" --no-build --no-restore 
+FOR %%T IN ("%TestOutput%\*.trx") DO "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\TestResultsToMarkdown.xslt" -i "%%T" -o "%OutputPath%\docs\TestResults\%%~nT\index.md"
 
 ECHO TEST_ERR=%TEST_ERR%
 IF %TEST_ERR%==0 (

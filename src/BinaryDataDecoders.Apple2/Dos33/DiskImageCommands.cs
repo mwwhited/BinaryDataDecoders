@@ -140,24 +140,4 @@ namespace BinaryDataDecoders.Apple2.Dos33
             return outputSpan;
         }
     }
-    internal class MemorySegment<T> : ReadOnlySequenceSegment<T>
-    {
-        //https://www.stevejgordon.co.uk/creating-a-readonlysequence-from-array-data-in-dotnet
-        public MemorySegment(ReadOnlyMemory<T> memory)
-        {
-            Memory = memory;
-        }
-
-        public MemorySegment<T> Append(ReadOnlyMemory<T> memory)
-        {
-            var segment = new MemorySegment<T>(memory)
-            {
-                RunningIndex = RunningIndex + Memory.Length
-            };
-
-            Next = segment;
-
-            return segment;
-        }
-    }
 }

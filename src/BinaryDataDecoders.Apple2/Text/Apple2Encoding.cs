@@ -1,5 +1,6 @@
 ﻿using BinaryDataDecoders.ToolKit;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace BinaryDataDecoders.Apple2.Text
@@ -17,10 +18,12 @@ namespace BinaryDataDecoders.Apple2.Text
         /// <summary>
         /// Description for email tags
         /// </summary>
+        [ExcludeFromCodeCoverage]
         public override string BodyName => "Apple ][";
         /// <summary>
         /// Name for encoding
         /// </summary>
+        [ExcludeFromCodeCoverage]
         public override string EncodingName => "Apple ][";
 
         /// <summary>
