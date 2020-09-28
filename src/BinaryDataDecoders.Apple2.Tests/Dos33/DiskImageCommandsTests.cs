@@ -2,6 +2,7 @@
 using BinaryDataDecoders.TestUtilities;
 using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
 
 namespace BinaryDataDecoders.Apple2.Tests.Dos33
@@ -126,6 +127,44 @@ namespace BinaryDataDecoders.Apple2.Tests.Dos33
             Assert.AreEqual(13, results[0].TrackSectorPairs.ElementAt(1).Sector);
 
             //Verify
+        }
+
+
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(DiskImageCommands), Member = nameof(DiskImageCommands.GetDataFileEntry))]
+        public void GetDataFileEntryTest()
+        {
+            //Stage
+            using var diskImageStream = this.GetResourceStream("1983_dos33c.dsk");
+
+            //Mock
+
+            //Test
+            var dic = new DiskImageCommands();
+            var target = (from catalog in dic.GetCatalogs(diskImageStream)
+                          from file in catalog.FileEntries
+                          where file.Exists
+                          select file).First();
+            var results = dic.GetDataFileEntry(diskImageStream, target).ToArray();
+
+            //Output
+            var base64 = Convert.ToBase64String(results, Base64FormattingOptions.InsertLineBreaks);
+            this.TestContext.WriteLine(base64);
+
+            //Assert
+            var expectedBase64 = @"owEJCAoAiTqXAB4IFABEJNDnKDQpOrIgQ1RSTC1EADkIHgCiMjpBJNAiQVBQTEUgSUkiOrAxMDAw
+AGoIKACiNDpBJNAiRE9TIFZFUlNJT04gMy4zICBTWVNURU0gTUFTVEVSIjqwMTAwMACMCDIAojc6
+QSTQIkpBTlVBUlkgMSwgMTk4MyI6sDEwMDAAqAg8ALpEJDsiQkxPQUQgTE9BREVSLk9CSjAiAM8I
+RgCMNDA5NjqyIEZBU1QgTE9BRCBJTiBJTlRFR0VSIEJBU0lDABAJUACiMTA6jMk5NTg6QSTQIkNP
+UFlSSUdIVCBBUFBMRSBDT01QVVRFUixJTkMuIDE5ODAsMTk4MiI6sDEwMDAATwlaAEPQ4ijJMTEw
+MSk6rUPQNsS6Op46QSTQIkJFIFNVUkUgQ0FQUyBMT0NLIElTIERPV04iOrAxMDAwOp0AXglkALrn
+KDQpOyJGUCIAdQnoA7IgQ0VOVEVSIFNUUklORyBBJACVCfIDQtDTKDIwySjjKEEkKcsyKSk6rULQ
+0TDEQtAxAKIJ/AOWQjq6QSQ6sQAAAIcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+            Assert.AreEqual(expectedBase64, base64);
+
+            //Verify
+
         }
     }
 }

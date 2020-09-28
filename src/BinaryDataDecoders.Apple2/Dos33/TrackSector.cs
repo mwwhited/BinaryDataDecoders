@@ -3,10 +3,15 @@ using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Apple2.Dos33
 {
+    /// <summary>
+    /// Track/Sector point to next section of file
+    /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 2)]
     public struct TrackSector
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public TrackSector(ReadOnlySpan<byte> span)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             Track = span[0x00];
             Sector = span[0x01];
@@ -27,6 +32,8 @@ namespace BinaryDataDecoders.Apple2.Dos33
         [FieldOffset(1)]
         public readonly byte Sector;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString() => $"{Track}/{Sector}";
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

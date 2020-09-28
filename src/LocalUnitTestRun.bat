@@ -34,7 +34,7 @@ echo "Build Packages"
 dotnet build "%TestProject%" --configuration %Configuration% --no-restore
 
 echo "Run Tests"
-dotnet test "%TestProject%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TestOutput%" --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings
+dotnet test "%TestProject%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TestOutput%" --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s .runsettings /p:CollectCoverage=true
 REM --logger trx
 SET TEST_ERR=%ERRORLEVEL%
 reportgenerator "-reports:%TestOutput%\**\coverage.cobertura.xml" "-targetDir:%TestOutput%\Coverage\Reports" "-reportTypes:HtmlInline" "-title:%TestProject% - (%USERNAME%)"

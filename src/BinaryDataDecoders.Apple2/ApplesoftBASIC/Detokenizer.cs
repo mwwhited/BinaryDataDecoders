@@ -4,10 +4,18 @@ using System.Text;
 
 namespace BinaryDataDecoders.Apple2.ApplesoftBASIC
 {
+    /// <summary>
+    /// ApplesSoft Basic detokenizer
+    /// </summary>
     public class Detokenizer
     {
         private readonly TokenMap _map = new TokenMap();
 
+        /// <summary>
+        /// transform byte data into readable AppleSoft BASIC code.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public IEnumerable<string> GetLines(IEnumerable<byte> input)
         {
             var e = input.GetEnumerator();
@@ -27,7 +35,7 @@ namespace BinaryDataDecoders.Apple2.ApplesoftBASIC
                 if (addressOfNextLine == 0 || lineNumber == 0) continue;
 
                 var nextLine = false;
-                var sb = new StringBuilder($"0x{addressOfNextLine:X}]\t{lineNumber} ");
+                var sb = new StringBuilder($"{lineNumber} "); //0x{addressOfNextLine:X}]\t
                 do
                 {
                     var v = (byte)((nextLine = e.MoveNext()) ? e.Current : 0);

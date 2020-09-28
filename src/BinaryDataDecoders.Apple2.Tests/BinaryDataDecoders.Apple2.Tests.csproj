@@ -10,8 +10,13 @@
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
+	
+	<ItemGroup>
+	  <None Remove="ApplesoftBASIC\GetLinesExpected.txt" />
+	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="ApplesoftBASIC\GetLinesExpected.txt" />
 	  <EmbeddedResource Include="Dos33\1983_dos33c.dsk" />
 	</ItemGroup>
 	<ItemGroup>
@@ -30,7 +35,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
-
+	
 	<ItemGroup>
 		<ProjectReference Include="..\BinaryDataDecoders.Apple2\BinaryDataDecoders.Apple2.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />

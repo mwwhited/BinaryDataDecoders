@@ -16,7 +16,10 @@ namespace BinaryDataDecoders.Apple2.Dos33
     /// </summary>
     public struct CatalogEntry
     {
-
+        /// <summary>
+        /// create CatalogEntry from ReadOnlySpan
+        /// </summary>
+        /// <param name="span"></param>
         public CatalogEntry(ReadOnlySpan<byte> span)
         {
             Unused_0 = span[0];
@@ -59,6 +62,8 @@ namespace BinaryDataDecoders.Apple2.Dos33
         /// </summary>
         public readonly FileEntry[] FileEntries;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString() => $"Next: {NextCatalogTrack}/{NextSectorTrack}\t Files: {FileEntries.Count(i => i.Exists)}";
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

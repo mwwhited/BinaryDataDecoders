@@ -5,3 +5,13 @@ https://www.calormen.com/jsbasic/reference.html
 http://fileformats.archiveteam.org/wiki/ProDOS_file_system
 
 https://docs.microsoft.com/en-us/dotnet/standard/io/buffers
+
+http://wac.callapple.org/
+http://www.virtualapple.org/
+http://apple2.callapple.org/
+http://apple2.callapple.org/manuals/index.html
+http://digisoft.callapple.org/
+https://www.callapple.org/documentation/manuals/dos-disk-analyzer/
+https://www.callapple.org/software2/appleii/
+http://fileformats.archiveteam.org/wiki/Applesoft_BASIC_tokenized_file#:~:text=Applesoft%20BASIC%20programs%20were%20stored%20in%20a%20tokenized,designated%20in%20Apple%20DOS%20directories%20as%20type%20%22A%22.
+

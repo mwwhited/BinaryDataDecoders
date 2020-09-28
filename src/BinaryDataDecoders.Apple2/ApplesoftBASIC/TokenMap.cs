@@ -2,8 +2,16 @@
 
 namespace BinaryDataDecoders.Apple2.ApplesoftBASIC
 {
+    /// <summary>
+    /// AppleSoft Basic token map
+    /// </summary>
     public class TokenMap
     {
+        /// <summary>
+        /// Lookup token for provided byte
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public string GetToken(byte code) => tokens.Where(t => t.code == code).Select(t => t.token).FirstOrDefault();
 
         private (int code, string token)[] tokens = new[]

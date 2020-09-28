@@ -12,7 +12,9 @@ namespace BinaryDataDecoders.Apple2.Dos33
     /// </summary>
     public struct FileEntry
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public FileEntry(ReadOnlySpan<byte> span)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             Track = span[0x00];
             Sector = span[0x01];
@@ -80,6 +82,8 @@ namespace BinaryDataDecoders.Apple2.Dos33
         /// </summary>
         public bool Exists => Track != 0x00 && Track != 0xff;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString() => $"\"{Name}\" - {FileType} ({Track}/{Sector}) {FileSize}S";
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
