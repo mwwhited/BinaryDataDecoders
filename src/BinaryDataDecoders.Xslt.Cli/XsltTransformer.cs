@@ -19,7 +19,7 @@ namespace BinaryDataDecoders.Xslt.Cli
             var xsltArgumentList = new XsltArgumentList().AddExtensions(Extensions);
 
             XNamespace ns = this.GetXmlNamespace();
-            xsltArgumentList.AddParam("files", ns.NamespaceName, new XElement(ns + "files",
+            xsltArgumentList.AddParam("files", ns.NamespaceName, new XElement(ns + "file",
                 new XAttribute(nameof(template), template),
                 new XAttribute(nameof(input), input),
                 new XAttribute(nameof(output), output)

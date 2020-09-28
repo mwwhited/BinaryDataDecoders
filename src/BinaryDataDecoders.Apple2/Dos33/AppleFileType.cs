@@ -3,6 +3,7 @@
 namespace BinaryDataDecoders.Apple2
 {
     [Flags]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum AppleFileType : byte
     {
         Text = 0x00,
@@ -16,4 +17,5 @@ namespace BinaryDataDecoders.Apple2
 
         Locked = 0x80,
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

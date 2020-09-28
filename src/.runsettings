@@ -10,7 +10,7 @@ https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-ana
 <RunSettings>
 	<!-- Configurations that affect the Test Framework -->
 	<RunConfiguration>
-		<MaxCpuCount>10</MaxCpuCount>
+		<MaxCpuCount>8</MaxCpuCount>
 	</RunConfiguration>
 
 	<!--Configurations for data collectors-->

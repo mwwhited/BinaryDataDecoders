@@ -1,0 +1,92 @@
+﻿using BinaryDataDecoders.Apple2.Dos33;
+using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+
+namespace BinaryDataDecoders.Apple2.Tests.Dos33
+{
+    [TestClass]
+    public class DiskImageCommandsTests
+    {
+        public TestContext TestContext { get; set; }
+
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(DiskImageCommands), Member = nameof(DiskImageCommands.GetCatalogs))]
+        public void GetVolumeTableOfContentsTest()
+        {
+            //VolumeTableOfContents GetVolumeTableOfContents(Stream diskImage);
+            //Stage
+            using var diskImageStream = this.GetResourceStream("1983_dos33c.dsk");
+            var dic = new DiskImageCommands();
+
+            //Mock
+
+            //Test
+            var vtoc = dic.GetVolumeTableOfContents(diskImageStream);
+
+            //Assert
+
+            Assert.AreEqual(255, vtoc.DirectionOfAllocation);
+            Assert.AreEqual(1, vtoc.DiskVolumeNumber);
+            Assert.AreEqual(3, vtoc.DosReleaseNumber);
+            Assert.AreEqual(15, vtoc.FirstCatalogSector);
+            Assert.AreEqual(17, vtoc.FirstCatalogTrack);
+            Assert.AreEqual(11, vtoc.LastAllocatedTrack);
+            Assert.AreEqual(122, vtoc.MaxTrackSectorPair);
+            Assert.AreEqual(256, vtoc.NumberOfBytesPerSector);
+            Assert.AreEqual(16, vtoc.NumberOfSectorsPerTrack);
+            Assert.AreEqual(35, vtoc.NumberOfTracksPerDisk);
+
+            var expected = new[]
+            {
+                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xff1f,
+                0xffff,0xffff,0xffff,0xffff,0xffff,0xffff,0xff0f,0xff01,
+                0xff1f,0x00,0xffff,0xff1f,0xff1f,0xff03,0x00,0x00,
+                0xff1f,0x7f00,0x7f00,0xff1f,0x7f00,0xff1f,0x300,0xff1f,
+                0x00,0xff1f,0x00,0x00,0x00,0x00,0x00,0x00,
+                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                0x00,0x00,
+            };
+            Assert.IsFalse(expected.Zip(vtoc.BitmapFreeSectors).Any(i => i.First != i.Second));
+
+
+            //Verify
+        }
+
+        [TestMethod, TestCategory(TestCategories.Unit)]
+        [TestTarget(typeof(DiskImageCommands), Member = nameof(DiskImageCommands.GetCatalogs))]
+        public void GetCatalogsTest()
+        {
+            // IEnumerable<CatalogEntry> GetCatalogs(Stream diskImage, VolumeTableOfContents vtoc);
+            //Stage
+            using var diskImageStream = this.GetResourceStream("1983_dos33c.dsk");
+
+            //Mock
+
+            //Test
+            var dic = new DiskImageCommands();
+            var catalogs = dic.GetCatalogs(diskImageStream).ToArray();
+
+            //Output
+            foreach (var catalog in catalogs)
+            {
+                this.TestContext.WriteLine($"{catalog}");
+                foreach (var file in catalog.FileEntries)
+                {
+                    this.TestContext.WriteLine($"{file}");
+                }
+            }
+
+            var files = from c in catalogs
+                        from f in c.FileEntries
+                        where f.Exists
+                        select f.Name.Trim();
+
+            //Assert
+            Assert.AreEqual("HELLO|COPY|CONVERT13", string.Join("|", files));
+
+            //Verify
+        }
+    }
+}

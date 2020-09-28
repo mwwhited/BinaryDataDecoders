@@ -10,6 +10,10 @@
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Dos33\1983_dos33c.dsk" />
+	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\..\LICENSE">
 			<Pack>True</Pack>
