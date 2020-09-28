@@ -1,8 +1,16 @@
 {
   "profiles": {
-    "BinaryDataDecoders.Xslt.Cli": {
+    "BinaryDataDecoders.Xslt.Cli (TestResults)": {
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)TestResults\\TestResult.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\index.md\""
+    },
+    "BinaryDataDecoders.Xslt.Cli (Coverage Summary)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Coverage\\Summary.xml\" -o \"$(SolutionDir)..\\Publish\\docs\\Coverage\\index.md\" "
+    },
+    "BinaryDataDecoders.Xslt.Cli (Coverage)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Coverage\\*.xml\" -o \"$(SolutionDir)..\\Publish\\docs\\Coverage\\*.md\" -s \"$(SolutionDir)..\""
     }
   }
 }

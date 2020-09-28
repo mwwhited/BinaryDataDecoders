@@ -12,5 +12,8 @@ namespace BinaryDataDecoders.Xslt.Cli
 
         [Option('o', "output", Required = true, HelpText = "output file")]
         public string Output { get; set; }
+
+        [Option('s', "sandbox", Required = false, HelpText = "if not provided will be set to parent of output")]
+        public string Sandbox { get; set; }
     }
 }
