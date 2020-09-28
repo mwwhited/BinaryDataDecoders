@@ -20,7 +20,8 @@ namespace BinaryDataDecoders.Xslt.Cli
                               new PathExtensions(sandbox),
                               new EnvironmentExtensions(),
                               new FileExtensions(sandbox),
-                              new TrxExtensions()
+                              new TrxExtensions(),
+                              new StringExtensions()
                           ).TransformAll(o.Template, o.Input, o.Output);
                   });
         }

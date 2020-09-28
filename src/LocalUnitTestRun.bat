@@ -42,6 +42,10 @@ dotnet test "%%T" --no-build --no-restore ^
 echo "Pack Projects"
 dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget"
 
+:pack_plus
+echo "Pack Projects"
+dotnet publish --no-build --no-restore "%TestProject%" -o "%OutputPath%/Results/Binary"
+
 :report_plus
 echo "Build Reports"
 dotnet tool install --global dotnet-reportgenerator-globaltool 2>NUL
@@ -51,6 +55,8 @@ REM "-reportTypes:HtmlInline;Badges;Xml;Cobertura"
 dotnet publish BinaryDataDecoders.Xslt.Cli -o "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli" --no-build --no-restore 
 FOR %%T IN ("%TestOutput%\*.trx") DO "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\TestResultsToMarkdown.xslt" -i "%%T" -o "%OutputPath%\docs\TestResults\%%~nT\index.md"
 "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\CoverageToMarkdown.xslt" -i "%OutputPath%\Results\Coverage\*.xml" -o "%OutputPath%\docs\Coverage\*.md" 
+"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\XmlCommentsToStructuredXml.xslt" -i "..\Publish\Results\Binary\*.xml" -o "..\Publish\Results\Code\*.xml" -s ".."
+"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\XmlCommentsToMarkdown.xslt" -i "..\Publish\Results\Code\*.xml" -o "..\Publish\docs\Code\*.md" -s ".."
 
 :show_plus
 code "%OutputPath%"
