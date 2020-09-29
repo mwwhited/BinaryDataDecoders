@@ -1,5 +1,7 @@
 ﻿
 using BinaryDataDecoders.ToolKit.Security;
+using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -55,22 +57,49 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// <param name="file">The path string from which to get the extension.</param>
         /// <returns></returns>
         public string GetExtension(string file) => Path.GetExtension(file);
+
         /// <summary>
-        /// 
+        /// Changes the extension of a path string.
         /// </summary>
-        /// <param name="file"></param>
-        /// <param name="extension"></param>
-        /// <returns></returns>
+        /// <param name="file">The path information to modify. The path cannot contain any of the characters
+        /// defined in System.IO.Path.GetInvalidPathChars.</param>
+        /// <param name="extension">The new extension (with or without a leading period). Specify null to remove
+        /// an existing extension from path.</param>
+        /// <returns>The modified path information. On Windows-based desktop platforms, if path is
+        /// null or an empty string (""), the path information is returned unmodified. If
+        /// extension is null, the returned string contains the specified path with its extension
+        /// removed. If path has no extension, and extension is not null, the returned path
+        /// string contains extension appended to the end of path.</returns>
         public string ChangeExtension(string file, string extension) => Path.ChangeExtension(file, string.IsNullOrWhiteSpace(extension) ? null : extension);
 
+        /// <summary>
+        /// Returns the names of files (including their paths) that match the specified search
+        /// pattern in the specified directory.
+        /// </summary>
+        /// <param name="path">The relative or absolute path to the directory to search. This string is not
+        /// case-sensitive.</param>
+        /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
+        /// that match the specified search pattern, or an empty array if no files are found.</returns>
         public XPathNavigator ListFiles(string path) =>
             new XElement(_ns + "files",
                 from f in Directory.GetFiles(SandboxPath.EnsureSafePath(_sandbox, path))
                 select new XElement(_ns + "file", f)
             ).ToXPathNavigable().CreateNavigator();
 
+        /// <summary>
+        /// Returns the names of files (including their paths) that match the specified search
+        /// pattern in the specified directory.
+        /// </summary>
+        /// <param name="path">The relative or absolute path to the directory to search. This string is not
+        /// case-sensitive.</param>
+        /// <param name="pattern">The search string to match against the names of files in path. This parameter
+        /// can contain a combination of valid literal path and wildcard (* and ?) characters,
+        /// but it doesn't support regular expressions.</param>
+        /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
+        /// that match the specified search pattern, or an empty array if no files are found.</returns>
         public XPathNavigator ListFilesFiltered(string path, string pattern)
         {
+            Console.WriteLine($"==> {path}|{pattern}");
             var files = Directory.GetFiles(SandboxPath.EnsureSafePath(_sandbox, path), pattern);
             var xml = new XElement(_ns + "files",
                   from f in files

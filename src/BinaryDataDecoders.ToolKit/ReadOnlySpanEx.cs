@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 namespace BinaryDataDecoders.ToolKit
 {
     /// <summary>
-    /// Set of extension methods for ReadOnlySpan&lg;&gt;
+    /// Set of extension methods for ReadOnlySpan&lt;&gt;
     /// </summary>
     public static partial class ReadOnlySpanEx
     {
         /// <summary>
-        /// simple extenion to allow using ReadOnlySpan&lg;&gt;.StartsWith(...) with an array
+        /// simple extension to allow using ReadOnlySpan&lt;&gt;.StartsWith(...) with an array
         /// </summary>
         /// <param name="data"></param>
         /// <param name="pattern"></param>

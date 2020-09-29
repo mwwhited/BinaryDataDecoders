@@ -4,8 +4,12 @@ using System.Linq;
 
 namespace BinaryDataDecoders.ToolKit
 {
+    /// <summary>
+    /// Extension methods for System.Memory&lt;&gt;
+    /// </summary>
     public static class MemoryEx
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public static Memory<char> AsMemory(this IEnumerable<char> input) =>
             new Memory<char>(input.ToArray());
 
@@ -117,5 +121,6 @@ namespace BinaryDataDecoders.ToolKit
                 }
             }
         }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

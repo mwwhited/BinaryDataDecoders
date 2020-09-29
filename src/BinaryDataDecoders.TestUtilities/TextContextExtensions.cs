@@ -6,8 +6,17 @@ using System.Text;
 
 namespace BinaryDataDecoders.TestUtilities
 {
+    /// <summary>
+    /// Extension methods for TestContext
+    /// </summary>
     public static class TextContextExtensions
     {
+        /// <summary>
+        /// serialize and storeresults to test results folder
+        /// </summary>
+        /// <param name="context">test context</param>
+        /// <param name="value">object to store</param>
+        /// <returns>test context for chaining</returns>
         public static TestContext AddResult(this TestContext context, object value)
         {
             var fileName = $"{value.GetType().Name}_{DateTime.Now.Ticks}.json".Replace('`', '_').Replace(':', '_').Replace('<', '_').Replace('>', '_');
@@ -31,6 +40,13 @@ namespace BinaryDataDecoders.TestUtilities
             }
             return context;
         }
+        /// <summary>
+        /// Write out binary content to test results folder and link to test results
+        /// </summary>
+        /// <param name="context">Related TestContext</param>
+        /// <param name="fileName">file name for result</param>
+        /// <param name="content">binary content for file</param>
+        /// <returns>test context for chaining</returns>
         public static TestContext AddResultFile(this TestContext context, string fileName, byte[] content)
         {
             var outFile = Path.Combine(context.TestRunResultsDirectory, fileName);

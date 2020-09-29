@@ -13,9 +13,10 @@ namespace BinaryDataDecoders.ToolKit
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static async Task<string> ReadAsStringAsync(this Stream stream)
+        public static async Task<string?> ReadAsStringAsync(this Stream? stream)
         {
-            using var sr = new StreamReader(stream); ///TODO: should this leave the underlying stream open?
+            if (stream == null) return null;
+            using var sr = new StreamReader(stream); //TODO: should this leave the underlying stream open?
             return await sr.ReadToEndAsync().ConfigureAwait(false);
         }
     }

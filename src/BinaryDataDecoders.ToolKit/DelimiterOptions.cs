@@ -1,5 +1,8 @@
 ﻿namespace BinaryDataDecoders.ToolKit
 {
+    /// <summary>
+    /// delimiter used optin for <see cref="MemoryEx"/>
+    /// </summary>
     public enum DelimiterOptions
     {
         /// <summary>

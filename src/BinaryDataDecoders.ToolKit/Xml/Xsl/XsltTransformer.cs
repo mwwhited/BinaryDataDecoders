@@ -8,14 +8,28 @@ using System.Xml.Xsl;
 
 namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 {
+    /// <summary>
+    /// Implementation of XsltTransformer
+    /// </summary>
     public class XsltTransformer : IXsltTransformer
     {
         private readonly object[] _extensions;
 
+        /// <summary>
+        /// create instance of XsltTransformer
+        /// </summary>
+        /// <param name="extensions">optional extensions for XSLT Transform</param>
         public XsltTransformer(params object[] extensions)
         {
             _extensions = extensions;
         }
+
+        /// <summary>
+        /// Single action transform
+        /// </summary>
+        /// <param name="template">path for XSLT style-sheet</param>
+        /// <param name="input">source XML file</param>
+        /// <param name="output">resulting text content</param>
         public void Transform(string template, string input, string output)
         {
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
@@ -44,8 +58,21 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             xslt.Transform(input, xsltArgumentList, resultStream);
         }
 
+        /// <summary>
+        /// Multi-action transform. 
+        /// </summary>
+        /// <param name="template">path for XSLT style-sheet</param>
+        /// <param name="input">Wild card allowed for multiple files</param>
+        /// <param name="output">Output and suffix per file.</param>
         public void TransformAll(string template, string input, string output)
         {
+            if (File.Exists(input))
+            {
+                Console.WriteLine($"\"{Path.GetFileName(input)}\" => \"{Path.GetFileName(output)}\"");
+                Transform(template, input, output);
+                return;
+            }
+
             var inputFullPath = Path.GetFullPath(input);
             var inputDir = Path.GetDirectoryName(inputFullPath);
             var inputPattern = Path.GetFileName(inputFullPath);
@@ -56,6 +83,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             var outputPattern = Path.GetFileName(outputFullPath).Split('*').LastOrDefault() ?? "";
 
             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
+            if (!inputFiles.Any()) throw new FileNotFoundException($"input");
 
             foreach (var inputFile in inputFiles)
             {

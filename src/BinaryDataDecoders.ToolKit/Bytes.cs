@@ -1,6 +1,10 @@
 ﻿
 namespace BinaryDataDecoders.ToolKit
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    /// <summary>
+    /// Mappings for bytes from ASCII
+    /// </summary>
     public static class Bytes
     {
         /// <summary>
@@ -58,4 +62,5 @@ namespace BinaryDataDecoders.ToolKit
         public const byte _ = 0x5f;
         public const byte w = 0x77;
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

@@ -54,7 +54,7 @@
 		<xsl:text>### </xsl:text><xsl:value-of select="./@name" />&cr;
 		<xsl:text> Location: </xsl:text><xsl:value-of select="ex-path:GetFileName(./@storage)" />&cr;
 
-		<xsl:variable name="targets" select="ex-trx:GetTestTargets(./tt:TestMethod)/trx-o:target" />
+		<xsl:variable name="targets" select="ex-trx:GetTestTargets(./tt:TestMethod)/o-trx:target" />
 
 		<xsl:if test="targets">
 			<xsl:text>#### Targets </xsl:text>&cr;

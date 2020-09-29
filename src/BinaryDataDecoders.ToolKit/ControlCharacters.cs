@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BinaryDataDecoders.ToolKit
+﻿namespace BinaryDataDecoders.ToolKit
 {
+    /// <summary>
+    /// Enumeration based on ASCII control characters  
+    /// </summary>
+    /// <remarks>
+    /// https://en.wikipedia.org/wiki/ASCII http://www.asciitable.com/
+    /// </remarks>
     public enum ControlCharacters : byte
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         Null = 0x00,
         StartOfHeading = 0x01,
         StartOfText = 0x02,
@@ -41,5 +44,6 @@ namespace BinaryDataDecoders.ToolKit
 
         Space = 0x20,
         Delete = 0x7F,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

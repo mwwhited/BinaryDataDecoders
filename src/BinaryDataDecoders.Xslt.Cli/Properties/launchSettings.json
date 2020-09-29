@@ -2,11 +2,11 @@
   "profiles": {
     "BinaryDataDecoders.Xslt.Cli (TestResults)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)TestResults\\TestResult.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\index.md\""
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)TestResults\\TestResult.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\index.md\" -s \"$(SolutionDir)..\""
     },
     "BinaryDataDecoders.Xslt.Cli (Coverage Summary)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Coverage\\Summary.xml\" -o \"$(SolutionDir)..\\Publish\\docs\\Coverage\\index.md\" "
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Coverage\\Summary.xml\" -o \"$(SolutionDir)..\\Publish\\docs\\Coverage\\index.md\" -s \"$(SolutionDir)..\""
     },
     "BinaryDataDecoders.Xslt.Cli (Coverage)": {
       "commandName": "Project",

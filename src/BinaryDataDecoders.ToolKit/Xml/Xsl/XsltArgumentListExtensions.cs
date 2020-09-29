@@ -1,19 +1,33 @@
-﻿using System.Linq;
-using System.Xml.Xsl;
+﻿using System.Xml.Xsl;
 
 namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 {
+    /// <summary>
+    /// Extension methods for XsltArgumentList
+    /// </summary>
     public static class XsltArgumentListExtensions
     {
+        /// <summary>
+        /// simplify chaining XsltArgumentList and AddExtensionObject
+        /// </summary>
+        /// <param name="xsltArgumentList">instance of xsltArgumentList</param>
+        /// <param name="extensionObjects">set of objects to be assigned</param>
+        /// <returns>instance of xsltArgumentList</returns>
         public static XsltArgumentList AddExtensions(this XsltArgumentList xsltArgumentList, params object[] extensionObjects)
         {
             foreach (var extensionObject in extensionObjects)
                 xsltArgumentList.AddExtensionObject(extensionObject);
             return xsltArgumentList;
         }
+        /// <summary>
+        /// simplify chaining XsltArgumentList and AddExtensionObject
+        /// </summary>
+        /// <param name="xsltArgumentList">instance of xsltArgumentList</param>
+        /// <param name="extensionObject">instance of objects to be assigned</param>
+        /// <returns>instance of xsltArgumentList</returns>
         public static XsltArgumentList AddExtensionObject(this XsltArgumentList xsltArgumentList, object extensionObject)
         {
-            var ns = $"clr:{string.Join(',', extensionObject.GetType().AssemblyQualifiedName.Split(',').Where(s => !s.Contains('=')))}";
+            var ns = extensionObject.GetXmlNamespace();
             xsltArgumentList.AddExtensionObject(ns, extensionObject);
             return xsltArgumentList;
         }

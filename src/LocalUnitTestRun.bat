@@ -56,7 +56,7 @@ dotnet publish BinaryDataDecoders.Xslt.Cli -o "%OutputPath%\Tools\BinaryDataDeco
 FOR %%T IN ("%TestOutput%\*.trx") DO "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\TestResultsToMarkdown.xslt" -i "%%T" -o "%OutputPath%\docs\TestResults\%%~nT\index.md"
 "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\CoverageToMarkdown.xslt" -i "%OutputPath%\Results\Coverage\*.xml" -o "%OutputPath%\docs\Coverage\*.md" 
 "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\XmlCommentsToStructuredXml.xslt" -i "..\Publish\Results\Binary\*.xml" -o "..\Publish\Results\Code\*.xml" -s ".."
-"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\XmlCommentsToMarkdown.xslt" -i "..\Publish\Results\Code\*.xml" -o "..\Publish\docs\Code\*.md" -s ".."
+REM "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\XmlCommentsToMarkdown.xslt" -i "..\Publish\Results\Code\*.xml" -o "..\Publish\docs\Code\*.md" -s ".."
 
 :show_plus
 code "%OutputPath%"
