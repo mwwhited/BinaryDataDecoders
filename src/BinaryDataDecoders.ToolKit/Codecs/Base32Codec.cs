@@ -4,39 +4,47 @@ using System.Text;
 
 namespace BinaryDataDecoders.ToolKit.Codecs
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>
+    ///  https://tools.ietf.org/html/rfc4648
+    ///
+    /// The case for base 32 is shown in the following figure, borrowed from
+    /// [7].  Each successive character in a base-32 value represents 5
+    /// successive bits of the underlying octet sequence.  Thus, each group
+    /// of 8 characters represents a sequence of 5 octets (40 bits).
+    ///             1          2          3
+    ///  01234567 89012345 67890123 45678901 23456789
+    /// +--------+--------+--------+--------+--------+
+    /// |&lt; 1 &gt;&lt; 2| &gt;&lt; 3 &gt;&lt;|.4 &gt;&lt; 5.|&gt;&lt; 6 &gt;&lt;.|7 &gt;&lt; 8 &gt;|
+    /// +--------+--------+--------+--------+--------+
+    ///                                         &lt;===&gt; 8th character
+    ///                                   &lt;====&gt; 7th character
+    ///                              &lt;===&gt; 6th character
+    ///                        &lt;====&gt; 5th character
+    ///                  &lt;====&gt; 4th character
+    ///             &lt;===&gt; 3rd character
+    ///       &lt;====&gt; 2nd character
+    ///  &lt;===&gt; 1st character
+    /// 
+    ///  01234567 01234567 01234567 01234567 01234567
+    ///  00000000 11111111 22222222 33333333 44444444
+    ///  AAAAABBB BBCCCCCD DDDDEEEE EFFFFFGG GGGHHHHH
+    /// </remarks>
     public class Base32Codec
     {
-        public string Base32Alphabet { get; } = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=";
+        //TODO: refactor this to use ReadOnlySpan/Memory
+
+        private readonly string _base32Alphabet  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=";
+
+        /// <summary>
+        /// Encoding 8bit binary data as base32 string
+        /// </summary>
+        /// <param name="data">8bit data</param>
+        /// <returns>base32 string</returns>
         public string Encode(byte[] data)
         {
-            // https://tools.ietf.org/html/rfc4648
-
-            /*
-            The case for base 32 is shown in the following figure, borrowed from
-            [7].  Each successive character in a base-32 value represents 5
-            successive bits of the underlying octet sequence.  Thus, each group
-            of 8 characters represents a sequence of 5 octets (40 bits).
-
-                        1          2          3
-             01234567 89012345 67890123 45678901 23456789
-            +--------+--------+--------+--------+--------+
-            |< 1 >< 2| >< 3 ><|.4 >< 5.|>< 6 ><.|7 >< 8 >|
-            +--------+--------+--------+--------+--------+
-                                                    <===> 8th character
-                                              <====> 7th character
-                                         <===> 6th character
-                                   <====> 5th character
-                             <====> 4th character
-                        <===> 3rd character
-                  <====> 2nd character
-             <===> 1st character
-
-            */
-
-            // 01234567 01234567 01234567 01234567 01234567
-            // 00000000 11111111 22222222 33333333 44444444
-            // AAAAABBB BBCCCCCD DDDDEEEE EFFFFFGG GGGHHHHH
-
             var vo = new byte[8];
             var vi = new byte[5];
 
@@ -64,12 +72,17 @@ namespace BinaryDataDecoders.ToolKit.Codecs
                     Array.Copy(new byte[] { 32, 32, 32, 32, 32, 32, 32, 32 }, 0, vo, o, 8 - o);
                 }
 
-                sb.Append(string.Join("", vo.Select(o => Base32Alphabet[o])));
+                sb.Append(string.Join("", vo.Select(o => _base32Alphabet[o])));
             }
 
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Decode base32 string into 8bit binary
+        /// </summary>
+        /// <param name="input">base32 string</param>
+        /// <returns>8bit data</returns>
         public byte[] Decode(string input)
         {
             var vi = new byte[8];
@@ -80,7 +93,7 @@ namespace BinaryDataDecoders.ToolKit.Codecs
             if (m != 0)
                 input += new string('=', 8 - m);
 
-            var iData = input.Select(c => (byte)Base32Alphabet.IndexOf(c))
+            var iData = input.Select(c => (byte)_base32Alphabet.IndexOf(c))
                              .Select(c => c == 32 ? (byte)0 : c)
                              .ToArray();
             var oData = new byte[(int)(input.TrimEnd('=').Length * 5 / 8)];

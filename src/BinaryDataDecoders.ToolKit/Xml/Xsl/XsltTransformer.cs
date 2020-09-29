@@ -1,69 +1,21 @@
-﻿using BinaryDataDecoders.ToolKit;
-using BinaryDataDecoders.ToolKit.Xml.Xsl;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Xml.Xsl;
 
-namespace BinaryDataDecoders.Xslt.Cli
+namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 {
-    //public class XmlSandboxResolver : XmlResolver
-    //{
-    //    private readonly string _sandbox;
-    //    public XmlSandboxResolver(string sandbox)
-    //    {
-    //        _sandbox = sandbox;
-    //    }
-
-    //    public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    //public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
-    //    //{
-    //    //    return base.GetEntity(absoluteUri, role, ofObjectToReturn);
-    //    //}
-    //    //public override Task<object> GetEntityAsync(Uri absoluteUri, string role, Type ofObjectToReturn)
-    //    //{
-    //    //    return base.GetEntityAsync(absoluteUri, role, ofObjectToReturn);
-    //    //}
-    //    //public override Uri ResolveUri(Uri baseUri, string relativeUri)
-    //    //{
-    //    //    return base.ResolveUri(baseUri, relativeUri);
-    //    //}
-    //    //public override bool SupportsType(Uri absoluteUri, Type type)
-    //    //{
-    //    //    return base.SupportsType(absoluteUri, type);
-    //    //}
-    //}
-    /// <summary>
-    /// clr:BinaryDataDecoders.Xslt.Cli.XsltTransformer, BinaryDataDecoders.Xslt.Cli
-    /// </summary>
-    public class XsltTransformer
+    public class XsltTransformer : IXsltTransformer
     {
-        private readonly string _sandbox;
         private readonly object[] _extensions;
 
-        public XsltTransformer(string sandbox, params object[] extensions)
+        public XsltTransformer(params object[] extensions)
         {
-            _sandbox = sandbox;
             _extensions = extensions;
         }
-
-        //static XsltTransformer()
-        //{
-        //    //TODO: sandbox needs fixed
-        //    AppContext.SetSwitch("Switch.System.Xml.AllowDefaultResolver", true);
-        //    // https://github.com/dotnet/runtime/issues/26969
-        //}
-
         public void Transform(string template, string input, string output)
         {
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
@@ -83,7 +35,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                 NameTable = new NameTable(),
             });
             var xsltSettings = new XsltSettings(false, false);
-            xslt.Load(xmlreader, xsltSettings, null);// new XmlSandboxResolver(_sandbox));
+            xslt.Load(xmlreader, xsltSettings, null);
 
             var outputDir = Path.GetDirectoryName(output);
             if (!Directory.Exists(outputDir)) Directory.CreateDirectory(outputDir);

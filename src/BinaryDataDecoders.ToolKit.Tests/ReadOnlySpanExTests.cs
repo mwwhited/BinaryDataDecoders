@@ -6,10 +6,10 @@ using System.Linq;
 namespace BinaryDataDecoders.ToolKit.Tests
 {
     [TestClass]
-    public class SpanExTests
+    public class ReadOnlySpanExTests
     {
         [TestMethod, TestCategory(TestCategories.Unit)]
-        [TestTarget(typeof(SpanEx), Member = nameof(SpanEx.CopyWithTransform))]
+        [TestTarget(typeof(ReadOnlySpanEx), Member = nameof(ReadOnlySpanEx.CopyWithTransform))]
         public void CopyWithTransformTest_byte2byte_7bit()
         {
             byte[] input = Enumerable.Range(0, 255).Select(b => (byte)b).ToArray();

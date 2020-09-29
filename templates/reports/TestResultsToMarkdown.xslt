@@ -7,10 +7,20 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
 	xmlns:tt="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-	xmlns:ex-path="clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions, BinaryDataDecoders.ToolKit"
-	xmlns:ex-file="clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.FileExtensions, BinaryDataDecoders.ToolKit"
+	
+	xmlns:ex-path="oobdev://BinaryDataDecoders/ToolKit/v1/PathExtensions"
+	xmlns:o-path="oobdev://BinaryDataDecoders/ToolKit/v1/PathExtensions:out"	
+	xmlns:ex-file="oobdev://BinaryDataDecoders/ToolKit/v1/FileExtensions"
+	xmlns:o-file="oobdev://BinaryDataDecoders/ToolKit/v1/FileExtensions:out"	
+	xmlns:ex-env="oobdev://BinaryDataDecoders/ToolKit/v1/EnvironmentExtensions"
+	xmlns:o-env="oobdev://BinaryDataDecoders/ToolKit/v1/EnvironmentExtensions:out"
+	xmlns:ex-str="oobdev://BinaryDataDecoders/ToolKit/v1/StringExtensions"
+	xmlns:o-str="oobdev://BinaryDataDecoders/ToolKit/v1/StringExtensions:out"
+
 	xmlns:ex-trx="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities"
-	xmlns:trx-o="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities:out"
+    xmlns:o-trx="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities:out"
+	
+	xmlns:ex-xsl="clr:BinaryDataDecoders.Xslt.Cli.XsltTransformer, BinaryDataDecoders.Xslt.Cli"
 	>
 	<xsl:output method="text" indent="no"/>
 

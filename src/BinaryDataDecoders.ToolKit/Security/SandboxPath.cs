@@ -3,8 +3,18 @@ using System.IO;
 
 namespace BinaryDataDecoders.ToolKit.Security
 {
-    public static class Sandbox
+    /// <summary>
+    /// File IO sandboxing operation
+    /// </summary>
+    public static class SandboxPath
     {
+        /// <summary>
+        /// Ensure the path under <c>filePath</c> is a child of <c>basePath</c>.
+        /// </summary>
+        /// <param name="basePath"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        /// <exception cref="System.ApplicationException">this will be throw if <c>filePath</c> is not a child of <c>basePath</c>.</exception>
         public static string EnsureSafePath(string basePath, string filePath)
         {
             var sandbox = Path.GetFullPath(basePath);
