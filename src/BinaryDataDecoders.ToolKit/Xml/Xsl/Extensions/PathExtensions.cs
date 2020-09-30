@@ -99,8 +99,13 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// that match the specified search pattern, or an empty array if no files are found.</returns>
         public XPathNavigator ListFilesFiltered(string path, string pattern)
         {
-            Console.WriteLine($"==> {path}|{pattern}");
-            var files = Directory.GetFiles(SandboxPath.EnsureSafePath(_sandbox, path), pattern);
+            var cleanedPath = SandboxPath.EnsureSafePath(_sandbox, path);
+#if DEBUG
+            Console.WriteLine($"==> Path: {path}");
+            Console.WriteLine($"==> Pattern: {pattern}");
+            Console.WriteLine($"==> Cleaned: {cleanedPath}");
+#endif
+            var files = Directory.Exists(cleanedPath) ? Directory.GetFiles(cleanedPath, pattern) : Enumerable.Empty<string>(); ;
             var xml = new XElement(_ns + "files",
                   from f in files
                   select new XElement(_ns + "file", new XText(f))
