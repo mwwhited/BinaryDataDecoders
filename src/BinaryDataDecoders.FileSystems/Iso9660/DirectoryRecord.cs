@@ -9,8 +9,8 @@ namespace BinaryDataDecoders.FileSystems.Iso9660
 {
     public class DirectoryRecord : IEnumerable<DirectoryRecord>
     {
-        internal DirectoryRecord(byte[] buffer, 
-                                 int offset, 
+        internal DirectoryRecord(byte[] buffer,
+                                 int offset,
                                  Stream file,
                                  DirectoryRecord parent)
         {
@@ -153,20 +153,14 @@ namespace BinaryDataDecoders.FileSystems.Iso9660
 
         #endregion
 
-        public override string ToString()
-        {
-            return this.Identifier + " - " + this.DirectoryType.ToString();
-        }
+        public override string ToString() => $"{Identifier} - {DirectoryType}";
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private static object childLock = new object();
         private IEnumerable<DirectoryRecord> GetChildren()
         {
             if (this.IsDirectory)
             {
                 var sector = new byte[2048];
                 var bufferLen = 0;
-                var offset = 0;
 
                 lock (this.disc)
                 {
@@ -174,7 +168,7 @@ namespace BinaryDataDecoders.FileSystems.Iso9660
                             SeekOrigin.Begin);
                     bufferLen = disc.Read(sector, 0, sector.Length);
 
-                    for (int i = 0; i < bufferLen; )
+                    for (int i = 0; i < bufferLen;)
                     {
                         var directorRecord = new DirectoryRecord(sector,
                                                                  i,
@@ -200,7 +194,7 @@ namespace BinaryDataDecoders.FileSystems.Iso9660
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Stream disc;
+        private readonly Stream disc;
         public DirectoryRecord Parent { get; protected set; }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]

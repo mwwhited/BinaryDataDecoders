@@ -1,11 +1,9 @@
 #! /bin/bash
 
-cd
-
+#cd
 template='templates/reports/DisableXmlDocs.xslt'
-
-rm .github/workflows/codeql-analysis.yml
-echo -P ubuntu-latest=nektos/act-environments-ubuntu:18.04>.actrc
+#rm .github/workflows/codeql-analysis.yml
+#echo -P ubuntu-latest=nektos/act-environments-ubuntu:18.04>.actrc
 
 for f in src/*/*.csproj; do
 	xsltproc $template $f >$f.tmp

@@ -32,13 +32,13 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
                 // Right 0 red
                 //ST000:00002010000200 (left priority)
 
-                var data = Encoding.ASCII.GetString(frame.ToArray());
+                // var data = Encoding.ASCII.GetString(frame.ToArray());
                 var mem = new Memory<byte>(frame.ToArray());
                 var subFrames = mem.Split(Sotx);
 
                 var scoreSf = subFrames.ElementAt(1).Split((byte)0x3a);
 
-                byte GetScore(Memory<byte> s)
+                static byte GetScore(Memory<byte> s)
                 {
                     return (byte)((s.Span[0] - _0) * 100 + (s.Span[1] - _0) * 10 + (s.Span[2] - _0));
                 }
@@ -60,7 +60,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
             }
             else if (frame.StartsWith(Soh, Dc3, L, R) && frame[5] == G && frame[7] == W && frame[9] == w)
             {
-                var data = Encoding.ASCII.GetString(frame.ToArray());
+                // var data = Encoding.ASCII.GetString(frame.ToArray());
 
                 // LR0G1W0w0 Green (touch right)
                 // LR1G0W0w0 Red (touch left)
@@ -99,7 +99,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
             }
             else if (frame.StartsWith(Soh, Dc2, P))
             {
-                var data = Encoding.ASCII.GetString(frame.ToArray());
+                // var data = Encoding.ASCII.GetString(frame.ToArray());
                 // P?AA8G
                 // 01 12 50 3f 00 02 00 41 41 48 47 04
                 var redPriority = (frame[2] & Eotx) == 0x01;
@@ -116,7 +116,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
                 var mem = new Memory<byte>(frame.ToArray());
                 var subFrames = mem.Split(S);
                 var scoreSf = subFrames.ElementAt(1).Split(_C);
-                byte GetScore(Memory<byte> s)
+                static byte GetScore(Memory<byte> s)
                 {
                     return (byte)((s.Span[0] - _0) * 10 + (s.Span[1] - _0));
                 }

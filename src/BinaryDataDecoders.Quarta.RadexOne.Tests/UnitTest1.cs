@@ -98,9 +98,6 @@ namespace BinaryDataDecoders.Quarta.RadexOne.Tests
                 }
             }
 
-
-
-
             static bool checkPattern(Span<byte> input, IEnumerable<(byte match, byte mask)> pattern)
             {
                 var bufferEnumerator = input.GetEnumerator();

@@ -1,8 +1,9 @@
+<?xml version="1.0"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
 		<Copyright>Matthew Whited 2020</Copyright>
@@ -15,17 +16,17 @@
 
   <ItemGroup>
     <None Include="..\..\LICENSE" Link="LICENSE">
-      <PackagePath></PackagePath>
+      <PackagePath/>
       <Pack>True</Pack>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.Templating.Abstractions\BinaryDataDecoders.Templating.Abstractions.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.Templating.Abstractions\BinaryDataDecoders.Templating.Abstractions.csproj"/>
   </ItemGroup>
 
 </Project>

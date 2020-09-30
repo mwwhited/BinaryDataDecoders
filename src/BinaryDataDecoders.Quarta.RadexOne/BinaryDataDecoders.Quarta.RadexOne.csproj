@@ -1,8 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Copyright>Matthew Whited 2020</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -17,14 +18,14 @@
 
   <ItemGroup>
     <None Include="..\..\LICENSE" Link="LICENSE">
-      <PackagePath></PackagePath>
+      <PackagePath/>
       <Pack>True</Pack>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
-    <ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj"/>
+    <ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj"/>
   </ItemGroup>
 
 </Project>

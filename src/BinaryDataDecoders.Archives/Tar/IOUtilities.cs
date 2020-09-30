@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Archives.Tar
 {
@@ -36,75 +33,40 @@ namespace BinaryDataDecoders.Archives.Tar
                 IntPtr.Zero,
                 fileMode.Convert(),
                 0, IntPtr.Zero);
-            var stream= new FileStream(handle, fileAccess);
+            var stream = new FileStream(handle, fileAccess);
             if (fileMode == FileMode.Append)
                 stream.Seek(0, SeekOrigin.End);
 
             return stream;
         }
 
-        internal static EFileAccess Convert(this FileAccess fileAccess)
+        internal static EFileAccess Convert(this FileAccess fileAccess) => fileAccess switch
         {
-            switch (fileAccess)
-            {
-                case FileAccess.Read:
-                    return EFileAccess.GenericRead;
-                case FileAccess.ReadWrite:
-                    return EFileAccess.GenericRead | EFileAccess.GenericRead;
-                case FileAccess.Write:
-                    return EFileAccess.GenericWrite;
-                default:
-                    throw new NotSupportedException();
-            }
-        }
-        internal static EFileShare Convert(this FileShare fileShare)
+            FileAccess.Read => EFileAccess.GenericRead,
+            FileAccess.ReadWrite => EFileAccess.GenericRead | EFileAccess.GenericRead,
+            FileAccess.Write => EFileAccess.GenericWrite,
+            _ => throw new NotSupportedException(),
+        };
+
+        internal static EFileShare Convert(this FileShare fileShare) => fileShare switch
         {
-            switch (fileShare)
-            {
-                case FileShare.Delete:
-                    return EFileShare.Delete;
+            FileShare.Delete => EFileShare.Delete,
+            FileShare.Read => EFileShare.Read,
+            FileShare.ReadWrite => EFileShare.Write | EFileShare.Read,
+            FileShare.Write => EFileShare.Write,
+            FileShare.None => EFileShare.None,
+            _ => throw new NotSupportedException(),
+        };
 
-                case FileShare.Read:
-                    return EFileShare.Read;
-                case FileShare.ReadWrite:
-                    return EFileShare.Write | EFileShare.Read;
-                case FileShare.Write:
-                    return EFileShare.Write;
-
-                case FileShare.None:
-                    return EFileShare.None;
-                    break;
-
-                default:
-                case FileShare.Inheritable:
-                    throw new NotSupportedException();
-            }
-        }
-        internal static ECreationDisposition Convert(this FileMode fileMode)
+        internal static ECreationDisposition Convert(this FileMode fileMode) => fileMode switch
         {
-            switch (fileMode)
-            {
-                case FileMode.Append:
-                    return ECreationDisposition.OpenAlways;
-
-                case FileMode.Create:
-                    return ECreationDisposition.CreateAlways;
-
-                case FileMode.CreateNew:
-                    return ECreationDisposition.New;
-
-                case FileMode.Open:
-                    return ECreationDisposition.OpenExisting;
-
-                case FileMode.OpenOrCreate:
-                    return ECreationDisposition.OpenAlways;
-
-                case FileMode.Truncate:
-                    return ECreationDisposition.TruncateExisting;
-
-                default:
-                    throw new NotSupportedException();
-            }
-        }
+            FileMode.Append => ECreationDisposition.OpenAlways,
+            FileMode.Create => ECreationDisposition.CreateAlways,
+            FileMode.CreateNew => ECreationDisposition.New,
+            FileMode.Open => ECreationDisposition.OpenExisting,
+            FileMode.OpenOrCreate => ECreationDisposition.OpenAlways,
+            FileMode.Truncate => ECreationDisposition.TruncateExisting,
+            _ => throw new NotSupportedException(),
+        };
     }
 }
