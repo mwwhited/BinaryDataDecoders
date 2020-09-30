@@ -11,7 +11,7 @@
     </xsl:template>
 	
 	<xsl:template match="PropertyGroup/GenerateDocumentationFile">
-		<xsl:text>false</xsl:text>
+		<GenerateDocumentationFile><xsl:text>false</xsl:text></GenerateDocumentationFile>
 	</xsl:template>
 	
 </xsl:stylesheet>
