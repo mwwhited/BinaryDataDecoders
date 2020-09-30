@@ -3,7 +3,7 @@
 REM @echo off
 
 SET TestProject=BinaryDataDecoders.sln
-SET Configuration=Debug
+SET Configuration=Release
 SET OutputPath=..\Publish
 SET TestOutput=TestResults
 
@@ -40,7 +40,7 @@ dotnet test "%%T" --no-build --no-restore ^
 
 :pack_plus
 echo "Pack Projects"
-dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget"
+dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget" -p:PackageVersion=%BUILD_VERSION%
 
 :pack_plus
 echo "Pack Projects"

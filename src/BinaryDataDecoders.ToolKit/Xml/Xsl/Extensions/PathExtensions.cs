@@ -12,12 +12,9 @@ using static BinaryDataDecoders.ToolKit.ToolkitConstants;
 namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
 {
     /// <summary>
-    /// clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions, BinaryDataDecoders.ToolKit
-    /// 
-    /// 
+    /// wrapper around File IO functions intended for use with XslCompiledTransform
     /// </summary>
     [XmlRoot(Namespace = XmlNamespaces.Base + nameof(PathExtensions))]
-    //clr:BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions, BinaryDataDecoders.ToolKit
     public class PathExtensions
     {
         /// <summary>

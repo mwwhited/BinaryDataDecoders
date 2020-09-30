@@ -27,8 +27,8 @@ namespace BinaryDataDecoders.ToolKit
         /// <param name="context">object to use as locater</param>
         /// <param name="filename">name of resource</param>
         /// <returns>string content of resource</returns>
-        public static Task<string> GetResourceAsStringAsync(this Type context, string filename) =>
-            context.GetResourceStream(filename).ReadAsStringAsync();
+        public static async Task<string> GetResourceAsStringAsync(this Type context, string filename) =>
+            (await context.GetResourceStream(filename).ReadAsStringAsync()) ??"";
 
         /// <summary>
         /// Resolve XML Name space for referenced object.  

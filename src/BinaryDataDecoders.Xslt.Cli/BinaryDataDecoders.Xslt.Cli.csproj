@@ -11,6 +11,9 @@
 		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
+		
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>xslt</ToolCommandName>
 	</PropertyGroup>
 
   <ItemGroup>

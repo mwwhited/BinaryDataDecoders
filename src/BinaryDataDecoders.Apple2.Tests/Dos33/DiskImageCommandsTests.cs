@@ -4,6 +4,7 @@ using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
+using System.Text;
 
 namespace BinaryDataDecoders.Apple2.Tests.Dos33
 {
@@ -161,7 +162,16 @@ MSk6rUPQNsS6Op46QSTQIkJFIFNVUkUgQ0FQUyBMT0NLIElTIERPV04iOrAxMDAwOp0AXglkALrn
 KDQpOyJGUCIAdQnoA7IgQ0VOVEVSIFNUUklORyBBJACVCfIDQtDTKDIwySjjKEEkKcsyKSk6rULQ
 0TDEQtAxAKIJ/AOWQjq6QSQ6sQAAAIcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-            Assert.AreEqual(expectedBase64, base64);
+
+            var compare = Convert.FromBase64String(expectedBase64)
+                           .Zip(results).Select((v, i) => new
+                           {
+                               IsNotMatched = v.First != v.Second,
+                               Expected = v.First,
+                               Found = v.Second,
+                               Index = i,
+                           }).Where(i => i.IsNotMatched);
+            Assert.IsFalse(compare.Any());
 
             //Verify
 

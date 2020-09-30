@@ -8,6 +8,9 @@ using BinaryDataDecoders.ToolKit;
 
 namespace BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions
 {
+    /// <summary>
+    /// wrapper around MS Test Results intended for use with XslCompiledTransform
+    /// </summary>
     public class TrxExtensions
     {
         /// <summary>

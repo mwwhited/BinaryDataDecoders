@@ -69,7 +69,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Pipel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Nmea.Tests", "BinaryDataDecoders.Nmea.Tests\BinaryDataDecoders.Nmea.Tests.csproj", "{BD7DAB78-FC00-4FE6-8855-1B53D7BD83E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Xslt.Cli", "BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli.csproj", "{EE6CC5DA-D8EB-4AA1-BEEE-5124747B6D5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Xslt.Cli", "BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli.csproj", "{EE6CC5DA-D8EB-4AA1-BEEE-5124747B6D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
