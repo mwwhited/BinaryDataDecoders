@@ -25,6 +25,14 @@ namespace BinaryDataDecoders.TestUtilities
             {
                 AddResultFile(context, Path.ChangeExtension(fileName, ".bin"), data);
             }
+            else if (value is Stream stream)
+            {
+                using var ms = new MemoryStream();
+                if (stream.CanSeek)
+                    stream.Position = 0; 
+                stream.CopyTo(ms);
+                AddResultFile(context, Path.ChangeExtension(fileName, ".bin"), ms.ToArray());
+            }
             else if (value is string content)
             {
                 AddResultFile(context, Path.ChangeExtension(fileName, ".txt"), Encoding.UTF8.GetBytes(content));
