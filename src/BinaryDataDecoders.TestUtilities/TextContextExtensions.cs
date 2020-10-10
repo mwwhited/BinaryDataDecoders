@@ -2,7 +2,9 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Net.WebSockets;
 using System.Text;
+using System.Xml.Linq;
 
 namespace BinaryDataDecoders.TestUtilities
 {
@@ -12,30 +14,45 @@ namespace BinaryDataDecoders.TestUtilities
     public static class TextContextExtensions
     {
         /// <summary>
-        /// serialize and storeresults to test results folder
+        /// serialize and store results to test results folder
         /// </summary>
         /// <param name="context">test context</param>
         /// <param name="value">object to store</param>
         /// <returns>test context for chaining</returns>
-        public static TestContext AddResult(this TestContext context, object value)
+        public static TestContext AddResult(this TestContext context, object value, string fileName = "")
         {
-            var fileName = $"{value.GetType().Name}_{DateTime.Now.Ticks}.json".Replace('`', '_').Replace(':', '_').Replace('<', '_').Replace('>', '_');
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                var ext = value switch
+                {
+                    byte[] _ => ".bin",
+                    Stream _ => ".dat",
+                    string _ => ".txt",
+                    XContainer _ => ".xml",
+                    _ => ".data"
+                };
+                fileName = $"{value.GetType().Name}_{DateTime.Now.Ticks}{ext}".Replace('`', '_').Replace(':', '_').Replace('<', '_').Replace('>', '_');
+            }
 
             if (value is byte[] data)
             {
-                AddResultFile(context, Path.ChangeExtension(fileName, ".bin"), data);
+                AddResultFile(context, fileName, data);
             }
             else if (value is Stream stream)
             {
                 using var ms = new MemoryStream();
                 if (stream.CanSeek)
-                    stream.Position = 0; 
+                    stream.Position = 0;
                 stream.CopyTo(ms);
-                AddResultFile(context, Path.ChangeExtension(fileName, ".bin"), ms.ToArray());
+                AddResultFile(context, fileName, ms.ToArray());
             }
             else if (value is string content)
             {
-                AddResultFile(context, Path.ChangeExtension(fileName, ".txt"), Encoding.UTF8.GetBytes(content));
+                AddResultFile(context, fileName, Encoding.UTF8.GetBytes(content));
+            }
+            else if (value is XContainer xcontainer)
+            {
+                AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xcontainer.ToString()));
             }
             else if (value != null)
             {

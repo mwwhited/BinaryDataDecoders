@@ -1,6 +1,8 @@
 ﻿using BinaryDataDecoders.Templating.Abstractions;
 using HtmlAgilityPack;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace BinaryDataDecoders.Templating.Html
 {
@@ -17,6 +19,28 @@ namespace BinaryDataDecoders.Templating.Html
         {
             _instanceFactory = instanceFactory;
             _htmlVisitor = htmlVisitor;
+        }
+
+        public XPathNavigator ToXPathNavigator(string content)
+        {
+            var html = new HtmlDocument()
+            {
+                DisableServerSideCode = true,
+
+                OptionAutoCloseOnEnd = true,
+                // OptionDefaultStreamEncoding = Encoding.UTF8,
+                OptionEmptyCollection = true,
+                OptionFixNestedTags = true,
+                OptionOutputAsXml = true,
+                OptionOutputOptimizeAttributeValues = true,
+               // OptionPreserveXmlNamespaces = true,
+                OptionReadEncoding = true,
+                //OptionWriteEmptyNodes = true,
+
+            };
+            html.LoadHtml(content);
+            var xpathNav = html.CreateNavigator();
+            return xpathNav;
         }
 
 
