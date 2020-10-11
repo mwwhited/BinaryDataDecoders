@@ -108,6 +108,13 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         public override bool MoveToFirstChild()
         {
+            //if (_pointer.NodeType == XPathNodeType.Root)
+            //{
+            //    _pointer = new CSharpSyntaxNodePointer(_pointer.Current, _pointer, 0, 0);
+            //    TracePointer();
+            //    return true;
+            //}
+
             var basis = _pointer.AttributeIndex >= 0 ? _pointer.Owner : _pointer;
             if (basis == null) return false;
             if (basis.HasChildren)
@@ -128,6 +135,20 @@ namespace BinaryDataDecoders.CodeAnalysis
         }
         private bool MoveToSibling(int targetIndex)
         {
+            //if (_pointer.NodeType == XPathNodeType.Root)
+            //{
+            //    if (targetIndex == 0)
+            //    {
+            //        _pointer = new CSharpSyntaxNodePointer(_pointer.Current, _pointer, 0, 0);
+            //        TracePointer();
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+            //}
+
             var basis = _pointer.AttributeIndex >= 0 ? _pointer.Owner : _pointer;
             if (basis == null) return false;
             if (0 <= targetIndex && targetIndex < basis.Owner?.NumberOfChildren)
@@ -146,7 +167,7 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         public override bool MoveToParent()
         {
-            if (_pointer.NodeType == XPathNodeType.Root || _pointer.Owner == null)
+            if (_pointer.NodeType == XPathNodeType.Root || _pointer.Owner == null || _pointer.Owner.NodeType == XPathNodeType.Root)
             {
                 return false;
             }
@@ -159,14 +180,14 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         public override void MoveToRoot()
         {
-            var target = _pointer.Current;
+            var target = _pointer.Current.SyntaxTree?.GetRoot();
             var targetDepth = _pointer.Depth;
             while (target.Parent != null)
             {
                 target = target.Parent;
                 targetDepth--;
             }
-            _pointer = new CSharpSyntaxNodePointer(target, null, -1, targetDepth); //TODO: should the owner be null?
+            _pointer = new CSharpSyntaxNodePointer(target, null, -1, targetDepth);
         }
     }
 }

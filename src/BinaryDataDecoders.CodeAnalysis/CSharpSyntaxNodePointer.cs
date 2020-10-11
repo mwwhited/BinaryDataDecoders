@@ -17,7 +17,14 @@ namespace BinaryDataDecoders.CodeAnalysis
         public bool IsText { get; }
         public int AttributeIndex { get; }
 
-        public CSharpSyntaxNodePointer(SyntaxNodeOrToken entry, CSharpSyntaxNodePointer? owner, int index, int depth, bool isText = false, int attributeIndex = RootIndex)
+        public CSharpSyntaxNodePointer(
+            SyntaxNodeOrToken entry,
+            CSharpSyntaxNodePointer? owner,
+            int index,
+            int depth,
+            bool isText = false,
+            int attributeIndex = RootIndex
+            )
         {
             Owner = owner;
             Current = entry;
@@ -57,7 +64,7 @@ namespace BinaryDataDecoders.CodeAnalysis
         {
             get
             {
-                if (Current.Parent == null) return XPathNodeType.Root;
+                if (Current.Parent == null && Index == RootIndex) return XPathNodeType.Root;
                 else if (IsText) return XPathNodeType.Text;
                 else if (!HasAttributes) return XPathNodeType.Attribute;
                 else return XPathNodeType.Element;
@@ -74,6 +81,12 @@ namespace BinaryDataDecoders.CodeAnalysis
                 _ => false
             };
 
-        public override string ToString() => $"{new string(Depth < 0 ? '>' : ' ', Math.Abs(Depth))}|{Name}=@@@{Value}@@@\t[{NodeType}] ({Depth}:{Index})";
+        public override string ToString() =>
+             NodeType switch
+             {
+                 XPathNodeType.Root => $"{new string(Depth < 0 ? '>' : ' ', Math.Abs(Depth))}|{Name}$$$\t[{NodeType}] ({Depth}:{Index})",
+                 XPathNodeType.Element => $"{new string(Depth < 0 ? '>' : ' ', Math.Abs(Depth))}|{Name}$$$\t[{NodeType}] ({Depth}:{Index})",
+                 _ => $"{new string(Depth < 0 ? '>' : ' ', Math.Abs(Depth))}|{Name}=@@@{Value}@@@\t[{NodeType}] ({Depth}:{Index})"
+             };
     }
 }

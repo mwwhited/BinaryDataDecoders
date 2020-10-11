@@ -4,10 +4,10 @@
 >
     <xsl:output method="xml" indent="yes" />
 
-	<!--
+	
 	<xsl:template match="/">
 		<root>
-			<xsl:apply-templates select="/" mode="copy" />
+			<xsl:apply-templates select="node()" mode="copy" />
 		</root>
 	</xsl:template>
 	<xsl:template match="@* | node()" mode="copy">
@@ -15,11 +15,11 @@
 			<xsl:apply-templates select="@* | node()" mode="copy"/>
 		</xsl:copy>
 	</xsl:template>
-	-->
+	
 
-	<xsl:template match="@* | node()">
+	<!--<xsl:template match="@* | node()">
 		<xsl:copy>
 			<xsl:apply-templates select="@* | node()" />
 		</xsl:copy>
-	</xsl:template>
+	</xsl:template>-->
 </xsl:stylesheet>
