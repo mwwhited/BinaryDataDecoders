@@ -5,6 +5,7 @@ using System.Xml.XPath;
 using System.Xml.Xsl;
 using BinaryDataDecoders.ToolKit;
 using BinaryDataDecoders.TestUtilities;
+using System.Xml.Linq;
 
 namespace BinaryDataDecoders.CodeAnalysis.Tests
 {
@@ -19,7 +20,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
             XPathNavigator nav = new CSharpAnalyzer()
                    .Analyze(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
 
-          var node =   nav.SelectSingleNode("hello/world");
+            var node = nav.SelectSingleNode("hello/world");
         }
 
         [TestMethod]
@@ -48,7 +49,10 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
 
             xslt.Transform(nav, xsltArgumentList, resultStream);
 
-            this.TestContext.AddResult(resultStream);
+            resultStream.Position = 0;
+            var xml = XDocument.Load(resultStream);
+
+            this.TestContext.AddResult(xml);
         }
     }
 }

@@ -1,178 +1,111 @@
 ﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.FlowAnalysis;
-using System;
-using System.Linq;
+using System.Diagnostics;
 using System.Xml;
 using System.Xml.XPath;
 
 namespace BinaryDataDecoders.CodeAnalysis
 {
+
     public class SyntaxTreeXPathNavigator : XPathNavigator
     {
-        private SyntaxNodeOrToken _entry;
-        private SyntaxNodeOrToken _current;
-        private int _index;
+        private CSharpSyntaxNodePointer _current;
 
-        //private bool IsNullToken(SyntaxNodeOrToken child) =>
-        //    child == null || (child.IsToken && child.RawKind == 0);
-        //private bool NodeHasChilden(SyntaxNodeOrToken child) =>
-        //   child.IsNode && (child.AsNode()?.ChildNodesAndTokens().Any() ?? false);
+        public SyntaxTreeXPathNavigator(SyntaxNodeOrToken syntaxNode) => _current = new CSharpSyntaxNodePointer(syntaxNode, null, -1, 0);
 
-        //private void Reset()
-        //{
-        //    _current = _entry;
-        //    _index = -1;
-        //}
+        //Note: this is read only... don't try to tweak the code here
+        public override bool CanEdit => false;
 
-        private SyntaxNodeOrToken Current => _current;
-        //    _index switch
-        //{
-        //    -1 => _current,
-        //    _ => _current.ChildNodesAndTokens().ElementAt(_index)
-        //};
-
-        public SyntaxTreeXPathNavigator(SyntaxNodeOrToken syntaxNode)
-        {
-            _entry = _current = syntaxNode;
-            _index = -1;
-        }
-
+        //Note: for a first pass I'm going to ignore all the namespace crazy.
         public override XmlNameTable NameTable => null;
-
         public override string Prefix => "";
         public override string BaseURI => "";
         public override string NamespaceURI => ""; //this.GetXmlNamespaceForOutput();
         public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope) => false;
         public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope) => false;
 
-        public override string LocalName => _current.Kind().ToString();
-        public override string Name => LocalName;
+        public override string LocalName => Name;
+        public override string Name => _current.Name;
+        public override string Value => _current.Value;
 
-        public override string Value => _current.ToString();
+        public override XPathNodeType NodeType => _current.NodeType;
+        public override bool IsEmptyElement => !_current.HasChildren;
+        public override bool HasChildren => _current.HasChildren;
 
+        public override XPathNavigator Clone() => new SyntaxTreeXPathNavigator(default) { _current = _current.Clone() };
 
-        //public override XPathNodeType NodeType
-        //{
-        //    get
-        //    {
-        //        if (Current.Parent == null)
-        //            return XPathNodeType.Root;
+        public override bool IsSamePosition(XPathNavigator other) =>
+           other switch
+           {
+               SyntaxTreeXPathNavigator syntaxTree => syntaxTree._current.Equals(_current),
+               _ => false
+           };
 
-        //        if (NodeHasChilden(Current))
-        //            return XPathNodeType.Element;
-        //        return XPathNodeType.Text;
-        //    }
-        //}
-        //public override bool IsEmptyElement => !NodeHasChilden(Current);
-        //public override bool HasChildren => NodeHasChilden(Current);
+        public override bool MoveTo(XPathNavigator other)
+        {
+            if (other is SyntaxTreeXPathNavigator syntaxTree)
+            {
+                _current = syntaxTree._current;
+                return true;
+            }
+            return false;
+        }
 
-        //public override XPathNavigator Clone() =>
-        //    new SyntaxTreeXPathNavigator(_current)
-        //    {
-        //        _index = _index,
-        //        _entry = _entry,
-        //    };
+        public override bool MoveToId(string id) => false;
+        public override bool MoveToFirstAttribute() => false;
+        public override bool MoveToNextAttribute() => false;
 
-        //public override bool IsSamePosition(XPathNavigator other)
-        //{
-        //    if (other is SyntaxTreeXPathNavigator syntaxTree)
-        //    {
-        //        var comparedCurrent = syntaxTree.Current.IsEquivalentTo(Current);
-        //        return comparedCurrent;
-        //    }
-        //    return false;
-        //}
+        public override bool MoveToFirstChild()
+        {
+            if (_current.HasChildren)
+            {
+                var child = _current.Current.ChildNodesAndTokens().First();
+                _current = new CSharpSyntaxNodePointer(child, _current, 0, _current.Depth + 1);
+                Debug.WriteLine(_current);
+                return true;
+            }
 
-        //public override bool MoveTo(XPathNavigator other)
-        //{
-        //    if (other is SyntaxTreeXPathNavigator syntaxTree)
-        //    {
-        //        _current = syntaxTree._current;
-        //        _index = syntaxTree._index;
-        //        _entry = syntaxTree._entry;
-        //        return true;
-        //    }
-        //    return false;
-        //}
+            return false;
+        }
 
-        //public override bool MoveToId(string id) => false;
-        //public override bool MoveToFirstAttribute() => false;
-        //public override bool MoveToNextAttribute() => false;
+        private bool MoveToSibling(int targetIndex)
+        {
+            if (0<= targetIndex && targetIndex < _current.Owner?.NumberOfChildren)
+            {
+                var child = _current.Owner.Current.ChildNodesAndTokens()[targetIndex];
+                _current = new CSharpSyntaxNodePointer(child, _current.Owner, targetIndex, _current.Depth + 1);
+                Debug.WriteLine(_current);
+                return true;
+            }
 
-        //public override bool MoveToFirstChild()
-        //{
-        //    if (this.IsEmptyElement)
-        //    {
-        //        _index = -1;
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        _index = 0;
-        //        _current = _current.ChildNodesAndTokens().FirstOrDefault();
-        //        return true;
-        //    }
-        //}
+            return false;
+        }
+        public override bool MoveToNext() => MoveToSibling(_current.Index + 1);
+        public override bool MoveToPrevious() => MoveToSibling(_current.Index - 1);
 
-
-        //public override bool MoveToNext()
-        //{
-        //    if (this.IsEmptyElement)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        if ((_index + 1) >= _current.ChildNodesAndTokens().Count)
-        //        {
-        //            return false;
-        //        }
-        //        else
-        //        {
-        //            _index++;
-        //            return true;
-        //        }
-        //    }
-        //}
-
-        //public override bool MoveToPrevious()
-        //{
-        //    if (this.IsEmptyElement)
-        //    {
-        //        _index = -1;
-        //        return false;
-        //    }
-        //    else if (_index > 0)
-        //    {
-        //        _index--;
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        _index = 0;
-        //        return false;
-        //    }
-        //}
-
-        //public override bool MoveToParent()
-        //{
-        //    if (_current.Parent == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        _index = -1;
-        //        _current = _current.Parent;
-        //        return true;
-        //    }
-        //}
+        public override bool MoveToParent()
+        {
+            if (_current.Owner == null)
+            {
+                return false;
+            }
+            else
+            {
+                _current = _current.Owner;
+                return true;
+            }
+        }
 
 
-        //public override void MoveToRoot()
-        //{
-        //    while (MoveToParent()) ;
-        //}
+        public override void MoveToRoot()
+        {
+            var target = _current.Current;
+            var targetDepth = _current.Depth;
+            while (target.Parent != null)
+            {
+                target = target.Parent;
+                targetDepth--;
+            }
+            _current = new CSharpSyntaxNodePointer(target, _current, -1, targetDepth);
+        }
     }
 }
