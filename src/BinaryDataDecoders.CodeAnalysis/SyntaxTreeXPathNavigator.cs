@@ -60,7 +60,13 @@ namespace BinaryDataDecoders.CodeAnalysis
             {
                 var child = _current.Current.ChildNodesAndTokens().First();
                 _current = new CSharpSyntaxNodePointer(child, _current, 0, _current.Depth + 1);
-                Debug.WriteLine(_current);
+                // Debug.WriteLine(_current);
+                return true;
+            }
+            else if (_current.Current.IsToken && !_current.IsText)
+            {
+                _current = new CSharpSyntaxNodePointer(_current.Current, _current, 0, _current.Depth + 1, true);
+                // Debug.WriteLine(_current);
                 return true;
             }
 
@@ -69,11 +75,11 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         private bool MoveToSibling(int targetIndex)
         {
-            if (0<= targetIndex && targetIndex < _current.Owner?.NumberOfChildren)
+            if (0 <= targetIndex && targetIndex < _current.Owner?.NumberOfChildren)
             {
                 var child = _current.Owner.Current.ChildNodesAndTokens()[targetIndex];
-                _current = new CSharpSyntaxNodePointer(child, _current.Owner, targetIndex, _current.Depth + 1);
-                Debug.WriteLine(_current);
+                _current = new CSharpSyntaxNodePointer(child, _current.Owner, targetIndex, _current.Depth);
+                // Debug.WriteLine(_current);
                 return true;
             }
 

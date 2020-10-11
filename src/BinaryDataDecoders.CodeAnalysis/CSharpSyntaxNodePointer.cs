@@ -1,7 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using System;
-using System.Linq;
 using System.Xml.XPath;
 
 namespace BinaryDataDecoders.CodeAnalysis
@@ -13,12 +11,15 @@ namespace BinaryDataDecoders.CodeAnalysis
         public int Index { get; }
         public int Depth { get; }
 
-        public CSharpSyntaxNodePointer(SyntaxNodeOrToken entry, CSharpSyntaxNodePointer? owner, int index, int depth)
+        public bool IsText { get; }
+
+        public CSharpSyntaxNodePointer(SyntaxNodeOrToken entry, CSharpSyntaxNodePointer? owner, int index, int depth, bool isText = false)
         {
             Owner = owner;
             Current = entry;
             Index = index;
             Depth = depth;
+            IsText = isText;
         }
 
         public string Name => Current.Kind().ToString();
@@ -30,8 +31,8 @@ namespace BinaryDataDecoders.CodeAnalysis
             get
             {
                 if (Current.Parent == null) return XPathNodeType.Root;
-                else if (HasChildren) return XPathNodeType.Element;
-                else return XPathNodeType.Text;
+                else if (IsText) return XPathNodeType.Text;
+                else return XPathNodeType.Element;
             }
         }
 
