@@ -11,7 +11,10 @@ namespace BinaryDataDecoders.CodeAnalysis
     {
         private CSharpSyntaxNodePointer _pointer;
 
-        public SyntaxTreeXPathNavigator(SyntaxNodeOrToken syntaxNode) : this(new CSharpSyntaxNodePointer(syntaxNode, null, -1, 0)) { }
+        public SyntaxTreeXPathNavigator(SyntaxNodeOrToken syntaxNode) :
+            this(new CSharpSyntaxNodePointer(syntaxNode, null, -1, -1))
+        {
+        }
         private SyntaxTreeXPathNavigator(CSharpSyntaxNodePointer pointer) => _pointer = pointer;
 
         //Note: this is read only... don't try to tweak the code here
@@ -108,12 +111,12 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         public override bool MoveToFirstChild()
         {
-            //if (_pointer.NodeType == XPathNodeType.Root)
-            //{
-            //    _pointer = new CSharpSyntaxNodePointer(_pointer.Current, _pointer, 0, 0);
-            //    TracePointer();
-            //    return true;
-            //}
+            if (_pointer.NodeType == XPathNodeType.Root)
+            {
+                _pointer = new CSharpSyntaxNodePointer(_pointer.Current, _pointer, 0, 0);
+                TracePointer();
+                return true;
+            }
 
             var basis = _pointer.AttributeIndex >= 0 ? _pointer.Owner : _pointer;
             if (basis == null) return false;
@@ -135,19 +138,7 @@ namespace BinaryDataDecoders.CodeAnalysis
         }
         private bool MoveToSibling(int targetIndex)
         {
-            //if (_pointer.NodeType == XPathNodeType.Root)
-            //{
-            //    if (targetIndex == 0)
-            //    {
-            //        _pointer = new CSharpSyntaxNodePointer(_pointer.Current, _pointer, 0, 0);
-            //        TracePointer();
-            //        return true;
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
+            if (_pointer.NodeType == XPathNodeType.Root || _pointer.Owner?.NodeType == XPathNodeType.Root) return false;
 
             var basis = _pointer.AttributeIndex >= 0 ? _pointer.Owner : _pointer;
             if (basis == null) return false;
@@ -178,16 +169,7 @@ namespace BinaryDataDecoders.CodeAnalysis
             }
         }
 
-        public override void MoveToRoot()
-        {
-            var target = _pointer.Current.SyntaxTree?.GetRoot();
-            var targetDepth = _pointer.Depth;
-            while (target.Parent != null)
-            {
-                target = target.Parent;
-                targetDepth--;
-            }
-            _pointer = new CSharpSyntaxNodePointer(target, null, -1, targetDepth);
-        }
+        public override void MoveToRoot() =>
+            _pointer = new CSharpSyntaxNodePointer(_pointer.Current.SyntaxTree?.GetRoot(), null, -1, -1);
     }
 }

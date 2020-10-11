@@ -1,7 +1,5 @@
 ﻿using Microsoft.CodeAnalysis.CSharp;
-using System.Collections;
 using System.IO;
-using BinaryDataDecoders.ToolKit;
 
 namespace BinaryDataDecoders.CodeAnalysis
 {
