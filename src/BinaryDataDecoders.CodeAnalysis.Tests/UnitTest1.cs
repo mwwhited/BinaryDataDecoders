@@ -1,11 +1,11 @@
+using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Xml.Xsl;
-using BinaryDataDecoders.ToolKit;
-using BinaryDataDecoders.TestUtilities;
-using System.Xml.Linq;
 
 namespace BinaryDataDecoders.CodeAnalysis.Tests
 {
@@ -31,7 +31,6 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
             var templateName = "SimpleCopy.xslt";
             using var templateStream = this.GetResourceStream(templateName);
 
-
             var xslt = new XslCompiledTransform(false);
             using var xmlreader = XmlReader.Create(templateStream, new XmlReaderSettings
             {
@@ -48,6 +47,8 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
                    .Analyze(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
 
             xslt.Transform(nav, xsltArgumentList, resultStream);
+
+            this.TestContext.AddResult(resultStream);
 
             resultStream.Position = 0;
             var xml = XDocument.Load(resultStream);
