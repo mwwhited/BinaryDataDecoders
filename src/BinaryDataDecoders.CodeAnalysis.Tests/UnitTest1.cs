@@ -1,7 +1,11 @@
+using BinaryDataDecoders.CodeAnalysis.CSharp;
 using BinaryDataDecoders.TestUtilities;
 using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.IO;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -54,6 +58,30 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
             var xml = XDocument.Load(resultStream);
 
             this.TestContext.AddResult(xml);
+        }
+
+        [TestMethod]
+        public void JustXPathTest()
+        {
+            XPathNavigator nav = new CSharpAnalyzer()
+                   .Analyze(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
+
+            var x = nav.Clone();
+            var xml = nav.OuterXml;
+
+            this.TestContext.AddResult(xml);
+
+        }
+
+        [TestMethod]
+        public void BuildTreeTest()
+        {
+            var cs = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs";
+            var nav = new CSharpAnalyzer().Pointer(cs);
+
+            static XElement toXml(ISyntaxPointer sp) => new XElement(sp.Name, sp.Children.Select(toXml));
+
+            var xml = toXml(nav);
         }
     }
 }
