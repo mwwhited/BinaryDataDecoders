@@ -12,13 +12,17 @@
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Coverage\\*.xml\" -o \"$(SolutionDir)..\\Publish\\docs\\Coverage\\*.md\" -s \"$(SolutionDir)..\""
     },
-    "BinaryDataDecoders.Xslt.Cli (Code Structured)": {
+    "BinaryDataDecoders.Xslt.Cli (XmlComments to Structured)": {
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToStructuredXml.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Binary\\*.xml\" -o \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" -s \"$(SolutionDir)..\""
     },
-    "BinaryDataDecoders.Xslt.Cli (Code Markdown)": {
+    "BinaryDataDecoders.Xslt.Cli (XmlComments to Markdown)": {
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" -o \"$(SolutionDir)..\\Publish\\docs\\Code\\*.md\" -s \"$(SolutionDir)..\""
+    },
+    "BinaryDataDecoders.Xslt.Cli (CSharp to Markdown)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" -i \"$(SolutionDir)*.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" -s \"$(SolutionDir)..\" -x CSharp"
     }
   }
 }

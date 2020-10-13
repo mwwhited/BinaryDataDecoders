@@ -1,13 +1,16 @@
 ﻿using BinaryDataDecoders.CodeAnalysis.Xml.XPath;
+using BinaryDataDecoders.ToolKit.MetaData;
+using BinaryDataDecoders.ToolKit.Xml.XPath;
 using Microsoft.CodeAnalysis.CSharp;
 using System.IO;
 using System.Xml.XPath;
 
 namespace BinaryDataDecoders.CodeAnalysis.CSharp
 {
-    public class CSharpAnalyzer
+    [TargetExtension(".cs")]
+    public class CSharpAnalyzer : ICreateXPathNavigator
     {
-        public XPathNavigator Analyze(string csharpSourceFile)
+        public IXPathNavigable CreateNavigator(string csharpSourceFile)
         {
             var root = Pointer(csharpSourceFile);
             return new SyntaxTreeXPathNavigator(root);

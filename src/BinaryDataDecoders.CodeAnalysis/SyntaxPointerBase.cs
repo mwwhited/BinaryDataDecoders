@@ -1,15 +1,19 @@
 ﻿using BinaryDataDecoders.ToolKit.Collections;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using CS = Microsoft.CodeAnalysis.CSharp.CSharpExtensions;
+using VB = Microsoft.CodeAnalysis.VisualBasic.VisualBasicExtensions;
 
 namespace BinaryDataDecoders.CodeAnalysis
 {
     internal abstract class SyntaxPointerBase<TItem> : ISyntaxPointer
     {
+        public const string CsLang = "C#";
+        public const string VbLang = "Visual Basic";
+
         protected SyntaxPointerBase(TItem item, ISyntaxPointer? owner)
         {
             Item = item ?? throw new ArgumentNullException(nameof(item));
@@ -27,11 +31,11 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         protected virtual IEnumerable<(XName name, object value)> GetAttributes()
         {
-           // yield return ("RawType", Item.GetType().AssemblyQualifiedName);
+            // yield return ("RawType", Item.GetType().AssemblyQualifiedName);
             if (Item is SyntaxNode node)
             {
                 yield return ("RawKind", node.RawKind);
-                yield return ("Type",nameof(SyntaxNode)[6..]);
+                yield return ("Type", nameof(SyntaxNode)[6..]);
             }
             else if (Item is SyntaxToken token)
             {
@@ -68,10 +72,15 @@ namespace BinaryDataDecoders.CodeAnalysis
         public string Name =>
            $@"{Item switch
            {
-               SyntaxNode node when node.Language == "C#" => node.Kind(),
-               SyntaxToken token when token.Language == "C#" => token.Kind(),
-               SyntaxNodeOrToken nodeOrToken when nodeOrToken.Language == "C#" => nodeOrToken.Kind(),
-               SyntaxTrivia trivia when trivia.Language == "C#" => trivia.Kind(),
+               SyntaxNode node when node.Language == CsLang => CS.Kind(node),
+               SyntaxToken token when token.Language == CsLang => CS.Kind(token),
+               SyntaxNodeOrToken nodeOrToken when nodeOrToken.Language == CsLang => CS.Kind(nodeOrToken),
+               SyntaxTrivia trivia when trivia.Language == CsLang => CS.Kind(trivia),
+
+               SyntaxNode node when node.Language == VbLang => VB.Kind(node),
+               SyntaxToken token when token.Language == VbLang => VB.Kind(token),
+               SyntaxNodeOrToken nodeOrToken when nodeOrToken.Language == VbLang => VB.Kind(nodeOrToken),
+               SyntaxTrivia trivia when trivia.Language == VbLang => VB.Kind(trivia),
 
                _ => Item?.GetType().Name ?? "UNKNOWN"
            }}";

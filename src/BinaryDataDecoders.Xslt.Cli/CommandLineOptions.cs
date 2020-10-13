@@ -4,8 +4,11 @@ namespace BinaryDataDecoders.Xslt.Cli
 {
     public class CommandLineOptions
     {
-        [Option('i', "input", Required = true, HelpText ="input file 9xml)")]
+        [Option('i', "input", Required = true, HelpText ="input file (xml?)")]
         public string Input { get; set; }
+
+        [Option('x', "input-type", Required = false, HelpText = "input file type (default XML)")]
+        public InputTypes InputType { get; set; } = InputTypes.Xml;
 
         [Option('t', "template", Required = true, HelpText = "input stylesheet/template file (xslt)")]
         public string Template { get; set; }

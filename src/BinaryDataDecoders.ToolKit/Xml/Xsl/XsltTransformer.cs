@@ -25,12 +25,38 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         }
 
         /// <summary>
+        /// Read input file as XML
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public IXPathNavigable ReadAsXml(string fileName)
+        {
+            var xmlreader = XmlReader.Create(fileName, new XmlReaderSettings
+            {
+                DtdProcessing = DtdProcessing.Ignore,
+                ConformanceLevel = ConformanceLevel.Document,
+                NameTable = new NameTable(),
+            });
+            var xmlDocument = new XmlDocument();
+            xmlDocument.Load(xmlreader);
+            return xmlDocument;
+        }
+
+        /// <summary>
         /// Single action transform
         /// </summary>
         /// <param name="template">path for XSLT style-sheet</param>
         /// <param name="input">source XML file</param>
         /// <param name="output">resulting text content</param>
-        public void Transform(string template, string input, string output)
+        public void Transform(string template, string input, string output) => Transform(template, ReadAsXml(input), output);
+
+        /// <summary>
+        /// Single action transform
+        /// </summary>
+        /// <param name="template">path for XSLT style-sheet</param>
+        /// <param name="input">source XML file</param>
+        /// <param name="output">resulting text content</param>
+        public void Transform(string template, IXPathNavigable input, string output)
         {
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 
@@ -64,7 +90,17 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="template">path for XSLT style-sheet</param>
         /// <param name="input">Wild card allowed for multiple files</param>
         /// <param name="output">Output and suffix per file.</param>
-        public void TransformAll(string template, string input, string output)
+        public void TransformAll(string template, string input, string output) =>
+            TransformAll(template, input, ReadAsXml, output);
+
+        /// <summary>
+        /// Multi-action transform. 
+        /// </summary>
+        /// <param name="template">path for XSLT style-sheet</param>
+        /// <param name="input">Wild card allowed for multiple files</param>
+        /// <param name="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
+        /// <param name="output">Output and suffix per file.</param>
+        public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
         {
             if (File.Exists(input))
             {
@@ -92,7 +128,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 var outFileName = removeExt + outputPattern;
                 var outputFile = Path.Combine(outputDir, outFileName);
                 Console.WriteLine($"\t\"{inputFileClean}\" => \"{outFileName}\"");
-                Transform(template, inputFile, outputFile);
+
+                var inputNavigator = inputNavigatorFactory(inputFile);
+                Transform(template, inputNavigator, outputFile);
             }
         }
     }

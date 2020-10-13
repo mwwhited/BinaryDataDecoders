@@ -6,7 +6,8 @@
 	<!--<xsl:preserve-space elements="*"/>-->
 
 	
-	<!--<xsl:template match="/">
+	<!--
+	<xsl:template match="/">
 		<root>
 			<xsl:apply-templates select="node()" mode="copy" />
 		</root>
@@ -15,7 +16,8 @@
 		<xsl:copy>
 			<xsl:apply-templates select="@* | node()" mode="copy"/>
 		</xsl:copy>
-	</xsl:template>-->
+	</xsl:template>
+	-->
 	
 
 	
