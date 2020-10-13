@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryDataDecoders.ToolKit.IO;
+using System;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -48,22 +49,24 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="template">path for XSLT style-sheet</param>
         /// <param name="input">source XML file</param>
         /// <param name="output">resulting text content</param>
-        public void Transform(string template, string input, string output) => Transform(template, ReadAsXml(input), output);
+        public void Transform(string template, string input, string output) => Transform(template, input, ReadAsXml(input), output);
 
         /// <summary>
         /// Single action transform
         /// </summary>
         /// <param name="template">path for XSLT style-sheet</param>
+        /// <param name="inputSource"></param>
         /// <param name="input">source XML file</param>
         /// <param name="output">resulting text content</param>
-        public void Transform(string template, IXPathNavigable input, string output)
+        public void Transform(string template, string inputSource, IXPathNavigable input, string output)
         {
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 
             XNamespace ns = this.GetXmlNamespace();
             xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
                 new XAttribute(nameof(template), template),
-                new XAttribute(nameof(input), input),
+                new XAttribute(nameof(input), inputSource),
+                new XAttribute("inputType", input.GetType().AssemblyQualifiedName),
                 new XAttribute(nameof(output), output)
                 ).ToXPathNavigable().CreateNavigator());
 
@@ -110,9 +113,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             }
 
             var inputFullPath = Path.GetFullPath(input);
-            var inputDir = Path.GetDirectoryName(inputFullPath);
-            var inputPattern = Path.GetFileName(inputFullPath);
-            var inputFiles = Directory.GetFiles(inputDir, inputPattern);
+            var inputDir = PathEx.GetBasePath(input);
+            var inputFiles = PathEx.EnumerateFiles(input);
 
             var outputFullPath = Path.GetFullPath(output);
             var outputDir = Path.GetDirectoryName(outputFullPath);
@@ -124,13 +126,35 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             foreach (var inputFile in inputFiles)
             {
                 var inputFileClean = inputFile.Substring(inputDir.Length).TrimStart('/', '\\');
-                var removeExt = Path.ChangeExtension(inputFileClean, null);
-                var outFileName = removeExt + outputPattern;
+                var removedExt = Path.ChangeExtension(inputFileClean, null);
+                var outFileName = removedExt + outputPattern;
                 var outputFile = Path.Combine(outputDir, outFileName);
                 Console.WriteLine($"\t\"{inputFileClean}\" => \"{outFileName}\"");
 
-                var inputNavigator = inputNavigatorFactory(inputFile);
-                Transform(template, inputNavigator, outputFile);
+                try
+                {
+                    var inputNavigator = inputNavigatorFactory(inputFile);
+                    Transform(template, inputFile, inputNavigator, outputFile);
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"!!! ERROR: \"{inputFileClean}\" => \"{outFileName}\" :: {ex.Message}");
+                    try
+                    {
+                        File.AppendAllLines(outputFile, new[]
+                        {
+                            "",
+                            new string('=', 60),
+                           $"!!! ERROR !!!: {ex.Message}",
+                            new string('=', 60),
+                            ex.ToString()
+                        });
+                    }
+                    catch
+                    {
+                        // Eat and errors!
+                    }
+                }
             }
         }
     }

@@ -22,7 +22,7 @@
     },
     "BinaryDataDecoders.Xslt.Cli (CSharp to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" -i \"$(SolutionDir)*.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" -s \"$(SolutionDir)..\" -x CSharp"
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" -i \"$(SolutionDir)**\\*.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" -s \"$(SolutionDir)..\" -x CSharp"
     }
   }
 }

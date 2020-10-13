@@ -27,9 +27,10 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// Single action transform
         /// </summary>
         /// <param name="template">path for xslt stylesheet</param>
+        /// <param name="inputSource"></param>
         /// <param name="input">source XPathNavigable</param>
         /// <param name="output">resulting text content</param>
-        void Transform(string template, IXPathNavigable input, string output);
+        void Transform(string template, string inputSource, IXPathNavigable input, string output);
 
         /// <summary>
         /// Multiaction action transform. 

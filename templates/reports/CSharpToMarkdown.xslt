@@ -9,9 +9,9 @@
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
 	
 	xmlns:ex-path="oobdev://BinaryDataDecoders/ToolKit/v1/PathExtensions"
-	xmlns:o-path="oobdev://BinaryDataDecoders/ToolKit/v1/PathExtensions:out"	
+	xmlns:o-path="oobdev://BinaryDataDecoders/ToolKit/v1/PathExtensions:out"
 	xmlns:ex-file="oobdev://BinaryDataDecoders/ToolKit/v1/FileExtensions"
-	xmlns:o-file="oobdev://BinaryDataDecoders/ToolKit/v1/FileExtensions:out"	
+	xmlns:o-file="oobdev://BinaryDataDecoders/ToolKit/v1/FileExtensions:out"
 	xmlns:ex-env="oobdev://BinaryDataDecoders/ToolKit/v1/EnvironmentExtensions"
 	xmlns:o-env="oobdev://BinaryDataDecoders/ToolKit/v1/EnvironmentExtensions:out"
 	xmlns:ex-str="oobdev://BinaryDataDecoders/ToolKit/v1/StringExtensions"
@@ -22,12 +22,17 @@
 	
 	xmlns:ex-xsl="clr:BinaryDataDecoders.Xslt.Cli.XsltTransformer, BinaryDataDecoders.Xslt.Cli"
 	>
-	<xsl:output method="text" indent="no"/>
+	<xsl:output method="xml" indent="yes"/>
 	<xsl:param name="files" />
 
 	<xsl:template match="/">
 		<root>
-			<xsl:apply-templates select="node()" mode="copy" />
+			<files>
+				<xsl:apply-templates select="$files" mode="copy" />
+			</files>
+			<code>
+				<xsl:apply-templates select="node()" mode="copy" />
+			</code>
 		</root>
 	</xsl:template>
 	<xsl:template match="@* | node()" mode="copy">
