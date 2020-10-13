@@ -13,6 +13,8 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
                 // SyntaxTriviaPointer _ => SignificantWhitespace,
                 // SyntaxValuePointer<SyntaxTrivia> _ => SignificantWhitespace,
                 ISyntaxValuePointer _ => Text,
+                ISyntaxPreserveWhitespacePointer _ => SignificantWhitespace,
+                ISyntaxCommentPointer _ => Comment,
                 _ => Element
             };
     }

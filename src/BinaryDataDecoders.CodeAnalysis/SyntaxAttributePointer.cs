@@ -10,7 +10,7 @@ namespace BinaryDataDecoders.CodeAnalysis
         public SyntaxAttributePointer(XName name, object value, ISyntaxPointer owner)
         {
             this.Name = name.LocalName;
-            this.NamespaceUri = name.NamespaceName ?? "";
+            this.NamespaceUri = name.NamespaceName;
             this.Value = $"{value}";
             this.Owner = owner;
         }

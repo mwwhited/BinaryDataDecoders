@@ -1,5 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace BinaryDataDecoders.CodeAnalysis
 {
@@ -9,12 +11,29 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         public SyntaxTriviaPointer(SyntaxTrivia trivia, ISyntaxPointer owner) : base(trivia, owner)
         {
-            _triviaValue = this.Value.ToSyntaxValuePointer(this);
+            // _triviaValue = this.Value.ToSyntaxValuePointer(this);
+            _triviaValue = new SyntaxPreserveWhitespacePointer<SyntaxTrivia>(trivia, this);
         }
 
         protected override IEnumerable<ISyntaxPointer> GetChildren()
         {
-            yield return _triviaValue;
+            var node = Item.GetStructure();
+            if (node != null)
+            {
+                yield return node.ToSyntaxPointer(this);
+            }
+            else
+            {
+                yield return _triviaValue;
+            }
+        }
+
+        protected override IEnumerable<(XName name, object value)> GetAttributes()
+        {
+            yield return ("Value", Item.ToString());
+
+            foreach (var a in base.GetAttributes())
+                yield return a;
         }
     }
 }

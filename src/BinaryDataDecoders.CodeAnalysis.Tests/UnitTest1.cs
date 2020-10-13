@@ -27,8 +27,13 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
             var node = nav.SelectSingleNode("hello/world");
         }
 
-        [TestMethod]
-        public void DeeperTest()
+        //  [TestMethod]
+        [DataTestMethod]
+        [DataRow(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\Xml\XPath\XPathNodeTypeEx.cs")]
+        [DataRow(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\ApplesoftBASIC\Detokenizer.cs")]
+        [DataRow(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\CatalogEntry.cs")]
+        [DataRow(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs")]
+        public void DeeperTest(string cs)
         {
             var xsltArgumentList = new XsltArgumentList();
 
@@ -47,8 +52,11 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
 
             using var resultStream = new MemoryStream();
 
-            XPathNavigator nav = new CSharpAnalyzer()
-                   .Analyze(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
+            //var cs = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\Xml\XPath\XPathNodeTypeEx.cs";
+            // var cs = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\ApplesoftBASIC\Detokenizer.cs";
+            //var cs = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\CatalogEntry.cs";
+            // var cs = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs";
+            XPathNavigator nav = new CSharpAnalyzer().Analyze(cs);
 
             xslt.Transform(nav, xsltArgumentList, resultStream);
 

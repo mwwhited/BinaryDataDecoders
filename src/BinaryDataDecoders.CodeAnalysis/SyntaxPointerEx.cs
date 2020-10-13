@@ -12,9 +12,6 @@ namespace BinaryDataDecoders.CodeAnalysis
         internal static ISyntaxPointer ToSyntaxPointer(this SyntaxToken token, ISyntaxPointer owner) => new SyntaxTokenPointer(token, owner);
         internal static ISyntaxPointer ToSyntaxPointer(this SyntaxTrivia trivia, ISyntaxPointer owner) => new SyntaxTriviaPointer(trivia, owner);
         internal static ISyntaxPointer ToSyntaxPointer(this (XName name, object value) item, ISyntaxPointer owner) => new SyntaxAttributePointer(item.name, item.value, owner);
-
-        internal static ISyntaxPointer ToSyntaxValuePointer<T>(this T item, ISyntaxPointer owner) => new SyntaxValuePointer<T>(item, owner);
-
         internal static ISyntaxPointer ToSyntaxPointer(this SyntaxNodeOrToken nodeOrToken, ISyntaxPointer owner) =>
             nodeOrToken switch
             {
@@ -22,6 +19,8 @@ namespace BinaryDataDecoders.CodeAnalysis
                 _ when nodeOrToken.IsToken => ToSyntaxPointer(nodeOrToken.AsToken(), owner),
                 _ => throw new NotSupportedException()
             };
+
+        internal static ISyntaxPointer ToSyntaxValuePointer<T>(this T item, ISyntaxPointer owner) => new SyntaxValuePointer<T>(item, owner);
 
         internal static ISyntaxPointer Clone(this ISyntaxPointer pointer) =>
             pointer switch
@@ -36,5 +35,7 @@ namespace BinaryDataDecoders.CodeAnalysis
 
                 _ => throw new NotSupportedException()
             };
+
+        internal static bool IsEqualTo(this ISyntaxPointer left, ISyntaxPointer right) => false;
     }
 }

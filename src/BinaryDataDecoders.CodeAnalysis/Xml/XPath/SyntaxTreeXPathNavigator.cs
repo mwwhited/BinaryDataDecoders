@@ -20,9 +20,14 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
         public override XmlNameTable NameTable => null;
         public override string Prefix => "";
         public override string BaseURI => "";
-        public override string NamespaceURI => _pointer.NamespaceUri;
+        public override string NamespaceURI => ""; // _pointer.NamespaceUri;
         public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope) => false;
         public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope) => false;
+
+        //public override string LookupPrefix(string namespaceURI)
+        //{
+        //    return base.LookupPrefix(namespaceURI);
+        //}
 
         public override string LocalName => Name;
         public override string Name => _pointer.Name;
