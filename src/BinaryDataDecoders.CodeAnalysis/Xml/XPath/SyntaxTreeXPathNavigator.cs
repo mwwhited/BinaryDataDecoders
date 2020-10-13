@@ -10,8 +10,13 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
     public partial class SyntaxTreeXPathNavigator : XPathNavigator
     {
         private ISyntaxPointer _pointer;
+        private readonly bool _excludeNamespace;
 
-        public SyntaxTreeXPathNavigator(ISyntaxPointer pointer) => _pointer = pointer;
+        public SyntaxTreeXPathNavigator(ISyntaxPointer pointer, bool excludeNamespace = false)
+        {
+            _pointer = pointer;
+            _excludeNamespace = excludeNamespace;
+        }
 
         //Note: this is read only... don't try to tweak the code here
         public override bool CanEdit => false;
@@ -20,7 +25,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
         public override XmlNameTable NameTable => null;
         public override string Prefix => "";
         public override string BaseURI => "";
-        public override string NamespaceURI => ""; // _pointer.NamespaceUri;
+        public override string NamespaceURI => _excludeNamespace ? "" : _pointer.NamespaceUri;
         public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope) => false;
         public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope) => false;
 

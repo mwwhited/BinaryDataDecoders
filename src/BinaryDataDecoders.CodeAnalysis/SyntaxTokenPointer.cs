@@ -18,26 +18,32 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         protected override IEnumerable<ISyntaxPointer> GetChildren()
         {
-            if (Item.HasStructuredTrivia)
-            {
-                foreach (var t in Item.LeadingTrivia)
-                    yield return t.ToSyntaxPointer(this);
-            }
+            //if (Item.HasStructuredTrivia)
+            //{
+            //    foreach (var t in Item.LeadingTrivia)
+            //        yield return t.ToSyntaxPointer(this);
+            //}
 
             yield return _tokenValue;
-
-            var comments = Item.GetAllTrivia().Where(i => i.Kind().ToString().Contains("Comment"));
-            foreach (var t in comments)
+            foreach (var t in Item.GetAllTrivia())
             {
-                Debug.WriteLine(t);
-                yield return new SyntaxCommentPointer<SyntaxTrivia>(t, this);
+                yield return t.ToSyntaxPointer(this);
+                //Debug.WriteLine(t);
+                //yield return new SyntaxCommentPointer<SyntaxTrivia>(t, this);
             }
 
-            if (Item.HasStructuredTrivia)
-            {
-                foreach (var t in Item.TrailingTrivia)
-                    yield return t.ToSyntaxPointer(this);
-            }
+            //var comments = Item.GetAllTrivia().Where(i => i.Kind().ToString().Contains("Comment"));
+            //foreach (var t in comments)
+            //{
+            //    Debug.WriteLine(t);
+            //    yield return new SyntaxCommentPointer<SyntaxTrivia>(t, this);
+            //}
+
+            //if (Item.HasStructuredTrivia)
+            //{
+            //    foreach (var t in Item.TrailingTrivia)
+            //        yield return t.ToSyntaxPointer(this);
+            //}
         }
         protected override IEnumerable<(XName name, object value)> GetAttributes()
         {
