@@ -41,6 +41,7 @@
 		<xsl:apply-templates select="cs-n:CompilationUnit[@Language='C#']/descendant::cs-n:InterfaceDeclaration" />
 		<xsl:apply-templates select="cs-n:CompilationUnit[@Language='C#']/descendant::cs-n:ClassDeclaration" />
 		<xsl:apply-templates select="cs-n:CompilationUnit[@Language='C#']/descendant::cs-n:StructDeclaration" />
+
 		<!--<root>
 			<files>
 				<xsl:apply-templates select="$files" mode="copy" />
@@ -85,12 +86,7 @@
 
 		<xsl:apply-templates select="descendant::cs-n:SingleLineDocumentationCommentTrivia[1]" />
 
-		<xsl:apply-templates select="cs-n:MethodDeclaration[cs-t:PublicKeyword or local-name(..)='InterfaceDeclaration']" />
-		<xsl:apply-templates select="cs-n:FieldDeclaration[cs-t:PublicKeyword or local-name(..)='InterfaceDeclaration']" />			
-		<xsl:apply-templates select="cs-n:PropertyDeclaration[cs-t:PublicKeyword or local-name(..)='InterfaceDeclaration']" />
-		<xsl:apply-templates select="cs-n:EnumMemberDeclaration[cs-t:PublicKeyword or local-name(..)='InterfaceDeclaration']" />	
-		
-		<!--[cs-t:PublicKeyword or ../cs-n:InterfaceDeclaration]-->
+		<xsl:apply-templates select="cs-n:MethodDeclaration" /><!--[cs-t:PublicKeyword or ../cs-n:InterfaceDeclaration]-->
 
 		<!--cs-r:SingleLineDocumentationCommentTrivia-->
 		<!--<xsl:apply-templates select="node()" mode="copy" />-->
@@ -101,6 +97,8 @@
 		<xsl:text>### Method: </xsl:text><xsl:value-of select="cs-t:IdentifierToken[1]" />&cr;&cr;
 
 		<xsl:apply-templates select="descendant::cs-n:SingleLineDocumentationCommentTrivia[1]" />
+
+		<!--<xsl:apply-templates select="node()" mode="copy" />-->
 	</xsl:template>
 
 	<xsl:template match="cs-n:SingleLineDocumentationCommentTrivia">
