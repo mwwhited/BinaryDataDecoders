@@ -54,7 +54,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
 
             using var resultStream = new MemoryStream();
 
-            XPathNavigator nav =
+            IXPathNavigable nav =
                 Path.GetExtension(filePath) switch
                 {
                     ".cs" => new CSharpAnalyzer().CreateNavigator(filePath),
@@ -72,18 +72,15 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
             this.TestContext.AddResult(xml);
         }
 
-        [TestMethod]
-        public void JustXPathTest()
-        {
-            XPathNavigator nav = new CSharpAnalyzer()
-                   .CreateNavigator(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
-
-            var x = nav.Clone();
-            var xml = nav.OuterXml;
-
-            this.TestContext.AddResult(xml);
-
-        }
+        //[TestMethod]
+        //public void JustXPathTest()
+        //{
+        //    IXPathNavigable nav = new CSharpAnalyzer()
+        //           .CreateNavigator(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
+        //    var x = nav.Clone();
+        //    var xml = nav.OuterXml;
+        //    this.TestContext.AddResult(xml);
+        //}
 
         [TestMethod]
         public void BuildTreeTest()
