@@ -2,7 +2,7 @@
   "profiles": {
     "BinaryDataDecoders.Xslt.Cli (TestResults)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)TestResults\\TestResult.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\index.md\" -s \"$(SolutionDir)..\""
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)TestResults\\*.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\index.md\" -s \"$(SolutionDir)..\""
     },
     "BinaryDataDecoders.Xslt.Cli (Coverage Summary)": {
       "commandName": "Project",
@@ -35,6 +35,11 @@
     "BinaryDataDecoders.Xslt.Cli (VB to Xml)": {
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.vb\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.xml\" -s \"$(SolutionDir)..\" -x VB"
+    },
+    "WSL 2": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
     }
   }
 }

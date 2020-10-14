@@ -6,7 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -19,14 +18,13 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
-        public void TestMethod1()
-        {
-            XPathNavigator nav = new CSharpAnalyzer()
-                   .CreateNavigator(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
-
-            var node = nav.SelectSingleNode("hello/world");
-        }
+        //[TestMethod]
+        //public void TestMethod1()
+        //{
+        //    var nav = new CSharpAnalyzer()
+        //           .CreateNavigator(@"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs");
+        //    var node = nav.SelectSingleNode("hello/world");
+        //}
 
         //  [TestMethod]
         [DataTestMethod]

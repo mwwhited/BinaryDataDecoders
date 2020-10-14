@@ -84,7 +84,22 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             if (!Directory.Exists(outputDir)) Directory.CreateDirectory(outputDir);
             using var resultStream = File.Create(output);
 
-            xslt.Transform(input, xsltArgumentList, resultStream);
+            var currentDirectory = Environment.CurrentDirectory;
+            try
+            {
+                var localOutfolder = Path.GetDirectoryName(output);
+                if (!Directory.Exists(localOutfolder))
+                {
+                    Directory.CreateDirectory(localOutfolder);
+                }
+                Environment.CurrentDirectory = localOutfolder;
+
+                xslt.Transform(input, xsltArgumentList, resultStream);
+            }
+            finally
+            {
+                Environment.CurrentDirectory = currentDirectory;
+            }
         }
 
         /// <summary>

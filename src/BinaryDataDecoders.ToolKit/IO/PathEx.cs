@@ -62,6 +62,14 @@ namespace BinaryDataDecoders.ToolKit.IO
 
         public static IEnumerable<string> EnumerateDirectories(string path, string wildcardPath)
         {
+            if (string.IsNullOrWhiteSpace(wildcardPath))
+            {
+                if (Directory.Exists(path))
+                {
+                    yield return path;
+                }
+                yield break;
+            }
             path = Path.GetFullPath(path);
             var wildCards = new[] { '*', '?' };
             var pathSegments = wildcardPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
