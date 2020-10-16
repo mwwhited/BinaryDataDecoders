@@ -1,5 +1,6 @@
 ﻿using BinaryDataDecoders.CodeAnalysis.CSharp;
 using BinaryDataDecoders.CodeAnalysis.VisualBasic;
+using BinaryDataDecoders.Templating.Html;
 using BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions;
 using BinaryDataDecoders.ToolKit.Xml.Xsl;
 using BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions;
@@ -25,6 +26,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                     new StringExtensions()
                     );
         }
+
         private Func<string, IXPathNavigable> GetNavigator(InputTypes inputType, string filePath) =>
             inputType switch
             {
@@ -32,26 +34,28 @@ namespace BinaryDataDecoders.Xslt.Cli
                 _ => GetNavigator(inputType)
             } ?? throw new NotSupportedException($"No mapping for {inputType} ({Path.GetExtension(filePath)}) found");
 
-
         private Func<string, IXPathNavigable>? GetNavigator(InputTypes inputType) =>
             inputType switch
             {
                 InputTypes.Xml => _transformer.ReadAsXml,
+                InputTypes.Html => new HtmlNavigator().CreateNavigator,
                 InputTypes.CSharp => new CSharpAnalyzer().CreateNavigator,
                 InputTypes.VB => new VisualBasicAnalyzer().CreateNavigator,
 
                 _ => null
             };
+
         private Func<string, IXPathNavigable>? GetNavigator(string filePath) =>
             Path.GetExtension(filePath).ToUpper() switch
             {
                 ".XML" => GetNavigator(InputTypes.Xml),
+                ".HTML" => GetNavigator(InputTypes.Html),
+                ".HTM" => GetNavigator(InputTypes.Html),
                 ".CS" => GetNavigator(InputTypes.CSharp),
                 ".VB" => GetNavigator(InputTypes.VB),
 
                 _ => GetNavigator(InputTypes.Unknown),
             };
-
 
         public void TransformAll(string template, string input, InputTypes inputType, string output) =>
             _transformer.TransformAll(template, input, GetNavigator(inputType, input), output);

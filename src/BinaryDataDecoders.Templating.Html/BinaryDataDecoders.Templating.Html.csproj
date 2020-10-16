@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -16,17 +16,18 @@
 
   <ItemGroup>
     <None Include="..\..\LICENSE" Link="LICENSE">
-      <PackagePath/>
+      <PackagePath />
       <Pack>True</Pack>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.24"/>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.Templating.Abstractions\BinaryDataDecoders.Templating.Abstractions.csproj"/>
+    <ProjectReference Include="..\BinaryDataDecoders.Templating.Abstractions\BinaryDataDecoders.Templating.Abstractions.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
   </ItemGroup>
 
 </Project>

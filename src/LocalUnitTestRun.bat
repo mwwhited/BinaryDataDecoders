@@ -1,8 +1,7 @@
 
-REM @echo off
+@echo off
 
 SET TARGET_INPUT=%~1
-
 
 SET BUILD_PROJECT=BinaryDataDecoders.sln
 SET Configuration=Release
@@ -29,7 +28,6 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 IF "%DO_NOT_CLEAN%"=="1" GOTO skip_clean
 echo "Clean Packages"
 dotnet clean "%BUILD_PROJECT%"
-rmdir /s/q "%TEST_RESULTS_PATH%"
 rmdir /s/q "%OUTPUT_PATH%"
 :skip_clean
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
@@ -65,20 +63,20 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :pack
 echo "Pack Projects"
-dotnet pack "%BUILD_PROJECT%" --no-build --no-restore "%BUILD_PROJECT%" -o "%OUTPUT_PATH%\Nuget" -p:PackageVersion=%BUILD_VERSION%
+dotnet pack --no-build --no-restore "%BUILD_PROJECT%" -o "%OUTPUT_PATH%\Nuget" -p:PackageVersion=%BUILD_VERSION%
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :publish
 echo "Pack Projects"
-dotnet publish "%BUILD_PROJECT%" --no-build --no-restore "%BUILD_PROJECT%" -o "%RESULTS_PATH%\Binary"
+dotnet publish --no-build --no-restore "%BUILD_PROJECT%" -o "%RESULTS_PATH%\Binary"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :report
 echo "Build Reports"
 dotnet tool install --local dotnet-reportgenerator-globaltool
-reportgenerator "-reports:%TEST_RESULTS_PATH%\**\coverage.cobertura.xml" "-targetDir:%RESULTS_PATH%\Coverage" "-reportTypes:Xml" "-title:%BUILD_PROJECT% - (%BUILD_VERSION%)"
+dotnet reportgenerator "-reports:%TEST_RESULTS_PATH%\**\coverage.cobertura.xml" "-targetDir:%RESULTS_PATH%\Coverage" "-reportTypes:Xml" "-title:%BUILD_PROJECT% - (%BUILD_VERSION%)"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
@@ -87,7 +85,7 @@ echo "Transform Reports"
 dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*_results.md" -s "%SANDBOX_PATH%"
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Coverage) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\CoverageToMarkdown.xslt" -i "%RESULTS_PATH%\Coverage\*.xml" -o "%DOCS_PATH%\Coverage\*.md"  -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Structured) <<<"

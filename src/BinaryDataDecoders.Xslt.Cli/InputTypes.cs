@@ -5,6 +5,7 @@
         Unknown = 0,
 
         Xml,
+        Html,
         CSharp,
         VB,
 

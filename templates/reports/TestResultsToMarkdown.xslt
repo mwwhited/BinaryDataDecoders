@@ -46,6 +46,9 @@
 
 			<xsl:value-of select="ex-file:WriteToFile($test-report, concat($test-class-name, '.md'))" />
 		</xsl:for-each>
+		<xsl:if test="not($test-classes)">
+			<xsl:text>## No Test Results Found</xsl:text>&cr;
+		</xsl:if>
 
 	</xsl:template>
 
@@ -78,7 +81,7 @@
 
 		<xsl:variable name="test-results" select="/tt:TestRun/tt:Results/tt:UnitTestResult[@testId=$test-id]" />
 		<xsl:text>| Result                   | Duration         | Test Name                                          |</xsl:text>&cr;
-		<xsl:text>| :----------------------- | ---------------: | :------------------------------------------------- |</xsl:text>&cr;
+		<xsl:text>| :----------------------- | ---------------: | :--------------------------------------------------- |</xsl:text>&cr;
 		<xsl:apply-templates select="$test-results" />
 		&cr;
 
@@ -102,7 +105,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 		<xsl:text> | </xsl:text><xsl:value-of select="./@duration" />
-		<xsl:text> | </xsl:text>
+		<xsl:text> | `</xsl:text>
 		<xsl:choose>
 			<xsl:when test="string-length(./@testName)&lt;60">
 				<xsl:value-of select="substring(concat(./@testName,'                                                  '),1,50)" />
@@ -112,7 +115,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 
-		<xsl:text> |</xsl:text>&cr;
+		<xsl:text>` |</xsl:text>&cr;
 
 		<xsl:apply-templates select="./tt:InnerResults/tt:UnitTestResult" />
 	</xsl:template>
