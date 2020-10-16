@@ -52,6 +52,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
 	ProjectSection(SolutionItems) = preProject
 		.runsettings = .runsettings
+		build.sh = build.sh
 		LocalUnitTestRun.bat = LocalUnitTestRun.bat
 	EndProjectSection
 EndProject
@@ -95,6 +96,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{FE222999-4AF7-42C2-94E8-81347AE7114A}"
 	ProjectSection(SolutionItems) = preProject
 		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F91910A6-92E0-42F8-AED2-A77A585BCD72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{56263BB0-98DC-4471-81CC-1DD3B2D107D8}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\codeql-analysis.yml = ..\.github\workflows\codeql-analysis.yml
+		..\.github\workflows\dotnet-core.yml = ..\.github\workflows\dotnet-core.yml
 	EndProjectSection
 EndProject
 Global
@@ -246,6 +255,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D609EDE1-0BAD-4F9B-BBC7-32D5CBA485CD} = {825B9B42-D068-4063-B995-1142ED94DC6B}
 		{FE222999-4AF7-42C2-94E8-81347AE7114A} = {D330C7E6-F60B-4EB8-969A-9880EA6F2939}
+		{56263BB0-98DC-4471-81CC-1DD3B2D107D8} = {F91910A6-92E0-42F8-AED2-A77A585BCD72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A0F5E9F-1152-44D6-AAC1-32C474A8585F}

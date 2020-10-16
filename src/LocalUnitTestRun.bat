@@ -1,12 +1,13 @@
 
-@echo off
+REM @echo off
 
 SET TARGET_INPUT=%~1
 
-SET BUILD_PROJECT=BinaryDataDecoders.sln
 SET Configuration=Release
 
 SET SANDBOX_PATH=..
+SET BUILD_PATH=%SANDBOX_PATH%\src
+SET BUILD_PROJECT=%BUILD_PATH%\BinaryDataDecoders.sln
 SET OUTPUT_PATH=%SANDBOX_PATH%\Publish
 SET TEST_RESULTS_PATH=%OUTPUT_PATH%\TestResults
 SET DOCS_PATH=%OUTPUT_PATH%\docs
@@ -52,12 +53,12 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :test
 echo "Run Tests"
-FOR /D %%T IN (*.Tests) DO ^
+FOR /D %%T IN ("%BUILD_PATH%\*.Tests") DO ^
 dotnet test "%%T" --no-build --no-restore ^
 --collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
 --nologo --filter "TestCategory=Unit|TestCategory=Simulate" ^
 -s .runsettings /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true ^
---logger "trx;LogFileName=%%T.trx"
+--logger "trx;LogFileName=%%~nxT.trx"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
