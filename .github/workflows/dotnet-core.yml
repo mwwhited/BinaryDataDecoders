@@ -46,14 +46,7 @@ jobs:
         for testProj in ./src/*.Tests/*.csproj; do
             testName=$(basename -s .csproj $testProj)
             echo ======= TEST! $testName =======
-	        dotnet test "$testProj" \
-	    	    --configuration $BUILD_CONFIGURATION \
-	    	    --no-build --no-restore --nologo \
-	            --collect:"XPlat Code Coverage" \
-	            -r "$TEST_RESULTS_PATH" \
-	            --filter "TestCategory=Unit|TestCategory=Simulate" \
-	            -s "$BUILD_PATH/.runsettings" \
-	            --logger "trx;LogFileName=$testName.trx" 
+	        dotnet test "$testProj" --configuration $BUILD_CONFIGURATION --no-build --no-restore --nologo --collect:"XPlat Code Coverage" -r "$TEST_RESULTS_PATH" --filter "TestCategory=Unit|TestCategory=Simulate" -s "$BUILD_PATH/.runsettings" --logger "trx;LogFileName=$testName.trx" 
         done 
 
         #echo === Package ===
