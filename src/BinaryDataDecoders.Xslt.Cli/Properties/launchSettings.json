@@ -26,7 +26,7 @@
     },
     "BinaryDataDecoders.Xslt.Cli (CSharp to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.xml\" -s \"$(SolutionDir)..\" -x CSharp"
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.cs\" -o \"$(SolutionDir)..\\Publish\\Results\\SourceCode\\*.xml\" -s \"$(SolutionDir)..\" -x CSharp"
     },
     "BinaryDataDecoders.Xslt.Cli (VB to Markdown)": {
       "commandName": "Project",
@@ -34,7 +34,7 @@
     },
     "BinaryDataDecoders.Xslt.Cli (VB to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.vb\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.xml\" -s \"$(SolutionDir)..\" -x VB"
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.vb\" -o \"$(SolutionDir)..\\Publish\\Results\\SourceCode\\*.xml\" -s \"$(SolutionDir)..\" -x VB"
     },
     "WSL 2": {
       "commandName": "WSL2",

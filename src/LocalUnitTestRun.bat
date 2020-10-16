@@ -1,15 +1,20 @@
 
-@REM SET
-@echo off
+REM @echo off
 
 SET TARGET_INPUT=%~1
 
-SET TestProject=BinaryDataDecoders.sln
-SET Configuration=Release
-SET OutputPath=..\Publish
-SET TestOutput=TestResults
 
-SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
+SET BUILD_PROJECT=BinaryDataDecoders.sln
+SET Configuration=Release
+
+SET SANDBOX_PATH=..
+SET OUTPUT_PATH=%SANDBOX_PATH%\Publish
+SET TEST_RESULTS_PATH=%OUTPUT_PATH%\TestResults
+SET DOCS_PATH=%OUTPUT_PATH%\docs
+SET RESULTS_PATH=%OUTPUT_PATH%\Results
+SET TEMPLATES_PATH=%SANDBOX_PATH%\templates\reports
+
+SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\%SANDBOX_PATH%\%SANDBOX_PATH%\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
 
 :top
 IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
@@ -21,25 +26,29 @@ git fetch --prune
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :clean
+IF "%DO_NOT_CLEAN%"=="1" GOTO skip_clean
 echo "Clean Packages"
-dotnet clean "%TestProject%"
-rmdir /s/q "%TestOutput%"
-rmdir /s/q "%OutputPath%"
-
+dotnet clean "%BUILD_PROJECT%"
+rmdir /s/q "%TEST_RESULTS_PATH%"
+rmdir /s/q "%OUTPUT_PATH%"
+:skip_clean
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :restore
 echo "Restore Packages"
-dotnet restore "%TestProject%""
+dotnet restore "%BUILD_PROJECT%""
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :build
 echo "Build Packages"
-dotnet tool install --global gitversion.tool 2>NUL
+dotnet tool install --local gitversion.tool
+
 FOR /F "tokens=* USEBACKQ" %%g IN (`dotnet gitversion /output json /showvariable FullSemVer`) DO (SET BUILD_VERSION=%%g)
 
-dotnet build "%TestProject%" --configuration %Configuration% --no-restore /p:Version=%BUILD_VERSION%
+REM https://github.com/laurenprinn/MSBuildStructuredLog
+dotnet build "%BUILD_PROJECT%" --configuration %Configuration% --no-restore /p:Version=%BUILD_VERSION% "/bl:logfile=%OUTPUT_PATH%\dotnet_build.binlog"
+REM "/flp:v=detailed;logfile=%OUTPUT_PATH%\dotnet_build.binlog"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
@@ -47,7 +56,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 echo "Run Tests"
 FOR /D %%T IN (*.Tests) DO ^
 dotnet test "%%T" --no-build --no-restore ^
---collect:"XPlat Code Coverage" -r "%TestOutput%" ^
+--collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
 --nologo --filter "TestCategory=Unit|TestCategory=Simulate" ^
 -s .runsettings /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true ^
 --logger "trx;LogFileName=%%T.trx"
@@ -56,50 +65,57 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :pack
 echo "Pack Projects"
-dotnet pack --no-build --no-restore "%TestProject%" -o "%OutputPath%/Nuget" -p:PackageVersion=%BUILD_VERSION%
+dotnet pack "%BUILD_PROJECT%" --no-build --no-restore "%BUILD_PROJECT%" -o "%OUTPUT_PATH%\Nuget" -p:PackageVersion=%BUILD_VERSION%
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :publish
 echo "Pack Projects"
-dotnet publish --no-build --no-restore "%TestProject%" -o "%OutputPath%/Results/Binary"
+dotnet publish "%BUILD_PROJECT%" --no-build --no-restore "%BUILD_PROJECT%" -o "%RESULTS_PATH%\Binary"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :report
 echo "Build Reports"
-dotnet tool install --global dotnet-reportgenerator-globaltool 2>NUL
-reportgenerator "-reports:%TestOutput%\**\coverage.cobertura.xml" "-targetDir:%OutputPath%\Results\Coverage" "-reportTypes:Xml" "-title:%TestProject% - (%BUILD_VERSION%)"
-REM "-reportTypes:HtmlInline;Badges;Xml;Cobertura"
-
+dotnet tool install --local dotnet-reportgenerator-globaltool
+reportgenerator "-reports:%TEST_RESULTS_PATH%\**\coverage.cobertura.xml" "-targetDir:%RESULTS_PATH%\Coverage" "-reportTypes:Xml" "-title:%BUILD_PROJECT% - (%BUILD_VERSION%)"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
-:report_transform
+:transform
 echo "Transform Reports"
-dotnet publish BinaryDataDecoders.Xslt.Cli -o "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli" --no-build --no-restore 
+dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
-FOR %%T IN ("%TestOutput%\*.trx") DO "%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\TestResultsToMarkdown.xslt" -i "%%T" -o "%OutputPath%\docs\TestResults\%%~nT\index.md" -s ".."
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*_results.md" -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Coverage) <<<"
-"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\CoverageToMarkdown.xslt" -i "%OutputPath%\Results\Coverage\*.xml" -o "%OutputPath%\docs\Coverage\*.md"  -s ".."
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\CoverageToMarkdown.xslt" -i "%RESULTS_PATH%\Coverage\*.xml" -o "%DOCS_PATH%\Coverage\*.md"  -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Structured) <<<"
-"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\XmlCommentsToStructuredXml.xslt" -i "..\Publish\Results\Binary\*.xml" -o "..\Publish\Results\Code\*.xml" -s ".."
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\XmlCommentsToStructuredXml.xslt" -i "%RESULTS_PATH%\Binary\*.xml" -o "%RESULTS_PATH%\Code\*.xml" -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Markdown) <<<"
-"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\XmlCommentsToMarkdown.xslt" -i "..\Publish\Results\Code\*.xml" -o "..\Publish\docs\Code\*.md" -s ".."
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\XmlCommentsToMarkdown.xslt" -i "%RESULTS_PATH%\Code\*.xml" -o "%DOCS_PATH%\Code\*.md" -s "%SANDBOX_PATH%"
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to Markdown) <<<"
-"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\CSharpToMarkdown.xslt" -i ".\**\*.cs" -o "..\Publish\docs\SourceCode\*.md" -s ".." -x CSharp
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i ".\**\*.cs" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x CSharp
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to Markdown) <<<"
-"%OutputPath%\Tools\BinaryDataDecoders.Xslt.Cli\BinaryDataDecoders.Xslt.Cli" -t "..\templates\reports\CSharpToMarkdown.xslt" -i ".\**\*.vb" -o "..\Publish\docs\SourceCode\*.md" -s ".." -x VB
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i ".\**\*.vb" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x VB
+
+ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i ".\**\*.cs" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x CSharp
+ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i ".\**\*.vb" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x VB
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :show
-code "%OutputPath%"
+code "%OUTPUT_PATH%"
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 GOTO done_with_it
+
+:noclean
+SET DO_NOT_CLEAN=1
+GOTO all
 
 :all
 SHIFT

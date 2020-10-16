@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "binarydatadecoders.xslt.cli": {
+      "version": "0.1.0",
+      "commands": [
+        "bdd-xslt"
+      ]
+    },
+    "gitversion.tool": {
+      "version": "5.3.7",
+      "commands": [
+        "dotnet-gitversion"
+      ]
+    }
+  }
+}

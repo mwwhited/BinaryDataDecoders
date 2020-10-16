@@ -75,7 +75,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.CodeAnal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.CodeAnalysis.Tests", "BinaryDataDecoders.CodeAnalysis.Tests\BinaryDataDecoders.CodeAnalysis.Tests.csproj", "{01F9CF36-CCA5-4856-A7A7-468090E917CC}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BinaryDataDecoders.VisualBasic.Samples", "BinaryDataDecoders.VisualBasic.Samples\BinaryDataDecoders.VisualBasic.Samples.vbproj", "{1B0A4D50-56AC-42C4-B45A-4EB1F05A2052}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "BinaryDataDecoders.VisualBasic.Samples", "BinaryDataDecoders.VisualBasic.Samples\BinaryDataDecoders.VisualBasic.Samples.vbproj", "{1B0A4D50-56AC-42C4-B45A-4EB1F05A2052}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{825B9B42-D068-4063-B995-1142ED94DC6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "reports", "reports", "{D609EDE1-0BAD-4F9B-BBC7-32D5CBA485CD}"
+	ProjectSection(SolutionItems) = preProject
+		..\templates\reports\CoverageToMarkdown.xslt = ..\templates\reports\CoverageToMarkdown.xslt
+		..\templates\reports\CSharpToMarkdown.xslt = ..\templates\reports\CSharpToMarkdown.xslt
+		..\templates\reports\DisableXmlDocs.xslt = ..\templates\reports\DisableXmlDocs.xslt
+		..\templates\reports\TestResultsToMarkdown.xslt = ..\templates\reports\TestResultsToMarkdown.xslt
+		..\templates\reports\TestResultsToMarkdownDetailed.xslt = ..\templates\reports\TestResultsToMarkdownDetailed.xslt
+		..\templates\reports\ToXml.xslt = ..\templates\reports\ToXml.xslt
+		..\templates\reports\VbToMarkdown.xslt = ..\templates\reports\VbToMarkdown.xslt
+		..\templates\reports\XmlCommentsToMarkdown.xslt = ..\templates\reports\XmlCommentsToMarkdown.xslt
+		..\templates\reports\XmlCommentsToStructuredXml.xslt = ..\templates\reports\XmlCommentsToStructuredXml.xslt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{FE222999-4AF7-42C2-94E8-81347AE7114A}"
+	ProjectSection(SolutionItems) = preProject
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -222,6 +242,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D609EDE1-0BAD-4F9B-BBC7-32D5CBA485CD} = {825B9B42-D068-4063-B995-1142ED94DC6B}
+		{FE222999-4AF7-42C2-94E8-81347AE7114A} = {D330C7E6-F60B-4EB8-969A-9880EA6F2939}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A0F5E9F-1152-44D6-AAC1-32C474A8585F}
