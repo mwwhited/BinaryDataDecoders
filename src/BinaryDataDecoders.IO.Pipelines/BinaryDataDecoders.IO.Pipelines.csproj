@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -19,18 +19,18 @@
 
 	<ItemGroup>
 	  <None Include="..\..\LICENSE" Link="LICENSE">
-	    <PackagePath/>
+	    <PackagePath />
 	    <Pack>True</Pack>
 	  </None>
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO.Pipelines" Version="4.7.2"/>
+    <PackageReference Include="System.IO.Pipelines" Version="4.7.3" />
   </ItemGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj"/>
-    <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj"/>
+    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
   </ItemGroup>
 
 </Project>
