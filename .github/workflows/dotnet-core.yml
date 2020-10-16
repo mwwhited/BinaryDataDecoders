@@ -46,33 +46,35 @@ jobs:
         for testProj in ./src/*.Tests/*.csproj; do
             testName=$(basename -s .csproj $testProj)
             echo ======= TEST! $testName =======
-            dotnet test "$testProj" --no-restore --nologo \
-                --filter "TestCategory=Unit|TestCategory=Simulate" \
-                -s "./src/.runsettings" \
-                --collect:"XPlat Code Coverage" \
-                -r "$testResults" \
-                --logger "trx;LogFileName=$testName.trx" 
+	        dotnet test "$testProj" \
+	    	    --configuration $BUILD_CONFIGURATION \
+	    	    --no-build --no-restore --nologo \
+	            --collect:"XPlat Code Coverage" \
+	            -r "$TEST_RESULTS_PATH" \
+	            --filter "TestCategory=Unit|TestCategory=Simulate" \
+	            -s "$BUILD_PATH/.runsettings" \
+	            --logger "trx;LogFileName=$testName.trx" 
         done 
 
-        echo === Package ===
-        dotnet pack --no-build --no-restore "$solutionFile" -o "$outputPath/Nuget" -p:PackageVersion=$buildVersion       
+        #echo === Package ===
+        #dotnet pack --no-build --no-restore "$solutionFile" -o "$outputPath/Nuget" -p:PackageVersion=$buildVersion       
 
         #echo === Publish ===
         #dotnet publish --no-build --no-restore "$solutionFile" -o "$outputPath/Results/Binary"
 
-        echo === Build Reports ===
-        dotnet tool install --global dotnet-reportgenerator-globaltool
-        reportgenerator "-reports:$testResults/**/coverage.cobertura.xml" "-targetDir:$testResults/Coverage/Reports" "-reportTypes:HtmlInline" "-title:BinaryDataDecoders - $buildVersion"
+        #echo === Build Reports ===
+        #dotnet tool install --global dotnet-reportgenerator-globaltool
+        #reportgenerator "-reports:$testResults/**/coverage.cobertura.xml" "-targetDir:$testResults/Coverage/Reports" "-reportTypes:HtmlInline" "-title:BinaryDataDecoders - $buildVersion"
 
-    - name: Publish Test Reports
-      uses: actions/upload-artifact@v2
-      with:
-        name: BinaryDataDecoders_${{ env.buildVersion }}_TestResults
-        path: ./TestResults/Coverage/Reports
+    #- name: Publish Test Reports
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: BinaryDataDecoders_${{ env.buildVersion }}_TestResults
+    #    path: ./TestResults/Coverage/Reports
 
-    - name: Publish Nuget Packages
-      uses: actions/upload-artifact@v2
-      with:
-        name: BinaryDataDecoders_${{ env.buildVersion }}_Nuget
-        path: ./Publish/Nuget
+    #- name: Publish Nuget Packages
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: BinaryDataDecoders_${{ env.buildVersion }}_Nuget
+    #    path: ./Publish/Nuget
 
