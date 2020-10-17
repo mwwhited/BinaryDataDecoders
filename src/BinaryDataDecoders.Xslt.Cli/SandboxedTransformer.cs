@@ -19,6 +19,7 @@ namespace BinaryDataDecoders.Xslt.Cli
         {
             _sandbox = Path.GetFullPath(sandbox);
             _transformer = new XsltTransformer(
+                    _sandbox,
                     new PathExtensions(_sandbox),
                     new EnvironmentExtensions(),
                     new FileExtensions(_sandbox),

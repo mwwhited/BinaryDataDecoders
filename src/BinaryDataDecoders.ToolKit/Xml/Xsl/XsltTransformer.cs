@@ -14,14 +14,16 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
     /// </summary>
     public class XsltTransformer : IXsltTransformer
     {
+        private readonly string _sandbox;
         private readonly object[] _extensions;
 
         /// <summary>
         /// create instance of XsltTransformer
         /// </summary>
         /// <param name="extensions">optional extensions for XSLT Transform</param>
-        public XsltTransformer(params object[] extensions)
+        public XsltTransformer(string sandbox, params object[] extensions)
         {
+            _sandbox = sandbox;
             _extensions = extensions;
         }
 
@@ -62,12 +64,15 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         {
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 
+            xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) =>Console.WriteLine($"\t\t{eventArgs.Message}");
+
             XNamespace ns = this.GetXmlNamespace();
             xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
                 new XAttribute(nameof(template), template),
                 new XAttribute(nameof(input), inputSource),
                 new XAttribute("inputType", input.GetType().AssemblyQualifiedName),
-                new XAttribute(nameof(output), output)
+                new XAttribute(nameof(output), output),
+                new XAttribute("sandbox", _sandbox)
                 ).ToXPathNavigable().CreateNavigator());
 
             var xslt = new XslCompiledTransform(false);
