@@ -24,52 +24,25 @@ jobs:
 
     - name: Build Project
       run: |
-        solutionFile=./src/BinaryDataDecoders.sln
-        buildConfig=Release
-        testResults=./TestResults
-        outputPath=./Publish
+        cd ./src
+        chmod +x build.sh
+        ./build.sh
 
-        echo === GitVersion ===
-        dotnet tool install --global gitversion.tool
-        export PATH="$PATH:/github/home/.dotnet/tools"
-        buildVersion=`dotnet gitversion /output json /showvariable FullSemVer`
-        echo GitVersion= $buildVersion
-        echo "buildVersion=$buildVersion" >> $GITHUB_ENV
-  
-        echo === Restore ===
-        dotnet restore "$solutionFile"
-
-        echo === Build ===
-        dotnet build "$solutionFile" --configuration $buildConfig --no-restore -p:Version=$buildVersion
+    - name: Publish Documents
+      uses: actions/upload-artifact@v2
+      with:
+        name: BinaryDataDecoders_Documents
+        path: Publish/docs/
         
-        dotnet test "$solutionFile" --configuration $buildConfig --no-restore --filter "TestCategory=Unit|TestCategory=Simulate" -s "src/.runsettings"
-
-        #echo === Tests ===
-        #for testProj in ./src/*.Tests/*.csproj; do
-        #    testName=$(basename -s .csproj $testProj)
-        #    echo ======= TEST! $testName =======
-        #    dotnet test "$solutionFile" --configuration $buildConfig --no-build --no-restore --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s "src/.runsettings"
-        #done 
-
-        #echo === Package ===
-        #dotnet pack --no-build --no-restore "$solutionFile" -o "$outputPath/Nuget" -p:PackageVersion=$buildVersion       
-
-        #echo === Publish ===
-        #dotnet publish --no-build --no-restore "$solutionFile" -o "$outputPath/Results/Binary"
-
-        #echo === Build Reports ===
-        #dotnet tool install --global dotnet-reportgenerator-globaltool
-        #reportgenerator "-reports:$testResults/**/coverage.cobertura.xml" "-targetDir:$testResults/Coverage/Reports" "-reportTypes:HtmlInline" "-title:BinaryDataDecoders - $buildVersion"
-
-    #- name: Publish Test Reports
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: BinaryDataDecoders_${{ env.buildVersion }}_TestResults
-    #    path: ./TestResults/Coverage/Reports
-
-    #- name: Publish Nuget Packages
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: BinaryDataDecoders_${{ env.buildVersion }}_Nuget
-    #    path: ./Publish/Nuget
+    - name: Publish Nuget Packages
+      uses: actions/upload-artifact@v2
+      with:
+        name: BinaryDataDecoders_Packages
+        path: Publish/Nuget/
+        
+    - name: Publish Test Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: BinaryDataDecoders_TestResults
+        path: Publish/TestResults/
 

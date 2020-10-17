@@ -12,8 +12,6 @@
 
 # https://github.com/nektos/act#use-an-alternative-runner-image
 
-GITHUB_ENV=$/tmp.env
-
 git reset --hard HEAD
 git checkout .
 rm -rf .github/workflows/codeql-analysis.yml.junk
