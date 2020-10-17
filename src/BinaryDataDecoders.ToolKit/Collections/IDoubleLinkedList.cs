@@ -21,5 +21,7 @@
 
         IDoubleLinkedList<T> InsertBefore(T item);
         IDoubleLinkedList<T> InsertAfter(T item);
+
+        int Position { get; }
     }
 }

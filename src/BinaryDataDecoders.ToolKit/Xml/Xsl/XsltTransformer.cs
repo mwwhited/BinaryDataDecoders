@@ -120,12 +120,12 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="output">Output and suffix per file.</param>
         public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
         {
-            if (File.Exists(input))
-            {
-                Console.WriteLine($"\"{Path.GetFileName(input)}\" => \"{Path.GetFileName(output)}\"");
-                Transform(template, input, output);
-                return;
-            }
+            //if (File.Exists(input))
+            //{
+            //    Console.WriteLine($"\"{Path.GetFileName(input)}\" => \"{Path.GetFileName(output)}\"");
+            //    Transform(template, input, output);
+            //    return;
+            //}
 
             var inputFullPath = Path.GetFullPath(input);
             var inputDir = PathEx.GetBasePath(input);

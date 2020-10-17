@@ -1,8 +1,10 @@
 ﻿using Microsoft.CodeAnalysis;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Xml;
+using System.Xml.Schema;
 using System.Xml.XPath;
 
 namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
@@ -29,10 +31,15 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
         public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope) => false;
         public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope) => false;
 
-        //public override string LookupPrefix(string namespaceURI)
-        //{
-        //    return base.LookupPrefix(namespaceURI);
-        //}
+        public override object Evaluate(XPathExpression expr, XPathNodeIterator context)
+        {
+            return base.Evaluate(expr, context);
+        }
+
+        public override XPathNodeIterator Select(XPathExpression expr)
+        {
+            return base.Select(expr);
+        }
 
         public override string LocalName => Name;
         public override string Name => _pointer.Name;
@@ -43,7 +50,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
         public override bool HasChildren => _pointer.HasChildren;
         public override bool HasAttributes => _pointer.HasAttributes;
 
-        public override XPathNavigator Clone() => new SyntaxTreeXPathNavigator(_pointer);//.Clone());
+        public override XPathNavigator Clone() => new SyntaxTreeXPathNavigator(_pointer.Clone());
         public override XPathNavigator CreateNavigator() => Clone();
 
         public override bool IsSamePosition(XPathNavigator other) =>
@@ -65,8 +72,10 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
 
         public override bool MoveToId(string id) => false;
 
-        [Conditional("DEBUG_WITH_WRITELINE")]
-        private void TracePointer() => Debug.WriteLine(_pointer);
+        //[Conditional("DEBUG_WITH_WRITELINE")]
+        //private void TracePointer() => Debug.WriteLine(_pointer);
+
+        private void TracePointer() => Debug.WriteLine($"XXXXXXXXXXX\t{_pointer.GetType().Name}\t{_pointer.NamespaceUri}\t{_pointer.Name}\t{_pointer.Owner?.Name}");
 
         public override bool MoveToFirstAttribute()
         {

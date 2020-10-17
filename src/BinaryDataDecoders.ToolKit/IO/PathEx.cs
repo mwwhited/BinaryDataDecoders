@@ -36,12 +36,25 @@ namespace BinaryDataDecoders.ToolKit.IO
             var segmentsQuery = from ps in pathSegments
                                 select (segment: ps, hasWildcard: wildCards.Any(c => ps.Contains(c)));
             var basePath = string.Join(Path.DirectorySeparatorChar, segmentsQuery.TakeWhile(ps => !ps.hasWildcard).Select(ps => ps.segment));
+
+            if (path == basePath)
+            {
+                return Path.GetDirectoryName(basePath);
+            }
+
             return basePath;
         }
 
         public static IEnumerable<string> EnumerateFiles(string wildcardPath)
         {
             wildcardPath = Path.GetFullPath(wildcardPath);
+
+            if (File.Exists(wildcardPath))
+            {
+                yield return wildcardPath;
+                yield break;
+            }
+
             if (EndsInDirectorySeparator(wildcardPath)) wildcardPath += "*.*";
             var wildCards = new[] { '*', '?' };
             var pathSegments = wildcardPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);

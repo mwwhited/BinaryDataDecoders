@@ -13,5 +13,16 @@ namespace BinaryDataDecoders.ToolKit.Collections
         /// </summary>
         /// <returns>true if move was possible</returns>
         bool MovePrevious();
+
+        /// <summary>
+        /// current position of enumerator.  -1 if before head/reset
+        /// </summary>
+        int Position { get; }
+
+        /// <summary>
+        /// move enumerator last of previouslly read elements
+        /// </summary>
+        /// <returns>true if move was possible</returns>
+        bool MoveCurrent();
     }
 }

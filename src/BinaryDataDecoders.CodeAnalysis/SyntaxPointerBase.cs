@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml.Linq;
 using CS = Microsoft.CodeAnalysis.CSharp.CSharpExtensions;
@@ -9,6 +10,7 @@ using VB = Microsoft.CodeAnalysis.VisualBasic.VisualBasicExtensions;
 
 namespace BinaryDataDecoders.CodeAnalysis
 {
+    [DebuggerDisplay("{GetType().Name}::{Name}")]
     internal abstract class SyntaxPointerBase<TItem> : ISyntaxPointer
     {
         public const string CsLang = "C#";
@@ -92,7 +94,20 @@ namespace BinaryDataDecoders.CodeAnalysis
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
         public override string ToString() => Item.ToString();
-
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+
+
+        public override bool Equals(object obj) => obj is SyntaxPointerBase<TItem> pointer && Equals(pointer.Item);
+
+        protected virtual bool Equals(TItem obj) =>
+            Item switch
+            {
+                SyntaxToken token when obj is SyntaxToken oToken => token.IsEquivalentTo(oToken),
+                SyntaxTrivia trivia when obj is SyntaxTrivia oTrivia => trivia.IsEquivalentTo(oTrivia),
+                SyntaxTree tree when obj is SyntaxTree oTree => tree.IsEquivalentTo(oTree),
+                SyntaxNode node when obj is SyntaxNode oNode => node.IsEquivalentTo(oNode),
+                SyntaxNodeOrToken nodeOrToken when obj is SyntaxNodeOrToken oNodeOrToken => nodeOrToken.IsEquivalentTo(oNodeOrToken),
+                _ => false
+            };
     }
 }

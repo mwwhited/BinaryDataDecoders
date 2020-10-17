@@ -1,6 +1,8 @@
 ﻿using Microsoft.CodeAnalysis;
 using System;
 using System.Xml.Linq;
+using BinaryDataDecoders.ToolKit.Collections;
+using System.Net.Http.Headers;
 
 namespace BinaryDataDecoders.CodeAnalysis
 {
@@ -22,19 +24,30 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         internal static ISyntaxPointer ToSyntaxValuePointer<T>(this T item, ISyntaxPointer owner) => new SyntaxValuePointer<T>(item, owner);
 
-        internal static ISyntaxPointer Clone(this ISyntaxPointer pointer) =>
-            pointer switch
+        internal static ISyntaxPointer Clone(this ISyntaxPointer pointer)
+        {
+            ISyntaxPointer clone = pointer switch
             {
                 SyntaxRootPointer root => new SyntaxRootPointer(root.Item),
-                SyntaxTokenPointer token => new SyntaxTokenPointer(token.Item, pointer.Owner),
-                SyntaxTriviaPointer trivia => new SyntaxTriviaPointer(trivia.Item, pointer.Owner),
-                SyntaxNodePointer node => new SyntaxNodePointer(node.Item, pointer.Owner),
+                SyntaxTokenPointer token => new SyntaxTokenPointer(token.Item, token.Owner),
+                SyntaxTriviaPointer trivia => new SyntaxTriviaPointer(trivia.Item, trivia.Owner),
+                SyntaxNodePointer node => new SyntaxNodePointer(node.Item, node.Owner),
 
-                SyntaxValuePointer<SyntaxToken> tokenValue => new SyntaxValuePointer<SyntaxToken>(tokenValue.Item, pointer.Owner),
-                SyntaxValuePointer<SyntaxTrivia> triviaValue => new SyntaxValuePointer<SyntaxTrivia>(triviaValue.Item, pointer.Owner),
+                SyntaxValuePointer<SyntaxToken> tokenValue => new SyntaxValuePointer<SyntaxToken>(tokenValue.Item, tokenValue.Owner),
+                SyntaxValuePointer<SyntaxTrivia> triviaValue => new SyntaxValuePointer<SyntaxTrivia>(triviaValue.Item, triviaValue.Owner),
+                SyntaxValuePointer<string> stringValue => new SyntaxValuePointer<string>(stringValue.Item, stringValue.Owner),
 
-                _ => throw new NotSupportedException()
+                SyntaxAttributePointer attribute => new SyntaxAttributePointer(attribute.XName, attribute.Value, attribute.Owner),
+
+                SyntaxPreserveWhitespacePointer<SyntaxTrivia> triviaWhitespace => new SyntaxPreserveWhitespacePointer<SyntaxTrivia>(triviaWhitespace.Item, triviaWhitespace.Owner),
+
+                _ => throw new NotSupportedException($"{pointer?.GetType()}::{pointer}")
             };
+            clone.AttributesEnumerator.Forward(pointer.AttributesEnumerator.Position + 1);
+            clone.ChildrenEnumerator.Forward(pointer.ChildrenEnumerator.Position + 1);
+
+            return clone;
+        }
 
         internal static bool IsEqualTo(this ISyntaxPointer left, ISyntaxPointer right) => false;
     }

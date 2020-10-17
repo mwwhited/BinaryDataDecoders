@@ -20,6 +20,14 @@
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" -o \"$(SolutionDir)..\\Publish\\docs\\Code\\*.md\" -s \"$(SolutionDir)..\""
     },
+    "BinaryDataDecoders.Xslt.Cli (CSharp Special)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" -i \"$(SolutionDir)BinaryDataDecoders.Apple2.Tests\\Dos33\\DiskImageCommandsTests.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" -s \"$(SolutionDir)..\" -x CSharp"
+    },
+    "BinaryDataDecoders.Xslt.Cli (CSharp Xml Special)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)BinaryDataDecoders.Apple2.Tests\\Dos33\\DiskImageCommandsTests.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.xml\" -s \"$(SolutionDir)..\" -x CSharp"
+    },
     "BinaryDataDecoders.Xslt.Cli (CSharp to Markdown)": {
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" -i \"$(SolutionDir)**\\*.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" -s \"$(SolutionDir)..\" -x CSharp"

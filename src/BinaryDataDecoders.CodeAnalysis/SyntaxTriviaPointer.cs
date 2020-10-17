@@ -1,5 +1,4 @@
 ﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
@@ -11,7 +10,6 @@ namespace BinaryDataDecoders.CodeAnalysis
 
         public SyntaxTriviaPointer(SyntaxTrivia trivia, ISyntaxPointer owner) : base(trivia, owner)
         {
-            // _triviaValue = this.Value.ToSyntaxValuePointer(this);
             _triviaValue = new SyntaxPreserveWhitespacePointer<SyntaxTrivia>(trivia, this);
         }
 

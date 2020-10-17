@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace BinaryDataDecoders.ToolKit.Collections
 {
@@ -7,12 +8,19 @@ namespace BinaryDataDecoders.ToolKit.Collections
     /// this is a enumerator is bidirectional
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [DebuggerDisplay("{Current.ToString()}::{_position}")]
     public class ReversableEnumerator<T> : IReversibleEnumerator<T>
     {
+        private const int ResetPosition = -1;
+        private readonly object _lock = new object();
+
         private readonly IEnumerator<T> _base;
         private IDoubleLinkedList<T>? _pointer = null;
         private bool _reset = false;
         private bool _end = false;
+        private int _position = ResetPosition;
+
+        public int Position => _position;
 
         /// <summary>
         /// Wrap existing IEnumerable
@@ -42,50 +50,82 @@ namespace BinaryDataDecoders.ToolKit.Collections
         /// <returns>true if advanced</returns>
         public bool MoveNext()
         {
-            if (_end)
+            lock (_lock)
             {
-                return false;
-            }
-            if (_reset && _pointer != null)
-            {
-                _reset = false;
-                return true;
-            }
-
-            if (_pointer == null)
-            {
-                var advanceBase = _base.MoveNext();
-                if (advanceBase)
-                {
-                    _pointer = new DoubleLinkedList<T>(_base.Current);
-                    return true;
-                }
-                else
+                if (_end)
                 {
                     return false;
                 }
-            }
-            else
-            {
-                var next = _pointer.Next;
-                if (next != null)
+                if (_reset && _pointer != null)
                 {
-                    _pointer = next;
+                    _reset = false;
+                    _position++;
                     return true;
                 }
-                else
+
+                if (_pointer == null)
                 {
                     var advanceBase = _base.MoveNext();
                     if (advanceBase)
                     {
-                        _pointer = _pointer.InsertAfter(_base.Current);
+                        _pointer = new DoubleLinkedList<T>(_base.Current);
+                        _position++;
                         return true;
                     }
                     else
                     {
-                        _end = true;
                         return false;
                     }
+                }
+                else
+                {
+                    var next = _pointer.Next;
+                    if (next != null)
+                    {
+                        _pointer = next;
+                        _position++;
+                        return true;
+                    }
+                    else
+                    {
+                        var advanceBase = _base.MoveNext();
+                        if (advanceBase)
+                        {
+                            _pointer = _pointer.InsertAfter(_base.Current);
+                            _position++;
+                            return true;
+                        }
+                        else
+                        {
+                            _end = true;
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        public bool MoveCurrent()
+        {
+            lock (_lock)
+            {
+                if (_pointer != null)
+                {
+                    var next = _pointer.FastForward();
+                    _pointer = next;
+                    if (_pointer is DoubleLinkedList<T> dd)
+                    {
+                        _position = dd.Position;
+                    }
+                    _reset = false;
+                    _end = false;
+                    return true;
+                }
+                else
+                {
+                    _reset = true;
+                    _end = false;
+                    return false;
                 }
             }
         }
@@ -96,10 +136,15 @@ namespace BinaryDataDecoders.ToolKit.Collections
         /// <returns>true if stepped back</returns>
         public bool MovePrevious()
         {
-            var moveTo = _pointer?.Previous;
-            if (moveTo == null) return false;
-            _pointer = moveTo;
-            return true;
+            lock (_lock)
+            {
+                var moveTo = _pointer?.Previous;
+                if (moveTo == null) return false;
+                _pointer = moveTo;
+                _position--;
+                if (_position < 0) _position = 0;
+                return true;
+            }
         }
 
         /// <summary>
@@ -107,11 +152,15 @@ namespace BinaryDataDecoders.ToolKit.Collections
         /// </summary>
         public void Reset()
         {
-            if (_pointer != null)
+            lock (_lock)
             {
-                _pointer = _pointer?.Rewind();
-                _reset = true;
-                _end = false;
+                if (_pointer != null)
+                {
+                    _pointer = _pointer?.Rewind();
+                    _reset = true;
+                    _end = false;
+                    _position = ResetPosition;
+                }
             }
         }
     }

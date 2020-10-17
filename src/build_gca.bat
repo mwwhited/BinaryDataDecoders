@@ -5,18 +5,28 @@ SET TARGET_INPUT=%~1
 
 SET Configuration=Release
 
-SET SANDBOX_PATH=..
-SET BUILD_PATH=%SANDBOX_PATH%\src
-SET BUILD_PROJECT=%BUILD_PATH%\BinaryDataDecoders.sln
+SET SANDBOX_PATH=C:\Repos\GCA\RSMBilling
+SET BUILD_PATH=%SANDBOX_PATH%\src\GCAInvoicing
+SET BUILD_PROJECT=%BUILD_PATH%\GCAInvoicing.sln
 SET OUTPUT_PATH=%SANDBOX_PATH%\Publish
 SET TEST_RESULTS_PATH=%OUTPUT_PATH%\TestResults
 SET DOCS_PATH=%OUTPUT_PATH%\docs
 SET RESULTS_PATH=%OUTPUT_PATH%\Results
-SET TEMPLATES_PATH=%SANDBOX_PATH%\templates\reports
+SET TEMPLATES_PATH=C:\Repos\mwwhited\BinaryDataDecoders\templates\reports
 
-SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
-SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
 
+REM SET VsInstallRoot=%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Professional
+REM SET MSBuildExtensionsPath=%VsInstallRoot%\MSBuild
+REM SET VsIdePath=%VsInstallRoot%\Common7\IDE
+REM SET VisualStudioVersion=16.0
+REM SET SQLDBExtensionsRefPath=%MSBuildExtensionsPath%\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
+REM SET SqlServerRedistPath=%VsIdePath%\Extensions\Microsoft\SQLDB\DAC\150
+
+SET SQLDBExtensionsRefPath=C:\Repos\ssdt
+SET SqlServerRedistPath=C:\Repos\ssdt
+
+REM goto done_with_it
+ 
 :top
 IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
 

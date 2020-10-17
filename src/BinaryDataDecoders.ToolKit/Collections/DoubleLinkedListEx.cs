@@ -72,7 +72,7 @@ namespace BinaryDataDecoders.ToolKit.Collections
             return current;
         }
 
-        public static IEnumerable<T> Play<T>(this IDoubleLinkedList<T> current)
+        public static IEnumerable<T> AsEnumerable<T>(this IDoubleLinkedList<T> current)
         {
             IDoubleLinkedList<T>? list = current;
             if (list == null) yield break;
@@ -83,7 +83,7 @@ namespace BinaryDataDecoders.ToolKit.Collections
             }
             while (list?.Next != null);
         }
-        public static IEnumerable<T> PlayBackwards<T>(this IDoubleLinkedList<T> current)
+        public static IEnumerable<T> AsEnumerableReversed<T>(this IDoubleLinkedList<T> current)
         {
             IDoubleLinkedList<T>? list = current;
             if (list == null) yield break;
