@@ -16,7 +16,7 @@ SET TEMPLATES_PATH=%SANDBOX_PATH%\templates\reports
 
 SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
 SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
-
+ 
 :top
 IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
 
