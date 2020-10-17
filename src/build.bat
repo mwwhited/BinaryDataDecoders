@@ -65,13 +65,13 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :pack
 echo "Pack Projects"
-dotnet pack --no-build --no-restore "%BUILD_PROJECT%" -o "%OUTPUT_PATH%\Nuget" -p:PackageVersion=%BUILD_VERSION%
+dotnet pack "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%OUTPUT_PATH%\Nuget" -p:PackageVersion=%BUILD_VERSION%
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :publish
 echo "Pack Projects"
-dotnet publish --no-build --no-restore "%BUILD_PROJECT%" -o "%RESULTS_PATH%\Binary"
+dotnet publish "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
@@ -84,7 +84,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
-dotnet tool install --add-source "C:\Repos\mwwhited\BinaryDataDecoders\Publish\Nuget" --local BinaryDataDecoders.Xslt.Cli
+dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"

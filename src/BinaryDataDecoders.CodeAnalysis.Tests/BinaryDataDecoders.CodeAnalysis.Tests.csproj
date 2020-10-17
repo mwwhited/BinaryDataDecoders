@@ -12,6 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CSharp\SampleClasses.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="SimpleCopy.xslt" />
   </ItemGroup>
 
@@ -23,6 +27,7 @@
       <Pack>True</Pack>
       <PackagePath />
     </None>
+    <None Include="CSharp\SampleClasses.cs" />
   </ItemGroup>
 
   <ItemGroup>
