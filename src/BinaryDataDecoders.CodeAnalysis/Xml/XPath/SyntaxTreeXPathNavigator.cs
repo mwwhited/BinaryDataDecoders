@@ -72,9 +72,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
 
         public override bool MoveToId(string id) => false;
 
-        //[Conditional("DEBUG_WITH_WRITELINE")]
-        //private void TracePointer() => Debug.WriteLine(_pointer);
-
+        [Conditional("DEBUG_WITH_WRITELINE")]
         private void TracePointer() => Debug.WriteLine($"XXXXXXXXXXX\t{_pointer.GetType().Name}\t{_pointer.NamespaceUri}\t{_pointer.Name}\t{_pointer.Owner?.Name}");
 
         public override bool MoveToFirstAttribute()

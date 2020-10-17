@@ -22,7 +22,7 @@
     },
     "BinaryDataDecoders.Xslt.Cli (CSharp Special)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" -i \"$(SolutionDir)BinaryDataDecoders.Apple2.Tests\\Dos33\\DiskImageCommandsTests.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" -s \"$(SolutionDir)..\" -x CSharp"
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" -i \"$(SolutionDir)BinaryDataDecoders.ToolKit\\BcdEx.cs\" -o \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" -s \"$(SolutionDir)..\" -x CSharp"
     },
     "BinaryDataDecoders.Xslt.Cli (CSharp Xml Special)": {
       "commandName": "Project",
