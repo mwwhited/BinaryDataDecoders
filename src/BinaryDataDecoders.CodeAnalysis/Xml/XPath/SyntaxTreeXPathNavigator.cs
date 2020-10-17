@@ -15,7 +15,12 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
         private readonly bool _excludeNamespace;
 
         public SyntaxTreeXPathNavigator(ISyntaxPointer pointer, bool excludeNamespace = false)
+            : this(pointer, excludeNamespace, null)
         {
+        }
+        public SyntaxTreeXPathNavigator(ISyntaxPointer pointer, bool excludeNamespace, XmlNameTable nameTable)
+        {
+            NameTable = nameTable ?? new NameTable();
             _pointer = pointer;
             _excludeNamespace = excludeNamespace;
         }
@@ -24,7 +29,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
         public override bool CanEdit => false;
 
         //Note: for a first pass I'm going to ignore all the namespace crazy.
-        public override XmlNameTable NameTable => null;
+        public override XmlNameTable NameTable { get; }
         public override string Prefix => "";
         public override string BaseURI => "";
         public override string NamespaceURI => _excludeNamespace ? "" : _pointer.NamespaceUri;
@@ -50,7 +55,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
         public override bool HasChildren => _pointer.HasChildren;
         public override bool HasAttributes => _pointer.HasAttributes;
 
-        public override XPathNavigator Clone() => new SyntaxTreeXPathNavigator(_pointer.Clone());
+        public override XPathNavigator Clone() => new SyntaxTreeXPathNavigator(_pointer.Clone(), _excludeNamespace, this.NameTable);
         public override XPathNavigator CreateNavigator() => Clone();
 
         public override bool IsSamePosition(XPathNavigator other) =>

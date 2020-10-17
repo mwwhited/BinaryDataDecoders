@@ -55,8 +55,8 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
             IXPathNavigable nav =
                 Path.GetExtension(filePath) switch
                 {
-                    ".cs" => new CSharpAnalyzer().CreateNavigator(filePath),
-                    ".vb" => new VisualBasicAnalyzer().CreateNavigator(filePath),
+                    ".cs" => new CSharpNavigator().CreateNavigator(filePath),
+                    ".vb" => new VisualBasicNavigator().CreateNavigator(filePath),
                     _ => throw new NotSupportedException()
                 };
 
@@ -84,7 +84,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests
         public void BuildTreeTest()
         {
             var cs = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs";
-            var nav = new CSharpAnalyzer().Pointer(cs);
+            var nav = new CSharpNavigator().Pointer(cs);
 
             static XElement toXml(ISyntaxPointer sp) => new XElement(sp.Name, sp.Children.Select(toXml));
 

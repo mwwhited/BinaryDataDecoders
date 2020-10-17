@@ -4,7 +4,7 @@
     {
         public static class XmlNamespaces
         {
-            public const string Base = "oobdev://BinaryDataDecoders/ToolKit/v1/";
+            public const string Base = "bdd:ToolKit/";
             public const string OutputSuffix = ":out";
         }
     }

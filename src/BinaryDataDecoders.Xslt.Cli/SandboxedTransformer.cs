@@ -24,7 +24,8 @@ namespace BinaryDataDecoders.Xslt.Cli
                     new EnvironmentExtensions(),
                     new FileExtensions(_sandbox),
                     new TrxExtensions(),
-                    new StringExtensions()
+                    new StringExtensions(),
+                    new XmlExtensions()
                     );
         }
 
@@ -40,8 +41,8 @@ namespace BinaryDataDecoders.Xslt.Cli
             {
                 InputTypes.Xml => _transformer.ReadAsXml,
                 InputTypes.Html => new HtmlNavigator().CreateNavigator,
-                InputTypes.CSharp => new CSharpAnalyzer().CreateNavigator,
-                InputTypes.VB => new VisualBasicAnalyzer().CreateNavigator,
+                InputTypes.CSharp => new CSharpNavigator().CreateNavigator,
+                InputTypes.VB => new VisualBasicNavigator().CreateNavigator,
 
                 _ => null
             };

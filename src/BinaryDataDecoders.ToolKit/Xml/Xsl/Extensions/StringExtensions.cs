@@ -15,7 +15,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         private readonly XNamespace _ns;
 
         /// <summary>
-        /// Create instance of {
+        /// Create instance of StringExtensions
         /// </summary>
         public StringExtensions()
         {
@@ -28,6 +28,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// <param name="input">iput multiline string</param>
         /// <returns>cleaned multiline string</returns>
         public string TrimPerLine(string input) =>
-            string.Join("\r\n", input.Split("\r\n").Select(l => l.Trim().Trim('\t','\r','\n', ' ')));
+            string.Join("\r\n", input.Split("\r\n").Select(l => l.Trim().Trim('\t', '\r', '\n', ' ')));
+
+
     }
 }

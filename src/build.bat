@@ -1,5 +1,5 @@
 
-REM @echo off
+@echo off
 
 SET TARGET_INPUT=%~1
 

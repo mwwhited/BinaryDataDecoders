@@ -8,13 +8,16 @@ using System.Xml.XPath;
 namespace BinaryDataDecoders.CodeAnalysis.CSharp
 {
     [TargetExtension(".cs")]
-    public class CSharpAnalyzer : ICreateXPathNavigator
+    public class CSharpNavigator : ICreateXPathNavigator
     {
-        public IXPathNavigable CreateNavigator(string csharpSourceFile)
+        public IXPathNavigable CreateNavigator(string csharpSourceFile, bool excludeNamespace)
         {
             var root = Pointer(csharpSourceFile);
-            return new SyntaxTreeXPathNavigator(root);
+            return new SyntaxTreeXPathNavigator(root, excludeNamespace);
         }
+
+        public IXPathNavigable CreateNavigator(string inputFile) => CreateNavigator(inputFile, false);
+
         public ISyntaxPointer Pointer(string csharpSourceFile)
         {
             var content = File.ReadAllText(csharpSourceFile);

@@ -10,14 +10,16 @@
 	xmlns:tt="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
 	
-	xmlns:ex-path="oobdev://BinaryDataDecoders/ToolKit/v1/PathExtensions"
-	xmlns:o-path="oobdev://BinaryDataDecoders/ToolKit/v1/PathExtensions:out"
-	xmlns:ex-file="oobdev://BinaryDataDecoders/ToolKit/v1/FileExtensions"
-	xmlns:o-file="oobdev://BinaryDataDecoders/ToolKit/v1/FileExtensions:out"
-	xmlns:ex-env="oobdev://BinaryDataDecoders/ToolKit/v1/EnvironmentExtensions"
-	xmlns:o-env="oobdev://BinaryDataDecoders/ToolKit/v1/EnvironmentExtensions:out"
-	xmlns:ex-str="oobdev://BinaryDataDecoders/ToolKit/v1/StringExtensions"
-	xmlns:o-str="oobdev://BinaryDataDecoders/ToolKit/v1/StringExtensions:out"
+	xmlns:ex-path="bdd:ToolKit/PathExtensions"
+	xmlns:o-path="bdd:ToolKit/PathExtensions:out"
+	xmlns:ex-file="bdd:ToolKit/FileExtensions"
+	xmlns:o-file="bdd:ToolKit/FileExtensions:out"
+	xmlns:ex-env="bdd:ToolKit/EnvironmentExtensions"
+	xmlns:o-env="bdd:ToolKit/EnvironmentExtensions:out"
+	xmlns:ex-str="bdd:ToolKit/StringExtensions"
+	xmlns:o-str="bdd:ToolKit/StringExtensions:out"
+	xmlns:ex-xml="bdd:ToolKit/XmlExtensions"
+	xmlns:o-xml="bdd:ToolKit/XmlExtensions:out"
 
 	xmlns:ex-trx="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities"
     xmlns:o-trx="clr:BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions, BinaryDataDecoders.TestUtilities:out"
@@ -55,7 +57,11 @@
 			<xsl:apply-templates select="$attributes" mode="attribute" />&cr;
 		</xsl:if>
 
-		<xsl:apply-templates select="$defined-types" mode="type" />
+		<xsl:apply-templates select="ex-xml:Fixup($defined-types)" mode="type" />
+		<!--
+			Note: this is stupid problem... figure out later 
+			<xsl:apply-templates select="$defined-types" mode="type" />
+		-->
 	</xsl:template>
 
 	<xsl:template match="*" mode="type">

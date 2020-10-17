@@ -64,15 +64,15 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         {
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 
-            xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) =>Console.WriteLine($"\t\t{eventArgs.Message}");
+            xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t{eventArgs.Message}");
 
             XNamespace ns = this.GetXmlNamespace();
             xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
-                new XAttribute(nameof(template), template),
-                new XAttribute(nameof(input), inputSource),
+                new XAttribute(nameof(template), Path.GetFullPath(template)),
+                new XAttribute(nameof(input), Path.GetFullPath(inputSource)),
                 new XAttribute("inputType", input.GetType().AssemblyQualifiedName),
-                new XAttribute(nameof(output), output),
-                new XAttribute("sandbox", _sandbox)
+                new XAttribute(nameof(output), Path.GetFullPath(output)),
+                new XAttribute("sandbox", Path.GetFullPath(_sandbox))
                 ).ToXPathNavigable().CreateNavigator());
 
             var xslt = new XslCompiledTransform(false);

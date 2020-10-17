@@ -8,7 +8,7 @@ using System.Xml.XPath;
 namespace BinaryDataDecoders.CodeAnalysis.VisualBasic
 {
     [TargetExtension(".vb")]
-    public class VisualBasicAnalyzer : ICreateXPathNavigator
+    public class VisualBasicNavigator : ICreateXPathNavigator
     {
         public IXPathNavigable CreateNavigator(string vbSourceFile)
         {
