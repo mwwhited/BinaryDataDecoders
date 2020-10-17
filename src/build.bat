@@ -43,6 +43,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 :build
 echo "Build Packages"
 dotnet tool install --local gitversion.tool
+dotnet tool update gitversion.tool
 
 FOR /F "tokens=* USEBACKQ" %%g IN (`dotnet gitversion /output json /showvariable FullSemVer`) DO (SET BUILD_VERSION=%%g)
 
@@ -78,6 +79,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 :report
 echo "Build Reports"
 dotnet tool install --local dotnet-reportgenerator-globaltool
+dotnet tool update dotnet-reportgenerator-globaltool
 dotnet reportgenerator "-reports:%TEST_RESULTS_PATH%\**\coverage.cobertura.xml" "-targetDir:%RESULTS_PATH%\Coverage" "-reportTypes:Xml" "-title:%BUILD_PROJECT% - (%BUILD_VERSION%)"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
@@ -85,6 +87,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 :transform
 echo "Transform Reports"
 dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli
+dotnet tool update BinaryDataDecoders.Xslt.Cli
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"
