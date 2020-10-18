@@ -8,15 +8,15 @@ namespace BinaryDataDecoders.Text.Json
 {
     [FileExtension(".json")]
     [MediaType("application/json")]
-    public class JsonNavigator : ICreateNavigator
+    public class JsonNavigator : IToXPathNavigable
     {
-        public IXPathNavigable CreateNavigator(string inputFile)
+        public IXPathNavigable ToNavigable(string inputFile)
         {
             using var file = File.OpenRead(inputFile);
-            return CreateNavigator(file);
+            return ToNavigable(file);
         }
 
-        public IXPathNavigable CreateNavigator(Stream inputFile) =>
-            JsonDocument.Parse(inputFile).CreateNavigator();
+        public IXPathNavigable ToNavigable(Stream inputFile) =>
+            JsonDocument.Parse(inputFile).ToNavigable();
     }
 }

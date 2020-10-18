@@ -2,6 +2,7 @@
 using BinaryDataDecoders.CodeAnalysis.VisualBasic;
 using BinaryDataDecoders.Templating.Html;
 using BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions;
+using BinaryDataDecoders.Text.Json;
 using BinaryDataDecoders.ToolKit.Xml.Xsl;
 using BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions;
 using System;
@@ -40,9 +41,11 @@ namespace BinaryDataDecoders.Xslt.Cli
             inputType switch
             {
                 InputTypes.Xml => _transformer.ReadAsXml,
-                InputTypes.Html => new HtmlNavigator().CreateNavigator,
-                InputTypes.CSharp => new CSharpNavigator().CreateNavigator,
-                InputTypes.VB => new VisualBasicNavigator().CreateNavigator,
+                InputTypes.Html => new HtmlNavigator().ToNavigable,
+                InputTypes.CSharp => new CSharpNavigator().ToNavigable,
+                InputTypes.VB => new VisualBasicNavigator().ToNavigable,
+
+                InputTypes.Json => new JsonNavigator().ToNavigable,
 
                 _ => null
             };
@@ -53,6 +56,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                 ".XML" => GetNavigator(InputTypes.Xml),
                 ".HTML" => GetNavigator(InputTypes.Html),
                 ".HTM" => GetNavigator(InputTypes.Html),
+                ".JSON" => GetNavigator(InputTypes.Json),
                 ".CS" => GetNavigator(InputTypes.CSharp),
                 ".VB" => GetNavigator(InputTypes.VB),
 

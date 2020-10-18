@@ -9,10 +9,10 @@ namespace BinaryDataDecoders.Text.Json
 {
     public static class JsonNavigatorFactory
     {
-        public static IXPathNavigable CreateNavigator(this JsonDocument json, XName? rootName = null, string? baseUri = null) =>
-            json.RootElement.CreateNavigator(rootName, baseUri);
+        public static IXPathNavigable ToNavigable(this JsonDocument json, XName? rootName = null, string? baseUri = null) =>
+            json.RootElement.ToNavigable(rootName, baseUri);
 
-        public static IXPathNavigable CreateNavigator(this JsonElement json, XName? rootName = null, string? baseUri = null) =>
+        public static IXPathNavigable ToNavigable(this JsonElement json, XName? rootName = null, string? baseUri = null) =>
             new ExtensibleNavigator(json.AsNode(rootName, baseUri));
 
         public static INode AsNode(this JsonDocument json, XName? rootName = null, string? baseUri = null) =>

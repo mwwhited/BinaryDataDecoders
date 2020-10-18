@@ -32,6 +32,7 @@
 		<ProjectReference Include="..\BinaryDataDecoders.CodeAnalysis\BinaryDataDecoders.CodeAnalysis.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.Templating.Html\BinaryDataDecoders.Templating.Html.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Text.Json\BinaryDataDecoders.Text.Json.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
 	</ItemGroup>
 
