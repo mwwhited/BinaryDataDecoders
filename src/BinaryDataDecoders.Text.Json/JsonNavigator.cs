@@ -1,6 +1,5 @@
 ﻿using BinaryDataDecoders.ToolKit.MetaData;
 using BinaryDataDecoders.ToolKit.Xml.XPath;
-using System;
 using System.IO;
 using System.Text.Json;
 using System.Xml.XPath;
