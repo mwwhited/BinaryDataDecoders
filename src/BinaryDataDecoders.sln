@@ -54,6 +54,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.runsettings = .runsettings
 		build.bat = build.bat
 		build.sh = build.sh
+		GitVersion.yml = GitVersion.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Apple2.Tests", "BinaryDataDecoders.Apple2.Tests\BinaryDataDecoders.Apple2.Tests.csproj", "{24C446C8-9468-4BE1-B4DA-E95039FC8915}"

@@ -27,6 +27,7 @@ jobs:
         cd ./src
         chmod +x build.sh
         ./build.sh
+        dotnet nuget push "../Publish/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
 
     - name: Publish Documents
       uses: actions/upload-artifact@v2

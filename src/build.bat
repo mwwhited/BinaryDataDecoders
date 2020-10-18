@@ -1,6 +1,7 @@
 
 @echo off
 
+SETLOCAL
 SET TARGET_INPUT=%~1
 
 SET Configuration=Release
@@ -125,6 +126,13 @@ SHIFT
 SET TARGET_INPUT=%~1
 GOTO top
 
+:push
+@echo off
+SET /P NUGET_API_KEY=<%USERPROFILE%\BinaryDataDecoders.Nuget.Key
+dotnet nuget push "%OUTPUT_PATH%\Nuget\*.nupkg" -k %NUGET_API_KEY% -s https://api.nuget.org/v3/index.json --skip-duplicate
+SET NUGET_API_KEY=
+IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
+
 :debug
 SET Configuration=Debug
 
@@ -134,4 +142,5 @@ SET TARGET_INPUT=%~1
 IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
 
 :done_with_it
+ENDLOCAL
 echo "fin!"
