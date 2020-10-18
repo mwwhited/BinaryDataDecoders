@@ -2,7 +2,7 @@
 
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
-    public class OpenXNameTable : XmlNameTable
+    internal class ExtensibleNameTable : XmlNameTable
     {
         private readonly NameTable _nameTable = new NameTable();
 

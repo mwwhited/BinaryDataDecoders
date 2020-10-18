@@ -5,23 +5,23 @@ using System.Xml.XPath;
 
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
-    public sealed class OpenXPathNavigator : XPathNavigator
+    public sealed class ExtensibleNavigator : XPathNavigator
     {
-        private IXPathNode _current;
+        private INode _current;
         private readonly IDictionary<string, string> _namespacePrefixes;
-        public OpenXPathNavigator(IXPathNode current, string? baseUri = null)
+        public ExtensibleNavigator(INode current, string? baseUri = null)
             : this(current, baseUri, null, null)
         {
         }
-        private OpenXPathNavigator(
-            IXPathNode current,
+        private ExtensibleNavigator(
+            INode current,
             string? baseUri,
             XmlNameTable? nameTable,
             IDictionary<string, string>? namespacePrefixes)
         {
             BaseURI = baseUri ?? "";
             _current = current;
-            NameTable = nameTable ?? new OpenXNameTable();
+            NameTable = nameTable ?? new ExtensibleNameTable();
             _namespacePrefixes = namespacePrefixes ?? new Dictionary<string, string>();
         }
 
@@ -29,9 +29,10 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public override string LocalName => _current.Name.LocalName;
         public override string NamespaceURI => _current.Name.NamespaceName;
 
-        public override XPathNodeType NodeType => _current.NodeType;
+        public override XPathNodeType NodeType =>
+            _current.NodeType;
 
-        public override string Prefix =>  LookupPrefix(NamespaceURI);
+        public override string Prefix => LookupPrefix(NamespaceURI);
 
         public override string LookupPrefix(string namespaceURI)
         {
@@ -50,25 +51,27 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             _namespacePrefixes.FirstOrDefault(v => v.Value == prefix).Key ?? base.LookupNamespace(prefix);
 
         public override string Value => _current.Value;
-        public override bool IsEmptyElement => string.IsNullOrWhiteSpace(Value);
+        public override bool IsEmptyElement => Value == null;
+
+        public override bool HasAttributes => _current is IElementNode node && node.FirstAttribute != null;
+        public override bool HasChildren => _current is IElementNode node && node.FirstChild != null;
 
         public override string BaseURI { get; }
         public override XmlNameTable NameTable { get; }
-        public override XPathNavigator Clone() =>
-            new OpenXPathNavigator(_current, BaseURI, NameTable, _namespacePrefixes);
+        public override XPathNavigator Clone() => new ExtensibleNavigator(_current, BaseURI, NameTable, _namespacePrefixes);
 
         public override bool MoveToId(string id) => false;
 
         public override bool IsSamePosition(XPathNavigator other) =>
             other switch
             {
-                OpenXPathNavigator openXPath => openXPath._current.Equals(this._current),
+                ExtensibleNavigator openXPath => openXPath._current.Equals(this._current),
                 _ => false
             };
 
         public override bool MoveTo(XPathNavigator other)
         {
-            if (other is OpenXPathNavigator openXPath && openXPath._current != null)
+            if (other is ExtensibleNavigator openXPath && openXPath._current != null)
             {
                 _current = openXPath._current;
                 return true;
@@ -78,16 +81,17 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope)
         {
-            if (_current is IXPathItemNode current && current.FirstNamespace != null)
+            if (_current is IElementNode current && current.FirstNamespace != null)
             {
                 _current = current.FirstNamespace;
                 return true;
             }
             return false;
         }
+
         public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope)
         {
-            if (_current is IXPathNamespaceNode current && current.Next != null)
+            if (_current is INamespaceNode current && current.Next != null)
             {
                 _current = current.Next;
                 return true;
@@ -98,7 +102,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override bool MoveToFirstAttribute()
         {
-            if (_current is IXPathItemNode current && current.FirstAttribute != null)
+            if (_current is IElementNode current && current.FirstAttribute != null)
             {
                 _current = current.FirstAttribute;
                 return true;
@@ -108,7 +112,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override bool MoveToNextAttribute()
         {
-            if (_current is IXPathAttributeNode current && current.Next != null)
+            if (_current is IAttributeNode current && current.Next != null)
             {
                 _current = current.Next;
                 return true;
@@ -128,7 +132,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override bool MoveToFirstChild()
         {
-            if (_current is IXPathItemNode current && current.FirstChild != null)
+            if (_current is IElementNode current && current.FirstChild != null)
             {
                 _current = current.FirstChild;
                 return true;

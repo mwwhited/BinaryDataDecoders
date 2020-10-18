@@ -3,10 +3,10 @@
 namespace BinaryDataDecoders.ToolKit.MetaData
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class TargetExtensionAttribute : Attribute
+    public class FileExtensionAttribute : Attribute
     {
         public string FileExtension { get; }
 
-        public TargetExtensionAttribute(string fileExtension) => FileExtension = fileExtension;
+        public FileExtensionAttribute(string fileExtension) => FileExtension = fileExtension;
     }
 }

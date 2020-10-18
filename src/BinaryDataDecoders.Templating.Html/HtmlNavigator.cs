@@ -5,8 +5,8 @@ using System.Xml.XPath;
 
 namespace BinaryDataDecoders.Templating.Html
 {
-    [TargetExtension(".html"), TargetExtension(".htm")]
-    public class HtmlNavigator : ICreateXPathNavigator
+    [FileExtension(".html"), FileExtension(".htm")]
+    public class HtmlNavigator : ICreateNavigator
     {
         public IXPathNavigable CreateNavigator(string sourceFile)
         {

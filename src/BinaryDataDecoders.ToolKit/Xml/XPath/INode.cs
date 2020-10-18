@@ -3,13 +3,13 @@ using System.Xml.XPath;
 
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
-    public interface IXPathNode
+    public interface INode
     {
         XName Name { get; }
 
-        IXPathNode? Parent { get; }
-        IXPathNode? Next { get; }
-        IXPathNode? Previous { get; }
+        INode? Parent { get; }
+        INode? Next { get; }
+        INode? Previous { get; }
 
         string? Value { get; }
         XPathNodeType NodeType { get; }

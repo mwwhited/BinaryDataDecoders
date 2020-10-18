@@ -7,8 +7,8 @@ using System.Xml.XPath;
 
 namespace BinaryDataDecoders.CodeAnalysis.CSharp
 {
-    [TargetExtension(".cs")]
-    public class CSharpNavigator : ICreateXPathNavigator
+    [FileExtension(".cs")]
+    public class CSharpNavigator : ICreateNavigator
     {
         public IXPathNavigable CreateNavigator(string csharpSourceFile, bool excludeNamespace)
         {

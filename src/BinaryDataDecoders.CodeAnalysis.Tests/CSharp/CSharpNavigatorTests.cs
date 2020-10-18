@@ -53,7 +53,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
         {
             var targetFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis.Tests\CSharp\SampleClasses.cs";
             var nav = new CSharpNavigator().Pointer(targetFile);
-            var xnode = new XPathItemNode<ISyntaxPointer>(
+            var xnode = new ExtensibleElementNode<ISyntaxPointer>(
                 XName.Get(nav.Name, nav.NamespaceUri),
                 nav,
                 n => n.Value,
@@ -61,7 +61,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
                 n => n.Children.Select(c => (XName.Get(c.Name, c.NamespaceUri), c))
                 );
 
-            var oNavigator = new OpenXPathNavigator(xnode, targetFile);
+            var oNavigator = new ExtensibleNavigator(xnode, targetFile);
             oNavigator.MoveToRoot();
             //var pre = oNavigator.Prefix;
             //var v = oNavigator.Value;

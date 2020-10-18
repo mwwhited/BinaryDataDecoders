@@ -8,7 +8,22 @@ using System.Xml.XPath;
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
     [DebuggerDisplay("E:>{Name}")]
-    public class XPathItemNode<T> : IXPathItemNode
+    public class ExtensibleElementNode : ExtensibleElementNode<object>
+    {
+        public ExtensibleElementNode(
+            XName name,
+            object item,
+            Func<object, string>? valueSelector = null,
+            Func<object, IEnumerable<(XName name, string value)>>? attributeSelector = null,
+            Func<object, IEnumerable<(XName name, object child)>>? childSelector = null,
+            Func<object, IEnumerable<XName>>? namespaceSelector = null
+            )
+            : base(null, name, item, valueSelector, attributeSelector, childSelector, namespaceSelector)
+        {
+        }
+    }
+    [DebuggerDisplay("E:>{Name}")]
+    public class ExtensibleElementNode<T> : IElementNode
     {
         private readonly T _item;
 
@@ -17,12 +32,12 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         private readonly Func<T, IEnumerable<(XName name, T child)>>? _childSelector;
         private readonly Func<T, IEnumerable<XName>>? _namespaceSelector;
 
-        private readonly Lazy<string?> _value;
-        private readonly Lazy<IXPathItemNode?> _children;
-        private readonly Lazy<IXPathAttributeNode?> _attributes;
-        private readonly Lazy<IXPathNamespaceNode?> _namespaces;
+        private readonly Lazy<INode?> _value;
+        private readonly Lazy<INode?> _children;
+        private readonly Lazy<IAttributeNode?> _attributes;
+        private readonly Lazy<INamespaceNode?> _namespaces;
 
-        public XPathItemNode(
+        public ExtensibleElementNode(
             XName name,
             T item,
             Func<T, string>? valueSelector = null,
@@ -32,11 +47,10 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             )
             : this(null, name, item, valueSelector, attributeSelector, childSelector, namespaceSelector)
         {
-            Parent = new XPathRootNode<T>(this);
         }
 
-        private XPathItemNode(
-            IXPathNode? parent,
+        protected ExtensibleElementNode(
+            INode? parent,
              XName name,
              T item,
              Func<T, string>? valueSelector,
@@ -45,7 +59,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
              Func<T, IEnumerable<XName>>? namespaceSelector
              )
         {
-            Parent = parent ?? new XPathRootNode<T>(this);
+            Parent = parent ?? new ExtensibleRootNode<T>(this);
             Name = name;
             _item = item;
 
@@ -54,17 +68,25 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             _childSelector = childSelector;
             _namespaceSelector = namespaceSelector;
 
-            _value = new Lazy<string?>(() => _valueSelector?.Invoke(_item));
+            _value = new Lazy<INode?>(() =>
+                _valueSelector?.Invoke(_item) switch
+                {
+                    null => (INode?)null,
+                    string value when !string.IsNullOrWhiteSpace(value) => new XPathTextNode<T>(this, Name, _item, value),
+                    string value when string.IsNullOrWhiteSpace(value) => new XPathWhitespaceNode<T>(this, Name, _item, value),
 
-            _attributes = new Lazy<IXPathAttributeNode?>(() =>
+                    _ => throw new NotSupportedException(),
+                });
+
+            _attributes = new Lazy<IAttributeNode?>(() =>
             {
                 var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string value)>()).GetEnumerator();
-                IXPathAttributeNode? first = null;
-                IXPathAttributeNode? previous = null;
+                IAttributeNode? first = null;
+                IAttributeNode? previous = null;
 
                 while (query.MoveNext())
                 {
-                    var newItem = new XPathAttributeNode<T>(
+                    var newItem = new ExtensibleAttributeNode<T>(
                         this,
                         query.Current.name,
                         _item,
@@ -73,7 +95,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     {
                         Previous = previous,
                     };
-                    if (previous is XPathAttributeNode<T> node) node.Next = newItem;
+                    if (previous is ExtensibleAttributeNode<T> node) node.Next = newItem;
                     if (first == null) first = newItem;
                     previous = newItem;
                 }
@@ -81,15 +103,15 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 return first;
             });
 
-            _children = new Lazy<IXPathItemNode?>(() =>
+            _children = new Lazy<INode?>(() =>
             {
                 var query = (_childSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, T child)>()).GetEnumerator();
-                IXPathItemNode? first = null;
-                IXPathItemNode? previous = null;
+                INode? first = null;
+                INode? previous = null;
 
                 while (query.MoveNext())
                 {
-                    var newItem = new XPathItemNode<T>(
+                    var newItem = new ExtensibleElementNode<T>(
                         this,
                         query.Current.name,
                         query.Current.child,
@@ -101,24 +123,31 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     {
                         Previous = previous,
                     };
-                    if (previous is XPathItemNode<T> node) node.Next = newItem;
+                    if (previous is ExtensibleElementNode<T> node) node.Next = newItem;
                     if (first == null) first = newItem;
                     previous = newItem;
                 }
-
-                return first;
+                if (_value.Value != null)
+                {
+                    if (_value.Value is XPathTextNode<T> next && previous is ExtensibleElementNode<T> last)
+                    {
+                        last.Next = next;
+                        next.Previous = last;
+                    }
+                }
+                return first ?? _value.Value;
             });
 
 
-            _namespaces = new Lazy<IXPathNamespaceNode?>(() =>
+            _namespaces = new Lazy<INamespaceNode?>(() =>
             {
                 var query = (_namespaceSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
-                IXPathNamespaceNode? first = null;
-                IXPathNamespaceNode? previous = null;
+                INamespaceNode? first = null;
+                INamespaceNode? previous = null;
 
                 while (query.MoveNext())
                 {
-                    var newItem = new XPathNamespaceNode<T>(
+                    var newItem = new ExtensibleNamespaceNode<T>(
                         this,
                         query.Current,
                         _item
@@ -126,30 +155,27 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     {
                         Previous = previous,
                     };
-                    if (previous is XPathNamespaceNode<T> node) node.Next = newItem;
+                    if (previous is ExtensibleNamespaceNode<T> node) node.Next = newItem;
                     if (first == null) first = newItem;
                     previous = newItem;
                 }
 
                 return first;
             });
-
         }
 
-        public IXPathItemNode? FirstChild => _children.Value;
-        public IXPathAttributeNode? FirstAttribute => _attributes.Value;
-        public IXPathNamespaceNode? FirstNamespace => _namespaces.Value;
+        public INode? FirstChild => _children.Value;
+        public IAttributeNode? FirstAttribute => _attributes.Value;
+        public INamespaceNode? FirstNamespace => _namespaces.Value;
 
-        public IXPathItemNode? Next { get; internal set; }
-        public IXPathItemNode? Previous { get; internal set; }
+        public INode? Next { get; internal set; }
+        public INode? Previous { get; internal set; }
 
 
-        public IXPathNode? Parent { get; }
+        public INode? Parent { get; }
         public XName Name { get; }
-        public string? Value => _value.Value;
+        public string? Value => _value.Value?.Value;
 
         public XPathNodeType NodeType { get; } = XPathNodeType.Element;
-        IXPathNode? IXPathNode.Next => Next;
-        IXPathNode? IXPathNode.Previous => Previous;
     }
 }
