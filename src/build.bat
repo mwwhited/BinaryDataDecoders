@@ -87,8 +87,8 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
-dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli
-dotnet tool update BinaryDataDecoders.Xslt.Cli
+dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli --version $buildVersion
+dotnet tool update BinaryDataDecoders.Xslt.Cli --version $buildVersion
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"

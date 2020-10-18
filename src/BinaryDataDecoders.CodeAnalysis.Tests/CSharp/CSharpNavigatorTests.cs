@@ -1,9 +1,13 @@
 ﻿using BinaryDataDecoders.CodeAnalysis.CSharp;
+using BinaryDataDecoders.ToolKit.Xml.XPath;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
@@ -45,6 +49,27 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
         }
 
         [TestMethod]
+        public void XPathItemNodeTest()
+        {
+            var targetFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis.Tests\CSharp\SampleClasses.cs";
+            var nav = new CSharpNavigator().Pointer(targetFile);
+            var xnode = new XPathItemNode<ISyntaxPointer>(
+                XName.Get(nav.Name, nav.NamespaceUri),
+                nav,
+                n => n.Value,
+                n => n.Attributes.Select(a => (XName.Get(a.Name, a.NamespaceUri), a.Value)),
+                n => n.Children.Select(c => (XName.Get(c.Name, c.NamespaceUri), c))
+                );
+
+            var oNavigator = new OpenXPathNavigator(xnode, targetFile);
+            oNavigator.MoveToRoot();
+            //var pre = oNavigator.Prefix;
+            //var v = oNavigator.Value;
+            var ix = oNavigator.InnerXml;
+            this.TestContext.WriteLine(oNavigator.OuterXml);
+        }
+
+        [TestMethod]
         public void TestXPath2()
         {
             var targetFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis.Tests\CSharp\SampleClasses.cs";
@@ -72,7 +97,8 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
                     tq.SetContext(manager);
                     var types = t.Select(tq);
 
-                    while(types.MoveNext()){
+                    while (types.MoveNext())
+                    {
 
                         this.TestContext.WriteLine(new string('-', 15));
                         this.TestContext.WriteLine(types.Current.Name);

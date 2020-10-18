@@ -71,6 +71,7 @@
 		<xsl:variable name="members" select="descendant::*[
 			self::cs-n:ConstructorDeclaration or 
 			self::cs-n:MethodDeclaration or 
+			self::cs-n:DestructorDeclaration or
 			self::cs-n:PropertyDeclaration or 
 			self::cs-n:FieldDeclaration
 		]" />
@@ -163,6 +164,13 @@
 					<xsl:with-param name="input" select="cs-n:VariableDeclaration/*[1]" />
 				</xsl:call-template>&cr;
 			</xsl:when>
+			<xsl:when test="self::cs-n:PropertyDeclaration">
+				<xsl:text>##### Summary</xsl:text>&cr;&cr;
+				<xsl:text> * Type: </xsl:text>
+				<xsl:call-template name="type-resolver">
+					<xsl:with-param name="input" select="cs-t:IdentifierToken/preceding-sibling::*" />
+				</xsl:call-template>&cr;
+			</xsl:when>
 			<xsl:when test="self::cs-n:ConstructorDeclaration or self::cs-n:MethodDeclaration">
 				<xsl:if test="cs-n:ParameterList/cs-n:*">
 					<xsl:text>#####  Parameters</xsl:text>&cr;&cr;
@@ -171,7 +179,7 @@
 				<xsl:if test="*[preceding-sibling::cs-n:IdentifierToken][1]">
 					<xsl:text> * Returns: </xsl:text>
 					<xsl:call-template name="type-resolver">
-						<xsl:with-param name="input" select="*[preceding-sibling::cs-n:IdentifierToken][1]" />
+						<xsl:with-param name="input" select="*[preceding-sibling::cs-t:IdentifierToken][1]" />
 					</xsl:call-template>&cr;
 				</xsl:if>
 			</xsl:when>

@@ -42,6 +42,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
         public static int PropertyStaticPublic { get; set; }
         private static int PropertyStaticPrivate { get; set; }
         internal static int PropertyStaticInternal { get; set; }
+        protected SampleClass_Public ClassProperty { get; set; }
 
         public readonly SampleClass_Public _public;
         public SampleClass_Public _public2;
@@ -80,7 +81,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
 
     public class SampleClass_Generic<T>
     {
-        T Property { get; set; }
+        T GenericProperty { get; set; }
     }
     internal class SampleClass_Internal
     {

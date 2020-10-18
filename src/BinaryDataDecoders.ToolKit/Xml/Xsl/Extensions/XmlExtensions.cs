@@ -22,5 +22,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         }
 
         public XPathNodeIterator Fixup(XPathNodeIterator xPathNavigator) => xPathNavigator;
+        public XPathNodeIterator Fixup2(XPathNodeIterator xPathNavigator) => xPathNavigator;
     }
 }

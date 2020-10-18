@@ -164,7 +164,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Xml.XPath
 
         public override bool MoveToParent()
         {
-            if (_pointer.Owner == null || _pointer.Owner.ToNodeType() == XPathNodeType.Root)
+            if (_pointer.Owner == null)// || _pointer.Owner.ToNodeType() == XPathNodeType.Root)
             {
                 return false;
             }
