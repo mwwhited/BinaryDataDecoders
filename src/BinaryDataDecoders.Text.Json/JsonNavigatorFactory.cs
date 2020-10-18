@@ -77,7 +77,7 @@ namespace BinaryDataDecoders.Text.Json
 
                      _ => throw new NotSupportedException()
                  }
-                );
+            );
         }
     }
 }

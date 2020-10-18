@@ -17,6 +17,8 @@ namespace BinaryDataDecoders.CodeAnalysis.CSharp
             var syntax = CSharpSyntaxTree.ParseText(content);
             var root = syntax.ToSyntaxPointer();
             return new SyntaxTreeXPathNavigator(root);
+            //var nav = syntax.ToNavigable();
+            //return nav;
         }
 
         public IXPathNavigable ToNavigable(Stream stream)

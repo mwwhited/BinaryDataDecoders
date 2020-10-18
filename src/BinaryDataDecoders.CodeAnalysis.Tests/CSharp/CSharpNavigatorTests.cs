@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.CodeAnalysis.CSharp;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Xml;
 
@@ -15,6 +16,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
             var targetFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis.Tests\CSharp\SampleClasses.cs";
             var nav = new CSharpNavigator().ToNavigable(targetFile);
             var real = nav.CreateNavigator();
+            this.TestContext.AddResult(real.OuterXml);
             /*
              * 
 	xmlns:cs-n="bdd:CodeAnalysis/Node"

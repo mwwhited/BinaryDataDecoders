@@ -13,24 +13,26 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public ExtensibleElementNode(
             XName name,
             object item,
-            Func<object, string>? valueSelector = null,
-            Func<object, IEnumerable<(XName name, string value)>>? attributeSelector = null,
-            Func<object, IEnumerable<(XName name, object child)>>? childSelector = null,
-            Func<object, IEnumerable<XName>>? namespaceSelector = null
+            Func<object, string?>? valueSelector = null,
+            Func<object, IEnumerable<(XName name, string value)>?>? attributeSelector = null,
+            Func<object, IEnumerable<(XName name, object child)>?>? childSelector = null,
+            Func<object, IEnumerable<XName>?>? namespacesSelector = null,
+            Predicate<object>? preserveWhitespace = null
             )
-            : base(null, name, item, valueSelector, attributeSelector, childSelector, namespaceSelector)
+            : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector)
         {
         }
     }
     [DebuggerDisplay("E:>{Name}")]
-    public class ExtensibleElementNode<T> : IElementNode
+    public class ExtensibleElementNode<T> : IElementNode, ISimpleNode
     {
         private readonly T _item;
 
-        private readonly Func<T, string>? _valueSelector;
-        private readonly Func<T, IEnumerable<(XName name, string value)>>? _attributeSelector;
-        private readonly Func<T, IEnumerable<(XName name, T child)>>? _childSelector;
-        private readonly Func<T, IEnumerable<XName>>? _namespaceSelector;
+        private readonly Func<T, string?>? _valueSelector;
+        private readonly Predicate<T>? _preserveWhitespace;
+        private readonly Func<T, IEnumerable<(XName name, string value)>?>? _attributeSelector;
+        private readonly Func<T, IEnumerable<(XName name, T child)>?>? _childSelector;
+        private readonly Func<T, IEnumerable<XName>?>? _namespacesSelector;
 
         private readonly Lazy<INode?> _value;
         private readonly Lazy<INode?> _children;
@@ -40,24 +42,26 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public ExtensibleElementNode(
             XName name,
             T item,
-            Func<T, string>? valueSelector = null,
-            Func<T, IEnumerable<(XName name, string value)>>? attributeSelector = null,
-            Func<T, IEnumerable<(XName name, T child)>>? childSelector = null,
-            Func<T, IEnumerable<XName>>? namespaceSelector = null
+            Func<T, string?>? valueSelector = null,
+            Func<T, IEnumerable<(XName name, string value)>?>? attributeSelector = null,
+            Func<T, IEnumerable<(XName name, T child)>?>? childSelector = null,
+            Func<T, IEnumerable<XName>?>? namespacesSelector = null,
+            Predicate<T>? preserveWhitespace = null
             )
-            : this(null, name, item, valueSelector, attributeSelector, childSelector, namespaceSelector)
+            : this(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
         {
         }
 
         protected ExtensibleElementNode(
             INode? parent,
-             XName name,
-             T item,
-             Func<T, string>? valueSelector,
-             Func<T, IEnumerable<(XName name, string value)>>? attributeSelector,
-             Func<T, IEnumerable<(XName name, T child)>>? childSelector,
-             Func<T, IEnumerable<XName>>? namespaceSelector
-             )
+            XName name,
+            T item,
+            Func<T, string?>? valueSelector,
+            Func<T, IEnumerable<(XName name, string value)>?>? attributeSelector,
+            Func<T, IEnumerable<(XName name, T child)>?>? childSelector,
+            Func<T, IEnumerable<XName>?>? namespacesSelector,
+            Predicate<T>? preserveWhitespace = null
+            )
         {
             Parent = parent ?? new ExtensibleRootNode<T>(this);
             Name = name;
@@ -66,16 +70,23 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             _valueSelector = valueSelector;
             _attributeSelector = attributeSelector;
             _childSelector = childSelector;
-            _namespaceSelector = namespaceSelector;
+            _namespacesSelector = namespacesSelector;
+            _preserveWhitespace = preserveWhitespace;
 
             _value = new Lazy<INode?>(() =>
                 _valueSelector?.Invoke(_item) switch
                 {
                     null => (INode?)null,
-                    string value when !string.IsNullOrWhiteSpace(value) => new XPathTextNode<T>(this, Name, _item, value),
-                    string value when string.IsNullOrWhiteSpace(value) => new XPathWhitespaceNode<T>(this, Name, _item, value),
 
-                    _ => throw new NotSupportedException(),
+                    string value => string.IsNullOrWhiteSpace(value) switch
+                    {
+                        true => new ExtensibleWhitespaceNode<T>(this, Name, _item, value),
+                        false => (_preserveWhitespace?.Invoke(_item) ?? false) switch
+                        {
+                            true => new ExtensibleSignificantWhitespaceNode<T>(this, Name, _item, value),
+                            false => new ExtensibleTextNode<T>(this, Name, _item, value)
+                        }
+                    },
                 });
 
             _attributes = new Lazy<IAttributeNode?>(() =>
@@ -118,30 +129,29 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                         _valueSelector,
                         _attributeSelector,
                         _childSelector,
-                        _namespaceSelector
+                        _namespacesSelector
                         )
                     {
                         Previous = previous,
                     };
-                    if (previous is ExtensibleElementNode<T> node) node.Next = newItem;
+                    if (previous is ISimpleNode node) node.Next = newItem;
                     if (first == null) first = newItem;
                     previous = newItem;
                 }
-                if (_value.Value != null)
+
+                if (_value.Value is ISimpleNode next && previous is ISimpleNode last)
                 {
-                    if (_value.Value is XPathTextNode<T> next && previous is ExtensibleElementNode<T> last)
-                    {
-                        last.Next = next;
-                        next.Previous = last;
-                    }
+                    last.Next = next;
+                    next.Previous = last;
                 }
+
                 return first ?? _value.Value;
             });
 
 
             _namespaces = new Lazy<INamespaceNode?>(() =>
             {
-                var query = (_namespaceSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
+                var query = (_namespacesSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
                 INamespaceNode? first = null;
                 INamespaceNode? previous = null;
 
@@ -168,14 +178,16 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public IAttributeNode? FirstAttribute => _attributes.Value;
         public INamespaceNode? FirstNamespace => _namespaces.Value;
 
-        public INode? Next { get; internal set; }
-        public INode? Previous { get; internal set; }
-
+        public INode? Next { get; private set; }
+        public INode? Previous { get; private set; }
 
         public INode? Parent { get; }
         public XName Name { get; }
         public string? Value => _value.Value?.Value;
 
         public XPathNodeType NodeType { get; } = XPathNodeType.Element;
+
+        INode? ISimpleNode.Next { set => Next = value; }
+        INode? ISimpleNode.Previous { set => Previous = value; }
     }
 }

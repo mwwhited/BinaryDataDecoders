@@ -3,7 +3,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Copyright>Matthew Whited 2020</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -14,14 +15,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
 	</PropertyGroup>
-  <ItemGroup>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath />
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath />
+		</None>
+	</ItemGroup>
 
 
 </Project>
