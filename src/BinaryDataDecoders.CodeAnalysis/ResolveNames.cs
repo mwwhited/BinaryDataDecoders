@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.CodeAnalysis
         public const string CsLang = "C#";
         public const string VbLang = "Visual Basic";
 
-        public static string ToNamespaceUri(this object obj) =>
+        public static XNamespace ToNamespaceUri(this object obj) =>
             $@"{BaseUri}{obj switch
             {
                 SyntaxTree _ => "Tree",
@@ -20,7 +20,9 @@ namespace BinaryDataDecoders.CodeAnalysis
                 SyntaxNodeOrToken nodeOrToken => nodeOrToken.IsNode ? "Node" : "Token",
                 SyntaxToken _ => "Token",
                 SyntaxTrivia _ => "Trivia",
-                _ => ""
+                SemanticModel _ => "Semantic",
+                ISymbol _ => "Symbol",
+                _ => "#" + obj.GetType().Assembly.FullName
             }}";
         public static string ToLocalName(this object obj) =>
             obj switch
@@ -51,10 +53,16 @@ namespace BinaryDataDecoders.CodeAnalysis
                     VbLang => VB.Kind(trivia).ToString(),
                     _ => null
                 },
+                SemanticModel semantic => semantic.Language switch
+                {
+                    //CsLang => CS.Kind(semantic.).ToString(),
+                    //VbLang => VB.Kind(trivia).ToString(),
+                    _ => nameof(SemanticModel)
+                },
 
                 _ => null
             } ?? obj.GetType().Name;
 
-        public static XName ToXName(this object obj) => XName.Get(obj.ToLocalName(), obj.ToNamespaceUri());
+        public static XName ToXName(this object obj) => XName.Get(obj.ToLocalName(), obj.ToNamespaceUri().NamespaceName);
     }
 }

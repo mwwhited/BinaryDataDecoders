@@ -15,17 +15,21 @@ SET DOCS_PATH=%OUTPUT_PATH%\docs
 SET RESULTS_PATH=%OUTPUT_PATH%\Results
 SET TEMPLATES_PATH=%SANDBOX_PATH%\templates\reports
 
-SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
-SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
- 
-:top
-IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
+REM java is required for antlr4
+SET JAVA_EXEC=%JAVA_HOME%\bin\java.exe
 
-:fetch
+REM SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
+REM SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
+ 
 echo "Git fetch"
 git fetch --prune
+dotnet tool install --local gitversion.tool
+dotnet tool update gitversion.tool
+FOR /F "tokens=* USEBACKQ" %%g IN (`dotnet gitversion /output json /showvariable FullSemVer`) DO (SET BUILD_VERSION=%%g)
+echo "Building Version=%BUILD_VERSION%"
 
-IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
+:top
+IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
 
 :clean
 IF "%DO_NOT_CLEAN%"=="1" GOTO skip_clean
@@ -43,10 +47,6 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :build
 echo "Build Packages"
-dotnet tool install --local gitversion.tool
-dotnet tool update gitversion.tool
-
-FOR /F "tokens=* USEBACKQ" %%g IN (`dotnet gitversion /output json /showvariable FullSemVer`) DO (SET BUILD_VERSION=%%g)
 
 REM https://github.com/laurenprinn/MSBuildStructuredLog
 dotnet build "%BUILD_PROJECT%" --configuration %Configuration% --no-restore /p:Version=%BUILD_VERSION% "/bl:logfile=%OUTPUT_PATH%\dotnet_build.binlog"
@@ -87,8 +87,8 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
-dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli --version $buildVersion
-dotnet tool update BinaryDataDecoders.Xslt.Cli --version $buildVersion
+dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
+dotnet tool update BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"

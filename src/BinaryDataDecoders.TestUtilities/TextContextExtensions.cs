@@ -3,9 +3,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using JsonFormatting = Newtonsoft.Json.Formatting;
 
 namespace BinaryDataDecoders.TestUtilities
 {
@@ -34,6 +37,7 @@ namespace BinaryDataDecoders.TestUtilities
                     string _ => ".txt",
                     XContainer _ => ".xml",
                     IXPathNavigable _ => ".xml",
+                    XPathNodeIterator _ => ".xml",
                     _ => ".data"
                 };
                 fileName = $"{value.GetType().Name}_{DateTime.Now.Ticks}{ext}".Replace('`', '_').Replace(':', '_').Replace('<', '_').Replace('>', '_');
@@ -63,9 +67,14 @@ namespace BinaryDataDecoders.TestUtilities
             {
                 AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xPathNavigator.CreateNavigator().OuterXml));
             }
+            else if (value is XPathNodeIterator xPathNodeIterator)
+            {
+                var fragment = xPathNodeIterator.Cast<XPathNavigator>().Aggregate(new StringBuilder(), (sb, x) => sb.AppendLine(x.OuterXml));
+                AddResultFile(context, fileName, Encoding.UTF8.GetBytes(fragment.ToString()));
+            }
             else if (value != null)
             {
-                var json = JsonConvert.SerializeObject(value, Formatting.Indented);
+                var json = JsonConvert.SerializeObject(value, JsonFormatting.Indented);
                 AddResultFile(context, fileName, Encoding.UTF8.GetBytes(json));
             }
             else

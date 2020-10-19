@@ -1,12 +1,16 @@
-﻿using BinaryDataDecoders.ToolKit.IO;
+﻿#define PARALLEL
+
+using BinaryDataDecoders.ToolKit.IO;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Xml.Xsl;
 
+//TODO: should make this async/await
 namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 {
     /// <summary>
@@ -145,13 +149,21 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
             if (!inputFiles.Any()) throw new FileNotFoundException($"input");
 
+#if PARALLEL
+            inputFiles.AsParallel().ForAll(inputFile =>
+#else
             foreach (var inputFile in inputFiles)
+#endif
             {
                 var inputFileClean = inputFile.Substring(inputDir.Length).TrimStart('/', '\\');
                 var removedExt = Path.ChangeExtension(inputFileClean, null);
                 var outFileName = removedExt + outputPattern;
                 var outputFile = Path.Combine(outputDir, outFileName);
-                Console.WriteLine($"\t\"{inputFileClean}\" => \"{outFileName}\"");
+
+
+                var tid = Thread.CurrentThread.ManagedThreadId;
+
+                Console.WriteLine($"\t[{tid}]\"{inputFileClean}\" => \"{outFileName}\"");
 
                 try
                 {
@@ -160,7 +172,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 }
                 catch (Exception ex)
                 {
-                    Console.Error.WriteLine($"!!! ERROR: \"{inputFileClean}\" => \"{outFileName}\" :: {ex.Message}");
+                    Console.Error.WriteLine($"!!! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {ex.Message}");
                     try
                     {
                         File.AppendAllLines(outputFile, new[]
@@ -178,6 +190,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                     }
                 }
             }
+#if PARALLEL
+            );
+#endif
         }
     }
 }

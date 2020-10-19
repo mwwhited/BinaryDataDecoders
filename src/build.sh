@@ -96,10 +96,10 @@ transform() {
 	echo ">>> BinaryDataDecoders.Xslt.Cli (VB to Markdown) <<<"
 	dotnet bdd-xslt -t "$TEMPLATES_PATH/CSharpToMarkdown.xslt" -i "./**/*.vb" -o "$DOCS_PATH/SourceCode/*.md" -s "$SANDBOX_PATH" -x VB
 
-	echo ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
-	dotnet bdd-xslt -t "$TEMPLATES_PATH/ToXml.xslt" -i "./**/*.cs" -o "$RESULTS_PATH/SourceCode/*.xml" -s "$SANDBOX_PATH" -x CSharp
-	echo ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
-	dotnet bdd-xslt -t "$TEMPLATES_PATH/ToXml.xslt" -i "./**/*.vb" -o "$RESULTS_PATH/SourceCode/*.xml" -s "$SANDBOX_PATH" -x VB
+	#echo ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
+	#dotnet bdd-xslt -t "$TEMPLATES_PATH/ToXml.xslt" -i "./**/*.cs" -o "$RESULTS_PATH/SourceCode/*.xml" -s "$SANDBOX_PATH" -x CSharp
+	#echo ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
+	#dotnet bdd-xslt -t "$TEMPLATES_PATH/ToXml.xslt" -i "./**/*.vb" -o "$RESULTS_PATH/SourceCode/*.xml" -s "$SANDBOX_PATH" -x VB
 }
 
 fetch
