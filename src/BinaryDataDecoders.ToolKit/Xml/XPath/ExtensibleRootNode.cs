@@ -5,7 +5,7 @@ using System.Xml.XPath;
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
     [DebuggerDisplay("R:>{Name}")]
-    internal class ExtensibleRootNode<T> : IElementNode
+    internal class ExtensibleRootNode<T> : IElementNode, IRootNode
     {
         public ExtensibleRootNode(INode child) => FirstChild = child;
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Xml;
 using System.Xml.XPath;
 
@@ -21,18 +22,37 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         {
             BaseURI = baseUri ?? "";
             _current = current;
+
+            //if (current is IElementNode element)
+            //{
+            //    var fn = element.FirstNamespace;
+            //    if (fn != null)
+            //    {
+            //        var dict = new Dictionary<string, string>();
+            //        do
+            //        {
+            //            dict.TryAdd(fn.Name.NamespaceName, fn.Name.LocalName);
+            //            fn = fn.Next;
+            //        } while (fn?.Next != null);
+            //        if (namespacePrefixes != null)
+            //        {
+            //            foreach (var kvp in namespacePrefixes)
+            //                dict.TryAdd(kvp.Key, kvp.Value);
+            //        }
+            //        namespacePrefixes = dict;
+            //    }
+            //}
             NameTable = nameTable ?? new ExtensibleNameTable();
             _namespacePrefixes = namespacePrefixes ?? new Dictionary<string, string>();
         }
 
-        public override string Name => _current.Name.ToString(); 
-        //switch
-        //{
-        //    INamespaceNode _ => NamespaceURI,
-        //    _ => LocalName,
-        //};
+        public override string Name => LocalName;
         public override string LocalName => _current.Name.LocalName;
-        public override string NamespaceURI => _current.Name.NamespaceName;
+        public override string NamespaceURI => _current switch
+        {
+            IRootNode _ => "",
+            _ => _current.Name.NamespaceName
+        };
 
         public override XPathNodeType NodeType =>
             _current.NodeType;
@@ -41,8 +61,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override string LookupPrefix(string namespaceURI)
         {
-            if (string.IsNullOrWhiteSpace(namespaceURI))
-                return "";
+            if (_namespacePrefixes == null) return "";
+
+            if (string.IsNullOrWhiteSpace(namespaceURI)) return "";
 
             var uri = namespaceURI.Trim();
             if (!_namespacePrefixes.ContainsKey(uri))
@@ -55,8 +76,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public override string LookupNamespace(string prefix) =>
             _namespacePrefixes.FirstOrDefault(v => v.Value == prefix).Key ?? base.LookupNamespace(prefix);
 
-        public override string Value => _current.Value;
-        public override bool IsEmptyElement => Value == null;
+        public override string Value => _current.Value ?? "";
+        public override bool IsEmptyElement => string.IsNullOrEmpty(Value) && !HasChildren;
 
         public override bool HasAttributes => _current is IElementNode node && node.FirstAttribute != null;
         public override bool HasChildren => _current is IElementNode node && node.FirstChild != null;
@@ -126,7 +147,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override bool MoveToParent()
         {
-            if (_current.Parent != null)
+            if (_current.Parent != null)//&& !(_current.Parent is IRootNode)
             {
                 _current = _current.Parent;
                 return true;

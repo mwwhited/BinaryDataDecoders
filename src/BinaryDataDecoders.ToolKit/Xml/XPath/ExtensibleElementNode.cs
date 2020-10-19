@@ -14,7 +14,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             XName name,
             object item,
             Func<object, string?>? valueSelector = null,
-            Func<object, IEnumerable<(XName name, string value)>?>? attributeSelector = null,
+            Func<object, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
             Func<object, IEnumerable<(XName name, object child)>?>? childSelector = null,
             Func<object, IEnumerable<XName>?>? namespacesSelector = null,
             Predicate<object>? preserveWhitespace = null
@@ -30,7 +30,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         private readonly Func<T, string?>? _valueSelector;
         private readonly Predicate<T>? _preserveWhitespace;
-        private readonly Func<T, IEnumerable<(XName name, string value)>?>? _attributeSelector;
+        private readonly Func<T, IEnumerable<(XName name, string? value)>?>? _attributeSelector;
         private readonly Func<T, IEnumerable<(XName name, T child)>?>? _childSelector;
         private readonly Func<T, IEnumerable<XName>?>? _namespacesSelector;
 
@@ -43,7 +43,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             XName name,
             T item,
             Func<T, string?>? valueSelector = null,
-            Func<T, IEnumerable<(XName name, string value)>?>? attributeSelector = null,
+            Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
             Func<T, IEnumerable<(XName name, T child)>?>? childSelector = null,
             Func<T, IEnumerable<XName>?>? namespacesSelector = null,
             Predicate<T>? preserveWhitespace = null
@@ -57,7 +57,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             XName name,
             T item,
             Func<T, string?>? valueSelector,
-            Func<T, IEnumerable<(XName name, string value)>?>? attributeSelector,
+            Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector,
             Func<T, IEnumerable<(XName name, T child)>?>? childSelector,
             Func<T, IEnumerable<XName>?>? namespacesSelector,
             Predicate<T>? preserveWhitespace = null
@@ -77,7 +77,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 _valueSelector?.Invoke(_item) switch
                 {
                     null => (INode?)null,
-
                     string value => string.IsNullOrWhiteSpace(value) switch
                     {
                         true => new ExtensibleWhitespaceNode<T>(this, Name, _item, value),
@@ -91,12 +90,14 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
             _attributes = new Lazy<IAttributeNode?>(() =>
             {
-                var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string value)>()).GetEnumerator();
+                var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string? value)>()).GetEnumerator();
                 IAttributeNode? first = null;
                 IAttributeNode? previous = null;
 
                 while (query.MoveNext())
                 {
+                    if (query.Current.value == null) continue;
+
                     var newItem = new ExtensibleAttributeNode<T>(
                         this,
                         query.Current.name,
@@ -134,6 +135,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     {
                         Previous = previous,
                     };
+                    // Console.WriteLine($"\t\t==={newItem.Name} +++ {newItem.NodeType}");
                     if (previous is ISimpleNode node) node.Next = newItem;
                     if (first == null) first = newItem;
                     previous = newItem;

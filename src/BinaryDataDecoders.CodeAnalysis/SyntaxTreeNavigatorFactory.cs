@@ -11,24 +11,7 @@ namespace BinaryDataDecoders.CodeAnalysis
     public static class SyntaxTreeNavigatorFactory
     {
         public static IXPathNavigable ToNavigable(this SyntaxTree tree, string? baseUri = null) =>
-            new ExtensibleNavigator(tree.ToSyntaxPointer().AsNode(baseUri));
-
-        public static INode AsNode(this ISyntaxPointer pointer, string? baseUri = null) =>
-            new ExtensibleElementNode<ISyntaxPointer>(
-                XName.Get(pointer.Name, pointer.NamespaceUri),
-                pointer,
-                valueSelector: n => n switch
-                {
-                    ISyntaxPreserveWhitespacePointer _ => n.Value,
-                    ISyntaxValuePointer _ => n.Value,
-                    ISyntaxCommentPointer _ => n.Value,
-                    _ => null,
-                },
-                attributeSelector: n => n.Attributes.Select(a => (XName.Get(a.Name, a.NamespaceUri), a.Value)),
-                childSelector: n => n.Children.Select(c => (XName.Get(c.Name, c.NamespaceUri), c)),
-                // namespacesSelector: n => new[] {  },
-                preserveWhitespace: n => false
-                );
+            new ExtensibleNavigator(tree.AsNode(baseUri));
 
         public static INode AsNode(this SyntaxTree pointer, string? baseUri = null) =>
             new ExtensibleElementNode(
@@ -68,14 +51,14 @@ namespace BinaryDataDecoders.CodeAnalysis
                     SyntaxNodeOrToken nodeOrToken => new[]
                     {
                         (XName.Get(nameof(nodeOrToken.RawKind)),  nodeOrToken.RawKind.ToString()),
-                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  nodeOrToken.GetLocation().SourceSpan.Start.ToString()),
-                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  nodeOrToken.GetLocation().SourceSpan.End.ToString()),
+                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  nodeOrToken.GetLocation()?.SourceSpan.Start.ToString()),
+                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  nodeOrToken.GetLocation()?.SourceSpan.End.ToString()),
                     },
                     SyntaxTrivia trivia => new[]
                     {
                         (XName.Get(nameof(trivia.RawKind)),  trivia.RawKind.ToString()),
-                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  trivia.GetLocation().SourceSpan.Start.ToString()),
-                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  trivia.GetLocation().SourceSpan.End.ToString()),
+                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  trivia.GetLocation()?.SourceSpan.Start.ToString()),
+                        (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  trivia.GetLocation()?.SourceSpan.End.ToString()),
                     },
 
                     _ => null,
@@ -95,12 +78,16 @@ namespace BinaryDataDecoders.CodeAnalysis
 
                     _ => throw new NotSupportedException()
                 },
-                //TODO: this isn't working as desired so move on for now and fix it later.
-                //namespacesSelector: n => new[] {
-                //    XName.Get("tree", "bdd:CodeAnalysis/Tree"),
-                //    XName.Get("node", "bdd:CodeAnalysis/Node"),
-                //    XName.Get("token", "bdd:CodeAnalysis/Token"),
-                //    XName.Get("trivia", "bdd:CodeAnalysis/Trivia"),
+                //// TODO: this isn't working as desired so move on for now and fix it later.
+                //namespacesSelector: n => n switch
+                //{
+                //    IElementNode node when node.Parent is IRootNode => new[] {
+                //                    XName.Get("tree", "bdd:CodeAnalysis/Tree"),
+                //                    XName.Get("node", "bdd:CodeAnalysis/Node"),
+                //                    XName.Get("token", "bdd:CodeAnalysis/Token"),
+                //                    XName.Get("trivia", "bdd:CodeAnalysis/Trivia"),
+                //                },
+                //    _ => null
                 //},
                 preserveWhitespace: n => false
                 );

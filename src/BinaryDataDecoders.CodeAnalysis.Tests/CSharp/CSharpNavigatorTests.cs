@@ -36,6 +36,12 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
             var selected = navigator.Select(query);
 
             Assert.AreEqual(13, selected.Count);
+
+            var rootQuery = navigator.Compile("/");
+            rootQuery.SetContext(manager);
+            var root = navigator.Select(rootQuery);
+            Assert.AreEqual(1, root.Count);
+
         }
     }
 }

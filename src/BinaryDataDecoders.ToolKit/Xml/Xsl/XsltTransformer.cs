@@ -99,6 +99,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 }
                 Environment.CurrentDirectory = localOutfolder;
 
+                var inputNavigator = input.CreateNavigator();
+                inputNavigator.MoveToRoot();
                 xslt.Transform(input, xsltArgumentList, resultStream);
             }
             finally

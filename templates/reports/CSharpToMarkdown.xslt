@@ -7,8 +7,8 @@
 ]>
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-	xmlns:tt="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+	exclude-result-prefixes="xsl msxsl ex-path o-path ex-file o-file ex-env o-env ex-str o-str ex-xml o-xml"
 	
 	xmlns:ex-path="bdd:ToolKit/PathExtensions"
 	xmlns:o-path="bdd:ToolKit/PathExtensions:out"
@@ -29,6 +29,7 @@
 	xmlns:cs-n="bdd:CodeAnalysis/Node"
 	xmlns:cs-t="bdd:CodeAnalysis/Token"
 	xmlns:cs-r="bdd:CodeAnalysis/Trivia"
+	
 	>
 	<xsl:output method="text" indent="no"/>
 	<xsl:param name="files" />
@@ -44,12 +45,12 @@
 			self::cs-n:ClassDeclaration or 
 			self::cs-n:StructDeclaration
 		]" />
-		<xsl:variable name="attributes" select="cs-n:AttributeList/cs-n:Attribute" />
+		<xsl:variable name="attributes" select="cs-n:AttributeList/cs-n:Attribute//text()" />
 
 		<xsl:text># </xsl:text><xsl:value-of select="ex-path:GetFileName($files/@input)" />&cr;&cr;
 
 		<xsl:text>## Summary</xsl:text>&cr;&cr;
-		<xsl:text>* Language: </xsl:text><xsl:value-of select="@Language" />&cr;
+		<xsl:text>* Language: </xsl:text><xsl:value-of select="../@Language" />&cr;
 		<xsl:text>* Path: </xsl:text><xsl:value-of select="substring($files/@input, string-length($files/@sandbox)+2)" />&cr;&cr;
 
 		<xsl:if test="$attributes">
@@ -66,8 +67,8 @@
 
 	<xsl:template match="*" mode="type">
 		<xsl:variable name="name" select="cs-t:IdentifierToken[1]" />
-		<xsl:variable name="comments" select="descendant::cs-n:SingleLineDocumentationCommentTrivia[1]" />
-		<xsl:variable name="attributes" select="cs-n:AttributeList/cs-n:Attribute" />
+		<xsl:variable name="comments" select="descendant::cs-r:SingleLineDocumentationCommentTrivia[1]//text()" />
+		<xsl:variable name="attributes" select="cs-n:AttributeList/cs-n:Attribute//text()" />
 		<xsl:variable name="members" select="descendant::*[
 			self::cs-n:ConstructorDeclaration or 
 			self::cs-n:MethodDeclaration or 
@@ -85,7 +86,7 @@
 
 		<xsl:if test="$comments">
 			<xsl:text>### Comments</xsl:text> <!--- <xsl:value-of select="$name" />-->&cr;&cr;
-			<xsl:apply-templates select="$comments" />
+			<xsl:apply-templates select="$comments" />&cr;
 		</xsl:if>
 
 		<xsl:if test="$attributes">
@@ -103,7 +104,7 @@
 		<xsl:variable name="name" >
 			<xsl:choose>
 				<xsl:when test="self::cs-n:FieldDeclaration">
-					<xsl:value-of select="cs-n:VariableDeclaration/descendant::cs-t:IdentifierToken[1]" />
+					<xsl:value-of select="cs-n:VariableDeclaration/cs-n:VariableDeclarator//text()" />
 				</xsl:when>
 				<xsl:when test="cs-t:IdentifierToken[1]">
 					<xsl:value-of select="cs-t:IdentifierToken[1]"/>
@@ -136,8 +137,8 @@
 							</TypeArgumentList>
 						</GenericName>-->
 
-		<xsl:variable name="comments" select="descendant::cs-n:SingleLineDocumentationCommentTrivia[1]" />
-		<xsl:variable name="attributes" select="cs-n:AttributeList/cs-n:Attribute" />
+		<xsl:variable name="comments" select="descendant::cs-r:SingleLineDocumentationCommentTrivia[1]//text()" />
+		<xsl:variable name="attributes" select="cs-n:AttributeList/cs-n:Attribute//text()" />
 
 		<xsl:text>#### </xsl:text>
 		<xsl:call-template name="simple-name">
@@ -148,7 +149,7 @@
 
 		<xsl:if test="$comments">
 			<xsl:text>##### Comments</xsl:text> <!--- <xsl:value-of select="$name" />-->&cr;&cr;
-			<xsl:apply-templates select="$comments" />
+			<xsl:apply-templates select="$comments" />&cr;
 		</xsl:if>
 
 		<xsl:if test="$attributes">
@@ -161,7 +162,7 @@
 				<xsl:text>##### Summary</xsl:text>&cr;&cr;
 				<xsl:text> * Type: </xsl:text>
 				<xsl:call-template name="type-resolver">
-					<xsl:with-param name="input" select="cs-n:VariableDeclaration/*[1]" />
+					<xsl:with-param name="input" select="cs-n:VariableDeclaration/cs-n:IdentifierName" />
 				</xsl:call-template>&cr;
 			</xsl:when>
 			<xsl:when test="self::cs-n:PropertyDeclaration">
@@ -174,7 +175,7 @@
 			<xsl:when test="self::cs-n:ConstructorDeclaration or self::cs-n:MethodDeclaration">
 				<xsl:if test="cs-n:ParameterList/cs-n:*">
 					<xsl:text>#####  Parameters</xsl:text>&cr;&cr;
-					<xsl:apply-templates select="cs-n:ParameterList/cs-n:*" mode="parameter" />
+					<xsl:apply-templates select="cs-n:ParameterList/cs-n:Parameter" mode="parameter" />
 				</xsl:if>
 				<xsl:if test="*[preceding-sibling::cs-n:IdentifierToken][1]">
 					<xsl:text> * Returns: </xsl:text>
@@ -189,25 +190,38 @@
 
 	</xsl:template>
 
-	<xsl:template match="*" mode="attribute">
-		<xsl:text> * </xsl:text>
+	<xsl:template match="node()" mode="attribute">
+		<xsl:text> - </xsl:text>
 		<xsl:value-of select="." />
 		&cr;
 	</xsl:template>
 
-	<xsl:template match="*" mode="parameter">
-		<xsl:text> * </xsl:text>
-		<xsl:value-of select="." />
+	<xsl:template match="node()" mode="parameter">
+		<xsl:text> - </xsl:text>
+		<xsl:call-template name="build-string">
+			<xsl:with-param name="input" select="." />		
+		</xsl:call-template>
 		&cr;
 	</xsl:template>
 
-	<xsl:template match="cs-n:SingleLineDocumentationCommentTrivia">
+	<xsl:template name="build-string">
+		<xsl:param name="input" />
+		<xsl:for-each select="$input//*">
+			<xsl:if test="text()">
+				<xsl:value-of select="text()" />&sp;
+			</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+
+	<xsl:template match="cs-r:SingleLineDocumentationCommentTrivia">
 		<xsl:value-of select="." />&cr;&cr;
 	</xsl:template>
 
 	<xsl:template name="type-resolver">
 		<xsl:param name="input" />
-		<xsl:value-of select="$input" />
+		<xsl:call-template name="build-string">
+			<xsl:with-param name="input" select="$input" />		
+		</xsl:call-template>
 	</xsl:template>
 
 	<xsl:template name="simple-name">

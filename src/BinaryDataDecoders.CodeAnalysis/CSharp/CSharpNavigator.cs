@@ -1,5 +1,4 @@
-﻿using BinaryDataDecoders.CodeAnalysis.Xml.XPath;
-using BinaryDataDecoders.ToolKit.MetaData;
+﻿using BinaryDataDecoders.ToolKit.MetaData;
 using BinaryDataDecoders.ToolKit.Xml.XPath;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
@@ -15,18 +14,16 @@ namespace BinaryDataDecoders.CodeAnalysis.CSharp
         {
             var content = File.ReadAllText(filePath);
             var syntax = CSharpSyntaxTree.ParseText(content);
-            var root = syntax.ToSyntaxPointer();
-            return new SyntaxTreeXPathNavigator(root);
-            //var nav = syntax.ToNavigable();
-            //return nav;
+            var root = syntax.ToNavigable();
+            return root;
         }
 
         public IXPathNavigable ToNavigable(Stream stream)
         {
             var content = SourceText.From(stream);
             var syntax = CSharpSyntaxTree.ParseText(content);
-            var root = syntax.ToSyntaxPointer();
-            return new SyntaxTreeXPathNavigator(root);
+            var root = syntax.ToNavigable();
+            return root;
         }
     }
 }
