@@ -9,6 +9,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
     {
         private readonly T _item;
 
+        //TODO: this stuff needs some work... but low priority so whateves
         public ExtensibleNamespaceNode(
              INode parent,
              XName name,
@@ -21,7 +22,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         }
         public INode? Parent { get; }
         public XName Name { get; }
-        public string? Value => Name.ToString();
+        public string? Value => Name.NamespaceName;
 
         public INamespaceNode? Next { get; internal set; }
         public INamespaceNode? Previous { get; internal set; }

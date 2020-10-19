@@ -1,10 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using BinaryDataDecoders.ToolKit.Xml.XPath;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System;
 using System.IO;
-using System.Net.WebSockets;
 using System.Text;
 using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace BinaryDataDecoders.TestUtilities
 {
@@ -21,6 +22,9 @@ namespace BinaryDataDecoders.TestUtilities
         /// <returns>test context for chaining</returns>
         public static TestContext AddResult(this TestContext context, object value, string fileName = "")
         {
+            // if (value is IXPathNavigable nav && !(value is XPathNodeIterator)) return AddResult(context, nav.CreateNavigator(), fileName);
+            if (value is INode node) return AddResult(context, new ExtensibleNavigator(node, fileName), fileName);
+
             if (string.IsNullOrWhiteSpace(fileName))
             {
                 var ext = value switch
@@ -29,6 +33,7 @@ namespace BinaryDataDecoders.TestUtilities
                     Stream _ => ".dat",
                     string _ => ".txt",
                     XContainer _ => ".xml",
+                    IXPathNavigable _ => ".xml",
                     _ => ".data"
                 };
                 fileName = $"{value.GetType().Name}_{DateTime.Now.Ticks}{ext}".Replace('`', '_').Replace(':', '_').Replace('<', '_').Replace('>', '_');
@@ -53,6 +58,10 @@ namespace BinaryDataDecoders.TestUtilities
             else if (value is XContainer xcontainer)
             {
                 AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xcontainer.ToString()));
+            }
+            else if (value is IXPathNavigable xPathNavigator)
+            {
+                AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xPathNavigator.CreateNavigator().OuterXml));
             }
             else if (value != null)
             {

@@ -27,7 +27,7 @@
       <Pack>True</Pack>
       <PackagePath />
     </None>
-    <None Include="CSharp\SampleClasses.cs" />
+    <EmbeddedResource Include="CSharp\SampleClasses.cs" />
   </ItemGroup>
 
   <ItemGroup>

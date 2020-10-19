@@ -25,7 +25,12 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             _namespacePrefixes = namespacePrefixes ?? new Dictionary<string, string>();
         }
 
-        public override string Name => _current.Name.ToString();
+        public override string Name => _current.Name.ToString(); 
+        //switch
+        //{
+        //    INamespaceNode _ => NamespaceURI,
+        //    _ => LocalName,
+        //};
         public override string LocalName => _current.Name.LocalName;
         public override string NamespaceURI => _current.Name.NamespaceName;
 
@@ -98,7 +103,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             }
             return false;
         }
-
 
         public override bool MoveToFirstAttribute()
         {
