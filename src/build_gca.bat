@@ -106,14 +106,14 @@ ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Markdown) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\XmlCommentsToMarkdown.xslt" -i "%RESULTS_PATH%\Code\*.xml" -o "%DOCS_PATH%\Code\*.md" -s "%SANDBOX_PATH%"
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to Markdown) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i ".\**\*.cs" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x CSharp
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x CSharp
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to Markdown) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i ".\**\*.vb" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x VB
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x VB
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i ".\**\*.cs" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x CSharp
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x CSharp
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i ".\**\*.vb" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x VB
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x VB
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 

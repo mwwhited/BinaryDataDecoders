@@ -123,6 +123,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
                 while (query.MoveNext())
                 {
+                    if (query.Current.child == null) continue;
                     var newItem = new ExtensibleElementNode<T>(
                         this,
                         query.Current.name,
