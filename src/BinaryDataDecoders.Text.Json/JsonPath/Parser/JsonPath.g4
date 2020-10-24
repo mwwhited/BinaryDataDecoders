@@ -1,40 +1,62 @@
-﻿grammar JsonPath;
+grammar JsonPath;
 
-/*
+start 
+    : ROOT (
+        bracketSequence
+        | dotSequence
+    )
+    ;
 
- https://raw.githubusercontent.com/stevenalexander/antlr4-jsonpath-grammar/master/JsonPath.g4
- Limited set of JsonPath notation
- TODO
- - bracketnotation
- - Check against spec description (http://goessner.net/articles/JsonPath/), e.g. '..' for recursive descent
+dotSequence 
+    : dotElement ('.' dotElement | '..')*
+    ;
 
-*/
+dotElement 
+    : IDENTITY bracketSequence?
+    ;
 
-jsonpath: dotnotation
-        ;
+bracketSequence 
+    : bracket+
+    ;
 
-dotnotation : '$.' dotnotation_expr ('.' dotnotation_expr)*;
+bracket 
+    : '[' WILDCARD ']' #wildcard
+    | '[' NUMBER (',' NUMBER)* ']' #unionNumber
+    | '[' QUOTED_STRING (',' QUOTED_STRING)* ']' #unionString
+    | '[' range ']' #slicer
+    | '[' '?(' query ')' ']' #filter
+    ;
 
-dotnotation_expr : identifierWithQualifier
-                 | INDENTIFIER
-                 ;
+range : rangeStart=NUMBER? ':' rangeEnd=NUMBER? (':' rangeStep=NUMBER)?;
 
-identifierWithQualifier : INDENTIFIER '[]'
-                        | INDENTIFIER '[' INT ']'
-                        | INDENTIFIER '[?(' query_expr ')]'
-                        ;
+operand
+    : operandBase=(ROOT | RELATIVE) (
+        bracketSequence
+        | dotSequence
+    )
+    ;
 
-query_expr : query_expr ('&&' query_expr)+
-           | query_expr ('||' query_expr)+
-           | '*'
-           | '@.' INDENTIFIER
-           | '@.' INDENTIFIER '>' INT
-           | '@.' INDENTIFIER '<' INT
-           | '@.length-' INT
-           | '@.' INDENTIFIER '==' INT
-           | '@.' INDENTIFIER '==\'' INDENTIFIER '\''
-           ;
+query
+    : relationLeft=operand RELATIONAL relationRight=operand #relational
+    | relationLeft=query LOGICAL relationRight=query #logical
+    ;
 
-INDENTIFIER : [a-zA-Z][a-zA-Z0-9]* ;
-INT         : '0' | [1-9][0-9]* ;
-WS  :   [ \t\n\r]+ -> skip ;
+fragment ESCAPED_QUOTE : '\\\'';
+QUOTED_STRING :   '\'' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '\'';
+
+LOGICAL
+    : 'and' | 'or'
+    ;
+
+RELATIONAL 
+    : '==' | '!=' | '<' | '<=' | '>' | '>='
+    //| '=~'
+    ;
+
+WILDCARD : '*';
+DECENDANTS : '..';
+RELATIVE : '@';
+ROOT : '$';
+IDENTITY : [a-zA-Z][a-zA-Z0-9]* ;
+NUMBER   : '0' | '-'? [1-9][0-9]* ;
+WS       :  [ \t\n\r]+ -> skip ;

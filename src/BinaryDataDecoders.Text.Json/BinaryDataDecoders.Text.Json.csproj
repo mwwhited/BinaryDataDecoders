@@ -15,6 +15,7 @@
 	<ItemGroup>
 		<Antlr4 Include="JsonPath\Parser\JsonPath.g4">
 			<Listener>false</Listener>
+			<Visitor>true</Visitor>
 		</Antlr4>
 	</ItemGroup>
 

@@ -54,8 +54,6 @@ namespace BinaryDataDecoders.Templating.Html.Tests
             var repeater = xpath.Select("//repeater");
             var condition = xpath.Select("//condition");
             var dataBinding = xpath.Select("//@data-binding");
-
-
         }
     }
 }
