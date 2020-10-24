@@ -7,6 +7,6 @@ namespace BinaryDataDecoders.ToolKit.MetaData
     {
         public string MediaType { get; }
 
-        public MediaTypeAttribute(string fileExtension) => MediaType = fileExtension;
+        public MediaTypeAttribute(string mediaType) => MediaType = mediaType;
     }
 }
