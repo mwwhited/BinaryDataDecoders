@@ -11,6 +11,6 @@
         public IPathSegment Name { get; }
         public IPathSegment? Predicate { get; }
 
-        public override string ToString() => $"{Name}{Predicate}";
+        public override string ToString() => $"{nameof(ElementPathSegment)}:{Name}{Predicate}";
     }
 }

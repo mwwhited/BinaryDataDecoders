@@ -13,6 +13,6 @@
         public IPathSegment? End { get; }
         public IPathSegment? Step { get; }
 
-        public override string ToString() => $"{Start}:{End}:{Step}";
+        public override string ToString() => $"{nameof(RangeIndexPathSegment)}:{Start}:{End}:{Step}";
     }
 }

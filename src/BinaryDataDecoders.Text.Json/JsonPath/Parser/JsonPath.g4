@@ -3,20 +3,25 @@ grammar JsonPath;
 start 
     : ROOT (
         bracketSequence
-        | dotSequence
-    )
+        | CHILDPATH dotSequence
+    ) EOF
     ;
 
 dotSequence 
-    : dotElement ('.' dotElement | '..')*
+    : dotElement (CHILDPATH dotSequence)?  //|  DESCENDANTS)?
     ;
 
 dotElement 
-    : IDENTITY bracketSequence?
+    : property bracketSequence?
+    ;
+
+property
+    : identity
+    | WILDCARD
     ;
 
 bracketSequence 
-    : bracket+
+    : bracket bracketSequence?
     ;
 
 bracket 
@@ -29,16 +34,30 @@ bracket
 
 range : rangeStart=NUMBER? ':' rangeEnd=NUMBER? (':' rangeStep=NUMBER)?;
 
-operand
-    : operandBase=(ROOT | RELATIVE) (
+path
+    : pathBase=(ROOT | RELATIVE) (
         bracketSequence
-        | dotSequence
+        | '.' dotSequence
     )
+    ;
+
+operand
+    : path
+    | QUOTED_STRING
+    | NUMBER
     ;
 
 query
     : relationLeft=operand RELATIONAL relationRight=operand #relational
     | relationLeft=query LOGICAL relationRight=query #logical
+    ;
+
+identity 
+    : IDENTITY
+    ;
+
+string 
+    : QUOTED_STRING
     ;
 
 fragment ESCAPED_QUOTE : '\\\'';
@@ -53,6 +72,7 @@ RELATIONAL
     //| '=~'
     ;
 
+CHILDPATH : '.';
 WILDCARD : '*';
 DECENDANTS : '..';
 RELATIVE : '@';

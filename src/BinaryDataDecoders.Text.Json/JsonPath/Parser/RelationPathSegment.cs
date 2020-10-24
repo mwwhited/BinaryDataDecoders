@@ -2,7 +2,10 @@
 {
     public class RelationPathSegment : IPathSegment
     {
-        public RelationPathSegment(IPathSegment left, RelationalOperationTypes operation, IPathSegment right)
+        public RelationPathSegment(
+            IPathSegment left, 
+            OperatorPathSegmentBase<RelationalOperationTypes> operation, 
+            IPathSegment right)
         {
             Left = left;
             Operation = operation;
@@ -10,9 +13,9 @@
         }
 
         public IPathSegment Left { get; }
-        public RelationalOperationTypes Operation { get; }
+        public OperatorPathSegmentBase<RelationalOperationTypes> Operation { get; }
         public IPathSegment Right { get; }
 
-        public override string ToString() => $"{{{Left}}} {Operation} {{{Right}}}";
+        public override string ToString() => $"{nameof(RelationPathSegment)}:{{{Left}}} {Operation} {{{Right}}}";
     }
 }

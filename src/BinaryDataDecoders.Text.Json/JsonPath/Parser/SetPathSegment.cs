@@ -11,6 +11,6 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
         }
 
         public IEnumerable<T> Children { get; }
-        public override string ToString() => string.Join(" | ", Children);
+        public override string ToString() => $"{nameof(SetPathSegment<T>)}:{string.Join(" | ", Children)}";
     }
 }
