@@ -13,13 +13,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="ComplexTemplate.html" />
 	  <None Remove="SimpleCopy.xslt" />
 	  <None Remove="TestTemplate.html" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="ComplexTemplate.html" />
 	  <EmbeddedResource Include="SimpleCopy.xslt" />
 	  <EmbeddedResource Include="TestTemplate.html" />
 	</ItemGroup>
