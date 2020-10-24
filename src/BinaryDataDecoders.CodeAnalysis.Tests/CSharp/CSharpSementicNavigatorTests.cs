@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.CSharp
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        [TestCategory(TestCategories.Unit)]
+        //[TestCategory(TestCategories.Unit)]
         [TestTarget(typeof(SemanticModelNavigatorFactory), Member = nameof(SemanticModelNavigatorFactory.AsNode))]
         public void TestXPath()
         {

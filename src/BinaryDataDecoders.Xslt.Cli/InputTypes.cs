@@ -7,6 +7,7 @@
         Xml,
         Html,
         Json,
+        Yaml,
 
         CSharp = 256,
         VB,

@@ -5,6 +5,7 @@ using BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions;
 using BinaryDataDecoders.Text.Json;
 using BinaryDataDecoders.ToolKit.Xml.Xsl;
 using BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions;
+using BinaryDataDecoders.Yaml;
 using System;
 using System.IO;
 using System.Xml.XPath;
@@ -42,10 +43,12 @@ namespace BinaryDataDecoders.Xslt.Cli
             {
                 InputTypes.Xml => _transformer.ReadAsXml,
                 InputTypes.Html => new HtmlNavigator().ToNavigable,
+
                 InputTypes.CSharp => new CSharpNavigator().ToNavigable,
                 InputTypes.VB => new VisualBasicNavigator().ToNavigable,
 
                 InputTypes.Json => new JsonNavigator().ToNavigable,
+                InputTypes.Yaml => new YamlNavigator().ToNavigable,
 
                 _ => null
             };
@@ -57,6 +60,8 @@ namespace BinaryDataDecoders.Xslt.Cli
                 ".HTML" => GetNavigator(InputTypes.Html),
                 ".HTM" => GetNavigator(InputTypes.Html),
                 ".JSON" => GetNavigator(InputTypes.Json),
+                ".YAML" => GetNavigator(InputTypes.Yaml),
+                ".YML" => GetNavigator(InputTypes.Yaml),
                 ".CS" => GetNavigator(InputTypes.CSharp),
                 ".VB" => GetNavigator(InputTypes.VB),
 

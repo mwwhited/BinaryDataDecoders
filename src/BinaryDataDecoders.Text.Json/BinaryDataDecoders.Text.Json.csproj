@@ -13,14 +13,22 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="..\..\LICENSE" Link="LICENSE">
-	    <PackagePath></PackagePath>
-	    <Pack>True</Pack>
-	  </None>
+		<Antlr4 Include="JsonPath\Parser\JsonPath.g4">
+			<Listener>false</Listener>
+		</Antlr4>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="System.Text.Json" Version="4.7.2" />
+		<None Include="..\..\LICENSE" Link="LICENSE">
+			<PackagePath></PackagePath>
+			<Pack>True</Pack>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Text.Json" Version="4.7.2" />
+		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
+		<PackageReference Include="Antlr4BuildTasks" Version="8.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>

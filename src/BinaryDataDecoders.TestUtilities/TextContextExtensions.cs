@@ -25,6 +25,7 @@ namespace BinaryDataDecoders.TestUtilities
         /// <returns>test context for chaining</returns>
         public static TestContext AddResult(this TestContext context, object value, string fileName = "")
         {
+            if (value == null) return context;
             // if (value is IXPathNavigable nav && !(value is XPathNodeIterator)) return AddResult(context, nav.CreateNavigator(), fileName);
             if (value is INode node) return AddResult(context, new ExtensibleNavigator(node, fileName), fileName);
 

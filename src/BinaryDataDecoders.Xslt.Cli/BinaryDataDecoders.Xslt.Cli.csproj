@@ -34,6 +34,7 @@
 		<ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.Text.Json\BinaryDataDecoders.Text.Json.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Yaml\BinaryDataDecoders.Yaml.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -41,9 +41,9 @@ jobs:
         name: BinaryDataDecoders_Packages
         path: Publish/Nuget/
         
-    - name: Publish Test Results
-      uses: actions/upload-artifact@v2
-      with:
-        name: BinaryDataDecoders_TestResults
-        path: Publish/TestResults/
+    #- name: Publish Test Results
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: BinaryDataDecoders_TestResults
+    #    path: Publish/TestResults/
 
