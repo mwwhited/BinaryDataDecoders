@@ -1,17 +1,18 @@
 ﻿namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
 {
-    public class ParentChildBinaryPathSegment : IPathSegment
+    public class ParentChildBinaryPathSegment : BinaryPathSegment
     {
-        public IPathSegment Parent { get; }
-        public IPathSegment Child { get; }
+        private new IPathSegment Left { get; } = null;
+        private new IPathSegment Right { get; } = null;
+
+        public IPathSegment Parent => base.Left;
+        public IPathSegment Child => base.Right;
 
         public ParentChildBinaryPathSegment(
             IPathSegment parent,
             IPathSegment child
-            )
+            ) : base(parent, child)
         {
-            Parent = parent;
-            Child = child;
         }
 
         public override string ToString() => $"{Parent}[{Child}]";

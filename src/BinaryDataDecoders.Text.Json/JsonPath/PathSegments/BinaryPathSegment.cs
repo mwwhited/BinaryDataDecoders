@@ -1,11 +1,11 @@
 ﻿namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
 {
-    public class LeftRightBinaryPathSegment : IPathSegment
+    public class BinaryPathSegment : IPathSegment
     {
         public IPathSegment Left { get; }
         public IPathSegment Right { get; }
 
-        public LeftRightBinaryPathSegment(
+        public BinaryPathSegment(
             IPathSegment left,
             IPathSegment right
             )

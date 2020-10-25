@@ -14,32 +14,32 @@ namespace BinaryDataDecoders.Text.Json.Tests.JsonPath.Parser
         public TestContext TestContext { get; set; }
 
         [DataTestMethod]
-        //[DataRow("$.options.quantity", ":/options/quantity")]
-        //[DataRow("$.*.quantity", ":/*/quantity")]
-        //[DataRow("$..quantity", ":////quantity")]
-        //[DataRow("$.obj.*.quantity", ":/obj/*/quantity")]
-        //[DataRow("$.options[0].quantity", ":/options[0]/quantity")]
-        //[DataRow("$.store.book[*].author", ":/store/book[*]/author")]
-        //[DataRow("$..author", ":////author")]
-        //[DataRow("$.store.*", ":/store/*")]
-        //[DataRow("$..book[2]", ":////book[2]")]
-        //[DataRow("$..book[-2]", ":////book[-2]")]
-        //[DataRow("$..*", ":////*")]
-        //[DataRow("$..book[-2", typeof(ParseCanceledException))]
-        [DataRow("$.options[?(@.code=='AB1')].quantity", "")]
-        //[DataRow("$.options[?(@.code=='AB1'&&@.quantity>3)].quantity", "")]
-        //[DataRow("$.store..price", "")]
-        //[DataRow("$..book[0,1]", ":////book[0,1]")]
-        //[DataRow("$..book[:2]", "")]
-        //[DataRow("$..book[1:2]", "")]
-        //[DataRow("$..book[-2:]", "")]
-        //[DataRow("$..book[2:]", "")]
-        //[DataRow("$..book[?(@.isbn)]", "")]
-        //[DataRow("$.store.book[?(@.price < 10)]", "")]
-        //[DataRow("$..book[?(@.price <= $['expensive'])]", "")]
+        [DataRow("$.options.quantity", ":/options/quantity")]
+        [DataRow("$.*.quantity", ":/*/quantity")]
+        [DataRow("$..quantity", ":////quantity")]
+        [DataRow("$.obj.*.quantity", ":/obj/*/quantity")]
+        [DataRow("$.options[0].quantity", ":/options[0]/quantity")]
+        [DataRow("$.store.book[*].author", ":/store/book[*]/author")]
+        [DataRow("$..author", ":////author")]
+        [DataRow("$.store.*", ":/store/*")]
+        [DataRow("$..book[2]", ":////book[2]")]
+        [DataRow("$..book[-2]", ":////book[-2]")]
+        [DataRow("$..*", ":////*")]
+        [DataRow("$..book[-2", typeof(ParseCanceledException))]
+        [DataRow("$.options[?(@.code=='AB1')].quantity", ":/options[./code Equal \"AB1\"]/quantity")]
+        [DataRow("$.options[?(@.code=='AB1'&&@.quantity>3)].quantity", ":/options[./code Equal \"AB1\" And ./quantity GreaterThan 3]/quantity")]
+        [DataRow("$..book[0,1]", ":////book[0,1]")]
+        [DataRow("$..book[:2]", ":////book[:2:]")]
+        [DataRow("$..book[1:2]", ":////book[1:2:]")]
+        [DataRow("$..book[-2:]", ":////book[-2::]")]
+        [DataRow("$..book[2:]", ":////book[2::]")]
+        [DataRow("$..book[?(@.isbn)]", ":////book[[./isbn]]")]
+        [DataRow("$.store.book[?(@.price < 10)]", ":/store/book[./price LessThan 10]")]
+        [DataRow("$..book[?(@.price <= $['expensive'])]", ":////book[./price LessThanOrEqual :/\"expensive\"]")]
         //[DataRow("$..book[?(@.author =~ /.*REES/i)]", "")]
         //[DataRow("$..book.length()", "")]
-        public void ParserTest(string query, object expected)
+        // [DataRow("$.store..price", "")]
+       public void ParserTest(string query, object expected)
         {
             try
             {
@@ -61,9 +61,6 @@ namespace BinaryDataDecoders.Text.Json.Tests.JsonPath.Parser
                 }
             }
         }
-
-        //[DataRow("$.obj..quantity")]
-        // [DataRow("$..book[-2",<!- this should be an exception
     }
 }
 //https://goessner.net/articles/JsonPath/

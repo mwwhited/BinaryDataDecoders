@@ -46,8 +46,9 @@ operand
     ;
 
 query
-    : relationLeft=operand RELATIONAL relationRight=operand #relational
-    | relationLeft=query LOGICAL relationRight=query #logical
+    : path #queryPath
+    | relationLeft=operand RELATIONAL relationRight=operand #queryRelational
+    | relationLeft=query LOGICAL relationRight=query #queryLogical
     ;
 
 identity 
@@ -62,7 +63,7 @@ fragment ESCAPED_QUOTE : '\\\'';
 QUOTED_STRING :   '\'' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '\'';
 
 LOGICAL
-    : 'and' | 'or'
+    : '&&' | '||'
     ;
 
 RELATIONAL 
