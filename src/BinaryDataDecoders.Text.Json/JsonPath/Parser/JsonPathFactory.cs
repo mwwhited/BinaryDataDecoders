@@ -1,10 +1,12 @@
 ﻿using Antlr4.Runtime;
+using BinaryDataDecoders.Text.Json.JsonPath.PathSegments;
+using System;
 
 namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
 {
     public static class JsonPathFactory
     {
-        public static IPathSegment? Parse(string input) =>
+        public static IPathSegment Parse(string input) =>
             new JsonPathVisitor().Visit(
                 new JsonPathParser(
                 new CommonTokenStream(
@@ -13,6 +15,6 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
                         )
                     )
                 ).start()
-            );
+            ) ?? throw new JsonPathException($"Invalid JSONPath \"{input}\"");
     }
 }

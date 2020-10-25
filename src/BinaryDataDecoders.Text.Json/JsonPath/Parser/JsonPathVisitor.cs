@@ -1,109 +1,61 @@
 ﻿using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
-using System;
+using BinaryDataDecoders.Text.Json.JsonPath.PathSegments;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
 {
+
+
     public class JsonPathVisitor : JsonPathBaseVisitor<IPathSegment?>
     {
-        ////bracket
-        //public override IPathSegment VisitWildcard([NotNull] JsonPathParser.WildcardContext context) => new WildcardPathSegment();
-
-        //public override IPathSegment VisitUnionNumber([NotNull] JsonPathParser.UnionNumberContext context) =>
-        //    new IndexSetPathSegment(context.NUMBER().Select(VisitNumber));
-
-        //public override IPathSegment VisitUnionString([NotNull] JsonPathParser.UnionStringContext context) =>
-        //    new IndexSetPathSegment(context.QUOTED_STRING().Select(VisitQuotedString));
-
-        //public override IPathSegment VisitSlicer([NotNull] JsonPathParser.SlicerContext context) =>
-        //    new SlicerPathSegment(range: Visit(context.range()) ?? throw new ArgumentNullException("Invalid range"));
-
-        //public override IPathSegment VisitRange([NotNull] JsonPathParser.RangeContext context) =>
-        //    new RangeIndexPathSegment(
-        //        start: VisitNumber(context.rangeStart),
-        //        end: VisitNumber(context.rangeEnd),
-        //        step: VisitNumber(context.rangeStep)
-        //        );
-
-        ////public override IPathSegment VisitRelational([NotNull] JsonPathParser.RelationalContext context) =>
-        ////    new RelationPathSegment(
-        ////        left: Visit(context.relationLeft) ?? throw new ArgumentNullException("Invalid left relation"),
-        ////        operation: VisitRelationalOperation(context.RELATIONAL()),
-        ////        right: Visit(context.relationRight) ?? throw new ArgumentNullException("Invalid right relation")
-        ////        );
-
-        //public override IPathSegment VisitLogical([NotNull] JsonPathParser.LogicalContext context) =>
-        //    new LogicPathSegment(
-        //        left: Visit(context.relationLeft) ?? throw new ArgumentNullException("Invalid left relation"),
-        //        operation: VisitLogicalOperation(context.LOGICAL()),
-        //        right: Visit(context.relationRight) ?? throw new ArgumentNullException("Invalid right relation")
-        //        );
-
-        ////public override IPathSegment VisitOperand([NotNull] JsonPathParser.OperandContext context) =>
-        ////    new UnaryOperatorPathSegment(
-        ////        @operator: VisitOperandBase(context.operandBase),
-        ////        operand: Visit(context.bracketSequence()) ?? Visit(context.dotSequence())
-        ////        );
-
-        //public override IPathSegment VisitFilter([NotNull] JsonPathParser.FilterContext context) =>
-        //    new FilterPathSegment(Visit(context.query()) ?? throw new ArgumentNullException("Invalid filter relation"));
-
-        //public override IPathSegment VisitBracketSequence([NotNull] JsonPathParser.BracketSequenceContext context) =>
-        //    Visit(context.bracket()) switch
-        //    {
-        //        null => throw new ArgumentNullException("missing node"),
-        //        IPathSegment left => Visit(context.bracketSequence()) switch
-        //        {
-        //            null => new ElementPathSegment(left, null),
-        //            IPathSegment right => new SequencePathSegment(left, right)
-        //        }
-        //    };
-        //public override IPathSegment VisitDotSequence([NotNull] JsonPathParser.DotSequenceContext context) =>
-        //    Visit(context.dotElement()) switch
-        //    {
-        //        null => throw new ArgumentNullException("missing node"),
-        //        IPathSegment left => Visit(context.dotSequence()) switch
-        //        {
-        //            null => new ElementPathSegment(left, null),
-        //            IPathSegment right => new SequencePathSegment(left, right)
-        //        }
-        //    };
-
-        //public override IPathSegment VisitDotElement([NotNull] JsonPathParser.DotElementContext context) =>
-        //    new ElementPathSegment(
-        //        name: Visit(context.property()) ?? throw new ArgumentNullException("invalid identity"),
-        //        predicate: Visit(context.bracketSequence())
-        //        );
-
-
-        ////public override IPathSegment VisitStart([NotNull] JsonPathParser.StartContext context) =>
-        ////    new OperandPathSegment(
-        ////        OperandBaseTypes.Root,
-        ////        Visit(context.dotSequence()) ??
-        ////        Visit(context.bracketSequence()) ??
-        ////        throw new ArgumentNullException("invalid sequence")
-        ////        );
-
-        //public override IPathSegment VisitProperty([NotNull] JsonPathParser.PropertyContext context) =>
-        //    context switch
-        //    {
-        //        _ when context.WILDCARD() != null => new WildcardPathSegment(),
-        //        _ when context.IDENTITY() != null => new StringPathSegment(context.IDENTITY().GetText()),
-        //        _ => throw new ArgumentNullException("invaild property")
-        //    };
-
-        public override IPathSegment VisitTerminal(ITerminalNode node) =>
-            node?.GetText() switch
+        public override IPathSegment VisitStart([NotNull] JsonPathParser.StartContext context) => Visit(context.path()) ?? throw new JsonPathException("no path defined");
+        public override IPathSegment VisitPath([NotNull] JsonPathParser.PathContext context) =>
+            new PathBaseSegment(
+                baseType: Visit<PathBaseTypes>(context.pathBase) ?? throw new JsonPathException("missing pathBase"),
+                value: Visit(context.bracketSequence(), context.dotSequence()) ?? throw new JsonPathException("missing path sequence")
+                );
+        public override IPathSegment VisitDotSequence([NotNull] JsonPathParser.DotSequenceContext context) =>
+            Visit(context.dotElement(), context.DESCENDANTS(), context.WILDCARD()) switch
             {
+                null => throw new JsonPathException("missing path element"),
+                IPathSegment left =>
+                    Visit(context.dotSequence()) switch
+                    {
+                        null => new PathLeafSegment(left),
+                        IPathSegment right => new PathBranchSegment(left, right)
+                    }
+            };
+
+        public override IPathSegment VisitDotElement([NotNull] JsonPathParser.DotElementContext context)
+        {
+            return base.VisitDotElement(context);
+        }
+
+        public override IPathSegment? Visit(IParseTree tree) => tree switch { null => null, _ => base.Visit(tree) };
+        public virtual IPathSegment? Visit(IParseTree first, IParseTree second, params IParseTree[] more) =>
+            Visit(first) ?? Visit(second) ?? more.Select(Visit).FirstOrDefault();
+        public virtual IPathSegment<T>? Visit<T>(IParseTree first, IParseTree second, params IParseTree[] more) =>
+            Visit(first) as IPathSegment<T> ??
+            Visit(second) as IPathSegment<T> ??
+            more.Select(i => Visit(i) as IPathSegment<T>)
+                .Where(i => i != null)
+                .FirstOrDefault();
+        public override IPathSegment VisitTerminal(ITerminalNode node) =>
+            Visit(node?.GetText()) ?? throw new JsonPathException($"invalid terminal node \"{node?.GetText()}\"");
+        public virtual IPathSegment? Visit(IToken token) => Visit(token?.Text);
+        public virtual IPathSegment? Visit(string? value) =>
+            value switch
+            {
+                null => null,
+
                 ".." => new DescendantsPathSegment(),
                 "*" => new WildcardPathSegment(),
                 "." => new PathSeperatorPathSegment(),
 
-                "$" => new OperandBaseTypePathSegment(OperandBaseTypes.Root),
-                "@" => new OperandBaseTypePathSegment(OperandBaseTypes.Relative),
+                "$" => new PathBaseTypePathSegment(PathBaseTypes.Root),
+                "@" => new PathBaseTypePathSegment(PathBaseTypes.Descendants),
 
                 "==" => new RelationalOperationTypePathSegment(RelationalOperationTypes.Equal),
                 "!=" => new RelationalOperationTypePathSegment(RelationalOperationTypes.NotEqual),
@@ -112,12 +64,13 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
                 ">" => new RelationalOperationTypePathSegment(RelationalOperationTypes.GreaterThan),
                 ">=" => new RelationalOperationTypePathSegment(RelationalOperationTypes.GreaterThanOrEqual),
 
-                string value when value.Length == 0 => new StringPathSegment(""),
-
-                string value when value[0] == '\'' => new QuotedStringPathSegment(value.Trim('\'')),
-                string value when int.TryParse(value, out var number) => new NumericPathSegment(number),
-                string value => new StringPathSegment(value),
-                _ => throw new JsonPathException($"Invalid terminal content: {node?.GetText()}")
+                _ when value.Length == 0 => new StringPathSegment(""),
+                _ when value[0] == '\'' => new QuotedStringPathSegment(value.Trim('\'')),
+                _ when int.TryParse(value, out var number) => new NumericPathSegment(number),
+                _ => new StringPathSegment(value)
             };
+        public virtual IPathSegment<T>? Visit<T>(ITerminalNode node) => Visit(node) as IPathSegment<T>;
+        public virtual IPathSegment<T>? Visit<T>(IToken token) => Visit(token) as IPathSegment<T>;
+        public virtual IPathSegment<T>? Visit<T>(IParseTree tree) => Visit(tree) as IPathSegment<T>;
     }
 }

@@ -1,29 +1,32 @@
 grammar JsonPath;
 
 start 
-    : ROOT (
+    : path EOF
+    ;
+
+path
+    : pathBase=(ROOT | RELATIVE) (
         bracketSequence
-        | CHILDPATH dotSequence
-    ) EOF
-    ;
-
-dotSequence 
-    : dotElement (CHILDPATH dotSequence)?  //|  DESCENDANTS)?
-    ;
-
-dotElement 
-    : property bracketSequence?
-    ;
-
-property
-    : identity
-    | WILDCARD
+        | '.' dotSequence
+    )
     ;
 
 bracketSequence 
     : bracket bracketSequence?
     ;
 
+dotSequence 
+    : (
+        dotElement 
+        | DESCENDANTS
+        | WILDCARD
+    ) (PATH_SEPERATOR dotSequence)?
+    ;
+
+dotElement 
+    : identity bracketSequence?
+    ;
+    
 bracket 
     : '[' WILDCARD ']' #wildcard
     | '[' NUMBER (',' NUMBER)* ']' #unionNumber
@@ -34,12 +37,6 @@ bracket
 
 range : rangeStart=NUMBER? ':' rangeEnd=NUMBER? (':' rangeStep=NUMBER)?;
 
-path
-    : pathBase=(ROOT | RELATIVE) (
-        bracketSequence
-        | '.' dotSequence
-    )
-    ;
 
 operand
     : path
@@ -72,9 +69,9 @@ RELATIONAL
     //| '=~'
     ;
 
-CHILDPATH : '.';
+PATH_SEPERATOR : '.';
 WILDCARD : '*';
-DECENDANTS : '..';
+DESCENDANTS : '..';
 RELATIVE : '@';
 ROOT : '$';
 IDENTITY : [a-zA-Z][a-zA-Z0-9]* ;

@@ -12,8 +12,10 @@ namespace BinaryDataDecoders.Text.Json.Tests.JsonPath.Parser
         public TestContext TestContext { get; set; }
 
         [DataTestMethod]
+        //[DataRow("$.options.quantity")]
+        [DataRow("$.*.quantity")]
         //[DataRow("$.options[0].quantity")]
-        [DataRow("$.options[?(@.code=='AB1')].quantity")]
+        //[DataRow("$.options[?(@.code=='AB1')].quantity")]
         //[DataRow("$.options[?(@.code=='AB1'&&@.quantity>3)].quantity")]
         //[DataRow("$.store.book[*].author")]
         //[DataRow("$..author")]
@@ -35,7 +37,7 @@ namespace BinaryDataDecoders.Text.Json.Tests.JsonPath.Parser
         public void ParserTest(string query)
         {
            var result = JsonPathFactory.Parse(query);
-            this.TestContext.WriteLine($"\"{query}\":> \"{result}\"");
+            this.TestContext.WriteLine($"\"{query}\" == \"{result}\"");
         }
     }
 }
