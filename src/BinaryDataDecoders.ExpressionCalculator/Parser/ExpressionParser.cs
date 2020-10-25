@@ -16,7 +16,10 @@ namespace BinaryDataDecoders.ExpressionCalculator.Parser
                                 new AntlrInputStream(input)
                                 )
                             )
-                        ).start()
+                        )
+                    {
+                        ErrorHandler = new BailErrorStrategy(),
+                    }.start()
                 );
     }
 }

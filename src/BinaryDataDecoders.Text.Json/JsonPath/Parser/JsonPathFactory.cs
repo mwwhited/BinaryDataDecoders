@@ -14,7 +14,10 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
                         new AntlrInputStream(input)
                         )
                     )
-                ).start()
+                )
+                {
+                     ErrorHandler = new BailErrorStrategy(),
+                }.start()
             ) ?? throw new JsonPathException($"Invalid JSONPath \"{input}\"");
     }
 }
