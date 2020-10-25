@@ -6,7 +6,8 @@ start
 
 path
     : pathBase=(ROOT | RELATIVE) (
-        bracketSequence
+        DESCENDANTS? bracketSequence 
+        | DESCENDANTS dotSequence
         | '.' dotSequence
     )
     ;
@@ -26,13 +27,13 @@ dotSequence
 dotElement 
     : identity bracketSequence?
     ;
-    
+
 bracket 
-    : '[' WILDCARD ']' #wildcard
-    | '[' NUMBER (',' NUMBER)* ']' #unionNumber
-    | '[' QUOTED_STRING (',' QUOTED_STRING)* ']' #unionString
-    | '[' range ']' #slicer
-    | '[' '?(' query ')' ']' #filter
+    : '[' WILDCARD ']' 
+    | '[' NUMBER (',' NUMBER)* ']'
+    | '[' string (',' string)* ']'
+    | '[' range ']'
+    | '[' '?(' query ')' ']'
     ;
 
 range : rangeStart=NUMBER? ':' rangeEnd=NUMBER? (':' rangeStep=NUMBER)?;
@@ -40,7 +41,7 @@ range : rangeStart=NUMBER? ':' rangeEnd=NUMBER? (':' rangeStep=NUMBER)?;
 
 operand
     : path
-    | QUOTED_STRING
+    | string
     | NUMBER
     ;
 

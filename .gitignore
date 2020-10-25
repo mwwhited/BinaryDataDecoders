@@ -5,7 +5,7 @@
 
 #Custom Files
 src/LocalUnitTestRun_*.bat
-.antlr/
+**/.antlr
 
 # User-specific files
 *.rsuser
