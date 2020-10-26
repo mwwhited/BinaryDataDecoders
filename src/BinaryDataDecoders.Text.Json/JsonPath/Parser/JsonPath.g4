@@ -5,27 +5,26 @@ start
     ;
 
 path
-    : pathBase=(ROOT | RELATIVE) (
-        DESCENDANTS? bracketSequence 
-        | DESCENDANTS dotSequence
-        | '.' dotSequence
-    )
+    : pathBase sequence
     ;
 
-bracketSequence 
-    : bracket bracketSequence?
+pathBase 
+    : ROOT 
+    | RELATIVE
     ;
 
-dotSequence 
-    : (
-        dotElement 
-        | DESCENDANTS
-        | WILDCARD
-    ) (PATH_SEPERATOR dotSequence)?
+sequence
+    : sequenceItem  sequence?
     ;
 
-dotElement 
-    : identity bracketSequence?
+sequenceItem
+    : '.'? (
+            WILDCARD        		//.*
+            | identity      		// .item or ./item['bracketChain']
+            | bracket          		// .[...] ir [...]
+            | filter          		// .[?(...)] ir [?(...)]
+        )
+    | DESCENDANTS                   // ..
     ;
 
 bracket 
@@ -33,11 +32,13 @@ bracket
     | '[' NUMBER (',' NUMBER)* ']'
     | '[' string (',' string)* ']'
     | '[' range ']'
-    | '[' '?(' query ')' ']'
+    ;
+
+filter
+    : '[' '?(' query ')' ']'
     ;
 
 range : rangeStart=NUMBER? ':' rangeEnd=NUMBER? (':' rangeStep=NUMBER)?;
-
 
 operand
     : path
@@ -51,8 +52,8 @@ query
     | relationLeft=query LOGICAL relationRight=query #queryLogical
     ;
 
-identity 
-    : IDENTITY
+identity
+    : IDENTITY 
     ;
 
 string 
