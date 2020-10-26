@@ -1,6 +1,4 @@
-﻿using BinaryDataDecoders.Text.Json.JsonPath.PathSegments;
-
-namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments
 {
     public class DecimalPathSegment : BaseValuePathSegment<decimal>
     {

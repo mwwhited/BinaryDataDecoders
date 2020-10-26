@@ -1,4 +1,6 @@
-﻿using BinaryDataDecoders.ToolKit.Xml.XPath;
+﻿using BinaryDataDecoders.Text.Json.JsonPath.Parser;
+using BinaryDataDecoders.ToolKit.PathSegments;
+using BinaryDataDecoders.ToolKit.Xml.XPath;
 using System;
 using System.Linq;
 using System.Text.Json;
@@ -9,6 +11,8 @@ namespace BinaryDataDecoders.Text.Json
 {
     public static class JsonNavigatorFactory
     {
+        public static IPathSegment ParseAsJsonPath(this string jsonPath) => JsonPathFactory.Parse(jsonPath);
+
         public static IXPathNavigable ToNavigable(this JsonDocument json, XName? rootName = null, string? baseUri = null) =>
             json.RootElement.ToNavigable(rootName, baseUri);
 
@@ -21,7 +25,7 @@ namespace BinaryDataDecoders.Text.Json
         public static INode AsNode(this JsonElement json, XName? rootName = null, string? baseUri = null)
         {
             if (rootName == null || string.IsNullOrWhiteSpace(rootName.LocalName))
-                rootName = XName.Get(json.ValueKind.ToString());
+                rootName = XName.Get(json.ValueKind.ToString(), baseUri ?? "");
 
             return new ExtensibleElementNode(
                 rootName,

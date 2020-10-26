@@ -1,4 +1,4 @@
-﻿namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments
 {
     public class PredicatePathSegment : IPathSegment
     {

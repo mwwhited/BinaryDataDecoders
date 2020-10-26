@@ -1,5 +1,5 @@
 ﻿using Antlr4.Runtime;
-using BinaryDataDecoders.Text.Json.JsonPath.PathSegments;
+using BinaryDataDecoders.ToolKit.PathSegments;
 using System;
 
 namespace BinaryDataDecoders.Text.Json.JsonPath.Parser

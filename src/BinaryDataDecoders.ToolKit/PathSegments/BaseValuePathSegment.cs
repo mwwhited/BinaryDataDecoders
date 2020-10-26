@@ -1,4 +1,4 @@
-﻿namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments
 {
     public abstract class BaseValuePathSegment<T> : IPathSegment<T>
     {

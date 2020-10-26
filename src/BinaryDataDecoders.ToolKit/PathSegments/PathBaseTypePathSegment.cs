@@ -1,8 +1,4 @@
-﻿
-using BinaryDataDecoders.Text.Json.JsonPath.Parser;
-using System.Net.WebSockets;
-
-namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments
 {
     public sealed class PathBaseTypePathSegment : BaseValuePathSegment<PathBaseTypes>
     {
@@ -12,7 +8,7 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
         {
             PathBaseTypes.Root => ":",
             PathBaseTypes.Relative => ".",
-            _ => throw new JsonPathException($"Invalid {nameof(PathBaseTypePathSegment)}: {Value}")
+            _ => $"{Value}",
         };
     }
 }

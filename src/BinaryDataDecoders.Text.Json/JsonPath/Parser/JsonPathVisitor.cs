@@ -1,14 +1,10 @@
 ﻿using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
-using BinaryDataDecoders.Text.Json.JsonPath.PathSegments;
-using System;
-using System.Collections;
+using BinaryDataDecoders.ToolKit.PathSegments;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Net.Mime;
-using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
 {

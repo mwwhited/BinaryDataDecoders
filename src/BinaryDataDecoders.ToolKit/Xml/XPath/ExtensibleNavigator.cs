@@ -22,26 +22,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         {
             BaseURI = baseUri ?? "";
             _current = current;
-
-            //if (current is IElementNode element)
-            //{
-            //    var fn = element.FirstNamespace;
-            //    if (fn != null)
-            //    {
-            //        var dict = new Dictionary<string, string>();
-            //        do
-            //        {
-            //            dict.TryAdd(fn.Name.NamespaceName, fn.Name.LocalName);
-            //            fn = fn.Next;
-            //        } while (fn?.Next != null);
-            //        if (namespacePrefixes != null)
-            //        {
-            //            foreach (var kvp in namespacePrefixes)
-            //                dict.TryAdd(kvp.Key, kvp.Value);
-            //        }
-            //        namespacePrefixes = dict;
-            //    }
-            //}
             NameTable = nameTable ?? new ExtensibleNameTable();
             _namespacePrefixes = namespacePrefixes ?? new Dictionary<string, string>();
         }

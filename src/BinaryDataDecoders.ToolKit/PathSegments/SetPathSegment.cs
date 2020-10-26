@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
+namespace BinaryDataDecoders.ToolKit.PathSegments
 {
     public class SetPathSegment : IPathSegment
     {
