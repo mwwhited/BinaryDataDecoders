@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
 {
@@ -14,5 +15,7 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.PathSegments
         }
 
         public override string ToString() => string.Join(",", Set);
+
+        public static readonly IPathSegment Empty = new SetPathSegment(Enumerable.Empty<IPathSegment>());
     }
 }

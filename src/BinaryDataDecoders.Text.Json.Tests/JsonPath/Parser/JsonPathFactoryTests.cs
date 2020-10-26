@@ -35,9 +35,15 @@ namespace BinaryDataDecoders.Text.Json.Tests.JsonPath.Parser
         [DataRow("$.store.book[?(@.price < 10)]", ":/store/book/{./price LessThan 10}")]
         [DataRow("$..book[?(@.price <= $['expensive'])]", ":////book/{./price LessThanOrEqual :/[\"expensive\"]}")]
         [DataRow("$.store..price", ":/store////price")]
+        [DataRow("func()", "func()")]
+        [DataRow("func($.options, $.*.quantity)", "func(:/options,:/*/quantity)")]
+        [DataRow("$..book.length()", ":////book/length()")]
+        [DataRow("func(1.0)", "func(1.0)")]
+        [DataRow("func(0.12345)", "func(0.12345)")]
+        [DataRow("func(-2570.764)", "func(-2570.764)")]
+        [DataRow("func(func2($, @, 1, $.abc, 'xyz'), func3())", "func(func2(:,.,1,:/abc,\"xyz\"),func3())")]
 
         //[DataRow("$..book[?(@.author =~ /.*REES/i)]", "")]
-        //[DataRow("$..book.length()", "")]
         public void ParserTest(string query, object expected)
         {
             try

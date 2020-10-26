@@ -17,11 +17,14 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
         public override IPathSegment VisitStart([NotNull] JsonPathParser.StartContext context) =>
             Visit(context.path()) ?? throw new JsonPathException("no path defined");
         public override IPathSegment VisitPath([NotNull] JsonPathParser.PathContext context) =>
-            new BinaryPathSegment(
+            Visit(context.function()) switch
+            {
+                null => new BinaryPathSegment(
                 Visit<PathBaseTypes>(context.pathBase()) ?? throw new JsonPathException("missing pathBase"),
                 Visit(context.sequence()) ?? throw new JsonPathException("missing path sequence")
-                );
-
+                ),
+                IPathSegment function => function
+            };
         public override IPathSegment? VisitPathBase([NotNull] JsonPathParser.PathBaseContext context) =>
             Visit<PathBaseTypes>(context.ROOT(), context.RELATIVE());
         public override IPathSegment? VisitIdentity([NotNull] JsonPathParser.IdentityContext context) =>
@@ -32,10 +35,11 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
             Visit(context.QUOTED_STRING());
         public override IPathSegment? VisitSequenceItem([NotNull] JsonPathParser.SequenceItemContext context) =>
             Visit(
-                context.WILDCARD(), 
+                context.WILDCARD(),
                 context.identity(),
                 context.bracket(),
                 context.filter(),
+                context.function(),
                 context.DESCENDANTS()
                 );
         public override IPathSegment VisitSequence([NotNull] JsonPathParser.SequenceContext context) =>
@@ -50,7 +54,7 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
             };
         public override IPathSegment VisitBracket([NotNull] JsonPathParser.BracketContext context) =>
             new IndexerPathSegment(
-                Visit(context.WILDCARD(), context.range()) ??
+                Visit(context.WILDCARD(), context.range(), context.function()) ??
                 Visit(context.NUMBER()) ??
                 Visit(context.@string()) ??
                 throw new JsonPathException($"Invalid bracket content: {context.GetText()}")
@@ -81,11 +85,21 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
             new PredicatePathSegment(
                 Visit(context.query()) ?? throw new JsonPathException("invalid query")
                 );
+        public override IPathSegment VisitFunction([NotNull] JsonPathParser.FunctionContext context) =>
+            new FunctionPathSegment(
+                Visit(context.identity()) ?? throw new JsonPathException($"Unnamed functions are not allowed: {context.GetText()}"),
+                Visit(context.functionParameter()) ?? SetPathSegment.Empty
+                );
+        public override IPathSegment VisitFunctionParameter([NotNull] JsonPathParser.FunctionParameterContext context) =>
+            Visit(
+                context.operand(),
+                context.pathBase(),
+                context.DECIMAL()
+                ) ?? throw new JsonPathException($"Invalid function parameter type");
 
         public override IPathSegment? Visit(IParseTree tree) => tree switch { null => null, _ => base.Visit(tree) };
         public virtual IPathSegment? Visit(IParseTree first, IParseTree second, params IParseTree[] more) =>
             Visit(first) ?? Visit(second) ?? more.Select(Visit).Where(l => l != null).FirstOrDefault();
-
         public virtual IPathSegment<T>? Visit<T>(IParseTree first, IParseTree second, params IParseTree[] more) =>
             Visit(first) as IPathSegment<T> ??
             Visit(second) as IPathSegment<T> ??
@@ -120,6 +134,7 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
                 _ when value.Length == 0 => new StringPathSegment(""),
                 _ when value[0] == '\'' => new QuotedStringPathSegment(value.Trim('\'')),
                 _ when int.TryParse(value, out var number) => new NumericPathSegment(number),
+                _ when decimal.TryParse(value, out var number) => new DecimalPathSegment(number),
                 _ => new StringPathSegment(value)
             };
         public virtual IPathSegment<T>? Visit<T>(ITerminalNode node) => Visit(node) as IPathSegment<T>;

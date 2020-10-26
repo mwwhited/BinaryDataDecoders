@@ -6,6 +6,7 @@ start
 
 path
     : pathBase sequence
+    | function
     ;
 
 pathBase 
@@ -23,6 +24,7 @@ sequenceItem
             | identity      		// .item or ./item['bracketChain']
             | bracket          		// .[...] ir [...]
             | filter          		// .[?(...)] ir [?(...)]
+            | function              // .function(...)
         )
     | DESCENDANTS                   // ..
     ;
@@ -32,6 +34,7 @@ bracket
     | '[' NUMBER (',' NUMBER)* ']'
     | '[' string (',' string)* ']'
     | '[' range ']'
+    | '[' function ']'
     ;
 
 filter
@@ -60,6 +63,17 @@ string
     : QUOTED_STRING
     ;
 
+function
+    : identity '()'
+    | identity '(' functionParameter (',' functionParameter)* ')' 
+    ;
+
+functionParameter
+    : operand
+    | pathBase
+    | DECIMAL
+    ;
+
 fragment ESCAPED_QUOTE : '\\\'';
 QUOTED_STRING :   '\'' ( ESCAPED_QUOTE | ~('\n'|'\r') )*? '\'';
 
@@ -79,4 +93,5 @@ RELATIVE : '@';
 ROOT : '$';
 IDENTITY : [a-zA-Z][a-zA-Z0-9]* ;
 NUMBER   : '0' | '-'? [1-9][0-9]* ;
+DECIMAL  : ('0' | '-'? [1-9][0-9]*) '.' [0-9]+;
 WS       :  [ \t\n\r]+ -> skip ;
