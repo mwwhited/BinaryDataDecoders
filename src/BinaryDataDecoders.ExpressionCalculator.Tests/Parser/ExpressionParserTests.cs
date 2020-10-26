@@ -1,4 +1,5 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Evaluators;
+﻿using Antlr4.Runtime.Misc;
+using BinaryDataDecoders.ExpressionCalculator.Evaluators;
 using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using BinaryDataDecoders.ExpressionCalculator.Parser;
 using BinaryDataDecoders.TestUtilities;
@@ -87,7 +88,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 
 
         [DataTestMethod, TestCategory(TestCategories.Unit)]
-        [ExpectedException(typeof(NotSupportedException))]
+        [ExpectedException(typeof(ParseCanceledException))]
         [DataRow("-A!")]
         [DataRow("B/*1")]
         [DataRow("B**")]
