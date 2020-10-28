@@ -26,7 +26,16 @@ namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
         public override IPathSegment? VisitIdentity([NotNull] JsonPathParser.IdentityContext context) =>
             Visit(context.IDENTITY());
         public override IPathSegment? VisitOperand([NotNull] JsonPathParser.OperandContext context) =>
-            Visit(context.path(), context.@string(), context.NUMBER());
+            Visit(
+                context.path(),
+                context.@string()
+                ) ??
+                Visit(context.NUMBER()) switch
+                {
+                    null => null,
+                    NumericPathSegment number => new DecimalPathSegment(number.Value),
+                    IPathSegment passThough => passThough
+                };
         public override IPathSegment? VisitString([NotNull] JsonPathParser.StringContext context) =>
             Visit(context.QUOTED_STRING());
         public override IPathSegment? VisitSequenceItem([NotNull] JsonPathParser.SequenceItemContext context) =>

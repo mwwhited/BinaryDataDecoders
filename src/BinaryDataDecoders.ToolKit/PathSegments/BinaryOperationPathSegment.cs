@@ -1,6 +1,6 @@
 ﻿namespace BinaryDataDecoders.ToolKit.PathSegments
 {
-    public class BinaryOperationPathSegment<T> : BinaryPathSegment
+    public abstract class BinaryOperationPathSegment<T> : BinaryPathSegment
     {
         public IPathSegment<T> Operator { get; }
 
