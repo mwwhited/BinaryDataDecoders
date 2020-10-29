@@ -14,7 +14,7 @@ SET TEST_RESULTS_PATH=%OUTPUT_PATH%\TestResults
 SET DOCS_PATH=%OUTPUT_PATH%\docs
 SET RESULTS_PATH=%OUTPUT_PATH%\Results
 SET TEMPLATES_PATH=%SANDBOX_PATH%\templates\reports
-SET WIKI_PATH=%SANDBOX_PATH%\..\BinaryDataDecoders.wiki\docs
+SET WIKI_PATH=%SANDBOX_PATH%\docs
 
 REM java is required for antlr4
 SET JAVA_EXEC=%JAVA_HOME%\bin\java.exe
@@ -114,7 +114,6 @@ dotnet tool update BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-ca
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"
-PAUSE
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Coverage) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\CoverageToMarkdown.xslt" -i "%RESULTS_PATH%\Coverage\*.xml" -o "%DOCS_PATH%\Coverage\*.md"  -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Structured) <<<"
@@ -137,18 +136,19 @@ REM dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.vb" -
 REM ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to XML) <<<"
 REM dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%DOCS_PATH%" -o "%RESULTS_PATH%\Path.xml" -s "%SANDBOX_PATH%" -x Path
 
+dotnet tool uninstall BinaryDataDecoders.Xslt.Cli --local
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :wiki
-pushd
+REM pushd
 echo "Post Wiki"
-CD /d "%WIKI_PATH%"
-git checkout master
-git pull
+REM CD /d "%WIKI_PATH%"
+REM git checkout master
+REM git pull
 robocopy /MIR "%DOCS_PATH%" "%WIKI_PATH%"
-git add .
+REM git add .
 REM git push
-popd
+REM popd
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :show

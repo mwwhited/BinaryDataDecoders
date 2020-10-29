@@ -26,6 +26,8 @@
 	<xsl:param name="files" />
 
 	<xsl:template match="/">
+		<xsl:text># Test Run</xsl:text>&cr;&cr;
+		<!--
 		<xsl:text># Test Run - </xsl:text><xsl:value-of select="tt:TestRun/@name" />&cr;
 		&cr;
 		<xsl:text>Run Time - </xsl:text>
@@ -33,6 +35,7 @@
 		<xsl:text> to </xsl:text>
 		<xsl:value-of select="tt:TestRun/tt:Times/@finish" />
 		&cr;&cr;
+		-->
 
 		<xsl:variable name="test-classes" select="tt:TestRun/tt:TestDefinitions/tt:UnitTest/tt:TestMethod[not(@className=preceding::tt:TestMethod/@className)]/@className" />
 
@@ -105,7 +108,7 @@
 				❓ <xsl:value-of select="substring(concat(./@outcome,'                    '),1,20)" />
 			</xsl:otherwise>
 		</xsl:choose>
-		<xsl:text> | </xsl:text><xsl:value-of select="./@duration" />
+		<xsl:text> | </xsl:text><xsl:value-of select="substring(./@duration,1,11)" />
 		<xsl:text> | `</xsl:text>
 		<xsl:choose>
 			<xsl:when test="string-length(./@testName)&lt;60">

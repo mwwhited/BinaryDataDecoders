@@ -27,10 +27,10 @@
 
 	<xsl:template match="/">
 
-		<xsl:text># </xsl:text><xsl:value-of select="CoverageReport/Summary/Title" />&cr;
+		<!--<xsl:text># </xsl:text><xsl:value-of select="CoverageReport/Summary/Title" />&cr;-->
 		&cr;
-		<xsl:text>Scope: </xsl:text><xsl:value-of select="CoverageReport/@scope" />&cr;
-		<xsl:text>Build: </xsl:text><xsl:value-of select="ex-env:GetValue('BUILD_VERSION')" />&cr;
+		<xsl:text># </xsl:text><xsl:value-of select="CoverageReport/@scope" />&cr;
+		<!--<xsl:text>Build: </xsl:text><xsl:value-of select="ex-env:GetValue('BUILD_VERSION')" />&cr;-->
 		<xsl:text>Source: </xsl:text><xsl:value-of select="$files/@input" />&cr;
 		&cr;
 

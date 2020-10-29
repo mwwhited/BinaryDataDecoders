@@ -1,0 +1,49 @@
+﻿
+# BinaryDataDecoders.ToolKit.MetaData.FileExtensionAttribute
+Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_FileExtensionAttribute.xml
+
+## Summary
+
+| Key                  | Value                                                            |
+| :------------------- | :--------------------------------------------------------------- |
+| Class                | BinaryDataDecoders.ToolKit.MetaData.FileExtensionAttribute   | 
+| Assembly             | BinaryDataDecoders.ToolKit                                   | 
+| Coveredlines         | 0                                                            | 
+| Uncoveredlines       | 1                                                            | 
+| Coverablelines       | 1                                                            | 
+| Totallines           | 12                                                           | 
+| Linecoverage         | 0                                                            | 
+| Coveredbranches      | 0                                                            | 
+| Totalbranches        | 0                                                            | 
+| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
+
+### Files
+ * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MetaData\FileExtensionAttribute.cs
+
+## Metrics
+
+| Complexity | Lines | Branches | Name                                          |
+| :--------- | :---- | :------- | :-------------------------------------------- |
+| 1          | 0     | 100      | ctor | 
+## Files
+
+## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MetaData\FileExtensionAttribute.cs
+
+```CSharp
+〰1:   using System;
+〰2:   
+〰3:   namespace BinaryDataDecoders.ToolKit.MetaData
+〰4:   {
+〰5:       [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+〰6:       public class FileExtensionAttribute : Attribute
+〰7:       {
+〰8:           public string FileExtension { get; }
+〰9:   
+‼10:          public FileExtensionAttribute(string fileExtension) => FileExtension = fileExtension;
+〰11:      }
+〰12:  }
+
+```
+## Footer 
+[Return to Summary](Summary.md)
+

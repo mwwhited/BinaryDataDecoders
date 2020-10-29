@@ -47,8 +47,8 @@
 		<xsl:text>* </xsl:text>
 		<xsl:text>[</xsl:text>
 		<xsl:value-of  select="@WithoutExtension" />
-		<xsl:text>](.</xsl:text>
-		<xsl:value-of  select="@RelativeName" />
+		<xsl:text>](</xsl:text>
+		<xsl:value-of  select="concat('.', translate(@RelativeName, '\', '/'))" />
 		<xsl:text>)</xsl:text> &cr;
 
 		<xsl:apply-templates select="*" />
