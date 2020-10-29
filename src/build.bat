@@ -108,7 +108,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
-dotnet tool uninstall BinaryDataDecoders.Xslt.Cli --local
+dotnet tool uninstall BinaryDataDecoders.Xslt.Cli --global
 dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
 dotnet tool update BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
 
