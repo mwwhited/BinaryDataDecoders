@@ -6,7 +6,7 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\Summary.xm
 
 | Key                  | Value                                                            |
 | :------------------- | :--------------------------------------------------------------- |
-| Generatedon          | 10/29/2020 - 10:10:53 AM                                     | 
+| Generatedon          | 10/29/2020 - 11:09:39 AM                                     | 
 | Parser               | MultiReportParser (32x CoberturaParser)                      | 
 | Assemblies           | 17                                                           | 
 | Classes              | 158                                                          | 

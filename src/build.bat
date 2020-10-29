@@ -113,7 +113,7 @@ dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoder
 dotnet tool update BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestReports\*.md" -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Coverage) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\CoverageToMarkdown.xslt" -i "%RESULTS_PATH%\Coverage\*.xml" -o "%DOCS_PATH%\Coverage\*.md"  -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Structured) <<<"
