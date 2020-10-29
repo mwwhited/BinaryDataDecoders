@@ -12,6 +12,8 @@
         CSharp = 256,
         VB,
 
+        Path = 512,
+
         ByExtention = 0x7fffffff,
     }
 }

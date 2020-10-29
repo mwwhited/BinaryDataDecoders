@@ -44,6 +44,10 @@
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.vb\" -o \"$(SolutionDir)..\\Publish\\Results\\SourceCode\\*.xml\" -s \"$(SolutionDir)..\" -x VB"
     },
+    "BinaryDataDecoders.Xslt.Cli (Path to XML)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir).\" -o \"$(SolutionDir)..\\Publish\\Results\\Path.xml\" -s \"$(SolutionDir)..\" -x Path"
+    },
     "WSL 2": {
       "commandName": "WSL2",
       "distributionName": ""

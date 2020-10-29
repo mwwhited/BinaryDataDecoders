@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "gitversion.tool": {
-      "version": "5.3.7",
+      "version": "5.5.0",
       "commands": [
         "dotnet-gitversion"
       ]
@@ -12,12 +12,6 @@
       "version": "4.7.1",
       "commands": [
         "reportgenerator"
-      ]
-    },
-    "binarydatadecoders.xslt.cli": {
-      "version": "0.2.0-beta.159",
-      "commands": [
-        "bdd-xslt"
       ]
     }
   }

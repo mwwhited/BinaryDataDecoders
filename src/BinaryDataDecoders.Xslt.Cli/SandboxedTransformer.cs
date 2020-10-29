@@ -3,6 +3,7 @@ using BinaryDataDecoders.CodeAnalysis.VisualBasic;
 using BinaryDataDecoders.Templating.Html;
 using BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions;
 using BinaryDataDecoders.Text.Json;
+using BinaryDataDecoders.ToolKit.IO;
 using BinaryDataDecoders.ToolKit.Xml.Xsl;
 using BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions;
 using BinaryDataDecoders.Yaml;
@@ -50,6 +51,8 @@ namespace BinaryDataDecoders.Xslt.Cli
                 InputTypes.Json => new JsonNavigator().ToNavigable,
                 InputTypes.Yaml => new YamlNavigator().ToNavigable,
 
+                InputTypes.Path => new PathNavigator().ToNavigable,
+
                 _ => null
             };
 
@@ -68,7 +71,26 @@ namespace BinaryDataDecoders.Xslt.Cli
                 _ => GetNavigator(InputTypes.Unknown),
             };
 
-        public void TransformAll(string template, string input, InputTypes inputType, string output) =>
-            _transformer.TransformAll(template, input, GetNavigator(inputType, input), output);
+        public void TransformAll(string template, string input, InputTypes inputType, string output)
+        {
+            switch (inputType)
+            {
+                case InputTypes.Path:
+                    _transformer.Transform(template, input, GetNavigator(inputType, input)(input), output);
+                    break;
+
+                case InputTypes.Unknown:
+                case InputTypes.Xml:
+                case InputTypes.Html:
+                case InputTypes.Json:
+                case InputTypes.Yaml:
+                case InputTypes.CSharp:
+                case InputTypes.VB:
+                case InputTypes.ByExtention:
+                default:
+                    _transformer.TransformAll(template, input, GetNavigator(inputType, input), output);
+                    break;
+            }
+        }
     }
 }

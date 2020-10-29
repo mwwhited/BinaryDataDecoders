@@ -6,7 +6,7 @@ SET TARGET_INPUT=%~1
 
 SET Configuration=Release
 
-SET SANDBOX_PATH=..
+SET SANDBOX_PATH=%~dp0..
 SET BUILD_PATH=%SANDBOX_PATH%\src
 SET BUILD_PROJECT=%BUILD_PATH%\BinaryDataDecoders.sln
 SET OUTPUT_PATH=%SANDBOX_PATH%\Publish
@@ -14,13 +14,32 @@ SET TEST_RESULTS_PATH=%OUTPUT_PATH%\TestResults
 SET DOCS_PATH=%OUTPUT_PATH%\docs
 SET RESULTS_PATH=%OUTPUT_PATH%\Results
 SET TEMPLATES_PATH=%SANDBOX_PATH%\templates\reports
+SET WIKI_PATH=%SANDBOX_PATH%\..\BinaryDataDecoders.wiki\docs
 
 REM java is required for antlr4
 SET JAVA_EXEC=%JAVA_HOME%\bin\java.exe
 
 REM SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
 REM SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
- 
+
+echo "=== configured ==="
+ECHO TARGET_INPUT="%TARGET_INPUT%"
+ECHO Configuration="%Configuration%"
+Echo Directory = %~dp0
+ECHO SANDBOX_PATH="%SANDBOX_PATH%"
+ECHO BUILD_PATH="%BUILD_PATH%"
+ECHO BUILD_PROJECT="%BUILD_PROJECT%"
+ECHO OUTPUT_PATH="%OUTPUT_PATH%"
+ECHO TEST_RESULTS_PATH="%TEST_RESULTS_PATH%"
+ECHO DOCS_PATH="%DOCS_PATH%"
+ECHO RESULTS_PATH="%RESULTS_PATH%"
+ECHO TEMPLATES_PATH="%TEMPLATES_PATH%"
+ECHO WIKI_PATH="%WIKI_PATH%"
+ECHO JAVA_EXEC="%JAVA_EXEC%"
+
+pushd
+REM PAUSE
+
 echo "Git fetch"
 git fetch --prune
 dotnet tool install --local gitversion.tool
@@ -109,6 +128,22 @@ dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x VB
 
+
+ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to XML) <<<"
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%DOCS_PATH%" -o "%RESULTS_PATH%\Path.xml" -s "%SANDBOX_PATH%" -x Path
+
+IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
+
+:wiki
+pushd
+echo "Post Wiki"
+CD /d "%WIKI_PATH%"
+git checkout master
+git pull
+robocopy /MIR "%DOCS_PATH%" "%WIKI_PATH%"
+REM git add .
+REM git push
+popd
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :show
@@ -142,5 +177,6 @@ SET TARGET_INPUT=%~1
 IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
 
 :done_with_it
+popd
 ENDLOCAL
 echo "fin!"
