@@ -23,6 +23,7 @@
 	xmlns:ex-xsl="clr:BinaryDataDecoders.Xslt.Cli.XsltTransformer, BinaryDataDecoders.Xslt.Cli"
 	>
 	<xsl:output method="text" indent="no"/>
+	<xsl:param name="files" />
 
 	<xsl:template match="/">
 		<xsl:text># Test Run - </xsl:text><xsl:value-of select="tt:TestRun/@name" />&cr;
@@ -44,7 +45,7 @@
 				<xsl:apply-templates select="$tests" />
 			</xsl:variable>
 
-			<xsl:value-of select="ex-file:WriteToFile($test-report, concat($test-class-name, '.md'))" />
+			<xsl:value-of select="ex-file:WriteToFile($test-report, concat($files/@outputPath, '/', $test-class-name, '.md'))" />
 		</xsl:for-each>
 		<xsl:if test="not($test-classes)">
 			<xsl:text>## No Test Results Found</xsl:text>&cr;

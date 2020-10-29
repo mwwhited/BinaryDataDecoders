@@ -108,11 +108,13 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
+dotnet tool uninstall BinaryDataDecoders.Xslt.Cli --local
 dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
 dotnet tool update BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestResults\*.md" -s "%SANDBOX_PATH%"
+PAUSE
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Coverage) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\CoverageToMarkdown.xslt" -i "%RESULTS_PATH%\Coverage\*.xml" -o "%DOCS_PATH%\Coverage\*.md"  -s "%SANDBOX_PATH%"
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Structured) <<<"
@@ -125,17 +127,15 @@ dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i "%BUILD_PATH%\**\
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to Markdown) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x VB
 
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x CSharp
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x VB
-
-
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to XML) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%DOCS_PATH%" -o "%RESULTS_PATH%\Path.xml" -s "%SANDBOX_PATH%" -x Path
-
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to Markdown) <<<"
-dotnet bdd-xslt -t "%TEMPLATES_PATH%\PathToMarkdown.xslt" -i "%DOCS_PATH%" -o "%DOCS_PATH%\home.md" -s "%SANDBOX_PATH%" -x Path
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\PathToMarkdown.xslt" -i "%DOCS_PATH%" -o "%DOCS_PATH%\TOC.md" -s "%SANDBOX_PATH%" -x Path
+
+REM ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
+REM dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x CSharp
+REM ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
+REM dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x VB
+REM ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to XML) <<<"
+REM dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%DOCS_PATH%" -o "%RESULTS_PATH%\Path.xml" -s "%SANDBOX_PATH%" -x Path
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
@@ -146,7 +146,7 @@ CD /d "%WIKI_PATH%"
 git checkout master
 git pull
 robocopy /MIR "%DOCS_PATH%" "%WIKI_PATH%"
-REM git add .
+git add .
 REM git push
 popd
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg

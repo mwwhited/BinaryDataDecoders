@@ -74,8 +74,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
                 new XAttribute(nameof(template), Path.GetFullPath(template)),
                 new XAttribute(nameof(input), Path.GetFullPath(inputSource)),
-                new XAttribute("inputType", input.GetType().AssemblyQualifiedName),
+                new XAttribute(nameof(input) +"Type", input.GetType().AssemblyQualifiedName),
                 new XAttribute(nameof(output), Path.GetFullPath(output)),
+                new XAttribute(nameof(output) + "Path", Path.GetDirectoryName(Path.GetFullPath(output))),
                 new XAttribute("sandbox", Path.GetFullPath(_sandbox))
                 ).ToXPathNavigable().CreateNavigator());
 
@@ -149,6 +150,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
             if (!inputFiles.Any()) throw new FileNotFoundException($"input");
 
+            static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
+
 #if PARALLEL
             inputFiles.AsParallel().ForAll(inputFile =>
 #else
@@ -172,7 +175,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 }
                 catch (Exception ex)
                 {
-                    Console.Error.WriteLine($"!!! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {ex.Message}");
+                    var rex = innerMost(ex);
+                    Console.Error.WriteLine($"!!bu  ! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {rex.Message}");
                     try
                     {
                         File.AppendAllLines(outputFile, new[]
