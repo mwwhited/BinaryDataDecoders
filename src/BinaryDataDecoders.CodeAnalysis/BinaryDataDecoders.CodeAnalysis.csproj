@@ -21,6 +21,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
 		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="3.7.0" />
+		<PackageReference Include="MSBuild.StructuredLogger" Version="2.1.176" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />

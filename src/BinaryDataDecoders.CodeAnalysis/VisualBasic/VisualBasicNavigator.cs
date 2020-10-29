@@ -14,7 +14,7 @@ namespace BinaryDataDecoders.CodeAnalysis.VisualBasic
         {
             var content = File.ReadAllText(filePath);
             var syntax = VisualBasicSyntaxTree.ParseText(content);
-            var root = syntax.ToNavigable();
+            var root = syntax.ToNavigable(filePath);
             return root;
         }
 

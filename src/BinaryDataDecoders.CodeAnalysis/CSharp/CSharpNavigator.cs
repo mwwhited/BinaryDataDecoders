@@ -15,7 +15,7 @@ namespace BinaryDataDecoders.CodeAnalysis.CSharp
         {
             var content = File.ReadAllText(filePath);
             var syntax = CSharpSyntaxTree.ParseText(content);
-            var root = syntax.ToNavigable();
+            var root = syntax.ToNavigable(filePath);
             return root;
         }
 
