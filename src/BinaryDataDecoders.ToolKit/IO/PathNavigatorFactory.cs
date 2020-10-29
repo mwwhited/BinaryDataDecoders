@@ -18,16 +18,18 @@ namespace BinaryDataDecoders.ToolKit.IO
             if (rootName == null || string.IsNullOrWhiteSpace(rootName.LocalName))
                 rootName = "Directory";
 
+            var trimLen = dir.FullName.Length;
+
             return new ExtensibleElementNode(
                 rootName,
                 dir,
 
-                  //valueSelector: v => v switch
-                  //{
-                  //    FileInfo file => file.Name,
-                  //    DirectoryInfo directory => directory.Name,
-                  //    _ => throw new NotSupportedException(),
-                  //},
+                  valueSelector: v => v switch
+                  {
+                      FileInfo file => file.Name,
+                      DirectoryInfo directory => directory.Name,
+                      _ => throw new NotSupportedException(),
+                  },
 
                   attributeSelector: a => a switch
                   {
@@ -38,11 +40,13 @@ namespace BinaryDataDecoders.ToolKit.IO
                           (XName.Get(nameof(directory.CreationTimeUtc), rootName.NamespaceName), directory.CreationTimeUtc.ToString()),
                           (XName.Get(nameof(directory.Extension), rootName.NamespaceName), directory.Extension),
                           (XName.Get(nameof(directory.FullName), rootName.NamespaceName), directory.FullName),
+                          (XName.Get("RelativeName", rootName.NamespaceName), directory.FullName[trimLen..]),
                           (XName.Get(nameof(directory.LastAccessTime), rootName.NamespaceName), directory.LastAccessTime.ToString()),
                           (XName.Get(nameof(directory.LastAccessTimeUtc), rootName.NamespaceName), directory.LastAccessTimeUtc.ToString()),
                           (XName.Get(nameof(directory.LastWriteTime), rootName.NamespaceName), directory.LastWriteTime.ToString()),
                           (XName.Get(nameof(directory.LastWriteTimeUtc), rootName.NamespaceName), directory.LastWriteTimeUtc.ToString()),
-                          (XName.Get(nameof(directory.Name), rootName.NamespaceName), directory.Name.ToString()),
+                          (XName.Get(nameof(directory.Name), rootName.NamespaceName), directory.Name),
+                          (XName.Get("WithoutExtension", rootName.NamespaceName), Path.GetFileNameWithoutExtension( directory.Name)),
                       }.Select(i => (i.Item1, (string?)i.Item2)),
 
                       FileInfo file => new[]
@@ -52,13 +56,15 @@ namespace BinaryDataDecoders.ToolKit.IO
                           (XName.Get(nameof(file.CreationTimeUtc), rootName.NamespaceName), file.CreationTimeUtc.ToString()),
                           (XName.Get(nameof(file.Extension), rootName.NamespaceName), file.Extension),
                           (XName.Get(nameof(file.FullName), rootName.NamespaceName), file.FullName),
+                          (XName.Get("RelativeName", rootName.NamespaceName), file.FullName[trimLen..]),
                           (XName.Get(nameof(file.IsReadOnly), rootName.NamespaceName), file.IsReadOnly.ToString()),
                           (XName.Get(nameof(file.LastAccessTime), rootName.NamespaceName), file.LastAccessTime.ToString()),
                           (XName.Get(nameof(file.LastAccessTimeUtc), rootName.NamespaceName), file.LastAccessTimeUtc.ToString()),
                           (XName.Get(nameof(file.LastWriteTime), rootName.NamespaceName), file.LastWriteTime.ToString()),
                           (XName.Get(nameof(file.LastWriteTimeUtc), rootName.NamespaceName), file.LastWriteTimeUtc.ToString()),
                           (XName.Get(nameof(file.Length), rootName.NamespaceName), file.Length.ToString()),
-                          (XName.Get(nameof(file.Name), rootName.NamespaceName), file.Name.ToString()),
+                          (XName.Get(nameof(file.Name), rootName.NamespaceName), file.Name),
+                          (XName.Get("WithoutExtension", rootName.NamespaceName), Path.GetFileNameWithoutExtension( file.Name)),
                       }.Select(i => (i.Item1, (string?)i.Item2)),
 
                       _ => throw new NotSupportedException(),

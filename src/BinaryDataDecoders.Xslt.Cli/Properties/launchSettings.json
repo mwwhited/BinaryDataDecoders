@@ -46,7 +46,11 @@
     },
     "BinaryDataDecoders.Xslt.Cli (Path to XML)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir).\" -o \"$(SolutionDir)..\\Publish\\Results\\Path.xml\" -s \"$(SolutionDir)..\" -x Path"
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)..\\Publish\\docs\" -o \"$(SolutionDir)..\\Publish\\Results\\Path.xml\" -s \"$(SolutionDir)..\" -x Path"
+    },
+    "BinaryDataDecoders.Xslt.Cli (Path to Markdown)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\PathToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\docs\" -o \"$(SolutionDir)..\\Publish\\Results\\Path.xml\" -s \"$(SolutionDir)..\" -x Path"
     },
     "WSL 2": {
       "commandName": "WSL2",

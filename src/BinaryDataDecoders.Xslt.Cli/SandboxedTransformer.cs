@@ -76,6 +76,7 @@ namespace BinaryDataDecoders.Xslt.Cli
             switch (inputType)
             {
                 case InputTypes.Path:
+                    Console.WriteLine($"{inputType}: \"{input}\" => \"{output}\"");
                     _transformer.Transform(template, input, GetNavigator(inputType, input)(input), output);
                     break;
 

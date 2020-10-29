@@ -37,6 +37,8 @@ ECHO TEMPLATES_PATH="%TEMPLATES_PATH%"
 ECHO WIKI_PATH="%WIKI_PATH%"
 ECHO JAVA_EXEC="%JAVA_EXEC%"
 
+REM pause
+
 pushd
 REM PAUSE
 
@@ -131,6 +133,9 @@ dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to XML) <<<"
 dotnet bdd-xslt -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%DOCS_PATH%" -o "%RESULTS_PATH%\Path.xml" -s "%SANDBOX_PATH%" -x Path
+
+ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to Markdown) <<<"
+dotnet bdd-xslt -t "%TEMPLATES_PATH%\PathToMarkdown.xslt" -i "%DOCS_PATH%" -o "%DOCS_PATH%\home.md" -s "%SANDBOX_PATH%" -x Path
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 

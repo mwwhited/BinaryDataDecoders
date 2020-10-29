@@ -86,6 +86,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "reports", "reports", "{D609
 		..\templates\reports\CoverageToMarkdown.xslt = ..\templates\reports\CoverageToMarkdown.xslt
 		..\templates\reports\CSharpToMarkdown.xslt = ..\templates\reports\CSharpToMarkdown.xslt
 		..\templates\reports\DisableXmlDocs.xslt = ..\templates\reports\DisableXmlDocs.xslt
+		..\templates\reports\PathToMarkdown.xslt = ..\templates\reports\PathToMarkdown.xslt
 		..\templates\reports\TestResultsToMarkdown.xslt = ..\templates\reports\TestResultsToMarkdown.xslt
 		..\templates\reports\TestResultsToMarkdownDetailed.xslt = ..\templates\reports\TestResultsToMarkdownDetailed.xslt
 		..\templates\reports\ToXml.xslt = ..\templates\reports\ToXml.xslt
@@ -120,9 +121,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Text.Jso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Text.Json.Tests", "BinaryDataDecoders.Text.Json.Tests\BinaryDataDecoders.Text.Json.Tests.csproj", "{9D2C467B-D8D8-4828-B4B5-742168B77654}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Yaml", "BinaryDataDecoders.Yaml\BinaryDataDecoders.Yaml.csproj", "{2E3E89A0-B051-4838-BD33-3B1F1FC3C7EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Yaml", "BinaryDataDecoders.Yaml\BinaryDataDecoders.Yaml.csproj", "{2E3E89A0-B051-4838-BD33-3B1F1FC3C7EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Yaml.Tests", "BinaryDataDecoders.Yaml.Tests\BinaryDataDecoders.Yaml.Tests.csproj", "{EB038661-1197-40A6-B6D5-F5467FEF6866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Yaml.Tests", "BinaryDataDecoders.Yaml.Tests\BinaryDataDecoders.Yaml.Tests.csproj", "{EB038661-1197-40A6-B6D5-F5467FEF6866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
