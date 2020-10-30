@@ -2,7 +2,11 @@
   "profiles": {
     "BinaryDataDecoders.Xslt.Cli (TestResults)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\TestResults\\*.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\*.md\" -s \"$(SolutionDir)..\""
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" -i \"$(SolutionDir)..\\Publish\\TestResults\\*.trx\" -o \"$(SolutionDir)..\\Publish\\docs\\TestResults\\Summary.md\" -s \"$(SolutionDir)..\" -m "
+    },
+    "BinaryDataDecoders.Xslt.Cli (TestResults to Xml)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)..\\Publish\\TestResults\\*.trx\" -o \"$(SolutionDir)..\\Publish\\TestResults\\Summary.xml\" -s \"$(SolutionDir)..\" -m "
     },
     "BinaryDataDecoders.Xslt.Cli (Coverage Summary)": {
       "commandName": "Project",

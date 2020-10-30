@@ -49,5 +49,14 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
         /// <param name="output">Output and suffix per file.</param>
         void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output);
+
+        /// <summary>
+        /// Multi-action transform. Merge globbed files an handoff to single style
+        /// </summary>
+        /// <param name="template">path for XSLT style-sheet</param>
+        /// <param name="input">Wild card allowed for multiple files</param>
+        /// <param name="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
+        /// <param name="output">Output and suffix per file.</param>
+        void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output);
     }
 }

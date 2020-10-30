@@ -73,7 +73,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                 _ => GetNavigator(InputTypes.Unknown),
             };
 
-        public void TransformAll(string template, string input, InputTypes inputType, string output)
+        public void TransformAll(string template, string input, InputTypes inputType, string output, bool merge)
         {
             switch (inputType)
             {
@@ -91,7 +91,10 @@ namespace BinaryDataDecoders.Xslt.Cli
                 case InputTypes.VB:
                 case InputTypes.ByExtention:
                 default:
-                    _transformer.TransformAll(template, input, GetNavigator(inputType, input), output);
+                    if (merge)
+                        _transformer.TransformMerge(template, input, GetNavigator(inputType, input), output);
+                    else
+                        _transformer.TransformAll(template, input, GetNavigator(inputType, input), output);
                     break;
             }
         }

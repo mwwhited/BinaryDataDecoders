@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                   .WithParsed(o =>
                   {
                       new SandboxedTransformer(string.IsNullOrWhiteSpace(o.Sandbox) ? Path.GetDirectoryName(o.Output) : o.Sandbox)
-                        .TransformAll(o.Template, o.Input, o.InputType, o.Output);
+                        .TransformAll(o.Template, o.Input, o.InputType, o.Output, o.Merge);
                   });
         }
     }

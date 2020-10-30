@@ -1,6 +1,7 @@
 ﻿#define PARALLEL
 
 using BinaryDataDecoders.ToolKit.IO;
+using BinaryDataDecoders.ToolKit.Xml.XPath;
 using System;
 using System.IO;
 using System.Linq;
@@ -132,13 +133,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="output">Output and suffix per file.</param>
         public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
         {
-            //if (File.Exists(input))
-            //{
-            //    Console.WriteLine($"\"{Path.GetFileName(input)}\" => \"{Path.GetFileName(output)}\"");
-            //    Transform(template, input, output);
-            //    return;
-            //}
-
             var inputFullPath = Path.GetFullPath(input);
             var inputDir = PathEx.GetBasePath(input);
             var inputFiles = PathEx.EnumerateFiles(input);
@@ -163,7 +157,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 var outFileName = removedExt + outputPattern;
                 var outputFile = Path.Combine(outputDir, outFileName);
 
-
                 var tid = Thread.CurrentThread.ManagedThreadId;
 
                 Console.WriteLine($"\t[{tid}]\"{inputFileClean}\" => \"{outFileName}\"");
@@ -176,7 +169,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 catch (Exception ex)
                 {
                     var rex = innerMost(ex);
-                    Console.Error.WriteLine($"!!bu  ! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {rex.Message}");
+                    Console.Error.WriteLine($"!!! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {rex.Message}");
                     try
                     {
                         File.AppendAllLines(outputFile, new[]
@@ -197,6 +190,48 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 #if PARALLEL
             );
 #endif
+        }
+
+        public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
+        {
+            static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
+            var tid = Thread.CurrentThread.ManagedThreadId;
+            try
+            {
+                var inputFullPath = Path.GetFullPath(input);
+                var inputDir = PathEx.GetBasePath(input);
+                var inputFiles = PathEx.EnumerateFiles(input);
+
+                if (!inputFiles.Any()) throw new FileNotFoundException($"input");
+
+                var navigators = inputFiles.Select(f => inputNavigatorFactory(f)).ToList();
+
+                //TODO: need to figoure out why this wont navigate correctly.
+                var merged = navigators.MergeNavigators().CreateNavigator();
+                var doc = new XmlDocument();
+                doc.LoadXml(merged.OuterXml);
+                Transform(template, input, doc, output);
+            }
+            catch (Exception ex)
+            {
+                var rex = innerMost(ex);
+                Console.Error.WriteLine($"ERROR[{tid}]: \"{input}\" => \"{output}\" :: {rex.Message}");
+                try
+                {
+                    File.AppendAllLines(output, new[]
+                    {
+                            "",
+                            new string('=', 60),
+                           $"!!! ERROR !!!: {ex.Message}",
+                            new string('=', 60),
+                            ex.ToString()
+                        });
+                }
+                catch
+                {
+                    // Eat and errors!
+                }
+            }
         }
     }
 }

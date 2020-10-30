@@ -16,7 +16,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override XPathNavigator Clone() => new WrappedNavigator(_node) { _state = this._state };
 
-
         public override string BaseURI => _state switch
         {
             WrapperState.Child => _node.Current.BaseURI,
@@ -57,7 +56,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         {
             WrapperState.Child => _node.Current.NodeType switch
             {
-                XPathNodeType.Root => XPathNodeType.Element, //Children can not be root elements
+                XPathNodeType.Root => throw new NotSupportedException(), // XPathNodeType.Element, //Children can not be root elements
                 _ => _node.Current.NodeType
             },
             WrapperState.Root => XPathNodeType.Root,
@@ -76,6 +75,29 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             _ => ""
         };
 
+        public override string LookupNamespace(string prefix) => _state switch
+        {
+            WrapperState.Child => _node.Current.LookupNamespace(prefix),
+            _ => ""
+        };
+        public override string LookupPrefix(string namespaceURI) => _state switch
+        {
+            WrapperState.Child => _node.Current.LookupPrefix(namespaceURI),
+            _ => ""
+        };
+
+        public override bool HasAttributes => _state switch
+        {
+            WrapperState.Child => _node.Current.HasAttributes,
+            _ => false
+        };
+
+        public override bool HasChildren => _state switch
+        {
+            WrapperState.Child => _node.Current.HasAttributes,
+            _ => true,
+        };
+
         public override bool IsSamePosition(XPathNavigator other) => _state switch
         {
             WrapperState.Child => _node.Current.IsSamePosition(other),
@@ -88,7 +110,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override bool MoveTo(XPathNavigator other)
         {
-            if (other is WrappedNavigator wrapped)
+            if (other is WrappedNavigator wrapped && wrapped._node != null)
             {
                 _node = wrapped._node;
                 _state = wrapped._state;
@@ -141,10 +163,12 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
                 case WrapperState.Top:
                     _state = WrapperState.Node;
+                    if (_node.First == null) return false;
                     _node = _node.First;
                     return true;
 
                 case WrapperState.Node:
+                    _node.Current.MoveToRoot();
                     var result = _node.Current.MoveToFirstChild();
                     if (result)
                         _state = WrapperState.Child;
@@ -170,8 +194,11 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     return false;
 
                 case WrapperState.Node:
-                    if (_node.Next == null) return false;
+                    if (_node.Next == null)
+                        return false;
                     _node = _node.Next;
+                    _node.Current.MoveToRoot();
+                    var result = _node.Current.MoveToFirstChild();
                     return true;
 
                 default:
@@ -190,10 +217,12 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             switch (_state)
             {
                 case WrapperState.Root:
+                case WrapperState.Top:
                     return false;
 
                 case WrapperState.Node:
-                    if (_node.Previous == null) return false;
+                    if (_node.Previous == null)
+                        return false;
                     _node = _node.Previous;
                     return true;
 
@@ -210,8 +239,12 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 case WrapperState.Root:
                     return false;
 
-                case WrapperState.Node:
+                case WrapperState.Top:
                     _state = WrapperState.Root;
+                    return true;
+
+                case WrapperState.Node:
+                    _state = WrapperState.Top;
                     return true;
                 case WrapperState.Child:
                     if (!_node.Current.MoveToParent())
@@ -221,13 +254,18 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     if (_node.Current.NodeType == XPathNodeType.Root)
                     {
                         _state = WrapperState.Node;
-                        // _current.Current.MoveToFirst();
+                        var result = _node.Current.MoveToFirstChild();
+                        return result;
                     }
                     return true;
                 default:
                     throw new InvalidOperationException($"Invalid operation while in \"{_state}\" state");
             }
         }
-
+        public override void MoveToRoot()
+        {
+            _node = _node.First;
+            _state = WrapperState.Root;
+        }
     }
 }
