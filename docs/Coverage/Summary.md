@@ -6,15 +6,15 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\Summary.xm
 
 | Key                  | Value                                                            |
 | :------------------- | :--------------------------------------------------------------- |
-| Generatedon          | 10/30/2020 - 10:03:36 AM                                     | 
-| Parser               | MultiReportParser (64x CoberturaParser)                      | 
+| Generatedon          | 10/30/2020 - 11:13:16 AM                                     | 
+| Parser               | MultiReportParser (32x CoberturaParser)                      | 
 | Assemblies           | 17                                                           | 
 | Classes              | 160                                                          | 
 | Coveredlines         | 1591                                                         | 
-| Uncoveredlines       | 1772                                                         | 
-| Coverablelines       | 3363                                                         | 
-| Totallines           | 9250                                                         | 
-| Linecoverage         | 47.3                                                         | 
+| Uncoveredlines       | 1773                                                         | 
+| Coverablelines       | 3364                                                         | 
+| Totallines           | 9260                                                         | 
+| Linecoverage         | 47.2                                                         | 
 | Coveredbranches      | 628                                                          | 
 | Totalbranches        | 1359                                                         | 
 | Branchcoverage       | 46.2                                                         | 
@@ -400,8 +400,8 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\Summary.xm
 | classes              | 60         | 
 | coverage             | 44.1       | 
 | coveredlines         | 410        | 
-| coverablelines       | 928        | 
-| totallines           | 2994       | 
+| coverablelines       | 929        | 
+| totallines           | 3004       | 
 | branchcoverage       | 40.3       | 
 | coveredbranches      | 128        | 
 | totalbranches        | 317        | 

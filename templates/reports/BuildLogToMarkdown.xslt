@@ -49,7 +49,7 @@
 		<xsl:variable name="projectFile" select="substring(@ProjectFile, string-length($basePath)+1)" />
 		<xsl:variable name="projectFilePath" select="concat('..', $projectFile)" />
 		<xsl:variable name="projectBasePath" select="ex-path:GetDirectoryName($projectFilePath)" />
-		<xsl:variable name="codeFile" select="concat($projectBasePath, '\', @File)" />
+		<xsl:variable name="codeFile" select="translate(concat($projectBasePath, '\', @File), '\', '/')" />
 
 		<!--<xsl:message>
 			<xsl:text> ========================================================================== </xsl:text>&cr;
