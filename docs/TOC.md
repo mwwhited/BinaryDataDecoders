@@ -24,6 +24,8 @@
     * [BinaryDataDecoders.CodeAnalysis_ResolveNames](./Coverage/BinaryDataDecoders.CodeAnalysis_ResolveNames.md)
     * [BinaryDataDecoders.CodeAnalysis_SemanticModelNavigatorFactory](./Coverage/BinaryDataDecoders.CodeAnalysis_SemanticModelNavigatorFactory.md)
     * [BinaryDataDecoders.CodeAnalysis_SemanticModelNode](./Coverage/BinaryDataDecoders.CodeAnalysis_SemanticModelNode.md)
+    * [BinaryDataDecoders.CodeAnalysis_StructuredLogNavigator](./Coverage/BinaryDataDecoders.CodeAnalysis_StructuredLogNavigator.md)
+    * [BinaryDataDecoders.CodeAnalysis_StructuredLogNavigatorFactory](./Coverage/BinaryDataDecoders.CodeAnalysis_StructuredLogNavigatorFactory.md)
     * [BinaryDataDecoders.CodeAnalysis_SyntaxTreeNavigatorFactory](./Coverage/BinaryDataDecoders.CodeAnalysis_SyntaxTreeNavigatorFactory.md)
     * [BinaryDataDecoders.CodeAnalysis_VisualBasicNavigator](./Coverage/BinaryDataDecoders.CodeAnalysis_VisualBasicNavigator.md)
     * [BinaryDataDecoders.Cryptography_EnigmaMachine](./Coverage/BinaryDataDecoders.Cryptography_EnigmaMachine.md)
@@ -251,6 +253,9 @@
           * netstandard2.1
             * [.NETStandard,Version=v2.1.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis/obj/Release/netstandard2.1/.NETStandard,Version=v2.1.AssemblyAttributes.md)
             * [BinaryDataDecoders.CodeAnalysis.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis/obj/Release/netstandard2.1/BinaryDataDecoders.CodeAnalysis.AssemblyInfo.md)
+      * StructuredLog
+        * [StructuredLogNavigator](./SourceCode/BinaryDataDecoders.CodeAnalysis/StructuredLog/StructuredLogNavigator.md)
+        * [StructuredLogNavigatorFactory](./SourceCode/BinaryDataDecoders.CodeAnalysis/StructuredLog/StructuredLogNavigatorFactory.md)
       * VisualBasic
         * [VisualBasicNavigator](./SourceCode/BinaryDataDecoders.CodeAnalysis/VisualBasic/VisualBasicNavigator.md)
       * [ISemanticModelNode](./SourceCode/BinaryDataDecoders.CodeAnalysis/ISemanticModelNode.md)
@@ -273,6 +278,8 @@
           * netcoreapp3.1
             * [.NETCoreApp,Version=v3.1.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.md)
             * [BinaryDataDecoders.CodeAnalysis.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/obj/Release/netcoreapp3.1/BinaryDataDecoders.CodeAnalysis.Tests.AssemblyInfo.md)
+      * StructuredLog
+        * [StructuredLogNavigatorTests](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/StructuredLog/StructuredLogNavigatorTests.md)
       * VisualBasic
         * [SampleClasses](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/VisualBasic/SampleClasses.md)
     * BinaryDataDecoders.Cryptography
@@ -981,4 +988,5 @@
     * [BinaryDataDecoders.ToolKit.Tests.MemoryExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests.MemoryExTests.md)
     * [BinaryDataDecoders.ToolKit.Tests.ReadOnlySpanExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests.ReadOnlySpanExTests.md)
     * [BinaryDataDecoders.Yaml.Tests](./TestReports/BinaryDataDecoders.Yaml.Tests.md)
+  * [dotnet_buildBuildLog](./dotnet_buildBuildLog.md)
   * [TOC](./TOC.md)

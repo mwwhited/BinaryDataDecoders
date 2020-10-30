@@ -22,5 +22,5 @@
  Location: binarydatadecoders.apple2.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `GetCatalogsTest                                   ` |
+|  ✔ Passed               | 00:00:00.02 | `GetCatalogsTest                                   ` |
 

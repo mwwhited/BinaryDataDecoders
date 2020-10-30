@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.CodeAnalysis.CSharp;
+using BinaryDataDecoders.CodeAnalysis.StructuredLog;
 using BinaryDataDecoders.CodeAnalysis.VisualBasic;
 using BinaryDataDecoders.Templating.Html;
 using BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions;
@@ -44,12 +45,12 @@ namespace BinaryDataDecoders.Xslt.Cli
             {
                 InputTypes.Xml => _transformer.ReadAsXml,
                 InputTypes.Html => new HtmlNavigator().ToNavigable,
+                InputTypes.Json => new JsonNavigator().ToNavigable,
+                InputTypes.Yaml => new YamlNavigator().ToNavigable,
 
                 InputTypes.CSharp => new CSharpNavigator().ToNavigable,
                 InputTypes.VB => new VisualBasicNavigator().ToNavigable,
-
-                InputTypes.Json => new JsonNavigator().ToNavigable,
-                InputTypes.Yaml => new YamlNavigator().ToNavigable,
+                InputTypes.MSBuildStructuredLog => new StructuredLogNavigator().ToNavigable,
 
                 InputTypes.Path => new PathNavigator().ToNavigable,
 
@@ -67,6 +68,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                 ".YML" => GetNavigator(InputTypes.Yaml),
                 ".CS" => GetNavigator(InputTypes.CSharp),
                 ".VB" => GetNavigator(InputTypes.VB),
+                ".BINLOG" => GetNavigator(InputTypes.MSBuildStructuredLog),
 
                 _ => GetNavigator(InputTypes.Unknown),
             };

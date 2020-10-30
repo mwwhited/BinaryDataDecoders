@@ -11,6 +11,7 @@
 
         CSharp = 256,
         VB,
+        MSBuildStructuredLog,
 
         Path = 512,
 

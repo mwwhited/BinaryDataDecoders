@@ -47,7 +47,7 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰14:          {
 ‼15:              var content = File.ReadAllText(filePath);
 ‼16:              var syntax = VisualBasicSyntaxTree.ParseText(content);
-‼17:              var root = syntax.ToNavigable();
+‼17:              var root = syntax.ToNavigable(filePath);
 ‼18:              return root;
 〰19:          }
 〰20:  

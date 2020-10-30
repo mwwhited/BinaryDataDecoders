@@ -2,7 +2,7 @@
 {
     public interface INamespaceNode : INode
     {
-        INamespaceNode? Next { get; }
-        INamespaceNode? Previous { get; }
+        new INamespaceNode? Next { get; }
+        new INamespaceNode? Previous { get; }
     }
 }

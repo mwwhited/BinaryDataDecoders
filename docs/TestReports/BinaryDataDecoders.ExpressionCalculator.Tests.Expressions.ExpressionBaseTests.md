@@ -4,7 +4,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `ImplicitConvertTest_OverlyComplex                 ` |
+|  ✔ Passed               | 00:00:00.00 | `ImplicitConvertTest_OverlyComplex                 ` |
 
 ### ImplicitConvertTest_Number
  Location: binarydatadecoders.expressioncalculator.tests.dll

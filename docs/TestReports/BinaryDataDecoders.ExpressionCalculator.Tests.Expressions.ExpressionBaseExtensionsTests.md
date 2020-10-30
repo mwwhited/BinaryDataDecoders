@@ -4,7 +4,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ParseAndEvaluateTest                              ` |
+|  ✔ Passed               | 00:00:00.01 | `ParseAndEvaluateTest                              ` |
 
 ### ParseAndPreEvaluateTest
  Location: binarydatadecoders.expressioncalculator.tests.dll

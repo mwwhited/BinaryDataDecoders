@@ -4,5 +4,5 @@
  Location: binarydatadecoders.toolkit.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `CopyWithTransformTest_byte2byte_7bit              ` |
+|  ✔ Passed               | 00:00:00.00 | `CopyWithTransformTest_byte2byte_7bit              ` |
 

@@ -206,20 +206,3 @@ namespace BinaryDataDecoders.CodeAnalysis.StructuredLog
               );
     }
 }
-/*
-<Build Duration="00:00:14.9826560" EndTime="10/29/2020 11:08:08 AM" Id="0" LogFilePath="C:\Repos\mwwhited\BinaryDataDecoders\Publish\dotnet_build.binlog" Name="Build" NodeId="0" StartTime="10/29/2020 11:07:53 AM" Succeeded="True">
-  <Property Name="BinLogFilePath" ShortenedValue="C:\Repos\mwwhited\BinaryDataDecoders\Publish\dotnet_build.binlog" Value="C:\Repos\mwwhited\BinaryDataDecoders\Publish\dotnet_build.binlog" />
-  <Property Name="CurrentUICulture" ShortenedValue="en-US" Value="en-US" />
-  <Folder Name="Environment" />
-  <TimedNode type="Microsoft.Build.Logging.StructuredLogger.TimedNode" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-  <Project type="Microsoft.Build.Logging.StructuredLogger.Project" />
-  <Message type="Microsoft.Build.Logging.StructuredLogger.Message" />
-</Build>
-*/

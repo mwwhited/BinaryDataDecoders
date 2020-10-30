@@ -83,6 +83,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "reports", "reports", "{D609EDE1-0BAD-4F9B-BBC7-32D5CBA485CD}"
 	ProjectSection(SolutionItems) = preProject
+		..\templates\reports\BuildLogToMarkdown.xslt = ..\templates\reports\BuildLogToMarkdown.xslt
 		..\templates\reports\CoverageToMarkdown.xslt = ..\templates\reports\CoverageToMarkdown.xslt
 		..\templates\reports\CSharpToMarkdown.xslt = ..\templates\reports\CSharpToMarkdown.xslt
 		..\templates\reports\DisableXmlDocs.xslt = ..\templates\reports\DisableXmlDocs.xslt

@@ -10,7 +10,7 @@
  Location: binarydatadecoders.toolkit.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `SplitTest_Exclude                                 ` |
+|  ✔ Passed               | 00:00:00.01 | `SplitTest_Exclude                                 ` |
 
 ### SplitTest_Carry
  Location: binarydatadecoders.toolkit.tests.dll

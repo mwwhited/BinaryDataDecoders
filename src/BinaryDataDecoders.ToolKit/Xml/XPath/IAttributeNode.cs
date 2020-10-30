@@ -2,7 +2,7 @@
 {
     public interface IAttributeNode : INode
     {
-        IAttributeNode? Next { get; }
-        IAttributeNode? Previous { get; }
+        new IAttributeNode? Next { get; }
+        new IAttributeNode? Previous { get; }
     }
 }
