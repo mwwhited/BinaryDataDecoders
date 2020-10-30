@@ -26,36 +26,61 @@
 
 	<xsl:template match="/">
 		<xsl:text># Build Log</xsl:text>&cr;&cr;
-
-		<xsl:apply-templates select="//CscTask//Warning | //VscTask//Warning | //CscTask//Message | //VscTask//Message" />
+		<xsl:message>
+			<xsl:text>???</xsl:text>
+			<xsl:value-of select="count($files)"/>
+			<xsl:text>???</xsl:text>
+			<xsl:value-of select="count($files/@*)"/>
+			<xsl:text>???</xsl:text>
+			&cr;
+			<xsl:for-each select="$files/*">
+				<xsl:copy-of select="."/>
+				&cr;
+			</xsl:for-each>
+		</xsl:message>
+		
+		<xsl:apply-templates select="//CscTask//Folder/Warning | //VscTask//Folder/Warning" />
 		&cr;
 	</xsl:template>
 
-	<xsl:template match="Warning | Message">
+	<xsl:template match="Warning">
+		<w>
+		<xsl:message>
+			<xsl:value-of select="@Text"/>
+			<xsl:text> !!! </xsl:text>
+			<xsl:value-of select="@File"/>
+		</xsl:message>
+		<xsl:text>* </xsl:text>
 		<xsl:if test="@Code">
-			<xsl:text>* </xsl:text>
 			<xsl:choose>
 				<xsl:when test="local-name()='Warning'">
-					<xsl:text>⚠ {</xsl:text>
-					<xsl:value-of select="@Code"/>
-					<xsl:text>} (</xsl:text>
-					<xsl:value-of select="@LineNumber"/>
-					<xsl:text>/</xsl:text>
-					<xsl:value-of select="@ColumnNumber"/>
-					<xsl:text>) </xsl:text>
+					<xsl:text>⚠ </xsl:text>
+				</xsl:when>
+				<xsl:when test="local-name()='Message'">
+					<xsl:text>✔ </xsl:text>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:text>✔</xsl:text>
+					<xsl:text>⁉</xsl:text>
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:text> </xsl:text>
+			<xsl:value-of select="@Text"/>&cr;
+			<xsl:text>  * </xsl:text>
 			<xsl:value-of select="@File"/>
-			<xsl:text> </xsl:text>
-			<xsl:value-of select="@Text"/>
-			<xsl:text> </xsl:text>
-			<xsl:value-of select="@ProjectFile"/>
+			<xsl:if test="@LineNumber">
+				<xsl:text> (</xsl:text>
+				<xsl:value-of select="@LineNumber"/>
+				<xsl:if test="@ColumnNumber">
+					<xsl:text>/</xsl:text>
+					<xsl:value-of select="@ColumnNumber"/>
+				</xsl:if>
+				<xsl:text>)</xsl:text>
+			</xsl:if>
 			&cr;
+			<xsl:text>  * </xsl:text>
+			<xsl:value-of select="@ProjectFile"/>&cr;
 		</xsl:if>
+		</w>
 	</xsl:template>
 
 </xsl:stylesheet>

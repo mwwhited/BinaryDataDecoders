@@ -68,13 +68,13 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         {
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 
-            xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t{eventArgs.Message}");
+            xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t[{Thread.CurrentThread.ManagedThreadId}]{eventArgs.Message}");
 
             XNamespace ns = this.GetXmlNamespace();
             xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
                 new XAttribute(nameof(template), Path.GetFullPath(template)),
                 new XAttribute(nameof(input), Path.GetFullPath(inputSource)),
-                new XAttribute(nameof(input) +"Type", input.GetType().AssemblyQualifiedName),
+                new XAttribute(nameof(input) + "Type", input.GetType().AssemblyQualifiedName),
                 new XAttribute(nameof(output), Path.GetFullPath(output)),
                 new XAttribute(nameof(output) + "Path", Path.GetDirectoryName(Path.GetFullPath(output))),
                 new XAttribute("sandbox", Path.GetFullPath(_sandbox))
@@ -106,7 +106,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 
                 var inputNavigator = input.CreateNavigator();
                 inputNavigator.MoveToRoot();
-                xslt.Transform(input, xsltArgumentList, resultStream);
+                xslt.Transform(inputNavigator, xsltArgumentList, resultStream);
             }
             finally
             {
