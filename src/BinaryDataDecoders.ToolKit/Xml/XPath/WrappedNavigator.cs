@@ -6,85 +6,82 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
     internal class WrappedNavigator : XPathNavigator
     {
-        private const string ROOT = "ROOT";
-
         private WrapperState _state;
-        private IWrappedNode _current;
+        private IWrappedNode _node;
 
-        public WrappedNavigator(IWrappedNode seed)
+        public WrappedNavigator(IWrappedNode node)
         {
-            _current = seed;
+            _node = node;
         }
 
-        public override XPathNavigator Clone() => new WrappedNavigator(_current) { _state = this._state };
+        public override XPathNavigator Clone() => new WrappedNavigator(_node) { _state = this._state };
 
 
         public override string BaseURI => _state switch
         {
-            WrapperState.Child => _current.Current.BaseURI,
+            WrapperState.Child => _node.Current.BaseURI,
             _ => ""
         };
 
         public override bool IsEmptyElement => _state switch
         {
-            WrapperState.Child => _current.Current.IsEmptyElement,
+            WrapperState.Child => _node.Current.IsEmptyElement,
             _ => false,
         };
 
         public override string LocalName => _state switch
         {
-            WrapperState.Child => _current.Current.LocalName,
-            _ => ROOT
+            WrapperState.Child => _node.Current.LocalName,
+            _ => _state.ToString()
         };
 
         public override string Name => _state switch
         {
-            WrapperState.Child => _current.Current.Name,
-            _ => ROOT
+            WrapperState.Child => _node.Current.Name,
+            _ => _state.ToString()
         };
 
         public override string NamespaceURI => _state switch
         {
-            WrapperState.Child => _current.Current.NamespaceURI,
+            WrapperState.Child => _node.Current.NamespaceURI,
             _ => ""
         };
 
         public override XmlNameTable? NameTable => _state switch
         {
-            WrapperState.Child => _current.Current.NameTable,
+            WrapperState.Child => _node.Current.NameTable,
             _ => null
         };
 
         public override XPathNodeType NodeType => _state switch
         {
-            WrapperState.Child => _current.Current.NodeType switch
+            WrapperState.Child => _node.Current.NodeType switch
             {
                 XPathNodeType.Root => XPathNodeType.Element, //Children can not be root elements
-                _ => _current.Current.NodeType
+                _ => _node.Current.NodeType
             },
-            WrapperState.Element => XPathNodeType.Element,
             WrapperState.Root => XPathNodeType.Root,
-            _ => XPathNodeType.Comment,
+            _ => XPathNodeType.Element,
         };
 
         public override string Prefix => _state switch
         {
-            WrapperState.Child => _current.Current.Prefix,
+            WrapperState.Child => _node.Current.Prefix,
             _ => ""
         };
 
         public override string Value => _state switch
         {
-            WrapperState.Child => _current.Current.Value,
+            WrapperState.Child => _node.Current.Value,
             _ => ""
         };
 
         public override bool IsSamePosition(XPathNavigator other) => _state switch
         {
-            WrapperState.Child => _current.Current.IsSamePosition(other),
+            WrapperState.Child => _node.Current.IsSamePosition(other),
             _ => other switch
             {
-                WrappedNavigator wrapped => object.ReferenceEquals(wrapped._current, this._current) && wrapped._state == this._state,
+                WrappedNavigator wrapped => object.ReferenceEquals(wrapped._node, this._node) && wrapped._state == this._state,
                 _ => false
             }
         };
@@ -93,7 +90,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         {
             if (other is WrappedNavigator wrapped)
             {
-                _current = wrapped._current;
+                _node = wrapped._node;
                 _state = wrapped._state;
                 return true;
             }
@@ -102,80 +99,79 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override bool MoveToFirstAttribute() => _state switch
         {
-            WrapperState.Child => _current.Current.MoveToFirstAttribute(),
+            WrapperState.Child => _node.Current.MoveToFirstAttribute(),
             _ => false
         };
 
         public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope) => _state switch
         {
-            WrapperState.Child => _current.Current.MoveToNextNamespace(namespaceScope),
+            WrapperState.Child => _node.Current.MoveToNextNamespace(namespaceScope),
             _ => false
         };
         public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope) => _state switch
         {
-            WrapperState.Child => _current.Current.MoveToFirstNamespace(namespaceScope),
+            WrapperState.Child => _node.Current.MoveToFirstNamespace(namespaceScope),
             _ => false
         };
 
         public override bool MoveToId(string id) => _state switch
         {
-            WrapperState.Child => _current.Current.MoveToId(id),
+            WrapperState.Child => _node.Current.MoveToId(id),
             _ => false
         };
 
         public override bool MoveToNextAttribute() => _state switch
         {
-            WrapperState.Child => _current.Current.MoveToNextAttribute(),
+            WrapperState.Child => _node.Current.MoveToNextAttribute(),
             _ => false
         };
 
         public override bool MoveToFirstChild() => _state switch
         {
-            WrapperState.Child => _current.Current.MoveToFirstChild(),
+            WrapperState.Child => _node.Current.MoveToFirstChild(),
             _ => MoveToFirstChildInternal()
         };
-
         private bool MoveToFirstChildInternal()
         {
             switch (_state)
             {
                 case WrapperState.Root:
-                    _state = WrapperState.Element;
-                    break;
-                case WrapperState.Element:
-                    _state = WrapperState.Child;
-                    break;
+                    _state = WrapperState.Top;
+                    return true;
+
+                case WrapperState.Top:
+                    _state = WrapperState.Node;
+                    _node = _node.First;
+                    return true;
+
+                case WrapperState.Node:
+                    var result = _node.Current.MoveToFirstChild();
+                    if (result)
+                        _state = WrapperState.Child;
+                    return result;
 
                 default:
                 case WrapperState.Child:
                     throw new InvalidOperationException($"Invalid operation while in \"{_state}\" state");
             }
-
-            _current = _current.First;
-            return true;
         }
 
         public override bool MoveToNext() => _state switch
         {
-            WrapperState.Child => _current.Current.MoveToNext(),
+            WrapperState.Child => _node.Current.MoveToNext(),
             _ => MoveToNextInternal()
         };
-        public override bool MoveToPrevious() => _state switch
-        {
-            WrapperState.Child => _current.Current.MoveToPrevious(),
-            _ => MoveToPreviousInternal()
-        };
-
         private bool MoveToNextInternal()
         {
             switch (_state)
             {
                 case WrapperState.Root:
+                case WrapperState.Top:
                     return false;
 
-                case WrapperState.Element:
-                    if (_current.Next == null) return false;
-                    _current = _current.Next;
+                case WrapperState.Node:
+                    if (_node.Next == null) return false;
+                    _node = _node.Next;
                     return true;
 
                 default:
@@ -184,6 +180,11 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             }
         }
 
+        public override bool MoveToPrevious() => _state switch
+        {
+            WrapperState.Child => _node.Current.MoveToPrevious(),
+            _ => MoveToPreviousInternal()
+        };
         private bool MoveToPreviousInternal()
         {
             switch (_state)
@@ -191,9 +192,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 case WrapperState.Root:
                     return false;
 
-                case WrapperState.Element:
-                    if (_current.Previous == null) return false;
-                    _current = _current.Previous;
+                case WrapperState.Node:
+                    if (_node.Previous == null) return false;
+                    _node = _node.Previous;
                     return true;
 
                 default:
@@ -209,17 +210,18 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 case WrapperState.Root:
                     return false;
 
-                case WrapperState.Element:
+                case WrapperState.Node:
                     _state = WrapperState.Root;
                     return true;
                 case WrapperState.Child:
-                    if (!_current.Current.MoveToParent())
+                    if (!_node.Current.MoveToParent())
                     {
-                        if (_current.Current.NodeType == XPathNodeType.Root)
-                        {
-                            _current.Current.MoveToFirst();
-                        }
-                        _state = WrapperState.Element;
+                        _state = WrapperState.Node;
+                    }
+                    if (_node.Current.NodeType == XPathNodeType.Root)
+                    {
+                        _state = WrapperState.Node;
+                        // _current.Current.MoveToFirst();
                     }
                     return true;
                 default:

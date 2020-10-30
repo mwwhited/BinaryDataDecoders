@@ -3,7 +3,8 @@
     internal enum WrapperState
     {
         Root,
-        Element,
+        Top,
+        Node,
         Child,
     }
 }

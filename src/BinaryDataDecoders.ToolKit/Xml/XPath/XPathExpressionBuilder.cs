@@ -1,10 +1,6 @@
 ﻿using BinaryDataDecoders.ToolKit.PathSegments;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Xml.XPath;
 
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
@@ -100,7 +96,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     segment.Step != null ? $"(position() mod {segment.Step.Value})=0" : null,
                 }.Where(i => !string.IsNullOrWhiteSpace(i)));
 
-
         private string Visit(PathExistsPathSegment segment, IPathSegment? parent) => Visit(segment.Value, parent);
 
         private string Visit(RelationalOperationTypePathSegment segment, IPathSegment? parent) =>
@@ -122,7 +117,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 LogicOperationTypes.Or => "or",
                 _ => throw new ApplicationException(segment.Value.ToString())
             };
-
 
         private string Visit(RelationBinaryOperationPathSegment segment, IPathSegment? parent) =>
             $@"{Visit(segment.Left, segment)} {Visit(segment.Operator, segment)} {Visit(segment.Right, segment)}";

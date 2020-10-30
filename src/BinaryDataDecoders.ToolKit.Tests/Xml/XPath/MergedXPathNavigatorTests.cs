@@ -15,7 +15,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.XPath
         public void MergeMultipleTest()
         {
             var di1 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\templates").ToNavigable();
-            var di2 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\docs").ToNavigable();
+            var di2 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\docs\Code").ToNavigable();
             var navs = new[] { di1, di2 };
             var merged = navs.MergeNavigators();
             this.TestContext.AddResult(merged);

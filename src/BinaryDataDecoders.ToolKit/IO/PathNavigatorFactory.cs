@@ -24,12 +24,12 @@ namespace BinaryDataDecoders.ToolKit.IO
                 rootName,
                 dir,
 
-                  valueSelector: v => v switch
-                  {
-                      FileInfo file => file.Name,
-                      DirectoryInfo directory => directory.Name,
-                      _ => throw new NotSupportedException(),
-                  },
+                  //valueSelector: v => v switch
+                  //{
+                  //    FileInfo file => file.Name,
+                  //    DirectoryInfo directory => directory.Name,
+                  //    _ => throw new NotSupportedException(),
+                  //},
 
                   attributeSelector: a => a switch
                   {

@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
-    [DebuggerDisplay("{Name}")]
+    [DebuggerDisplay("{Current}")]
     internal class WrappedNode : IWrappedNode
     {
         private WrappedNode(IXPathNavigable nav, IWrappedNode? previous)
@@ -13,12 +12,10 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             var xpathNav = nav.CreateNavigator();
             xpathNav.MoveToRoot();
             Current = xpathNav;
-            Name = XName.Get(xpathNav.LocalName, xpathNav.NamespaceURI);
         }
 
         public IWrappedNode? Previous { get; }
 
-        public XName Name { get; }
         public XPathNavigator Current { get; }
 
         public IWrappedNode? Next { get; private set; }
