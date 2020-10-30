@@ -94,7 +94,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.07 | `VerifyOptimizerForComplexExpressions              ` |
+|  ⚠ Inconclusive        | 00:00:00.08 | `VerifyOptimizerForComplexExpressions              ` |
 |  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |

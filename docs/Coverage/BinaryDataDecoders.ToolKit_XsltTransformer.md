@@ -106,13 +106,13 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰68:          {
 ‼69:              var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 〰70:  
-‼71:              xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t{eventArgs.Message}");
+‼71:              xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t[{Thread.CurrentThread.ManagedThreadId}]{eventArgs.Message}");
 〰72:  
 ‼73:              XNamespace ns = this.GetXmlNamespace();
 ‼74:              xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
 ‼75:                  new XAttribute(nameof(template), Path.GetFullPath(template)),
 ‼76:                  new XAttribute(nameof(input), Path.GetFullPath(inputSource)),
-‼77:                  new XAttribute(nameof(input) +"Type", input.GetType().AssemblyQualifiedName),
+‼77:                  new XAttribute(nameof(input) + "Type", input.GetType().AssemblyQualifiedName),
 ‼78:                  new XAttribute(nameof(output), Path.GetFullPath(output)),
 ‼79:                  new XAttribute(nameof(output) + "Path", Path.GetDirectoryName(Path.GetFullPath(output))),
 ‼80:                  new XAttribute("sandbox", Path.GetFullPath(_sandbox))
@@ -144,7 +144,7 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰106: 
 ‼107:                 var inputNavigator = input.CreateNavigator();
 ‼108:                 inputNavigator.MoveToRoot();
-‼109:                 xslt.Transform(input, xsltArgumentList, resultStream);
+‼109:                 xslt.Transform(inputNavigator, xsltArgumentList, resultStream);
 ‼110:             }
 〰111:             finally
 〰112:             {

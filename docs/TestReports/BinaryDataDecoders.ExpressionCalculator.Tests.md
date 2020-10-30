@@ -6,7 +6,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions                           ` |
+|  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions                           ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
@@ -45,7 +45,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.03 | `VerifyOptimizerForComplexExpressions              ` |
+|  ⚠ Inconclusive        | 00:00:00.04 | `VerifyOptimizerForComplexExpressions              ` |
 |  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
@@ -128,7 +128,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `OptimizerTests                                    ` |
+|  ✔ Passed               | 00:00:00.02 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -173,7 +173,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions                           ` |
+|  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions                           ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
@@ -189,7 +189,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.02 | `OptimizerTests                                    ` |
+|  ⚠ Inconclusive        | 00:00:00.03 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -232,8 +232,8 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.04 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
+|  ⚠ Inconclusive        | 00:00:00.07 | `VerifyOptimizerForComplexExpressions              ` |
+|  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -340,7 +340,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.01 | `OptimizerTests                                    ` |
+|  ⚠ Inconclusive        | 00:00:00.03 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -383,11 +383,11 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.03 | `SimpleParserTests                                 ` |
+|  ⚠ Inconclusive        | 00:00:00.05 | `SimpleParserTests                                 ` |
 |  ✔ Passed               | 00:00:00.00 | `Parse all operators test                          ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple test with variable                         ` |
 |  ✔ Passed               | 00:00:00.00 | `Just variable                                     ` |
-|  ⚠ Inconclusive        | 00:00:00.02 | `Just decimal value                                ` |
+|  ⚠ Inconclusive        | 00:00:00.04 | `Just decimal value                                ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple factorial                                  ` |
 |  ✔ Passed               | 00:00:00.00 | `Negative factorial                                ` |
 |  ⚠ Inconclusive        | 00:00:00.00 | `Parse Complex Expression                          ` |
@@ -406,8 +406,8 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.03 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
+|  ⚠ Inconclusive        | 00:00:00.05 | `VerifyOptimizerForComplexExpressions              ` |
+|  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -489,7 +489,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions                           ` |
+|  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions                           ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
@@ -519,7 +519,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ParseAndReplaceVariablesTest                      ` |
+|  ✔ Passed               | 00:00:00.01 | `ParseAndReplaceVariablesTest                      ` |
 
 ## BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators.ExpressionEvaluatorExtensionsTests
 
@@ -687,7 +687,7 @@
 |  ✔ Passed               | 00:00:00.00 | `Just decimal value                                ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple factorial                                  ` |
 |  ✔ Passed               | 00:00:00.00 | `Negative factorial                                ` |
-|  ✔ Passed               | 00:00:00.01 | `Parse Complex Expression                          ` |
+|  ✔ Passed               | 00:00:00.00 | `Parse Complex Expression                          ` |
 |  ✔ Passed               | 00:00:00.00 | `SimpleParserTests (B*--A,B * --A)                 ` |
 
 ### PoorlyFormedExpressions
@@ -695,7 +695,7 @@
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.12 | `PoorlyFormedExpressions                           ` |
-|  ✔ Passed               | 00:00:00.09 | `PoorlyFormedExpressions (-A!)                     ` |
+|  ✔ Passed               | 00:00:00.10 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**A)                    ` |
@@ -720,7 +720,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions                           ` |
+|  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions                           ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
@@ -744,7 +744,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `OptimizerTests                                    ` |
+|  ✔ Passed               | 00:00:00.02 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -796,7 +796,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `SimpleParserTests                                 ` |
+|  ✔ Passed               | 00:00:00.01 | `SimpleParserTests                                 ` |
 |  ✔ Passed               | 00:00:00.00 | `Parse all operators test                          ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple test with variable                         ` |
 |  ✔ Passed               | 00:00:00.00 | `Just variable                                     ` |
@@ -810,8 +810,8 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.03 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
+|  ✔ Passed               | 00:00:00.07 | `VerifyOptimizerForComplexExpressions              ` |
+|  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -836,7 +836,7 @@
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*(((B*C)+D)+((E*F)+G))+H)+(-1*(B+(-1*((B*C)+D))))+(I*(((B*J)+K)+((E*F)+G))+L)"` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*(((B*C)+D)+((E*((F*G)+H))+I))+J)+(-1*(B+(-1*((B*C)+D))))"` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*(B+((C*D)+E))+F)+(G*(B+((C*D)+E)+(A*(B+((C*D)+E))+F))+H)"` |
-|  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D))))+(H*(((B*I)+J)+((E*F)+G)+(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D)))))+K)"` |
+|  ✔ Passed               | 00:00:00.01 | `Check Expressions "(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D))))+(H*(((B*I)+J)+((E*F)+G)+(A*(((B*C)+D)+((E*F)+G)))+(-1*(B+(-1*((B*C)+D)))))+K)"` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "((A*B)+C)+(-1*A)"              ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(((A+(-1*B))+((C*D)+E))*F)+G+(D` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "((A+(-1*B))+((C*D)+E))*F+G+((A+(-1*B))+((C*D)+E))*H+I"` |
@@ -887,8 +887,8 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.05 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
+|  ⚠ Inconclusive        | 00:00:00.07 | `VerifyOptimizerForComplexExpressions              ` |
+|  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -962,7 +962,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.02 | `OptimizerTests                                    ` |
+|  ⚠ Inconclusive        | 00:00:00.03 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -1098,7 +1098,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.00 | `SimpleParserTests                                 ` |
+|  ⚠ Inconclusive        | 00:00:00.01 | `SimpleParserTests                                 ` |
 |  ✔ Passed               | 00:00:00.00 | `Parse all operators test                          ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple test with variable                         ` |
 |  ✔ Passed               | 00:00:00.00 | `Just variable                                     ` |
@@ -1120,8 +1120,8 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.03 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
+|  ⚠ Inconclusive        | 00:00:00.04 | `VerifyOptimizerForComplexExpressions              ` |
+|  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -1204,7 +1204,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `OptimizerTests                                    ` |
+|  ✔ Passed               | 00:00:00.02 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -1265,7 +1265,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `SimpleParserTests                                 ` |
+|  ✔ Passed               | 00:00:00.01 | `SimpleParserTests                                 ` |
 |  ✔ Passed               | 00:00:00.00 | `Parse all operators test                          ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple test with variable                         ` |
 |  ✔ Passed               | 00:00:00.00 | `Just variable                                     ` |
@@ -1279,7 +1279,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `OptimizerTests                                    ` |
+|  ✔ Passed               | 00:00:00.04 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -1331,8 +1331,8 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.04 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
+|  ✔ Passed               | 00:00:00.06 | `VerifyOptimizerForComplexExpressions              ` |
+|  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -1406,7 +1406,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions                           ` |
+|  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions                           ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
@@ -1513,7 +1513,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.04 | `VerifyOptimizerForComplexExpressions              ` |
+|  ⚠ Inconclusive        | 00:00:00.06 | `VerifyOptimizerForComplexExpressions              ` |
 |  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
@@ -1706,7 +1706,7 @@
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
 |  ⚠ Inconclusive        | 00:00:00.03 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.00 | `Check Expressions "A"                             ` |
+|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -1798,7 +1798,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ImplicitConvertTest_OverlyComplex                 ` |
+|  ✔ Passed               | 00:00:00.01 | `ImplicitConvertTest_OverlyComplex                 ` |
 
 ### ImplicitConvertTest_Number
  Location: binarydatadecoders.expressioncalculator.tests.dll
@@ -1926,7 +1926,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.07 | `VerifyOptimizerForComplexExpressions              ` |
+|  ⚠ Inconclusive        | 00:00:00.08 | `VerifyOptimizerForComplexExpressions              ` |
 |  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |

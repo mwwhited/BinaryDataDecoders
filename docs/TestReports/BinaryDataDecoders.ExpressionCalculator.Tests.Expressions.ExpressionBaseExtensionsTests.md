@@ -16,5 +16,5 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ParseAndReplaceVariablesTest                      ` |
+|  ✔ Passed               | 00:00:00.01 | `ParseAndReplaceVariablesTest                      ` |
 

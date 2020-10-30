@@ -4,5 +4,5 @@
  Location: binarydatadecoders.apple2.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `GetLinesTest                                      ` |
+|  ✔ Passed               | 00:00:00.00 | `GetLinesTest                                      ` |
 

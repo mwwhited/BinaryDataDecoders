@@ -4,5 +4,5 @@
  Location: binarydatadecoders.codeanalysis.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.34 | `TestXPath                                         ` |
+|  ✔ Passed               | 00:00:00.33 | `TestXPath                                         ` |
 

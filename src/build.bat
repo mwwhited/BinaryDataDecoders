@@ -169,14 +169,22 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 REM pushd
 echo "Post Wiki"
 robocopy /MIR "%DOCS_PATH%" "%WIKI_PATH%"
-IF %errorlevel% NEQ 0 GOTO error
+REM https://ss64.com/nt/robocopy-exit.html
+if %ERRORLEVEL% EQU 16 echo ***FATAL ERROR*** & goto error
+if %ERRORLEVEL% EQU 15 echo OKCOPY + FAIL + MISMATCHES + XTRA & goto error
+if %ERRORLEVEL% EQU 14 echo FAIL + MISMATCHES + XTRA & goto error
+if %ERRORLEVEL% EQU 13 echo OKCOPY + FAIL + MISMATCHES & goto error
+if %ERRORLEVEL% EQU 12 echo FAIL + MISMATCHES & goto error
+if %ERRORLEVEL% EQU 11 echo OKCOPY + FAIL + XTRA & goto error
+if %ERRORLEVEL% EQU 10 echo FAIL + XTRA & goto error
+if %ERRORLEVEL% EQU 9 echo OKCOPY + FAIL & goto error
+if %ERRORLEVEL% EQU 8 echo FAIL & goto error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :show
 code "%OUTPUT_PATH%"
 IF %errorlevel% NEQ 0 GOTO error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
-
 
 :check_next_arg
 SHIFT

@@ -138,7 +138,7 @@
 |  ✔ Passed               | 00:00:00.00 | `Just decimal value                                ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple factorial                                  ` |
 |  ✔ Passed               | 00:00:00.00 | `Negative factorial                                ` |
-|  ✔ Passed               | 00:00:00.01 | `Parse Complex Expression                          ` |
+|  ✔ Passed               | 00:00:00.00 | `Parse Complex Expression                          ` |
 |  ✔ Passed               | 00:00:00.00 | `SimpleParserTests (B*--A,B * --A)                 ` |
 
 ### PoorlyFormedExpressions
@@ -146,7 +146,7 @@
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.12 | `PoorlyFormedExpressions                           ` |
-|  ✔ Passed               | 00:00:00.09 | `PoorlyFormedExpressions (-A!)                     ` |
+|  ✔ Passed               | 00:00:00.10 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**A)                    ` |

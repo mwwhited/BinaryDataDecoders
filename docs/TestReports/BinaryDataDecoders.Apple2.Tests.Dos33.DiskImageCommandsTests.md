@@ -4,7 +4,7 @@
  Location: binarydatadecoders.apple2.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `GetDataFileEntryTest                              ` |
+|  ✔ Passed               | 00:00:00.02 | `GetDataFileEntryTest                              ` |
 
 ### GetTrackSectorListForFileEntryTest
  Location: binarydatadecoders.apple2.tests.dll
@@ -22,5 +22,5 @@
  Location: binarydatadecoders.apple2.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `GetCatalogsTest                                   ` |
+|  ✔ Passed               | 00:00:00.01 | `GetCatalogsTest                                   ` |
 

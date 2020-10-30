@@ -1,4 +1,6 @@
-﻿* docs
+﻿# Documentation 
+
+* docs
   * Code
     * [BinaryDataDecoders.Apple2](./Code/BinaryDataDecoders.Apple2.md)
     * [BinaryDataDecoders.ExpressionCalculator](./Code/BinaryDataDecoders.ExpressionCalculator.md)
