@@ -50,7 +50,9 @@ https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-ana
 	</DataCollectionRunSettings>
 	
 	<LoggerRunSettings>
-		<!--https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019#loggerrunsettings-element-->
+		<!--
+		https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019#loggerrunsettings-element
+		-->
 		<Loggers>
 			<Logger friendlyName="console" enabled="True">
 				<Configuration>
@@ -58,17 +60,17 @@ https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-ana
 				</Configuration>
 			</Logger>
 			<Logger friendlyName="trx" enabled="True">
-				<Configuration>
+				<!--<Configuration>
 					<LogFileName>TestResult.trx</LogFileName>
-				</Configuration>
+				</Configuration>-->
 			</Logger>
-			<!--
-			<Logger friendlyName="html" enabled="False">
+			
+			<!--<Logger friendlyName="html" enabled="True">
 				<Configuration>
 					<LogFileName>TestResult.html</LogFileName>
 				</Configuration>
-			</Logger>
-			-->
+			</Logger>-->
+			
 		</Loggers>
 	</LoggerRunSettings>
 

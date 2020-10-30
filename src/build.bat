@@ -21,6 +21,7 @@ SET TEMPLATES_PATH=%SANDBOX_PATH%\templates\reports
 SET WIKI_PATH=%SANDBOX_PATH%\docs
 SET TEST_RUN_SETTINGS=%BUILD_PATH%\.runsettings
 SET BUILD_LOG=%OUTPUT_PATH%\dotnet_build.binlog
+SET TEST_LOG=%TEST_RESULTS_PATH%\dotnet_test.trx
 
 REM java is required for antlr4
 SET JAVA_EXEC=%JAVA_HOME%\bin\java.exe
@@ -28,22 +29,22 @@ SET JAVA_EXEC=%JAVA_HOME%\bin\java.exe
 REM SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
 REM SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
 
-echo "=== configured ==="
-ECHO TARGET_INPUT="%TARGET_INPUT%"
-ECHO Configuration="%Configuration%"
-Echo Directory = %~dp0
-ECHO SANDBOX_PATH="%SANDBOX_PATH%"
-ECHO BUILD_PATH="%BUILD_PATH%"
-ECHO BUILD_PROJECT="%BUILD_PROJECT%"
-ECHO OUTPUT_PATH="%OUTPUT_PATH%"
-ECHO TEST_RESULTS_PATH="%TEST_RESULTS_PATH%"
-ECHO DOCS_PATH="%DOCS_PATH%"
-ECHO RESULTS_PATH="%RESULTS_PATH%"
-ECHO TEMPLATES_PATH="%TEMPLATES_PATH%"
-ECHO WIKI_PATH="%WIKI_PATH%"
-ECHO JAVA_EXEC="%JAVA_EXEC%"
-ECHO TEST_RUN_SETTINGS="%TEST_RUN_SETTINGS%"
-ECHO BUILD_LOG="%BUILD_LOG%"
+echo "========= Configurations ========="
+ECHO Configuration=     "%Configuration%"
+Echo Directory=         "%~dp0""
+ECHO SANDBOX_PATH=      "%SANDBOX_PATH%"
+ECHO BUILD_PATH=        "%BUILD_PATH%"
+ECHO BUILD_PROJECT=     "%BUILD_PROJECT%"
+ECHO OUTPUT_PATH=       "%OUTPUT_PATH%"
+ECHO TEST_RESULTS_PATH= "%TEST_RESULTS_PATH%"
+ECHO DOCS_PATH=         "%DOCS_PATH%"
+ECHO RESULTS_PATH=      "%RESULTS_PATH%"
+ECHO TEMPLATES_PATH=    "%TEMPLATES_PATH%"
+ECHO WIKI_PATH=         "%WIKI_PATH%"
+ECHO JAVA_EXEC=         "%JAVA_EXEC%"
+ECHO TEST_RUN_SETTINGS= "%TEST_RUN_SETTINGS%"
+ECHO BUILD_LOG=         "%BUILD_LOG%"
+ECHO TEST_LOG=          "%TEST_LOG%"
 
 pushd
 REM PAUSE
@@ -54,7 +55,7 @@ dotnet tool install --local gitversion.tool
 dotnet tool update gitversion.tool
 FOR /F "tokens=* USEBACKQ" %%g IN (`dotnet gitversion /output json /showvariable FullSemVer`) DO (SET BUILD_VERSION=%%g)
 if "%BUILD_VERSION%"=="" GOTO error
-echo "Building Version=%BUILD_VERSION%"
+ECHO Building Version=  "%BUILD_VERSION%"
 
 :top
 IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
@@ -83,14 +84,20 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :test
 echo "Run Tests"
-FOR /D %%T IN ("%BUILD_PATH%\*.Tests") DO (
-dotnet test "%%T" --no-build --no-restore ^
---collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
---nologo --filter "TestCategory=Unit|TestCategory=Simulate" ^
--s "%TEST_RUN_SETTINGS%" /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true ^
---logger "trx;LogFileName=%%~nxT.trx"
-IF %errorlevel% NEQ 0 GOTO error
-)
+REM FOR /D %%T IN ("%BUILD_PATH%\*.Tests") DO (
+REM dotnet test "%%T" --no-build --no-restore ^
+REM --collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
+REM --nologo --filter "TestCategory=Unit|TestCategory=Simulate" ^
+REM -s "%TEST_RUN_SETTINGS%" /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true ^
+REM --logger "trx;LogFileName=%%~nxT.trx"
+REM IF %errorlevel% NEQ 0 GOTO error
+REM )
+
+dotnet test "%BUILD_PROJECT%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
+--nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s "%TEST_RUN_SETTINGS%" /p:CollectCoverage=true ^
+/p:CopyLocalLockFileAssemblies=true
+REM --logger "trx"
+
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :pack
@@ -253,8 +260,6 @@ echo Special Step Chains
 echo.
 echo	"all"			= start over from the top
 echo	"push"			= deploy nuget packages to Nuget.org (not on by default)
-
-
 goto done_with_it
 
 :error

@@ -4,6 +4,7 @@
 
 	<PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
 		<Copyright>Matthew Whited 2020</Copyright>

@@ -18,5 +18,8 @@ namespace BinaryDataDecoders.Xslt.Cli
 
         [Option('s', "sandbox", Required = false, HelpText = "if not provided will be set to parent of output")]
         public string Sandbox { get; set; }
+
+        [Option('m', "merge", Required = false, HelpText = "merge inputs")]
+        public bool Merge { get; set; }
     }
 }
