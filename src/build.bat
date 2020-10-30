@@ -6,6 +6,7 @@ SET TARGET_INPUT=%~1
 SET NO_XML_TRANSFORM=1
 SET DO_NOT_CLEAN=0
 SET XSLT_CMD=dotnet bdd-xslt
+SET USE_LOCAL=0
 
 SET Configuration=Release
 
@@ -152,6 +153,7 @@ ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to Markdown) <<<"
 IF %errorlevel% NEQ 0 GOTO error
 
 IF "%NO_XML_TRANSFORM%"=="1" GOTO skip_xml_out
+:transform_xml
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
 %XSLT_CMD% -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x CSharp
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
@@ -209,6 +211,7 @@ GOTO all
 
 :uselocal
 SET XSLT_CMD="%OUTPUT_PATH%\Results\Binary\BinaryDataDecoders.Xslt.Cli.exe"
+SET USE_LOCAL=1
 echo Local command instead of tool
 GOTO all
 
@@ -224,11 +227,41 @@ dotnet nuget push "%OUTPUT_PATH%\Nuget\*.nupkg" -k %NUGET_API_KEY% -s https://ap
 SET NUGET_API_KEY=
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
+:help
+echo.
+echo Extension Options
+echo.
+echo	"uselocal"		= switch from dotnet tool to local command for xslt transform
+echo	"debug"			= switch to DEBUG configuration
+echo	"allowxml"		= switch to enable XML outputs from with transforms
+echo	"noclean"		= skip 'otnet clean'
+echo.
+echo Step Chains
+echo.
+echo	"clean"			= clean build folders and outputs
+echo	"build"			= build application code
+echo	"test"			= run unit and simulation tests
+echo	"pack"			= build nuget packages
+echo	"publish"		= publish binary outputs
+echo	"report"		= generate reports over test results
+echo	"transform"		= use transformations to generate documentation
+echo	"transform_xml"	= use transformations to generate documentation
+echo	"wiki"			= copy generated documentation to docs\
+echo	"show"			= launch visual studio code
+echo.
+echo Special Step Chains
+echo.
+echo	"all"			= start over from the top
+echo	"push"			= deploy nuget packages to Nuget.org (not on by default)
+
+
+goto done_with_it
+
 :error
 echo oopz
 PAUSE
 
 :done_with_it
 popd
+echo Finished - %BUILD_VERSION%
 ENDLOCAL
-echo "fin!"

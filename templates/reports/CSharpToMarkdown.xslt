@@ -29,13 +29,14 @@
 	xmlns:cs-n="bdd:CodeAnalysis/Node"
 	xmlns:cs-t="bdd:CodeAnalysis/Token"
 	xmlns:cs-r="bdd:CodeAnalysis/Trivia"
+	xmlns:cs-tr="bdd:CodeAnalysis/Tree"
 	
 	>
 	<xsl:output method="text" indent="no"/>
 	<xsl:param name="files" />
 
 	<xsl:template match="/">
-		<xsl:apply-templates select="cs-n:CompilationUnit" />
+		<xsl:apply-templates select="cs-tr:Tree/cs-n:CompilationUnit" />
 	</xsl:template>
 
 	<xsl:template match="cs-n:CompilationUnit">

@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.2.0-beta.180"
+ - "0.2.0-beta.184"
  - )
  - System
  - .

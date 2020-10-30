@@ -4,8 +4,8 @@
  Location: binarydatadecoders.text.json.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.15 | `ParserTest                                        ` |
-|  ✔ Passed               | 00:00:00.11 | `ParserTest ($.options,:/options)                  ` |
+|  ✔ Passed               | 00:00:00.13 | `ParserTest                                        ` |
+|  ✔ Passed               | 00:00:00.09 | `ParserTest ($.options,:/options)                  ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.options.quantity,:/options/quantity)` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.*.quantity,:/*/quantity)            ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..quantity,:////quantity)            ` |
@@ -42,7 +42,7 @@
  Location: binarydatadecoders.text.json.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ToXPathTest                                       ` |
+|  ✔ Passed               | 00:00:00.01 | `ToXPathTest                                       ` |
 |  ✔ Passed               | 00:00:00.00 | `ToXPathTest ($.options,/options)                  ` |
 |  ✔ Passed               | 00:00:00.00 | `ToXPathTest ($.options.quantity,/options/quantity)` |
 |  ✔ Passed               | 00:00:00.00 | `ToXPathTest ($.*.quantity,/*/quantity)            ` |

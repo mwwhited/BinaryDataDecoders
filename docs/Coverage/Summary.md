@@ -6,8 +6,8 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\Summary.xm
 
 | Key                  | Value                                                            |
 | :------------------- | :--------------------------------------------------------------- |
-| Generatedon          | 10/30/2020 - 9:53:54 AM                                      | 
-| Parser               | MultiReportParser (32x CoberturaParser)                      | 
+| Generatedon          | 10/30/2020 - 10:03:36 AM                                     | 
+| Parser               | MultiReportParser (64x CoberturaParser)                      | 
 | Assemblies           | 17                                                           | 
 | Classes              | 160                                                          | 
 | Coveredlines         | 1591                                                         | 

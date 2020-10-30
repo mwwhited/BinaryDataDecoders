@@ -30,6 +30,16 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         private readonly XNamespace _ns;
 
         /// <summary>
+        /// Returns the directory information for the specified path string.
+        /// </summary>
+        /// <param name="path">The path of a file or directory.</param>
+        /// <returns>
+        /// Directory information for path, or null if path denotes a root directory or is
+        /// null. Returns System.String.Empty if path does not contain directory information.
+        /// </returns>
+        public string GetDirectoryName(string file) => Path.GetDirectoryName(file);
+
+        /// <summary>
         /// Returns the file name and extension of the specified path string.
         /// </summary>
         /// <param name="file">The path string from which to obtain the file name and extension.</param>

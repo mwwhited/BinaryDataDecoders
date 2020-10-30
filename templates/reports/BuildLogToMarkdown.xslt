@@ -23,33 +23,48 @@
 	>
 	<xsl:output method="text" indent="no"/>
 	<xsl:param name="files" />
+	<xsl:variable name="basePath" select="$files/@sandbox" />
 
 	<xsl:template match="/">
 		<xsl:text># Build Log</xsl:text>&cr;&cr;
-		<xsl:message>
-			<xsl:text>???</xsl:text>
-			<xsl:value-of select="count($files)"/>
-			<xsl:text>???</xsl:text>
-			<xsl:value-of select="count($files/@*)"/>
-			<xsl:text>???</xsl:text>
+
+		<!--<xsl:message>
 			&cr;
-			<xsl:for-each select="$files/*">
-				<xsl:copy-of select="."/>
+			<xsl:text>sandbox=</xsl:text>
+			<xsl:value-of select="$files/@sandbox"/>
+			&cr;
+			<xsl:for-each select="$files/@*">
+				<xsl:value-of select="local-name(.)"/>
+				<xsl:text>=</xsl:text>
+				<xsl:value-of select="."/>
 				&cr;
 			</xsl:for-each>
-		</xsl:message>
-		
+		</xsl:message>-->
+
 		<xsl:apply-templates select="//CscTask//Folder/Warning | //VscTask//Folder/Warning" />
 		&cr;
 	</xsl:template>
 
 	<xsl:template match="Warning">
-		<w>
-		<xsl:message>
-			<xsl:value-of select="@Text"/>
-			<xsl:text> !!! </xsl:text>
-			<xsl:value-of select="@File"/>
-		</xsl:message>
+		<xsl:variable name="projectFile" select="substring(@ProjectFile, string-length($basePath)+1)" />
+		<xsl:variable name="projectFilePath" select="concat('..', $projectFile)" />
+		<xsl:variable name="projectBasePath" select="ex-path:GetDirectoryName($projectFilePath)" />
+		<xsl:variable name="codeFile" select="concat($projectBasePath, '\', @File)" />
+
+		<!--<xsl:message>
+			<xsl:text> ========================================================================== </xsl:text>&cr;
+			<xsl:value-of select="@Text"/>&cr;
+			<xsl:text> File!!! </xsl:text>
+			<xsl:value-of select="@File"/>&cr;
+			<xsl:text> $projectFile!!! </xsl:text>
+			<xsl:value-of select="$projectFile"/>&cr;
+			<xsl:text> $projectFilePath!!! </xsl:text>
+			<xsl:value-of select="$projectFilePath"/>&cr;
+			<xsl:text> $projectBasePath!!! </xsl:text>
+			<xsl:value-of select="$projectBasePath"/>&cr;
+			<xsl:text> $codeFile!!! </xsl:text>
+			<xsl:value-of select="$codeFile"/>&cr;
+		</xsl:message>-->
 		<xsl:text>* </xsl:text>
 		<xsl:if test="@Code">
 			<xsl:choose>
@@ -65,8 +80,15 @@
 			</xsl:choose>
 			<xsl:text> </xsl:text>
 			<xsl:value-of select="@Text"/>&cr;
-			<xsl:text>  * </xsl:text>
+			<xsl:text>  * [</xsl:text>
 			<xsl:value-of select="@File"/>
+			<xsl:text>](</xsl:text>
+			<xsl:value-of select="$codeFile"/>
+			<xsl:if test="@LineNumber">
+				<xsl:text>#</xsl:text>
+				<xsl:value-of select="@LineNumber"/>
+			</xsl:if>
+			<xsl:text>)</xsl:text>
 			<xsl:if test="@LineNumber">
 				<xsl:text> (</xsl:text>
 				<xsl:value-of select="@LineNumber"/>
@@ -77,10 +99,9 @@
 				<xsl:text>)</xsl:text>
 			</xsl:if>
 			&cr;
-			<xsl:text>  * </xsl:text>
-			<xsl:value-of select="@ProjectFile"/>&cr;
+			<!--<xsl:text>  * </xsl:text>
+			<xsl:value-of select="$projectFile"/>&cr;-->
 		</xsl:if>
-		</w>
 	</xsl:template>
 
 </xsl:stylesheet>

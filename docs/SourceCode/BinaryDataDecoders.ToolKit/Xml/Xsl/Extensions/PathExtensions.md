@@ -56,6 +56,23 @@
 
  * Type: XNamespace 
 
+#### Public Method - GetDirectoryName
+
+##### Comments
+
+ <summary>
+ Returns the directory information for the specified path string.
+ </summary>
+ <paramname="path">The path of a file or directory.</param>
+ <returns>
+ Directory information for path, or null if path denotes a root directory or is
+ null. Returns System.String.Empty if path does not contain directory information.
+ </returns>
+
+#####  Parameters
+
+ - string file 
+
 #### Public Method - GetFileName
 
 ##### Comments

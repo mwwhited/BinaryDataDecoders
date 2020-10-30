@@ -8,17 +8,17 @@
 	<xsl:template match="/">
 		<root>
 			<files>
-				<xsl:apply-templates select="$files"/>
+				<xsl:apply-templates select="$files"  mode="copy"/>
 			</files>
 			<code>
-				<xsl:apply-templates select="."/>
+				<xsl:apply-templates select="." mode="copy"/>
 			</code>
 		</root>
 	</xsl:template>
 
-	<xsl:template match="@* | node()">
+	<xsl:template match="@* | node()" mode="copy">
 		<xsl:copy>
-			<xsl:apply-templates select="@* | node()"/>
+			<xsl:apply-templates select="@* | node()" mode="copy"/>
 		</xsl:copy>
 	</xsl:template>
 </xsl:stylesheet>

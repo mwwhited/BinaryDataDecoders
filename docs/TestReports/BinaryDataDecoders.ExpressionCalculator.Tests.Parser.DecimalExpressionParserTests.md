@@ -4,7 +4,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `OptimizerTests                                    ` |
+|  ✔ Passed               | 00:00:00.02 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -132,7 +132,7 @@
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.02 | `SimpleParserTests                                 ` |
-|  ✔ Passed               | 00:00:00.00 | `Parse all operators test                          ` |
+|  ✔ Passed               | 00:00:00.01 | `Parse all operators test                          ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple test with variable                         ` |
 |  ✔ Passed               | 00:00:00.00 | `Just variable                                     ` |
 |  ✔ Passed               | 00:00:00.00 | `Just decimal value                                ` |
@@ -145,8 +145,8 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.12 | `PoorlyFormedExpressions                           ` |
-|  ✔ Passed               | 00:00:00.10 | `PoorlyFormedExpressions (-A!)                     ` |
+|  ✔ Passed               | 00:00:00.10 | `PoorlyFormedExpressions                           ` |
+|  ✔ Passed               | 00:00:00.08 | `PoorlyFormedExpressions (-A!)                     ` |
 |  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions (B/*1)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**)                     ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (B**A)                    ` |

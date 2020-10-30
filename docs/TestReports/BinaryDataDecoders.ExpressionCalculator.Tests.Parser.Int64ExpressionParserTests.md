@@ -21,7 +21,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `OptimizerTests                                    ` |
+|  ✔ Passed               | 00:00:00.01 | `OptimizerTests                                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A),A)                            ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)                    ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests (B^1,B)                            ` |
@@ -64,7 +64,7 @@
  Location: binarydatadecoders.expressioncalculator.tests.dll
 | Result                   | Duration         | Test Name                                          |
 | :----------------------- | ---------------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.01 | `SimpleParserTests                                 ` |
+|  ⚠ Inconclusive        | 00:00:00.00 | `SimpleParserTests                                 ` |
 |  ✔ Passed               | 00:00:00.00 | `Parse all operators test                          ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple test with variable                         ` |
 |  ✔ Passed               | 00:00:00.00 | `Just variable                                     ` |
