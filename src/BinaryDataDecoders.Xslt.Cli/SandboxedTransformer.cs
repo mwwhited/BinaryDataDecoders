@@ -29,7 +29,8 @@ namespace BinaryDataDecoders.Xslt.Cli
                     new FileExtensions(_sandbox),
                     new TrxExtensions(),
                     new StringExtensions(),
-                    new XmlExtensions()
+                    new XmlExtensions(),
+                    new XPath20Functions()
                     );
         }
 

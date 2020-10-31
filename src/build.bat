@@ -128,7 +128,7 @@ dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoder
 REM dotnet tool update BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestReports\*.md" -s "%SANDBOX_PATH%"
+%XSLT_CMD% -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestReports\Summary.md" -s "%SANDBOX_PATH%" -m
 IF %errorlevel% NEQ 0 GOTO error
 
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Coverage) <<<"

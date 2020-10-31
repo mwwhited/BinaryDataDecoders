@@ -210,7 +210,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 var merged = navigators.MergeNavigators().CreateNavigator();
                 var doc = new XmlDocument();
                 doc.LoadXml(merged.OuterXml);
-                Transform(template, input, doc, output);
+                merged = doc.CreateNavigator();
+                merged.MoveToRoot();
+                Transform(template, input, merged, output);
             }
             catch (Exception ex)
             {

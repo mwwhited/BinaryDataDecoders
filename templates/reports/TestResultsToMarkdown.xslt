@@ -6,12 +6,14 @@
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
 	xmlns:tt="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
 	
 	xmlns:ex-path="bdd:ToolKit/PathExtensions"
-	xmlns:o-path="bdd:ToolKit/PathExtensions:out"	
+	xmlns:o-path="bdd:ToolKit/PathExtensions:out"
 	xmlns:ex-file="bdd:ToolKit/FileExtensions"
-	xmlns:o-file="bdd:ToolKit/FileExtensions:out"	
+	xmlns:o-file="bdd:ToolKit/FileExtensions:out"
 	xmlns:ex-env="bdd:ToolKit/EnvironmentExtensions"
 	xmlns:o-env="bdd:ToolKit/EnvironmentExtensions:out"
 	xmlns:ex-str="bdd:ToolKit/StringExtensions"
@@ -26,34 +28,58 @@
 	<xsl:param name="files" />
 
 	<xsl:template match="/">
-		<xsl:text># Test Run</xsl:text>&cr;&cr;
-		<!--
-		<xsl:text># Test Run - </xsl:text><xsl:value-of select="tt:TestRun/@name" />&cr;
-		&cr;
-		<xsl:text>Run Time - </xsl:text>
-		<xsl:value-of select="tt:TestRun/tt:Times/@start" />
-		<xsl:text> to </xsl:text>
-		<xsl:value-of select="tt:TestRun/tt:Times/@finish" />
-		&cr;&cr;
-		-->
+		<!--<xsl:text># Test Libraries</xsl:text>&cr;&cr;
 
-		<xsl:variable name="test-classes" select="tt:TestRun/tt:TestDefinitions/tt:UnitTest/tt:TestMethod[not(@className=preceding::tt:TestMethod/@className)]/@className" />
+		<xsl:variable name="code-bases" select="fn:distinct_values(//tt:TestRun/tt:TestDefinitions/tt:UnitTest/tt:TestMethod/@codeBase)" />
+		<xsl:for-each select="$code-bases">
+			<xsl:variable name="test-assembly" select="ex-path:GetFileNameWithoutExtension(.)" />
+			<xsl:text>* </xsl:text>
+			<xsl:value-of select="$test-assembly"/>
+			&cr;
+
+		</xsl:for-each>
+		&cr;
+		&cr;-->
+
+		<xsl:text># Test Run</xsl:text>&cr;&cr;
+		<xsl:variable name="test-classes" select="//tt:TestRun/tt:TestDefinitions/tt:UnitTest/tt:TestMethod[not(@className=preceding::tt:TestMethod/@className)]/@className" />
 
 		<xsl:for-each select="$test-classes">
-			<xsl:variable name="test-class-name" select="." />
-			<xsl:variable name="test-report">
-				<xsl:variable name="tests" select="/tt:TestRun/tt:TestDefinitions/tt:UnitTest[tt:TestMethod/@className=$test-class-name]" />
-				<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
-				&cr;
-				<xsl:apply-templates select="$tests" />
+			<xsl:variable name="test-assembly-path" select="../@codeBase" />
+			<xsl:variable name="test-library" select="ex-path:GetFileNameWithoutExtension($test-assembly-path)" />
+			<xsl:variable name="test-class-file" select="translate(concat($files/@outputPath, '/', . , '.md'),'\', '/')" />
+			<xsl:variable name="test-class-file-ref" select="translate(concat(. , '.md'),'\', '/')" />
+			<xsl:variable name="test-library-file" select="translate(concat($files/@outputPath, '/', $test-library, '.md'),'\', '/')" />
+			<xsl:variable name="test-library-file-ref" select="translate(concat($test-library, '.md'),'\', '/')" />
+
+			<xsl:variable name="throw-away">
+				<xsl:call-template name="test-class">
+					<xsl:with-param name="test-class-name" select="." />
+					<xsl:with-param name="test-class-file" select="$test-class-file" />
+				</xsl:call-template>
 			</xsl:variable>
 
-			<xsl:value-of select="ex-file:WriteToFile($test-report, concat($files/@outputPath, '/', $test-class-name, '.md'))" />
+			<xsl:text>* [</xsl:text>
+			<xsl:value-of select="."/>
+			<xsl:text>](</xsl:text>
+			<xsl:value-of select="$test-class-file-ref"/>
+			<xsl:text>)</xsl:text>
+			&cr;
 		</xsl:for-each>
-		<xsl:if test="not($test-classes)">
-			<xsl:text>## No Test Results Found</xsl:text>&cr;
-		</xsl:if>
 
+	</xsl:template>
+
+	<xsl:template name="test-class">
+		<xsl:param name="test-class-name" />
+		<xsl:param name="test-class-file" />
+		<xsl:variable name="test-report">
+			<xsl:variable name="tests" select="ancestor::tt:TestRun/tt:TestDefinitions/tt:UnitTest[tt:TestMethod/@className=$test-class-name]" />
+			<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
+			&cr;
+			<xsl:apply-templates select="$tests" />
+		</xsl:variable>
+
+		<xsl:value-of select="ex-file:WriteToFile($test-report, $test-class-file)" />
 	</xsl:template>
 
 	<xsl:template match="tt:UnitTest">
@@ -72,20 +98,9 @@
 			&cr;
 		</xsl:if>
 
-		<!--
-		<xsl:text>Categories: </xsl:text>
-		<xsl:for-each select="tt:TestCategory/tt:TestCategoryItem/@TestCategory">
-			<xsl:value-of select="." />
-			<xsl:if test="not(last())">
-				<xsl:text>, </xsl:text>
-			</xsl:if>
-		</xsl:for-each>&cr;
-		&cr;
-		-->
-
-		<xsl:variable name="test-results" select="/tt:TestRun/tt:Results/tt:UnitTestResult[@testId=$test-id]" />
-		<xsl:text>| Result                   | Duration         | Test Name                                          |</xsl:text>&cr;
-		<xsl:text>| :----------------------- | ---------------: | :--------------------------------------------------- |</xsl:text>&cr;
+		<xsl:variable name="test-results" select="ancestor::tt:TestRun/tt:Results/tt:UnitTestResult[@testId=$test-id]" />
+		<xsl:text>| Result                   | Duration    | Test Name                                            |</xsl:text>&cr;
+		<xsl:text>| :----------------------- | ----------: | :--------------------------------------------------- |</xsl:text>&cr;
 		<xsl:apply-templates select="$test-results" />
 		&cr;
 
