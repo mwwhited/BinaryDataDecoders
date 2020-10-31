@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge.SgStateParser
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateParser.xml
+﻿# BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge.SgStateParser
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGe | 
-| Assembly             | BinaryDataDecoders.ElectronicScoringMachines.Fencing         | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 66                                                           | 
-| Coverablelines       | 66                                                           | 
-| Totallines           | 150                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 116                                                          | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\SaintGeorge\SgStateParser.cs
+| Key             | Value                                                                            |
+| :-------------- | :------------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge.SgStateParser` |
+| Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                           |
+| Coveredlines    | `0`                                                                              |
+| Uncoveredlines  | `66`                                                                             |
+| Coverablelines  | `66`                                                                             |
+| Totallines      | `150`                                                                            |
+| Linecoverage    | `0`                                                                              |
+| Coveredbranches | `0`                                                                              |
+| Totalbranches   | `116`                                                                            |
+| Branchcoverage  | `0`                                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 116        | 0     | 0        | Parse | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 116        | 0     | 0        | `Parse` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\SaintGeorge\SgStateParser.cs
@@ -182,8 +177,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰148:         }
 〰149:     }
 〰150: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

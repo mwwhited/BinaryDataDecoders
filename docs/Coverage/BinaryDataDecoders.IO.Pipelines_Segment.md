@@ -1,39 +1,34 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Segment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_Segment.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Segment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Segment                      | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 31                                                           | 
-| Coverablelines       | 31                                                           | 
-| Totallines           | 84                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 30                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segment.cs
+| Key             | Value                                     |
+| :-------------- | :---------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Segment` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`         |
+| Coveredlines    | `0`                                       |
+| Uncoveredlines  | `31`                                      |
+| Coverablelines  | `31`                                      |
+| Totallines      | `84`                                      |
+| Linecoverage    | `0`                                       |
+| Coveredbranches | `0`                                       |
+| Totalbranches   | `30`                                      |
+| Branchcoverage  | `0`                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | StartsWith | 
-| 1          | 0     | 100      | StartsWith | 
-| 1          | 0     | 100      | AndEndsWith | 
-| 4          | 0     | 0        | AndEndsWith | 
-| 4          | 0     | 0        | ExtendedWithLengthAt | 
-| 6          | 0     | 0        | WithMaxLength | 
-| 2          | 0     | 0        | WithOptions | 
-| 6          | 0     | 0        | AndIsLength | 
-| 8          | 0     | 0        | ThenDo | 
+| Complexity | Lines | Branches | Name                   |
+| :--------- | :---- | :------- | :--------------------- |
+| 1          | 0     | 100      | `StartsWith`           |
+| 1          | 0     | 100      | `StartsWith`           |
+| 1          | 0     | 100      | `AndEndsWith`          |
+| 4          | 0     | 0        | `AndEndsWith`          |
+| 4          | 0     | 0        | `ExtendedWithLengthAt` |
+| 6          | 0     | 0        | `WithMaxLength`        |
+| 2          | 0     | 0        | `WithOptions`          |
+| 6          | 0     | 0        | `AndIsLength`          |
+| 8          | 0     | 0        | `ThenDo`               |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segment.cs
@@ -123,8 +118,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰82:          }
 〰83:      }
 〰84:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

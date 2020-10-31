@@ -1,34 +1,29 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNode
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_WrappedNode.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNode
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNode             | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 19                                                           | 
-| Uncoveredlines       | 4                                                            | 
-| Coverablelines       | 23                                                           | 
-| Totallines           | 65                                                           | 
-| Linecoverage         | 82.6                                                         | 
-| Coveredbranches      | 9                                                            | 
-| Totalbranches        | 12                                                           | 
-| Branchcoverage       | 75                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\WrappedNode.cs
+| Key             | Value                                              |
+| :-------------- | :------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNode` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                       |
+| Coveredlines    | `19`                                               |
+| Uncoveredlines  | `4`                                                |
+| Coverablelines  | `23`                                               |
+| Totallines      | `65`                                               |
+| Linecoverage    | `82.6`                                             |
+| Coveredbranches | `9`                                                |
+| Totalbranches   | `12`                                               |
+| Branchcoverage  | `75`                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 2          | 66.66 | 50.0     | get_First | 
-| 2          | 0     | 0        | get_Last | 
-| 8          | 100   | 100      | Build | 
+| Complexity | Lines | Branches | Name        |
+| :--------- | :---- | :------- | :---------- |
+| 1          | 100   | 100      | `ctor`      |
+| 2          | 66.66 | 50.0     | `get_First` |
+| 2          | 0     | 0        | `get_Last`  |
+| 8          | 100   | 100      | `Build`     |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\WrappedNode.cs
@@ -99,8 +94,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰63:          }
 〰64:      }
 〰65:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.Apple2.Dos33.DiskImageCommands
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Apple2_DiskImageCommands.xml
+﻿# BinaryDataDecoders.Apple2.Dos33.DiskImageCommands
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Apple2.Dos33.DiskImageCommands            | 
-| Assembly             | BinaryDataDecoders.Apple2                                    | 
-| Coveredlines         | 28                                                           | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 29                                                           | 
-| Totallines           | 143                                                          | 
-| Linecoverage         | 96.5                                                         | 
-| Coveredbranches      | 3                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 75                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\DiskImageCommands.cs
+| Key             | Value                                               |
+| :-------------- | :-------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Apple2.Dos33.DiskImageCommands` |
+| Assembly        | `BinaryDataDecoders.Apple2`                         |
+| Coveredlines    | `28`                                                |
+| Uncoveredlines  | `1`                                                 |
+| Coverablelines  | `29`                                                |
+| Totallines      | `143`                                               |
+| Linecoverage    | `96.5`                                              |
+| Coveredbranches | `3`                                                 |
+| Totalbranches   | `4`                                                 |
+| Branchcoverage  | `75`                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | GetVolumeTableOfContents | 
-| 4          | 94.44 | 75.00    | GetDataFileEntry | 
+| Complexity | Lines | Branches | Name                       |
+| :--------- | :---- | :------- | :------------------------- |
+| 1          | 100   | 100      | `GetVolumeTableOfContents` |
+| 4          | 94.44 | 75.00    | `GetDataFileEntry`         |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\DiskImageCommands.cs
@@ -175,8 +170,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰141:         }
 〰142:     }
 〰143: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.CSharp.CSharpSementicNavigator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_CSharpSementicNavigator.xml
+﻿# BinaryDataDecoders.CodeAnalysis.CSharp.CSharpSementicNavigator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.CSharp.CSharpSementicNavigat | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 12                                                           | 
-| Coverablelines       | 12                                                           | 
-| Totallines           | 33                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\CSharp\CSharpSementicNavigator.cs
+| Key             | Value                                                            |
+| :-------------- | :--------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.CSharp.CSharpSementicNavigator` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`                                |
+| Coveredlines    | `0`                                                              |
+| Uncoveredlines  | `12`                                                             |
+| Coverablelines  | `12`                                                             |
+| Totallines      | `33`                                                             |
+| Linecoverage    | `0`                                                              |
+| Coveredbranches | `0`                                                              |
+| Totalbranches   | `0`                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | ToNavigable | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `ToNavigable` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\CSharp\CSharpSementicNavigator.cs
@@ -64,8 +59,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰31:          }
 〰32:      }
 〰33:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleSimpleNodeBase`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ExtensibleSimpleNodeBase_1.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleSimpleNodeBase`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleSimpleNodeBas | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 13                                                           | 
-| Uncoveredlines       | 2                                                            | 
-| Coverablelines       | 15                                                           | 
-| Totallines           | 38                                                           | 
-| Linecoverage         | 86.6                                                         | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleSimpleNodeBase.cs
+| Key             | Value                                                             |
+| :-------------- | :---------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleSimpleNodeBase`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                      |
+| Coveredlines    | `13`                                                              |
+| Uncoveredlines  | `2`                                                               |
+| Coverablelines  | `15`                                                              |
+| Totallines      | `38`                                                              |
+| Linecoverage    | `86.6`                                                            |
+| Coveredbranches | `0`                                                               |
+| Totalbranches   | `0`                                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 0     | 100      | get_FirstAttribute | 
-| 1          | 0     | 100      | get_FirstNamespace | 
+| Complexity | Lines | Branches | Name                 |
+| :--------- | :---- | :------- | :------------------- |
+| 1          | 100   | 100      | `ctor`               |
+| 1          | 0     | 100      | `get_FirstAttribute` |
+| 1          | 0     | 100      | `get_FirstNamespace` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleSimpleNodeBase.cs
@@ -70,8 +65,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰36:          public INode? Previous { get; set; }
 〰37:      }
 〰38:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

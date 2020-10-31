@@ -1,47 +1,42 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBaseExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ExpressionBaseExtensions.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBaseExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Expressions.Expressi | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 25                                                           | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 28                                                           | 
-| Totallines           | 102                                                          | 
-| Linecoverage         | 89.2                                                         | 
-| Coveredbranches      | 14                                                           | 
-| Totalbranches        | 14                                                           | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\ExpressionBaseExtensions.cs
+| Key             | Value                                                                          |
+| :-------------- | :----------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBaseExtensions` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                      |
+| Coveredlines    | `25`                                                                           |
+| Uncoveredlines  | `3`                                                                            |
+| Coverablelines  | `28`                                                                           |
+| Totallines      | `102`                                                                          |
+| Linecoverage    | `89.2`                                                                         |
+| Coveredbranches | `14`                                                                           |
+| Totalbranches   | `14`                                                                           |
+| Branchcoverage  | `100`                                                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | Optimize | 
-| 1          | 100   | 100      | EmptySet | 
-| 4          | 100   | 100      | Evaluate | 
-| 1          | 100   | 100      | Evaluate | 
-| 2          | 100   | 100      | GetDistinctVariableNames | 
-| 6          | 100   | 100      | GenerateTestValues | 
-| 1          | 100   | 100      | ParseAsExpression | 
-| 1          | 100   | 100      | ReplaceVariables | 
-| 1          | 100   | 100      | ReplaceVariables | 
-| 1          | 100   | 100      | PreEvaluate | 
-| 1          | 100   | 100      | PreEvaluate | 
-| 2          | 100   | 100      | PreEvaluate | 
-| 1          | 100   | 100      | PreEvaluate | 
-| 1          | 0     | 100      | PreEvaluate | 
-| 1          | 0     | 100      | PreEvaluate | 
-| 1          | 0     | 100      | PreEvaluate | 
-| 1          | 100   | 100      | PreEvaluate | 
+| Complexity | Lines | Branches | Name                       |
+| :--------- | :---- | :------- | :------------------------- |
+| 1          | 100   | 100      | `Optimize`                 |
+| 1          | 100   | 100      | `EmptySet`                 |
+| 4          | 100   | 100      | `Evaluate`                 |
+| 1          | 100   | 100      | `Evaluate`                 |
+| 2          | 100   | 100      | `GetDistinctVariableNames` |
+| 6          | 100   | 100      | `GenerateTestValues`       |
+| 1          | 100   | 100      | `ParseAsExpression`        |
+| 1          | 100   | 100      | `ReplaceVariables`         |
+| 1          | 100   | 100      | `ReplaceVariables`         |
+| 1          | 100   | 100      | `PreEvaluate`              |
+| 1          | 100   | 100      | `PreEvaluate`              |
+| 2          | 100   | 100      | `PreEvaluate`              |
+| 1          | 100   | 100      | `PreEvaluate`              |
+| 1          | 0     | 100      | `PreEvaluate`              |
+| 1          | 0     | 100      | `PreEvaluate`              |
+| 1          | 0     | 100      | `PreEvaluate`              |
+| 1          | 100   | 100      | `PreEvaluate`              |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\ExpressionBaseExtensions.cs
@@ -149,8 +144,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔100:             ((ExpressionBase<decimal>)expression).PreEvaluate(variables);
 〰101:     }
 〰102: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

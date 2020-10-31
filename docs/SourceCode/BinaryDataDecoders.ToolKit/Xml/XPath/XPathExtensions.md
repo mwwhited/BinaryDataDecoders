@@ -35,3 +35,15 @@
  - this IXPathNavigable navigator 
  - IEnumerable < IXPathNavigable > navigators 
 
+#### Public Static Method - AsNavigatorSet
+
+#####  Parameters
+
+ - this XPathNodeIterator iterator 
+
+#### Public Static Method - AsNodeSet
+
+#####  Parameters
+
+ - this object item 
+

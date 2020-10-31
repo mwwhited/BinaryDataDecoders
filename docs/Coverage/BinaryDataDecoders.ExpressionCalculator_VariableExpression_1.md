@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Expressions.VariableExpression`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_VariableExpression_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Expressions.VariableExpression`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Expressions.Variable | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 11                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 11                                                           | 
-| Totallines           | 29                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 10                                                           | 
-| Totalbranches        | 10                                                           | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\VariableExpression.cs
+| Key             | Value                                                                      |
+| :-------------- | :------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.VariableExpression`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                  |
+| Coveredlines    | `11`                                                                       |
+| Uncoveredlines  | `0`                                                                        |
+| Coverablelines  | `11`                                                                       |
+| Totallines      | `29`                                                                       |
+| Linecoverage    | `100`                                                                      |
+| Coveredbranches | `10`                                                                       |
+| Totalbranches   | `10`                                                                       |
+| Branchcoverage  | `100`                                                                      |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | Clone | 
-| 1          | 100   | 100      | Evaluate | 
-| 1          | 100   | 100      | ToString | 
-| 8          | 100   | 100      | Equals | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 2          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `Clone`    |
+| 1          | 100   | 100      | `Evaluate` |
+| 1          | 100   | 100      | `ToString` |
+| 8          | 100   | 100      | `Equals`   |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\VariableExpression.cs
@@ -64,8 +59,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔27:              obj is string && Name.Equals(obj);
 〰28:      }
 〰29:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

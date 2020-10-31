@@ -1,36 +1,31 @@
-﻿
-# BinaryDataDecoders.ToolKit.Collections.ReversibleEnumeratorEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ReversibleEnumeratorEx.xml
+﻿# BinaryDataDecoders.ToolKit.Collections.ReversibleEnumeratorEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Collections.ReversibleEnumeratorE | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 13                                                           | 
-| Coverablelines       | 13                                                           | 
-| Totallines           | 83                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 14                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\ReversibleEnumeratorEx.cs
+| Key             | Value                                                           |
+| :-------------- | :-------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Collections.ReversibleEnumeratorEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                    |
+| Coveredlines    | `0`                                                             |
+| Uncoveredlines  | `13`                                                            |
+| Coverablelines  | `13`                                                            |
+| Totallines      | `83`                                                            |
+| Linecoverage    | `0`                                                             |
+| Coveredbranches | `0`                                                             |
+| Totalbranches   | `14`                                                            |
+| Branchcoverage  | `0`                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | Rewind | 
-| 1          | 0     | 100      | FastForward | 
-| 2          | 0     | 0        | FastForwardToEnd | 
-| 4          | 0     | 0        | Offset | 
-| 4          | 0     | 0        | Back | 
-| 4          | 0     | 0        | Forward | 
+| Complexity | Lines | Branches | Name               |
+| :--------- | :---- | :------- | :----------------- |
+| 1          | 0     | 100      | `Rewind`           |
+| 1          | 0     | 100      | `FastForward`      |
+| 2          | 0     | 0        | `FastForwardToEnd` |
+| 4          | 0     | 0        | `Offset`           |
+| 4          | 0     | 0        | `Back`             |
+| 4          | 0     | 0        | `Forward`          |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\ReversibleEnumeratorEx.cs
@@ -119,8 +114,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰81:          }
 〰82:      }
 〰83:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

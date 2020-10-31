@@ -1,40 +1,35 @@
-﻿
-# BinaryDataDecoders.ToolKit.Collections.ReversableEnumerator`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ReversableEnumerator_1.xml
+﻿# BinaryDataDecoders.ToolKit.Collections.ReversableEnumerator`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Collections.ReversableEnumerator` | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 64                                                           | 
-| Coverablelines       | 64                                                           | 
-| Totallines           | 167                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 30                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\ReversableEnumerator.cs
+| Key             | Value                                                           |
+| :-------------- | :-------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Collections.ReversableEnumerator`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                    |
+| Coveredlines    | `0`                                                             |
+| Uncoveredlines  | `64`                                                            |
+| Coverablelines  | `64`                                                            |
+| Totallines      | `167`                                                           |
+| Linecoverage    | `0`                                                             |
+| Coveredbranches | `0`                                                             |
+| Totalbranches   | `30`                                                            |
+| Branchcoverage  | `0`                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | get_Position | 
-| 1          | 0     | 100      | ctor | 
-| 2          | 0     | 0        | get_Current | 
-| 1          | 0     | 100      | SystemCollectionsIEnumeratorget_Current | 
-| 1          | 0     | 100      | Dispose | 
-| 14         | 0     | 0        | MoveNext | 
-| 4          | 0     | 0        | MoveCurrent | 
-| 6          | 0     | 0        | MovePrevious | 
-| 4          | 0     | 0        | Reset | 
+| Complexity | Lines | Branches | Name                                      |
+| :--------- | :---- | :------- | :---------------------------------------- |
+| 1          | 0     | 100      | `ctor`                                    |
+| 1          | 0     | 100      | `get_Position`                            |
+| 1          | 0     | 100      | `ctor`                                    |
+| 2          | 0     | 0        | `get_Current`                             |
+| 1          | 0     | 100      | `SystemCollectionsIEnumeratorget_Current` |
+| 1          | 0     | 100      | `Dispose`                                 |
+| 14         | 0     | 0        | `MoveNext`                                |
+| 4          | 0     | 0        | `MoveCurrent`                             |
+| 6          | 0     | 0        | `MovePrevious`                            |
+| 4          | 0     | 0        | `Reset`                                   |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\ReversableEnumerator.cs
@@ -207,8 +202,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼165:         }
 〰166:     }
 〰167: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Quarta.RadexOne.DevicePing
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Quarta.RadexOne_DevicePing.xml
+﻿# BinaryDataDecoders.Quarta.RadexOne.DevicePing
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Quarta.RadexOne.DevicePing                | 
-| Assembly             | BinaryDataDecoders.Quarta.RadexOne                           | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 13                                                           | 
-| Coverablelines       | 13                                                           | 
-| Totallines           | 57                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\DevicePing.cs
+| Key             | Value                                           |
+| :-------------- | :---------------------------------------------- |
+| Class           | `BinaryDataDecoders.Quarta.RadexOne.DevicePing` |
+| Assembly        | `BinaryDataDecoders.Quarta.RadexOne`            |
+| Coveredlines    | `0`                                             |
+| Uncoveredlines  | `13`                                            |
+| Coverablelines  | `13`                                            |
+| Totallines      | `57`                                            |
+| Linecoverage    | `0`                                             |
+| Coveredbranches | `0`                                             |
+| Totalbranches   | `0`                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 0     | 100      | `ctor`     |
+| 1          | 0     | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\DevicePing.cs
@@ -88,8 +83,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰55:      }
 〰56:  
 〰57:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

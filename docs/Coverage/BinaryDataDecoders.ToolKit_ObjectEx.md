@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ToolKit.ObjectEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ObjectEx.xml
+﻿# BinaryDataDecoders.ToolKit.ObjectEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.ObjectEx                          | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 55                                                           | 
-| Linecoverage         | 25                                                           | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\ObjectEx.cs
+| Key             | Value                                 |
+| :-------------- | :------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.ObjectEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`          |
+| Coveredlines    | `1`                                   |
+| Uncoveredlines  | `3`                                   |
+| Coverablelines  | `4`                                   |
+| Totallines      | `55`                                  |
+| Linecoverage    | `25`                                  |
+| Coveredbranches | `0`                                   |
+| Totalbranches   | `0`                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | GetResourceStream | 
-| 1          | 0     | 100      | GetResourceAsStringAsync | 
-| 1          | 0     | 100      | GetXmlNamespace | 
-| 1          | 0     | 100      | GetXmlNamespaceForOutput | 
+| Complexity | Lines | Branches | Name                       |
+| :--------- | :---- | :------- | :------------------------- |
+| 1          | 100   | 100      | `GetResourceStream`        |
+| 1          | 0     | 100      | `GetResourceAsStringAsync` |
+| 1          | 0     | 100      | `GetXmlNamespace`          |
+| 1          | 0     | 100      | `GetXmlNamespaceForOutput` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\ObjectEx.cs
@@ -88,8 +83,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼53:              obj.GetType().GetXmlNamespace() + ToolkitConstants.XmlNamespaces.OutputSuffix;
 〰54:      }
 〰55:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

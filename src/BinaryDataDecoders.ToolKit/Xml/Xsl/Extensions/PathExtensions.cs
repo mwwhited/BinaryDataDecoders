@@ -107,7 +107,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         public XPathNavigator ListFilesFiltered(string path, string pattern)
         {
             var cleanedPath = SandboxPath.EnsureSafePath(_sandbox, path);
-#if DEBUG
+#if DEBUG && false
             Console.WriteLine($"==> Path: {path}");
             Console.WriteLine($"==> Pattern: {pattern}");
             Console.WriteLine($"==> Cleaned: {cleanedPath}");

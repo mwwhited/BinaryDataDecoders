@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.Quarta.RadexOne.ReadSerialNumberResponse
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Quarta.RadexOne_ReadSerialNumberResponse.xml
+﻿# BinaryDataDecoders.Quarta.RadexOne.ReadSerialNumberResponse
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Quarta.RadexOne.ReadSerialNumberResponse  | 
-| Assembly             | BinaryDataDecoders.Quarta.RadexOne                           | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 3                                                            | 
-| Totallines           | 115                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\ReadSerialNumberResponse.cs
+| Key             | Value                                                         |
+| :-------------- | :------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.Quarta.RadexOne.ReadSerialNumberResponse` |
+| Assembly        | `BinaryDataDecoders.Quarta.RadexOne`                          |
+| Coveredlines    | `0`                                                           |
+| Uncoveredlines  | `3`                                                           |
+| Coverablelines  | `3`                                                           |
+| Totallines      | `115`                                                         |
+| Linecoverage    | `0`                                                           |
+| Coveredbranches | `0`                                                           |
+| Totalbranches   | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | get_SerialNumber | 
-| 1          | 0     | 100      | get_Version | 
-| 1          | 0     | 100      | ToString | 
+| Complexity | Lines | Branches | Name               |
+| :--------- | :---- | :------- | :----------------- |
+| 1          | 0     | 100      | `get_SerialNumber` |
+| 1          | 0     | 100      | `get_Version`      |
+| 1          | 0     | 100      | `ToString`         |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\ReadSerialNumberResponse.cs
@@ -147,8 +142,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰113:         //}
 〰114:     }
 〰115: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.ToolKit.Collections.EnumerableEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_EnumerableEx.xml
+﻿# BinaryDataDecoders.ToolKit.Collections.EnumerableEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Collections.EnumerableEx          | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 2                                                            | 
-| Coverablelines       | 2                                                            | 
-| Totallines           | 25                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\EnumerableEx.cs
+| Key             | Value                                                 |
+| :-------------- | :---------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Collections.EnumerableEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                          |
+| Coveredlines    | `0`                                                   |
+| Uncoveredlines  | `2`                                                   |
+| Coverablelines  | `2`                                                   |
+| Totallines      | `25`                                                  |
+| Linecoverage    | `0`                                                   |
+| Coveredbranches | `0`                                                   |
+| Totalbranches   | `0`                                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | GetReversibleEnumerator | 
-| 1          | 0     | 100      | MakeReversibleEnumerator | 
+| Complexity | Lines | Branches | Name                       |
+| :--------- | :---- | :------- | :------------------------- |
+| 1          | 0     | 100      | `GetReversibleEnumerator`  |
+| 1          | 0     | 100      | `MakeReversibleEnumerator` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\EnumerableEx.cs
@@ -56,8 +51,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼23:          public static IReversibleEnumerator<T> MakeReversibleEnumerator<T>(this IEnumerator<T> enumerator) => new ReversableEnumerator<T>(enumerator);
 〰24:      }
 〰25:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

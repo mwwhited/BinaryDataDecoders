@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Factories.StreamPipelineFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_StreamPipelineFactory.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Factories.StreamPipelineFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Factories.StreamPipelineFact | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 75                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Factories\StreamPipelineFactory.cs
+| Key             | Value                                                             |
+| :-------------- | :---------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Factories.StreamPipelineFactory` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`                                 |
+| Coveredlines    | `0`                                                               |
+| Uncoveredlines  | `1`                                                               |
+| Coverablelines  | `1`                                                               |
+| Totallines      | `75`                                                              |
+| Linecoverage    | `0`                                                               |
+| Coveredbranches | `0`                                                               |
+| Totalbranches   | `0`                                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | CreateReader | 
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 0     | 100      | `CreateReader` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Factories\StreamPipelineFactory.cs
@@ -105,8 +100,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰73:          }
 〰74:      }
 〰75:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

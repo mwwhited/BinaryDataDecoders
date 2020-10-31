@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.BaseValuePathSegment`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_BaseValuePathSegment_1.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.BaseValuePathSegment`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.BaseValuePathSegment | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 4                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 13                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\BaseValuePathSegment.cs
+| Key             | Value                                                            |
+| :-------------- | :--------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.BaseValuePathSegment`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                     |
+| Coveredlines    | `4`                                                              |
+| Uncoveredlines  | `0`                                                              |
+| Coverablelines  | `4`                                                              |
+| Totallines      | `13`                                                             |
+| Linecoverage    | `100`                                                            |
+| Coveredbranches | `0`                                                              |
+| Totalbranches   | `0`                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\BaseValuePathSegment.cs
@@ -44,8 +39,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔11:          public override string ToString() => $"{Value}";
 〰12:      }
 〰13:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

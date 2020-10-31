@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Templating.Html.HtmlTemplateTransform
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Templating.Html_HtmlTemplateTransform.xml
+﻿# BinaryDataDecoders.Templating.Html.HtmlTemplateTransform
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Templating.Html.HtmlTemplateTransform     | 
-| Assembly             | BinaryDataDecoders.Templating.Html                           | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 25                                                           | 
-| Coverablelines       | 25                                                           | 
-| Totallines           | 67                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Templating.Html\HtmlTemplateTransform.cs
+| Key             | Value                                                      |
+| :-------------- | :--------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Templating.Html.HtmlTemplateTransform` |
+| Assembly        | `BinaryDataDecoders.Templating.Html`                       |
+| Coveredlines    | `0`                                                        |
+| Uncoveredlines  | `25`                                                       |
+| Coverablelines  | `25`                                                       |
+| Totallines      | `67`                                                       |
+| Linecoverage    | `0`                                                        |
+| Coveredbranches | `0`                                                        |
+| Totalbranches   | `0`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | ToXPathNavigator | 
+| Complexity | Lines | Branches | Name               |
+| :--------- | :---- | :------- | :----------------- |
+| 1          | 0     | 100      | `ctor`             |
+| 1          | 0     | 100      | `ToXPathNavigator` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Templating.Html\HtmlTemplateTransform.cs
@@ -98,8 +93,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰65:          }
 〰66:      }
 〰67:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

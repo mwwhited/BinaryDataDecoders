@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.ScoreMachineState
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ElectronicScoringMachines.Fencing_ScoreMachineState.xml
+﻿# BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.ScoreMachineState
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common. | 
-| Assembly             | BinaryDataDecoders.ElectronicScoringMachines.Fencing         | 
-| Coveredlines         | 6                                                            | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 9                                                            | 
-| Totallines           | 41                                                           | 
-| Linecoverage         | 66.6                                                         | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 8                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Common\ScoreMachineState.cs
+| Key             | Value                                                                           |
+| :-------------- | :------------------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.ScoreMachineState` |
+| Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                          |
+| Coveredlines    | `6`                                                                             |
+| Uncoveredlines  | `3`                                                                             |
+| Coverablelines  | `9`                                                                             |
+| Totallines      | `41`                                                                            |
+| Linecoverage    | `66.6`                                                                          |
+| Coveredbranches | `0`                                                                             |
+| Totalbranches   | `8`                                                                             |
+| Branchcoverage  | `0`                                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | cctor | 
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | ToString | 
-| 8          | 0     | 0        | Equals | 
-| 1          | 0     | 100      | GetHashCode | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `cctor`       |
+| 1          | 100   | 100      | `ctor`        |
+| 1          | 100   | 100      | `ToString`    |
+| 8          | 0     | 0        | `Equals`      |
+| 1          | 0     | 100      | `GetHashCode` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Common\ScoreMachineState.cs
@@ -76,8 +71,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰39:          }
 〰40:      }
 〰41:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

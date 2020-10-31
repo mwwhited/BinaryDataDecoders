@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.ToolKit.Collections.DoubleLinkedList`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_DoubleLinkedList_1.xml
+﻿# BinaryDataDecoders.ToolKit.Collections.DoubleLinkedList`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Collections.DoubleLinkedList`1    | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 30                                                           | 
-| Coverablelines       | 30                                                           | 
-| Totallines           | 66                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 12                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\DoubleLinkedList.cs
+| Key             | Value                                                       |
+| :-------------- | :---------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Collections.DoubleLinkedList`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                |
+| Coveredlines    | `0`                                                         |
+| Uncoveredlines  | `30`                                                        |
+| Coverablelines  | `30`                                                        |
+| Totallines      | `66`                                                        |
+| Linecoverage    | `0`                                                         |
+| Coveredbranches | `0`                                                         |
+| Totalbranches   | `12`                                                        |
+| Branchcoverage  | `0`                                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | get_Position | 
-| 4          | 0     | 0        | SyncPosition | 
-| 4          | 0     | 0        | InsertBefore | 
-| 4          | 0     | 0        | InsertAfter | 
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 0     | 100      | `ctor`         |
+| 1          | 0     | 100      | `get_Position` |
+| 4          | 0     | 0        | `SyncPosition` |
+| 4          | 0     | 0        | `InsertBefore` |
+| 4          | 0     | 0        | `InsertAfter`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\DoubleLinkedList.cs
@@ -101,8 +96,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼64:          }
 〰65:      }
 〰66:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

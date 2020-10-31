@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Definitions.OnPipelineErrorExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_OnPipelineErrorExtensions.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Definitions.OnPipelineErrorExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Definitions.OnPipelineErrorE | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 5                                                            | 
-| Coverablelines       | 5                                                            | 
-| Totallines           | 20                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\OnPipelineErrorExtensions.cs
+| Key             | Value                                                                   |
+| :-------------- | :---------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Definitions.OnPipelineErrorExtensions` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`                                       |
+| Coveredlines    | `0`                                                                     |
+| Uncoveredlines  | `5`                                                                     |
+| Coverablelines  | `5`                                                                     |
+| Totallines      | `20`                                                                    |
+| Linecoverage    | `0`                                                                     |
+| Coveredbranches | `0`                                                                     |
+| Totalbranches   | `0`                                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | cctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `cctor` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\OnPipelineErrorExtensions.cs
@@ -50,8 +45,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼18:          };
 〰19:      }
 〰20:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.VisualBasic.VisualBasicNavigator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_VisualBasicNavigator.xml
+﻿# BinaryDataDecoders.CodeAnalysis.VisualBasic.VisualBasicNavigator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.VisualBasic.VisualBasicNavig | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 8                                                            | 
-| Coverablelines       | 8                                                            | 
-| Totallines           | 29                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\VisualBasic\VisualBasicNavigator.cs
+| Key             | Value                                                              |
+| :-------------- | :----------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.VisualBasic.VisualBasicNavigator` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`                                  |
+| Coveredlines    | `0`                                                                |
+| Uncoveredlines  | `8`                                                                |
+| Coverablelines  | `8`                                                                |
+| Totallines      | `29`                                                               |
+| Linecoverage    | `0`                                                                |
+| Coveredbranches | `0`                                                                |
+| Totalbranches   | `0`                                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | ToNavigable | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `ToNavigable` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\VisualBasic\VisualBasicNavigator.cs
@@ -60,8 +55,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰27:          }
 〰28:      }
 〰29:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

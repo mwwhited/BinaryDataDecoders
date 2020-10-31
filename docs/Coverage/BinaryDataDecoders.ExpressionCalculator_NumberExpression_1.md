@@ -1,36 +1,31 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Expressions.NumberExpression`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_NumberExpression_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Expressions.NumberExpression`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Expressions.NumberEx | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 11                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 11                                                           | 
-| Totallines           | 29                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 8                                                            | 
-| Totalbranches        | 8                                                            | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\NumberExpression.cs
+| Key             | Value                                                                    |
+| :-------------- | :----------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.NumberExpression`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                |
+| Coveredlines    | `11`                                                                     |
+| Uncoveredlines  | `0`                                                                      |
+| Coverablelines  | `11`                                                                     |
+| Totallines      | `29`                                                                     |
+| Linecoverage    | `100`                                                                    |
+| Coveredbranches | `8`                                                                      |
+| Totalbranches   | `8`                                                                      |
+| Branchcoverage  | `100`                                                                    |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | Evaluate | 
-| 1          | 100   | 100      | Clone | 
-| 1          | 100   | 100      | ToString | 
-| 8          | 100   | 100      | Equals | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `cctor`    |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `Evaluate` |
+| 1          | 100   | 100      | `Clone`    |
+| 1          | 100   | 100      | `ToString` |
+| 8          | 100   | 100      | `Equals`   |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\NumberExpression.cs
@@ -65,8 +60,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔27:          public static readonly ExpressionBase<T> NegativeOne = new NumberExpression<T>(_evaluator.GetValue(-1));
 〰28:      }
 〰29:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

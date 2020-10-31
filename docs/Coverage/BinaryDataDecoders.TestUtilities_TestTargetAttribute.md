@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.TestUtilities.TestTargetAttribute
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.TestUtilities_TestTargetAttribute.xml
+﻿# BinaryDataDecoders.TestUtilities.TestTargetAttribute
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.TestUtilities.TestTargetAttribute         | 
-| Assembly             | BinaryDataDecoders.TestUtilities                             | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 27                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.TestUtilities\TestTargetAttribute.cs
+| Key             | Value                                                  |
+| :-------------- | :----------------------------------------------------- |
+| Class           | `BinaryDataDecoders.TestUtilities.TestTargetAttribute` |
+| Assembly        | `BinaryDataDecoders.TestUtilities`                     |
+| Coveredlines    | `1`                                                    |
+| Uncoveredlines  | `0`                                                    |
+| Coverablelines  | `1`                                                    |
+| Totallines      | `27`                                                   |
+| Linecoverage    | `100`                                                  |
+| Coveredbranches | `0`                                                    |
+| Totalbranches   | `0`                                                    |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.TestUtilities\TestTargetAttribute.cs
@@ -57,8 +52,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰25:          public string? Member { get; set; }
 〰26:      }
 〰27:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.FileSystems.Iso9660.VolumeDescription
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.FileSystems_VolumeDescription.xml
+﻿# BinaryDataDecoders.FileSystems.Iso9660.VolumeDescription
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.FileSystems.Iso9660.VolumeDescription     | 
-| Assembly             | BinaryDataDecoders.FileSystems                               | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 45                                                           | 
-| Coverablelines       | 45                                                           | 
-| Totallines           | 150                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\VolumeDescription.cs
+| Key             | Value                                                      |
+| :-------------- | :--------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.FileSystems.Iso9660.VolumeDescription` |
+| Assembly        | `BinaryDataDecoders.FileSystems`                           |
+| Coveredlines    | `0`                                                        |
+| Uncoveredlines  | `45`                                                       |
+| Coverablelines  | `45`                                                       |
+| Totallines      | `150`                                                      |
+| Linecoverage    | `0`                                                        |
+| Coveredbranches | `0`                                                        |
+| Totalbranches   | `4`                                                        |
+| Branchcoverage  | `0`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | Create | 
-| 2          | 0     | 0        | GetEnumerator | 
-| 1          | 0     | 100      | SystemCollectionsIEnumerableGetEnumerator | 
-| 2          | 0     | 0        | Dispose | 
+| Complexity | Lines | Branches | Name                                        |
+| :--------- | :---- | :------- | :------------------------------------------ |
+| 1          | 0     | 100      | `ctor`                                      |
+| 1          | 0     | 100      | `Create`                                    |
+| 2          | 0     | 0        | `GetEnumerator`                             |
+| 1          | 0     | 100      | `SystemCollectionsIEnumerableGetEnumerator` |
+| 2          | 0     | 0        | `Dispose`                                   |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\VolumeDescription.cs
@@ -185,8 +180,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰148:         #endregion
 〰149:     }
 〰150: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,40 +1,35 @@
-﻿
-# BinaryDataDecoders.Cryptography.Enigma.EnigmaMachine
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Cryptography_EnigmaMachine.xml
+﻿# BinaryDataDecoders.Cryptography.Enigma.EnigmaMachine
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Cryptography.Enigma.EnigmaMachine         | 
-| Assembly             | BinaryDataDecoders.Cryptography                              | 
-| Coveredlines         | 52                                                           | 
-| Uncoveredlines       | 18                                                           | 
-| Coverablelines       | 70                                                           | 
-| Totallines           | 143                                                          | 
-| Linecoverage         | 74.2                                                         | 
-| Coveredbranches      | 21                                                           | 
-| Totalbranches        | 32                                                           | 
-| Branchcoverage       | 65.6                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaMachine.cs
+| Key             | Value                                                  |
+| :-------------- | :----------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaMachine` |
+| Assembly        | `BinaryDataDecoders.Cryptography`                      |
+| Coveredlines    | `52`                                                   |
+| Uncoveredlines  | `18`                                                   |
+| Coverablelines  | `70`                                                   |
+| Totallines      | `143`                                                  |
+| Linecoverage    | `74.2`                                                 |
+| Coveredbranches | `21`                                                   |
+| Totalbranches   | `32`                                                   |
+| Branchcoverage  | `65.6`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 8          | 85.71 | 50.0     | ctor | 
-| 1          | 100   | 100      | get_Position | 
-| 2          | 100   | 100      | set_Position | 
-| 1          | 0     | 100      | get_RingSettings | 
-| 2          | 100   | 100      | set_RingSettings | 
-| 2          | 0     | 0        | get_PlugBoard | 
-| 4          | 80.0  | 75.00    | set_PlugBoard | 
-| 1          | 0     | 100      | get_Rotors | 
-| 1          | 0     | 100      | get_Reflector | 
-| 14         | 75.00 | 71.42    | Process | 
+| Complexity | Lines | Branches | Name               |
+| :--------- | :---- | :------- | :----------------- |
+| 8          | 85.71 | 50.0     | `ctor`             |
+| 1          | 100   | 100      | `get_Position`     |
+| 2          | 100   | 100      | `set_Position`     |
+| 1          | 0     | 100      | `get_RingSettings` |
+| 2          | 100   | 100      | `set_RingSettings` |
+| 2          | 0     | 0        | `get_PlugBoard`    |
+| 4          | 80.0  | 75.00    | `set_PlugBoard`    |
+| 1          | 0     | 100      | `get_Rotors`       |
+| 1          | 0     | 100      | `get_Reflector`    |
+| 14         | 75.00 | 71.42    | `Process`          |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaMachine.cs
@@ -183,8 +178,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰141:         }
 〰142:     }
 〰143: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

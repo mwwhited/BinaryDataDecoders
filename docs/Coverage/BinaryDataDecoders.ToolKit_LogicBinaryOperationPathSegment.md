@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.LogicBinaryOperationPathSegment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_LogicBinaryOperationPathSegment.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.LogicBinaryOperationPathSegment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.LogicBinaryOperation | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 2                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 2                                                            | 
-| Totallines           | 12                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\LogicBinaryOperationPathSegment.cs
+| Key             | Value                                                                     |
+| :-------------- | :------------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.LogicBinaryOperationPathSegment` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                              |
+| Coveredlines    | `2`                                                                       |
+| Uncoveredlines  | `0`                                                                       |
+| Coverablelines  | `2`                                                                       |
+| Totallines      | `12`                                                                      |
+| Linecoverage    | `100`                                                                     |
+| Coveredbranches | `0`                                                                       |
+| Totalbranches   | `0`                                                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\LogicBinaryOperationPathSegment.cs
@@ -42,8 +37,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔10:          { }
 〰11:      }
 〰12:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

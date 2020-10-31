@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ToolKit.MetaData.FileExtensionAttribute
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_FileExtensionAttribute.xml
+﻿# BinaryDataDecoders.ToolKit.MetaData.FileExtensionAttribute
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.MetaData.FileExtensionAttribute   | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 12                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MetaData\FileExtensionAttribute.cs
+| Key             | Value                                                        |
+| :-------------- | :----------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.MetaData.FileExtensionAttribute` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                 |
+| Coveredlines    | `0`                                                          |
+| Uncoveredlines  | `1`                                                          |
+| Coverablelines  | `1`                                                          |
+| Totallines      | `12`                                                         |
+| Linecoverage    | `0`                                                          |
+| Coveredbranches | `0`                                                          |
+| Totalbranches   | `0`                                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MetaData\FileExtensionAttribute.cs
@@ -42,8 +37,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼10:          public FileExtensionAttribute(string fileExtension) => FileExtension = fileExtension;
 〰11:      }
 〰12:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Optimizers.DeterminedExpressionReducer`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_DeterminedExpressionReducer_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Optimizers.DeterminedExpressionReducer`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Optimizers.Determine | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 41                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 41                                                           | 
-| Totallines           | 80                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 61                                                           | 
-| Totalbranches        | 63                                                           | 
-| Branchcoverage       | 96.8                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\DeterminedExpressionReducer.cs
+| Key             | Value                                                                              |
+| :-------------- | :--------------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.DeterminedExpressionReducer`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                          |
+| Coveredlines    | `41`                                                                               |
+| Uncoveredlines  | `0`                                                                                |
+| Coverablelines  | `41`                                                                               |
+| Totallines      | `80`                                                                               |
+| Linecoverage    | `100`                                                                              |
+| Coveredbranches | `61`                                                                               |
+| Totalbranches   | `63`                                                                               |
+| Branchcoverage  | `96.8`                                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 4          | 100   | 100      | Optimize | 
-| 53         | 100   | 98.11    | Optimize | 
-| 6          | 100   | 83.33    | GetValue | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 4          | 100   | 100      | `Optimize` |
+| 53         | 100   | 98.11    | `Optimize` |
+| 6          | 100   | 83.33    | `GetValue` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\DeterminedExpressionReducer.cs
@@ -113,8 +108,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰78:  
 〰79:      }
 〰80:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

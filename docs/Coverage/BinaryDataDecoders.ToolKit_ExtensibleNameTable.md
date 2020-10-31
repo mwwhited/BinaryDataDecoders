@@ -1,34 +1,29 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNameTable
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ExtensibleNameTable.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNameTable
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNameTable     | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 2                                                            | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 5                                                            | 
-| Totallines           | 20                                                           | 
-| Linecoverage         | 40                                                           | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNameTable.cs
+| Key             | Value                                                      |
+| :-------------- | :--------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNameTable` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                               |
+| Coveredlines    | `2`                                                        |
+| Uncoveredlines  | `3`                                                        |
+| Coverablelines  | `5`                                                        |
+| Totallines      | `20`                                                       |
+| Linecoverage    | `40`                                                       |
+| Coveredbranches | `0`                                                        |
+| Totalbranches   | `0`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 0     | 100      | Add | 
-| 1          | 100   | 100      | Add | 
-| 1          | 0     | 100      | Get | 
-| 1          | 0     | 100      | Get | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `ctor`  |
+| 1          | 0     | 100      | `Add`   |
+| 1          | 100   | 100      | `Add`   |
+| 1          | 0     | 100      | `Get`   |
+| 1          | 0     | 100      | `Get`   |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNameTable.cs
@@ -54,8 +49,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼18:              _nameTable.Add(array);
 〰19:      }
 〰20:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

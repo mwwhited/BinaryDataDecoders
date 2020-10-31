@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.TestUtilities_TrxExtensions.xml
+﻿# BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExten | 
-| Assembly             | BinaryDataDecoders.TestUtilities                             | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 24                                                           | 
-| Coverablelines       | 24                                                           | 
-| Totallines           | 65                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 22                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.TestUtilities\Xml\Xsl\Extensions\TrxExtensions.cs
+| Key             | Value                                                               |
+| :-------------- | :------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions.TrxExtensions` |
+| Assembly        | `BinaryDataDecoders.TestUtilities`                                  |
+| Coveredlines    | `0`                                                                 |
+| Uncoveredlines  | `24`                                                                |
+| Coverablelines  | `24`                                                                |
+| Totallines      | `65`                                                                |
+| Linecoverage    | `0`                                                                 |
+| Coveredbranches | `0`                                                                 |
+| Totalbranches   | `22`                                                                |
+| Branchcoverage  | `0`                                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 22         | 0     | 0        | GetTestTargets | 
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 22         | 0     | 0        | `GetTestTargets` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.TestUtilities\Xml\Xsl\Extensions\TrxExtensions.cs
@@ -96,8 +91,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼63:          }
 〰64:      }
 〰65:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

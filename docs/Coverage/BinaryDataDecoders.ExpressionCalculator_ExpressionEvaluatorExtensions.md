@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Evaluators.ExpressionEvaluatorExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ExpressionEvaluatorExtensions.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Evaluators.ExpressionEvaluatorExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Evaluators.Expressio | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 9                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 9                                                            | 
-| Totallines           | 58                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 4                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Evaluators\ExpressionEvaluatorExtensions.cs
+| Key             | Value                                                                              |
+| :-------------- | :--------------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Evaluators.ExpressionEvaluatorExtensions` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                          |
+| Coveredlines    | `9`                                                                                |
+| Uncoveredlines  | `0`                                                                                |
+| Coverablelines  | `9`                                                                                |
+| Totallines      | `58`                                                                               |
+| Linecoverage    | `100`                                                                              |
+| Coveredbranches | `4`                                                                                |
+| Totalbranches   | `4`                                                                                |
+| Branchcoverage  | `100`                                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | Product | 
-| 1          | 100   | 100      | Sum | 
-| 4          | 100   | 100      | Factorial | 
+| Complexity | Lines | Branches | Name        |
+| :--------- | :---- | :------- | :---------- |
+| 1          | 100   | 100      | `Product`   |
+| 1          | 100   | 100      | `Sum`       |
+| 4          | 100   | 100      | `Factorial` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Evaluators\ExpressionEvaluatorExtensions.cs
@@ -91,8 +86,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰56:          }
 〰57:      }
 〰58:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

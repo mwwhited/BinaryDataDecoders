@@ -32,7 +32,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `GetTrackSectorListForFileEntryTest                ` |
+|  ✔ Passed               | 00:00:00.03 | `GetTrackSectorListForFileEntryTest                ` |
 
 ## GetVolumeTableOfContentsTest
 
@@ -49,7 +49,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.03 | `GetVolumeTableOfContentsTest                      ` |
+|  ✔ Passed               | 00:00:00.02 | `GetVolumeTableOfContentsTest                      ` |
 
 ## GetCatalogsTest
 
@@ -66,7 +66,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `GetCatalogsTest                                   ` |
+|  ✔ Passed               | 00:00:00.04 | `GetCatalogsTest                                   ` |
 
 
 

@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Quarta.RadexOne.WriteSettingsRequest
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Quarta.RadexOne_WriteSettingsRequest.xml
+﻿# BinaryDataDecoders.Quarta.RadexOne.WriteSettingsRequest
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Quarta.RadexOne.WriteSettingsRequest      | 
-| Assembly             | BinaryDataDecoders.Quarta.RadexOne                           | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 21                                                           | 
-| Coverablelines       | 21                                                           | 
-| Totallines           | 90                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\WriteSettingsRequest.cs
+| Key             | Value                                                     |
+| :-------------- | :-------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Quarta.RadexOne.WriteSettingsRequest` |
+| Assembly        | `BinaryDataDecoders.Quarta.RadexOne`                      |
+| Coveredlines    | `0`                                                       |
+| Uncoveredlines  | `21`                                                      |
+| Coverablelines  | `21`                                                      |
+| Totallines      | `90`                                                      |
+| Linecoverage    | `0`                                                       |
+| Coveredbranches | `0`                                                       |
+| Totalbranches   | `2`                                                       |
+| Branchcoverage  | `0`                                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 0     | 0        | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 2          | 0     | 0        | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\WriteSettingsRequest.cs
@@ -121,8 +116,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰88:          //public ushort Threshold => (ushort)((Composite0 & 0xff00) >> 8 | (Composite1 & 0xff) << 8);
 〰89:      }
 〰90:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

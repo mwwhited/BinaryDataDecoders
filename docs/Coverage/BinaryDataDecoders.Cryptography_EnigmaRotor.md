@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.Cryptography.Enigma.EnigmaRotor
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Cryptography_EnigmaRotor.xml
+﻿# BinaryDataDecoders.Cryptography.Enigma.EnigmaRotor
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Cryptography.Enigma.EnigmaRotor           | 
-| Assembly             | BinaryDataDecoders.Cryptography                              | 
-| Coveredlines         | 27                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 27                                                           | 
-| Totallines           | 41                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaRotor.cs
+| Key             | Value                                                |
+| :-------------- | :--------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaRotor` |
+| Assembly        | `BinaryDataDecoders.Cryptography`                    |
+| Coveredlines    | `27`                                                 |
+| Uncoveredlines  | `0`                                                  |
+| Coverablelines  | `27`                                                 |
+| Totallines      | `41`                                                 |
+| Linecoverage    | `100`                                                |
+| Coveredbranches | `0`                                                  |
+| Totalbranches   | `0`                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `cctor` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaRotor.cs
@@ -71,8 +66,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰39:          public string Wiring { get; private set; }
 〰40:      }
 〰41:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

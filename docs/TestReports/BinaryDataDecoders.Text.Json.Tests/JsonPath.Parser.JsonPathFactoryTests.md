@@ -10,21 +10,21 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.20 | `ParserTest                                        ` |
-|  ✔ Passed               | 00:00:00.13 | `ParserTest ($.options,:/options)                  ` |
+|  ✔ Passed               | 00:00:00.42 | `ParserTest                                        ` |
+|  ✔ Passed               | 00:00:00.30 | `ParserTest ($.options,:/options)                  ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.options.quantity,:/options/quantity)` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.*.quantity,:/*/quantity)            ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..quantity,:////quantity)            ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.obj.*.quantity,:/obj/*/quantity)    ` |
-|  ✔ Passed               | 00:00:00.00 | `ParserTest ($.options[0].quantity,:/options/[0]/qu` |
+|  ✔ Passed               | 00:00:00.01 | `ParserTest ($.options[0].quantity,:/options/[0]/qu` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.store.book[*].author,:/store/book/[*` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..author,:////author)                ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.store.*,:/store/*)                  ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..book[2],:////book/[2])             ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..book[-2],:////book/[-2])           ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..*,:////*)                          ` |
-|  ✔ Passed               | 00:00:00.00 | `ParserTest ($..book[-2,Antlr4.Runtime.Misc.ParseCanceledException)` |
-|  ✔ Passed               | 00:00:00.01 | `ParserTest ($.options[?(@.code=='AB1')].quantity,:/options/{./code Equal "AB1"}/quantity)` |
+|  ✔ Passed               | 00:00:00.01 | `ParserTest ($..book[-2,Antlr4.Runtime.Misc.ParseCanceledException)` |
+|  ✔ Passed               | 00:00:00.03 | `ParserTest ($.options[?(@.code=='AB1')].quantity,:/options/{./code Equal "AB1"}/quantity)` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($.options[?(@.code=='AB1'&amp;&amp;@.quantity&gt;3)].quantity,:/options/{./code Equal "AB1" And ./quantity GreaterThan 3}/quantity)` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..book[0,1],:////book/[0,1])         ` |
 |  ✔ Passed               | 00:00:00.00 | `ParserTest ($..book[:2],:////book/[:2:])          ` |
@@ -54,7 +54,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `ToXPathTest                                       ` |
+|  ✔ Passed               | 00:00:00.02 | `ToXPathTest                                       ` |
 |  ✔ Passed               | 00:00:00.00 | `ToXPathTest ($.options,/options)                  ` |
 |  ✔ Passed               | 00:00:00.00 | `ToXPathTest ($.options.quantity,/options/quantity)` |
 |  ✔ Passed               | 00:00:00.00 | `ToXPathTest ($.*.quantity,/*/quantity)            ` |

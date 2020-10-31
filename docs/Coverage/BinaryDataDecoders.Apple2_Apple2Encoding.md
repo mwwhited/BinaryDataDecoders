@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.Apple2.Text.Apple2Encoding
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Apple2_Apple2Encoding.xml
+﻿# BinaryDataDecoders.Apple2.Text.Apple2Encoding
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Apple2.Text.Apple2Encoding                | 
-| Assembly             | BinaryDataDecoders.Apple2                                    | 
-| Coveredlines         | 6                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 6                                                            | 
-| Totallines           | 48                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 1                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Text\Apple2Encoding.cs
+| Key             | Value                                           |
+| :-------------- | :---------------------------------------------- |
+| Class           | `BinaryDataDecoders.Apple2.Text.Apple2Encoding` |
+| Assembly        | `BinaryDataDecoders.Apple2`                     |
+| Coveredlines    | `6`                                             |
+| Uncoveredlines  | `0`                                             |
+| Coverablelines  | `6`                                             |
+| Totallines      | `48`                                            |
+| Linecoverage    | `100`                                           |
+| Coveredbranches | `1`                                             |
+| Totalbranches   | `2`                                             |
+| Branchcoverage  | `50`                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
-| 2          | 100   | 50.0     | GetChars | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `cctor`    |
+| 2          | 100   | 50.0     | `GetChars` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Text\Apple2Encoding.cs
@@ -80,8 +75,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰46:          }
 〰47:      }
 〰48:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathException
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Text.Json_JsonPathException.xml
+﻿# BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathException
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathExcepti | 
-| Assembly             | BinaryDataDecoders.Text.Json                                 | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 8                                                            | 
-| Coverablelines       | 8                                                            | 
-| Totallines           | 24                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathException.cs
+| Key             | Value                                                            |
+| :-------------- | :--------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathException` |
+| Assembly        | `BinaryDataDecoders.Text.Json`                                   |
+| Coveredlines    | `0`                                                              |
+| Uncoveredlines  | `8`                                                              |
+| Coverablelines  | `8`                                                              |
+| Totallines      | `24`                                                             |
+| Linecoverage    | `0`                                                              |
+| Coveredbranches | `0`                                                              |
+| Totalbranches   | `0`                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathException.cs
@@ -57,8 +52,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼22:          }
 〰23:      }
 〰24:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

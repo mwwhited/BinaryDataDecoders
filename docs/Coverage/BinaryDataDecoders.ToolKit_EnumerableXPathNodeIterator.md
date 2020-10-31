@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.EnumerableXPathNodeIterator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_EnumerableXPathNodeIterator.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.EnumerableXPathNodeIterator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.EnumerableXPathNodeIter | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 14                                                           | 
-| Coverablelines       | 14                                                           | 
-| Totallines           | 41                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 6                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\EnumerableXPathNodeIterator.cs
+| Key             | Value                                                              |
+| :-------------- | :----------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.EnumerableXPathNodeIterator` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                       |
+| Coveredlines    | `0`                                                                |
+| Uncoveredlines  | `14`                                                               |
+| Coverablelines  | `14`                                                               |
+| Totallines      | `41`                                                               |
+| Linecoverage    | `0`                                                                |
+| Coveredbranches | `0`                                                                |
+| Totalbranches   | `6`                                                                |
+| Branchcoverage  | `0`                                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | get_Current | 
-| 1          | 0     | 100      | get_CurrentPosition | 
-| 4          | 0     | 0        | Clone | 
-| 2          | 0     | 0        | MoveNext | 
+| Complexity | Lines | Branches | Name                  |
+| :--------- | :---- | :------- | :-------------------- |
+| 1          | 0     | 100      | `ctor`                |
+| 1          | 0     | 100      | `get_Current`         |
+| 1          | 0     | 100      | `get_CurrentPosition` |
+| 4          | 0     | 0        | `Clone`               |
+| 2          | 0     | 0        | `MoveNext`            |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\EnumerableXPathNodeIterator.cs
@@ -76,8 +71,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰39:          }
 〰40:      }
 〰41:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

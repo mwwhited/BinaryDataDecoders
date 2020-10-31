@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.SetPathSegment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_SetPathSegment.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.SetPathSegment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.SetPathSegment       | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 7                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 7                                                            | 
-| Totallines           | 21                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\SetPathSegment.cs
+| Key             | Value                                                    |
+| :-------------- | :------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.SetPathSegment` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                             |
+| Coveredlines    | `7`                                                      |
+| Uncoveredlines  | `0`                                                      |
+| Coverablelines  | `7`                                                      |
+| Totallines      | `21`                                                     |
+| Linecoverage    | `100`                                                    |
+| Coveredbranches | `0`                                                      |
+| Totalbranches   | `0`                                                      |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | ToString | 
-| 1          | 100   | 100      | cctor | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
+| 1          | 100   | 100      | `cctor`    |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\SetPathSegment.cs
@@ -53,8 +48,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔19:          public static readonly IPathSegment Empty = new SetPathSegment(Enumerable.Empty<IPathSegment>());
 〰20:      }
 〰21:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

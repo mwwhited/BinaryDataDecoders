@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ToolKit.IO.PathNavigatorFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_PathNavigatorFactory.xml
+﻿# BinaryDataDecoders.ToolKit.IO.PathNavigatorFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.IO.PathNavigatorFactory           | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 65                                                           | 
-| Coverablelines       | 65                                                           | 
-| Totallines           | 86                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\IO\PathNavigatorFactory.cs
+| Key             | Value                                                |
+| :-------------- | :--------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.IO.PathNavigatorFactory` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                         |
+| Coveredlines    | `0`                                                  |
+| Uncoveredlines  | `65`                                                 |
+| Coverablelines  | `65`                                                 |
+| Totallines      | `86`                                                 |
+| Linecoverage    | `0`                                                  |
+| Coveredbranches | `0`                                                  |
+| Totalbranches   | `4`                                                  |
+| Branchcoverage  | `0`                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 4          | 0     | 0        | AsNode | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 4          | 0     | 0        | `AsNode`      |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\IO\PathNavigatorFactory.cs
@@ -118,8 +113,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰84:          }
 〰85:      }
 〰86:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero.FaveroStateParser
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroStateParser.xml
+﻿# BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero.FaveroStateParser
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero. | 
-| Assembly             | BinaryDataDecoders.ElectronicScoringMachines.Fencing         | 
-| Coveredlines         | 25                                                           | 
-| Uncoveredlines       | 2                                                            | 
-| Coverablelines       | 27                                                           | 
-| Totallines           | 108                                                          | 
-| Linecoverage         | 92.5                                                         | 
-| Coveredbranches      | 3                                                            | 
-| Totalbranches        | 6                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\FaveroStateParser.cs
+| Key             | Value                                                                           |
+| :-------------- | :------------------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero.FaveroStateParser` |
+| Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                          |
+| Coveredlines    | `25`                                                                            |
+| Uncoveredlines  | `2`                                                                             |
+| Coverablelines  | `27`                                                                            |
+| Totallines      | `108`                                                                           |
+| Linecoverage    | `92.5`                                                                          |
+| Coveredbranches | `3`                                                                             |
+| Totalbranches   | `6`                                                                             |
+| Branchcoverage  | `50`                                                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 6          | 92.59 | 50.0     | Parse | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 6          | 92.59 | 50.0     | `Parse` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\FaveroStateParser.cs
@@ -139,8 +134,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰106:         }
 〰107:     }
 〰108: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

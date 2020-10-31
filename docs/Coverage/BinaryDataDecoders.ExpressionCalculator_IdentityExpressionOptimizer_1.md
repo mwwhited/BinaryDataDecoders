@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Optimizers.IdentityExpressionOptimizer`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_IdentityExpressionOptimizer_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Optimizers.IdentityExpressionOptimizer`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Optimizers.IdentityE | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 35                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 35                                                           | 
-| Totallines           | 66                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 58                                                           | 
-| Totalbranches        | 61                                                           | 
-| Branchcoverage       | 95                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\IdentityExpressionOptimizer.cs
+| Key             | Value                                                                              |
+| :-------------- | :--------------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.IdentityExpressionOptimizer`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                          |
+| Coveredlines    | `35`                                                                               |
+| Uncoveredlines  | `0`                                                                                |
+| Coverablelines  | `35`                                                                               |
+| Totallines      | `66`                                                                               |
+| Linecoverage    | `100`                                                                              |
+| Coveredbranches | `58`                                                                               |
+| Totalbranches   | `61`                                                                               |
+| Branchcoverage  | `95`                                                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 4          | 100   | 100      | Optimize | 
-| 51         | 100   | 96.07    | Optimize | 
-| 6          | 100   | 83.33    | GetValue | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 4          | 100   | 100      | `Optimize` |
+| 51         | 100   | 96.07    | `Optimize` |
+| 6          | 100   | 83.33    | `GetValue` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\IdentityExpressionOptimizer.cs
@@ -99,8 +94,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔64:              };
 〰65:      }
 〰66:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Optimizers.ExpressionOptimizationProvider`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ExpressionOptimizationProvider_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Optimizers.ExpressionOptimizationProvider`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Optimizers.Expressio | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 10                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 10                                                           | 
-| Totallines           | 142                                                          | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 4                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\ExpressionOptimizer.cs
+| Key             | Value                                                                                 |
+| :-------------- | :------------------------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.ExpressionOptimizationProvider`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                             |
+| Coveredlines    | `10`                                                                                  |
+| Uncoveredlines  | `0`                                                                                   |
+| Coverablelines  | `10`                                                                                  |
+| Totallines      | `142`                                                                                 |
+| Linecoverage    | `100`                                                                                 |
+| Coveredbranches | `4`                                                                                   |
+| Totalbranches   | `4`                                                                                   |
+| Branchcoverage  | `100`                                                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
-| 4          | 100   | 100      | Optimize | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `cctor`    |
+| 4          | 100   | 100      | `Optimize` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\ExpressionOptimizer.cs
@@ -174,8 +169,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰140: 
 〰141: }
 〰142: */
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

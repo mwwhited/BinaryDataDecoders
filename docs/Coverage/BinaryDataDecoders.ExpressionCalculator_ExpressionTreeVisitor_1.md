@@ -1,42 +1,37 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionTreeVisitor`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ExpressionTreeVisitor_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionTreeVisitor`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionT | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 40                                                           | 
-| Uncoveredlines       | 6                                                            | 
-| Coverablelines       | 46                                                           | 
-| Totallines           | 108                                                          | 
-| Linecoverage         | 86.9                                                         | 
-| Coveredbranches      | 20                                                           | 
-| Totalbranches        | 34                                                           | 
-| Branchcoverage       | 58.8                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Parser\ExpressionTreeVisitor.cs
+| Key             | Value                                                                      |
+| :-------------- | :------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionTreeVisitor`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                  |
+| Coveredlines    | `40`                                                                       |
+| Uncoveredlines  | `6`                                                                        |
+| Coverablelines  | `46`                                                                       |
+| Totallines      | `108`                                                                      |
+| Linecoverage    | `86.9`                                                                     |
+| Coveredbranches | `20`                                                                       |
+| Totalbranches   | `34`                                                                       |
+| Branchcoverage  | `58.8`                                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
-| 2          | 100   | 50.0     | VisitStart | 
-| 1          | 0     | 100      | VisitErrorNode | 
-| 10         | 100   | 80.0     | VisitExpression | 
-| 1          | 100   | 100      | VisitInnerExpression | 
-| 4          | 100   | 75.00    | VisitValue | 
-| 2          | 100   | 50.0     | VisitVariable | 
-| 4          | 100   | 75.00    | VisitNumber | 
-| 1          | 100   | 100      | VisitUnaryOperatorLeftExpression | 
-| 1          | 100   | 100      | VisitUnaryOperatorRightExpression | 
-| 4          | 100   | 75.00    | ChainVisit | 
-| 8          | 28.57 | 12.50    | EnsureChildCount | 
+| Complexity | Lines | Branches | Name                                |
+| :--------- | :---- | :------- | :---------------------------------- |
+| 1          | 100   | 100      | `cctor`                             |
+| 2          | 100   | 50.0     | `VisitStart`                        |
+| 1          | 0     | 100      | `VisitErrorNode`                    |
+| 10         | 100   | 80.0     | `VisitExpression`                   |
+| 1          | 100   | 100      | `VisitInnerExpression`              |
+| 4          | 100   | 75.00    | `VisitValue`                        |
+| 2          | 100   | 50.0     | `VisitVariable`                     |
+| 4          | 100   | 75.00    | `VisitNumber`                       |
+| 1          | 100   | 100      | `VisitUnaryOperatorLeftExpression`  |
+| 1          | 100   | 100      | `VisitUnaryOperatorRightExpression` |
+| 4          | 100   | 75.00    | `ChainVisit`                        |
+| 8          | 28.57 | 12.50    | `EnsureChildCount`                  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Parser\ExpressionTreeVisitor.cs
@@ -150,8 +145,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰106:         }
 〰107:     }
 〰108: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

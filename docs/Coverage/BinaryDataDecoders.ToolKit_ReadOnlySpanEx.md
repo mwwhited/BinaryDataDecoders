@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ToolKit.ReadOnlySpanEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ReadOnlySpanEx.xml
+﻿# BinaryDataDecoders.ToolKit.ReadOnlySpanEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.ReadOnlySpanEx                    | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 23                                                           | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 24                                                           | 
-| Totallines           | 71                                                           | 
-| Linecoverage         | 95.8                                                         | 
-| Coveredbranches      | 10                                                           | 
-| Totalbranches        | 10                                                           | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\ReadOnlySpanEx.cs
+| Key             | Value                                       |
+| :-------------- | :------------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.ReadOnlySpanEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                |
+| Coveredlines    | `23`                                        |
+| Uncoveredlines  | `1`                                         |
+| Coverablelines  | `24`                                        |
+| Totallines      | `71`                                        |
+| Linecoverage    | `95.8`                                      |
+| Coveredbranches | `10`                                        |
+| Totalbranches   | `10`                                        |
+| Branchcoverage  | `100`                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | StartsWith | 
-| 1          | 100   | 100      | CopyWithTransform | 
-| 10         | 100   | 100      | CopyToWithTransform | 
+| Complexity | Lines | Branches | Name                  |
+| :--------- | :---- | :------- | :-------------------- |
+| 1          | 0     | 100      | `StartsWith`          |
+| 1          | 100   | 100      | `CopyWithTransform`   |
+| 10         | 100   | 100      | `CopyToWithTransform` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\ReadOnlySpanEx.cs
@@ -104,8 +99,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔69:          }
 〰70:      }
 〰71:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

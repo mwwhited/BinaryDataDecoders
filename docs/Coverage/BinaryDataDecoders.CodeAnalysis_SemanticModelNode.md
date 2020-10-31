@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.SemanticModelNode
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_SemanticModelNode.xml
+﻿# BinaryDataDecoders.CodeAnalysis.SemanticModelNode
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.SemanticModelNode            | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 4                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 15                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\SemanticModelNode.cs
+| Key             | Value                                               |
+| :-------------- | :-------------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.SemanticModelNode` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`                   |
+| Coveredlines    | `0`                                                 |
+| Uncoveredlines  | `4`                                                 |
+| Coverablelines  | `4`                                                 |
+| Totallines      | `15`                                                |
+| Linecoverage    | `0`                                                 |
+| Coveredbranches | `0`                                                 |
+| Totalbranches   | `0`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\SemanticModelNode.cs
@@ -45,8 +40,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰13:          public object Node { get; }
 〰14:      }
 〰15:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

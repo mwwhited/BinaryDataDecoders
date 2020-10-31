@@ -15,7 +15,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.06 | `JsonNavigatorTest                                 ` |
+|  ✔ Passed               | 00:00:00.13 | `JsonNavigatorTest                                 ` |
 
 
 

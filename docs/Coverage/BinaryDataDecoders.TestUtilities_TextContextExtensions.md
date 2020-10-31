@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.TestUtilities.TextContextExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.TestUtilities_TextContextExtensions.xml
+﻿# BinaryDataDecoders.TestUtilities.TextContextExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.TestUtilities.TextContextExtensions       | 
-| Assembly             | BinaryDataDecoders.TestUtilities                             | 
-| Coveredlines         | 20                                                           | 
-| Uncoveredlines       | 23                                                           | 
-| Coverablelines       | 43                                                           | 
-| Totallines           | 184                                                          | 
-| Linecoverage         | 46.5                                                         | 
-| Coveredbranches      | 16                                                           | 
-| Totalbranches        | 36                                                           | 
-| Branchcoverage       | 44.4                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.TestUtilities\TextContextExtensions.cs
+| Key             | Value                                                    |
+| :-------------- | :------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.TestUtilities.TextContextExtensions` |
+| Assembly        | `BinaryDataDecoders.TestUtilities`                       |
+| Coveredlines    | `20`                                                     |
+| Uncoveredlines  | `23`                                                     |
+| Coverablelines  | `43`                                                     |
+| Totallines      | `184`                                                    |
+| Linecoverage    | `46.5`                                                   |
+| Coveredbranches | `16`                                                     |
+| Totalbranches   | `36`                                                     |
+| Branchcoverage  | `44.4`                                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 34         | 38.88 | 44.11    | AddResult | 
-| 2          | 85.71 | 50.0     | AddResultFile | 
+| Complexity | Lines | Branches | Name            |
+| :--------- | :---- | :------- | :-------------- |
+| 34         | 38.88 | 44.11    | `AddResult`     |
+| 2          | 85.71 | 50.0     | `AddResultFile` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.TestUtilities\TextContextExtensions.cs
@@ -216,8 +211,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰182:         //}
 〰183:     }
 〰184: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

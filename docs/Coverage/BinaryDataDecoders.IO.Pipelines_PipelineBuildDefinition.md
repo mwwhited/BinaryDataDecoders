@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Definitions.PipelineBuildDefinition
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_PipelineBuildDefinition.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Definitions.PipelineBuildDefinition
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Definitions.PipelineBuildDef | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 4                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 27                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\PipelineBuildDefinition.cs
+| Key             | Value                                                                 |
+| :-------------- | :-------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Definitions.PipelineBuildDefinition` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`                                     |
+| Coveredlines    | `0`                                                                   |
+| Uncoveredlines  | `4`                                                                   |
+| Coverablelines  | `4`                                                                   |
+| Totallines      | `27`                                                                  |
+| Linecoverage    | `0`                                                                   |
+| Coveredbranches | `0`                                                                   |
+| Totalbranches   | `0`                                                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\PipelineBuildDefinition.cs
@@ -57,8 +52,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼25:          internal CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
 〰26:      }
 〰27:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

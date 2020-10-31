@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Text.Json_JsonPathFactory.xml
+﻿# BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathFactory | 
-| Assembly             | BinaryDataDecoders.Text.Json                                 | 
-| Coveredlines         | 12                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 12                                                           | 
-| Totallines           | 23                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 1                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathFactory.cs
+| Key             | Value                                                          |
+| :-------------- | :------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathFactory` |
+| Assembly        | `BinaryDataDecoders.Text.Json`                                 |
+| Coveredlines    | `12`                                                           |
+| Uncoveredlines  | `0`                                                            |
+| Coverablelines  | `12`                                                           |
+| Totallines      | `23`                                                           |
+| Linecoverage    | `100`                                                          |
+| Coveredbranches | `1`                                                            |
+| Totalbranches   | `2`                                                            |
+| Branchcoverage  | `50`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 100   | 50.0     | Parse | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 2          | 100   | 50.0     | `Parse` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathFactory.cs
@@ -54,8 +49,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔21:              ) ?? throw new JsonPathException($"Invalid JSONPath \"{input}\"");
 〰22:      }
 〰23:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

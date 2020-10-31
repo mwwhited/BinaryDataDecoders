@@ -1,38 +1,33 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_PathExtensions.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 20                                                           | 
-| Coverablelines       | 20                                                           | 
-| Totallines           | 123                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\Extensions\PathExtensions.cs
+| Key             | Value                                                          |
+| :-------------- | :------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                   |
+| Coveredlines    | `0`                                                            |
+| Uncoveredlines  | `20`                                                           |
+| Coverablelines  | `20`                                                           |
+| Totallines      | `123`                                                          |
+| Linecoverage    | `0`                                                            |
+| Coveredbranches | `0`                                                            |
+| Totalbranches   | `4`                                                            |
+| Branchcoverage  | `0`                                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | GetDirectoryName | 
-| 1          | 0     | 100      | GetFileName | 
-| 1          | 0     | 100      | GetFileNameWithoutExtension | 
-| 1          | 0     | 100      | GetExtension | 
-| 2          | 0     | 0        | ChangeExtension | 
-| 1          | 0     | 100      | ListFiles | 
-| 2          | 0     | 0        | ListFilesFiltered | 
+| Complexity | Lines | Branches | Name                          |
+| :--------- | :---- | :------- | :---------------------------- |
+| 1          | 0     | 100      | `ctor`                        |
+| 1          | 0     | 100      | `GetDirectoryName`            |
+| 1          | 0     | 100      | `GetFileName`                 |
+| 1          | 0     | 100      | `GetFileNameWithoutExtension` |
+| 1          | 0     | 100      | `GetExtension`                |
+| 2          | 0     | 0        | `ChangeExtension`             |
+| 1          | 0     | 100      | `ListFiles`                   |
+| 2          | 0     | 0        | `ListFilesFiltered`           |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\Extensions\PathExtensions.cs
@@ -147,7 +142,7 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰107:         public XPathNavigator ListFilesFiltered(string path, string pattern)
 〰108:         {
 ‼109:             var cleanedPath = SandboxPath.EnsureSafePath(_sandbox, path);
-〰110: #if DEBUG
+〰110: #if DEBUG && false
 〰111:             Console.WriteLine($"==> Path: {path}");
 〰112:             Console.WriteLine($"==> Pattern: {pattern}");
 〰113:             Console.WriteLine($"==> Cleaned: {cleanedPath}");
@@ -161,8 +156,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰121:         }
 〰122:     }
 〰123: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

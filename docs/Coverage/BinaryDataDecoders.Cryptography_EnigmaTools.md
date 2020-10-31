@@ -1,34 +1,29 @@
-﻿
-# BinaryDataDecoders.Cryptography.Enigma.EnigmaTools
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Cryptography_EnigmaTools.xml
+﻿# BinaryDataDecoders.Cryptography.Enigma.EnigmaTools
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Cryptography.Enigma.EnigmaTools           | 
-| Assembly             | BinaryDataDecoders.Cryptography                              | 
-| Coveredlines         | 11                                                           | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 12                                                           | 
-| Totallines           | 37                                                           | 
-| Linecoverage         | 91.6                                                         | 
-| Coveredbranches      | 2                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaTools.cs
+| Key             | Value                                                |
+| :-------------- | :--------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaTools` |
+| Assembly        | `BinaryDataDecoders.Cryptography`                    |
+| Coveredlines    | `11`                                                 |
+| Uncoveredlines  | `1`                                                  |
+| Coverablelines  | `12`                                                 |
+| Totallines      | `37`                                                 |
+| Linecoverage    | `91.6`                                               |
+| Coveredbranches | `2`                                                  |
+| Totalbranches   | `4`                                                  |
+| Branchcoverage  | `50`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | Clean | 
-| 1          | 100   | 100      | AsString | 
-| 1          | 100   | 100      | SplitAt | 
-| 4          | 85.71 | 50.0     | SwapSet | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `Clean`    |
+| 1          | 100   | 100      | `AsString` |
+| 1          | 100   | 100      | `SplitAt`  |
+| 4          | 85.71 | 50.0     | `SwapSet`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaTools.cs
@@ -71,8 +66,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰35:          }
 〰36:      }
 〰37:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

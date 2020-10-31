@@ -1,51 +1,46 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.XPathExpressionBuilder
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_XPathExpressionBuilder.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.XPathExpressionBuilder
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.XPathExpressionBuilder  | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 86                                                           | 
-| Uncoveredlines       | 12                                                           | 
-| Coverablelines       | 98                                                           | 
-| Totallines           | 127                                                          | 
-| Linecoverage         | 87.7                                                         | 
-| Coveredbranches      | 68                                                           | 
-| Totalbranches        | 83                                                           | 
-| Branchcoverage       | 81.9                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\XPathExpressionBuilder.cs
+| Key             | Value                                                         |
+| :-------------- | :------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.XPathExpressionBuilder` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                  |
+| Coveredlines    | `86`                                                          |
+| Uncoveredlines  | `12`                                                          |
+| Coverablelines  | `98`                                                          |
+| Totallines      | `127`                                                         |
+| Linecoverage    | `87.7`                                                        |
+| Coveredbranches | `68`                                                          |
+| Totalbranches   | `83`                                                          |
+| Branchcoverage  | `81.9`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | BuildXPathExpression | 
-| 1          | 100   | 100      | Visit | 
-| 36         | 96.29 | 97.22    | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 2          | 100   | 50.0     | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 4          | 100   | 100      | Visit | 
-| 4          | 83.33 | 75.00    | Visit | 
-| 2          | 100   | 50.0     | Visit | 
-| 2          | 100   | 100      | Visit | 
-| 12         | 69.23 | 66.66    | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 4          | 85.71 | 75.00    | Visit | 
-| 6          | 100   | 100      | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 7          | 70.0  | 57.14    | Visit | 
-| 4          | 66.66 | 25.00    | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 1          | 100   | 100      | Visit | 
+| Complexity | Lines | Branches | Name                   |
+| :--------- | :---- | :------- | :--------------------- |
+| 1          | 100   | 100      | `BuildXPathExpression` |
+| 1          | 100   | 100      | `Visit`                |
+| 36         | 96.29 | 97.22    | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+| 2          | 100   | 50.0     | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+| 4          | 100   | 100      | `Visit`                |
+| 4          | 83.33 | 75.00    | `Visit`                |
+| 2          | 100   | 50.0     | `Visit`                |
+| 2          | 100   | 100      | `Visit`                |
+| 12         | 69.23 | 66.66    | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+| 4          | 85.71 | 75.00    | `Visit`                |
+| 6          | 100   | 100      | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+| 7          | 70.0  | 57.14    | `Visit`                |
+| 4          | 66.66 | 25.00    | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+| 1          | 100   | 100      | `Visit`                |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\XPathExpressionBuilder.cs
@@ -178,8 +173,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔125:             $@"{Visit(segment.Left, segment)} {Visit(segment.Operator, segment)} {Visit(segment.Right, segment)}";
 〰126:     }
 〰127: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

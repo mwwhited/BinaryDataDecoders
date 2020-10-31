@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.ToolKit.ByteEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ByteEx.xml
+﻿# BinaryDataDecoders.ToolKit.ByteEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.ByteEx                            | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 20                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\ByteEx.cs
+| Key             | Value                               |
+| :-------------- | :---------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.ByteEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`        |
+| Coveredlines    | `0`                                 |
+| Uncoveredlines  | `1`                                 |
+| Coverablelines  | `1`                                 |
+| Totallines      | `20`                                |
+| Linecoverage    | `0`                                 |
+| Coveredbranches | `0`                                 |
+| Totalbranches   | `4`                                 |
+| Branchcoverage  | `0`                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 4          | 0     | 0        | ToHexString | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 4          | 0     | 0        | `ToHexString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\ByteEx.cs
@@ -51,8 +46,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼18:              string.Join(delimiter ?? "", (data ?? Enumerable.Empty<byte>()).Select(b => b.ToString("x2")));
 〰19:      }
 〰20:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

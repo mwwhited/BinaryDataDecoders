@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.IO.Functions.ChecksumCalculator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO_ChecksumCalculator.xml
+﻿# BinaryDataDecoders.IO.Functions.ChecksumCalculator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Functions.ChecksumCalculator           | 
-| Assembly             | BinaryDataDecoders.IO                                        | 
-| Coveredlines         | 4                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 25                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 2                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO\Functions\ChecksumCalculator.cs
+| Key             | Value                                                |
+| :-------------- | :--------------------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Functions.ChecksumCalculator` |
+| Assembly        | `BinaryDataDecoders.IO`                              |
+| Coveredlines    | `4`                                                  |
+| Uncoveredlines  | `0`                                                  |
+| Coverablelines  | `4`                                                  |
+| Totallines      | `25`                                                 |
+| Linecoverage    | `100`                                                |
+| Coveredbranches | `2`                                                  |
+| Totalbranches   | `2`                                                  |
+| Branchcoverage  | `100`                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 100   | 100      | Simple16 | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 2          | 100   | 100      | `Simple16` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO\Functions\ChecksumCalculator.cs
@@ -56,8 +51,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰23:          }
 〰24:      }
 〰25:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

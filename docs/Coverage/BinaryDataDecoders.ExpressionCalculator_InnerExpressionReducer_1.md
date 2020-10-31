@@ -1,34 +1,29 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Optimizers.InnerExpressionReducer`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_InnerExpressionReducer_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Optimizers.InnerExpressionReducer`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Optimizers.InnerExpr | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 31                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 31                                                           | 
-| Totallines           | 54                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 12                                                           | 
-| Totalbranches        | 12                                                           | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\InnerExpressionReducer.cs
+| Key             | Value                                                                         |
+| :-------------- | :---------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.InnerExpressionReducer`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                     |
+| Coveredlines    | `31`                                                                          |
+| Uncoveredlines  | `0`                                                                           |
+| Coverablelines  | `31`                                                                          |
+| Totallines      | `54`                                                                          |
+| Linecoverage    | `100`                                                                         |
+| Coveredbranches | `12`                                                                          |
+| Totalbranches   | `12`                                                                          |
+| Branchcoverage  | `100`                                                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 4          | 100   | 100      | Optimize | 
-| 1          | 100   | 100      | Optimize | 
-| 6          | 100   | 100      | Optimize | 
-| 2          | 100   | 100      | Optimize | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 4          | 100   | 100      | `Optimize` |
+| 1          | 100   | 100      | `Optimize` |
+| 6          | 100   | 100      | `Optimize` |
+| 2          | 100   | 100      | `Optimize` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\InnerExpressionReducer.cs
@@ -88,8 +83,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔52:                  (ExpressionBase<T>)new InnerExpression<T>(expression) : expression;
 〰53:      }
 〰54:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

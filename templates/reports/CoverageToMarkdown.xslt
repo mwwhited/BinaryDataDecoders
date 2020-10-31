@@ -7,11 +7,13 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
 	xmlns:tt="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+	
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
 
 	xmlns:ex-path="bdd:ToolKit/PathExtensions"
-	xmlns:o-path="bdd:ToolKit/PathExtensions:out"	
+	xmlns:o-path="bdd:ToolKit/PathExtensions:out"
 	xmlns:ex-file="bdd:ToolKit/FileExtensions"
-	xmlns:o-file="bdd:ToolKit/FileExtensions:out"	
+	xmlns:o-file="bdd:ToolKit/FileExtensions:out"
 	xmlns:ex-env="bdd:ToolKit/EnvironmentExtensions"
 	xmlns:o-env="bdd:ToolKit/EnvironmentExtensions:out"
 	xmlns:ex-str="bdd:ToolKit/StringExtensions"
@@ -26,12 +28,7 @@
 	<xsl:param name="files" />
 
 	<xsl:template match="/">
-
-		<!--<xsl:text># </xsl:text><xsl:value-of select="CoverageReport/Summary/Title" />&cr;-->
-		&cr;
 		<xsl:text># </xsl:text><xsl:value-of select="CoverageReport/@scope" />&cr;
-		<!--<xsl:text>Build: </xsl:text><xsl:value-of select="ex-env:GetValue('BUILD_VERSION')" />&cr;-->
-		<xsl:text>Source: </xsl:text><xsl:value-of select="$files/@input" />&cr;
 		&cr;
 
 		<xsl:apply-templates select="CoverageReport/Summary" />
@@ -40,52 +37,77 @@
 		<xsl:apply-templates select="CoverageReport/Coverage" />
 
 		<xsl:if test="not(CoverageReport[@scope='Summary'])">
-		<xsl:text>## Footer </xsl:text>&cr;
-		<xsl:text>[Return to Summary](Summary.md)</xsl:text>&cr;
-		&cr;
+			<xsl:text>## Links</xsl:text>&cr;
+			&cr;
+			<xsl:text>* [Return to Summary](Summary.md)</xsl:text>&cr;
+			<xsl:text>* [Table of Contents](../TOC.md)</xsl:text>&cr;
+			&cr;
 		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="CoverageReport/Summary">
+		<xsl:variable name="summaries" select="*[not(self::Files or self::Title)]" />
+		<xsl:variable name="max-key-len" select="fn:max(fn:apply('string-length(local-name(.))', $summaries))" />
+		<xsl:variable name="max-value-len" select="fn:max(fn:apply('string-length(.)', $summaries/text()))" />
+
 		<xsl:text>## Summary</xsl:text>&cr;
 		&cr;
-		<xsl:text>| Key                  | Value                                                            |</xsl:text>&cr;
-		<xsl:text>| :------------------- | :--------------------------------------------------------------- |</xsl:text>&cr;
-		<xsl:for-each select="*[not(local-name(.)='Files')]">
-			<xsl:text>| </xsl:text>
-			<xsl:value-of select="substring(concat(local-name(.),'                    '),1,20)" />
-			<xsl:text> | </xsl:text>
-			<xsl:value-of select="substring(concat(text(),'                                                            '),1,60)" />
-			<xsl:text> | </xsl:text>&cr;
+
+		<xsl:value-of select="concat('| ',ex-str:PadRight('Key',$max-key-len),' | ',ex-str:PadRight('Value',$max-value-len+2),' |')"/>&cr;
+		<xsl:value-of select="concat('| :',ex-str:New('-',$max-key-len - 1),' | :',ex-str:New('-',$max-value-len +1),' |')"/>&cr;
+
+		<xsl:for-each select="$summaries">
+			<xsl:value-of select="concat('| ',ex-str:PadRight(local-name(.),$max-key-len),' | ',ex-str:PadRight(concat('`',text(),'`'),$max-value-len + 2),' |')"/>&cr;
 		</xsl:for-each>
 		&cr;
-		<xsl:apply-templates select="Files" />
+		<!--<xsl:apply-templates select="Files" />-->
 	</xsl:template>
 	<xsl:template match="Summary/Files">
-		<xsl:text>### Files</xsl:text>&cr;
+		<xsl:text>### Files</xsl:text>&cr;&cr;
 		<xsl:for-each select="File">
-			<xsl:text> * </xsl:text>
+			<xsl:text>* </xsl:text>
 			<xsl:value-of select="." />&cr;
 		</xsl:for-each>
 		&cr;
 	</xsl:template>
 
 	<xsl:template match="CoverageReport/Metrics">
+		<xsl:variable name="metrics" select="Element" />
+		<xsl:variable name="max-name-len">
+			<xsl:variable name="temp" select="fn:max(fn:apply('string-length(.)',$metrics/@name))" />
+			<xsl:choose>
+				<xsl:when test="$temp &lt; 5">
+					<xsl:text>5</xsl:text>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="$temp"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+
 		<xsl:text>## Metrics</xsl:text>&cr;
 		&cr;
-		<xsl:text>| Complexity | Lines | Branches | Name                                          |</xsl:text>&cr;
-		<xsl:text>| :--------- | :---- | :------- | :-------------------------------------------- |</xsl:text>&cr;
-		<xsl:for-each select="Element">
+
+		<xsl:text>| Complexity | Lines | Branches | </xsl:text>
+		<xsl:value-of select="ex-str:PadRight('Name',$max-name-len + 2)"/>
+		<xsl:text> |</xsl:text>&cr;
+
+		<xsl:text>| :--------- | :---- | :------- | :</xsl:text>
+		<xsl:value-of select="ex-str:New('-',$max-name-len + 1)"/>
+		<xsl:text> |</xsl:text>&cr;
+
+		<xsl:for-each select="$metrics">
 			<xsl:text>| </xsl:text>
-			<xsl:value-of select="substring(concat(Cyclomaticcomplexity,'          '),1,10)" />
+			<xsl:value-of select="ex-str:PadRight(Cyclomaticcomplexity,10)" />
 			<xsl:text> | </xsl:text>
-			<xsl:value-of select="substring(concat(Linecoverage,'        '),1,5)" />
+			<xsl:value-of select="ex-str:PadRight(Linecoverage,5)" />
 			<xsl:text> | </xsl:text>
-			<xsl:value-of select="substring(concat(Branchcoverage,'        '),1,8)" />
+			<xsl:value-of select="ex-str:PadRight(Branchcoverage,8)" />
 			<xsl:text> | </xsl:text>
-			<xsl:value-of select="@name" />
-			<xsl:text> | </xsl:text>&cr;
+			<xsl:value-of select="ex-str:PadRight(concat('`',@name,'`'),$max-name-len + 2)" />
+			<xsl:text> |</xsl:text>&cr;
 		</xsl:for-each>
+		&cr;
 	</xsl:template>
 
 	<xsl:template match="CoverageReport/Files">
@@ -119,9 +141,8 @@
 			<xsl:value-of select="@content" />
 			&cr;
 		</xsl:for-each>
-		&cr;
 		<xsl:text>```</xsl:text>&cr;
-
+		&cr;
 	</xsl:template>
 
 	<xsl:template match="CoverageReport/Coverage">

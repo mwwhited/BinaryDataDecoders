@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Segmenters.StartAndFixLengthSegmenter
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_StartAndFixLengthSegmenter.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Segmenters.StartAndFixLengthSegmenter
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Segmenters.StartAndFixLength | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 30                                                           | 
-| Coverablelines       | 30                                                           | 
-| Totallines           | 83                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 18                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segmenters\StartAndFixLengthSegmenter.cs
+| Key             | Value                                                                   |
+| :-------------- | :---------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Segmenters.StartAndFixLengthSegmenter` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`                                       |
+| Coveredlines    | `0`                                                                     |
+| Uncoveredlines  | `30`                                                                    |
+| Coverablelines  | `30`                                                                    |
+| Totallines      | `83`                                                                    |
+| Linecoverage    | `0`                                                                     |
+| Coveredbranches | `0`                                                                     |
+| Totalbranches   | `18`                                                                    |
+| Branchcoverage  | `0`                                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 18         | 0     | 0        | Read | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 18         | 0     | 0        | `Read`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segmenters\StartAndFixLengthSegmenter.cs
@@ -115,8 +110,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰81:          }
 〰82:      }
 〰83:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

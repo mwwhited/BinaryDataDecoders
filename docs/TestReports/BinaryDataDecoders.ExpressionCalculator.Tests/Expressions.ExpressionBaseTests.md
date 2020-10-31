@@ -15,7 +15,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `ImplicitConvertTest_OverlyComplex                 ` |
+|  ✔ Passed               | 00:00:00.02 | `ImplicitConvertTest_OverlyComplex                 ` |
 
 ## ImplicitConvertTest_Number
 

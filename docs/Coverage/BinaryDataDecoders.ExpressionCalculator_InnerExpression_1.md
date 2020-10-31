@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Expressions.InnerExpression`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_InnerExpression_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Expressions.InnerExpression`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Expressions.InnerExp | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 4                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 16                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\InnerExpression.cs
+| Key             | Value                                                                   |
+| :-------------- | :---------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.InnerExpression`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                               |
+| Coveredlines    | `4`                                                                     |
+| Uncoveredlines  | `0`                                                                     |
+| Coverablelines  | `4`                                                                     |
+| Totallines      | `16`                                                                    |
+| Linecoverage    | `100`                                                                   |
+| Coveredbranches | `0`                                                                     |
+| Totalbranches   | `0`                                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | Clone | 
-| 1          | 100   | 100      | Evaluate | 
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `Clone`    |
+| 1          | 100   | 100      | `Evaluate` |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\InnerExpression.cs
@@ -49,8 +44,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔14:          public override string ToString() => $"({Expression})";
 〰15:      }
 〰16:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,37 +1,32 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.Xsl.XsltTransformer
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_XsltTransformer.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.Xsl.XsltTransformer
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.Xsl.XsltTransformer           | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 130                                                          | 
-| Coverablelines       | 130                                                          | 
-| Totallines           | 239                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 10                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\XsltTransformer.cs
+| Key             | Value                                                |
+| :-------------- | :--------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.XsltTransformer` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                         |
+| Coveredlines    | `0`                                                  |
+| Uncoveredlines  | `130`                                                |
+| Coverablelines  | `130`                                                |
+| Totallines      | `239`                                                |
+| Linecoverage    | `0`                                                  |
+| Coveredbranches | `0`                                                  |
+| Totalbranches   | `10`                                                 |
+| Branchcoverage  | `0`                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | ReadAsXml | 
-| 1          | 0     | 100      | Transform | 
-| 4          | 0     | 0        | Transform | 
-| 1          | 0     | 100      | TransformAll | 
-| 4          | 0     | 0        | TransformAll | 
-| 2          | 0     | 0        | TransformMerge | 
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 1          | 0     | 100      | `ctor`           |
+| 1          | 0     | 100      | `ReadAsXml`      |
+| 1          | 0     | 100      | `Transform`      |
+| 4          | 0     | 0        | `Transform`      |
+| 1          | 0     | 100      | `TransformAll`   |
+| 4          | 0     | 0        | `TransformAll`   |
+| 2          | 0     | 0        | `TransformMerge` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\XsltTransformer.cs
@@ -276,8 +271,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼237:         }
 〰238:     }
 〰239: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

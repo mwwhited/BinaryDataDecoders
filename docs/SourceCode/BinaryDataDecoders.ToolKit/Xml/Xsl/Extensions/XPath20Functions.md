@@ -24,9 +24,34 @@
 
  - decimal input 
 
+#### Public Method - ceiling
+
+#####  Parameters
+
+ - decimal input 
+
+#### Public Method - max
+
+#####  Parameters
+
+ - XPathNodeIterator input 
+
+#### Public Method - min
+
+#####  Parameters
+
+ - XPathNodeIterator input 
+
 #### Public Method - distinct_values
 
 #####  Parameters
 
+ - XPathNodeIterator input 
+
+#### Public Method - apply
+
+#####  Parameters
+
+ - string xpath 
  - XPathNodeIterator input 
 

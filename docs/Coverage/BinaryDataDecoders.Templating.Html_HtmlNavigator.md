@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Templating.Html.HtmlNavigator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Templating.Html_HtmlNavigator.xml
+﻿# BinaryDataDecoders.Templating.Html.HtmlNavigator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Templating.Html.HtmlNavigator             | 
-| Assembly             | BinaryDataDecoders.Templating.Html                           | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 36                                                           | 
-| Coverablelines       | 36                                                           | 
-| Totallines           | 57                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Templating.Html\HtmlNavigator.cs
+| Key             | Value                                              |
+| :-------------- | :------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Templating.Html.HtmlNavigator` |
+| Assembly        | `BinaryDataDecoders.Templating.Html`               |
+| Coveredlines    | `0`                                                |
+| Uncoveredlines  | `36`                                               |
+| Coverablelines  | `36`                                               |
+| Totallines      | `57`                                               |
+| Linecoverage    | `0`                                                |
+| Coveredbranches | `0`                                                |
+| Totalbranches   | `0`                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | ToNavigable | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `ToNavigable` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Templating.Html\HtmlNavigator.cs
@@ -88,8 +83,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰55:          }
 〰56:      }
 〰57:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

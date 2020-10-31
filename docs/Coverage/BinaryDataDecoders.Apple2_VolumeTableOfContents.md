@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.Apple2.Dos33.VolumeTableOfContents
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Apple2_VolumeTableOfContents.xml
+﻿# BinaryDataDecoders.Apple2.Dos33.VolumeTableOfContents
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Apple2.Dos33.VolumeTableOfContents        | 
-| Assembly             | BinaryDataDecoders.Apple2                                    | 
-| Coveredlines         | 17                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 17                                                           | 
-| Totallines           | 118                                                          | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\VolumeTableOfContents.cs
+| Key             | Value                                                   |
+| :-------------- | :------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.Apple2.Dos33.VolumeTableOfContents` |
+| Assembly        | `BinaryDataDecoders.Apple2`                             |
+| Coveredlines    | `17`                                                    |
+| Uncoveredlines  | `0`                                                     |
+| Coverablelines  | `17`                                                    |
+| Totallines      | `118`                                                   |
+| Linecoverage    | `100`                                                   |
+| Coveredbranches | `0`                                                     |
+| Totalbranches   | `0`                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\VolumeTableOfContents.cs
@@ -148,8 +143,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰116:         public uint[] BitmapFreeSectors;
 〰117:     }
 〰118: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -901,6 +901,9 @@
       * Xml
         * XPath
           * [MergedXPathNavigatorTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.md)
+        * Xsl
+          * Extensions
+            * [XPath20FunctionsTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.md)
       * [MemoryExTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/MemoryExTests.md)
       * [ReadOnlySpanExTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/ReadOnlySpanExTests.md)
     * BinaryDataDecoders.VisualBasic.Samples

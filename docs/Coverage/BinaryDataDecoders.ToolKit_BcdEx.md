@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ToolKit.BcdEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_BcdEx.xml
+﻿# BinaryDataDecoders.ToolKit.BcdEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.BcdEx                             | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 5                                                            | 
-| Uncoveredlines       | 11                                                           | 
-| Coverablelines       | 16                                                           | 
-| Totallines           | 51                                                           | 
-| Linecoverage         | 31.2                                                         | 
-| Coveredbranches      | 2                                                            | 
-| Totalbranches        | 12                                                           | 
-| Branchcoverage       | 16.6                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\BcdEx.cs
+| Key             | Value                              |
+| :-------------- | :--------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.BcdEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`       |
+| Coveredlines    | `5`                                |
+| Uncoveredlines  | `11`                               |
+| Coverablelines  | `16`                               |
+| Totallines      | `51`                               |
+| Linecoverage    | `31.2`                             |
+| Coveredbranches | `2`                                |
+| Totalbranches   | `12`                               |
+| Branchcoverage  | `16.6`                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 4          | 71.42 | 50.0     | AsBCD | 
-| 8          | 0     | 0        | ToBCD | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 4          | 71.42 | 50.0     | `AsBCD` |
+| 8          | 0     | 0        | `ToBCD` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\BcdEx.cs
@@ -83,8 +78,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰49:          }
 〰50:      }
 〰51:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

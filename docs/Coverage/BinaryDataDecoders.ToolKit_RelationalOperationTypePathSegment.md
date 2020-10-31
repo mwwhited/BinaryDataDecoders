@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.RelationalOperationTypePathSegment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_RelationalOperationTypePathSegment.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.RelationalOperationTypePathSegment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.RelationalOperationT | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 8                                                            | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\RelationalOperationTypePathSegment.cs
+| Key             | Value                                                                        |
+| :-------------- | :--------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.RelationalOperationTypePathSegment` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                                 |
+| Coveredlines    | `1`                                                                          |
+| Uncoveredlines  | `0`                                                                          |
+| Coverablelines  | `1`                                                                          |
+| Totallines      | `8`                                                                          |
+| Linecoverage    | `100`                                                                        |
+| Coveredbranches | `0`                                                                          |
+| Totalbranches   | `0`                                                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\RelationalOperationTypePathSegment.cs
@@ -38,8 +33,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔6:           public RelationalOperationTypePathSegment(RelationalOperationTypes type) : base(type) { }
 〰7:       }
 〰8:   }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

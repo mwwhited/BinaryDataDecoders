@@ -1,34 +1,29 @@
-﻿
-# BinaryDataDecoders.Yaml.YamlNavigatorFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Yaml_YamlNavigatorFactory.xml
+﻿# BinaryDataDecoders.Yaml.YamlNavigatorFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Yaml.YamlNavigatorFactory                 | 
-| Assembly             | BinaryDataDecoders.Yaml                                      | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 29                                                           | 
-| Coverablelines       | 29                                                           | 
-| Totallines           | 53                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Yaml\YamlNavigatorFactory.cs
+| Key             | Value                                          |
+| :-------------- | :--------------------------------------------- |
+| Class           | `BinaryDataDecoders.Yaml.YamlNavigatorFactory` |
+| Assembly        | `BinaryDataDecoders.Yaml`                      |
+| Coveredlines    | `0`                                            |
+| Uncoveredlines  | `29`                                           |
+| Coverablelines  | `29`                                           |
+| Totallines      | `53`                                           |
+| Linecoverage    | `0`                                            |
+| Coveredbranches | `0`                                            |
+| Totalbranches   | `4`                                            |
+| Branchcoverage  | `0`                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | AsNode | 
-| 4          | 0     | 0        | AsNode | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `AsNode`      |
+| 4          | 0     | 0        | `AsNode`      |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Yaml\YamlNavigatorFactory.cs
@@ -87,8 +82,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰51:          }
 〰52:      }
 〰53:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

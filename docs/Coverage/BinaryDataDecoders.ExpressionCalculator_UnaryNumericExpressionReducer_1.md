@@ -1,34 +1,29 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Optimizers.UnaryNumericExpressionReducer`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_UnaryNumericExpressionReducer_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Optimizers.UnaryNumericExpressionReducer`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Optimizers.UnaryNume | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 35                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 35                                                           | 
-| Totallines           | 60                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 22                                                           | 
-| Totalbranches        | 22                                                           | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\UnaryNumericExpressionReducer.cs
+| Key             | Value                                                                                |
+| :-------------- | :----------------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.UnaryNumericExpressionReducer`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                            |
+| Coveredlines    | `35`                                                                                 |
+| Uncoveredlines  | `0`                                                                                  |
+| Coverablelines  | `35`                                                                                 |
+| Totallines      | `60`                                                                                 |
+| Linecoverage    | `100`                                                                                |
+| Coveredbranches | `22`                                                                                 |
+| Totalbranches   | `22`                                                                                 |
+| Branchcoverage  | `100`                                                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 6          | 100   | 100      | Optimize | 
-| 4          | 100   | 100      | Optimize | 
-| 8          | 100   | 100      | Optimize | 
-| 4          | 100   | 100      | Reduce | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 6          | 100   | 100      | `Optimize` |
+| 4          | 100   | 100      | `Optimize` |
+| 8          | 100   | 100      | `Optimize` |
+| 4          | 100   | 100      | `Reduce`   |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\UnaryNumericExpressionReducer.cs
@@ -94,8 +89,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰58:          }
 〰59:      }
 〰60:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

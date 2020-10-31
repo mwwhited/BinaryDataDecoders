@@ -1,39 +1,34 @@
-﻿
-# BinaryDataDecoders.ToolKit.BigEndianUShort
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_BigEndianUShort.xml
+﻿# BinaryDataDecoders.ToolKit.BigEndianUShort
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.BigEndianUShort                   | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 14                                                           | 
-| Coverablelines       | 14                                                           | 
-| Totallines           | 58                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\BigEndianUShort.cs
+| Key             | Value                                        |
+| :-------------- | :------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.BigEndianUShort` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                 |
+| Coveredlines    | `0`                                          |
+| Uncoveredlines  | `14`                                         |
+| Coverablelines  | `14`                                         |
+| Totallines      | `58`                                         |
+| Linecoverage    | `0`                                          |
+| Coveredbranches | `0`                                          |
+| Totalbranches   | `0`                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | get_Value | 
-| 1          | 0     | 100      | ToString | 
-| 1          | 0     | 100      | Equals | 
-| 1          | 0     | 100      | GetHashCode | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Explicit | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ctor`        |
+| 1          | 0     | 100      | `ctor`        |
+| 1          | 0     | 100      | `get_Value`   |
+| 1          | 0     | 100      | `ToString`    |
+| 1          | 0     | 100      | `Equals`      |
+| 1          | 0     | 100      | `GetHashCode` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Explicit` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\BigEndianUShort.cs
@@ -97,8 +92,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰56:  #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 〰57:      }
 〰58:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

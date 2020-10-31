@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Optimizers.ShiftCommutativeVariablesRight`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ShiftCommutativeVariablesRight_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Optimizers.ShiftCommutativeVariablesRight`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Optimizers.ShiftComm | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 92                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\ShiftCommutativeVariablesRight.cs
+| Key             | Value                                                                                 |
+| :-------------- | :------------------------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.ShiftCommutativeVariablesRight`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                             |
+| Coveredlines    | `1`                                                                                   |
+| Uncoveredlines  | `0`                                                                                   |
+| Coverablelines  | `1`                                                                                   |
+| Totallines      | `92`                                                                                  |
+| Linecoverage    | `100`                                                                                 |
+| Coveredbranches | `0`                                                                                   |
+| Totalbranches   | `0`                                                                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | Optimize | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `Optimize` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\ShiftCommutativeVariablesRight.cs
@@ -122,8 +117,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰90:      }
 〰91:  }
 〰92:  
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

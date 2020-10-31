@@ -1,38 +1,33 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ExtensibleElementNode_1.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode`1 | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 123                                                          | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 126                                                          | 
-| Totallines           | 196                                                          | 
-| Linecoverage         | 97.6                                                         | 
-| Coveredbranches      | 3                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 75                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleElementNode.cs
+| Key             | Value                                                          |
+| :-------------- | :------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                   |
+| Coveredlines    | `123`                                                          |
+| Uncoveredlines  | `3`                                                            |
+| Coverablelines  | `126`                                                          |
+| Totallines      | `196`                                                          |
+| Linecoverage    | `97.6`                                                         |
+| Coveredbranches | `3`                                                            |
+| Totalbranches   | `4`                                                            |
+| Branchcoverage  | `75`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 2          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | get_FirstChild | 
-| 1          | 100   | 100      | get_FirstAttribute | 
-| 1          | 100   | 100      | get_FirstNamespace | 
-| 2          | 100   | 50.0     | get_Value | 
-| 1          | 100   | 100      | BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Next | 
-| 1          | 0     | 100      | BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Previous | 
+| Complexity | Lines | Branches | Name                                                       |
+| :--------- | :---- | :------- | :--------------------------------------------------------- |
+| 1          | 0     | 100      | `ctor`                                                     |
+| 2          | 100   | 100      | `ctor`                                                     |
+| 1          | 100   | 100      | `get_FirstChild`                                           |
+| 1          | 100   | 100      | `get_FirstAttribute`                                       |
+| 1          | 100   | 100      | `get_FirstNamespace`                                       |
+| 2          | 100   | 50.0     | `get_Value`                                                |
+| 1          | 100   | 100      | `BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Next`     |
+| 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Previous` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleElementNode.cs
@@ -234,8 +229,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼194:         INode? ISimpleNode.Previous { set => Previous = value; }
 〰195:     }
 〰196: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

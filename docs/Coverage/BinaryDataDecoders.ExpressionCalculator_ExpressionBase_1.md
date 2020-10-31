@@ -1,55 +1,50 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBase`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ExpressionBase_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBase`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Expressions.Expressi | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 6                                                            | 
-| Uncoveredlines       | 19                                                           | 
-| Coverablelines       | 25                                                           | 
-| Totallines           | 46                                                           | 
-| Linecoverage         | 24                                                           | 
-| Coveredbranches      | 3                                                            | 
-| Totalbranches        | 6                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\ExpressionBase.cs
+| Key             | Value                                                                  |
+| :-------------- | :--------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBase`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                              |
+| Coveredlines    | `6`                                                                    |
+| Uncoveredlines  | `19`                                                                   |
+| Coverablelines  | `25`                                                                   |
+| Totallines      | `46`                                                                   |
+| Linecoverage    | `24`                                                                   |
+| Coveredbranches | `3`                                                                    |
+| Totalbranches   | `6`                                                                    |
+| Branchcoverage  | `50`                                                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | op_Implicit | 
-| 4          | 100   | 50.0     | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 100   | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 100   | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 2          | 100   | 50.0     | op_Explicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 100   | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
-| 1          | 0     | 100      | op_Implicit | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 100   | 100      | `op_Implicit` |
+| 4          | 100   | 50.0     | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 100   | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 100   | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 2          | 100   | 50.0     | `op_Explicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 100   | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+| 1          | 0     | 100      | `op_Implicit` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\ExpressionBase.cs
@@ -101,8 +96,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼44:          public static implicit operator ulong(ExpressionBase<T> expression) => Convert.ToUInt64((T)expression);
 〰45:      }
 〰46:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

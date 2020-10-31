@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Apple2.Dos33.TrackSector
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Apple2_TrackSector.xml
+﻿# BinaryDataDecoders.Apple2.Dos33.TrackSector
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Apple2.Dos33.TrackSector                  | 
-| Assembly             | BinaryDataDecoders.Apple2                                    | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 39                                                           | 
-| Linecoverage         | 25                                                           | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\TrackSector.cs
+| Key             | Value                                         |
+| :-------------- | :-------------------------------------------- |
+| Class           | `BinaryDataDecoders.Apple2.Dos33.TrackSector` |
+| Assembly        | `BinaryDataDecoders.Apple2`                   |
+| Coveredlines    | `1`                                           |
+| Uncoveredlines  | `3`                                           |
+| Coverablelines  | `4`                                           |
+| Totallines      | `39`                                          |
+| Linecoverage    | `25`                                          |
+| Coveredbranches | `0`                                           |
+| Totalbranches   | `0`                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 0     | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\TrackSector.cs
@@ -70,8 +65,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰37:  #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 〰38:      }
 〰39:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.StructuredLog.StructuredLogNavigatorFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_StructuredLogNavigatorFactory.xml
+﻿# BinaryDataDecoders.CodeAnalysis.StructuredLog.StructuredLogNavigatorFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.StructuredLog.StructuredLogN | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 192                                                          | 
-| Coverablelines       | 192                                                          | 
-| Totallines           | 208                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\StructuredLog\StructuredLogNavigatorFactory.cs
+| Key             | Value                                                                         |
+| :-------------- | :---------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.StructuredLog.StructuredLogNavigatorFactory` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`                                             |
+| Coveredlines    | `0`                                                                           |
+| Uncoveredlines  | `192`                                                                         |
+| Coverablelines  | `192`                                                                         |
+| Totallines      | `208`                                                                         |
+| Linecoverage    | `0`                                                                           |
+| Coveredbranches | `0`                                                                           |
+| Totalbranches   | `0`                                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | AsNode | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `AsNode`      |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\StructuredLog\StructuredLogNavigatorFactory.cs
@@ -239,8 +234,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼206:               );
 〰207:     }
 〰208: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

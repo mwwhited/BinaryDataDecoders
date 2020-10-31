@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleWhitespaceNode`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ExtensibleWhitespaceNode_1.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleWhitespaceNode`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleWhitespaceNod | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 2                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 2                                                            | 
-| Totallines           | 18                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleWhitespaceNode.cs
+| Key             | Value                                                             |
+| :-------------- | :---------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleWhitespaceNode`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                      |
+| Coveredlines    | `2`                                                               |
+| Uncoveredlines  | `0`                                                               |
+| Coverablelines  | `2`                                                               |
+| Totallines      | `18`                                                              |
+| Linecoverage    | `100`                                                             |
+| Coveredbranches | `0`                                                               |
+| Totalbranches   | `0`                                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleWhitespaceNode.cs
@@ -48,8 +43,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔16:          }
 〰17:      }
 〰18:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

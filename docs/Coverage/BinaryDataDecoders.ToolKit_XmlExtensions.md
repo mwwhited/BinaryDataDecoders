@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.XmlExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_XmlExtensions.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.XmlExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.XmlExtensions  | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 5                                                            | 
-| Coverablelines       | 5                                                            | 
-| Totallines           | 28                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\Extensions\XmlExtensions.cs
+| Key             | Value                                                         |
+| :-------------- | :------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.XmlExtensions` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                  |
+| Coveredlines    | `0`                                                           |
+| Uncoveredlines  | `5`                                                           |
+| Coverablelines  | `5`                                                           |
+| Totallines      | `28`                                                          |
+| Linecoverage    | `0`                                                           |
+| Coveredbranches | `0`                                                           |
+| Totalbranches   | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | Fixup | 
-| 1          | 0     | 100      | Evaluate | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 0     | 100      | `ctor`     |
+| 1          | 0     | 100      | `Fixup`    |
+| 1          | 0     | 100      | `Evaluate` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\Extensions\XmlExtensions.cs
@@ -60,8 +55,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼26:          public XPathNodeIterator Evaluate(XPathNavigator xPathNavigator, string xpath) => xPathNavigator.Select(xpath);
 〰27:      }
 〰28:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

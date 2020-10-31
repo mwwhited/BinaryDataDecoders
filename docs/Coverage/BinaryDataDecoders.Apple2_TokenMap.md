@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Apple2.ApplesoftBASIC.TokenMap
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Apple2_TokenMap.xml
+﻿# BinaryDataDecoders.Apple2.ApplesoftBASIC.TokenMap
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Apple2.ApplesoftBASIC.TokenMap            | 
-| Assembly             | BinaryDataDecoders.Apple2                                    | 
-| Coveredlines         | 114                                                          | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 114                                                          | 
-| Totallines           | 131                                                          | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\ApplesoftBASIC\TokenMap.cs
+| Key             | Value                                               |
+| :-------------- | :-------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Apple2.ApplesoftBASIC.TokenMap` |
+| Assembly        | `BinaryDataDecoders.Apple2`                         |
+| Coveredlines    | `114`                                               |
+| Uncoveredlines  | `0`                                                 |
+| Coverablelines  | `114`                                               |
+| Totallines      | `131`                                               |
+| Linecoverage    | `100`                                               |
+| Coveredbranches | `0`                                                 |
+| Totalbranches   | `0`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | GetToken | 
-| 1          | 100   | 100      | ctor | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `GetToken` |
+| 1          | 100   | 100      | `ctor`     |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\ApplesoftBASIC\TokenMap.cs
@@ -162,8 +157,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔129:         };
 〰130:     }
 〰131: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

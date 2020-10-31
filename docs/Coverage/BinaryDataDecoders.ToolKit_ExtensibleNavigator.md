@@ -1,55 +1,50 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNavigator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ExtensibleNavigator.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNavigator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNavigator     | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 57                                                           | 
-| Uncoveredlines       | 18                                                           | 
-| Coverablelines       | 75                                                           | 
-| Totallines           | 166                                                          | 
-| Linecoverage         | 76                                                           | 
-| Coveredbranches      | 36                                                           | 
-| Totalbranches        | 56                                                           | 
-| Branchcoverage       | 64.2                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNavigator.cs
+| Key             | Value                                                      |
+| :-------------- | :--------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNavigator` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                               |
+| Coveredlines    | `57`                                                       |
+| Uncoveredlines  | `18`                                                       |
+| Coverablelines  | `75`                                                       |
+| Totallines      | `166`                                                      |
+| Linecoverage    | `76`                                                       |
+| Coveredbranches | `36`                                                       |
+| Totalbranches   | `56`                                                       |
+| Branchcoverage  | `64.2`                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 6          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | get_Name | 
-| 1          | 100   | 100      | get_LocalName | 
-| 2          | 80.0  | 50.0     | get_NamespaceURI | 
-| 1          | 100   | 100      | get_NodeType | 
-| 1          | 100   | 100      | get_Prefix | 
-| 6          | 83.33 | 83.33    | LookupPrefix | 
-| 2          | 0     | 0        | LookupNamespace | 
-| 2          | 100   | 100      | get_Value | 
-| 2          | 100   | 50.0     | get_IsEmptyElement | 
-| 2          | 0     | 0        | get_HasAttributes | 
-| 2          | 100   | 50.0     | get_HasChildren | 
-| 1          | 100   | 100      | Clone | 
-| 1          | 0     | 100      | MoveToId | 
-| 2          | 80.0  | 50.0     | IsSamePosition | 
-| 4          | 75.00 | 50.0     | MoveTo | 
-| 4          | 50.0  | 75.00    | MoveToFirstNamespace | 
-| 4          | 0     | 0        | MoveToNextNamespace | 
-| 4          | 75.00 | 50.0     | MoveToFirstAttribute | 
-| 4          | 100   | 100      | MoveToNextAttribute | 
-| 2          | 100   | 100      | MoveToParent | 
-| 4          | 100   | 100      | MoveToFirstChild | 
-| 2          | 100   | 100      | MoveToNext | 
-| 2          | 0     | 0        | MoveToPrevious | 
+| Complexity | Lines | Branches | Name                   |
+| :--------- | :---- | :------- | :--------------------- |
+| 1          | 100   | 100      | `ctor`                 |
+| 6          | 100   | 100      | `ctor`                 |
+| 1          | 100   | 100      | `get_Name`             |
+| 1          | 100   | 100      | `get_LocalName`        |
+| 2          | 80.0  | 50.0     | `get_NamespaceURI`     |
+| 1          | 100   | 100      | `get_NodeType`         |
+| 1          | 100   | 100      | `get_Prefix`           |
+| 6          | 83.33 | 83.33    | `LookupPrefix`         |
+| 2          | 0     | 0        | `LookupNamespace`      |
+| 2          | 100   | 100      | `get_Value`            |
+| 2          | 100   | 50.0     | `get_IsEmptyElement`   |
+| 2          | 0     | 0        | `get_HasAttributes`    |
+| 2          | 100   | 50.0     | `get_HasChildren`      |
+| 1          | 100   | 100      | `Clone`                |
+| 1          | 0     | 100      | `MoveToId`             |
+| 2          | 80.0  | 50.0     | `IsSamePosition`       |
+| 4          | 75.00 | 50.0     | `MoveTo`               |
+| 4          | 50.0  | 75.00    | `MoveToFirstNamespace` |
+| 4          | 0     | 0        | `MoveToNextNamespace`  |
+| 4          | 75.00 | 50.0     | `MoveToFirstAttribute` |
+| 4          | 100   | 100      | `MoveToNextAttribute`  |
+| 2          | 100   | 100      | `MoveToParent`         |
+| 4          | 100   | 100      | `MoveToFirstChild`     |
+| 2          | 100   | 100      | `MoveToNext`           |
+| 2          | 0     | 0        | `MoveToPrevious`       |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNavigator.cs
@@ -221,8 +216,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰164:         }
 〰165:     }
 〰166: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

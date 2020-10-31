@@ -15,7 +15,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ParseAndEvaluateTest                              ` |
+|  ✔ Passed               | 00:00:00.01 | `ParseAndEvaluateTest                              ` |
 
 ## ParseAndPreEvaluateTest
 
@@ -32,7 +32,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ParseAndPreEvaluateTest                           ` |
+|  ✔ Passed               | 00:00:00.01 | `ParseAndPreEvaluateTest                           ` |
 
 ## ParseAndReplaceVariablesTest
 
@@ -49,7 +49,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ParseAndReplaceVariablesTest                      ` |
+|  ✔ Passed               | 00:00:00.01 | `ParseAndReplaceVariablesTest                      ` |
 
 
 

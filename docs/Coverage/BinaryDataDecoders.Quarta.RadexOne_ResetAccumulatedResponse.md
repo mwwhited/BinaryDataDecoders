@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.Quarta.RadexOne.ResetAccumulatedResponse
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Quarta.RadexOne_ResetAccumulatedResponse.xml
+﻿# BinaryDataDecoders.Quarta.RadexOne.ResetAccumulatedResponse
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Quarta.RadexOne.ResetAccumulatedResponse  | 
-| Assembly             | BinaryDataDecoders.Quarta.RadexOne                           | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 44                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\ResetAccumulatedResponse.cs
+| Key             | Value                                                         |
+| :-------------- | :------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.Quarta.RadexOne.ResetAccumulatedResponse` |
+| Assembly        | `BinaryDataDecoders.Quarta.RadexOne`                          |
+| Coveredlines    | `0`                                                           |
+| Uncoveredlines  | `1`                                                           |
+| Coverablelines  | `1`                                                           |
+| Totallines      | `44`                                                          |
+| Linecoverage    | `0`                                                           |
+| Coveredbranches | `0`                                                           |
+| Totalbranches   | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 0     | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\ResetAccumulatedResponse.cs
@@ -74,8 +69,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰42:          }
 〰43:      }
 〰44:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

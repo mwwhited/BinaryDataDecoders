@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ToolKit.IO.PathEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_PathEx.xml
+﻿# BinaryDataDecoders.ToolKit.IO.PathEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.IO.PathEx                         | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 15                                                           | 
-| Coverablelines       | 15                                                           | 
-| Totallines           | 135                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 8                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\IO\PathEx.cs
+| Key             | Value                                  |
+| :-------------- | :------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.IO.PathEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`           |
+| Coveredlines    | `0`                                    |
+| Uncoveredlines  | `15`                                   |
+| Coverablelines  | `15`                                   |
+| Totallines      | `135`                                  |
+| Linecoverage    | `0`                                    |
+| Coveredbranches | `0`                                    |
+| Totalbranches   | `8`                                    |
+| Branchcoverage  | `0`                                    |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 0     | 0        | CreateParentIfNotExists | 
-| 2          | 0     | 0        | EndsInDirectorySeparator | 
-| 4          | 0     | 0        | GetBasePath | 
+| Complexity | Lines | Branches | Name                       |
+| :--------- | :---- | :------- | :------------------------- |
+| 2          | 0     | 0        | `CreateParentIfNotExists`  |
+| 2          | 0     | 0        | `EndsInDirectorySeparator` |
+| 4          | 0     | 0        | `GetBasePath`              |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\IO\PathEx.cs
@@ -168,8 +163,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰133:         }
 〰134:     }
 〰135: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

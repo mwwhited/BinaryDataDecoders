@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.SemanticModelNavigatorFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_SemanticModelNavigatorFactory.xml
+﻿# BinaryDataDecoders.CodeAnalysis.SemanticModelNavigatorFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.SemanticModelNavigatorFactor | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 95                                                           | 
-| Coverablelines       | 95                                                           | 
-| Totallines           | 230                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\SemanticModelNavigatorFactory.cs
+| Key             | Value                                                           |
+| :-------------- | :-------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.SemanticModelNavigatorFactory` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`                               |
+| Coveredlines    | `0`                                                             |
+| Uncoveredlines  | `95`                                                            |
+| Coverablelines  | `95`                                                            |
+| Totallines      | `230`                                                           |
+| Linecoverage    | `0`                                                             |
+| Coveredbranches | `0`                                                             |
+| Totalbranches   | `2`                                                             |
+| Branchcoverage  | `0`                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | AsNode | 
-| 2          | 0     | 0        | AddSymbols | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `AsNode`      |
+| 2          | 0     | 0        | `AddSymbols`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\SemanticModelNavigatorFactory.cs
@@ -263,8 +258,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰228:         }
 〰229:     }
 〰230: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

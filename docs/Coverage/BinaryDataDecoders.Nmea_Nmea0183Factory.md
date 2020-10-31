@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.Nmea.Nmea0183Factory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Nmea_Nmea0183Factory.xml
+﻿# BinaryDataDecoders.Nmea.Nmea0183Factory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Nmea.Nmea0183Factory                      | 
-| Assembly             | BinaryDataDecoders.Nmea                                      | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 11                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Nmea\Nmea0183Factory.cs
+| Key             | Value                                     |
+| :-------------- | :---------------------------------------- |
+| Class           | `BinaryDataDecoders.Nmea.Nmea0183Factory` |
+| Assembly        | `BinaryDataDecoders.Nmea`                 |
+| Coveredlines    | `0`                                       |
+| Uncoveredlines  | `1`                                       |
+| Coverablelines  | `1`                                       |
+| Totallines      | `11`                                      |
+| Linecoverage    | `0`                                       |
+| Coveredbranches | `0`                                       |
+| Totalbranches   | `0`                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | GetSegmenter | 
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 0     | 100      | `GetSegmenter` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Nmea\Nmea0183Factory.cs
@@ -41,8 +36,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼9:           public ISegmenter GetSegmenter(OnSegmentReceived thenDo) => Segment.StartsWith(Bytes._S).AndEndsWith(Bytes.Lf).ThenDo(thenDo);
 〰10:      }
 〰11:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

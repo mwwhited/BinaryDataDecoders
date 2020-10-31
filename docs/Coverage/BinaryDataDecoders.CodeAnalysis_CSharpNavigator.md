@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.CSharp.CSharpNavigator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_CSharpNavigator.xml
+﻿# BinaryDataDecoders.CodeAnalysis.CSharp.CSharpNavigator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.CSharp.CSharpNavigator       | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 8                                                            | 
-| Coverablelines       | 8                                                            | 
-| Totallines           | 30                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\CSharp\CSharpNavigator.cs
+| Key             | Value                                                    |
+| :-------------- | :------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.CSharp.CSharpNavigator` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`                        |
+| Coveredlines    | `0`                                                      |
+| Uncoveredlines  | `8`                                                      |
+| Coverablelines  | `8`                                                      |
+| Totallines      | `30`                                                     |
+| Linecoverage    | `0`                                                      |
+| Coveredbranches | `0`                                                      |
+| Totalbranches   | `0`                                                      |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 0     | 100      | ToNavigable | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `ToNavigable` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\CSharp\CSharpNavigator.cs
@@ -61,8 +56,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰28:          }
 〰29:      }
 〰30:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

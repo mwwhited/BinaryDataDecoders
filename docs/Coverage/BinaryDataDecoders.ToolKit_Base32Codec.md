@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ToolKit.Codecs.Base32Codec
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_Base32Codec.xml
+﻿# BinaryDataDecoders.ToolKit.Codecs.Base32Codec
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Codecs.Base32Codec                | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 42                                                           | 
-| Coverablelines       | 42                                                           | 
-| Totallines           | 119                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 12                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Codecs\Base32Codec.cs
+| Key             | Value                                           |
+| :-------------- | :---------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Codecs.Base32Codec` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                    |
+| Coveredlines    | `0`                                             |
+| Uncoveredlines  | `42`                                            |
+| Coverablelines  | `42`                                            |
+| Totallines      | `119`                                           |
+| Linecoverage    | `0`                                             |
+| Coveredbranches | `0`                                             |
+| Totalbranches   | `12`                                            |
+| Branchcoverage  | `0`                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 6          | 0     | 0        | Encode | 
-| 6          | 0     | 0        | Decode | 
+| Complexity | Lines | Branches | Name     |
+| :--------- | :---- | :------- | :------- |
+| 1          | 0     | 100      | `ctor`   |
+| 6          | 0     | 0        | `Encode` |
+| 6          | 0     | 0        | `Decode` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Codecs\Base32Codec.cs
@@ -152,8 +147,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰117:         }
 〰118:     }
 〰119: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

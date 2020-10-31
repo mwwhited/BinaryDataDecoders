@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.Cryptography.Enigma.EnigmaReflector
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Cryptography_EnigmaReflector.xml
+﻿# BinaryDataDecoders.Cryptography.Enigma.EnigmaReflector
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Cryptography.Enigma.EnigmaReflector       | 
-| Assembly             | BinaryDataDecoders.Cryptography                              | 
-| Coveredlines         | 8                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 8                                                            | 
-| Totallines           | 20                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaReflector.cs
+| Key             | Value                                                    |
+| :-------------- | :------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaReflector` |
+| Assembly        | `BinaryDataDecoders.Cryptography`                        |
+| Coveredlines    | `8`                                                      |
+| Uncoveredlines  | `0`                                                      |
+| Coverablelines  | `8`                                                      |
+| Totallines      | `20`                                                     |
+| Linecoverage    | `100`                                                    |
+| Coveredbranches | `0`                                                      |
+| Totalbranches   | `0`                                                      |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `cctor` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\Enigma\EnigmaReflector.cs
@@ -50,8 +45,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰18:          public string Wiring { get; private set; }
 〰19:      }
 〰20:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

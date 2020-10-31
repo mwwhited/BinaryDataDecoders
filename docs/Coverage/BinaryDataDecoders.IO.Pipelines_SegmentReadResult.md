@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Segmenters.SegmentReadResult
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_SegmentReadResult.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Segmenters.SegmentReadResult
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Segmenters.SegmentReadResult | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 4                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 16                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segmenters\SegmentReadResult.cs
+| Key             | Value                                                          |
+| :-------------- | :------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Segmenters.SegmentReadResult` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`                              |
+| Coveredlines    | `0`                                                            |
+| Uncoveredlines  | `4`                                                            |
+| Coverablelines  | `4`                                                            |
+| Totallines      | `16`                                                           |
+| Linecoverage    | `0`                                                            |
+| Coveredbranches | `0`                                                            |
+| Totalbranches   | `0`                                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segmenters\SegmentReadResult.cs
@@ -46,8 +41,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰14:          public ReadOnlySequence<byte> RemainingData { get; }
 〰15:      }
 〰16:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.FileSystems.Iso9660.Tools
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.FileSystems_Tools.xml
+﻿# BinaryDataDecoders.FileSystems.Iso9660.Tools
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.FileSystems.Iso9660.Tools                 | 
-| Assembly             | BinaryDataDecoders.FileSystems                               | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 24                                                           | 
-| Coverablelines       | 24                                                           | 
-| Totallines           | 64                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\Tools.cs
+| Key             | Value                                          |
+| :-------------- | :--------------------------------------------- |
+| Class           | `BinaryDataDecoders.FileSystems.Iso9660.Tools` |
+| Assembly        | `BinaryDataDecoders.FileSystems`               |
+| Coveredlines    | `0`                                            |
+| Uncoveredlines  | `24`                                           |
+| Coverablelines  | `24`                                           |
+| Totallines      | `64`                                           |
+| Linecoverage    | `0`                                            |
+| Coveredbranches | `0`                                            |
+| Totalbranches   | `4`                                            |
+| Branchcoverage  | `0`                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 0     | 0        | ToHexString | 
-| 1          | 0     | 100      | GetString | 
-| 1          | 0     | 100      | GetUInt32 | 
-| 1          | 0     | 100      | GetUInt16 | 
-| 2          | 0     | 0        | GetDateTime | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 2          | 0     | 0        | `ToHexString` |
+| 1          | 0     | 100      | `GetString`   |
+| 1          | 0     | 100      | `GetUInt32`   |
+| 1          | 0     | 100      | `GetUInt16`   |
+| 2          | 0     | 0        | `GetDateTime` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\Tools.cs
@@ -99,8 +94,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰62:          }
 〰63:      }
 〰64:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,36 +1,31 @@
-﻿
-# BinaryDataDecoders.ToolKit.MemoryEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_MemoryEx.xml
+﻿# BinaryDataDecoders.ToolKit.MemoryEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.MemoryEx                          | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 7                                                            | 
-| Uncoveredlines       | 11                                                           | 
-| Coverablelines       | 18                                                           | 
-| Totallines           | 126                                                          | 
-| Linecoverage         | 38.8                                                         | 
-| Coveredbranches      | 4                                                            | 
-| Totalbranches        | 6                                                            | 
-| Branchcoverage       | 66.6                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MemoryEx.cs
+| Key             | Value                                 |
+| :-------------- | :------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.MemoryEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`          |
+| Coveredlines    | `7`                                   |
+| Uncoveredlines  | `11`                                  |
+| Coverablelines  | `18`                                  |
+| Totallines      | `126`                                 |
+| Linecoverage    | `38.8`                                |
+| Coveredbranches | `4`                                   |
+| Totalbranches   | `6`                                   |
+| Branchcoverage  | `66.6`                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | AsMemory | 
-| 1          | 0     | 100      | Distinct | 
-| 2          | 0     | 0        | BytesFromHexString | 
-| 1          | 100   | 100      | Split | 
-| 1          | 0     | 100      | Split | 
-| 4          | 100   | 100      | Split | 
+| Complexity | Lines | Branches | Name                 |
+| :--------- | :---- | :------- | :------------------- |
+| 1          | 0     | 100      | `AsMemory`           |
+| 1          | 0     | 100      | `Distinct`           |
+| 2          | 0     | 0        | `BytesFromHexString` |
+| 1          | 100   | 100      | `Split`              |
+| 1          | 0     | 100      | `Split`              |
+| 4          | 100   | 100      | `Split`              |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MemoryEx.cs
@@ -162,8 +157,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰124: #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 〰125:     }
 〰126: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNamespaceNode`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ExtensibleNamespaceNode_1.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNamespaceNode`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNamespaceNode | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 13                                                           | 
-| Coverablelines       | 13                                                           | 
-| Totallines           | 34                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNamespaceNode.cs
+| Key             | Value                                                            |
+| :-------------- | :--------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNamespaceNode`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                     |
+| Coveredlines    | `0`                                                              |
+| Uncoveredlines  | `13`                                                             |
+| Coverablelines  | `13`                                                             |
+| Totallines      | `34`                                                             |
+| Linecoverage    | `0`                                                              |
+| Coveredbranches | `0`                                                              |
+| Totalbranches   | `0`                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | get_Value | 
-| 1          | 0     | 100      | BinaryDataDecodersToolKitXmlXPathINodeget_Next | 
-| 1          | 0     | 100      | BinaryDataDecodersToolKitXmlXPathINodeget_Previous | 
+| Complexity | Lines | Branches | Name                                                 |
+| :--------- | :---- | :------- | :--------------------------------------------------- |
+| 1          | 0     | 100      | `ctor`                                               |
+| 1          | 0     | 100      | `get_Value`                                          |
+| 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathINodeget_Next`     |
+| 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathINodeget_Previous` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNamespaceNode.cs
@@ -67,8 +62,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼32:          INode? INode.Previous => Previous;
 〰33:      }
 〰34:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

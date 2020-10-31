@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Segmenters.BetweenSegmenter
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_BetweenSegmenter.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Segmenters.BetweenSegmenter
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Segmenters.BetweenSegmenter  | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 21                                                           | 
-| Coverablelines       | 21                                                           | 
-| Totallines           | 60                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 12                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segmenters\BetweenSegmenter.cs
+| Key             | Value                                                         |
+| :-------------- | :------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Segmenters.BetweenSegmenter` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`                             |
+| Coveredlines    | `0`                                                           |
+| Uncoveredlines  | `21`                                                          |
+| Coverablelines  | `21`                                                          |
+| Totallines      | `60`                                                          |
+| Linecoverage    | `0`                                                           |
+| Coveredbranches | `0`                                                           |
+| Totalbranches   | `12`                                                          |
+| Branchcoverage  | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 12         | 0     | 0        | Read | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 12         | 0     | 0        | `Read`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segmenters\BetweenSegmenter.cs
@@ -92,8 +87,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰58:          }
 〰59:      }
 〰60:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

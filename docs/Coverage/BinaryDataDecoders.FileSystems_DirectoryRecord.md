@@ -1,39 +1,34 @@
-﻿
-# BinaryDataDecoders.FileSystems.Iso9660.DirectoryRecord
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.FileSystems_DirectoryRecord.xml
+﻿# BinaryDataDecoders.FileSystems.Iso9660.DirectoryRecord
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.FileSystems.Iso9660.DirectoryRecord       | 
-| Assembly             | BinaryDataDecoders.FileSystems                               | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 72                                                           | 
-| Coverablelines       | 72                                                           | 
-| Totallines           | 260                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 20                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\DirectoryRecord.cs
+| Key             | Value                                                    |
+| :-------------- | :------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.FileSystems.Iso9660.DirectoryRecord` |
+| Assembly        | `BinaryDataDecoders.FileSystems`                         |
+| Coveredlines    | `0`                                                      |
+| Uncoveredlines  | `72`                                                     |
+| Coverablelines  | `72`                                                     |
+| Totallines      | `260`                                                    |
+| Linecoverage    | `0`                                                      |
+| Coveredbranches | `0`                                                      |
+| Totalbranches   | `20`                                                     |
+| Branchcoverage  | `0`                                                      |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 10         | 0     | 0        | ctor | 
-| 1          | 0     | 100      | ToString | 
-| 1          | 0     | 100      | GetBuffer | 
-| 4          | 0     | 0        | get_Root | 
-| 1          | 0     | 100      | get_IsDirectory | 
-| 2          | 0     | 0        | get_Data | 
-| 2          | 0     | 0        | get_DataBase64 | 
-| 2          | 0     | 0        | GetEnumerator | 
-| 1          | 0     | 100      | SystemCollectionsIEnumerableGetEnumerator | 
+| Complexity | Lines | Branches | Name                                        |
+| :--------- | :---- | :------- | :------------------------------------------ |
+| 10         | 0     | 0        | `ctor`                                      |
+| 1          | 0     | 100      | `ToString`                                  |
+| 1          | 0     | 100      | `GetBuffer`                                 |
+| 4          | 0     | 0        | `get_Root`                                  |
+| 1          | 0     | 100      | `get_IsDirectory`                           |
+| 2          | 0     | 0        | `get_Data`                                  |
+| 2          | 0     | 0        | `get_DataBase64`                            |
+| 2          | 0     | 0        | `GetEnumerator`                             |
+| 1          | 0     | 100      | `SystemCollectionsIEnumerableGetEnumerator` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\DirectoryRecord.cs
@@ -299,8 +294,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰258:         #endregion
 〰259:     }
 〰260: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

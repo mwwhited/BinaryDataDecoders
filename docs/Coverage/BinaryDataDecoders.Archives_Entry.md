@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Archives.Tar.Entry
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Archives_Entry.xml
+﻿# BinaryDataDecoders.Archives.Tar.Entry
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Archives.Tar.Entry                        | 
-| Assembly             | BinaryDataDecoders.Archives                                  | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 78                                                           | 
-| Coverablelines       | 78                                                           | 
-| Totallines           | 168                                                          | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 63                                                           | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Archives\Tar\Entry.cs
+| Key             | Value                                   |
+| :-------------- | :-------------------------------------- |
+| Class           | `BinaryDataDecoders.Archives.Tar.Entry` |
+| Assembly        | `BinaryDataDecoders.Archives`           |
+| Coveredlines    | `0`                                     |
+| Uncoveredlines  | `78`                                    |
+| Coverablelines  | `78`                                    |
+| Totallines      | `168`                                   |
+| Linecoverage    | `0`                                     |
+| Coveredbranches | `0`                                     |
+| Totalbranches   | `63`                                    |
+| Branchcoverage  | `0`                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 63         | 0     | 0        | Sample | 
+| Complexity | Lines | Branches | Name     |
+| :--------- | :---- | :------- | :------- |
+| 63         | 0     | 0        | `Sample` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Archives\Tar\Entry.cs
@@ -199,8 +194,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼166:         }
 〰167:     }
 〰168: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

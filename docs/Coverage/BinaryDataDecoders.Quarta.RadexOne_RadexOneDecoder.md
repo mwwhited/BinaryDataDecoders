@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.Quarta.RadexOne.RadexOneDecoder
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Quarta.RadexOne_RadexOneDecoder.xml
+﻿# BinaryDataDecoders.Quarta.RadexOne.RadexOneDecoder
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Quarta.RadexOne.RadexOneDecoder           | 
-| Assembly             | BinaryDataDecoders.Quarta.RadexOne                           | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 16                                                           | 
-| Coverablelines       | 16                                                           | 
-| Totallines           | 38                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 9                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\RadexOneDecoder.cs
+| Key             | Value                                                |
+| :-------------- | :--------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Quarta.RadexOne.RadexOneDecoder` |
+| Assembly        | `BinaryDataDecoders.Quarta.RadexOne`                 |
+| Coveredlines    | `0`                                                  |
+| Uncoveredlines  | `16`                                                 |
+| Coverablelines  | `16`                                                 |
+| Totallines      | `38`                                                 |
+| Linecoverage    | `0`                                                  |
+| Coveredbranches | `0`                                                  |
+| Totalbranches   | `9`                                                  |
+| Branchcoverage  | `0`                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 9          | 0     | 0        | Decode | 
+| Complexity | Lines | Branches | Name     |
+| :--------- | :---- | :------- | :------- |
+| 9          | 0     | 0        | `Decode` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\RadexOneDecoder.cs
@@ -69,8 +64,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰36:          }
 〰37:      }
 〰38:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

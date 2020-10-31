@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.WildcardPathSegment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_WildcardPathSegment.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.WildcardPathSegment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.WildcardPathSegment  | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 7                                                            | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\WildcardPathSegment.cs
+| Key             | Value                                                         |
+| :-------------- | :------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.WildcardPathSegment` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                  |
+| Coveredlines    | `1`                                                           |
+| Uncoveredlines  | `0`                                                           |
+| Coverablelines  | `1`                                                           |
+| Totallines      | `7`                                                           |
+| Linecoverage    | `100`                                                         |
+| Coveredbranches | `0`                                                           |
+| Totalbranches   | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\WildcardPathSegment.cs
@@ -37,8 +32,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔5:           public override string ToString() => "*";
 〰6:       }
 〰7:   }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

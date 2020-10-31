@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.IO.Pipelines.Definitions.SegmentBuildDefinition
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.IO.Pipelines_SegmentBuildDefinition.xml
+﻿# BinaryDataDecoders.IO.Pipelines.Definitions.SegmentBuildDefinition
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.IO.Pipelines.Definitions.SegmentBuildDefi | 
-| Assembly             | BinaryDataDecoders.IO.Pipelines                              | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 3                                                            | 
-| Coverablelines       | 3                                                            | 
-| Totallines           | 17                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\SegmentBuildDefinition.cs
+| Key             | Value                                                                |
+| :-------------- | :------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.IO.Pipelines.Definitions.SegmentBuildDefinition` |
+| Assembly        | `BinaryDataDecoders.IO.Pipelines`                                    |
+| Coveredlines    | `0`                                                                  |
+| Uncoveredlines  | `3`                                                                  |
+| Coverablelines  | `3`                                                                  |
+| Totallines      | `17`                                                                 |
+| Linecoverage    | `0`                                                                  |
+| Coveredbranches | `0`                                                                  |
+| Totalbranches   | `0`                                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\SegmentBuildDefinition.cs
@@ -47,8 +42,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰15:          internal long? MaxLength { get; set; }
 〰16:      }
 〰17:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

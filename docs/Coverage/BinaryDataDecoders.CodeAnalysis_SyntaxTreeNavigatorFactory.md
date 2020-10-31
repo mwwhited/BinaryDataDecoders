@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.SyntaxTreeNavigatorFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_SyntaxTreeNavigatorFactory.xml
+﻿# BinaryDataDecoders.CodeAnalysis.SyntaxTreeNavigatorFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.SyntaxTreeNavigatorFactory   | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 77                                                           | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 78                                                           | 
-| Totallines           | 95                                                           | 
-| Linecoverage         | 98.7                                                         | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\SyntaxTreeNavigatorFactory.cs
+| Key             | Value                                                        |
+| :-------------- | :----------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.SyntaxTreeNavigatorFactory` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`                            |
+| Coveredlines    | `77`                                                         |
+| Uncoveredlines  | `1`                                                          |
+| Coverablelines  | `78`                                                         |
+| Totallines      | `95`                                                         |
+| Linecoverage    | `98.7`                                                       |
+| Coveredbranches | `0`                                                          |
+| Totalbranches   | `0`                                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ToNavigable | 
-| 1          | 100   | 100      | AsNode | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 100   | 100      | `AsNode`      |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\SyntaxTreeNavigatorFactory.cs
@@ -126,8 +121,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔93:                  );
 〰94:      }
 〰95:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

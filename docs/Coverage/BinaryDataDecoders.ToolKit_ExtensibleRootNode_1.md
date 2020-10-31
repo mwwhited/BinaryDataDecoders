@@ -1,38 +1,33 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleRootNode`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_ExtensibleRootNode_1.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleRootNode`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleRootNode`1    | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 3                                                            | 
-| Uncoveredlines       | 5                                                            | 
-| Coverablelines       | 8                                                            | 
-| Totallines           | 27                                                           | 
-| Linecoverage         | 37.5                                                         | 
-| Coveredbranches      | 2                                                            | 
-| Totalbranches        | 4                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleRootNode.cs
+| Key             | Value                                                       |
+| :-------------- | :---------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleRootNode`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                |
+| Coveredlines    | `3`                                                         |
+| Uncoveredlines  | `5`                                                         |
+| Coverablelines  | `8`                                                         |
+| Totallines      | `27`                                                        |
+| Linecoverage    | `37.5`                                                      |
+| Coveredbranches | `2`                                                         |
+| Totalbranches   | `4`                                                         |
+| Branchcoverage  | `50`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 4          | 100   | 50.0     | get_Name | 
-| 1          | 100   | 100      | get_Parent | 
-| 1          | 0     | 100      | get_Value | 
-| 1          | 0     | 100      | get_Next | 
-| 1          | 0     | 100      | get_Previous | 
-| 1          | 0     | 100      | get_FirstAttribute | 
-| 1          | 0     | 100      | get_FirstNamespace | 
+| Complexity | Lines | Branches | Name                 |
+| :--------- | :---- | :------- | :------------------- |
+| 1          | 100   | 100      | `ctor`               |
+| 4          | 100   | 50.0     | `get_Name`           |
+| 1          | 100   | 100      | `get_Parent`         |
+| 1          | 0     | 100      | `get_Value`          |
+| 1          | 0     | 100      | `get_Next`           |
+| 1          | 0     | 100      | `get_Previous`       |
+| 1          | 0     | 100      | `get_FirstAttribute` |
+| 1          | 0     | 100      | `get_FirstNamespace` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleRootNode.cs
@@ -65,8 +60,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰25:          public XPathNodeType NodeType { get; } = XPathNodeType.Root;
 〰26:      }
 〰27:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

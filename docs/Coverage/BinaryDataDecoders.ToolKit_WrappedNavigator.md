@@ -1,60 +1,55 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNavigator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_WrappedNavigator.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNavigator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNavigator        | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 59                                                           | 
-| Uncoveredlines       | 115                                                          | 
-| Coverablelines       | 174                                                          | 
-| Totallines           | 271                                                          | 
-| Linecoverage         | 33.9                                                         | 
-| Coveredbranches      | 22                                                           | 
-| Totalbranches        | 88                                                           | 
-| Branchcoverage       | 25                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\WrappedNavigator.cs
+| Key             | Value                                                   |
+| :-------------- | :------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNavigator` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                            |
+| Coveredlines    | `59`                                                    |
+| Uncoveredlines  | `115`                                                   |
+| Coverablelines  | `174`                                                   |
+| Totallines      | `271`                                                   |
+| Linecoverage    | `33.9`                                                  |
+| Coveredbranches | `22`                                                    |
+| Totalbranches   | `88`                                                    |
+| Branchcoverage  | `25`                                                    |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | Clone | 
-| 2          | 0     | 0        | get_BaseURI | 
-| 2          | 0     | 0        | get_IsEmptyElement | 
-| 2          | 100   | 100      | get_LocalName | 
-| 2          | 0     | 0        | get_Name | 
-| 2          | 100   | 100      | get_NamespaceURI | 
-| 2          | 0     | 0        | get_NameTable | 
-| 6          | 80.0  | 66.66    | get_NodeType | 
-| 2          | 0     | 0        | get_Prefix | 
-| 2          | 80.0  | 50.0     | get_Value | 
-| 2          | 0     | 0        | LookupNamespace | 
-| 2          | 0     | 0        | LookupPrefix | 
-| 2          | 0     | 0        | get_HasAttributes | 
-| 2          | 0     | 0        | get_HasChildren | 
-| 6          | 0     | 0        | IsSamePosition | 
-| 4          | 80.0  | 50.0     | MoveTo | 
-| 2          | 0     | 0        | MoveToFirstAttribute | 
-| 2          | 0     | 0        | MoveToNextNamespace | 
-| 2          | 0     | 0        | MoveToFirstNamespace | 
-| 2          | 0     | 0        | MoveToId | 
-| 2          | 0     | 0        | MoveToNextAttribute | 
-| 2          | 80.0  | 50.0     | MoveToFirstChild | 
-| 9          | 84.61 | 66.66    | MoveToFirstChildInternal | 
-| 2          | 100   | 100      | MoveToNext | 
-| 7          | 66.66 | 28.57    | MoveToNextInternal | 
-| 2          | 0     | 0        | MoveToPrevious | 
-| 7          | 0     | 0        | MoveToPreviousInternal | 
-| 9          | 0     | 0        | MoveToParent | 
-| 1          | 100   | 100      | MoveToRoot | 
+| Complexity | Lines | Branches | Name                       |
+| :--------- | :---- | :------- | :------------------------- |
+| 1          | 100   | 100      | `ctor`                     |
+| 1          | 100   | 100      | `Clone`                    |
+| 2          | 0     | 0        | `get_BaseURI`              |
+| 2          | 0     | 0        | `get_IsEmptyElement`       |
+| 2          | 100   | 100      | `get_LocalName`            |
+| 2          | 0     | 0        | `get_Name`                 |
+| 2          | 100   | 100      | `get_NamespaceURI`         |
+| 2          | 0     | 0        | `get_NameTable`            |
+| 6          | 80.0  | 66.66    | `get_NodeType`             |
+| 2          | 0     | 0        | `get_Prefix`               |
+| 2          | 80.0  | 50.0     | `get_Value`                |
+| 2          | 0     | 0        | `LookupNamespace`          |
+| 2          | 0     | 0        | `LookupPrefix`             |
+| 2          | 0     | 0        | `get_HasAttributes`        |
+| 2          | 0     | 0        | `get_HasChildren`          |
+| 6          | 0     | 0        | `IsSamePosition`           |
+| 4          | 80.0  | 50.0     | `MoveTo`                   |
+| 2          | 0     | 0        | `MoveToFirstAttribute`     |
+| 2          | 0     | 0        | `MoveToNextNamespace`      |
+| 2          | 0     | 0        | `MoveToFirstNamespace`     |
+| 2          | 0     | 0        | `MoveToId`                 |
+| 2          | 0     | 0        | `MoveToNextAttribute`      |
+| 2          | 80.0  | 50.0     | `MoveToFirstChild`         |
+| 9          | 84.61 | 66.66    | `MoveToFirstChildInternal` |
+| 2          | 100   | 100      | `MoveToNext`               |
+| 7          | 66.66 | 28.57    | `MoveToNextInternal`       |
+| 2          | 0     | 0        | `MoveToPrevious`           |
+| 7          | 0     | 0        | `MoveToPreviousInternal`   |
+| 9          | 0     | 0        | `MoveToParent`             |
+| 1          | 100   | 100      | `MoveToRoot`               |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\WrappedNavigator.cs
@@ -331,8 +326,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔269:         }
 〰270:     }
 〰271: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

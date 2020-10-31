@@ -32,7 +32,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `SplitTest_Exclude                                 ` |
+|  ✔ Passed               | 00:00:00.03 | `SplitTest_Exclude                                 ` |
 
 ## SplitTest_Carry
 

@@ -1,31 +1,30 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.StringExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_StringExtensions.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.StringExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.StringExtensio | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 4                                                            | 
-| Coverablelines       | 4                                                            | 
-| Totallines           | 35                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\Extensions\StringExtensions.cs
+| Key             | Value                                                            |
+| :-------------- | :--------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.StringExtensions` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                     |
+| Coveredlines    | `0`                                                              |
+| Uncoveredlines  | `7`                                                              |
+| Coverablelines  | `7`                                                              |
+| Totallines      | `39`                                                             |
+| Linecoverage    | `0`                                                              |
+| Coveredbranches | `0`                                                              |
+| Totalbranches   | `4`                                                              |
+| Branchcoverage  | `0`                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ctor | 
-| 1          | 0     | 100      | TrimPerLine | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ctor`        |
+| 1          | 0     | 100      | `TrimPerLine` |
+| 1          | 0     | 100      | `PadLeft`     |
+| 1          | 0     | 100      | `PadRight`    |
+| 4          | 0     | 0        | `New`         |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\Extensions\StringExtensions.cs
@@ -64,10 +63,16 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼31:              string.Join("\r\n", input.Split("\r\n").Select(l => l.Trim().Trim('\t', '\r', '\n', ' ')));
 〰32:  
 〰33:  
-〰34:      }
-〰35:  }
-
+‼34:          public string PadLeft(string input, int totalWidth) => input.PadLeft(totalWidth);
+‼35:          public string PadRight(string input, int totalWidth) => input.PadRight(totalWidth);
+‼36:          public string New(string @char, int length) => string.IsNullOrEmpty(@char) || length < 0 ? "" : new string(@char[0], length);
+〰37:  
+〰38:      }
+〰39:  }
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

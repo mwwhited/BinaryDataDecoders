@@ -1,37 +1,32 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperatorExpression`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_UnaryOperatorExpression_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperatorExpression`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOpe | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 24                                                           | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 25                                                           | 
-| Totallines           | 50                                                           | 
-| Linecoverage         | 96                                                           | 
-| Coveredbranches      | 7                                                            | 
-| Totalbranches        | 8                                                            | 
-| Branchcoverage       | 87.5                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\UnaryOperatorExpression.cs
+| Key             | Value                                                                           |
+| :-------------- | :------------------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperatorExpression`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                       |
+| Coveredlines    | `24`                                                                            |
+| Uncoveredlines  | `1`                                                                             |
+| Coverablelines  | `25`                                                                            |
+| Totallines      | `50`                                                                            |
+| Linecoverage    | `96`                                                                            |
+| Coveredbranches | `7`                                                                             |
+| Totalbranches   | `8`                                                                             |
+| Branchcoverage  | `87.5`                                                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | Clone | 
-| 4          | 85.71 | 75.00    | Evaluate | 
-| 2          | 100   | 100      | get_OperandString | 
-| 1          | 100   | 100      | get_OperatorString | 
-| 2          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name                 |
+| :--------- | :---- | :------- | :------------------- |
+| 1          | 100   | 100      | `cctor`              |
+| 1          | 100   | 100      | `ctor`               |
+| 1          | 100   | 100      | `Clone`              |
+| 4          | 85.71 | 75.00    | `Evaluate`           |
+| 2          | 100   | 100      | `get_OperandString`  |
+| 1          | 100   | 100      | `get_OperatorString` |
+| 2          | 100   | 100      | `ToString`           |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\UnaryOperatorExpression.cs
@@ -87,8 +82,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔48:                  $"{OperatorString}{OperandString}";
 〰49:      }
 〰50:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

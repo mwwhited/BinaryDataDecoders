@@ -60,3 +60,24 @@
 
  - string input 
 
+#### Public Method - PadLeft
+
+#####  Parameters
+
+ - string input 
+ - int totalWidth 
+
+#### Public Method - PadRight
+
+#####  Parameters
+
+ - string input 
+ - int totalWidth 
+
+#### Public Method - New
+
+#####  Parameters
+
+ - string @char 
+ - int length 
+

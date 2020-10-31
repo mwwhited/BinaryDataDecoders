@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ExpressionParser_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionPar | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 12                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 12                                                           | 
-| Totallines           | 25                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Parser\ExpressionParser.cs
+| Key             | Value                                                               |
+| :-------------- | :------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                           |
+| Coveredlines    | `12`                                                                |
+| Uncoveredlines  | `0`                                                                 |
+| Coverablelines  | `12`                                                                |
+| Totallines      | `25`                                                                |
+| Linecoverage    | `100`                                                               |
+| Coveredbranches | `0`                                                                 |
+| Totalbranches   | `0`                                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | Parse | 
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `Parse` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Parser\ExpressionParser.cs
@@ -55,8 +50,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔23:                  );
 〰24:      }
 〰25:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

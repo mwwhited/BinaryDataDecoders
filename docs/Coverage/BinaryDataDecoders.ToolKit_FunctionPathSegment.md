@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.FunctionPathSegment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_FunctionPathSegment.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.FunctionPathSegment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.FunctionPathSegment  | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 8                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 8                                                            | 
-| Totallines           | 19                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\FunctionPathSegment.cs
+| Key             | Value                                                         |
+| :-------------- | :------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.FunctionPathSegment` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                  |
+| Coveredlines    | `8`                                                           |
+| Uncoveredlines  | `0`                                                           |
+| Coverablelines  | `8`                                                           |
+| Totallines      | `19`                                                          |
+| Linecoverage    | `100`                                                         |
+| Coveredbranches | `0`                                                           |
+| Totalbranches   | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\FunctionPathSegment.cs
@@ -50,8 +45,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔17:          public override string ToString() => $"{Name}({Parameters})";
 〰18:      }
 〰19:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

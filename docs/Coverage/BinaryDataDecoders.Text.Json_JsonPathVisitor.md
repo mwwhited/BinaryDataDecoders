@@ -1,56 +1,51 @@
-﻿
-# BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathVisitor
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Text.Json_JsonPathVisitor.xml
+﻿# BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathVisitor
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathVisitor | 
-| Assembly             | BinaryDataDecoders.Text.Json                                 | 
-| Coveredlines         | 116                                                          | 
-| Uncoveredlines       | 8                                                            | 
-| Coverablelines       | 124                                                          | 
-| Totallines           | 160                                                          | 
-| Linecoverage         | 93.5                                                         | 
-| Coveredbranches      | 105                                                          | 
-| Totalbranches        | 138                                                          | 
-| Branchcoverage       | 76                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathVisitor.cs
+| Key             | Value                                                          |
+| :-------------- | :------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathVisitor` |
+| Assembly        | `BinaryDataDecoders.Text.Json`                                 |
+| Coveredlines    | `116`                                                          |
+| Uncoveredlines  | `8`                                                            |
+| Coverablelines  | `124`                                                          |
+| Totallines      | `160`                                                          |
+| Linecoverage    | `93.5`                                                         |
+| Coveredbranches | `105`                                                          |
+| Totalbranches   | `138`                                                          |
+| Branchcoverage  | `76`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 100   | 50.0     | VisitStart | 
-| 6          | 100   | 66.66    | VisitPath | 
-| 1          | 100   | 100      | VisitPathBase | 
-| 1          | 100   | 100      | VisitIdentity | 
-| 6          | 80.0  | 66.66    | VisitOperand | 
-| 1          | 100   | 100      | VisitString | 
-| 1          | 100   | 100      | VisitSequenceItem | 
-| 4          | 88.88 | 75.00    | VisitSequence | 
-| 6          | 100   | 83.33    | VisitBracket | 
-| 6          | 100   | 50.0     | VisitQueryRelational | 
-| 6          | 100   | 50.0     | VisitQueryLogical | 
-| 2          | 100   | 50.0     | VisitQueryPath | 
-| 1          | 100   | 100      | VisitRange | 
-| 2          | 100   | 50.0     | VisitFilter | 
-| 4          | 100   | 75.00    | VisitFunction | 
-| 2          | 100   | 50.0     | VisitFunctionParameter | 
-| 2          | 100   | 100      | Visit | 
-| 4          | 100   | 100      | Visit | 
-| 6          | 100   | 50.0     | Visit | 
-| 6          | 100   | 33.33    | VisitTerminal | 
-| 2          | 100   | 100      | Visit | 
-| 64         | 85.18 | 89.06    | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 1          | 100   | 100      | Visit | 
-| 8          | 90.0  | 75.00    | Visit | 
+| Complexity | Lines | Branches | Name                     |
+| :--------- | :---- | :------- | :----------------------- |
+| 2          | 100   | 50.0     | `VisitStart`             |
+| 6          | 100   | 66.66    | `VisitPath`              |
+| 1          | 100   | 100      | `VisitPathBase`          |
+| 1          | 100   | 100      | `VisitIdentity`          |
+| 6          | 80.0  | 66.66    | `VisitOperand`           |
+| 1          | 100   | 100      | `VisitString`            |
+| 1          | 100   | 100      | `VisitSequenceItem`      |
+| 4          | 88.88 | 75.00    | `VisitSequence`          |
+| 6          | 100   | 83.33    | `VisitBracket`           |
+| 6          | 100   | 50.0     | `VisitQueryRelational`   |
+| 6          | 100   | 50.0     | `VisitQueryLogical`      |
+| 2          | 100   | 50.0     | `VisitQueryPath`         |
+| 1          | 100   | 100      | `VisitRange`             |
+| 2          | 100   | 50.0     | `VisitFilter`            |
+| 4          | 100   | 75.00    | `VisitFunction`          |
+| 2          | 100   | 50.0     | `VisitFunctionParameter` |
+| 2          | 100   | 100      | `Visit`                  |
+| 4          | 100   | 100      | `Visit`                  |
+| 6          | 100   | 50.0     | `Visit`                  |
+| 6          | 100   | 33.33    | `VisitTerminal`          |
+| 2          | 100   | 100      | `Visit`                  |
+| 64         | 85.18 | 89.06    | `Visit`                  |
+| 1          | 100   | 100      | `Visit`                  |
+| 1          | 100   | 100      | `Visit`                  |
+| 1          | 100   | 100      | `Visit`                  |
+| 8          | 90.0  | 75.00    | `Visit`                  |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathVisitor.cs
@@ -216,8 +211,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔158:             };
 〰159:     }
 〰160: }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

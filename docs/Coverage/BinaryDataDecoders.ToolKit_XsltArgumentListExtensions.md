@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ToolKit.Xml.Xsl.XsltArgumentListExtensions
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_XsltArgumentListExtensions.xml
+﻿# BinaryDataDecoders.ToolKit.Xml.Xsl.XsltArgumentListExtensions
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.Xml.Xsl.XsltArgumentListExtension | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 6                                                            | 
-| Coverablelines       | 6                                                            | 
-| Totallines           | 35                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\XsltArgumentListExtensions.cs
+| Key             | Value                                                           |
+| :-------------- | :-------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.XsltArgumentListExtensions` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                    |
+| Coveredlines    | `0`                                                             |
+| Uncoveredlines  | `6`                                                             |
+| Coverablelines  | `6`                                                             |
+| Totallines      | `35`                                                            |
+| Linecoverage    | `0`                                                             |
+| Coveredbranches | `0`                                                             |
+| Totalbranches   | `2`                                                             |
+| Branchcoverage  | `0`                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 0     | 0        | AddExtensions | 
-| 1          | 0     | 100      | AddExtensionObject | 
+| Complexity | Lines | Branches | Name                 |
+| :--------- | :---- | :------- | :------------------- |
+| 2          | 0     | 0        | `AddExtensions`      |
+| 1          | 0     | 100      | `AddExtensionObject` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Xsl\XsltArgumentListExtensions.cs
@@ -67,8 +62,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰33:          }
 〰34:      }
 〰35:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

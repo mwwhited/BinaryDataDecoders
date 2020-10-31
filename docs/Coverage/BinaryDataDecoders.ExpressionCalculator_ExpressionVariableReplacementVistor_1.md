@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionVariableReplacementVistor`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_ExpressionVariableReplacementVistor_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionVariableReplacementVistor`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionV | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 38                                                           | 
-| Uncoveredlines       | 23                                                           | 
-| Coverablelines       | 61                                                           | 
-| Totallines           | 89                                                           | 
-| Linecoverage         | 62.2                                                         | 
-| Coveredbranches      | 24                                                           | 
-| Totalbranches        | 34                                                           | 
-| Branchcoverage       | 70.5                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Visitors\ExpressionVariableReplacementVistor.cs
+| Key             | Value                                                                                    |
+| :-------------- | :--------------------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionVariableReplacementVistor`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                                |
+| Coveredlines    | `38`                                                                                     |
+| Uncoveredlines  | `23`                                                                                     |
+| Coverablelines  | `61`                                                                                     |
+| Totallines      | `89`                                                                                     |
+| Linecoverage    | `62.2`                                                                                   |
+| Coveredbranches | `24`                                                                                     |
+| Totalbranches   | `34`                                                                                     |
+| Branchcoverage  | `70.5`                                                                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 10         | 42.85 | 60.0     | Visit | 
-| 8          | 57.89 | 62.50    | Visit | 
-| 8          | 63.15 | 75.00    | Visit | 
-| 4          | 100   | 75.00    | CheckVariable | 
-| 4          | 100   | 100      | CheckVariable | 
+| Complexity | Lines | Branches | Name            |
+| :--------- | :---- | :------- | :-------------- |
+| 10         | 42.85 | 60.0     | `Visit`         |
+| 8          | 57.89 | 62.50    | `Visit`         |
+| 8          | 63.15 | 75.00    | `Visit`         |
+| 4          | 100   | 75.00    | `CheckVariable` |
+| 4          | 100   | 100      | `CheckVariable` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Visitors\ExpressionVariableReplacementVistor.cs
@@ -124,8 +119,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔87:                select v.value).FirstOrDefault() ?? variable.Clone();
 〰88:      }
 〰89:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

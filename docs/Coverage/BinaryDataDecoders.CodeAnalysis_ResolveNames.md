@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.CodeAnalysis.ResolveNames
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.CodeAnalysis_ResolveNames.xml
+﻿# BinaryDataDecoders.CodeAnalysis.ResolveNames
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.CodeAnalysis.ResolveNames                 | 
-| Assembly             | BinaryDataDecoders.CodeAnalysis                              | 
-| Coveredlines         | 26                                                           | 
-| Uncoveredlines       | 23                                                           | 
-| Coverablelines       | 49                                                           | 
-| Totallines           | 68                                                           | 
-| Linecoverage         | 53                                                           | 
-| Coveredbranches      | 22                                                           | 
-| Totalbranches        | 46                                                           | 
-| Branchcoverage       | 47.8                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\ResolveNames.cs
+| Key             | Value                                          |
+| :-------------- | :--------------------------------------------- |
+| Class           | `BinaryDataDecoders.CodeAnalysis.ResolveNames` |
+| Assembly        | `BinaryDataDecoders.CodeAnalysis`              |
+| Coveredlines    | `26`                                           |
+| Uncoveredlines  | `23`                                           |
+| Coverablelines  | `49`                                           |
+| Totallines      | `68`                                           |
+| Linecoverage    | `53`                                           |
+| Coveredbranches | `22`                                           |
+| Totalbranches   | `46`                                           |
+| Branchcoverage  | `47.8`                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 16         | 63.63 | 62.50    | ToNamespaceUri | 
-| 30         | 48.64 | 40.0     | ToLocalName | 
-| 1          | 100   | 100      | ToXName | 
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 16         | 63.63 | 62.50    | `ToNamespaceUri` |
+| 30         | 48.64 | 40.0     | `ToLocalName`    |
+| 1          | 100   | 100      | `ToXName`        |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\ResolveNames.cs
@@ -101,8 +96,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔66:          public static XName ToXName(this object obj) => XName.Get(obj.ToLocalName(), obj.ToNamespaceUri().NamespaceName);
 〰67:      }
 〰68:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

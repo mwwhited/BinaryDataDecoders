@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.Text.Json.JsonNavigatorFactory
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Text.Json_JsonNavigatorFactory.xml
+﻿# BinaryDataDecoders.Text.Json.JsonNavigatorFactory
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Text.Json.JsonNavigatorFactory            | 
-| Assembly             | BinaryDataDecoders.Text.Json                                 | 
-| Coveredlines         | 59                                                           | 
-| Uncoveredlines       | 2                                                            | 
-| Coverablelines       | 61                                                           | 
-| Totallines           | 87                                                           | 
-| Linecoverage         | 96.7                                                         | 
-| Coveredbranches      | 5                                                            | 
-| Totalbranches        | 6                                                            | 
-| Branchcoverage       | 83.3                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonNavigatorFactory.cs
+| Key             | Value                                               |
+| :-------------- | :-------------------------------------------------- |
+| Class           | `BinaryDataDecoders.Text.Json.JsonNavigatorFactory` |
+| Assembly        | `BinaryDataDecoders.Text.Json`                      |
+| Coveredlines    | `59`                                                |
+| Uncoveredlines  | `2`                                                 |
+| Coverablelines  | `61`                                                |
+| Totallines      | `87`                                                |
+| Linecoverage    | `96.7`                                              |
+| Coveredbranches | `5`                                                 |
+| Totalbranches   | `6`                                                 |
+| Branchcoverage  | `83.3`                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 0     | 100      | ParseAsJsonPath | 
-| 1          | 100   | 100      | ToNavigable | 
-| 1          | 100   | 100      | ToNavigable | 
-| 1          | 0     | 100      | AsNode | 
-| 6          | 100   | 83.33    | AsNode | 
+| Complexity | Lines | Branches | Name              |
+| :--------- | :---- | :------- | :---------------- |
+| 1          | 0     | 100      | `ParseAsJsonPath` |
+| 1          | 100   | 100      | `ToNavigable`     |
+| 1          | 100   | 100      | `ToNavigable`     |
+| 1          | 0     | 100      | `AsNode`          |
+| 6          | 100   | 83.33    | `AsNode`          |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonNavigatorFactory.cs
@@ -122,8 +117,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰85:          }
 〰86:      }
 〰87:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

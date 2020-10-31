@@ -1,40 +1,35 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Evaluators.Int8ExpressionEvaluator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_Int8ExpressionEvaluator.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Evaluators.Int8ExpressionEvaluator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Evaluators.Int8Expre | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 10                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 10                                                           | 
-| Totallines           | 20                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 1                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Evaluators\Int8ExpressionEvaluator.cs
+| Key             | Value                                                                        |
+| :-------------- | :--------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Evaluators.Int8ExpressionEvaluator` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                    |
+| Coveredlines    | `10`                                                                         |
+| Uncoveredlines  | `0`                                                                          |
+| Coverablelines  | `10`                                                                         |
+| Totallines      | `20`                                                                         |
+| Linecoverage    | `100`                                                                        |
+| Coveredbranches | `1`                                                                          |
+| Totalbranches   | `2`                                                                          |
+| Branchcoverage  | `50`                                                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | Add | 
-| 1          | 100   | 100      | Divide | 
-| 1          | 100   | 100      | Modulo | 
-| 1          | 100   | 100      | Multiply | 
-| 1          | 100   | 100      | Negate | 
-| 1          | 100   | 100      | Power | 
-| 1          | 100   | 100      | Subtract | 
-| 2          | 100   | 50.0     | TryParse | 
-| 1          | 100   | 100      | GetValue | 
-| 1          | 100   | 100      | GetValue | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `Add`      |
+| 1          | 100   | 100      | `Divide`   |
+| 1          | 100   | 100      | `Modulo`   |
+| 1          | 100   | 100      | `Multiply` |
+| 1          | 100   | 100      | `Negate`   |
+| 1          | 100   | 100      | `Power`    |
+| 1          | 100   | 100      | `Subtract` |
+| 2          | 100   | 50.0     | `TryParse` |
+| 1          | 100   | 100      | `GetValue` |
+| 1          | 100   | 100      | `GetValue` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Evaluators\Int8ExpressionEvaluator.cs
@@ -60,8 +55,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔18:          public sbyte GetValue(double value) => (sbyte)value;
 〰19:      }
 〰20:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

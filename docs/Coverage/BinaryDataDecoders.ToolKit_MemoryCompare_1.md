@@ -1,32 +1,27 @@
-﻿
-# BinaryDataDecoders.ToolKit.MemoryCompare`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_MemoryCompare_1.xml
+﻿# BinaryDataDecoders.ToolKit.MemoryCompare`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.MemoryCompare`1                   | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 0                                                            | 
-| Uncoveredlines       | 2                                                            | 
-| Coverablelines       | 2                                                            | 
-| Totallines           | 18                                                           | 
-| Linecoverage         | 0                                                            | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MemoryCompare.cs
+| Key             | Value                                        |
+| :-------------- | :------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.MemoryCompare`1` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                 |
+| Coveredlines    | `0`                                          |
+| Uncoveredlines  | `2`                                          |
+| Coverablelines  | `2`                                          |
+| Totallines      | `18`                                         |
+| Linecoverage    | `0`                                          |
+| Coveredbranches | `0`                                          |
+| Totalbranches   | `2`                                          |
+| Branchcoverage  | `0`                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 2          | 0     | 0        | Equals | 
-| 1          | 0     | 100      | GetHashCode | 
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 2          | 0     | 0        | `Equals`      |
+| 1          | 0     | 100      | `GetHashCode` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\MemoryCompare.cs
@@ -50,8 +45,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼16:          public int GetHashCode(Memory<T> obj) => obj.Length;
 〰17:      }
 〰18:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

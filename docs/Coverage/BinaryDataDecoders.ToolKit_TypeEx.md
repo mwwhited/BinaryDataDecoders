@@ -1,33 +1,28 @@
-﻿
-# BinaryDataDecoders.ToolKit.TypeEx
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_TypeEx.xml
+﻿# BinaryDataDecoders.ToolKit.TypeEx
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.TypeEx                            | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 4                                                            | 
-| Coverablelines       | 5                                                            | 
-| Totallines           | 63                                                           | 
-| Linecoverage         | 20                                                           | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 6                                                            | 
-| Branchcoverage       | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\TypeEx.cs
+| Key             | Value                               |
+| :-------------- | :---------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.TypeEx` |
+| Assembly        | `BinaryDataDecoders.ToolKit`        |
+| Coveredlines    | `1`                                 |
+| Uncoveredlines  | `4`                                 |
+| Coverablelines  | `5`                                 |
+| Totallines      | `63`                                |
+| Linecoverage    | `20`                                |
+| Coveredbranches | `0`                                 |
+| Totalbranches   | `6`                                 |
+| Branchcoverage  | `0`                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | GetResourceStream | 
-| 4          | 0     | 0        | GetXmlNamespace | 
-| 2          | 0     | 0        | GetXmlNamespaceForOutput | 
+| Complexity | Lines | Branches | Name                       |
+| :--------- | :---- | :------- | :------------------------- |
+| 1          | 100   | 100      | `GetResourceStream`        |
+| 4          | 0     | 0        | `GetXmlNamespace`          |
+| 2          | 0     | 0        | `GetXmlNamespaceForOutput` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\TypeEx.cs
@@ -96,8 +91,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼61:              type?.GetXmlNamespace() + ToolkitConstants.XmlNamespaces.OutputSuffix;
 〰62:      }
 〰63:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

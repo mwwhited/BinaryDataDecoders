@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperatorExpression`1
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_BinaryOperatorExpression_1.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperatorExpression`1
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOp | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 24                                                           | 
-| Uncoveredlines       | 1                                                            | 
-| Coverablelines       | 25                                                           | 
-| Totallines           | 47                                                           | 
-| Linecoverage         | 96                                                           | 
-| Coveredbranches      | 6                                                            | 
-| Totalbranches        | 7                                                            | 
-| Branchcoverage       | 85.7                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\BinaryOperatorExpression.cs
+| Key             | Value                                                                            |
+| :-------------- | :------------------------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperatorExpression`1` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                        |
+| Coveredlines    | `24`                                                                             |
+| Uncoveredlines  | `1`                                                                              |
+| Coverablelines  | `25`                                                                             |
+| Totallines      | `47`                                                                             |
+| Linecoverage    | `96`                                                                             |
+| Coveredbranches | `6`                                                                              |
+| Totalbranches   | `7`                                                                              |
+| Branchcoverage  | `85.7`                                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | cctor | 
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | Clone | 
-| 7          | 92.30 | 85.71    | Evaluate | 
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `cctor`    |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `Clone`    |
+| 7          | 92.30 | 85.71    | `Evaluate` |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Expressions\BinaryOperatorExpression.cs
@@ -82,8 +77,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔45:          public override string ToString() => $"{Left} {Operator.AsString()} {Right}";
 〰46:      }
 〰47:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

@@ -1,35 +1,30 @@
-﻿
-# BinaryDataDecoders.Apple2.Dos33.FileEntry
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.Apple2_FileEntry.xml
+﻿# BinaryDataDecoders.Apple2.Dos33.FileEntry
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.Apple2.Dos33.FileEntry                    | 
-| Assembly             | BinaryDataDecoders.Apple2                                    | 
-| Coveredlines         | 9                                                            | 
-| Uncoveredlines       | 2                                                            | 
-| Coverablelines       | 11                                                           | 
-| Totallines           | 89                                                           | 
-| Linecoverage         | 81.8                                                         | 
-| Coveredbranches      | 2                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 100                                                          | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\FileEntry.cs
+| Key             | Value                                       |
+| :-------------- | :------------------------------------------ |
+| Class           | `BinaryDataDecoders.Apple2.Dos33.FileEntry` |
+| Assembly        | `BinaryDataDecoders.Apple2`                 |
+| Coveredlines    | `9`                                         |
+| Uncoveredlines  | `2`                                         |
+| Coverablelines  | `11`                                        |
+| Totallines      | `89`                                        |
+| Linecoverage    | `81.8`                                      |
+| Coveredbranches | `2`                                         |
+| Totalbranches   | `2`                                         |
+| Branchcoverage  | `100`                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 0     | 100      | get_IsDeleted | 
-| 1          | 0     | 100      | get_IsLocked | 
-| 2          | 100   | 100      | get_Exists | 
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name            |
+| :--------- | :---- | :------- | :-------------- |
+| 1          | 100   | 100      | `ctor`          |
+| 1          | 0     | 100      | `get_IsDeleted` |
+| 1          | 0     | 100      | `get_IsLocked`  |
+| 2          | 100   | 100      | `get_Exists`    |
+| 1          | 100   | 100      | `ToString`      |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\FileEntry.cs
@@ -124,8 +119,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 〰87:  #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 〰88:      }
 〰89:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

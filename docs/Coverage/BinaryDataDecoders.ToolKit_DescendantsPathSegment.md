@@ -1,30 +1,25 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.DescendantsPathSegment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_DescendantsPathSegment.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.DescendantsPathSegment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.DescendantsPathSegme | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 1                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 1                                                            | 
-| Totallines           | 8                                                            | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\DescendantsPathSegment.cs
+| Key             | Value                                                            |
+| :-------------- | :--------------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.DescendantsPathSegment` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                                     |
+| Coveredlines    | `1`                                                              |
+| Uncoveredlines  | `0`                                                              |
+| Coverablelines  | `1`                                                              |
+| Totallines      | `8`                                                              |
+| Linecoverage    | `100`                                                            |
+| Coveredbranches | `0`                                                              |
+| Totalbranches   | `0`                                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\DescendantsPathSegment.cs
@@ -38,8 +33,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔6:           public override string ToString() => $"//";
 〰7:       }
 〰8:   }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

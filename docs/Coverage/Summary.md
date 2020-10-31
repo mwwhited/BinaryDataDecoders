@@ -1,26 +1,21 @@
-﻿
-# Summary
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\Summary.xml
+﻿# Summary
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Generatedon          | 10/30/2020 - 11:52:52 PM                                     | 
-| Parser               | MultiReportParser (23x CoberturaParser)                      | 
-| Assemblies           | 17                                                           | 
-| Classes              | 164                                                          | 
-| Coveredlines         | 1672                                                         | 
-| Uncoveredlines       | 1941                                                         | 
-| Coverablelines       | 3613                                                         | 
-| Totallines           | 9705                                                         | 
-| Linecoverage         | 46.2                                                         | 
-| Coveredbranches      | 660                                                          | 
-| Totalbranches        | 1469                                                         | 
-| Branchcoverage       | 44.9                                                         | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
+| Key             | Value                                     |
+| :-------------- | :---------------------------------------- |
+| Generatedon     | `10/31/2020 - 10:21:49 AM`                |
+| Parser          | `MultiReportParser (24x CoberturaParser)` |
+| Assemblies      | `17`                                      |
+| Classes         | `164`                                     |
+| Coveredlines    | `1672`                                    |
+| Uncoveredlines  | `1961`                                    |
+| Coverablelines  | `3633`                                    |
+| Totallines      | `10939`                                   |
+| Linecoverage    | `46`                                      |
+| Coveredbranches | `660`                                     |
+| Totalbranches   | `1473`                                    |
+| Branchcoverage  | `44.8`                                    |
 
 ## Coverage
 
@@ -398,13 +393,13 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\Summary.xm
 | Key                  | Value                                                            |
 | :------------------- | :--------------------------------------------------------------- |
 | classes              | 64         | 
-| coverage             | 41.6       | 
+| coverage             | 40.9       | 
 | coveredlines         | 491        | 
-| coverablelines       | 1178       | 
-| totallines           | 3449       | 
-| branchcoverage       | 37.4       | 
+| coverablelines       | 1198       | 
+| totallines           | 4683       | 
+| branchcoverage       | 37.1       | 
 | coveredbranches      | 160        | 
-| totalbranches        | 427        | 
+| totalbranches        | 431        | 
 
 #### Classes
 | coverage   | name                                                             | 
@@ -464,7 +459,7 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\Summary.xm
 | 33.9       | [BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNavigator]() | 
 | 82.6       | [BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNode]() | 
 | 87.7       | [BinaryDataDecoders.ToolKit.Xml.XPath.XPathExpressionBuilder]() | 
-| 100        | [BinaryDataDecoders.ToolKit.Xml.XPath.XPathExtensions]() | 
+| 80         | [BinaryDataDecoders.ToolKit.Xml.XPath.XPathExtensions]() | 
 | 0          | [BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.EnvironmentExtensions]() | 
 | 0          | [BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.FileExtensions]() | 
 | 0          | [BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions]() | 

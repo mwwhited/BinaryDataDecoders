@@ -1,31 +1,26 @@
-﻿
-# BinaryDataDecoders.ToolKit.PathSegments.RangePathSegment
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ToolKit_RangePathSegment.xml
+﻿# BinaryDataDecoders.ToolKit.PathSegments.RangePathSegment
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ToolKit.PathSegments.RangePathSegment     | 
-| Assembly             | BinaryDataDecoders.ToolKit                                   | 
-| Coveredlines         | 6                                                            | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 6                                                            | 
-| Totallines           | 18                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 0                                                            | 
-| Totalbranches        | 0                                                            | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\RangePathSegment.cs
+| Key             | Value                                                      |
+| :-------------- | :--------------------------------------------------------- |
+| Class           | `BinaryDataDecoders.ToolKit.PathSegments.RangePathSegment` |
+| Assembly        | `BinaryDataDecoders.ToolKit`                               |
+| Coveredlines    | `6`                                                        |
+| Uncoveredlines  | `0`                                                        |
+| Coverablelines  | `6`                                                        |
+| Totallines      | `18`                                                       |
+| Linecoverage    | `100`                                                      |
+| Coveredbranches | `0`                                                        |
+| Totalbranches   | `0`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | ctor | 
-| 1          | 100   | 100      | ToString | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\RangePathSegment.cs
@@ -49,8 +44,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔16:          public override string ToString() => $"{Start}:{End}:{Step}";
 〰17:      }
 〰18:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 

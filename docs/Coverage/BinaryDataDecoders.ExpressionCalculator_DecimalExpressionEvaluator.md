@@ -1,40 +1,35 @@
-﻿
-# BinaryDataDecoders.ExpressionCalculator.Evaluators.DecimalExpressionEvaluator
-Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryDataDecoders.ExpressionCalculator_DecimalExpressionEvaluator.xml
+﻿# BinaryDataDecoders.ExpressionCalculator.Evaluators.DecimalExpressionEvaluator
 
 ## Summary
 
-| Key                  | Value                                                            |
-| :------------------- | :--------------------------------------------------------------- |
-| Class                | BinaryDataDecoders.ExpressionCalculator.Evaluators.DecimalEx | 
-| Assembly             | BinaryDataDecoders.ExpressionCalculator                      | 
-| Coveredlines         | 10                                                           | 
-| Uncoveredlines       | 0                                                            | 
-| Coverablelines       | 10                                                           | 
-| Totallines           | 18                                                           | 
-| Linecoverage         | 100                                                          | 
-| Coveredbranches      | 1                                                            | 
-| Totalbranches        | 2                                                            | 
-| Branchcoverage       | 50                                                           | 
-| Title                | C:\Repos\mwwhited\BinaryDataDecoders\src\..\src\BinaryDataDe | 
-
-### Files
- * C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Evaluators\DecimalExpressionEvaluator.cs
+| Key             | Value                                                                           |
+| :-------------- | :------------------------------------------------------------------------------ |
+| Class           | `BinaryDataDecoders.ExpressionCalculator.Evaluators.DecimalExpressionEvaluator` |
+| Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                       |
+| Coveredlines    | `10`                                                                            |
+| Uncoveredlines  | `0`                                                                             |
+| Coverablelines  | `10`                                                                            |
+| Totallines      | `18`                                                                            |
+| Linecoverage    | `100`                                                                           |
+| Coveredbranches | `1`                                                                             |
+| Totalbranches   | `2`                                                                             |
+| Branchcoverage  | `50`                                                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                                          |
-| :--------- | :---- | :------- | :-------------------------------------------- |
-| 1          | 100   | 100      | Add | 
-| 1          | 100   | 100      | Divide | 
-| 1          | 100   | 100      | Modulo | 
-| 1          | 100   | 100      | Multiply | 
-| 1          | 100   | 100      | Negate | 
-| 1          | 100   | 100      | Power | 
-| 1          | 100   | 100      | Subtract | 
-| 2          | 100   | 50.0     | TryParse | 
-| 1          | 100   | 100      | GetValue | 
-| 1          | 100   | 100      | GetValue | 
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `Add`      |
+| 1          | 100   | 100      | `Divide`   |
+| 1          | 100   | 100      | `Modulo`   |
+| 1          | 100   | 100      | `Multiply` |
+| 1          | 100   | 100      | `Negate`   |
+| 1          | 100   | 100      | `Power`    |
+| 1          | 100   | 100      | `Subtract` |
+| 2          | 100   | 50.0     | `TryParse` |
+| 1          | 100   | 100      | `GetValue` |
+| 1          | 100   | 100      | `GetValue` |
+
 ## Files
 
 ## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Evaluators\DecimalExpressionEvaluator.cs
@@ -58,8 +53,10 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ✔16:          public decimal GetValue(double value) => (decimal)value;
 〰17:      }
 〰18:  }
-
 ```
-## Footer 
-[Return to Summary](Summary.md)
+
+## Links
+
+* [Return to Summary](Summary.md)
+* [Table of Contents](../TOC.md)
 
