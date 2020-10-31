@@ -39,9 +39,9 @@
 			<xsl:variable name="code-base" select="." />
 			<xsl:variable name="test-classes" select="fn:distinct_values($all-tests[@codeBase=$code-base]/@className)" />
 			<xsl:variable name="test-assembly" select="ex-path:GetFileNameWithoutExtension(.)" />
-			<xsl:text>* </xsl:text>
+			<xsl:text>## </xsl:text>
 			<xsl:value-of select="$test-assembly"/>
-			&cr;
+			&cr;&cr;
 
 			<xsl:for-each select="$test-classes">
 				<xsl:sort select="."/>
@@ -58,7 +58,7 @@
 				</xsl:variable>
 				<xsl:variable name="output-content" select="ex-file:WriteToFile($test-report-results, $test-class-file)" />
 
-				<xsl:text>  * [</xsl:text>
+				<xsl:text>* [</xsl:text>
 				<xsl:value-of select="$test-class-name"/>
 				<xsl:text>](</xsl:text>
 				<xsl:value-of select="$test-class-file-ref"/>
@@ -78,7 +78,7 @@
 					<xsl:variable name="test-method" select="." />
 					<xsl:variable name="test-method-file-ref" select="translate(concat($test-class-file-ref, '#', $test-method),'\', '/')" />
 
-					<xsl:text>    * [</xsl:text>
+					<xsl:text>  * [</xsl:text>
 					<xsl:value-of select="$test-method"/>
 					<xsl:text>](</xsl:text>
 					<xsl:value-of select="$test-method-file-ref"/>
@@ -90,6 +90,9 @@
 		</xsl:for-each>
 		&cr;
 		&cr;
+	
+		<xsl:text>## Links</xsl:text>&cr;&cr;
+		<xsl:text>* [Table of Contents](../TOC.md)</xsl:text>&cr;
 	</xsl:template>
 
 	<xsl:template name="test-class">
@@ -97,34 +100,53 @@
 		<xsl:param name="test-class-file" />
 
 		<xsl:variable name="tests" select="$all-tests[@className=$test-class-name]/.." />
-		<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
+		<xsl:text># </xsl:text><xsl:value-of select="." />&cr;
 		&cr;
-		<xsl:apply-templates select="$tests" />
+
+
+
+		<xsl:apply-templates select="$tests" />&cr;
+		&cr;
+
+		<xsl:text>## Links</xsl:text>&cr;&cr;
+		<xsl:text>* [Back to Summary](../Summary.md)</xsl:text>&cr;
+		<xsl:text>* [Table of Contents](../../TOC.md)</xsl:text>&cr;
 
 	</xsl:template>
 
 	<xsl:template match="tt:UnitTest">
 		<xsl:variable name="test-id" select="./@id" />
-		<xsl:text>### </xsl:text><xsl:value-of select="./@name" />&cr;
-		<xsl:text> Location: </xsl:text><xsl:value-of select="ex-path:GetFileName(./@storage)" />&cr;
+		<xsl:text>## </xsl:text><xsl:value-of select="./@name" />&cr;&cr;
 
 		<xsl:variable name="targets" select="ex-trx:GetTestTargets(./tt:TestMethod)/o-trx:target" />
-
-		<xsl:if test="targets">
-			<xsl:text>#### Targets </xsl:text>&cr;
+		<xsl:if test="$targets">
+			<xsl:text>### Targets</xsl:text>&cr;&cr;
 			<xsl:for-each select="$targets">
-				<xsl:text> * </xsl:text><xsl:value-of select="@name" /><xsl:text>::</xsl:text><xsl:text>=</xsl:text><xsl:value-of select="@member" />&cr;
-				<xsl:text>   * </xsl:text><xsl:value-of select="@assembly" /><xsl:text> => </xsl:text><xsl:text>=</xsl:text><xsl:value-of select="@namespace" />&cr;
+				<xsl:text>* </xsl:text><xsl:value-of select="@namespace" /><xsl:text>::</xsl:text><xsl:value-of select="@name" /><xsl:text>::</xsl:text><xsl:value-of select="@member" />&cr;
+				<xsl:text>  * </xsl:text><xsl:value-of select="@assembly" />&cr;
+			</xsl:for-each>
+			&cr;
+		</xsl:if>
+
+		<xsl:variable name="categories" select="tt:TestCategory/tt:TestCategoryItem/@TestCategory" />
+		<!--<xsl:message>
+			<xsl:value-of select="$categories" />
+		</xsl:message>-->
+		<xsl:if test="$categories">
+			<xsl:text>### Categories</xsl:text>&cr;&cr;
+			<xsl:for-each select="$categories">
+				<xsl:text>* </xsl:text><xsl:value-of select="." />&cr;
 			</xsl:for-each>
 			&cr;
 		</xsl:if>
 
 		<xsl:variable name="test-results" select="ancestor::tt:TestRun/tt:Results/tt:UnitTestResult[@testId=$test-id]" />
+		<xsl:text>### Results</xsl:text>&cr;&cr;
 		<xsl:text>| Result                   | Duration    | Test Name                                            |</xsl:text>&cr;
 		<xsl:text>| :----------------------- | ----------: | :--------------------------------------------------- |</xsl:text>&cr;
 		<xsl:apply-templates select="$test-results" />
 		&cr;
-
+			
 	</xsl:template>
 
 	<xsl:template match="tt:UnitTestResult">

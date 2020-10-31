@@ -43,6 +43,9 @@
 
 		<xsl:apply-templates select="//CscTask//Folder/Warning | //VscTask//Folder/Warning" />
 		&cr;
+
+		<xsl:text>## Links</xsl:text>&cr;&cr;
+		<xsl:text>* [Table of Contents](./TOC.md)</xsl:text>&cr;
 	</xsl:template>
 
 	<xsl:template match="Warning">

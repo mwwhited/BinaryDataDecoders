@@ -1,20 +1,59 @@
-## BinaryDataDecoders.ExpressionCalculator.Tests.Expressions.ExpressionBaseExtensionsTests
+# BinaryDataDecoders.ExpressionCalculator.Tests.Expressions.ExpressionBaseExtensionsTests
 
-### ParseAndEvaluateTest
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## ParseAndEvaluateTest
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Evaluate
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `ParseAndEvaluateTest                              ` |
+|  ✔ Passed               | 00:00:00.00 | `ParseAndEvaluateTest                              ` |
 
-### ParseAndPreEvaluateTest
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## ParseAndPreEvaluateTest
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::PreEvaluate
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.00 | `ParseAndPreEvaluateTest                           ` |
 
-### ParseAndReplaceVariablesTest
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## ParseAndReplaceVariablesTest
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::ReplaceVariables
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `ParseAndReplaceVariablesTest                      ` |
+|  ✔ Passed               | 00:00:00.00 | `ParseAndReplaceVariablesTest                      ` |
 
+
+
+## Links
+
+* [Back to Summary](../Summary.md)
+* [Table of Contents](../../TOC.md)

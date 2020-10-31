@@ -110,7 +110,7 @@ build
 test
 pack
 publish
-report
-transform
+#report
+#transform
 
 echo "fin!"

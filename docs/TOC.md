@@ -990,8 +990,8 @@
     * BinaryDataDecoders.IO.Tests
       * [Functions.ChecksumCalculatorTests](./TestReports/BinaryDataDecoders.IO.Tests/Functions.ChecksumCalculatorTests.md)
     * BinaryDataDecoders.Text.Json.Tests
+      * [JsonNavigatorTests](./TestReports/BinaryDataDecoders.Text.Json.Tests/JsonNavigatorTests.md)
       * [JsonPath.Parser.JsonPathFactoryTests](./TestReports/BinaryDataDecoders.Text.Json.Tests/JsonPath.Parser.JsonPathFactoryTests.md)
-      * [on.JsonNavigatorTests](./TestReports/BinaryDataDecoders.Text.Json.Tests/on.JsonNavigatorTests.md)
     * BinaryDataDecoders.ToolKit.Tests
       * [MemoryExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/MemoryExTests.md)
       * [ReadOnlySpanExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/ReadOnlySpanExTests.md)

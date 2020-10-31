@@ -1,26 +1,76 @@
-## BinaryDataDecoders.Apple2.Tests.Dos33.DiskImageCommandsTests
+# BinaryDataDecoders.Apple2.Tests.Dos33.DiskImageCommandsTests
 
-### GetDataFileEntryTest
- Location: binarydatadecoders.apple2.tests.dll
+## GetDataFileEntryTest
+
+### Targets
+
+* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetDataFileEntry
+  * BinaryDataDecoders.Apple2, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.02 | `GetDataFileEntryTest                              ` |
 
-### GetTrackSectorListForFileEntryTest
- Location: binarydatadecoders.apple2.tests.dll
+## GetTrackSectorListForFileEntryTest
+
+### Targets
+
+* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetTrackSectorListForFileEntry
+  * BinaryDataDecoders.Apple2, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `GetTrackSectorListForFileEntryTest                ` |
+|  ✔ Passed               | 00:00:00.01 | `GetTrackSectorListForFileEntryTest                ` |
 
-### GetVolumeTableOfContentsTest
- Location: binarydatadecoders.apple2.tests.dll
+## GetVolumeTableOfContentsTest
+
+### Targets
+
+* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetCatalogs
+  * BinaryDataDecoders.Apple2, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `GetVolumeTableOfContentsTest                      ` |
+|  ✔ Passed               | 00:00:00.03 | `GetVolumeTableOfContentsTest                      ` |
 
-### GetCatalogsTest
- Location: binarydatadecoders.apple2.tests.dll
+## GetCatalogsTest
+
+### Targets
+
+* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetCatalogs
+  * BinaryDataDecoders.Apple2, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.03 | `GetCatalogsTest                                   ` |
+|  ✔ Passed               | 00:00:00.02 | `GetCatalogsTest                                   ` |
 
+
+
+## Links
+
+* [Back to Summary](../Summary.md)
+* [Table of Contents](../../TOC.md)

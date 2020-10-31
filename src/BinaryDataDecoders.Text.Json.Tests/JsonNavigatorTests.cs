@@ -1,9 +1,8 @@
 ﻿using BinaryDataDecoders.TestUtilities;
-using BinaryDataDecoders.Text.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text.Json;
 
-namespace BinaryDataDecoders.ToolKit.Tests.Json
+namespace BinaryDataDecoders.Text.Json.Tests
 {
     [TestClass]
     public class JsonNavigatorTests

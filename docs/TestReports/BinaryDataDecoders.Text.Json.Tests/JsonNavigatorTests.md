@@ -1,11 +1,11 @@
-# BinaryDataDecoders.Apple2.Tests.ApplesoftBASIC.DetokenizerTests
+# BinaryDataDecoders.Text.Json.Tests.JsonNavigatorTests
 
-## GetLinesTest
+## JsonNavigatorTest
 
 ### Targets
 
-* BinaryDataDecoders.Apple2.ApplesoftBASIC::Detokenizer::GetLines
-  * BinaryDataDecoders.Apple2, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+* BinaryDataDecoders.Text.Json::JsonNavigatorFactory::ToNavigable
+  * BinaryDataDecoders.Text.Json, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -15,7 +15,7 @@
 
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `GetLinesTest                                      ` |
+|  ✔ Passed               | 00:00:00.06 | `JsonNavigatorTest                                 ` |
 
 
 

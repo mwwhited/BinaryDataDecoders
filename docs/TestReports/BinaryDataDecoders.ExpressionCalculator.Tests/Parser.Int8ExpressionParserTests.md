@@ -1,7 +1,18 @@
-## BinaryDataDecoders.ExpressionCalculator.Tests.Parser.Int8ExpressionParserTests
+# BinaryDataDecoders.ExpressionCalculator.Tests.Parser.Int8ExpressionParserTests
 
-### OptimizerTests
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## OptimizerTests
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
 |  ⚠ Inconclusive        | 00:00:00.02 | `OptimizerTests                                    ` |
@@ -43,22 +54,44 @@
 |  ⚠ Inconclusive        | 00:00:00.00 | `OptimizerTests (N!!,N!!)                          ` |
 |  ⚠ Inconclusive        | 00:00:00.00 | `OptimizerTests (N!!!,N!!!)                        ` |
 
-### SimpleParserTests
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## SimpleParserTests
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.05 | `SimpleParserTests                                 ` |
+|  ⚠ Inconclusive        | 00:00:00.04 | `SimpleParserTests                                 ` |
 |  ✔ Passed               | 00:00:00.00 | `Parse all operators test                          ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple test with variable                         ` |
 |  ✔ Passed               | 00:00:00.00 | `Just variable                                     ` |
-|  ⚠ Inconclusive        | 00:00:00.04 | `Just decimal value                                ` |
+|  ⚠ Inconclusive        | 00:00:00.03 | `Just decimal value                                ` |
 |  ✔ Passed               | 00:00:00.00 | `Simple factorial                                  ` |
 |  ✔ Passed               | 00:00:00.00 | `Negative factorial                                ` |
 |  ⚠ Inconclusive        | 00:00:00.00 | `Parse Complex Expression                          ` |
 |  ✔ Passed               | 00:00:00.00 | `SimpleParserTests (B*--A,B * --A)                 ` |
 
-### GetDistinctVariablesTests
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## GetDistinctVariablesTests
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::GetDistinctVariableNames
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.00 | `GetDistinctVariablesTests                         ` |
@@ -66,12 +99,23 @@
 |  ✔ Passed               | 00:00:00.00 | `GetDistinctVariablesTests (A+B+B,A, B)            ` |
 |  ✔ Passed               | 00:00:00.00 | `GetDistinctVariablesTests (Abc+XyW1,Abc, XyW1)    ` |
 
-### VerifyOptimizerForComplexExpressions
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## VerifyOptimizerForComplexExpressions
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
-|  ⚠ Inconclusive        | 00:00:00.05 | `VerifyOptimizerForComplexExpressions              ` |
-|  ✔ Passed               | 00:00:00.02 | `Check Expressions "A"                             ` |
+|  ⚠ Inconclusive        | 00:00:00.04 | `VerifyOptimizerForComplexExpressions              ` |
+|  ✔ Passed               | 00:00:00.01 | `Check Expressions "A"                             ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "A*1"                           ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)+C"                       ` |
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A*B)"                         ` |
@@ -141,16 +185,38 @@
 |  ✔ Passed               | 00:00:00.00 | `Check Expressions "(A/(A+B))"                     ` |
 |  ✔ Passed               | 00:00:00.00 | `VerifyOptimizerForComplexExpressions (A!)         ` |
 
-### OptimizerTests_WithExceptions
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## OptimizerTests_WithExceptions
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests_WithExceptions                     ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests_WithExceptions (B/0)               ` |
 |  ✔ Passed               | 00:00:00.00 | `OptimizerTests_WithExceptions (B%0)               ` |
 
-### PoorlyFormedExpressions
- Location: binarydatadecoders.expressioncalculator.tests.dll
+## PoorlyFormedExpressions
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
 | Result                   | Duration    | Test Name                                            |
 | :----------------------- | ----------: | :--------------------------------------------------- |
 |  ✔ Passed               | 00:00:00.01 | `PoorlyFormedExpressions                           ` |
@@ -165,3 +231,9 @@
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (b)                       ` |
 |  ✔ Passed               | 00:00:00.00 | `PoorlyFormedExpressions (b+1)                     ` |
 
+
+
+## Links
+
+* [Back to Summary](../Summary.md)
+* [Table of Contents](../../TOC.md)
