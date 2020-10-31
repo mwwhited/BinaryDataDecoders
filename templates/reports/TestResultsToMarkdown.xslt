@@ -27,59 +27,80 @@
 	<xsl:output method="text" indent="no"/>
 	<xsl:param name="files" />
 
-	<xsl:template match="/">
-		<!--<xsl:text># Test Libraries</xsl:text>&cr;&cr;
+	<xsl:variable name="all-tests" select="//tt:TestRun/tt:TestDefinitions/tt:UnitTest/tt:TestMethod" />
 
-		<xsl:variable name="code-bases" select="fn:distinct_values(//tt:TestRun/tt:TestDefinitions/tt:UnitTest/tt:TestMethod/@codeBase)" />
+	<xsl:template match="/">
+
+		<xsl:text># Test Libraries</xsl:text>&cr;&cr;
+
+		<xsl:variable name="code-bases" select="fn:distinct_values($all-tests/@codeBase)" />
 		<xsl:for-each select="$code-bases">
+			<xsl:sort select="."/>
+			<xsl:variable name="code-base" select="." />
+			<xsl:variable name="test-classes" select="fn:distinct_values($all-tests[@codeBase=$code-base]/@className)" />
 			<xsl:variable name="test-assembly" select="ex-path:GetFileNameWithoutExtension(.)" />
 			<xsl:text>* </xsl:text>
 			<xsl:value-of select="$test-assembly"/>
 			&cr;
 
+			<xsl:for-each select="$test-classes">
+				<xsl:sort select="."/>
+				<xsl:variable name="test-class" select="." />
+				<xsl:variable name="test-class-name" select="substring(., string-length($test-assembly) + 2)" />
+				<xsl:variable name="test-class-file" select="translate(concat($files/@outputPath, '/', $test-assembly, '/', $test-class-name, '.md'),'\', '/')" />
+				<xsl:variable name="test-class-file-ref" select="translate(concat($test-assembly, '/', $test-class-name, '.md'),'\', '/')" />
+
+				<xsl:variable name="test-report-results">
+					<xsl:call-template name="test-class">
+						<xsl:with-param name="test-class-name" select="$test-class" />
+						<xsl:with-param name="test-class-file" select="$test-class-file" />
+					</xsl:call-template>
+				</xsl:variable>
+				<xsl:variable name="output-content" select="ex-file:WriteToFile($test-report-results, $test-class-file)" />
+
+				<xsl:text>  * [</xsl:text>
+				<xsl:value-of select="$test-class-name"/>
+				<xsl:text>](</xsl:text>
+				<xsl:value-of select="$test-class-file-ref"/>
+				<xsl:text>)</xsl:text>
+				&cr;
+
+				<xsl:variable name="test-methods" select="fn:distinct_values($all-tests[@codeBase=$code-base and @className=$test-class]/@name)" />
+				<!--<xsl:message>
+					<xsl:value-of select="$code-base"/>
+					<xsl:text>|</xsl:text>
+					<xsl:value-of select="$test-class"/>
+					<xsl:text>|</xsl:text>
+					<xsl:value-of select="count($test-methods)"/>
+				</xsl:message>-->
+				<xsl:for-each select="$test-methods">
+					<xsl:sort select="."/>
+					<xsl:variable name="test-method" select="." />
+					<xsl:variable name="test-method-file-ref" select="translate(concat($test-class-file-ref, '#', $test-method),'\', '/')" />
+
+					<xsl:text>    * [</xsl:text>
+					<xsl:value-of select="$test-method"/>
+					<xsl:text>](</xsl:text>
+					<xsl:value-of select="$test-method-file-ref"/>
+					<xsl:text>)</xsl:text>
+					&cr;
+
+				</xsl:for-each>
+			</xsl:for-each>
 		</xsl:for-each>
 		&cr;
-		&cr;-->
-
-		<xsl:text># Test Run</xsl:text>&cr;&cr;
-		<xsl:variable name="test-classes" select="//tt:TestRun/tt:TestDefinitions/tt:UnitTest/tt:TestMethod[not(@className=preceding::tt:TestMethod/@className)]/@className" />
-
-		<xsl:for-each select="$test-classes">
-			<xsl:variable name="test-assembly-path" select="../@codeBase" />
-			<xsl:variable name="test-library" select="ex-path:GetFileNameWithoutExtension($test-assembly-path)" />
-			<xsl:variable name="test-class-file" select="translate(concat($files/@outputPath, '/', . , '.md'),'\', '/')" />
-			<xsl:variable name="test-class-file-ref" select="translate(concat(. , '.md'),'\', '/')" />
-			<xsl:variable name="test-library-file" select="translate(concat($files/@outputPath, '/', $test-library, '.md'),'\', '/')" />
-			<xsl:variable name="test-library-file-ref" select="translate(concat($test-library, '.md'),'\', '/')" />
-
-			<xsl:variable name="throw-away">
-				<xsl:call-template name="test-class">
-					<xsl:with-param name="test-class-name" select="." />
-					<xsl:with-param name="test-class-file" select="$test-class-file" />
-				</xsl:call-template>
-			</xsl:variable>
-
-			<xsl:text>* [</xsl:text>
-			<xsl:value-of select="."/>
-			<xsl:text>](</xsl:text>
-			<xsl:value-of select="$test-class-file-ref"/>
-			<xsl:text>)</xsl:text>
-			&cr;
-		</xsl:for-each>
-
+		&cr;
 	</xsl:template>
 
 	<xsl:template name="test-class">
 		<xsl:param name="test-class-name" />
 		<xsl:param name="test-class-file" />
-		<xsl:variable name="test-report">
-			<xsl:variable name="tests" select="ancestor::tt:TestRun/tt:TestDefinitions/tt:UnitTest[tt:TestMethod/@className=$test-class-name]" />
-			<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
-			&cr;
-			<xsl:apply-templates select="$tests" />
-		</xsl:variable>
 
-		<xsl:value-of select="ex-file:WriteToFile($test-report, $test-class-file)" />
+		<xsl:variable name="tests" select="$all-tests[@className=$test-class-name]/.." />
+		<xsl:text>## </xsl:text><xsl:value-of select="." />&cr;
+		&cr;
+		<xsl:apply-templates select="$tests" />
+
 	</xsl:template>
 
 	<xsl:template match="tt:UnitTest">

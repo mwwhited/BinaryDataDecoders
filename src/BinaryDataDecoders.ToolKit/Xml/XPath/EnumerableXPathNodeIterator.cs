@@ -24,7 +24,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public override XPathNodeIterator Clone()
         {
             var newIterator = new EnumerableXPathNodeIterator(_set);
-            while (newIterator.CurrentPosition <= _pointer && newIterator.MoveNext()) ;
+            while (newIterator.CurrentPosition < _pointer && newIterator.MoveNext()) ;
             return newIterator;
         }
 
