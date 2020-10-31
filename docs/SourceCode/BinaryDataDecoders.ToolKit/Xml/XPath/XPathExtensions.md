@@ -15,3 +15,23 @@
 
  - this IPathSegment path 
 
+#### Public Static Method - MergeNavigators
+
+#####  Parameters
+
+ - this IEnumerable < IXPathNavigable > navigators 
+
+#### Public Static Method - MergeWith
+
+#####  Parameters
+
+ - this IXPathNavigable navigator 
+ - params IXPathNavigable [  ] navigators 
+
+#### Public Static Method - MergeWith
+
+#####  Parameters
+
+ - this IXPathNavigable navigator 
+ - IEnumerable < IXPathNavigable > navigators 
+

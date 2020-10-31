@@ -54,4 +54,5 @@
  - string input 
  - InputTypes inputType 
  - string output 
+ - bool merge 
 

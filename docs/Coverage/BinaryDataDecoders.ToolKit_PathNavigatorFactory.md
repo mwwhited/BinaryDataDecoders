@@ -58,12 +58,12 @@ Source: C:\Repos\mwwhited\BinaryDataDecoders\Publish\Results\Coverage\BinaryData
 ‼24:                  rootName,
 ‼25:                  dir,
 ‼26:  
-‼27:                    valueSelector: v => v switch
-‼28:                    {
-‼29:                        FileInfo file => file.Name,
-‼30:                        DirectoryInfo directory => directory.Name,
-‼31:                        _ => throw new NotSupportedException(),
-‼32:                    },
+‼27:                    //valueSelector: v => v switch
+‼28:                    //{
+‼29:                    //    FileInfo file => file.Name,
+‼30:                    //    DirectoryInfo directory => directory.Name,
+‼31:                    //    _ => throw new NotSupportedException(),
+‼32:                    //},
 ‼33:  
 ‼34:                    attributeSelector: a => a switch
 ‼35:                    {

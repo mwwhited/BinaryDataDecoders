@@ -101,3 +101,22 @@
  - Func < string , IXPathNavigable > inputNavigatorFactory 
  - string output 
 
+#### Method - TransformMerge
+
+##### Comments
+
+ <summary>
+ Multi-action transform. Merge globbed files an handoff to single style
+ </summary>
+ <paramname="template">path for XSLT style-sheet</param>
+ <paramname="input">Wild card allowed for multiple files</param>
+ <paramname="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
+ <paramname="output">Output and suffix per file.</param>
+
+#####  Parameters
+
+ - string template 
+ - string input 
+ - Func < string , IXPathNavigable > inputNavigatorFactory 
+ - string output 
+

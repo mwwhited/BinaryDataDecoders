@@ -124,3 +124,26 @@
 
  * Type: [ Option ( 's' , "sandbox" , Required = false , HelpText = "if not provided will be set to parent of output" ) ] string 
 
+#### Public Property - Merge
+
+##### Attributes
+
+ - Option
+ - (
+ - 'm'
+ - ,
+ - "merge"
+ - ,
+ - Required
+ - =
+ - false
+ - ,
+ - HelpText
+ - =
+ - "merge inputs"
+ - )
+
+##### Summary
+
+ * Type: [ Option ( 'm' , "merge" , Required = false , HelpText = "merge inputs" ) ] bool 
+

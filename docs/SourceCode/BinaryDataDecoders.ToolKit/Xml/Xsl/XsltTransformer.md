@@ -127,3 +127,12 @@
  - Func < string , IXPathNavigable > inputNavigatorFactory 
  - string output 
 
+#### Public Method - TransformMerge
+
+#####  Parameters
+
+ - string template 
+ - string input 
+ - Func < string , IXPathNavigable > inputNavigatorFactory 
+ - string output 
+
