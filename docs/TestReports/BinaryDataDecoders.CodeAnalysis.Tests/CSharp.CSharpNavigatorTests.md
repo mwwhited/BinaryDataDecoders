@@ -13,11 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.98 | `TestXPath                                         ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.93
 
 ## Links
 

@@ -35,38 +35,38 @@
 〰3:   using System.Linq;
 〰4:   using static BinaryDataDecoders.ToolKit.ToolkitConstants;
 〰5:   using System.Xml.Serialization;
-〰6:   
-〰7:   namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
-〰8:   {
-〰9:       /// <summary>
-〰10:      /// A wrapper around string functions intended for use with XslCompiledTransform
-〰11:      /// </summary>
-〰12:      [XmlRoot(Namespace = XmlNamespaces.Base + nameof(StringExtensions))]
-〰13:      public class StringExtensions
-〰14:      {
-〰15:          private readonly XNamespace _ns;
-〰16:  
-〰17:          /// <summary>
-〰18:          /// Create instance of StringExtensions
-〰19:          /// </summary>
-‼20:          public StringExtensions()
-〰21:          {
-‼22:              _ns = this.GetXmlNamespace() + XmlNamespaces.OutputSuffix;
-‼23:          }
-〰24:  
-〰25:          /// <summary>
-〰26:          /// remove leading and trailing whitespace for multiline strings
-〰27:          /// </summary>
-〰28:          /// <param name="input">iput multiline string</param>
-〰29:          /// <returns>cleaned multiline string</returns>
-〰30:          public string TrimPerLine(string input) =>
-‼31:              string.Join("\r\n", input.Split("\r\n").Select(l => l.Trim().Trim('\t', '\r', '\n', ' ')));
-〰32:  
+〰6:   using System.Text;
+〰7:   
+〰8:   namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
+〰9:   {
+〰10:      /// <summary>
+〰11:      /// A wrapper around string functions intended for use with XslCompiledTransform
+〰12:      /// </summary>
+〰13:      [XmlRoot(Namespace = XmlNamespaces.Base + nameof(StringExtensions))]
+〰14:      public class StringExtensions
+〰15:      {
+〰16:          private readonly XNamespace _ns;
+〰17:  
+〰18:          /// <summary>
+〰19:          /// Create instance of StringExtensions
+〰20:          /// </summary>
+‼21:          public StringExtensions()
+〰22:          {
+‼23:              _ns = this.GetXmlNamespace() + XmlNamespaces.OutputSuffix;
+‼24:          }
+〰25:  
+〰26:          /// <summary>
+〰27:          /// remove leading and trailing whitespace for multiline strings
+〰28:          /// </summary>
+〰29:          /// <param name="input">iput multiline string</param>
+〰30:          /// <returns>cleaned multiline string</returns>
+〰31:          public string TrimPerLine(string input) =>
+‼32:              string.Join("\r\n", input.Split("\r\n").Select(l => l.Trim().Trim('\t', '\r', '\n', ' ')));
 〰33:  
-‼34:          public string PadLeft(string input, int totalWidth) => input.PadLeft(totalWidth);
-‼35:          public string PadRight(string input, int totalWidth) => input.PadRight(totalWidth);
-‼36:          public string New(string @char, int length) => string.IsNullOrEmpty(@char) || length < 0 ? "" : new string(@char[0], length);
-〰37:  
+〰34:  
+‼35:          public string PadLeft(string input, int totalWidth) => input.PadLeft(totalWidth);
+‼36:          public string PadRight(string input, int totalWidth) => input.PadRight(totalWidth);
+‼37:          public string New(string @char, int length) => string.IsNullOrEmpty(@char) || length < 0 ? "" : new string(@char[0], length);
 〰38:      }
 〰39:  }
 ```

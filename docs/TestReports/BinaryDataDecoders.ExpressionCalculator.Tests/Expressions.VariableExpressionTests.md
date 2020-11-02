@@ -13,9 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_DifferentValue_Test                        ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_DifferentString_Test
 
@@ -30,9 +29,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_DifferentString_Test                       ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_SameReference_Test
 
@@ -47,9 +45,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_SameReference_Test                         ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## EmptyVariableName_Test
 
@@ -64,9 +61,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `EmptyVariableName_Test                            ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_SameString_Test
 
@@ -81,9 +77,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_SameString_Test                            ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## NullVariableName_Test
 
@@ -98,9 +93,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `NullVariableName_Test                             ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_SameValue_Test
 
@@ -115,11 +109,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_SameValue_Test                             ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Links
 

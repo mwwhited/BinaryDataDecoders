@@ -29,9 +29,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// <returns>source</returns>
         public XPathNavigator WriteToFile(XPathNavigator source, string filePath)
         {
-            if (string.IsNullOrWhiteSpace(source.OuterXml)) return source;
+            if (string.IsNullOrWhiteSpace(source.Value)) return source;
             var realPath = SandboxPath.EnsureSafePath(_sandbox, filePath).CreateParentIfNotExists();
-            File.WriteAllText(realPath, source.OuterXml);
+            File.WriteAllText(realPath, source.Value);
             return source;
         }
 

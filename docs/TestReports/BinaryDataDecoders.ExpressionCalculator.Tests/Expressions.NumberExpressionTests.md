@@ -13,9 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_DifferentValue_Test                        ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_SameNumber_Test
 
@@ -30,9 +29,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_SameNumber_Test                            ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_DifferentNumber_Test
 
@@ -47,9 +45,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_DifferentNumber_Test                       ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_SameValue_Test
 
@@ -64,9 +61,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_SameValue_Test                             ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Equals_SameReference_Test
 
@@ -81,11 +77,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Equals_SameReference_Test                         ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Links
 

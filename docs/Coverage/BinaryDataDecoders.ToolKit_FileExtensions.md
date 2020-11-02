@@ -59,9 +59,9 @@
 〰29:          /// <returns>source</returns>
 〰30:          public XPathNavigator WriteToFile(XPathNavigator source, string filePath)
 〰31:          {
-‼32:              if (string.IsNullOrWhiteSpace(source.OuterXml)) return source;
+‼32:              if (string.IsNullOrWhiteSpace(source.Value)) return source;
 ‼33:              var realPath = SandboxPath.EnsureSafePath(_sandbox, filePath).CreateParentIfNotExists();
-‼34:              File.WriteAllText(realPath, source.OuterXml);
+‼34:              File.WriteAllText(realPath, source.Value);
 ‼35:              return source;
 〰36:          }
 〰37:  

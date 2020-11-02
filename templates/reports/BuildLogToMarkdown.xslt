@@ -28,19 +28,6 @@
 	<xsl:template match="/">
 		<xsl:text># Build Log</xsl:text>&cr;&cr;
 
-		<!--<xsl:message>
-			&cr;
-			<xsl:text>sandbox=</xsl:text>
-			<xsl:value-of select="$files/@sandbox"/>
-			&cr;
-			<xsl:for-each select="$files/@*">
-				<xsl:value-of select="local-name(.)"/>
-				<xsl:text>=</xsl:text>
-				<xsl:value-of select="."/>
-				&cr;
-			</xsl:for-each>
-		</xsl:message>-->
-
 		<xsl:apply-templates select="//CscTask//Folder/Warning | //VscTask//Folder/Warning" />
 		&cr;
 
@@ -54,20 +41,6 @@
 		<xsl:variable name="projectBasePath" select="ex-path:GetDirectoryName($projectFilePath)" />
 		<xsl:variable name="codeFile" select="translate(concat($projectBasePath, '\', @File), '\', '/')" />
 
-		<!--<xsl:message>
-			<xsl:text> ========================================================================== </xsl:text>&cr;
-			<xsl:value-of select="@Text"/>&cr;
-			<xsl:text> File!!! </xsl:text>
-			<xsl:value-of select="@File"/>&cr;
-			<xsl:text> $projectFile!!! </xsl:text>
-			<xsl:value-of select="$projectFile"/>&cr;
-			<xsl:text> $projectFilePath!!! </xsl:text>
-			<xsl:value-of select="$projectFilePath"/>&cr;
-			<xsl:text> $projectBasePath!!! </xsl:text>
-			<xsl:value-of select="$projectBasePath"/>&cr;
-			<xsl:text> $codeFile!!! </xsl:text>
-			<xsl:value-of select="$codeFile"/>&cr;
-		</xsl:message>-->
 		<xsl:text>* </xsl:text>
 		<xsl:if test="@Code">
 			<xsl:choose>
@@ -102,8 +75,6 @@
 				<xsl:text>)</xsl:text>
 			</xsl:if>
 			&cr;
-			<!--<xsl:text>  * </xsl:text>
-			<xsl:value-of select="$projectFile"/>&cr;-->
 		</xsl:if>
 	</xsl:template>
 

@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                  |
 | Uncoveredlines  | `130`                                                |
 | Coverablelines  | `130`                                                |
-| Totallines      | `239`                                                |
+| Totallines      | `240`                                                |
 | Linecoverage    | `0`                                                  |
 | Coveredbranches | `0`                                                  |
 | Totalbranches   | `10`                                                 |
@@ -123,154 +123,155 @@
 ‼89:                  NameTable = new NameTable(),
 ‼90:              });
 ‼91:              var xsltSettings = new XsltSettings(false, false);
-‼92:              xslt.Load(xmlreader, xsltSettings, null);
-〰93:  
-‼94:              var outputDir = Path.GetDirectoryName(output);
-‼95:              if (!Directory.Exists(outputDir)) Directory.CreateDirectory(outputDir);
-‼96:              using var resultStream = File.Create(output);
-〰97:  
-‼98:              var currentDirectory = Environment.CurrentDirectory;
-〰99:              try
-〰100:             {
-‼101:                 var localOutfolder = Path.GetDirectoryName(output);
-‼102:                 if (!Directory.Exists(localOutfolder))
-〰103:                 {
-‼104:                     Directory.CreateDirectory(localOutfolder);
-〰105:                 }
-‼106:                 Environment.CurrentDirectory = localOutfolder;
-〰107: 
-‼108:                 var inputNavigator = input.CreateNavigator();
-‼109:                 inputNavigator.MoveToRoot();
-‼110:                 xslt.Transform(inputNavigator, xsltArgumentList, resultStream);
-‼111:             }
-〰112:             finally
-〰113:             {
-‼114:                 Environment.CurrentDirectory = currentDirectory;
-‼115:             }
-‼116:         }
-〰117: 
-〰118:         /// <summary>
-〰119:         /// Multi-action transform.
-〰120:         /// </summary>
-〰121:         /// <param name="template">path for XSLT style-sheet</param>
-〰122:         /// <param name="input">Wild card allowed for multiple files</param>
-〰123:         /// <param name="output">Output and suffix per file.</param>
-〰124:         public void TransformAll(string template, string input, string output) =>
-‼125:             TransformAll(template, input, ReadAsXml, output);
-〰126: 
-〰127:         /// <summary>
-〰128:         /// Multi-action transform.
-〰129:         /// </summary>
-〰130:         /// <param name="template">path for XSLT style-sheet</param>
-〰131:         /// <param name="input">Wild card allowed for multiple files</param>
-〰132:         /// <param name="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
-〰133:         /// <param name="output">Output and suffix per file.</param>
-〰134:         public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
-〰135:         {
-‼136:             var inputFullPath = Path.GetFullPath(input);
-‼137:             var inputDir = PathEx.GetBasePath(input);
-‼138:             var inputFiles = PathEx.EnumerateFiles(input);
-〰139: 
-‼140:             var outputFullPath = Path.GetFullPath(output);
-‼141:             var outputDir = Path.GetDirectoryName(outputFullPath);
-‼142:             var outputPattern = Path.GetFileName(outputFullPath).Split('*').LastOrDefault() ?? "";
-〰143: 
-‼144:             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
-‼145:             if (!inputFiles.Any()) throw new FileNotFoundException($"input");
-〰146: 
-〰147:             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
-〰148: 
-〰149: #if PARALLEL
-‼150:             inputFiles.AsParallel().ForAll(inputFile =>
-‼151: #else
-‼152:             foreach (var inputFile in inputFiles)
-‼153: #endif
-‼154:             {
-‼155:                 var inputFileClean = inputFile.Substring(inputDir.Length).TrimStart('/', '\\');
-‼156:                 var removedExt = Path.ChangeExtension(inputFileClean, null);
-‼157:                 var outFileName = removedExt + outputPattern;
-‼158:                 var outputFile = Path.Combine(outputDir, outFileName);
-‼159: 
-‼160:                 var tid = Thread.CurrentThread.ManagedThreadId;
-‼161: 
-‼162:                 Console.WriteLine($"\t[{tid}]\"{inputFileClean}\" => \"{outFileName}\"");
-‼163: 
-‼164:                 try
-‼165:                 {
-‼166:                     var inputNavigator = inputNavigatorFactory(inputFile);
-‼167:                     Transform(template, inputFile, inputNavigator, outputFile);
-‼168:                 }
-‼169:                 catch (Exception ex)
-‼170:                 {
-‼171:                     var rex = innerMost(ex);
-‼172:                     Console.Error.WriteLine($"!!! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {rex.Message}");
-‼173:                     try
-‼174:                     {
-‼175:                         File.AppendAllLines(outputFile, new[]
-‼176:                         {
-‼177:                             "",
-‼178:                             new string('=', 60),
-‼179:                            $"!!! ERROR !!!: {ex.Message}",
-‼180:                             new string('=', 60),
-‼181:                             ex.ToString()
-‼182:                         });
-‼183:                     }
-‼184:                     catch
-‼185:                     {
-‼186:                         // Eat and errors!
-‼187:                     }
-‼188:                 }
-‼189:             }
-‼190: #if PARALLEL
-‼191:             );
-〰192: #endif
-‼193:         }
-〰194: 
-〰195:         public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
-〰196:         {
-〰197:             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
-‼198:             var tid = Thread.CurrentThread.ManagedThreadId;
-〰199:             try
-〰200:             {
-‼201:                 var inputFullPath = Path.GetFullPath(input);
-‼202:                 var inputDir = PathEx.GetBasePath(input);
-‼203:                 var inputFiles = PathEx.EnumerateFiles(input);
-〰204: 
-‼205:                 if (!inputFiles.Any()) throw new FileNotFoundException($"input");
-〰206: 
-‼207:                 var navigators = inputFiles.Select(f => inputNavigatorFactory(f)).ToList();
-〰208: 
-〰209:                 //TODO: need to figoure out why this wont navigate correctly.
-‼210:                 var merged = navigators.MergeNavigators().CreateNavigator();
-‼211:                 var doc = new XmlDocument();
-‼212:                 doc.LoadXml(merged.OuterXml);
-‼213:                 merged = doc.CreateNavigator();
-‼214:                 merged.MoveToRoot();
-‼215:                 Transform(template, input, merged, output);
-‼216:             }
-‼217:             catch (Exception ex)
-〰218:             {
-‼219:                 var rex = innerMost(ex);
-‼220:                 Console.Error.WriteLine($"ERROR[{tid}]: \"{input}\" => \"{output}\" :: {rex.Message}");
-〰221:                 try
-〰222:                 {
-‼223:                     File.AppendAllLines(output, new[]
-‼224:                     {
-‼225:                             "",
-‼226:                             new string('=', 60),
-‼227:                            $"!!! ERROR !!!: {ex.Message}",
-‼228:                             new string('=', 60),
-‼229:                             ex.ToString()
-‼230:                         });
-‼231:                 }
-‼232:                 catch
-〰233:                 {
-〰234:                     // Eat and errors!
-‼235:                 }
-‼236:             }
-‼237:         }
-〰238:     }
-〰239: }
+〰92:  
+‼93:              xslt.Load(xmlreader, xsltSettings, null);
+〰94:  
+‼95:              var outputDir = Path.GetDirectoryName(output);
+‼96:              if (!Directory.Exists(outputDir)) Directory.CreateDirectory(outputDir);
+‼97:              using var resultStream = File.Create(output);
+〰98:  
+‼99:              var currentDirectory = Environment.CurrentDirectory;
+〰100:             try
+〰101:             {
+‼102:                 var localOutfolder = Path.GetDirectoryName(output);
+‼103:                 if (!Directory.Exists(localOutfolder))
+〰104:                 {
+‼105:                     Directory.CreateDirectory(localOutfolder);
+〰106:                 }
+‼107:                 Environment.CurrentDirectory = localOutfolder;
+〰108: 
+‼109:                 var inputNavigator = input.CreateNavigator();
+‼110:                 inputNavigator.MoveToRoot();
+‼111:                 xslt.Transform(inputNavigator, xsltArgumentList, resultStream);
+‼112:             }
+〰113:             finally
+〰114:             {
+‼115:                 Environment.CurrentDirectory = currentDirectory;
+‼116:             }
+‼117:         }
+〰118: 
+〰119:         /// <summary>
+〰120:         /// Multi-action transform.
+〰121:         /// </summary>
+〰122:         /// <param name="template">path for XSLT style-sheet</param>
+〰123:         /// <param name="input">Wild card allowed for multiple files</param>
+〰124:         /// <param name="output">Output and suffix per file.</param>
+〰125:         public void TransformAll(string template, string input, string output) =>
+‼126:             TransformAll(template, input, ReadAsXml, output);
+〰127: 
+〰128:         /// <summary>
+〰129:         /// Multi-action transform.
+〰130:         /// </summary>
+〰131:         /// <param name="template">path for XSLT style-sheet</param>
+〰132:         /// <param name="input">Wild card allowed for multiple files</param>
+〰133:         /// <param name="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
+〰134:         /// <param name="output">Output and suffix per file.</param>
+〰135:         public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
+〰136:         {
+‼137:             var inputFullPath = Path.GetFullPath(input);
+‼138:             var inputDir = PathEx.GetBasePath(input);
+‼139:             var inputFiles = PathEx.EnumerateFiles(input);
+〰140: 
+‼141:             var outputFullPath = Path.GetFullPath(output);
+‼142:             var outputDir = Path.GetDirectoryName(outputFullPath);
+‼143:             var outputPattern = Path.GetFileName(outputFullPath).Split('*').LastOrDefault() ?? "";
+〰144: 
+‼145:             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
+‼146:             if (!inputFiles.Any()) throw new FileNotFoundException($"input");
+〰147: 
+〰148:             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
+〰149: 
+〰150: #if PARALLEL
+‼151:             inputFiles.AsParallel().ForAll(inputFile =>
+‼152: #else
+‼153:             foreach (var inputFile in inputFiles)
+‼154: #endif
+‼155:             {
+‼156:                 var inputFileClean = inputFile.Substring(inputDir.Length).TrimStart('/', '\\');
+‼157:                 var removedExt = Path.ChangeExtension(inputFileClean, null);
+‼158:                 var outFileName = removedExt + outputPattern;
+‼159:                 var outputFile = Path.Combine(outputDir, outFileName);
+‼160: 
+‼161:                 var tid = Thread.CurrentThread.ManagedThreadId;
+‼162: 
+‼163:                 Console.WriteLine($"\t[{tid}]\"{inputFileClean}\" => \"{outFileName}\"");
+‼164: 
+‼165:                 try
+‼166:                 {
+‼167:                     var inputNavigator = inputNavigatorFactory(inputFile);
+‼168:                     Transform(template, inputFile, inputNavigator, outputFile);
+‼169:                 }
+‼170:                 catch (Exception ex)
+‼171:                 {
+‼172:                     var rex = innerMost(ex);
+‼173:                     Console.Error.WriteLine($"!!! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {rex.Message}");
+‼174:                     try
+‼175:                     {
+‼176:                         File.AppendAllLines(outputFile, new[]
+‼177:                         {
+‼178:                             "",
+‼179:                             new string('=', 60),
+‼180:                            $"!!! ERROR !!!: {ex.Message}",
+‼181:                             new string('=', 60),
+‼182:                             ex.ToString()
+‼183:                         });
+‼184:                     }
+‼185:                     catch
+‼186:                     {
+‼187:                         // Eat and errors!
+‼188:                     }
+‼189:                 }
+‼190:             }
+‼191: #if PARALLEL
+‼192:             );
+〰193: #endif
+‼194:         }
+〰195: 
+〰196:         public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
+〰197:         {
+〰198:             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
+‼199:             var tid = Thread.CurrentThread.ManagedThreadId;
+〰200:             try
+〰201:             {
+‼202:                 var inputFullPath = Path.GetFullPath(input);
+‼203:                 var inputDir = PathEx.GetBasePath(input);
+‼204:                 var inputFiles = PathEx.EnumerateFiles(input);
+〰205: 
+‼206:                 if (!inputFiles.Any()) throw new FileNotFoundException($"input");
+〰207: 
+‼208:                 var navigators = inputFiles.Select(f => inputNavigatorFactory(f)).ToList();
+〰209: 
+〰210:                 //TODO: need to figoure out why this wont navigate correctly.
+‼211:                 var merged = navigators.MergeNavigators().CreateNavigator();
+‼212:                 var doc = new XmlDocument();
+‼213:                 doc.LoadXml(merged.OuterXml);
+‼214:                 merged = doc.CreateNavigator();
+‼215:                 merged.MoveToRoot();
+‼216:                 Transform(template, input, merged, output);
+‼217:             }
+‼218:             catch (Exception ex)
+〰219:             {
+‼220:                 var rex = innerMost(ex);
+‼221:                 Console.Error.WriteLine($"ERROR[{tid}]: \"{input}\" => \"{output}\" :: {rex.Message}");
+〰222:                 try
+〰223:                 {
+‼224:                     File.AppendAllLines(output, new[]
+‼225:                     {
+‼226:                             "",
+‼227:                             new string('=', 60),
+‼228:                            $"!!! ERROR !!!: {ex.Message}",
+‼229:                             new string('=', 60),
+‼230:                             ex.ToString()
+‼231:                         });
+‼232:                 }
+‼233:                 catch
+〰234:                 {
+〰235:                     // Eat and errors!
+‼236:                 }
+‼237:             }
+‼238:         }
+〰239:     }
+〰240: }
 ```
 
 ## Links

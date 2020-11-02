@@ -13,11 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `Simple16Test                                      ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.01
 
 ## Links
 

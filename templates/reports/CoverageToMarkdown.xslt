@@ -60,10 +60,10 @@
 			<xsl:value-of select="concat('| ',ex-str:PadRight(local-name(.),$max-key-len),' | ',ex-str:PadRight(concat('`',text(),'`'),$max-value-len + 2),' |')"/>&cr;
 		</xsl:for-each>
 		&cr;
-		<!--<xsl:apply-templates select="Files" />-->
 	</xsl:template>
 	<xsl:template match="Summary/Files">
-		<xsl:text>### Files</xsl:text>&cr;&cr;
+		<xsl:text>### Files</xsl:text>&cr;
+		&cr;
 		<xsl:for-each select="File">
 			<xsl:text>* </xsl:text>
 			<xsl:value-of select="." />&cr;
@@ -152,64 +152,72 @@
 	</xsl:template>
 
 	<xsl:template match="Coverage/Assembly">
+
+		<xsl:variable name="summaries" select="@*[not(local-name(.)='name') and string-length(.) &gt; 0]" />
+		<xsl:variable name="max-key-len">
+			<xsl:variable name="temp" select="fn:max(fn:apply('string-length(local-name(.))', $summaries))" />
+			<xsl:choose>
+				<xsl:when test="$temp &lt; 5">
+					<xsl:text>5</xsl:text>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="$temp"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+
+		<xsl:variable name="max-value-len" select="fn:max(fn:apply('string-length(.)', $summaries))" />
+
 		<xsl:text>### Assembly - </xsl:text><xsl:value-of select="@name" />&cr;
 		&cr;
-		<xsl:text>#### Summary</xsl:text>&cr;
-		<xsl:text>| Key                  | Value                                                            |</xsl:text>&cr;
-		<xsl:text>| :------------------- | :--------------------------------------------------------------- |</xsl:text>&cr;
-		<xsl:for-each select="@*[not(local-name(.)='name')]">
-			<xsl:text>| </xsl:text>
-			<xsl:value-of select="substring(concat(local-name(.),'                    '),1,20)" />
-			<xsl:text> | </xsl:text>
-			<xsl:value-of select="substring(concat(.,'          '),1,10)" />
-			<xsl:text> | </xsl:text>&cr;
+
+		<xsl:text>## Summary</xsl:text>&cr;
+		&cr;
+
+		<xsl:value-of select="concat('| ',ex-str:PadRight('Key',$max-key-len),' | ',ex-str:PadRight('Value',$max-value-len+2),' |')"/>&cr;
+		<xsl:value-of select="concat('| :',ex-str:New('-',$max-key-len - 1),' | :',ex-str:New('-',$max-value-len +1),' |')"/>&cr;
+
+		<xsl:for-each select="$summaries">
+			<xsl:value-of select="concat('| ',ex-str:PadRight(local-name(.),$max-key-len),' | ',ex-str:PadRight(concat('`',.,'`'),$max-value-len + 2),' |')"/>&cr;
 		</xsl:for-each>
 		&cr;
+
 		<xsl:text>#### Classes</xsl:text>&cr;
-		<xsl:text>| coverage   | name                                                             | </xsl:text>&cr;
-		<xsl:text>| :--------- | :--------------------------------------------------------------- | </xsl:text>&cr;
+		&cr;
+		<xsl:text>| coverage   | name                                                             |</xsl:text>&cr;
+		<xsl:text>| :--------- | :--------------------------------------------------------------- |</xsl:text>&cr;
 		<xsl:apply-templates select="./Class" />
 		&cr;
 	</xsl:template>
 
 	<xsl:template match="Coverage/Assembly/Class">
 		<xsl:text>| </xsl:text>
-		<xsl:value-of select="substring(concat(@coverage,'          '),1,10)" />
+		<xsl:value-of select="ex-str:PadRight(@coverage,10)" />
 		<xsl:text> | </xsl:text>
 		<xsl:call-template name="getClassIfLinked">
 			<xsl:with-param name="assembly" select="../@name"/>
 			<xsl:with-param name="class" select="@name"/>
 		</xsl:call-template>
-		<xsl:text> | </xsl:text>&cr;
+		<xsl:text> |</xsl:text>&cr;
 	</xsl:template>
 
 	<xsl:template name="getClassIfLinked">
 		<xsl:param name="assembly"/>
 		<xsl:param name="class"/>
 
-		<xsl:variable name="linkedFile">
-			<links>
-				<xsl:for-each select="ex-path:ListFilesFiltered('Publish\Results\Coverage', concat($assembly,'_*.xml'))/o-path:file">
-					<link>
-						<xsl:attribute name="file">
-							<xsl:value-of select="concat(ex-path:GetFileNameWithoutExtension(.), '.md')" />
-						</xsl:attribute>
-						<xsl:attribute name="full">
-							<xsl:value-of select="." />
-						</xsl:attribute>
-						<xsl:attribute name="scope">
-							<xsl:value-of select="ex-file:ReadXml(.)/CoverageReport/Summary[Class=$class][Assembly=$assembly]/../../@scope" />
-						</xsl:attribute>
-					</link>
-				</xsl:for-each>
-			</links>
+		<xsl:variable name="cleaned-class-name">
+			<xsl:value-of select="substring($class, string-length($assembly)+2)"/>
 		</xsl:variable>
 
+		<!--<xsl:value-of select="ex-str:PadRight(concat('`', translate($cleaned-class-name,'`', '_'), '`'), 64)" />-->
+
 		<xsl:text>[</xsl:text>
-		<xsl:value-of select="$class" />
+		<xsl:value-of select="$cleaned-class-name" />
 		<xsl:text>](</xsl:text>
-		<xsl:value-of select="msxsl:node-set($linkedFile)/links/link/@file" />
-		<xsl:text>)</xsl:text>
+		<xsl:value-of select="$assembly"/>
+		<xsl:text>_</xsl:text>
+		<xsl:value-of select="translate(substring(ex-path:GetExtension($cleaned-class-name),2), '`','_')" />
+		<xsl:text>.md)</xsl:text>
 	</xsl:template>
 
 </xsl:stylesheet>

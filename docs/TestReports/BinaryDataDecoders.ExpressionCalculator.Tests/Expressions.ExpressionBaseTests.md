@@ -13,9 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `ImplicitConvertTest_OverlyComplex                 ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.01
 
 ## ImplicitConvertTest_Number
 
@@ -30,9 +29,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ImplicitConvertTest_Number                        ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## ImplicitConvertTest_Expression
 
@@ -47,9 +45,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ImplicitConvertTest_Expression                    ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## ImplicitConvertTest_WayMoreOverlyComplex
 
@@ -64,9 +61,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ImplicitConvertTest_WayMoreOverlyComplex          ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## ImplicitConvertTest_Variable
 
@@ -81,9 +77,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ImplicitConvertTest_Variable                      ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## ImplicitConvertTest_MoreOverlyComplex
 
@@ -98,11 +93,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `ImplicitConvertTest_MoreOverlyComplex             ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Links
 

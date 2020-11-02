@@ -13,11 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.02 | `MergeMultipleTest                                 ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.02
 
 ## Links
 

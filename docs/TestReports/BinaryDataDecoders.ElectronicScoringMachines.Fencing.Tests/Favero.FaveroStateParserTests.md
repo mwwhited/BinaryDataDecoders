@@ -13,11 +13,15 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.03 | `DecodeTest                                        ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.03
 
+#### Standard Out
 
+```
+TestContext Messages:
+R:S>012 L>Touch C>Yellow P>True G:S>006 L>Yellow C>None P>False T:00:02:56 M:0
+```
 
 ## Links
 

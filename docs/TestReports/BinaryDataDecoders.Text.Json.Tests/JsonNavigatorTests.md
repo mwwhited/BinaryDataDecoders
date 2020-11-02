@@ -13,11 +13,20 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.13 | `JsonNavigatorTest                                 ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.11
 
+#### Standard Out
 
+```
+TestContext Messages:
+<Object kind="Object">
+  <r kind="Number">123</r>
+  <o kind="Object">
+    <f kind="String">v</f>
+  </o>
+</Object>
+```
 
 ## Links
 

@@ -13,11 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.01 | `CopyWithTransformTest_byte2byte_7bit              ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.01
 
 ## Links
 

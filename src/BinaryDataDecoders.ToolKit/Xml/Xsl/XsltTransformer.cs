@@ -89,6 +89,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 NameTable = new NameTable(),
             });
             var xsltSettings = new XsltSettings(false, false);
+            
             xslt.Load(xmlreader, xsltSettings, null);
 
             var outputDir = Path.GetDirectoryName(output);

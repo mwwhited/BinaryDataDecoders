@@ -3,6 +3,7 @@ using System.Xml.Linq;
 using System.Linq;
 using static BinaryDataDecoders.ToolKit.ToolkitConstants;
 using System.Xml.Serialization;
+using System.Text;
 
 namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
 {
@@ -34,6 +35,5 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         public string PadLeft(string input, int totalWidth) => input.PadLeft(totalWidth);
         public string PadRight(string input, int totalWidth) => input.PadRight(totalWidth);
         public string New(string @char, int length) => string.IsNullOrEmpty(@char) || length < 0 ? "" : new string(@char[0], length);
-
     }
 }

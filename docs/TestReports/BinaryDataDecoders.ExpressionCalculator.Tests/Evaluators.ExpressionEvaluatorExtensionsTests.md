@@ -13,9 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Sum_Test                                          ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Product_Test
 
@@ -30,9 +29,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Product_Test                                      ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Sequence_Test
 
@@ -47,9 +45,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Sequence_Test                                     ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Factorial_Test
 
@@ -64,11 +61,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `Factorial_Test                                    ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Links
 

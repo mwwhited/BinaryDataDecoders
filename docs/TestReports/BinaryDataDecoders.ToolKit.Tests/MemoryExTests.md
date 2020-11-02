@@ -13,9 +13,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `SplitTest_Exclude3                                ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## SplitTest_Exclude
 
@@ -30,9 +29,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.03 | `SplitTest_Exclude                                 ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.03
 
 ## SplitTest_Carry
 
@@ -47,9 +45,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `SplitTest_Carry                                   ` |
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## SplitTest_Return
 
@@ -64,11 +61,8 @@
 
 ### Results
 
-| Result                   | Duration    | Test Name                                            |
-| :----------------------- | ----------: | :--------------------------------------------------- |
-|  ✔ Passed               | 00:00:00.00 | `SplitTest_Return                                  ` |
-
-
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
 
 ## Links
 
