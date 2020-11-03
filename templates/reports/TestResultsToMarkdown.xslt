@@ -33,11 +33,11 @@
 
 		<xsl:text># Test Libraries</xsl:text>&cr;&cr;
 
-		<xsl:variable name="code-bases" select="fn:distinct_values($all-tests/@codeBase)" />
+		<xsl:variable name="code-bases" select="fn:distinct-values($all-tests/@codeBase)" />
 		<xsl:for-each select="$code-bases">
 			<xsl:sort select="."/>
 			<xsl:variable name="code-base" select="." />
-			<xsl:variable name="test-classes" select="fn:distinct_values($all-tests[@codeBase=$code-base]/@className)" />
+			<xsl:variable name="test-classes" select="fn:distinct-values($all-tests[@codeBase=$code-base]/@className)" />
 			<xsl:variable name="test-assembly" select="ex-path:GetFileNameWithoutExtension(.)" />
 			<xsl:text>## </xsl:text>
 			<xsl:value-of select="$test-assembly"/>
@@ -65,7 +65,7 @@
 				<xsl:text>)</xsl:text>
 				&cr;
 
-				<xsl:variable name="test-methods" select="fn:distinct_values($all-tests[@codeBase=$code-base and @className=$test-class]/@name)" />
+				<xsl:variable name="test-methods" select="fn:distinct-values($all-tests[@codeBase=$code-base and @className=$test-class]/@name)" />
 
 				<xsl:for-each select="$test-methods">
 					<xsl:sort select="."/>

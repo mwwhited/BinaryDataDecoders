@@ -7,6 +7,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
     /// </summary>
     public static class XsltArgumentListExtensions
     {
+        private static readonly XsltExtensionFactory _builder = new XsltExtensionFactory();
+
         /// <summary>
         /// simplify chaining XsltArgumentList and AddExtensionObject
         /// </summary>
@@ -28,7 +30,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         public static XsltArgumentList AddExtensionObject(this XsltArgumentList xsltArgumentList, object extensionObject)
         {
             var ns = extensionObject.GetXmlNamespace();
-            xsltArgumentList.AddExtensionObject(ns, extensionObject);
+            var extended = _builder.BuildXsltExtension(extensionObject);
+            xsltArgumentList.AddExtensionObject(ns, extended);
             return xsltArgumentList;
         }
     }

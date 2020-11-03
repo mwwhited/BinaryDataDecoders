@@ -1,8 +1,6 @@
 ﻿using BinaryDataDecoders.ToolKit.Xml.XPath;
 using System;
 using System.Linq;
-using System.Threading.Tasks.Sources;
-using System.Xml;
 using System.Xml.Serialization;
 using System.Xml.XPath;
 
@@ -13,6 +11,20 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
     {
         public decimal abs(decimal input) => Math.Abs(input);
         public decimal ceiling(decimal input) => Math.Ceiling(input);
+        public decimal count(XPathNodeIterator input) =>input.AsNavigatorSet().Count();
+        public decimal avg(XPathNodeIterator input) => sum(input) / count(input);
+        public bool exists(XPathNodeIterator input) => input.AsNavigatorSet().Any();
+        public bool empty(XPathNodeIterator input) => !exists(input);
+        public bool @false() => false;
+        public bool not(bool input) => !input;
+        public bool @true() => true;
+
+        public decimal sum(XPathNodeIterator input) =>
+            (from i in input.AsNavigatorSet()
+             where !string.IsNullOrWhiteSpace(i.Value)
+             let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
+             where d.HasValue
+             select d).Sum() ?? 0;
 
         public decimal max(XPathNodeIterator input) =>
             (from i in input.AsNavigatorSet()
@@ -30,6 +42,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
 
         // https://www.w3.org/2005/xpath-functions/
 
+        [XsltFunction("distinct-values", HideOriginalName = true)]
         public XPathNodeIterator distinct_values(XPathNodeIterator input) =>
              new EnumerableXPathNodeIterator(
                 from i in input.AsNavigatorSet()
@@ -45,49 +58,6 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
                 select node
                 );
         /*
-
-↑ Jump to Table of Contents← Collapse Sidebar
-
-W3C
-
-XQuery, XPath, and XSLT Functions and Operators Namespace Document
-21 March 2017
-Table of Contents
-1 Introduction
-2 XQuery and XPath Functions
-3 XSL Transformations (XSLT) Functions
-4 XQuery Update Functions
-5 XML Schema
-6 Normative References
-7 Non-Normative References
-1 Introduction
-This document describes the namespace http://www.w3.org/2005/xpath-functions defined by the [XPath and XQuery Functions and Operators 3.1] and [XSLT 3.0] specifications. This namespace is conventionally identified by the namespace prefix fn.
-
-In XQuery, the mapping of the prefix fn to this namespace is predefined.
-
-In XSLT, it is not necessary to use a prefix when invoking functions in this namespace, because this namespace is always the default namespace for function calls.
-
-For updated information, please refer to the latest version of the [XPath and XQuery Functions and Operators 3.1] and [XSLT 3.0] specifications.
-
-The [XQuery Update 1.0] specification defines one additional function in this namespace.
-
-Functions are uniquely identified by the combination of namespace URI, local name, and arity (number of arguments). For the purpose of this document, functions having a common namespace URI and local name can be considered to form a function family. A function family can be uniquely identified with a URI of the form: “http://www.w3.org/2005/xpath-functions#name” where name is the local name of a function, such as “max”: http://www.w3.org/2005/xpath-functions#max.
-
-This document describes the names that are defined in this namespace at the time of publication. The W3C reserves the right to define additional names in this namespace in the future. The specifications listed above are the only specifications that may amend this namespace.
-
-The specifications referenced in this document are the latest versions at time of publication. Older versions of these specifications remain in use, and depending on the context, a name in this namespace may be referring to an older version of the specification than the one cited here.
-
-This document contains a directory of links to related resources, using RDDL (as defined in [Resource Directory Description Language (RDDL)]).
-
-It is GRDDL-enabled (as defined in [Gleaning Resource Descriptions from Dialects of Languages (GRDDL)]); that is to say that a GRDDL-compliant processor can extract useful RDF (as defined in [Resource Description Framework (RDF): Concepts and Abstract Syntax]) representations of the information contained herein.
-
-2 XQuery and XPath Functions
-This section lists all of the functions in this namespace that are defined in the [XPath and XQuery Functions and Operators 3.1] specification.
-
-The normative definitions of these functions are in the [XPath and XQuery Functions and Operators 3.1] specification. For convenience, a very brief, non-normative summary of each function is provided. For details, follow the link on the “Summary:” introductory text below each function.
-
-abs
-abs(xs:numeric?) as xs:numeric?
 
 Returns the absolute value of $arg.
 
@@ -129,11 +99,6 @@ available-environment-variables() as xs:string*
 
 Returns a list of environment variable names that are suitable for passing to fn:environment-variable, as a (possibly empty) sequence of strings.
 
-avg
-avg(xs:anyAtomicType*) as xs:anyAtomicType?
-
-Returns the average of the values in the input sequence $arg, that is, the sum of the values divided by the number of values.
-
 base-uri
 base-uri() as xs:anyURI?
 
@@ -145,11 +110,6 @@ boolean
 boolean(item()*) as xs:boolean
 
 Computes the effective boolean value of the sequence $arg.
-
-ceiling
-ceiling(xs:numeric?) as xs:numeric?
-
-Rounds $arg upwards to a whole number.
 
 codepoint-equal
 codepoint-equal(xs:string?, xs:string?) as xs:boolean?
@@ -200,11 +160,6 @@ contains-token(xs:string*, xs:string) as xs:boolean
 contains-token(xs:string*, xs:string, xs:string) as xs:boolean
 
 Determines whether or not any of the supplied strings, when tokenized at whitespace boundaries, contains the supplied token, under the rules of the supplied collation.
-
-count
-count(item()*) as xs:integer
-
-Returns the number of items in a sequence.
 
 current-date
 current-date() as xs:date
@@ -296,10 +251,6 @@ element-with-id(xs:string*, node()) as element()*
 
 Returns the sequence of element nodes that have an ID value matching the value of one or more of the IDREF values supplied in $arg.
 
-empty
-empty(item()*) as xs:boolean
-
-Returns true if the argument is the empty sequence.
 
 encode-for-uri
 encode-for-uri(xs:string?) as xs:string
@@ -339,15 +290,6 @@ exactly-one(item()*) as item()
 
 Returns $arg if it contains exactly one item. Otherwise, raises an error.
 
-exists
-exists(item()*) as xs:boolean
-
-Returns true if the argument is a non-empty sequence.
-
-false
-false() as xs:boolean
-
-Returns the xs:boolean value false.
 
 filter
 filter(item()*, function(item()) as xs:boolean) as item()*
@@ -566,17 +508,6 @@ matches(xs:string?, xs:string, xs:string) as xs:boolean
 
 Returns true if the supplied string matches a given regular expression.
 
-max
-max(xs:anyAtomicType*) as xs:anyAtomicType?
-
-max(xs:anyAtomicType*, xs:string) as xs:anyAtomicType?
-
-Returns a value that is equal to the highest value appearing in the input sequence.
-
-min
-min(xs:anyAtomicType*) as xs:anyAtomicType?
-
-min(xs:anyAtomicType*, xs:string) as xs:anyAtomicType?
 
 Returns a value that is equal to the lowest value appearing in the input sequence.
 
@@ -661,11 +592,6 @@ normalize-unicode(xs:string?) as xs:string
 normalize-unicode(xs:string?, xs:string) as xs:string
 
 Returns the value of $arg after applying Unicode normalization.
-
-not
-not(item()*) as xs:boolean
-
-Returns true if the effective boolean value of $arg is false, or false if it is true.
 
 number
 number() as xs:double
@@ -882,13 +808,6 @@ substring-before(xs:string?, xs:string?, xs:string) as xs:string
 
 Returns the part of $arg1 that precedes the first occurrence of $arg2, taking collations into account.
 
-sum
-sum(xs:anyAtomicType*) as xs:anyAtomicType
-
-sum(xs:anyAtomicType*, xs:anyAtomicType?) as xs:anyAtomicType?
-
-Returns a value obtained by adding together the values in $arg.
-
 tail
 tail(item()*) as item()*
 
@@ -934,11 +853,6 @@ translate
 translate(xs:string?, xs:string, xs:string) as xs:string
 
 Returns the value of $arg modified by replacing or removing individual characters.
-
-true
-true() as xs:boolean
-
-Returns the xs:boolean value true.
 
 unordered
 unordered(item()*) as item()*
@@ -1173,34 +1087,7 @@ Stores a document or element to the location specified by $uri. This function is
 
 The external effects of fn:put are implementation-defined, since they occur outside the domain of XQuery. The intent is that, if fn:put is invoked on a document node and no error is raised, a subsequent query can access the stored document by invoking fn:doc with the same URI.
 
-5 XML Schema
-Two functions, fn:analyze-string and fn:json-to-xml, return results that are always valid according to a defined XSD schema. A third function, fn:xml-to-json, requires input that is valid according to this schema.
 
-The target namespace of these schema components is http://www.w3.org/2005/xpath-functions.
-
-The schema components are defined in a schema document located at https://www.w3.org/TR/xpath-functions-31/xpath-functions.xsd.
-
-6 Normative References
-These documents describe the names that are defined in this namespace at the time of publication. The W3C reserves the right to define additional names in this namespace in the future.
-
-XPath and XQuery Functions and Operators 3.1
-XQuery and XPath Functions and Operators 3.1 (21 March 2017 version)
-
-XSLT 3.0
-XSL Transformations (XSLT) Version 3.0 (7 February 2017 version)
-
-XQuery Update 1.0
-XQuery Update Facility 1.0 (25 January 2011 version)
-
-7 Non-Normative References
-Resource Directory Description Language (RDDL)
-Resource Directory Description Language (RDDL) (4 July 2007)
-
-Gleaning Resource Descriptions from Dialects of Languages (GRDDL)
-Gleaning Resource Descriptions from Dialects of Languages (GRDDL) (Recommendation of 11 September 2007)
-
-Resource Description Framework (RDF): Concepts and Abstract Syntax
-Resource Description Framework (RDF): Concepts and Abstract Syntax (Recommendation of 10 February 2004)
         */
     }
 }

@@ -3,8 +3,11 @@
 using BinaryDataDecoders.ToolKit.IO;
 using BinaryDataDecoders.ToolKit.Xml.XPath;
 using System;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
@@ -67,7 +70,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="output">resulting text content</param>
         public void Transform(string template, string inputSource, IXPathNavigable input, string output)
         {
-            var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
+            var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);            
 
             xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t[{Thread.CurrentThread.ManagedThreadId}]{eventArgs.Message}");
 
@@ -108,6 +111,12 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 
                 var inputNavigator = input.CreateNavigator();
                 inputNavigator.MoveToRoot();
+
+                //var x = xslt.GetType();
+                //var pf = x.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+                //var pfc = pf.First(i => i.Name == "_command");
+                //var pfv = pfc.GetValue(xslt);
+
                 xslt.Transform(inputNavigator, xsltArgumentList, resultStream);
             }
             finally

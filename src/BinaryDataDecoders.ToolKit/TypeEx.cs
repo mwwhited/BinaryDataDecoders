@@ -28,7 +28,7 @@ namespace BinaryDataDecoders.ToolKit
         /// <param name="filename">name of resource</param>
         /// <returns>string content of resource</returns>
         public static async Task<string> GetResourceAsStringAsync(this Type context, string filename) =>
-            (await context.GetResourceStream(filename).ReadAsStringAsync()) ??"";
+            (await context.GetResourceStream(filename).ReadAsStringAsync()) ?? "";
 
         /// <summary>
         /// Resolve XML Name space for referenced object.  
@@ -42,7 +42,7 @@ namespace BinaryDataDecoders.ToolKit
         /// <returns></returns>
         public static string GetXmlNamespace(this Type type)
         {
-            var ns = type.GetCustomAttribute<XmlRootAttribute>()?.Namespace;
+            var ns = type.GetCustomAttribute<XmlRootAttribute>(true)?.Namespace;
             if (string.IsNullOrWhiteSpace(ns)) return $"clr:{string.Join(',', type.AssemblyQualifiedName.Split(',').Where(s => !s.Contains('=')))}";
             return ns;
         }
