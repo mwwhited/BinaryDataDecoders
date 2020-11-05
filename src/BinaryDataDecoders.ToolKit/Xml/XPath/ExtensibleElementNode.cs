@@ -19,7 +19,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             Func<object, IEnumerable<XName>?>? namespacesSelector = null,
             Predicate<object>? preserveWhitespace = null
             )
-            : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector)
+            : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
         {
         }
     }

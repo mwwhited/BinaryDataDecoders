@@ -56,7 +56,7 @@ namespace BinaryDataDecoders.Text.Json
 
                  attributeSelector: a => a switch
                  {
-                     JsonElement element => new[]
+                     JsonElement element => new (XName, string?)[]
                      {
                         (XName.Get("kind", ""), element.ValueKind.ToString()),
 

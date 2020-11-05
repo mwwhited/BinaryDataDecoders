@@ -29,8 +29,8 @@ namespace BinaryDataDecoders.CodeAnalysis
                     {
                         SyntaxNode root => new[]
                         {
-                            (XName.Get(nameof(root.RawKind)),  root.RawKind.ToString()),
-                            (XName.Get(nameof(root.Language)),  root.Language.ToString()),
+                            (XName.Get(nameof(root.RawKind)), (string?)root.RawKind.ToString()),
+                            (XName.Get(nameof(root.Language)), root.Language.ToString()),
                             (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  root.GetLocation().SourceSpan.Start.ToString()),
                             (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  root.GetLocation().SourceSpan.End.ToString()),
                         },
@@ -38,25 +38,25 @@ namespace BinaryDataDecoders.CodeAnalysis
                     },
                     SyntaxNode node => new[]
                     {
-                        (XName.Get(nameof(node.RawKind)),  node.RawKind.ToString()),
+                        (XName.Get(nameof(node.RawKind)), (string?)node.RawKind.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  node.GetLocation().SourceSpan.Start.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  node.GetLocation().SourceSpan.End.ToString()),
                     },
                     SyntaxToken token => new[]
                     {
-                        (XName.Get(nameof(token.RawKind)),  token.RawKind.ToString()),
+                        (XName.Get(nameof(token.RawKind)), (string?)token.RawKind.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  token.GetLocation().SourceSpan.Start.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  token.GetLocation().SourceSpan.End.ToString()),
                     },
                     SyntaxNodeOrToken nodeOrToken => new[]
                     {
-                        (XName.Get(nameof(nodeOrToken.RawKind)),  nodeOrToken.RawKind.ToString()),
+                        (XName.Get(nameof(nodeOrToken.RawKind)), (string?)nodeOrToken.RawKind.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  nodeOrToken.GetLocation()?.SourceSpan.Start.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  nodeOrToken.GetLocation()?.SourceSpan.End.ToString()),
                     },
                     SyntaxTrivia trivia => new[]
                     {
-                        (XName.Get(nameof(trivia.RawKind)),  trivia.RawKind.ToString()),
+                        (XName.Get(nameof(trivia.RawKind)), (string?)trivia.RawKind.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.Start)}"),  trivia.GetLocation()?.SourceSpan.Start.ToString()),
                         (XName.Get($"{nameof(Location)}.{nameof(TextSpan.End)}"),  trivia.GetLocation()?.SourceSpan.End.ToString()),
                     },

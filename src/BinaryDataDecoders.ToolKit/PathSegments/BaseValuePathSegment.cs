@@ -2,7 +2,7 @@
 {
     public abstract class BaseValuePathSegment<T> : IPathSegment<T>
     {
-        public BaseValuePathSegment(T value)
+        protected BaseValuePathSegment(T value)
         {
             Value = value;
         }

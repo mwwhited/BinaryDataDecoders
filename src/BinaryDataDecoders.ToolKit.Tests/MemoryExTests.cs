@@ -68,12 +68,12 @@ namespace BinaryDataDecoders.ToolKit.Tests
         private void CheckResults(IEnumerable<Memory<byte>> results, params byte[][] expected)
         {
             var checks = expected.Select((exp, index) => (exp, index));
-            foreach (var check in checks)
+            foreach (var (exp, index) in checks)
             {
-                Assert.AreEqual(check.exp.Length, results.ElementAt(check.index).Length);
-                if (check.exp.Length != 0)
+                Assert.AreEqual(exp.Length, results.ElementAt(index).Length);
+                if (exp.Length != 0)
                 {
-                    Assert.AreEqual(0, results.ElementAt(check.index).Span.IndexOf(new ReadOnlySpan<byte>(check.exp)));
+                    Assert.AreEqual(0, results.ElementAt(index).Span.IndexOf(new ReadOnlySpan<byte>(exp)));
                 }
             }
         }

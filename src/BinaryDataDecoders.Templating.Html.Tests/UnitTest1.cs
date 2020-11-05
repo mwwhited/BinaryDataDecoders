@@ -42,7 +42,7 @@ namespace BinaryDataDecoders.Templating.Html.Tests
         }
 
         [TestMethod]
-        public async Task QueryTest()
+        public void QueryTest()
         {
             using var styleSheet = this.GetResourceStream("ComplexTemplate.html");
             var html = new HtmlNavigator();

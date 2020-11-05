@@ -1,9 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+﻿using BinaryDataDecoders.ToolKit.Collections;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
-using BinaryDataDecoders.ToolKit.Collections;
-using Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions;
 
 namespace BinaryDataDecoders.ToolKit.Tests.Collections
 {

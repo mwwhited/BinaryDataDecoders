@@ -9,10 +9,10 @@ namespace BinaryDataDecoders.CodeAnalysis.StructuredLog
 {
     public static class StructuredLogNavigatorFactory
     {
-        public static IXPathNavigable ToNavigable(this Build tree, string? baseUri = null) =>
-            new ExtensibleNavigator(tree.AsNode(baseUri));
+        public static IXPathNavigable ToNavigable(this Build tree) =>
+            new ExtensibleNavigator(tree.AsNode());
 
-        public static INode AsNode(this Build build, string? baseUri = null) =>
+        public static INode AsNode(this Build build) =>
             new ExtensibleElementNode(
                 "Build",
                 build,
