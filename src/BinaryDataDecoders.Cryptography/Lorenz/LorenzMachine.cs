@@ -48,20 +48,35 @@ namespace BinaryDataDecoders.Cryptography.Lorenz
 
         public string Encode(string input)
         {
-            var chars = input.ToUpper().Replace('+', '5')
-                           .Select(i => _ita2.IndexOf(i))
-                           .Where(i => i >= 0)
-                           .ToArray();
+            var chars = input.ToUpper()
+                             .Replace('+', '5')
+                             .Select(i => _ita2.IndexOf(i))
+                             .Where(i => i >= 0)
+                             .ToArray();
 
             var key = new BitArray(_keySet);
 
-            var chi = 0;
-            var mu = 0;
-            var psi = 0;
-
             var output = new char[chars.Length];
 
-            for (; chi < chars.Length; chi++)
+            var keyOffsets = new[]
+            {
+                 _chiModulus.Take(0).Sum(),
+                 _chiModulus.Take(1).Sum(),
+                 _chiModulus.Take(2).Sum(),
+                 _chiModulus.Take(3).Sum(),
+                 _chiModulus.Take(4).Sum(),
+
+                 _chiModulus.Concat(_muModulus.Take(0)).Sum(),
+                 _chiModulus.Concat(_muModulus.Take(1)).Sum(),
+
+                 _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(0)).Sum(),
+                 _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(1)).Sum(),
+                 _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(2)).Sum(),
+                 _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(3)).Sum(),
+                 _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(4)).Sum(),
+            };
+
+            for (int chi = 0, mu = 0, psi = 0; chi < chars.Length; chi++)
             {
                 var bit1 = (chars[chi] & 0b10000) >> 4 == 1;
                 var bit2 = (chars[chi] & 0b01000) >> 3 == 1;
@@ -69,29 +84,30 @@ namespace BinaryDataDecoders.Cryptography.Lorenz
                 var bit4 = (chars[chi] & 0b00010) >> 1 == 1;
                 var bit5 = (chars[chi] & 0b00001) >> 0 == 1;
 
-                var chi1 = key[(_positions[0] + chi) % _chiModulus[0] + _chiModulus.Take(0).Sum()];
-                var chi2 = key[(_positions[1] + chi) % _chiModulus[1] + _chiModulus.Take(1).Sum()];
-                var chi3 = key[(_positions[2] + chi) % _chiModulus[2] + _chiModulus.Take(2).Sum()];
-                var chi4 = key[(_positions[3] + chi) % _chiModulus[3] + _chiModulus.Take(3).Sum()];
-                var chi5 = key[(_positions[4] + chi) % _chiModulus[4] + _chiModulus.Take(4).Sum()];
+                var chi1 = (chi + _positions[0]) % _chiModulus[0];
+                var chi2 = (chi + _positions[1]) % _chiModulus[1];
+                var chi3 = (chi + _positions[2]) % _chiModulus[2];
+                var chi4 = (chi + _positions[3]) % _chiModulus[3];
+                var chi5 = (chi + _positions[4]) % _chiModulus[4];
 
-                var mu1 = (_positions[5] + chi) % _muModulus[0];
-                mu = key[(int)_chiModulus.Sum() + mu1] ? mu + 1 : mu;
-                var mu2 = (_positions[6] + mu) % _muModulus[1];
+                var mu1 = (chi + _positions[5]) % _muModulus[0];
 
-                psi = key[(int)_chiModulus.Sum() + _muModulus[0] + mu2] ? psi + 1 : psi;
+                if (key[mu1]) mu++;
+                var mu2 = (mu + _positions[6]) % _muModulus[1];
 
-                var psi1 = key[(_positions[7] + psi) % _psiModulus[0] + _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(0)).Sum()];
-                var psi2 = key[(_positions[8] + psi) % _psiModulus[1] + _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(1)).Sum()];
-                var psi3 = key[(_positions[9] + psi) % _psiModulus[2] + _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(2)).Sum()];
-                var psi4 = key[(_positions[10] + psi) % _psiModulus[3] + _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(3)).Sum()];
-                var psi5 = key[(_positions[11] + psi) % _psiModulus[4] + _chiModulus.Concat(_muModulus).Concat(_psiModulus.Take(4)).Sum()];
+                if (key[mu2]) psi++;
 
-                var z1 = (bit1 ^ chi1 ^ psi1) ? 1 : 0;
-                var z2 = (bit2 ^ chi2 ^ psi2) ? 1 : 0;
-                var z3 = (bit3 ^ chi3 ^ psi3) ? 1 : 0;
-                var z4 = (bit4 ^ chi4 ^ psi4) ? 1 : 0;
-                var z5 = (bit5 ^ chi5 ^ psi5) ? 1 : 0;
+                var psi1 = (psi + _positions[7]) % _psiModulus[0];
+                var psi2 = (psi + _positions[8]) % _psiModulus[1];
+                var psi3 = (psi + _positions[9]) % _psiModulus[2];
+                var psi4 = (psi + _positions[10]) % _psiModulus[3];
+                var psi5 = (psi + _positions[11]) % _psiModulus[4];
+
+                var z1 = (bit1 ^ key[chi1 + keyOffsets[0]] ^ key[psi1 + keyOffsets[7]]) ? 1 : 0;
+                var z2 = (bit2 ^ key[chi2 + keyOffsets[1]] ^ key[psi2 + keyOffsets[8]]) ? 1 : 0;
+                var z3 = (bit3 ^ key[chi3 + keyOffsets[2]] ^ key[psi3 + keyOffsets[9]]) ? 1 : 0;
+                var z4 = (bit4 ^ key[chi4 + keyOffsets[3]] ^ key[psi4 + keyOffsets[10]]) ? 1 : 0;
+                var z5 = (bit5 ^ key[chi5 + keyOffsets[4]] ^ key[psi5 + keyOffsets[11]]) ? 1 : 0;
 
                 var z = z1 << 4 | z2 << 3 | z3 << 2 | z4 << 1 | z5;
 

@@ -17,7 +17,11 @@ namespace BinaryDataDecoders.Cryptography.Tests.Lorenz
             var lm = new LorenzMachine(LorenzMachine.ZMUG.key, LorenzMachine.ZMUG.start);
 
             var mesg = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ012345";
+
             var result = lm.Encode(mesg);
+
+            Assert.AreEqual("EATAS1DSSQ421X4B5ZHPRXE5XNV4CESS", result);
+
             var check = lm.Encode(result);
 
             Assert.AreEqual(mesg, check);
