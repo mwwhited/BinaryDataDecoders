@@ -4,7 +4,7 @@
     /// interface for a double linked list
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal interface IDoubleLinkedList<T>
+    public interface IDoubleLinkedList<T>
     {
         /// <summary>
         /// previous segment for double linked list

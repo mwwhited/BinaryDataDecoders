@@ -2,6 +2,7 @@
 
 namespace BinaryDataDecoders.Xslt.Cli
 {
+#pragma warning disable CS8618 // Non-nullable field is uninitialized. Consider declaring as nullable.
     public class CommandLineOptions
     {
         [Option('i', "input", Required = true, HelpText ="input file (xml?)")]
@@ -22,4 +23,5 @@ namespace BinaryDataDecoders.Xslt.Cli
         [Option('m', "merge", Required = false, HelpText = "merge inputs")]
         public bool Merge { get; set; }
     }
+#pragma warning restore CS8618 // Non-nullable field is uninitialized. Consider declaring as nullable.
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -13,19 +12,11 @@
 		<Authors>Matthew Whited</Authors>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
-
-	<PropertyGroup>
-		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-	</PropertyGroup>
 	<ItemGroup>
 		<None Include="..\..\LICENSE">
 			<Pack>True</Pack>
 			<PackagePath />
 		</None>
 	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\BinaryDataDecoders.ToolKit.Abstractions\BinaryDataDecoders.ToolKit.Abstractions.csproj" />
-	</ItemGroup>
-
 
 </Project>

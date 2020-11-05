@@ -2,7 +2,7 @@
 
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
-    internal interface IWrappedNode
+    public interface IWrappedNode
     {
         IWrappedNode? Previous { get; }
         XPathNavigator Current { get; }

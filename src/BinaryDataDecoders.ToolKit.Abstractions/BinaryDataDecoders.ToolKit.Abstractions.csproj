@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
+	
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Nullable>enable</Nullable>
@@ -12,20 +11,14 @@
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
 		<Nullable>enable</Nullable>
+		<RootNamespace>BinaryDataDecoders.ToolKit</RootNamespace>
 	</PropertyGroup>
 
-	<PropertyGroup>
-		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-	</PropertyGroup>
 	<ItemGroup>
 		<None Include="..\..\LICENSE">
 			<Pack>True</Pack>
 			<PackagePath />
 		</None>
 	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\BinaryDataDecoders.ToolKit.Abstractions\BinaryDataDecoders.ToolKit.Abstractions.csproj" />
-	</ItemGroup>
-
 
 </Project>

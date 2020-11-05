@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using System;
 using System.IO;
 
 namespace BinaryDataDecoders.Xslt.Cli
@@ -11,7 +12,10 @@ namespace BinaryDataDecoders.Xslt.Cli
                   .ParseArguments<CommandLineOptions>(args)
                   .WithParsed(o =>
                   {
-                      new SandboxedTransformer(string.IsNullOrWhiteSpace(o.Sandbox) ? Path.GetDirectoryName(o.Output) : o.Sandbox)
+                      new SandboxedTransformer(
+                          (string.IsNullOrWhiteSpace(o.Sandbox) ?
+                            Path.GetDirectoryName(o.Output) :
+                            o.Sandbox) ?? throw new ArgumentNullException(nameof(o.Sandbox)))
                         .TransformAll(o.Template, o.Input, o.InputType, o.Output, o.Merge);
                   });
         }
