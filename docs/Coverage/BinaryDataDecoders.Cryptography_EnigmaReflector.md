@@ -6,19 +6,24 @@
 | :-------------- | :------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaReflector` |
 | Assembly        | `BinaryDataDecoders.Cryptography`                        |
-| Coveredlines    | `8`                                                      |
-| Uncoveredlines  | `0`                                                      |
-| Coverablelines  | `8`                                                      |
+| Coveredlines    | `10`                                                     |
+| Uncoveredlines  | `2`                                                      |
+| Coverablelines  | `12`                                                     |
 | Totallines      | `20`                                                     |
-| Linecoverage    | `100`                                                    |
+| Linecoverage    | `83.3`                                                   |
 | Coveredbranches | `0`                                                      |
 | Totalbranches   | `0`                                                      |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 100   | 100      | `cctor` |
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 1          | 100   | 100      | `get_Reflectors` |
+| 1          | 100   | 100      | `cctor`          |
+| 1          | 0     | 100      | `get_Introduced` |
+| 1          | 100   | 100      | `get_Number`     |
+| 1          | 0     | 100      | `get_Series`     |
+| 1          | 100   | 100      | `get_Wiring`     |
 
 ## Files
 
@@ -39,10 +44,10 @@
 ✔12:              new EnigmaReflector {Number="Reflector B Thin", Series="M4 R1 (M3 + Thin)",Wiring="ENKQAUYWJICOPBLMDXZVFTHRGS",Introduced="1940"},
 ✔13:              new EnigmaReflector {Number="Reflector C Thin", Series="M4 R1 (M3 + Thin)",Wiring="RDOBJNTKVEHMLFCWZAXGYIPSUQ",Introduced="1940"},
 ✔14:          };
-〰15:          public string Introduced { get; private set; }
-〰16:          public string Number { get; private set; }
-〰17:          public string Series { get; private set; }
-〰18:          public string Wiring { get; private set; }
+‼15:          public string Introduced { get; private set; }
+✔16:          public string Number { get; private set; }
+‼17:          public string Series { get; private set; }
+✔18:          public string Wiring { get; private set; }
 〰19:      }
 〰20:  }
 ```

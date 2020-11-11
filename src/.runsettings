@@ -40,9 +40,19 @@ https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-ana
 
 			<DataCollector friendlyName="XPlat code coverage">
 				<Configuration>
-					<ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
-					<Exclude>[coverlet.*.tests?]*,[*]Coverlet.Core*,[BinaryDataDecoders.*.Abstractions?]*,[BinaryDataDecoders.*.Tests?]*</Exclude>
-					<ExcludeByFile>**/*Registrar.cs,**/ServiceCollectionEx.cs,</ExcludeByFile>
+					<!--CompilerGeneratedAttribute,Obsolete,GeneratedCodeAttribute,-->
+					<ExcludeByAttribute>ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
+					<!--,[BinaryDataDecoders.*.Abstractions?]*,[BinaryDataDecoders.*.Tests?]*-->
+					<Exclude>[coverlet.*.tests?]*,[*]Coverlet.Core*</Exclude>
+					<!--<ExcludeByFile>**/*Registrar.cs,**/ServiceCollectionEx.cs,</ExcludeByFile>-->
+				
+					<!--<Format>cobertura</Format>-->
+					
+					<SingleHit>false</SingleHit>
+					<UseSourceLink>true</UseSourceLink>
+					<IncludeTestAssembly>true</IncludeTestAssembly>
+					<SkipAutoProps>true</SkipAutoProps>
+				
 				</Configuration>
 			</DataCollector>
 

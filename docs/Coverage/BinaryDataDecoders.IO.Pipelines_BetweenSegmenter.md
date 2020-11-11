@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.Segmenters.BetweenSegmenter` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                             |
 | Coveredlines    | `0`                                                           |
-| Uncoveredlines  | `21`                                                          |
-| Coverablelines  | `21`                                                          |
+| Uncoveredlines  | `24`                                                          |
+| Coverablelines  | `24`                                                          |
 | Totallines      | `60`                                                          |
 | Linecoverage    | `0`                                                           |
 | Coveredbranches | `0`                                                           |
@@ -17,10 +17,13 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
-| 12         | 0     | 0        | `Read`  |
+| Complexity | Lines | Branches | Name            |
+| :--------- | :---- | :------- | :-------------- |
+| 1          | 0     | 100      | `ctor`          |
+| 1          | 0     | 100      | `get_Start`     |
+| 1          | 0     | 100      | `get_End`       |
+| 1          | 0     | 100      | `get_MaxLength` |
+| 12         | 0     | 0        | `Read`          |
 
 ## Files
 
@@ -47,9 +50,9 @@
 ‼18:              MaxLength = maxLength;
 ‼19:          }
 〰20:  
-〰21:          public byte Start { get; }
-〰22:          public byte End { get; }
-〰23:          public long? MaxLength { get; }
+‼21:          public byte Start { get; }
+‼22:          public byte End { get; }
+‼23:          public long? MaxLength { get; }
 〰24:  
 〰25:          protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
 〰26:          {

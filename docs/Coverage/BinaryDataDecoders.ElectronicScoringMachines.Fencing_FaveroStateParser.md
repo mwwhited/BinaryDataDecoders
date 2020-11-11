@@ -6,14 +6,14 @@
 | :-------------- | :------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero.FaveroStateParser` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                          |
-| Coveredlines    | `25`                                                                            |
+| Coveredlines    | `39`                                                                            |
 | Uncoveredlines  | `2`                                                                             |
-| Coverablelines  | `27`                                                                            |
+| Coverablelines  | `41`                                                                            |
 | Totallines      | `108`                                                                           |
-| Linecoverage    | `92.5`                                                                          |
-| Coveredbranches | `3`                                                                             |
-| Totalbranches   | `6`                                                                             |
-| Branchcoverage  | `50`                                                                            |
+| Linecoverage    | `95.1`                                                                          |
+| Coveredbranches | `6`                                                                             |
+| Totalbranches   | `10`                                                                            |
+| Branchcoverage  | `60`                                                                            |
 
 ## Metrics
 
@@ -102,35 +102,35 @@
 〰74:              //Bit D5 = Left yellow lamp
 〰75:              //Bit D6 = 0  not used
 〰76:              //Bit D7 = 0  not used
-〰77:              (Lights left, Lights right) ParseLights(byte subFrame) => (
-〰78:                  left: (Lights)((subFrame & 0x5) | (subFrame >> 4 & 0x2)),
-〰79:                  right: (Lights)(((subFrame >> 1) & 0x5) | (subFrame >> 3 & 0x2))
-〰80:                  );
+✔77:              (Lights left, Lights right) ParseLights(byte subFrame) => (
+✔78:                  left: (Lights)((subFrame & 0x5) | (subFrame >> 4 & 0x2)),
+✔79:                  right: (Lights)(((subFrame >> 1) & 0x5) | (subFrame >> 3 & 0x2))
+✔80:                  );
 〰81:  
 〰82:              // The D0 e D1 bits define the number of matches (from 0 to 3):
 〰83:              //    D1=0 D0=0  Num.Matchs = 0
 〰84:              //    D1=0 D0=1  Num.Matchs = 1
 〰85:              //    D1=1 D0=0  Num.Matchs = 2
 〰86:              //    D1=1 D0=1  Num.Matchs = 3
-〰87:              byte Match(byte subFrame) => (byte)(subFrame & 0x3);
+✔87:              byte Match(byte subFrame) => (byte)(subFrame & 0x3);
 〰88:  
 〰89:              //The D2 e D3 bits define the signals of Priorite:
 〰90:              //   D2 = Right Priorite(if= 1 is ON)
 〰91:              //   D3 = Left Priorite(if= 1 is ON)
-〰92:              (bool left, bool right) ParsePriority(byte subFrame) => (
-〰93:                  left: (subFrame & 0x08) != 0x00,
-〰94:                  right: (subFrame & 0x04) != 0x00
-〰95:                  );
+✔92:              (bool left, bool right) ParsePriority(byte subFrame) => (
+✔93:                  left: (subFrame & 0x08) != 0x00,
+✔94:                  right: (subFrame & 0x04) != 0x00
+✔95:                  );
 〰96:  
 〰97:              //D0 = Right RED penalty card
 〰98:              //D1 = Left RED penalty card
 〰99:              //D2 = Right YELLOW penalty card
 〰100:             //D3 = Left YELLOW penalty card
-〰101:             (Cards left, Cards right) ParseCards(byte subFrame) => (
-〰102:               left: Card((byte)((subFrame >> 1) & 0x5)),
-〰103:               right: Card((byte)(subFrame & 0x5))
-〰104:               );
-〰105:             Cards Card(byte subFrame) => ((subFrame & 0x01) != 0 ? Cards.Red : Cards.None) | ((subFrame & 0x04) != 0 ? Cards.Yellow : Cards.None);
+✔101:             (Cards left, Cards right) ParseCards(byte subFrame) => (
+✔102:               left: Card((byte)((subFrame >> 1) & 0x5)),
+✔103:               right: Card((byte)(subFrame & 0x5))
+✔104:               );
+⚠105:             Cards Card(byte subFrame) => ((subFrame & 0x01) != 0 ? Cards.Red : Cards.None) | ((subFrame & 0x04) != 0 ? Cards.Yellow : Cards.None);
 〰106:         }
 〰107:     }
 〰108: }

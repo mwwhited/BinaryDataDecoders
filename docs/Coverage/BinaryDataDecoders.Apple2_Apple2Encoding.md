@@ -17,10 +17,10 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name       |
-| :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `cctor`    |
-| 2          | 100   | 50.0     | `GetChars` |
+| Complexity | Lines | Branches | Name         |
+| :--------- | :---- | :------- | :----------- |
+| 1          | 100   | 100      | `get_Apple2` |
+| 2          | 100   | 50.0     | `GetChars`   |
 
 ## Files
 

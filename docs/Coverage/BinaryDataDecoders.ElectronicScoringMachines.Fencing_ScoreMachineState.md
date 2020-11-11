@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.ScoreMachineState` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                          |
-| Coveredlines    | `6`                                                                             |
+| Coveredlines    | `10`                                                                            |
 | Uncoveredlines  | `3`                                                                             |
-| Coverablelines  | `9`                                                                             |
+| Coverablelines  | `13`                                                                            |
 | Totallines      | `41`                                                                            |
-| Linecoverage    | `66.6`                                                                          |
+| Linecoverage    | `76.9`                                                                          |
 | Coveredbranches | `0`                                                                             |
 | Totalbranches   | `8`                                                                             |
 | Branchcoverage  | `0`                                                                             |
@@ -21,6 +21,10 @@
 | :--------- | :---- | :------- | :------------ |
 | 1          | 0     | 100      | `cctor`       |
 | 1          | 100   | 100      | `ctor`        |
+| 1          | 100   | 100      | `get_Left`    |
+| 1          | 100   | 100      | `get_Right`   |
+| 1          | 100   | 100      | `get_Clock`   |
+| 1          | 100   | 100      | `get_Match`   |
 | 1          | 100   | 100      | `ToString`    |
 | 8          | 0     | 0        | `Equals`      |
 | 1          | 0     | 100      | `GetHashCode` |
@@ -50,10 +54,10 @@
 ✔18:              Clock = clock;
 ✔19:          }
 〰20:  
-〰21:          public Fencer Left { get; }
-〰22:          public Fencer Right { get; }
-〰23:          public TimeSpan Clock { get; }
-〰24:          public byte Match { get; }
+✔21:          public Fencer Left { get; }
+✔22:          public Fencer Right { get; }
+✔23:          public TimeSpan Clock { get; }
+✔24:          public byte Match { get; }
 〰25:  
 〰26:          public override string ToString()
 〰27:          {

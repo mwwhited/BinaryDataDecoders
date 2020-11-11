@@ -1,23 +1,25 @@
 ﻿# Build Log
 
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO\PathExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathExTests.cs#14) (14/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO\TempFileHandleTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/TempFileHandleTests.cs#11) (11/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [IO\PathNavigatorFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathNavigatorFactoryTests.cs#14) (14/28)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO\PathExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathExTests.cs#14) (14/28)
+  * [Xml\Xsl\XsltExtensionFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/XsltExtensionFactoryTests.cs#12) (12/28)
 * ⚠  Possible null reference argument for parameter 'nameTable' in 'XsltExtensionContext.XsltExtensionContext(NameTable nameTable)'.
-  * [Xml\Xsl\Extensions\XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#47) (47/52)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Xml\Xsl\Extensions\XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#17) (17/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Collections\ReversableEnumeratorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.cs#13) (13/28)
+  * [Xml\Xsl\Extensions\XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#163) (163/52)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [Xml\XPath\MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#14) (14/28)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Xml\Xsl\Extensions\XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#22) (22/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO\StreamExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/StreamExTests.cs#13) (13/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Collections\ReversableEnumeratorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.cs#10) (10/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [MemoryExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/MemoryExTests.cs#13) (13/28)
-* ⚠  'ISimpleNode.Next' hides inherited member 'INode.Next'. Use the new keyword if hiding was intended.
-  * [Xml\XPath\ISimpleNode.cs](../src/BinaryDataDecoders.ToolKit/Xml/XPath/ISimpleNode.cs#5) (5/16)
-* ⚠  'ISimpleNode.Previous' hides inherited member 'INode.Previous'. Use the new keyword if hiding was intended.
-  * [Xml\XPath\ISimpleNode.cs](../src/BinaryDataDecoders.ToolKit/Xml/XPath/ISimpleNode.cs#6) (6/16)
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [IO\PathEx.cs](../src/BinaryDataDecoders.ToolKit/IO/PathEx.cs#103) (103/47)
 * ⚠  Missing XML comment for publicly visible type or member 'IChecksumCalculator'
@@ -68,18 +70,10 @@
   * [Pipelines\SegmentionOptions.cs](../src/BinaryDataDecoders.IO.Abstractions/Pipelines/SegmentionOptions.cs#9) (9/9)
 * ⚠  Missing XML comment for publicly visible type or member 'SegmentionOptions.SecondStartInvalid'
   * [Pipelines\SegmentionOptions.cs](../src/BinaryDataDecoders.IO.Abstractions/Pipelines/SegmentionOptions.cs#10) (10/9)
-* ⚠  This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
-  * [UnitTest1.cs](../src/BinaryDataDecoders.Templating.Html.Tests/UnitTest1.cs#45) (45/27)
 * ⚠  Possible null reference argument for parameter 'obj' in 'XName ResolveNames.ToXName(object obj)'.
   * [SemanticModelNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.cs#99) (99/82)
 * ⚠  Possible null reference argument for parameter 'obj' in 'object ISemanticModelNodeExtensions.WrapWith(object obj, SemanticModel semantic)'.
   * [SemanticModelNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.cs#99) (99/95)
-* ⚠  Nullability of reference types in value of type '(XName, string)[]' doesn't match target type '(XName, string?)[]'.
-  * [SyntaxTreeNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.cs#28) (28/40)
-* ⚠  Nullability of reference types in value of type '(XName, string)[]' doesn't match target type '(XName, string?)[]'.
-  * [SyntaxTreeNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.cs#39) (39/40)
-* ⚠  Nullability of reference types in value of type '(XName, string)[]' doesn't match target type '(XName, string?)[]'.
-  * [SyntaxTreeNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.cs#45) (45/42)
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [SyntaxTreeNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.cs#70) (70/104)
 * ⚠  Converting null literal or possible null value to non-nullable type.
@@ -98,16 +92,6 @@
   * [SemanticModelNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.cs#171) (171/56)
 * ⚠  Possible null reference argument for parameter 'obj' in 'object ISemanticModelNodeExtensions.WrapWith(object obj, SemanticModel semantic)'.
   * [SemanticModelNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.cs#213) (213/74)
-* ⚠  Non-nullable property 'Input' is uninitialized. Consider declaring the property as nullable.
-  * [CommandLineOptions.cs](../src/BinaryDataDecoders.Xslt.Cli/CommandLineOptions.cs#8) (8/23)
-* ⚠  Non-nullable property 'Template' is uninitialized. Consider declaring the property as nullable.
-  * [CommandLineOptions.cs](../src/BinaryDataDecoders.Xslt.Cli/CommandLineOptions.cs#14) (14/23)
-* ⚠  Non-nullable property 'Output' is uninitialized. Consider declaring the property as nullable.
-  * [CommandLineOptions.cs](../src/BinaryDataDecoders.Xslt.Cli/CommandLineOptions.cs#17) (17/23)
-* ⚠  Non-nullable property 'Sandbox' is uninitialized. Consider declaring the property as nullable.
-  * [CommandLineOptions.cs](../src/BinaryDataDecoders.Xslt.Cli/CommandLineOptions.cs#20) (20/23)
-* ⚠  Possible null reference argument for parameter 'sandbox' in 'SandboxedTransformer.SandboxedTransformer(string sandbox)'.
-  * [Program.cs](../src/BinaryDataDecoders.Xslt.Cli/Program.cs#14) (14/48)
 * ⚠  'JsonPathParser' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
   * [obj\Release\netstandard2.1\JsonPathParser.cs](../src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathParser.cs#35) (35/22)
 * ⚠  'JsonPathLexer' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
@@ -116,10 +100,10 @@
   * [obj\Release\netstandard2.1\JsonPathVisitor.cs](../src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathVisitor.cs#33) (33/18)
 * ⚠  'JsonPathBaseVisitor<Result>' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
   * [obj\Release\netstandard2.1\JsonPathBaseVisitor.cs](../src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathBaseVisitor.cs#35) (35/22)
-* ⚠  Nullability of reference types in value of type 'IEnumerable<(XName, string)>' doesn't match target type 'IEnumerable<(XName name, string? value)>'.
-  * [JsonNavigatorFactory.cs](../src/BinaryDataDecoders.Text.Json/JsonNavigatorFactory.cs#57) (57/42)
 * ⚠  Nullability of reference types in value of type '(XName, string Tag)[]' doesn't match target type 'IEnumerable<(XName name, string? value)>'.
   * [YamlNavigatorFactory.cs](../src/BinaryDataDecoders.Yaml/YamlNavigatorFactory.cs#37) (37/43)
+* ⚠  Argument of type '(XName, object?)[]' cannot be used for parameter 'second' of type 'IEnumerable<(XName, object)>' in 'IEnumerable<(XName, object)> Enumerable.Concat<(XName, object)>(IEnumerable<(XName, object)> first, IEnumerable<(XName, object)> second)' due to differences in the nullability of reference types.
+  * [DacPacNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis.DacFx/DacPacNavigatorFactory.cs#67) (67/52)
 
 ## Links
 

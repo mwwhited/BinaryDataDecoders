@@ -6,9 +6,9 @@
 | :-------------- | :----------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.NumberExpression`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                |
-| Coveredlines    | `11`                                                                     |
+| Coveredlines    | `12`                                                                     |
 | Uncoveredlines  | `0`                                                                      |
-| Coverablelines  | `11`                                                                     |
+| Coverablelines  | `12`                                                                     |
 | Totallines      | `29`                                                                     |
 | Linecoverage    | `100`                                                                    |
 | Coveredbranches | `8`                                                                      |
@@ -17,14 +17,15 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name       |
-| :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `cctor`    |
-| 1          | 100   | 100      | `ctor`     |
-| 1          | 100   | 100      | `Evaluate` |
-| 1          | 100   | 100      | `Clone`    |
-| 1          | 100   | 100      | `ToString` |
-| 8          | 100   | 100      | `Equals`   |
+| Complexity | Lines | Branches | Name        |
+| :--------- | :---- | :------- | :---------- |
+| 1          | 100   | 100      | `cctor`     |
+| 1          | 100   | 100      | `get_Value` |
+| 1          | 100   | 100      | `ctor`      |
+| 1          | 100   | 100      | `Evaluate`  |
+| 1          | 100   | 100      | `Clone`     |
+| 1          | 100   | 100      | `ToString`  |
+| 8          | 100   | 100      | `Equals`    |
 
 ## Files
 
@@ -44,7 +45,7 @@
 〰11:      {
 ✔12:          private static readonly IExpressionEvaluator<T> _evaluator = ExpressionEvaluatorFactory.Create<T>();
 〰13:  
-〰14:          public T Value { get; }
+✔14:          public T Value { get; }
 ✔15:          public NumberExpression(T value) => Value = value;
 ✔16:          public override T Evaluate(IDictionary<string, T> variables) => Value;
 ✔17:          public override ExpressionBase<T> Clone() => new NumberExpression<T>(Value);

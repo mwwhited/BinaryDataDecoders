@@ -6,14 +6,14 @@
 | :-------------- | :------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.MemoryEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`          |
-| Coveredlines    | `7`                                   |
-| Uncoveredlines  | `11`                                  |
-| Coverablelines  | `18`                                  |
+| Coveredlines    | `33`                                  |
+| Uncoveredlines  | `21`                                  |
+| Coverablelines  | `54`                                  |
 | Totallines      | `126`                                 |
-| Linecoverage    | `38.8`                                |
-| Coveredbranches | `4`                                   |
-| Totalbranches   | `6`                                   |
-| Branchcoverage  | `66.6`                                |
+| Linecoverage    | `61.1`                                |
+| Coveredbranches | `17`                                  |
+| Totalbranches   | `34`                                  |
+| Branchcoverage  | `50`                                  |
 
 ## Metrics
 
@@ -25,6 +25,9 @@
 | 1          | 100   | 100      | `Split`              |
 | 1          | 0     | 100      | `Split`              |
 | 4          | 100   | 100      | `Split`              |
+| 4          | 80.0  | 75.00    | `SplitWithExclude`   |
+| 4          | 80.0  | 75.00    | `SplitWithReturn`    |
+| 8          | 83.33 | 87.50    | `SplitWithCarry`     |
 
 ## Files
 
@@ -55,10 +58,10 @@
 〰22:              {
 〰23:                  unchecked
 〰24:                  {
-〰25:                      if (input >= '0' && input <= '9') return (byte)(input - '0');
-〰26:                      else if (input >= 'A' && input <= 'F') return (byte)(input - 'A' + 10);
-〰27:                      else if (input >= 'a' && input <= 'f') return (byte)(input - 'a' + 10);
-〰28:                      else throw new InvalidOperationException();
+‼25:                      if (input >= '0' && input <= '9') return (byte)(input - '0');
+‼26:                      else if (input >= 'A' && input <= 'F') return (byte)(input - 'A' + 10);
+‼27:                      else if (input >= 'a' && input <= 'f') return (byte)(input - 'a' + 10);
+‼28:                      else throw new InvalidOperationException();
 〰29:                  }
 〰30:              }
 〰31:  
@@ -92,68 +95,68 @@
 〰59:  
 〰60:          private static IEnumerable<Memory<T>> SplitWithExclude<T>(this Memory<T> memory, T delimiter) where T : IEquatable<T>
 〰61:          {
-〰62:              var pointer = 0;
-〰63:              while (memory.Length > pointer)
+✔62:              var pointer = 0;
+⚠63:              while (memory.Length > pointer)
 〰64:              {
-〰65:                  var segment = memory.Span.Slice(pointer);
-〰66:                  var next = segment.IndexOf(delimiter) + 1;
+✔65:                  var segment = memory.Span.Slice(pointer);
+✔66:                  var next = segment.IndexOf(delimiter) + 1;
 〰67:  
-〰68:                  if (next <= 0)
+✔68:                  if (next <= 0)
 〰69:                  {
-〰70:                      yield return memory.Slice(pointer);
-〰71:                      yield break;
+✔70:                      yield return memory.Slice(pointer);
+‼71:                      yield break;
 〰72:                  }
 〰73:                  else
 〰74:                  {
-〰75:                      yield return memory.Slice(pointer, next - 1);
-〰76:                      pointer += next;
+✔75:                      yield return memory.Slice(pointer, next - 1);
+✔76:                      pointer += next;
 〰77:                  }
 〰78:              }
-〰79:          }
+‼79:          }
 〰80:  
 〰81:          private static IEnumerable<Memory<T>> SplitWithReturn<T>(this Memory<T> memory, T delimiter) where T : IEquatable<T>
 〰82:          {
-〰83:              var pointer = 0;
-〰84:              while (memory.Length > pointer)
+✔83:              var pointer = 0;
+⚠84:              while (memory.Length > pointer)
 〰85:              {
-〰86:                  var segment = memory.Span.Slice(pointer);
-〰87:                  var next = segment.IndexOf(delimiter) + 1;
+✔86:                  var segment = memory.Span.Slice(pointer);
+✔87:                  var next = segment.IndexOf(delimiter) + 1;
 〰88:  
-〰89:                  if (next <= 0)
+✔89:                  if (next <= 0)
 〰90:                  {
-〰91:                      yield return memory.Slice(pointer);
-〰92:                      yield break;
+✔91:                      yield return memory.Slice(pointer);
+‼92:                      yield break;
 〰93:                  }
 〰94:                  else
 〰95:                  {
-〰96:                      yield return memory.Slice(pointer, next);
-〰97:                      pointer += next;
+✔96:                      yield return memory.Slice(pointer, next);
+✔97:                      pointer += next;
 〰98:                  }
 〰99:              }
-〰100:         }
+‼100:         }
 〰101: 
 〰102:         private static IEnumerable<Memory<T>> SplitWithCarry<T>(this Memory<T> memory, T delimiter) where T : IEquatable<T>
 〰103:         {
-〰104:             var pointer = 0;
-〰105:             while (memory.Length > pointer)
+✔104:             var pointer = 0;
+⚠105:             while (memory.Length > pointer)
 〰106:             {
-〰107:                 var bump = delimiter.Equals(memory.Span[pointer]);
-〰108:                 var segmentPointer = bump ? pointer + 1 : pointer;
-〰109:                 var segment = memory.Span.Slice(segmentPointer);
-〰110:                 var next = segment.IndexOf(delimiter) + (bump ? 1 : 0);
+✔107:                 var bump = delimiter.Equals(memory.Span[pointer]);
+✔108:                 var segmentPointer = bump ? pointer + 1 : pointer;
+✔109:                 var segment = memory.Span.Slice(segmentPointer);
+✔110:                 var next = segment.IndexOf(delimiter) + (bump ? 1 : 0);
 〰111: 
-〰112:                 if (next <= 0)
+✔112:                 if (next <= 0)
 〰113:                 {
-〰114:                     yield return memory.Slice(pointer);
-〰115:                     yield break;
+✔114:                     yield return memory.Slice(pointer);
+‼115:                     yield break;
 〰116:                 }
 〰117:                 else
 〰118:                 {
-〰119:                     yield return memory.Slice(pointer, next);
-〰120:                     pointer += next;
+✔119:                     yield return memory.Slice(pointer, next);
+✔120:                     pointer += next;
 〰121:                 }
 〰122:             }
-〰123:         }
+‼123:         }
 〰124: #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 〰125:     }
 〰126: }

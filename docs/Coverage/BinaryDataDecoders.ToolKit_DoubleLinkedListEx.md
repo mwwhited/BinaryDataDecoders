@@ -7,23 +7,25 @@
 | Class           | `BinaryDataDecoders.ToolKit.Collections.DoubleLinkedListEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                |
 | Coveredlines    | `0`                                                         |
-| Uncoveredlines  | `11`                                                        |
-| Coverablelines  | `11`                                                        |
+| Uncoveredlines  | `23`                                                        |
+| Coverablelines  | `23`                                                        |
 | Totallines      | `98`                                                        |
 | Linecoverage    | `0`                                                         |
 | Coveredbranches | `0`                                                         |
-| Totalbranches   | `24`                                                        |
+| Totalbranches   | `36`                                                        |
 | Branchcoverage  | `0`                                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name          |
-| :--------- | :---- | :------- | :------------ |
-| 4          | 0     | 0        | `Rewind`      |
-| 4          | 0     | 0        | `FastForward` |
-| 4          | 0     | 0        | `Offset`      |
-| 6          | 0     | 0        | `Back`        |
-| 6          | 0     | 0        | `Forward`     |
+| Complexity | Lines | Branches | Name                   |
+| :--------- | :---- | :------- | :--------------------- |
+| 4          | 0     | 0        | `Rewind`               |
+| 4          | 0     | 0        | `FastForward`          |
+| 4          | 0     | 0        | `Offset`               |
+| 6          | 0     | 0        | `Back`                 |
+| 6          | 0     | 0        | `Forward`              |
+| 6          | 0     | 0        | `AsEnumerable`         |
+| 6          | 0     | 0        | `AsEnumerableReversed` |
 
 ## Files
 
@@ -106,26 +108,26 @@
 〰74:  
 〰75:          public static IEnumerable<T> AsEnumerable<T>(this IDoubleLinkedList<T> current)
 〰76:          {
-〰77:              IDoubleLinkedList<T>? list = current;
-〰78:              if (list == null) yield break;
+‼77:              IDoubleLinkedList<T>? list = current;
+‼78:              if (list == null) yield break;
 〰79:              do
 〰80:              {
-〰81:                  yield return list.Current;
-〰82:                  list = list.Next;
+‼81:                  yield return list.Current;
+‼82:                  list = list.Next;
 〰83:              }
-〰84:              while (list?.Next != null);
-〰85:          }
+‼84:              while (list?.Next != null);
+‼85:          }
 〰86:          public static IEnumerable<T> AsEnumerableReversed<T>(this IDoubleLinkedList<T> current)
 〰87:          {
-〰88:              IDoubleLinkedList<T>? list = current;
-〰89:              if (list == null) yield break;
+‼88:              IDoubleLinkedList<T>? list = current;
+‼89:              if (list == null) yield break;
 〰90:              do
 〰91:              {
-〰92:                  yield return list.Current;
-〰93:                  list = list.Previous;
+‼92:                  yield return list.Current;
+‼93:                  list = list.Previous;
 〰94:              }
-〰95:              while (list?.Previous != null);
-〰96:          }
+‼95:              while (list?.Previous != null);
+‼96:          }
 〰97:      }
 〰98:  }
 ```

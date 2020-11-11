@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.Fencer` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`               |
-| Coveredlines    | `6`                                                                  |
+| Coveredlines    | `10`                                                                 |
 | Uncoveredlines  | `4`                                                                  |
-| Coverablelines  | `10`                                                                 |
+| Coverablelines  | `14`                                                                 |
 | Totallines      | `46`                                                                 |
-| Linecoverage    | `60`                                                                 |
+| Linecoverage    | `71.4`                                                               |
 | Coveredbranches | `0`                                                                  |
 | Totalbranches   | `8`                                                                  |
 | Branchcoverage  | `0`                                                                  |
@@ -20,6 +20,10 @@
 | Complexity | Lines | Branches | Name            |
 | :--------- | :---- | :------- | :-------------- |
 | 1          | 100   | 100      | `ctor`          |
+| 1          | 100   | 100      | `get_Score`     |
+| 1          | 100   | 100      | `get_Cards`     |
+| 1          | 100   | 100      | `get_Lights`    |
+| 1          | 100   | 100      | `get_Priority`  |
 | 1          | 100   | 100      | `ToString`      |
 | 8          | 0     | 0        | `Equals`        |
 | 1          | 0     | 100      | `GetHashCode`   |
@@ -46,10 +50,10 @@
 ✔13:              Priority = priority;
 ✔14:          }
 〰15:  
-〰16:          public byte Score { get; }
-〰17:          public Cards Cards { get; }
-〰18:          public Lights Lights { get; }
-〰19:          public bool Priority { get; }
+✔16:          public byte Score { get; }
+✔17:          public Cards Cards { get; }
+✔18:          public Lights Lights { get; }
+✔19:          public bool Priority { get; }
 〰20:  
 〰21:          public override string ToString()
 〰22:          {

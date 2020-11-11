@@ -7,21 +7,24 @@
 | Class           | `BinaryDataDecoders.CodeAnalysis.SemanticModelNavigatorFactory` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis`                               |
 | Coveredlines    | `0`                                                             |
-| Uncoveredlines  | `95`                                                            |
-| Coverablelines  | `95`                                                            |
+| Uncoveredlines  | `149`                                                           |
+| Coverablelines  | `149`                                                           |
 | Totallines      | `230`                                                           |
 | Linecoverage    | `0`                                                             |
 | Coveredbranches | `0`                                                             |
-| Totalbranches   | `2`                                                             |
+| Totalbranches   | `98`                                                            |
 | Branchcoverage  | `0`                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name          |
-| :--------- | :---- | :------- | :------------ |
-| 1          | 0     | 100      | `ToNavigable` |
-| 1          | 0     | 100      | `AsNode`      |
-| 2          | 0     | 0        | `AddSymbols`  |
+| Complexity | Lines | Branches | Name                  |
+| :--------- | :---- | :------- | :-------------------- |
+| 1          | 0     | 100      | `ToNavigable`         |
+| 60         | 0     | 0        | `AsNode`              |
+| 8          | 0     | 0        | `GetSymbolAttributes` |
+| 2          | 0     | 0        | `AddSymbols`          |
+| 8          | 0     | 0        | `BuildChildren`       |
+| 20         | 0     | 0        | `GetSymbolChildren`   |
 
 ## Files
 
@@ -144,65 +147,65 @@
 〰114: 
 〰115:         private static IEnumerable<(XName, string?)> GetSymbolAttributes(ISymbol symbol)
 〰116:         {
-〰117:             if (symbol == null) yield break;
+‼117:             if (symbol == null) yield break;
 〰118: 
-〰119:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsAbstract), symbol.IsAbstract.ToString());
-〰120:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsExtern), symbol.IsExtern.ToString());
-〰121:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsSealed), symbol.IsSealed.ToString());
-〰122:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsOverride), symbol.IsOverride.ToString());
-〰123:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsVirtual), symbol.IsVirtual.ToString());
-〰124:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsStatic), symbol.IsStatic.ToString());
-〰125:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsDefinition), symbol.IsDefinition.ToString());
-〰126:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.Kind), symbol.Kind.ToString());
-〰127:             yield return (symbol.ToNamespaceUri() + "DisplayString", symbol.ToDisplayString(new SymbolDisplayFormat { }));
+‼119:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsAbstract), symbol.IsAbstract.ToString());
+‼120:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsExtern), symbol.IsExtern.ToString());
+‼121:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsSealed), symbol.IsSealed.ToString());
+‼122:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsOverride), symbol.IsOverride.ToString());
+‼123:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsVirtual), symbol.IsVirtual.ToString());
+‼124:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsStatic), symbol.IsStatic.ToString());
+‼125:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.IsDefinition), symbol.IsDefinition.ToString());
+‼126:             yield return (symbol.ToNamespaceUri() + nameof(ISymbol.Kind), symbol.Kind.ToString());
+‼127:             yield return (symbol.ToNamespaceUri() + "DisplayString", symbol.ToDisplayString(new SymbolDisplayFormat { }));
 〰128: 
-〰129:             if (symbol is IParameterSymbol parameter)
+‼129:             if (symbol is IParameterSymbol parameter)
 〰130:             {
-〰131:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.RefKind), parameter.RefKind.ToString());
-〰132:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsParams), parameter.IsParams.ToString());
-〰133:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsOptional), parameter.IsOptional.ToString());
-〰134:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsThis), parameter.IsThis.ToString());
-〰135:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsDiscard), parameter.IsDiscard.ToString());
-〰136:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.NullableAnnotation), parameter.NullableAnnotation.ToString());
-〰137:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.Ordinal), parameter.Ordinal.ToString());
+‼131:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.RefKind), parameter.RefKind.ToString());
+‼132:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsParams), parameter.IsParams.ToString());
+‼133:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsOptional), parameter.IsOptional.ToString());
+‼134:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsThis), parameter.IsThis.ToString());
+‼135:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.IsDiscard), parameter.IsDiscard.ToString());
+‼136:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.NullableAnnotation), parameter.NullableAnnotation.ToString());
+‼137:                 yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.Ordinal), parameter.Ordinal.ToString());
 〰138: 
-〰139:                 if (parameter.HasExplicitDefaultValue)
-〰140:                     yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.ExplicitDefaultValue), parameter.ExplicitDefaultValue?.ToString());
+‼139:                 if (parameter.HasExplicitDefaultValue)
+‼140:                     yield return (parameter.ToNamespaceUri() + nameof(IParameterSymbol.ExplicitDefaultValue), parameter.ExplicitDefaultValue?.ToString());
 〰141:             }
-〰142:         }
+‼142:         }
 〰143: 
 〰144:         private static IEnumerable<(XName, string?)> AddSymbols(this IEnumerable<(XName, string?)>? existing, SemanticModel semantic, SyntaxNode? node) =>
 ‼145:                 (existing ?? Enumerable.Empty<(XName, string?)>()).Concat(GetSymbolAttributes(semantic.GetSymbolInfo(node).Symbol));
 〰146: 
 〰147:         private static IEnumerable<(XName, object)> BuildChildren(SemanticModel semantic, SyntaxNode? node, ChildSyntaxList children)
 〰148:         {
-〰149:             if (node != null)
+‼149:             if (node != null)
 〰150:             {
-〰151:                 var symbolInfo = semantic.GetSymbolInfo(node);
-〰152:                 if (symbolInfo.Symbol != null)
+‼151:                 var symbolInfo = semantic.GetSymbolInfo(node);
+‼152:                 if (symbolInfo.Symbol != null)
 〰153:                 {
-〰154:                     yield return (node.ToXName(), node.WrapWith(semantic));
+‼154:                     yield return (node.ToXName(), node.WrapWith(semantic));
 〰155:                 }
 〰156: 
 〰157:                 //  semantic.is
-〰158:                 var constant = semantic.GetConstantValue(node);
-〰159:                 var declared = semantic.GetDeclaredSymbol(node);
-〰160:                 var member = semantic.GetMemberGroup(node);
-〰161:                 var operation = semantic.GetOperation(node);
-〰162:                 var preprocess = semantic.GetPreprocessingSymbolInfo(node);
-〰163:                 var type = semantic.GetTypeInfo(node);
+‼158:                 var constant = semantic.GetConstantValue(node);
+‼159:                 var declared = semantic.GetDeclaredSymbol(node);
+‼160:                 var member = semantic.GetMemberGroup(node);
+‼161:                 var operation = semantic.GetOperation(node);
+‼162:                 var preprocess = semantic.GetPreprocessingSymbolInfo(node);
+‼163:                 var type = semantic.GetTypeInfo(node);
 〰164:             }
 〰165:             if (children != null)
 〰166:             {
-〰167:                 foreach (var child in children)
+‼167:                 foreach (var child in children)
 〰168:                 {
-〰169:                     if (child.IsNode)
+‼169:                     if (child.IsNode)
 〰170:                     {
-〰171:                         yield return (child.ToXName(), child.AsNode().WrapWith(semantic));
+‼171:                         yield return (child.ToXName(), child.AsNode().WrapWith(semantic));
 〰172:                     }
 〰173:                     else
 〰174:                     {
-〰175:                         yield return (child.ToXName(), child.AsToken().WrapWith(semantic));
+‼175:                         yield return (child.ToXName(), child.AsToken().WrapWith(semantic));
 〰176:                     }
 〰177:                 }
 〰178:             }
@@ -221,41 +224,41 @@
 〰191:             //          false => i.AsToken().WrapWith(semantic)
 〰192:             //      }))
 〰193:             //);
-〰194:         }
+‼194:         }
 〰195: 
 〰196:         private static IEnumerable<(XName, object)> GetSymbolChildren(ISymbol symbol, SemanticModel semantic)
 〰197:         {
-〰198:             if (symbol == null) yield break;
-〰199:             else if (symbol is IFieldSymbol field)
+‼198:             if (symbol == null) yield break;
+‼199:             else if (symbol is IFieldSymbol field)
 〰200:             {
 〰201:             }
-〰202:             else if (symbol is INamedTypeSymbol namedType)
+‼202:             else if (symbol is INamedTypeSymbol namedType)
 〰203:             {
-〰204:                 if (namedType.IsTupleType)
-〰205:                     foreach (var part in namedType.TupleElements)
-〰206:                         yield return (symbol.ToNamespaceUri() + "TupleField", part.WrapWith(semantic));
-〰207:                 foreach (var part in namedType.TypeArguments)
-〰208:                     yield return (symbol.ToNamespaceUri() + "TypeArgument", part.WrapWith(semantic));
+‼204:                 if (namedType.IsTupleType)
+‼205:                     foreach (var part in namedType.TupleElements)
+‼206:                         yield return (symbol.ToNamespaceUri() + "TupleField", part.WrapWith(semantic));
+‼207:                 foreach (var part in namedType.TypeArguments)
+‼208:                     yield return (symbol.ToNamespaceUri() + "TypeArgument", part.WrapWith(semantic));
 〰209:             }
-〰210:             else if (symbol is IParameterSymbol parameter)
+‼210:             else if (symbol is IParameterSymbol parameter)
 〰211:             {
-〰212:                 foreach (var part in parameter.GetAttributes())
-〰213:                     yield return (symbol.ToNamespaceUri() + "Attribute", part.AttributeClass.WrapWith(semantic));
-〰214:                 foreach (var part in parameter.CustomModifiers)
-〰215:                     yield return (symbol.ToNamespaceUri() + "CustomModifier", part.Modifier.WrapWith(semantic));
-〰216:                 foreach (var part in parameter.RefCustomModifiers)
-〰217:                     yield return (symbol.ToNamespaceUri() + "RefCustomModifier", part.Modifier.WrapWith(semantic));
+‼212:                 foreach (var part in parameter.GetAttributes())
+‼213:                     yield return (symbol.ToNamespaceUri() + "Attribute", part.AttributeClass.WrapWith(semantic));
+‼214:                 foreach (var part in parameter.CustomModifiers)
+‼215:                     yield return (symbol.ToNamespaceUri() + "CustomModifier", part.Modifier.WrapWith(semantic));
+‼216:                 foreach (var part in parameter.RefCustomModifiers)
+‼217:                     yield return (symbol.ToNamespaceUri() + "RefCustomModifier", part.Modifier.WrapWith(semantic));
 〰218: 
-〰219:                 yield return (symbol.ToNamespaceUri() + "Type", parameter.Type.WrapWith(semantic));
+‼219:                 yield return (symbol.ToNamespaceUri() + "Type", parameter.Type.WrapWith(semantic));
 〰220:             }
-〰221:             else if (symbol is ITypeParameterSymbol typeParameter)
+‼221:             else if (symbol is ITypeParameterSymbol typeParameter)
 〰222:             {
 〰223:             }
 〰224:             else
 〰225:             {
 〰226: 
 〰227:             }
-〰228:         }
+‼228:         }
 〰229:     }
 〰230: }
 ```

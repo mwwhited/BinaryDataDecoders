@@ -12,7 +12,7 @@
 | Totallines      | `53`                                           |
 | Linecoverage    | `0`                                            |
 | Coveredbranches | `0`                                            |
-| Totalbranches   | `4`                                            |
+| Totalbranches   | `20`                                           |
 | Branchcoverage  | `0`                                            |
 
 ## Metrics
@@ -22,7 +22,7 @@
 | 1          | 0     | 100      | `ToNavigable` |
 | 1          | 0     | 100      | `ToNavigable` |
 | 1          | 0     | 100      | `AsNode`      |
-| 4          | 0     | 0        | `AsNode`      |
+| 20         | 0     | 0        | `AsNode`      |
 
 ## Files
 

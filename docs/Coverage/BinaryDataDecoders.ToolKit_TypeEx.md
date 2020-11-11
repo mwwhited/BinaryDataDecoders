@@ -7,12 +7,12 @@
 | Class           | `BinaryDataDecoders.ToolKit.TypeEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`        |
 | Coveredlines    | `1`                                 |
-| Uncoveredlines  | `4`                                 |
-| Coverablelines  | `5`                                 |
+| Uncoveredlines  | `5`                                 |
+| Coverablelines  | `6`                                 |
 | Totallines      | `63`                                |
-| Linecoverage    | `20`                                |
+| Linecoverage    | `16.6`                              |
 | Coveredbranches | `0`                                 |
-| Totalbranches   | `6`                                 |
+| Totalbranches   | `8`                                 |
 | Branchcoverage  | `0`                                 |
 
 ## Metrics
@@ -20,6 +20,7 @@
 | Complexity | Lines | Branches | Name                       |
 | :--------- | :---- | :------- | :------------------------- |
 | 1          | 100   | 100      | `GetResourceStream`        |
+| 2          | 0     | 0        | `GetResourceAsStringAsync` |
 | 4          | 0     | 0        | `GetXmlNamespace`          |
 | 2          | 0     | 0        | `GetXmlNamespaceForOutput` |
 
@@ -58,7 +59,7 @@
 〰28:          /// <param name="filename">name of resource</param>
 〰29:          /// <returns>string content of resource</returns>
 〰30:          public static async Task<string> GetResourceAsStringAsync(this Type context, string filename) =>
-〰31:              (await context.GetResourceStream(filename).ReadAsStringAsync()) ??"";
+‼31:              (await context.GetResourceStream(filename).ReadAsStringAsync()) ?? "";
 〰32:  
 〰33:          /// <summary>
 〰34:          /// Resolve XML Name space for referenced object.
@@ -72,7 +73,7 @@
 〰42:          /// <returns></returns>
 〰43:          public static string GetXmlNamespace(this Type type)
 〰44:          {
-‼45:              var ns = type.GetCustomAttribute<XmlRootAttribute>()?.Namespace;
+‼45:              var ns = type.GetCustomAttribute<XmlRootAttribute>(true)?.Namespace;
 ‼46:              if (string.IsNullOrWhiteSpace(ns)) return $"clr:{string.Join(',', type.AssemblyQualifiedName.Split(',').Where(s => !s.Contains('=')))}";
 ‼47:              return ns;
 〰48:          }

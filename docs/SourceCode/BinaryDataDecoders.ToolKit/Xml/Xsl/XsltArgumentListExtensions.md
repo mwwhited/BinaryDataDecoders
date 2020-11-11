@@ -15,6 +15,12 @@
 
 ### Members
 
+#### Private Static ReadOnly Field - _builder
+
+##### Summary
+
+ * Type: XsltExtensionFactory 
+
 #### Public Static Method - AddExtensions
 
 ##### Comments

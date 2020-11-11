@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.ToolKit.Collections.DoubleLinkedList`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                |
 | Coveredlines    | `0`                                                         |
-| Uncoveredlines  | `30`                                                        |
-| Coverablelines  | `30`                                                        |
+| Uncoveredlines  | `33`                                                        |
+| Coverablelines  | `33`                                                        |
 | Totallines      | `66`                                                        |
 | Linecoverage    | `0`                                                         |
 | Coveredbranches | `0`                                                         |
@@ -20,6 +20,9 @@
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
 | 1          | 0     | 100      | `ctor`         |
+| 1          | 0     | 100      | `get_Previous` |
+| 1          | 0     | 100      | `get_Current`  |
+| 1          | 0     | 100      | `get_Next`     |
 | 1          | 0     | 100      | `get_Position` |
 | 4          | 0     | 0        | `SyncPosition` |
 | 4          | 0     | 0        | `InsertBefore` |
@@ -41,9 +44,9 @@
 〰9:   
 ‼10:          public DoubleLinkedList(T item) => Current = item;
 〰11:  
-〰12:          public IDoubleLinkedList<T>? Previous { get; private set; }
-〰13:          public T Current { get; }
-〰14:          public IDoubleLinkedList<T>? Next { get; private set; }
+‼12:          public IDoubleLinkedList<T>? Previous { get; private set; }
+‼13:          public T Current { get; }
+‼14:          public IDoubleLinkedList<T>? Next { get; private set; }
 〰15:  
 ‼16:          public int Position => _position;
 〰17:  

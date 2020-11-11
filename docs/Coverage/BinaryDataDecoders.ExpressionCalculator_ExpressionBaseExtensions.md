@@ -6,13 +6,13 @@
 | :-------------- | :----------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBaseExtensions` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                      |
-| Coveredlines    | `25`                                                                           |
+| Coveredlines    | `36`                                                                           |
 | Uncoveredlines  | `3`                                                                            |
-| Coverablelines  | `28`                                                                           |
+| Coverablelines  | `39`                                                                           |
 | Totallines      | `102`                                                                          |
-| Linecoverage    | `89.2`                                                                         |
-| Coveredbranches | `14`                                                                           |
-| Totalbranches   | `14`                                                                           |
+| Linecoverage    | `92.3`                                                                         |
+| Coveredbranches | `22`                                                                           |
+| Totalbranches   | `22`                                                                           |
 | Branchcoverage  | `100`                                                                          |
 
 ## Metrics
@@ -21,6 +21,7 @@
 | :--------- | :---- | :------- | :------------------------- |
 | 1          | 100   | 100      | `Optimize`                 |
 | 1          | 100   | 100      | `EmptySet`                 |
+| 8          | 100   | 100      | `GetAllExpressions`        |
 | 4          | 100   | 100      | `Evaluate`                 |
 | 1          | 100   | 100      | `Evaluate`                 |
 | 2          | 100   | 100      | `GetDistinctVariableNames` |
@@ -65,19 +66,19 @@
 〰21:          public static IEnumerable<ExpressionBase<T>> GetAllExpressions<T>(this ExpressionBase<T> expression)
 〰22:              where T : struct, IComparable<T>, IEquatable<T>
 〰23:          {
-〰24:              yield return expression;
+✔24:              yield return expression;
 〰25:  
-〰26:              var subExpressions = expression switch
-〰27:              {
-〰28:                  InnerExpression<T> inner => GetAllExpressions(inner.Expression),
-〰29:                  UnaryOperatorExpression<T> unary => GetAllExpressions(unary.Operand),
-〰30:                  BinaryOperatorExpression<T> binary => GetAllExpressions(binary.Left).Concat(GetAllExpressions(binary.Right)),
-〰31:                  _ => Enumerable.Empty<ExpressionBase<T>>()
-〰32:              };
+✔26:              var subExpressions = expression switch
+✔27:              {
+✔28:                  InnerExpression<T> inner => GetAllExpressions(inner.Expression),
+✔29:                  UnaryOperatorExpression<T> unary => GetAllExpressions(unary.Operand),
+✔30:                  BinaryOperatorExpression<T> binary => GetAllExpressions(binary.Left).Concat(GetAllExpressions(binary.Right)),
+✔31:                  _ => Enumerable.Empty<ExpressionBase<T>>()
+✔32:              };
 〰33:  
-〰34:              foreach (var sub in subExpressions)
-〰35:                  yield return sub;
-〰36:          }
+✔34:              foreach (var sub in subExpressions)
+✔35:                  yield return sub;
+✔36:          }
 〰37:  
 〰38:          public static T Evaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, T value)> variables)
 〰39:              where T : struct, IComparable<T>, IEquatable<T> =>

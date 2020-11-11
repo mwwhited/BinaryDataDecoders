@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.Segmenters.SegmentReadResult` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                              |
 | Coveredlines    | `0`                                                            |
-| Uncoveredlines  | `4`                                                            |
-| Coverablelines  | `4`                                                            |
+| Uncoveredlines  | `6`                                                            |
+| Coverablelines  | `6`                                                            |
 | Totallines      | `16`                                                           |
 | Linecoverage    | `0`                                                            |
 | Coveredbranches | `0`                                                            |
@@ -16,9 +16,11 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| Complexity | Lines | Branches | Name                |
+| :--------- | :---- | :------- | :------------------ |
+| 1          | 0     | 100      | `ctor`              |
+| 1          | 0     | 100      | `get_Status`        |
+| 1          | 0     | 100      | `get_RemainingData` |
 
 ## Files
 
@@ -37,8 +39,8 @@
 ‼10:              this.RemainingData = remainingData;
 ‼11:          }
 〰12:  
-〰13:          public SegmentationStatus Status { get; }
-〰14:          public ReadOnlySequence<byte> RemainingData { get; }
+‼13:          public SegmentationStatus Status { get; }
+‼14:          public ReadOnlySequence<byte> RemainingData { get; }
 〰15:      }
 〰16:  }
 ```

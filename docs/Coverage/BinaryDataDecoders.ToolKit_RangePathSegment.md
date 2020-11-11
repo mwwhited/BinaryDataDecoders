@@ -6,9 +6,9 @@
 | :-------------- | :--------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.RangePathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
-| Coveredlines    | `6`                                                        |
+| Coveredlines    | `9`                                                        |
 | Uncoveredlines  | `0`                                                        |
-| Coverablelines  | `6`                                                        |
+| Coverablelines  | `9`                                                        |
 | Totallines      | `18`                                                       |
 | Linecoverage    | `100`                                                      |
 | Coveredbranches | `0`                                                        |
@@ -16,10 +16,13 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name       |
-| :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `ctor`     |
-| 1          | 100   | 100      | `ToString` |
+| Complexity | Lines | Branches | Name        |
+| :--------- | :---- | :------- | :---------- |
+| 1          | 100   | 100      | `ctor`      |
+| 1          | 100   | 100      | `get_Start` |
+| 1          | 100   | 100      | `get_End`   |
+| 1          | 100   | 100      | `get_Step`  |
+| 1          | 100   | 100      | `ToString`  |
 
 ## Files
 
@@ -37,9 +40,9 @@
 ✔9:               Step = step;
 ✔10:          }
 〰11:  
-〰12:          public IPathSegment<int>? Start { get; }
-〰13:          public IPathSegment<int>? End { get; }
-〰14:          public IPathSegment<int>? Step { get; }
+✔12:          public IPathSegment<int>? Start { get; }
+✔13:          public IPathSegment<int>? End { get; }
+✔14:          public IPathSegment<int>? Step { get; }
 〰15:  
 ✔16:          public override string ToString() => $"{Start}:{End}:{Step}";
 〰17:      }

@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge.SgStateParser` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                           |
 | Coveredlines    | `0`                                                                              |
-| Uncoveredlines  | `66`                                                                             |
-| Coverablelines  | `66`                                                                             |
+| Uncoveredlines  | `68`                                                                             |
+| Coverablelines  | `68`                                                                             |
 | Totallines      | `150`                                                                            |
 | Linecoverage    | `0`                                                                              |
 | Coveredbranches | `0`                                                                              |
@@ -69,7 +69,7 @@
 〰40:  
 〰41:                  static byte GetScore(Memory<byte> s)
 〰42:                  {
-〰43:                      return (byte)((s.Span[0] - _0) * 100 + (s.Span[1] - _0) * 10 + (s.Span[2] - _0));
+‼43:                      return (byte)((s.Span[0] - _0) * 100 + (s.Span[1] - _0) * 10 + (s.Span[2] - _0));
 〰44:                  }
 〰45:  
 ‼46:                  var scores = new[]
@@ -147,7 +147,7 @@
 ‼118:                 var scoreSf = subFrames.ElementAt(1).Split(_C);
 〰119:                 static byte GetScore(Memory<byte> s)
 〰120:                 {
-〰121:                     return (byte)((s.Span[0] - _0) * 10 + (s.Span[1] - _0));
+‼121:                     return (byte)((s.Span[0] - _0) * 10 + (s.Span[1] - _0));
 〰122:                 }
 〰123: 
 ‼124:                 var scores = new[]

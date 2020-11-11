@@ -6,14 +6,14 @@
 | :-------------- | :-------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Text.Json.JsonNavigatorFactory` |
 | Assembly        | `BinaryDataDecoders.Text.Json`                      |
-| Coveredlines    | `59`                                                |
-| Uncoveredlines  | `2`                                                 |
+| Coveredlines    | `44`                                                |
+| Uncoveredlines  | `17`                                                |
 | Coverablelines  | `61`                                                |
 | Totallines      | `87`                                                |
-| Linecoverage    | `96.7`                                              |
-| Coveredbranches | `5`                                                 |
-| Totalbranches   | `6`                                                 |
-| Branchcoverage  | `83.3`                                              |
+| Linecoverage    | `72.1`                                              |
+| Coveredbranches | `16`                                                |
+| Totalbranches   | `34`                                                |
+| Branchcoverage  | `47`                                                |
 
 ## Metrics
 
@@ -23,7 +23,7 @@
 | 1          | 100   | 100      | `ToNavigable`     |
 | 1          | 100   | 100      | `ToNavigable`     |
 | 1          | 0     | 100      | `AsNode`          |
-| 6          | 100   | 83.33    | `AsNode`          |
+| 34         | 73.68 | 47.05    | `AsNode`          |
 
 ## Files
 
@@ -63,55 +63,55 @@
 ✔31:                  rootName,
 ✔32:                  json.Clone(),
 ✔33:  
-✔34:                  valueSelector: v => v switch
+⚠34:                  valueSelector: v => v switch
 ✔35:                  {
-✔36:                      JsonElement element => element.ValueKind switch
+⚠36:                      JsonElement element => element.ValueKind switch
 ✔37:                      {
-✔38:                          JsonValueKind.Array => null,
+‼38:                          JsonValueKind.Array => null,
 ✔39:                          JsonValueKind.Object => null,
 ✔40:  
 ✔41:                          JsonValueKind.String => element.GetString(),
 ✔42:                          _ => element.GetRawText()
 ✔43:                      },
 ✔44:  
-✔45:                      JsonProperty property => property.Value.ValueKind switch
-✔46:                      {
-✔47:                          JsonValueKind.Array => null,
-✔48:                          JsonValueKind.Object => null,
-✔49:  
-✔50:                          JsonValueKind.String => property.Value.GetString(),
-✔51:                          _ => property.Value.GetRawText()
-✔52:                      },
+‼45:                      JsonProperty property => property.Value.ValueKind switch
+‼46:                      {
+‼47:                          JsonValueKind.Array => null,
+‼48:                          JsonValueKind.Object => null,
+‼49:  
+‼50:                          JsonValueKind.String => property.Value.GetString(),
+‼51:                          _ => property.Value.GetRawText()
+‼52:                      },
 ✔53:  
-✔54:                      _ => throw new NotSupportedException(),
+‼54:                      _ => throw new NotSupportedException(),
 ✔55:                  },
 ✔56:  
-✔57:                   attributeSelector: a => a switch
+⚠57:                   attributeSelector: a => a switch
 ✔58:                   {
-✔59:                       JsonElement element => new[]
+✔59:                       JsonElement element => new (XName, string?)[]
 ✔60:                       {
 ✔61:                          (XName.Get("kind", ""), element.ValueKind.ToString()),
 ✔62:  
 ✔63:                       }.Where(a => a.Item2 != null).AsEnumerable(),
 ✔64:  
-✔65:                       JsonProperty property => null,
+‼65:                       JsonProperty property => null,
 ✔66:  
-✔67:                       _ => throw new NotSupportedException(),
+‼67:                       _ => throw new NotSupportedException(),
 ✔68:                   },
 ✔69:  
-✔70:                   childSelector: c => c switch
+⚠70:                   childSelector: c => c switch
 ✔71:                   {
 ✔72:                       JsonElement element => element.ValueKind switch
 ✔73:                       {
-✔74:                           JsonValueKind.Array => element.EnumerateArray().Select(i => (XName.Get("item", rootName.NamespaceName), (object)i)),
+‼74:                           JsonValueKind.Array => element.EnumerateArray().Select(i => (XName.Get("item", rootName.NamespaceName), (object)i)),
 ✔75:                           JsonValueKind.Object => element.EnumerateObject().Select(i => (XName.Get(i.Name, rootName.NamespaceName), (object)i.Value)),
 ✔76:  
 ✔77:                           _ => null
 ✔78:                       },
 ✔79:  
-✔80:                       JsonProperty property => new[] { (XName.Get(property.Name, rootName.NamespaceName), (object)property.Value) }.AsEnumerable(),
+‼80:                       JsonProperty property => new[] { (XName.Get(property.Name, rootName.NamespaceName), (object)property.Value) }.AsEnumerable(),
 ✔81:  
-✔82:                       _ => throw new NotSupportedException()
+‼82:                       _ => throw new NotSupportedException()
 ✔83:                   }
 ✔84:              );
 〰85:          }

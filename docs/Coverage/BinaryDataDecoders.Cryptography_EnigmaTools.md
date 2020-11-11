@@ -11,15 +11,15 @@
 | Coverablelines  | `12`                                                 |
 | Totallines      | `37`                                                 |
 | Linecoverage    | `91.6`                                               |
-| Coveredbranches | `2`                                                  |
-| Totalbranches   | `4`                                                  |
-| Branchcoverage  | `50`                                                 |
+| Coveredbranches | `5`                                                  |
+| Totalbranches   | `8`                                                  |
+| Branchcoverage  | `62.5`                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `Clean`    |
+| 4          | 100   | 75.00    | `Clean`    |
 | 1          | 100   | 100      | `AsString` |
 | 1          | 100   | 100      | `SplitAt`  |
 | 4          | 85.71 | 50.0     | `SwapSet`  |
@@ -41,7 +41,7 @@
 〰10:      {
 〰11:          public static IEnumerable<char> Clean(this IEnumerable<char> input)
 〰12:          {
-✔13:              return input.Select(c => (char)(c > 'Z' ? c - 32 : c))
+⚠13:              return input.Select(c => (char)(c > 'Z' ? c - 32 : c))
 ✔14:                          .Where(c => c >= 'A' && c <= 'Z');
 〰15:          }
 〰16:          public static string AsString(this IEnumerable<char> input)

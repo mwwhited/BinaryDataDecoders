@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.Templating.Html.HtmlTemplateTransform` |
 | Assembly        | `BinaryDataDecoders.Templating.Html`                       |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `25`                                                       |
-| Coverablelines  | `25`                                                       |
+| Uncoveredlines  | `39`                                                       |
+| Coverablelines  | `39`                                                       |
 | Totallines      | `67`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
@@ -20,6 +20,7 @@
 | :--------- | :---- | :------- | :----------------- |
 | 1          | 0     | 100      | `ctor`             |
 | 1          | 0     | 100      | `ToXPathNavigator` |
+| 1          | 0     | 100      | `Transform`        |
 
 ## Files
 
@@ -74,23 +75,23 @@
 〰46:  
 〰47:          public async Task<string> Transform(object source, string template)
 〰48:          {
-〰49:              var pathResolver = await _instanceFactory.GetPathResolver(source);
+‼49:              var pathResolver = await _instanceFactory.GetPathResolver(source);
 〰50:  
-〰51:              var html = new HtmlDocument()
-〰52:              {
-〰53:                  DisableServerSideCode = true,
-〰54:              };
-〰55:              html.LoadHtml(template);
+‼51:              var html = new HtmlDocument()
+‼52:              {
+‼53:                  DisableServerSideCode = true,
+‼54:              };
+‼55:              html.LoadHtml(template);
 〰56:  
-〰57:              var result = await _htmlVisitor.VisitAsync(
-〰58:                  node: html.DocumentNode,
-〰59:                  root: pathResolver,
-〰60:                  current: pathResolver,
-〰61:                  scoped: new (string scope, IPathResolver data)[0]
-〰62:                  );
+‼57:              var result = await _htmlVisitor.VisitAsync(
+‼58:                  node: html.DocumentNode,
+‼59:                  root: pathResolver,
+‼60:                  current: pathResolver,
+‼61:                  scoped: new (string scope, IPathResolver data)[0]
+‼62:                  );
 〰63:  
-〰64:              return result.WriteTo();
-〰65:          }
+‼64:              return result.WriteTo();
+‼65:          }
 〰66:      }
 〰67:  }
 ```

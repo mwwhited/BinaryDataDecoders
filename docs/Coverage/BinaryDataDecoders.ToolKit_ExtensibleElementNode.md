@@ -46,7 +46,7 @@
 〰19:              Func<object, IEnumerable<XName>?>? namespacesSelector = null,
 〰20:              Predicate<object>? preserveWhitespace = null
 〰21:              )
-✔22:              : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector)
+✔22:              : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
 〰23:          {
 ✔24:          }
 〰25:      }

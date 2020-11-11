@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNamespaceNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                     |
 | Coveredlines    | `0`                                                              |
-| Uncoveredlines  | `13`                                                             |
-| Coverablelines  | `13`                                                             |
+| Uncoveredlines  | `17`                                                             |
+| Coverablelines  | `17`                                                             |
 | Totallines      | `34`                                                             |
 | Linecoverage    | `0`                                                              |
 | Coveredbranches | `0`                                                              |
@@ -19,7 +19,12 @@
 | Complexity | Lines | Branches | Name                                                 |
 | :--------- | :---- | :------- | :--------------------------------------------------- |
 | 1          | 0     | 100      | `ctor`                                               |
+| 1          | 0     | 100      | `get_Parent`                                         |
+| 1          | 0     | 100      | `get_Name`                                           |
 | 1          | 0     | 100      | `get_Value`                                          |
+| 1          | 0     | 100      | `get_Next`                                           |
+| 1          | 0     | 100      | `get_Previous`                                       |
+| 1          | 0     | 100      | `get_NodeType`                                       |
 | 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathINodeget_Next`     |
 | 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathINodeget_Previous` |
 
@@ -50,12 +55,12 @@
 ‼20:              Name = name;
 ‼21:              _item = item;
 ‼22:          }
-〰23:          public INode? Parent { get; }
-〰24:          public XName Name { get; }
+‼23:          public INode? Parent { get; }
+‼24:          public XName Name { get; }
 ‼25:          public string? Value => Name.NamespaceName;
 〰26:  
-〰27:          public INamespaceNode? Next { get; internal set; }
-〰28:          public INamespaceNode? Previous { get; internal set; }
+‼27:          public INamespaceNode? Next { get; internal set; }
+‼28:          public INamespaceNode? Previous { get; internal set; }
 〰29:  
 ‼30:          public XPathNodeType NodeType { get; } = XPathNodeType.Namespace;
 ‼31:          INode? INode.Next => Next;

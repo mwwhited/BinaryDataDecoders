@@ -6,9 +6,9 @@
 | :-------------- | :------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.FunctionPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                  |
-| Coveredlines    | `8`                                                           |
+| Coveredlines    | `10`                                                          |
 | Uncoveredlines  | `0`                                                           |
-| Coverablelines  | `8`                                                           |
+| Coverablelines  | `10`                                                          |
 | Totallines      | `19`                                                          |
 | Linecoverage    | `100`                                                         |
 | Coveredbranches | `0`                                                           |
@@ -16,10 +16,12 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name       |
-| :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `ctor`     |
-| 1          | 100   | 100      | `ToString` |
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 1          | 100   | 100      | `get_Name`       |
+| 1          | 100   | 100      | `get_Parameters` |
+| 1          | 100   | 100      | `ctor`           |
+| 1          | 100   | 100      | `ToString`       |
 
 ## Files
 
@@ -30,8 +32,8 @@
 〰2:   {
 〰3:       public class FunctionPathSegment : IPathSegment
 〰4:       {
-〰5:           public IPathSegment Name { get; }
-〰6:           public IPathSegment Parameters { get; }
+✔5:           public IPathSegment Name { get; }
+✔6:           public IPathSegment Parameters { get; }
 〰7:   
 ✔8:           public FunctionPathSegment(
 ✔9:                IPathSegment name,

@@ -6,19 +6,25 @@
 | :-------------- | :--------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaRotor` |
 | Assembly        | `BinaryDataDecoders.Cryptography`                    |
-| Coveredlines    | `27`                                                 |
-| Uncoveredlines  | `0`                                                  |
-| Coverablelines  | `27`                                                 |
+| Coveredlines    | `31`                                                 |
+| Uncoveredlines  | `1`                                                  |
+| Coverablelines  | `32`                                                 |
 | Totallines      | `41`                                                 |
-| Linecoverage    | `100`                                                |
+| Linecoverage    | `96.8`                                               |
 | Coveredbranches | `0`                                                  |
 | Totalbranches   | `0`                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 100   | 100      | `cctor` |
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 1          | 100   | 100      | `get_Rotors`     |
+| 1          | 100   | 100      | `cctor`          |
+| 1          | 0     | 100      | `get_Introduced` |
+| 1          | 100   | 100      | `get_Number`     |
+| 1          | 100   | 100      | `get_RotateOn`   |
+| 1          | 100   | 100      | `get_Series`     |
+| 1          | 100   | 100      | `get_Wiring`     |
 
 ## Files
 
@@ -59,11 +65,11 @@
 ✔32:              // new EnigmaRotor {Number="ETW", Series="Enigma I",Wiring="ABCDEFGHIJKLMNOPQRSTUVWXYZ",Introduced="",RotateOn=new char[]{}},
 ✔33:          };
 〰34:  
-〰35:          public string Introduced { get; private set; }
-〰36:          public string Number { get; private set; }
-〰37:          public char[] RotateOn { get; private set; }
-〰38:          public string Series { get; private set; }
-〰39:          public string Wiring { get; private set; }
+‼35:          public string Introduced { get; private set; }
+✔36:          public string Number { get; private set; }
+✔37:          public char[] RotateOn { get; private set; }
+✔38:          public string Series { get; private set; }
+✔39:          public string Wiring { get; private set; }
 〰40:      }
 〰41:  }
 ```

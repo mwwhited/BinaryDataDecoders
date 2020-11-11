@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.Definitions.SegmentExtensionDefinition` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                                        |
 | Coveredlines    | `0`                                                                      |
-| Uncoveredlines  | `6`                                                                      |
-| Coverablelines  | `6`                                                                      |
+| Uncoveredlines  | `10`                                                                     |
+| Coverablelines  | `10`                                                                     |
 | Totallines      | `21`                                                                     |
 | Linecoverage    | `0`                                                                      |
 | Coveredbranches | `0`                                                                      |
@@ -16,9 +16,13 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 1          | 0     | 100      | `ctor`           |
+| 1          | 0     | 100      | `get_Type`       |
+| 1          | 0     | 100      | `get_Length`     |
+| 1          | 0     | 100      | `get_Postion`    |
+| 1          | 0     | 100      | `get_Endianness` |
 
 ## Files
 
@@ -40,10 +44,10 @@
 ‼13:              Endianness = endianness;
 ‼14:          }
 〰15:  
-〰16:          public Type Type { get; }
-〰17:          public int Length { get; }
-〰18:          public long Postion { get; }
-〰19:          public Endianness Endianness { get; }
+‼16:          public Type Type { get; }
+‼17:          public int Length { get; }
+‼18:          public long Postion { get; }
+‼19:          public Endianness Endianness { get; }
 〰20:      }
 〰21:  }
 ```

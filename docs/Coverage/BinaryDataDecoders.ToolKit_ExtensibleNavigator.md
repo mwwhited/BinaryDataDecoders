@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNavigator` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
-| Coveredlines    | `57`                                                       |
+| Coveredlines    | `59`                                                       |
 | Uncoveredlines  | `18`                                                       |
-| Coverablelines  | `75`                                                       |
+| Coverablelines  | `77`                                                       |
 | Totallines      | `166`                                                      |
-| Linecoverage    | `76`                                                       |
+| Linecoverage    | `76.6`                                                     |
 | Coveredbranches | `36`                                                       |
 | Totalbranches   | `56`                                                       |
 | Branchcoverage  | `64.2`                                                     |
@@ -32,6 +32,8 @@
 | 2          | 100   | 50.0     | `get_IsEmptyElement`   |
 | 2          | 0     | 0        | `get_HasAttributes`    |
 | 2          | 100   | 50.0     | `get_HasChildren`      |
+| 1          | 100   | 100      | `get_BaseURI`          |
+| 1          | 100   | 100      | `get_NameTable`        |
 | 1          | 100   | 100      | `Clone`                |
 | 1          | 0     | 100      | `MoveToId`             |
 | 2          | 80.0  | 50.0     | `IsSamePosition`       |
@@ -114,8 +116,8 @@
 ‼62:          public override bool HasAttributes => _current is IElementNode node && node.FirstAttribute != null;
 ⚠63:          public override bool HasChildren => _current is IElementNode node && node.FirstChild != null;
 〰64:  
-〰65:          public override string BaseURI { get; }
-〰66:          public override XmlNameTable NameTable { get; }
+✔65:          public override string BaseURI { get; }
+✔66:          public override XmlNameTable NameTable { get; }
 ✔67:          public override XPathNavigator Clone() => new ExtensibleNavigator(_current, BaseURI, NameTable, _namespacePrefixes);
 〰68:  
 ‼69:          public override bool MoveToId(string id) => false;

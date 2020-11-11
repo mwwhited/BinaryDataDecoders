@@ -143,6 +143,10 @@
   * [ToXPathTest](BinaryDataDecoders.Text.Json.Tests/JsonPath.Parser.JsonPathFactoryTests.md#ToXPathTest)
 ## BinaryDataDecoders.ToolKit.Tests
 
+* [IO.StreamExTests](BinaryDataDecoders.ToolKit.Tests/IO.StreamExTests.md)
+  * [AsTempFileAsyncTest](BinaryDataDecoders.ToolKit.Tests/IO.StreamExTests.md#AsTempFileAsyncTest)
+* [IO.TempFileHandleTests](BinaryDataDecoders.ToolKit.Tests/IO.TempFileHandleTests.md)
+  * [CreateTempFileHandleTest](BinaryDataDecoders.ToolKit.Tests/IO.TempFileHandleTests.md#CreateTempFileHandleTest)
 * [MemoryExTests](BinaryDataDecoders.ToolKit.Tests/MemoryExTests.md)
   * [SplitTest_Carry](BinaryDataDecoders.ToolKit.Tests/MemoryExTests.md#SplitTest_Carry)
   * [SplitTest_Exclude](BinaryDataDecoders.ToolKit.Tests/MemoryExTests.md#SplitTest_Exclude)

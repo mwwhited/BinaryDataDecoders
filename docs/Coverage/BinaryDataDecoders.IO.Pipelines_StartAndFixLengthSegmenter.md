@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.Segmenters.StartAndFixLengthSegmenter` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                                       |
 | Coveredlines    | `0`                                                                     |
-| Uncoveredlines  | `30`                                                                    |
-| Coverablelines  | `30`                                                                    |
+| Uncoveredlines  | `33`                                                                    |
+| Coverablelines  | `33`                                                                    |
 | Totallines      | `83`                                                                    |
 | Linecoverage    | `0`                                                                     |
 | Coveredbranches | `0`                                                                     |
@@ -17,10 +17,13 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
-| 18         | 0     | 0        | `Read`  |
+| Complexity | Lines | Branches | Name                      |
+| :--------- | :---- | :------- | :------------------------ |
+| 1          | 0     | 100      | `ctor`                    |
+| 1          | 0     | 100      | `get_Start`               |
+| 1          | 0     | 100      | `get_FixedLength`         |
+| 1          | 0     | 100      | `get_ExtensionDefinition` |
+| 18         | 0     | 0        | `Read`                    |
 
 ## Files
 
@@ -50,9 +53,9 @@
 ‼21:              ExtensionDefinition = extensionDefinition;
 ‼22:          }
 〰23:  
-〰24:          public byte Start { get; }
-〰25:          public long FixedLength { get; }
-〰26:          public SegmentExtensionDefinition? ExtensionDefinition { get; }
+‼24:          public byte Start { get; }
+‼25:          public long FixedLength { get; }
+‼26:          public SegmentExtensionDefinition? ExtensionDefinition { get; }
 〰27:  
 〰28:          protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
 〰29:          {

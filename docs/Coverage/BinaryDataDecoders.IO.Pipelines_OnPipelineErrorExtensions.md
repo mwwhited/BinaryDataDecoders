@@ -7,18 +7,20 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.Definitions.OnPipelineErrorExtensions` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                                       |
 | Coveredlines    | `0`                                                                     |
-| Uncoveredlines  | `5`                                                                     |
-| Coverablelines  | `5`                                                                     |
+| Uncoveredlines  | `7`                                                                     |
+| Coverablelines  | `7`                                                                     |
 | Totallines      | `20`                                                                    |
 | Linecoverage    | `0`                                                                     |
 | Coveredbranches | `0`                                                                     |
-| Totalbranches   | `0`                                                                     |
+| Totalbranches   | `2`                                                                     |
+| Branchcoverage  | `0`                                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `cctor` |
+| Complexity | Lines | Branches | Name     |
+| :--------- | :---- | :------- | :------- |
+| 2          | 0     | 0        | `Handle` |
+| 1          | 0     | 100      | `cctor`  |
 
 ## Files
 
@@ -35,8 +37,8 @@
 〰8:       {
 〰9:           internal static async Task<PipelineErrorHandling> Handle(this OnPipelineError? handler, object sender, Exception exception)
 〰10:          {
-〰11:              return await (handler ?? DefaultPipelineError).Invoke(sender, exception);
-〰12:          }
+‼11:              return await (handler ?? DefaultPipelineError).Invoke(sender, exception);
+‼12:          }
 〰13:  
 ‼14:          internal static readonly OnPipelineError DefaultPipelineError = (s, e) =>
 ‼15:          {

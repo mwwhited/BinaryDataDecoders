@@ -7,13 +7,13 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.XPathExtensions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                           |
 | Coveredlines    | `4`                                                    |
-| Uncoveredlines  | `1`                                                    |
-| Coverablelines  | `5`                                                    |
+| Uncoveredlines  | `19`                                                   |
+| Coverablelines  | `23`                                                   |
 | Totallines      | `71`                                                   |
-| Linecoverage    | `80`                                                   |
+| Linecoverage    | `17.3`                                                 |
 | Coveredbranches | `1`                                                    |
-| Totalbranches   | `2`                                                    |
-| Branchcoverage  | `50`                                                   |
+| Totalbranches   | `18`                                                   |
+| Branchcoverage  | `5.5`                                                  |
 
 ## Metrics
 
@@ -24,6 +24,7 @@
 | 1          | 100   | 100      | `MergeWith`         |
 | 1          | 100   | 100      | `MergeWith`         |
 | 1          | 0     | 100      | `AsNavigatorSet`    |
+| 16         | 0     | 0        | `AsNodeSet`         |
 
 ## Files
 
@@ -59,46 +60,46 @@
 〰27:  
 〰28:          public static IEnumerable<XPathNavigator> AsNodeSet(this object item)
 〰29:          {
-〰30:              if (item is IEnumerable items)
+‼30:              if (item is IEnumerable items)
 〰31:              {
-〰32:                  var enumerable = items.GetEnumerator();
-〰33:                  while (enumerable.MoveNext())
+‼32:                  var enumerable = items.GetEnumerator();
+‼33:                  while (enumerable.MoveNext())
 〰34:                  {
-〰35:                      var current = enumerable.Current;
+‼35:                      var current = enumerable.Current;
 〰36:  
 〰37:                      switch (current)
 〰38:                      {
 〰39:                          case IXPathNavigable nav:
-〰40:                              yield return nav.CreateNavigator();
-〰41:                              break;
+‼40:                              yield return nav.CreateNavigator();
+‼41:                              break;
 〰42:  
 〰43:                          case IEnumerable<XPathNavigator> navs:
-〰44:                              foreach (var nav in navs)
+‼44:                              foreach (var nav in navs)
 〰45:                              {
-〰46:                                  yield return nav.CreateNavigator();
+‼46:                                  yield return nav.CreateNavigator();
 〰47:                              }
-〰48:                              break;
+‼48:                              break;
 〰49:  
 〰50:                          case XPathNodeIterator iterator:
-〰51:                              while (iterator.MoveNext())
+‼51:                              while (iterator.MoveNext())
 〰52:                              {
-〰53:                                  yield return iterator.Current.CreateNavigator();
+‼53:                                  yield return iterator.Current.CreateNavigator();
 〰54:                              }
-〰55:                              break;
+‼55:                              break;
 〰56:  
 〰57:                          default:
-〰58:                              var text = new XText($"{current}");
-〰59:                              yield return text.ToXPathNavigable().CreateNavigator();
+‼58:                              var text = new XText($"{current}");
+‼59:                              yield return text.ToXPathNavigable().CreateNavigator();
 〰60:                              break;
 〰61:                      }
 〰62:                  }
-〰63:              }
+‼63:              }
 〰64:              else
 〰65:              {
-〰66:                  foreach (var child in AsNodeSet(new[] { item }))
-〰67:                      yield return child;
+‼66:                  foreach (var child in AsNodeSet(new[] { item }))
+‼67:                      yield return child;
 〰68:              }
-〰69:          }
+‼69:          }
 〰70:      }
 〰71:  }
 ```

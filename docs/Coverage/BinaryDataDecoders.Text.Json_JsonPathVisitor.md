@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathVisitor` |
 | Assembly        | `BinaryDataDecoders.Text.Json`                                 |
-| Coveredlines    | `116`                                                          |
-| Uncoveredlines  | `8`                                                            |
+| Coveredlines    | `114`                                                          |
+| Uncoveredlines  | `10`                                                           |
 | Coverablelines  | `124`                                                          |
 | Totallines      | `160`                                                          |
-| Linecoverage    | `93.5`                                                         |
+| Linecoverage    | `91.9`                                                         |
 | Coveredbranches | `105`                                                          |
 | Totalbranches   | `138`                                                          |
 | Branchcoverage  | `76`                                                           |
@@ -37,7 +37,7 @@
 | 2          | 100   | 50.0     | `VisitFunctionParameter` |
 | 2          | 100   | 100      | `Visit`                  |
 | 4          | 100   | 100      | `Visit`                  |
-| 6          | 100   | 50.0     | `Visit`                  |
+| 6          | 60.0  | 50.0     | `Visit`                  |
 | 6          | 100   | 33.33    | `VisitTerminal`          |
 | 2          | 100   | 100      | `Visit`                  |
 | 64         | 85.18 | 89.06    | `Visit`                  |
@@ -161,8 +161,8 @@
 〰108:         public virtual IPathSegment<T>? Visit<T>(IParseTree first, IParseTree second, params IParseTree[] more) =>
 ⚠109:             Visit(first) as IPathSegment<T> ??
 ✔110:             Visit(second) as IPathSegment<T> ??
-✔111:             more.Select(i => Visit(i) as IPathSegment<T>)
-✔112:                 .Where(i => i != null)
+‼111:             more.Select(i => Visit(i) as IPathSegment<T>)
+‼112:                 .Where(i => i != null)
 ✔113:                 .FirstOrDefault();
 〰114:         public override IPathSegment VisitTerminal(ITerminalNode node) =>
 ⚠115:             Visit(node?.GetText()) ?? throw new JsonPathException($"invalid terminal node \"{node?.GetText()}\"");

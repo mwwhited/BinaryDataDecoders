@@ -30,6 +30,48 @@
 
  - decimal input 
 
+#### Public Method - count
+
+#####  Parameters
+
+ - XPathNodeIterator input 
+
+#### Public Method - avg
+
+#####  Parameters
+
+ - XPathNodeIterator input 
+
+#### Public Method - exists
+
+#####  Parameters
+
+ - XPathNodeIterator input 
+
+#### Public Method - empty
+
+#####  Parameters
+
+ - XPathNodeIterator input 
+
+#### Public Method - @false
+
+
+#### Public Method - not
+
+#####  Parameters
+
+ - bool input 
+
+#### Public Method - @true
+
+
+#### Public Method - sum
+
+#####  Parameters
+
+ - XPathNodeIterator input 
+
 #### Public Method - max
 
 #####  Parameters
@@ -43,6 +85,17 @@
  - XPathNodeIterator input 
 
 #### Public Method - distinct_values
+
+##### Attributes
+
+ - XsltFunction
+ - (
+ - "distinct-values"
+ - ,
+ - HideOriginalName
+ - =
+ - true
+ - )
 
 #####  Parameters
 

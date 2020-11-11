@@ -9,7 +9,7 @@
 
 ### Members
 
-#### Public Constructor - BaseValuePathSegment
+#### Constructor - BaseValuePathSegment
 
 #####  Parameters
 

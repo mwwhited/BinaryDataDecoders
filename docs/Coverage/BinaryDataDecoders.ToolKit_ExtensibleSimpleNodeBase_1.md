@@ -6,11 +6,11 @@
 | :-------------- | :---------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleSimpleNodeBase`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                      |
-| Coveredlines    | `13`                                                              |
-| Uncoveredlines  | `2`                                                               |
-| Coverablelines  | `15`                                                              |
+| Coveredlines    | `16`                                                              |
+| Uncoveredlines  | `6`                                                               |
+| Coverablelines  | `22`                                                              |
 | Totallines      | `38`                                                              |
-| Linecoverage    | `86.6`                                                            |
+| Linecoverage    | `72.7`                                                            |
 | Coveredbranches | `0`                                                               |
 | Totalbranches   | `0`                                                               |
 
@@ -21,6 +21,13 @@
 | 1          | 100   | 100      | `ctor`               |
 | 1          | 0     | 100      | `get_FirstAttribute` |
 | 1          | 0     | 100      | `get_FirstNamespace` |
+| 1          | 0     | 100      | `get_Name`           |
+| 1          | 100   | 100      | `get_Parent`         |
+| 1          | 100   | 100      | `get_Value`          |
+| 1          | 100   | 100      | `get_NodeType`       |
+| 1          | 0     | 100      | `get_FirstChild`     |
+| 1          | 0     | 100      | `get_Next`           |
+| 1          | 0     | 100      | `get_Previous`       |
 
 ## Files
 
@@ -55,14 +62,14 @@
 ‼26:          public IAttributeNode? FirstAttribute => null;
 ‼27:          public INamespaceNode? FirstNamespace => null;
 〰28:  
-〰29:          public XName Name { get; }
-〰30:          public INode? Parent { get; }
-〰31:          public string? Value { get; }
-〰32:          public XPathNodeType NodeType { get; }
+‼29:          public XName Name { get; }
+✔30:          public INode? Parent { get; }
+✔31:          public string? Value { get; }
+✔32:          public XPathNodeType NodeType { get; }
 〰33:  
-〰34:          public INode? FirstChild { get; protected set; }
-〰35:          public INode? Next { get; set; }
-〰36:          public INode? Previous { get; set; }
+‼34:          public INode? FirstChild { get; protected set; }
+‼35:          public INode? Next { get; set; }
+‼36:          public INode? Previous { get; set; }
 〰37:      }
 〰38:  }
 ```

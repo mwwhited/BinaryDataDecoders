@@ -12,14 +12,14 @@
 | Totallines      | `65`                                                                |
 | Linecoverage    | `0`                                                                 |
 | Coveredbranches | `0`                                                                 |
-| Totalbranches   | `22`                                                                |
+| Totalbranches   | `24`                                                                |
 | Branchcoverage  | `0`                                                                 |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name             |
 | :--------- | :---- | :------- | :--------------- |
-| 22         | 0     | 0        | `GetTestTargets` |
+| 24         | 0     | 0        | `GetTestTargets` |
 
 ## Files
 

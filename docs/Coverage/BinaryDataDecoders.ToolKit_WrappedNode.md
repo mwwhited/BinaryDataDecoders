@@ -6,23 +6,26 @@
 | :-------------- | :------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNode` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                       |
-| Coveredlines    | `19`                                               |
+| Coveredlines    | `22`                                               |
 | Uncoveredlines  | `4`                                                |
-| Coverablelines  | `23`                                               |
+| Coverablelines  | `26`                                               |
 | Totallines      | `65`                                               |
-| Linecoverage    | `82.6`                                             |
+| Linecoverage    | `84.6`                                             |
 | Coveredbranches | `9`                                                |
 | Totalbranches   | `12`                                               |
 | Branchcoverage  | `75`                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name        |
-| :--------- | :---- | :------- | :---------- |
-| 1          | 100   | 100      | `ctor`      |
-| 2          | 66.66 | 50.0     | `get_First` |
-| 2          | 0     | 0        | `get_Last`  |
-| 8          | 100   | 100      | `Build`     |
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 100   | 100      | `ctor`         |
+| 1          | 100   | 100      | `get_Previous` |
+| 1          | 100   | 100      | `get_Current`  |
+| 1          | 100   | 100      | `get_Next`     |
+| 2          | 66.66 | 50.0     | `get_First`    |
+| 2          | 0     | 0        | `get_Last`     |
+| 8          | 100   | 100      | `Build`        |
 
 ## Files
 
@@ -47,10 +50,10 @@
 ✔16:              Previous = previous;
 ✔17:          }
 〰18:  
-〰19:          public IWrappedNode? Previous { get; }
-〰20:          public XPathNavigator Current { get; }
+✔19:          public IWrappedNode? Previous { get; }
+✔20:          public XPathNavigator Current { get; }
 〰21:  
-〰22:          public IWrappedNode? Next { get; private set; }
+✔22:          public IWrappedNode? Next { get; private set; }
 〰23:  
 〰24:          public IWrappedNode First
 〰25:          {

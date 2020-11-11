@@ -6,9 +6,9 @@
 | :-------------- | :------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.SetPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                             |
-| Coveredlines    | `7`                                                      |
+| Coveredlines    | `8`                                                      |
 | Uncoveredlines  | `0`                                                      |
-| Coverablelines  | `7`                                                      |
+| Coverablelines  | `8`                                                      |
 | Totallines      | `21`                                                     |
 | Linecoverage    | `100`                                                    |
 | Coveredbranches | `0`                                                      |
@@ -18,6 +18,7 @@
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `get_Set`  |
 | 1          | 100   | 100      | `ctor`     |
 | 1          | 100   | 100      | `ToString` |
 | 1          | 100   | 100      | `cctor`    |
@@ -34,7 +35,7 @@
 〰5:   {
 〰6:       public class SetPathSegment : IPathSegment
 〰7:       {
-〰8:           public IEnumerable<IPathSegment> Set { get; }
+✔8:           public IEnumerable<IPathSegment> Set { get; }
 〰9:   
 ✔10:          public SetPathSegment(
 ✔11:              IEnumerable<IPathSegment> set

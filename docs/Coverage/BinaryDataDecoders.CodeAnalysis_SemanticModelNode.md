@@ -7,8 +7,8 @@
 | Class           | `BinaryDataDecoders.CodeAnalysis.SemanticModelNode` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis`                   |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `4`                                                 |
-| Coverablelines  | `4`                                                 |
+| Uncoveredlines  | `6`                                                 |
+| Coverablelines  | `6`                                                 |
 | Totallines      | `15`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
@@ -16,9 +16,11 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 0     | 100      | `ctor`         |
+| 1          | 0     | 100      | `get_Semantic` |
+| 1          | 0     | 100      | `get_Node`     |
 
 ## Files
 
@@ -36,8 +38,8 @@
 ‼9:               Semantic = semantic;
 ‼10:              Node = node;
 ‼11:          }
-〰12:          public SemanticModel Semantic { get; }
-〰13:          public object Node { get; }
+‼12:          public SemanticModel Semantic { get; }
+‼13:          public object Node { get; }
 〰14:      }
 〰15:  }
 ```

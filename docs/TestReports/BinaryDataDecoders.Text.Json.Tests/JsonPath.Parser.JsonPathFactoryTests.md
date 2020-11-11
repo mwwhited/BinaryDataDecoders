@@ -10,13 +10,13 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.36 | `ParserTest`                                         |
-| ✔ Passed             | 00:00:00.25 | `ParserTest ($.options,:/options)`                   |
+| ✔ Passed             | 00:00:00.87 | `ParserTest`                                         |
+| ✔ Passed             | 00:00:00.63 | `ParserTest ($.options,:/options)`                   |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.options.quantity,:/options/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.*.quantity,:/*/quantity)`             |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..quantity,:////quantity)`             |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.obj.*.quantity,:/obj/*/quantity)`     |
-| ✔ Passed             | 00:00:00.00 | `ParserTest ($.options[0].quantity,:/options/[0]/quantity)` |
+| ✔ Passed             | 00:00:00.03 | `ParserTest ($.options[0].quantity,:/options/[0]/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.store.book[*].author,:/store/book/[*]/author)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..author,:////author)`                 |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.store.*,:/store/*)`                   |
@@ -24,7 +24,7 @@
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..book[-2],:////book/[-2])`            |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..*,:////*)`                           |
 | ✔ Passed             | 00:00:00.01 | `ParserTest ($..book[-2,Antlr4.Runtime.Misc.ParseCanceledException)` |
-| ✔ Passed             | 00:00:00.02 | `ParserTest ($.options[?(@.code=='AB1')].quantity,:/options/{./code Equal "AB1"}/quantity)` |
+| ✔ Passed             | 00:00:00.06 | `ParserTest ($.options[?(@.code=='AB1')].quantity,:/options/{./code Equal "AB1"}/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.options[?(@.code=='AB1'&&@.quantity>3)].quantity,:/options/{./code Equal "AB1" And ./quantity GreaterThan 3}/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..book[0,1],:////book/[0,1])`          |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..book[:2],:////book/[:2:])`           |
@@ -33,7 +33,7 @@
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..book[2:],:////book/[2::])`           |
 | ✔ Passed             | 00:00:00.00 | `ParserTest (@..book[2:],.////book/[2::])`           |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..book[?(@.isbn)],:////book/{[./isbn]})` |
-| ✔ Passed             | 00:00:00.00 | `ParserTest ($.store.book[?(@.price < 10)],:/store/book/{./price LessThan 10})` |
+| ✔ Passed             | 00:00:00.01 | `ParserTest ($.store.book[?(@.price < 10)],:/store/book/{./price LessThan 10})` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..book[?(@.price <= $['expensive'])],:////book/{./price LessThanOrEqual :/["expensive"]})` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.store..price,:/store////price)`       |
 | ✔ Passed             | 00:00:00.00 | `ParserTest (func(),func())`                         |
@@ -54,10 +54,10 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.02 | `ToXPathTest`                                        |
+| ✔ Passed             | 00:00:00.08 | `ToXPathTest`                                        |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($.options,/options)`                   |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($.options.quantity,/options/quantity)` |
-| ✔ Passed             | 00:00:00.00 | `ToXPathTest ($.*.quantity,/*/quantity)`             |
+| ✔ Passed             | 00:00:00.04 | `ToXPathTest ($.*.quantity,/*/quantity)`             |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($..quantity,/descendant::quantity)`    |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($.obj.*.quantity,/obj/*/quantity)`     |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($..author,/descendant::author)`        |

@@ -6,14 +6,14 @@
 | :-------------- | :------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                   |
-| Coveredlines    | `123`                                                          |
-| Uncoveredlines  | `3`                                                            |
-| Coverablelines  | `126`                                                          |
+| Coveredlines    | `114`                                                          |
+| Uncoveredlines  | `16`                                                           |
+| Coverablelines  | `130`                                                          |
 | Totallines      | `196`                                                          |
-| Linecoverage    | `97.6`                                                         |
-| Coveredbranches | `3`                                                            |
-| Totalbranches   | `4`                                                            |
-| Branchcoverage  | `75`                                                           |
+| Linecoverage    | `87.6`                                                         |
+| Coveredbranches | `41`                                                           |
+| Totalbranches   | `54`                                                           |
+| Branchcoverage  | `75.9`                                                         |
 
 ## Metrics
 
@@ -24,7 +24,12 @@
 | 1          | 100   | 100      | `get_FirstChild`                                           |
 | 1          | 100   | 100      | `get_FirstAttribute`                                       |
 | 1          | 100   | 100      | `get_FirstNamespace`                                       |
+| 1          | 100   | 100      | `get_Next`                                                 |
+| 1          | 0     | 100      | `get_Previous`                                             |
+| 1          | 100   | 100      | `get_Parent`                                               |
+| 1          | 100   | 100      | `get_Name`                                                 |
 | 2          | 100   | 50.0     | `get_Value`                                                |
+| 1          | 100   | 100      | `get_NodeType`                                             |
 | 1          | 100   | 100      | `BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Next`     |
 | 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Previous` |
 
@@ -54,7 +59,7 @@
 〰19:              Func<object, IEnumerable<XName>?>? namespacesSelector = null,
 〰20:              Predicate<object>? preserveWhitespace = null
 〰21:              )
-〰22:              : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector)
+〰22:              : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
 〰23:          {
 〰24:          }
 〰25:      }
@@ -109,15 +114,15 @@
 ✔74:              _preserveWhitespace = preserveWhitespace;
 〰75:  
 ✔76:              _value = new Lazy<INode?>(() =>
-✔77:                  _valueSelector?.Invoke(_item) switch
+⚠77:                  _valueSelector?.Invoke(_item) switch
 ✔78:                  {
 ✔79:                      null => (INode?)null,
 ✔80:                      string value => string.IsNullOrWhiteSpace(value) switch
 ✔81:                      {
-✔82:                          true => new ExtensibleWhitespaceNode<T>(this, Name, _item, value),
+⚠82:                          true => new ExtensibleWhitespaceNode<T>(this, Name, _item, value),
 ✔83:                          false => (_preserveWhitespace?.Invoke(_item) ?? false) switch
 ✔84:                          {
-✔85:                              true => new ExtensibleSignificantWhitespaceNode<T>(this, Name, _item, value),
+‼85:                              true => new ExtensibleSignificantWhitespaceNode<T>(this, Name, _item, value),
 ✔86:                              false => new ExtensibleTextNode<T>(this, Name, _item, value)
 ✔87:                          }
 ✔88:                      },
@@ -125,7 +130,7 @@
 〰90:  
 ✔91:              _attributes = new Lazy<IAttributeNode?>(() =>
 ✔92:              {
-✔93:                  var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string? value)>()).GetEnumerator();
+⚠93:                  var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string? value)>()).GetEnumerator();
 ✔94:                  IAttributeNode? first = null;
 ✔95:                  IAttributeNode? previous = null;
 ✔96:  
@@ -152,7 +157,7 @@
 〰117: 
 ✔118:             _children = new Lazy<INode?>(() =>
 ✔119:             {
-✔120:                 var query = (_childSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, T child)>()).GetEnumerator();
+⚠120:                 var query = (_childSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, T child)>()).GetEnumerator();
 ✔121:                 INode? first = null;
 ✔122:                 INode? previous = null;
 ✔123: 
@@ -189,23 +194,23 @@
 〰154: 
 ✔155:             _namespaces = new Lazy<INamespaceNode?>(() =>
 ✔156:             {
-✔157:                 var query = (_namespacesSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
+⚠157:                 var query = (_namespacesSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
 ✔158:                 INamespaceNode? first = null;
 ✔159:                 INamespaceNode? previous = null;
 ✔160: 
-✔161:                 while (query.MoveNext())
+⚠161:                 while (query.MoveNext())
 ✔162:                 {
-✔163:                     var newItem = new ExtensibleNamespaceNode<T>(
-✔164:                         this,
-✔165:                         query.Current,
-✔166:                         _item
-✔167:                         )
-✔168:                     {
-✔169:                         Previous = previous,
-✔170:                     };
-✔171:                     if (previous is ExtensibleNamespaceNode<T> node) node.Next = newItem;
-✔172:                     if (first == null) first = newItem;
-✔173:                     previous = newItem;
+‼163:                     var newItem = new ExtensibleNamespaceNode<T>(
+‼164:                         this,
+‼165:                         query.Current,
+‼166:                         _item
+‼167:                         )
+‼168:                     {
+‼169:                         Previous = previous,
+‼170:                     };
+‼171:                     if (previous is ExtensibleNamespaceNode<T> node) node.Next = newItem;
+‼172:                     if (first == null) first = newItem;
+‼173:                     previous = newItem;
 ✔174:                 }
 ✔175: 
 ✔176:                 return first;
@@ -216,11 +221,11 @@
 ✔181:         public IAttributeNode? FirstAttribute => _attributes.Value;
 ✔182:         public INamespaceNode? FirstNamespace => _namespaces.Value;
 〰183: 
-〰184:         public INode? Next { get; private set; }
-〰185:         public INode? Previous { get; private set; }
+✔184:         public INode? Next { get; private set; }
+‼185:         public INode? Previous { get; private set; }
 〰186: 
-〰187:         public INode? Parent { get; }
-〰188:         public XName Name { get; }
+✔187:         public INode? Parent { get; }
+✔188:         public XName Name { get; }
 ⚠189:         public string? Value => _value.Value?.Value;
 〰190: 
 ✔191:         public XPathNodeType NodeType { get; } = XPathNodeType.Element;

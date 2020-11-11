@@ -9,10 +9,10 @@
 | Coveredlines    | `0`                                             |
 | Uncoveredlines  | `42`                                            |
 | Coverablelines  | `42`                                            |
-| Totallines      | `119`                                           |
+| Totallines      | `244`                                           |
 | Linecoverage    | `0`                                             |
 | Coveredbranches | `0`                                             |
-| Totalbranches   | `12`                                            |
+| Totalbranches   | `14`                                            |
 | Branchcoverage  | `0`                                             |
 
 ## Metrics
@@ -21,7 +21,7 @@
 | :--------- | :---- | :------- | :------- |
 | 1          | 0     | 100      | `ctor`   |
 | 6          | 0     | 0        | `Encode` |
-| 6          | 0     | 0        | `Decode` |
+| 8          | 0     | 0        | `Decode` |
 
 ## Files
 
@@ -146,7 +146,132 @@
 ‼116:             return oData;
 〰117:         }
 〰118:     }
-〰119: }
+〰119: 
+〰120: 
+〰121:     //public class Base32Encoding
+〰122:     //{
+〰123:     //    public static byte[] ToBytes(string input)
+〰124:     //    {
+〰125:     //        if (string.IsNullOrEmpty(input))
+〰126:     //        {
+〰127:     //            throw new ArgumentNullException("input");
+〰128:     //        }
+〰129: 
+〰130:     //        input = input.TrimEnd('='); //remove padding characters
+〰131:     //        int byteCount = input.Length * 5 / 8; //this must be TRUNCATED
+〰132:     //        byte[] returnArray = new byte[byteCount];
+〰133: 
+〰134:     //        byte curByte = 0, bitsRemaining = 8;
+〰135:     //        int mask = 0, arrayIndex = 0;
+〰136: 
+〰137:     //        foreach (char c in input)
+〰138:     //        {
+〰139:     //            int cValue = CharToValue(c);
+〰140: 
+〰141:     //            if (bitsRemaining > 5)
+〰142:     //            {
+〰143:     //                mask = cValue << (bitsRemaining - 5);
+〰144:     //                curByte = (byte)(curByte | mask);
+〰145:     //                bitsRemaining -= 5;
+〰146:     //            }
+〰147:     //            else
+〰148:     //            {
+〰149:     //                mask = cValue >> (5 - bitsRemaining);
+〰150:     //                curByte = (byte)(curByte | mask);
+〰151:     //                returnArray[arrayIndex++] = curByte;
+〰152:     //                curByte = (byte)(cValue << (3 + bitsRemaining));
+〰153:     //                bitsRemaining += 3;
+〰154:     //            }
+〰155:     //        }
+〰156: 
+〰157:     //        //if we didn't end with a full byte
+〰158:     //        if (arrayIndex != byteCount)
+〰159:     //        {
+〰160:     //            returnArray[arrayIndex] = curByte;
+〰161:     //        }
+〰162: 
+〰163:     //        return returnArray;
+〰164:     //    }
+〰165: 
+〰166:     //    public static string ToString(byte[] input)
+〰167:     //    {
+〰168:     //        if (input == null || input.Length == 0)
+〰169:     //        {
+〰170:     //            throw new ArgumentNullException("input");
+〰171:     //        }
+〰172: 
+〰173:     //        int charCount = (int)Math.Ceiling(input.Length / 5d) * 8;
+〰174:     //        char[] returnArray = new char[charCount];
+〰175: 
+〰176:     //        byte nextChar = 0, bitsRemaining = 5;
+〰177:     //        int arrayIndex = 0;
+〰178: 
+〰179:     //        foreach (byte b in input)
+〰180:     //        {
+〰181:     //            nextChar = (byte)(nextChar | (b >> (8 - bitsRemaining)));
+〰182:     //            returnArray[arrayIndex++] = ValueToChar(nextChar);
+〰183: 
+〰184:     //            if (bitsRemaining < 4)
+〰185:     //            {
+〰186:     //                nextChar = (byte)((b >> (3 - bitsRemaining)) & 31);
+〰187:     //                returnArray[arrayIndex++] = ValueToChar(nextChar);
+〰188:     //                bitsRemaining += 5;
+〰189:     //            }
+〰190: 
+〰191:     //            bitsRemaining -= 3;
+〰192:     //            nextChar = (byte)((b << bitsRemaining) & 31);
+〰193:     //        }
+〰194: 
+〰195:     //        //if we didn't end with a full char
+〰196:     //        if (arrayIndex != charCount)
+〰197:     //        {
+〰198:     //            returnArray[arrayIndex++] = ValueToChar(nextChar);
+〰199:     //            while (arrayIndex != charCount) returnArray[arrayIndex++] = '='; //padding
+〰200:     //        }
+〰201: 
+〰202:     //        return new string(returnArray);
+〰203:     //    }
+〰204: 
+〰205:     //    private static int CharToValue(char c)
+〰206:     //    {
+〰207:     //        int value = (int)c;
+〰208: 
+〰209:     //        //65-90 == uppercase letters
+〰210:     //        if (value < 91 && value > 64)
+〰211:     //        {
+〰212:     //            return value - 65;
+〰213:     //        }
+〰214:     //        //50-55 == numbers 2-7
+〰215:     //        if (value < 56 && value > 49)
+〰216:     //        {
+〰217:     //            return value - 24;
+〰218:     //        }
+〰219:     //        //97-122 == lowercase letters
+〰220:     //        if (value < 123 && value > 96)
+〰221:     //        {
+〰222:     //            return value - 97;
+〰223:     //        }
+〰224: 
+〰225:     //        throw new ArgumentException("Character is not a Base32 character.", "c");
+〰226:     //    }
+〰227: 
+〰228:     //    private static char ValueToChar(byte b)
+〰229:     //    {
+〰230:     //        if (b < 26)
+〰231:     //        {
+〰232:     //            return (char)(b + 65);
+〰233:     //        }
+〰234: 
+〰235:     //        if (b < 32)
+〰236:     //        {
+〰237:     //            return (char)(b + 24);
+〰238:     //        }
+〰239: 
+〰240:     //        throw new ArgumentException("Byte is not a value Base32 value.", "b");
+〰241:     //    }
+〰242: 
+〰243:     //}
+〰244: }
 ```
 
 ## Links

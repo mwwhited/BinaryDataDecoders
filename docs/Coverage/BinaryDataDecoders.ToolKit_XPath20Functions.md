@@ -7,12 +7,13 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.XPath20Functions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                     |
 | Coveredlines    | `0`                                                              |
-| Uncoveredlines  | `23`                                                             |
-| Coverablelines  | `23`                                                             |
-| Totallines      | `1206`                                                           |
+| Uncoveredlines  | `35`                                                             |
+| Coverablelines  | `35`                                                             |
+| Totallines      | `1093`                                                           |
 | Linecoverage    | `0`                                                              |
 | Coveredbranches | `0`                                                              |
-| Totalbranches   | `0`                                                              |
+| Totalbranches   | `6`                                                              |
+| Branchcoverage  | `0`                                                              |
 
 ## Metrics
 
@@ -20,8 +21,16 @@
 | :--------- | :---- | :------- | :---------------- |
 | 1          | 0     | 100      | `abs`             |
 | 1          | 0     | 100      | `ceiling`         |
-| 1          | 0     | 100      | `max`             |
-| 1          | 0     | 100      | `min`             |
+| 1          | 0     | 100      | `count`           |
+| 1          | 0     | 100      | `avg`             |
+| 1          | 0     | 100      | `exists`          |
+| 1          | 0     | 100      | `empty`           |
+| 1          | 0     | 100      | `false`           |
+| 1          | 0     | 100      | `not`             |
+| 1          | 0     | 100      | `true`            |
+| 2          | 0     | 0        | `sum`             |
+| 2          | 0     | 0        | `max`             |
+| 2          | 0     | 0        | `min`             |
 | 1          | 0     | 100      | `distinct_values` |
 | 1          | 0     | 100      | `apply`           |
 
@@ -33,1209 +42,1096 @@
 〰1:   using BinaryDataDecoders.ToolKit.Xml.XPath;
 〰2:   using System;
 〰3:   using System.Linq;
-〰4:   using System.Threading.Tasks.Sources;
-〰5:   using System.Xml;
-〰6:   using System.Xml.Serialization;
-〰7:   using System.Xml.XPath;
-〰8:   
-〰9:   namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
-〰10:  {
-〰11:      [XmlRoot(Namespace = @"http://www.w3.org/2005/xpath-functions")]
-〰12:      public class XPath20Functions
-〰13:      {
-‼14:          public decimal abs(decimal input) => Math.Abs(input);
-‼15:          public decimal ceiling(decimal input) => Math.Ceiling(input);
-〰16:  
-〰17:          public decimal max(XPathNodeIterator input) =>
-‼18:              (from i in input.AsNavigatorSet()
-‼19:               where !string.IsNullOrWhiteSpace(i.Value)
-‼20:               let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
-‼21:               where d.HasValue
-‼22:               select d).Max() ?? 0;
-〰23:  
-〰24:          public decimal min(XPathNodeIterator input) =>
-‼25:              (from i in input.AsNavigatorSet()
-‼26:               where !string.IsNullOrWhiteSpace(i.Value)
-‼27:               let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
-‼28:               where d.HasValue
-‼29:               select d).Min() ?? 0;
-〰30:  
-〰31:          // https://www.w3.org/2005/xpath-functions/
-〰32:  
-〰33:          public XPathNodeIterator distinct_values(XPathNodeIterator input) =>
-‼34:               new EnumerableXPathNodeIterator(
-‼35:                  from i in input.AsNavigatorSet()
-‼36:                  group i by i.Value into grouped
-‼37:                  from i in grouped
-‼38:                  select grouped.First());
-〰39:  
-〰40:          public XPathNodeIterator apply(string xpath, XPathNodeIterator input) =>
-‼41:               new EnumerableXPathNodeIterator(
-‼42:                  from item in input.AsNavigatorSet()
-‼43:                  let value = item.Evaluate(xpath)
-‼44:                  from node in value.AsNodeSet()
-‼45:                  select node
-‼46:                  );
-〰47:          /*
-〰48:  
-〰49:  ↑ Jump to Table of Contents← Collapse Sidebar
-〰50:  
-〰51:  W3C
+〰4:   using System.Xml.Serialization;
+〰5:   using System.Xml.XPath;
+〰6:   
+〰7:   namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
+〰8:   {
+〰9:       [XmlRoot(Namespace = @"http://www.w3.org/2005/xpath-functions")]
+〰10:      public class XPath20Functions
+〰11:      {
+‼12:          public decimal abs(decimal input) => Math.Abs(input);
+‼13:          public decimal ceiling(decimal input) => Math.Ceiling(input);
+‼14:          public decimal count(XPathNodeIterator input) =>input.AsNavigatorSet().Count();
+‼15:          public decimal avg(XPathNodeIterator input) => sum(input) / count(input);
+‼16:          public bool exists(XPathNodeIterator input) => input.AsNavigatorSet().Any();
+‼17:          public bool empty(XPathNodeIterator input) => !exists(input);
+‼18:          public bool @false() => false;
+‼19:          public bool not(bool input) => !input;
+‼20:          public bool @true() => true;
+〰21:  
+〰22:          public decimal sum(XPathNodeIterator input) =>
+‼23:              (from i in input.AsNavigatorSet()
+‼24:               where !string.IsNullOrWhiteSpace(i.Value)
+‼25:               let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
+‼26:               where d.HasValue
+‼27:               select d).Sum() ?? 0;
+〰28:  
+〰29:          public decimal max(XPathNodeIterator input) =>
+‼30:              (from i in input.AsNavigatorSet()
+‼31:               where !string.IsNullOrWhiteSpace(i.Value)
+‼32:               let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
+‼33:               where d.HasValue
+‼34:               select d).Max() ?? 0;
+〰35:  
+〰36:          public decimal min(XPathNodeIterator input) =>
+‼37:              (from i in input.AsNavigatorSet()
+‼38:               where !string.IsNullOrWhiteSpace(i.Value)
+‼39:               let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
+‼40:               where d.HasValue
+‼41:               select d).Min() ?? 0;
+〰42:  
+〰43:          // https://www.w3.org/2005/xpath-functions/
+〰44:  
+〰45:          [XsltFunction("distinct-values", HideOriginalName = true)]
+〰46:          public XPathNodeIterator distinct_values(XPathNodeIterator input) =>
+‼47:               new EnumerableXPathNodeIterator(
+‼48:                  from i in input.AsNavigatorSet()
+‼49:                  group i by i.Value into grouped
+‼50:                  from i in grouped
+‼51:                  select grouped.First());
 〰52:  
-〰53:  XQuery, XPath, and XSLT Functions and Operators Namespace Document
-〰54:  21 March 2017
-〰55:  Table of Contents
-〰56:  1 Introduction
-〰57:  2 XQuery and XPath Functions
-〰58:  3 XSL Transformations (XSLT) Functions
-〰59:  4 XQuery Update Functions
-〰60:  5 XML Schema
-〰61:  6 Normative References
-〰62:  7 Non-Normative References
-〰63:  1 Introduction
-〰64:  This document describes the namespace http://www.w3.org/2005/xpath-functions defined by the [XPath and XQuery Functions and Operators 3.1] and [XSLT 3.0] specifications. This namespace is conventionally identified by the namespace prefix fn.
-〰65:  
-〰66:  In XQuery, the mapping of the prefix fn to this namespace is predefined.
-〰67:  
-〰68:  In XSLT, it is not necessary to use a prefix when invoking functions in this namespace, because this namespace is always the default namespace for function calls.
-〰69:  
-〰70:  For updated information, please refer to the latest version of the [XPath and XQuery Functions and Operators 3.1] and [XSLT 3.0] specifications.
-〰71:  
-〰72:  The [XQuery Update 1.0] specification defines one additional function in this namespace.
+〰53:          public XPathNodeIterator apply(string xpath, XPathNodeIterator input) =>
+‼54:               new EnumerableXPathNodeIterator(
+‼55:                  from item in input.AsNavigatorSet()
+‼56:                  let value = item.Evaluate(xpath)
+‼57:                  from node in value.AsNodeSet()
+‼58:                  select node
+‼59:                  );
+〰60:          /*
+〰61:  
+〰62:  Returns the absolute value of $arg.
+〰63:  
+〰64:  adjust-dateTime-to-timezone
+〰65:  adjust-dateTime-to-timezone(xs:dateTime?) as xs:dateTime?
+〰66:  
+〰67:  adjust-dateTime-to-timezone(xs:dateTime?, xs:dayTimeDuration?) as xs:dateTime?
+〰68:  
+〰69:  Adjusts an xs:dateTime value to a specific timezone, or to no timezone at all.
+〰70:  
+〰71:  adjust-date-to-timezone
+〰72:  adjust-date-to-timezone(xs:date?) as xs:date?
 〰73:  
-〰74:  Functions are uniquely identified by the combination of namespace URI, local name, and arity (number of arguments). For the purpose of this document, functions having a common namespace URI and local name can be considered to form a function family. A function family can be uniquely identified with a URI of the form: “http://www.w3.org/2005/xpath-functions#name” where name is the local name of a function, such as “max”: http://www.w3.org/2005/xpath-functions#max.
+〰74:  adjust-date-to-timezone(xs:date?, xs:dayTimeDuration?) as xs:date?
 〰75:  
-〰76:  This document describes the names that are defined in this namespace at the time of publication. The W3C reserves the right to define additional names in this namespace in the future. The specifications listed above are the only specifications that may amend this namespace.
+〰76:  Adjusts an xs:date value to a specific timezone, or to no timezone at all; the result is the date in the target timezone that contains the starting instant of the supplied date.
 〰77:  
-〰78:  The specifications referenced in this document are the latest versions at time of publication. Older versions of these specifications remain in use, and depending on the context, a name in this namespace may be referring to an older version of the specification than the one cited here.
-〰79:  
-〰80:  This document contains a directory of links to related resources, using RDDL (as defined in [Resource Directory Description Language (RDDL)]).
-〰81:  
-〰82:  It is GRDDL-enabled (as defined in [Gleaning Resource Descriptions from Dialects of Languages (GRDDL)]); that is to say that a GRDDL-compliant processor can extract useful RDF (as defined in [Resource Description Framework (RDF): Concepts and Abstract Syntax]) representations of the information contained herein.
-〰83:  
-〰84:  2 XQuery and XPath Functions
-〰85:  This section lists all of the functions in this namespace that are defined in the [XPath and XQuery Functions and Operators 3.1] specification.
-〰86:  
-〰87:  The normative definitions of these functions are in the [XPath and XQuery Functions and Operators 3.1] specification. For convenience, a very brief, non-normative summary of each function is provided. For details, follow the link on the “Summary:” introductory text below each function.
-〰88:  
-〰89:  abs
-〰90:  abs(xs:numeric?) as xs:numeric?
+〰78:  adjust-time-to-timezone
+〰79:  adjust-time-to-timezone(xs:time?) as xs:time?
+〰80:  
+〰81:  adjust-time-to-timezone(xs:time?, xs:dayTimeDuration?) as xs:time?
+〰82:  
+〰83:  Adjusts an xs:time value to a specific timezone, or to no timezone at all.
+〰84:  
+〰85:  analyze-string
+〰86:  analyze-string(xs:string?, xs:string) as element(fn:analyze-string-result)
+〰87:  
+〰88:  analyze-string(xs:string?, xs:string, xs:string) as element(fn:analyze-string-result)
+〰89:  
+〰90:  Analyzes a string using a regular expression, returning an XML structure that identifies which parts of the input string matched or failed to match the regular expression, and in the case of matched substrings, which substrings matched each capturing group in the regular expression.
 〰91:  
-〰92:  Returns the absolute value of $arg.
-〰93:  
-〰94:  adjust-dateTime-to-timezone
-〰95:  adjust-dateTime-to-timezone(xs:dateTime?) as xs:dateTime?
+〰92:  apply
+〰93:  apply(function(*), array(*)) as item()*
+〰94:  
+〰95:  Makes a dynamic call on a function with an argument list supplied in the form of an array.
 〰96:  
-〰97:  adjust-dateTime-to-timezone(xs:dateTime?, xs:dayTimeDuration?) as xs:dateTime?
-〰98:  
-〰99:  Adjusts an xs:dateTime value to a specific timezone, or to no timezone at all.
-〰100: 
-〰101: adjust-date-to-timezone
-〰102: adjust-date-to-timezone(xs:date?) as xs:date?
-〰103: 
-〰104: adjust-date-to-timezone(xs:date?, xs:dayTimeDuration?) as xs:date?
-〰105: 
-〰106: Adjusts an xs:date value to a specific timezone, or to no timezone at all; the result is the date in the target timezone that contains the starting instant of the supplied date.
-〰107: 
-〰108: adjust-time-to-timezone
-〰109: adjust-time-to-timezone(xs:time?) as xs:time?
-〰110: 
-〰111: adjust-time-to-timezone(xs:time?, xs:dayTimeDuration?) as xs:time?
-〰112: 
-〰113: Adjusts an xs:time value to a specific timezone, or to no timezone at all.
-〰114: 
-〰115: analyze-string
-〰116: analyze-string(xs:string?, xs:string) as element(fn:analyze-string-result)
-〰117: 
-〰118: analyze-string(xs:string?, xs:string, xs:string) as element(fn:analyze-string-result)
-〰119: 
-〰120: Analyzes a string using a regular expression, returning an XML structure that identifies which parts of the input string matched or failed to match the regular expression, and in the case of matched substrings, which substrings matched each capturing group in the regular expression.
+〰97:  available-environment-variables
+〰98:  available-environment-variables() as xs:string*
+〰99:  
+〰100: Returns a list of environment variable names that are suitable for passing to fn:environment-variable, as a (possibly empty) sequence of strings.
+〰101: 
+〰102: base-uri
+〰103: base-uri() as xs:anyURI?
+〰104: 
+〰105: base-uri(node()?) as xs:anyURI?
+〰106: 
+〰107: Returns the base URI of a node.
+〰108: 
+〰109: boolean
+〰110: boolean(item()*) as xs:boolean
+〰111: 
+〰112: Computes the effective boolean value of the sequence $arg.
+〰113: 
+〰114: codepoint-equal
+〰115: codepoint-equal(xs:string?, xs:string?) as xs:boolean?
+〰116: 
+〰117: Returns true if two strings are equal, considered codepoint-by-codepoint.
+〰118: 
+〰119: codepoints-to-string
+〰120: codepoints-to-string(xs:integer*) as xs:string
 〰121: 
-〰122: apply
-〰123: apply(function(*), array(*)) as item()*
-〰124: 
-〰125: Makes a dynamic call on a function with an argument list supplied in the form of an array.
+〰122: Returns an xs:string whose characters have supplied codepoints.
+〰123: 
+〰124: collation-key
+〰125: collation-key(xs:string) as xs:base64Binary
 〰126: 
-〰127: available-environment-variables
-〰128: available-environment-variables() as xs:string*
-〰129: 
-〰130: Returns a list of environment variable names that are suitable for passing to fn:environment-variable, as a (possibly empty) sequence of strings.
-〰131: 
-〰132: avg
-〰133: avg(xs:anyAtomicType*) as xs:anyAtomicType?
-〰134: 
-〰135: Returns the average of the values in the input sequence $arg, that is, the sum of the values divided by the number of values.
-〰136: 
-〰137: base-uri
-〰138: base-uri() as xs:anyURI?
-〰139: 
-〰140: base-uri(node()?) as xs:anyURI?
-〰141: 
-〰142: Returns the base URI of a node.
-〰143: 
-〰144: boolean
-〰145: boolean(item()*) as xs:boolean
-〰146: 
-〰147: Computes the effective boolean value of the sequence $arg.
-〰148: 
-〰149: ceiling
-〰150: ceiling(xs:numeric?) as xs:numeric?
-〰151: 
-〰152: Rounds $arg upwards to a whole number.
-〰153: 
-〰154: codepoint-equal
-〰155: codepoint-equal(xs:string?, xs:string?) as xs:boolean?
+〰127: collation-key(xs:string, xs:string) as xs:base64Binary
+〰128: 
+〰129: Given a string value and a collation, generates an internal value called a collation key, with the property that the matching and ordering of collation keys reflects the matching and ordering of strings under the specified collation.
+〰130: 
+〰131: collection
+〰132: collection() as item()*
+〰133: 
+〰134: collection(xs:string?) as item()*
+〰135: 
+〰136: Returns a sequence of items identified by a collection URI; or a default collection if no URI is supplied.
+〰137: 
+〰138: compare
+〰139: compare(xs:string?, xs:string?) as xs:integer?
+〰140: 
+〰141: compare(xs:string?, xs:string?, xs:string) as xs:integer?
+〰142: 
+〰143: Returns -1, 0, or 1, depending on whether $comparand1 collates before, equal to, or after $comparand2 according to the rules of a selected collation.
+〰144: 
+〰145: concat
+〰146: concat(xs:anyAtomicType?, xs:anyAtomicType?, xs:anyAtomicType?) as xs:string
+〰147: 
+〰148: Returns the concatenation of the string values of the arguments.
+〰149: 
+〰150: contains
+〰151: contains(xs:string?, xs:string?) as xs:boolean
+〰152: 
+〰153: contains(xs:string?, xs:string?, xs:string) as xs:boolean
+〰154: 
+〰155: Returns true if the string $arg1 contains $arg2 as a substring, taking collations into account.
 〰156: 
-〰157: Returns true if two strings are equal, considered codepoint-by-codepoint.
-〰158: 
-〰159: codepoints-to-string
-〰160: codepoints-to-string(xs:integer*) as xs:string
+〰157: contains-token
+〰158: contains-token(xs:string*, xs:string) as xs:boolean
+〰159: 
+〰160: contains-token(xs:string*, xs:string, xs:string) as xs:boolean
 〰161: 
-〰162: Returns an xs:string whose characters have supplied codepoints.
+〰162: Determines whether or not any of the supplied strings, when tokenized at whitespace boundaries, contains the supplied token, under the rules of the supplied collation.
 〰163: 
-〰164: collation-key
-〰165: collation-key(xs:string) as xs:base64Binary
+〰164: current-date
+〰165: current-date() as xs:date
 〰166: 
-〰167: collation-key(xs:string, xs:string) as xs:base64Binary
+〰167: Returns the current date.
 〰168: 
-〰169: Given a string value and a collation, generates an internal value called a collation key, with the property that the matching and ordering of collation keys reflects the matching and ordering of strings under the specified collation.
-〰170: 
-〰171: collection
-〰172: collection() as item()*
+〰169: current-dateTime
+〰170: current-dateTime() as xs:dateTimeStamp
+〰171: 
+〰172: Returns the current date and time (with timezone).
 〰173: 
-〰174: collection(xs:string?) as item()*
-〰175: 
-〰176: Returns a sequence of items identified by a collection URI; or a default collection if no URI is supplied.
-〰177: 
-〰178: compare
-〰179: compare(xs:string?, xs:string?) as xs:integer?
-〰180: 
-〰181: compare(xs:string?, xs:string?, xs:string) as xs:integer?
-〰182: 
-〰183: Returns -1, 0, or 1, depending on whether $comparand1 collates before, equal to, or after $comparand2 according to the rules of a selected collation.
-〰184: 
-〰185: concat
-〰186: concat(xs:anyAtomicType?, xs:anyAtomicType?, xs:anyAtomicType?) as xs:string
-〰187: 
-〰188: Returns the concatenation of the string values of the arguments.
-〰189: 
-〰190: contains
-〰191: contains(xs:string?, xs:string?) as xs:boolean
-〰192: 
-〰193: contains(xs:string?, xs:string?, xs:string) as xs:boolean
-〰194: 
-〰195: Returns true if the string $arg1 contains $arg2 as a substring, taking collations into account.
-〰196: 
-〰197: contains-token
-〰198: contains-token(xs:string*, xs:string) as xs:boolean
-〰199: 
-〰200: contains-token(xs:string*, xs:string, xs:string) as xs:boolean
-〰201: 
-〰202: Determines whether or not any of the supplied strings, when tokenized at whitespace boundaries, contains the supplied token, under the rules of the supplied collation.
+〰174: current-time
+〰175: current-time() as xs:time
+〰176: 
+〰177: Returns the current time.
+〰178: 
+〰179: data
+〰180: data() as xs:anyAtomicType*
+〰181: 
+〰182: data(item()*) as xs:anyAtomicType*
+〰183: 
+〰184: Returns the result of atomizing a sequence. This process flattens arrays, and replaces nodes by their typed values.
+〰185: 
+〰186: dateTime
+〰187: dateTime(xs:date?, xs:time?) as xs:dateTime?
+〰188: 
+〰189: Returns an xs:dateTime value created by combining an xs:date and an xs:time.
+〰190: 
+〰191: day-from-date
+〰192: day-from-date(xs:date?) as xs:integer?
+〰193: 
+〰194: Returns the day component of an xs:date.
+〰195: 
+〰196: day-from-dateTime
+〰197: day-from-dateTime(xs:dateTime?) as xs:integer?
+〰198: 
+〰199: Returns the day component of an xs:dateTime.
+〰200: 
+〰201: days-from-duration
+〰202: days-from-duration(xs:duration?) as xs:integer?
 〰203: 
-〰204: count
-〰205: count(item()*) as xs:integer
-〰206: 
-〰207: Returns the number of items in a sequence.
+〰204: Returns the number of days in a duration.
+〰205: 
+〰206: deep-equal
+〰207: deep-equal(item()*, item()*) as xs:boolean
 〰208: 
-〰209: current-date
-〰210: current-date() as xs:date
-〰211: 
-〰212: Returns the current date.
-〰213: 
-〰214: current-dateTime
-〰215: current-dateTime() as xs:dateTimeStamp
-〰216: 
-〰217: Returns the current date and time (with timezone).
-〰218: 
-〰219: current-time
-〰220: current-time() as xs:time
-〰221: 
-〰222: Returns the current time.
-〰223: 
-〰224: data
-〰225: data() as xs:anyAtomicType*
-〰226: 
-〰227: data(item()*) as xs:anyAtomicType*
-〰228: 
-〰229: Returns the result of atomizing a sequence. This process flattens arrays, and replaces nodes by their typed values.
-〰230: 
-〰231: dateTime
-〰232: dateTime(xs:date?, xs:time?) as xs:dateTime?
-〰233: 
-〰234: Returns an xs:dateTime value created by combining an xs:date and an xs:time.
-〰235: 
-〰236: day-from-date
-〰237: day-from-date(xs:date?) as xs:integer?
-〰238: 
-〰239: Returns the day component of an xs:date.
-〰240: 
-〰241: day-from-dateTime
-〰242: day-from-dateTime(xs:dateTime?) as xs:integer?
-〰243: 
-〰244: Returns the day component of an xs:dateTime.
-〰245: 
-〰246: days-from-duration
-〰247: days-from-duration(xs:duration?) as xs:integer?
-〰248: 
-〰249: Returns the number of days in a duration.
-〰250: 
-〰251: deep-equal
-〰252: deep-equal(item()*, item()*) as xs:boolean
+〰209: deep-equal(item()*, item()*, xs:string) as xs:boolean
+〰210: 
+〰211: This function assesses whether two sequences are deep-equal to each other. To be deep-equal, they must contain items that are pairwise deep-equal; and for two items to be deep-equal, they must either be atomic values that compare equal, or nodes of the same kind, with the same name, whose children are deep-equal, or maps with matching entries, or arrays with matching members.
+〰212: 
+〰213: default-collation
+〰214: default-collation() as xs:string
+〰215: 
+〰216: Returns the value of the default collation property from the static context.
+〰217: 
+〰218: default-language
+〰219: default-language() as xs:language
+〰220: 
+〰221: Returns the value of the default language property from the dynamic context.
+〰222: 
+〰223: distinct-values
+〰224: distinct-values(xs:anyAtomicType*) as xs:anyAtomicType*
+〰225: 
+〰226: distinct-values(xs:anyAtomicType*, xs:string) as xs:anyAtomicType*
+〰227: 
+〰228: Returns the values that appear in a sequence, with duplicates eliminated.
+〰229: 
+〰230: doc
+〰231: doc(xs:string?) as document-node()?
+〰232: 
+〰233: Retrieves a document using a URI supplied as an xs:string, and returns the corresponding document node.
+〰234: 
+〰235: doc-available
+〰236: doc-available(xs:string?) as xs:boolean
+〰237: 
+〰238: The function returns true if and only if the function call fn:doc($uri) would return a document node.
+〰239: 
+〰240: document-uri
+〰241: document-uri() as xs:anyURI?
+〰242: 
+〰243: document-uri(node()?) as xs:anyURI?
+〰244: 
+〰245: Returns the URI of a resource where a document can be found, if available.
+〰246: 
+〰247: element-with-id
+〰248: element-with-id(xs:string*) as element()*
+〰249: 
+〰250: element-with-id(xs:string*, node()) as element()*
+〰251: 
+〰252: Returns the sequence of element nodes that have an ID value matching the value of one or more of the IDREF values supplied in $arg.
 〰253: 
-〰254: deep-equal(item()*, item()*, xs:string) as xs:boolean
-〰255: 
-〰256: This function assesses whether two sequences are deep-equal to each other. To be deep-equal, they must contain items that are pairwise deep-equal; and for two items to be deep-equal, they must either be atomic values that compare equal, or nodes of the same kind, with the same name, whose children are deep-equal, or maps with matching entries, or arrays with matching members.
+〰254: 
+〰255: encode-for-uri
+〰256: encode-for-uri(xs:string?) as xs:string
 〰257: 
-〰258: default-collation
-〰259: default-collation() as xs:string
-〰260: 
-〰261: Returns the value of the default collation property from the static context.
+〰258: Encodes reserved characters in a string that is intended to be used in the path segment of a URI.
+〰259: 
+〰260: ends-with
+〰261: ends-with(xs:string?, xs:string?) as xs:boolean
 〰262: 
-〰263: default-language
-〰264: default-language() as xs:language
-〰265: 
-〰266: Returns the value of the default language property from the dynamic context.
-〰267: 
-〰268: distinct-values
-〰269: distinct-values(xs:anyAtomicType*) as xs:anyAtomicType*
-〰270: 
-〰271: distinct-values(xs:anyAtomicType*, xs:string) as xs:anyAtomicType*
-〰272: 
-〰273: Returns the values that appear in a sequence, with duplicates eliminated.
+〰263: ends-with(xs:string?, xs:string?, xs:string) as xs:boolean
+〰264: 
+〰265: Returns true if the string $arg1 contains $arg2 as a trailing substring, taking collations into account.
+〰266: 
+〰267: environment-variable
+〰268: environment-variable(xs:string) as xs:string?
+〰269: 
+〰270: Returns the value of a system environment variable, if it exists.
+〰271: 
+〰272: error
+〰273: error() as none
 〰274: 
-〰275: doc
-〰276: doc(xs:string?) as document-node()?
-〰277: 
-〰278: Retrieves a document using a URI supplied as an xs:string, and returns the corresponding document node.
-〰279: 
-〰280: doc-available
-〰281: doc-available(xs:string?) as xs:boolean
+〰275: error(xs:QName?) as none
+〰276: 
+〰277: error(xs:QName?, xs:string) as none
+〰278: 
+〰279: error(xs:QName?, xs:string, item()*) as none
+〰280: 
+〰281: Calling the fn:error function raises an application-defined error.
 〰282: 
-〰283: The function returns true if and only if the function call fn:doc($uri) would return a document node.
-〰284: 
-〰285: document-uri
-〰286: document-uri() as xs:anyURI?
+〰283: escape-html-uri
+〰284: escape-html-uri(xs:string?) as xs:string
+〰285: 
+〰286: Escapes a URI in the same way that HTML user agents handle attribute values expected to contain URIs.
 〰287: 
-〰288: document-uri(node()?) as xs:anyURI?
-〰289: 
-〰290: Returns the URI of a resource where a document can be found, if available.
-〰291: 
-〰292: element-with-id
-〰293: element-with-id(xs:string*) as element()*
-〰294: 
-〰295: element-with-id(xs:string*, node()) as element()*
+〰288: exactly-one
+〰289: exactly-one(item()*) as item()
+〰290: 
+〰291: Returns $arg if it contains exactly one item. Otherwise, raises an error.
+〰292: 
+〰293: 
+〰294: filter
+〰295: filter(item()*, function(item()) as xs:boolean) as item()*
 〰296: 
-〰297: Returns the sequence of element nodes that have an ID value matching the value of one or more of the IDREF values supplied in $arg.
+〰297: Returns those items from the sequence $seq for which the supplied function $f returns true.
 〰298: 
-〰299: empty
-〰300: empty(item()*) as xs:boolean
+〰299: floor
+〰300: floor(xs:numeric?) as xs:numeric?
 〰301: 
-〰302: Returns true if the argument is the empty sequence.
+〰302: Rounds $arg downwards to a whole number.
 〰303: 
-〰304: encode-for-uri
-〰305: encode-for-uri(xs:string?) as xs:string
+〰304: fold-left
+〰305: fold-left(item()*, item()*, function(item()*, item()) as item()*) as item()*
 〰306: 
-〰307: Encodes reserved characters in a string that is intended to be used in the path segment of a URI.
+〰307: Processes the supplied sequence from left to right, applying the supplied function repeatedly to each item in turn, together with an accumulated result value.
 〰308: 
-〰309: ends-with
-〰310: ends-with(xs:string?, xs:string?) as xs:boolean
+〰309: fold-right
+〰310: fold-right(item()*, item()*, function(item(), item()*) as item()*) as item()*
 〰311: 
-〰312: ends-with(xs:string?, xs:string?, xs:string) as xs:boolean
+〰312: Processes the supplied sequence from right to left, applying the supplied function repeatedly to each item in turn, together with an accumulated result value.
 〰313: 
-〰314: Returns true if the string $arg1 contains $arg2 as a trailing substring, taking collations into account.
-〰315: 
-〰316: environment-variable
-〰317: environment-variable(xs:string) as xs:string?
+〰314: for-each
+〰315: for-each(item()*, function(item()) as item()*) as item()*
+〰316: 
+〰317: Applies the function item $action to every item from the sequence $seq in turn, returning the concatenation of the resulting sequences in order.
 〰318: 
-〰319: Returns the value of a system environment variable, if it exists.
-〰320: 
-〰321: error
-〰322: error() as none
+〰319: for-each-pair
+〰320: for-each-pair(item()*, item()*, function(item(), item()) as item()*) as item()*
+〰321: 
+〰322: Applies the function item $action to successive pairs of items taken one from $seq1 and one from $seq2, returning the concatenation of the resulting sequences in order.
 〰323: 
-〰324: error(xs:QName?) as none
-〰325: 
-〰326: error(xs:QName?, xs:string) as none
-〰327: 
-〰328: error(xs:QName?, xs:string, item()*) as none
-〰329: 
-〰330: Calling the fn:error function raises an application-defined error.
-〰331: 
-〰332: escape-html-uri
-〰333: escape-html-uri(xs:string?) as xs:string
-〰334: 
-〰335: Escapes a URI in the same way that HTML user agents handle attribute values expected to contain URIs.
-〰336: 
-〰337: exactly-one
-〰338: exactly-one(item()*) as item()
-〰339: 
-〰340: Returns $arg if it contains exactly one item. Otherwise, raises an error.
-〰341: 
-〰342: exists
-〰343: exists(item()*) as xs:boolean
+〰324: format-date
+〰325: format-date(xs:date?, xs:string) as xs:string?
+〰326: 
+〰327: format-date(xs:date?, xs:string, xs:string?, xs:string?, xs:string?) as xs:string?
+〰328: 
+〰329: Returns a string containing an xs:date value formatted for display.
+〰330: 
+〰331: format-dateTime
+〰332: format-dateTime(xs:dateTime?, xs:string) as xs:string?
+〰333: 
+〰334: format-dateTime(xs:dateTime?, xs:string, xs:string?, xs:string?, xs:string?) as xs:string?
+〰335: 
+〰336: Returns a string containing an xs:dateTime value formatted for display.
+〰337: 
+〰338: format-integer
+〰339: format-integer(xs:integer?, xs:string) as xs:string
+〰340: 
+〰341: format-integer(xs:integer?, xs:string, xs:string?) as xs:string
+〰342: 
+〰343: Formats an integer according to a given picture string, using the conventions of a given natural language if specified.
 〰344: 
-〰345: Returns true if the argument is a non-empty sequence.
-〰346: 
-〰347: false
-〰348: false() as xs:boolean
+〰345: format-number
+〰346: format-number(xs:numeric?, xs:string) as xs:string
+〰347: 
+〰348: format-number(xs:numeric?, xs:string, xs:string?) as xs:string
 〰349: 
-〰350: Returns the xs:boolean value false.
+〰350: Returns a string containing a number formatted according to a given picture string, taking account of decimal formats specified in the static context.
 〰351: 
-〰352: filter
-〰353: filter(item()*, function(item()) as xs:boolean) as item()*
+〰352: format-time
+〰353: format-time(xs:time?, xs:string) as xs:string?
 〰354: 
-〰355: Returns those items from the sequence $seq for which the supplied function $f returns true.
+〰355: format-time(xs:time?, xs:string, xs:string?, xs:string?, xs:string?) as xs:string?
 〰356: 
-〰357: floor
-〰358: floor(xs:numeric?) as xs:numeric?
-〰359: 
-〰360: Rounds $arg downwards to a whole number.
+〰357: Returns a string containing an xs:time value formatted for display.
+〰358: 
+〰359: function-arity
+〰360: function-arity(function(*)) as xs:integer
 〰361: 
-〰362: fold-left
-〰363: fold-left(item()*, item()*, function(item()*, item()) as item()*) as item()*
-〰364: 
-〰365: Processes the supplied sequence from left to right, applying the supplied function repeatedly to each item in turn, together with an accumulated result value.
+〰362: Returns the arity of the function identified by a function item.
+〰363: 
+〰364: function-lookup
+〰365: function-lookup(xs:QName, xs:integer) as function(*)?
 〰366: 
-〰367: fold-right
-〰368: fold-right(item()*, item()*, function(item(), item()*) as item()*) as item()*
-〰369: 
-〰370: Processes the supplied sequence from right to left, applying the supplied function repeatedly to each item in turn, together with an accumulated result value.
+〰367: Returns the function having a given name and arity, if there is one.
+〰368: 
+〰369: function-name
+〰370: function-name(function(*)) as xs:QName?
 〰371: 
-〰372: for-each
-〰373: for-each(item()*, function(item()) as item()*) as item()*
-〰374: 
-〰375: Applies the function item $action to every item from the sequence $seq in turn, returning the concatenation of the resulting sequences in order.
+〰372: Returns the name of the function identified by a function item.
+〰373: 
+〰374: generate-id
+〰375: generate-id() as xs:string
 〰376: 
-〰377: for-each-pair
-〰378: for-each-pair(item()*, item()*, function(item(), item()) as item()*) as item()*
-〰379: 
-〰380: Applies the function item $action to successive pairs of items taken one from $seq1 and one from $seq2, returning the concatenation of the resulting sequences in order.
-〰381: 
-〰382: format-date
-〰383: format-date(xs:date?, xs:string) as xs:string?
-〰384: 
-〰385: format-date(xs:date?, xs:string, xs:string?, xs:string?, xs:string?) as xs:string?
-〰386: 
-〰387: Returns a string containing an xs:date value formatted for display.
-〰388: 
-〰389: format-dateTime
-〰390: format-dateTime(xs:dateTime?, xs:string) as xs:string?
-〰391: 
-〰392: format-dateTime(xs:dateTime?, xs:string, xs:string?, xs:string?, xs:string?) as xs:string?
-〰393: 
-〰394: Returns a string containing an xs:dateTime value formatted for display.
+〰377: generate-id(node()?) as xs:string
+〰378: 
+〰379: This function returns a string that uniquely identifies a given node.
+〰380: 
+〰381: has-children
+〰382: has-children() as xs:boolean
+〰383: 
+〰384: has-children(node()?) as xs:boolean
+〰385: 
+〰386: Returns true if the supplied node has one or more child nodes (of any kind).
+〰387: 
+〰388: head
+〰389: head(item()*) as item()?
+〰390: 
+〰391: Returns the first item in a sequence.
+〰392: 
+〰393: hours-from-dateTime
+〰394: hours-from-dateTime(xs:dateTime?) as xs:integer?
 〰395: 
-〰396: format-integer
-〰397: format-integer(xs:integer?, xs:string) as xs:string
-〰398: 
-〰399: format-integer(xs:integer?, xs:string, xs:string?) as xs:string
+〰396: Returns the hours component of an xs:dateTime.
+〰397: 
+〰398: hours-from-duration
+〰399: hours-from-duration(xs:duration?) as xs:integer?
 〰400: 
-〰401: Formats an integer according to a given picture string, using the conventions of a given natural language if specified.
+〰401: Returns the number of hours in a duration.
 〰402: 
-〰403: format-number
-〰404: format-number(xs:numeric?, xs:string) as xs:string
+〰403: hours-from-time
+〰404: hours-from-time(xs:time?) as xs:integer?
 〰405: 
-〰406: format-number(xs:numeric?, xs:string, xs:string?) as xs:string
+〰406: Returns the hours component of an xs:time.
 〰407: 
-〰408: Returns a string containing a number formatted according to a given picture string, taking account of decimal formats specified in the static context.
-〰409: 
-〰410: format-time
-〰411: format-time(xs:time?, xs:string) as xs:string?
+〰408: id
+〰409: id(xs:string*) as element()*
+〰410: 
+〰411: id(xs:string*, node()) as element()*
 〰412: 
-〰413: format-time(xs:time?, xs:string, xs:string?, xs:string?, xs:string?) as xs:string?
+〰413: Returns the sequence of element nodes that have an ID value matching the value of one or more of the IDREF values supplied in $arg.
 〰414: 
-〰415: Returns a string containing an xs:time value formatted for display.
-〰416: 
-〰417: function-arity
-〰418: function-arity(function(*)) as xs:integer
+〰415: idref
+〰416: idref(xs:string*) as node()*
+〰417: 
+〰418: idref(xs:string*, node()) as node()*
 〰419: 
-〰420: Returns the arity of the function identified by a function item.
+〰420: Returns the sequence of element or attribute nodes with an IDREF value matching the value of one or more of the ID values supplied in $arg.
 〰421: 
-〰422: function-lookup
-〰423: function-lookup(xs:QName, xs:integer) as function(*)?
+〰422: implicit-timezone
+〰423: implicit-timezone() as xs:dayTimeDuration
 〰424: 
-〰425: Returns the function having a given name and arity, if there is one.
+〰425: Returns the value of the implicit timezone property from the dynamic context.
 〰426: 
-〰427: function-name
-〰428: function-name(function(*)) as xs:QName?
+〰427: index-of
+〰428: index-of(xs:anyAtomicType*, xs:anyAtomicType) as xs:integer*
 〰429: 
-〰430: Returns the name of the function identified by a function item.
+〰430: index-of(xs:anyAtomicType*, xs:anyAtomicType, xs:string) as xs:integer*
 〰431: 
-〰432: generate-id
-〰433: generate-id() as xs:string
-〰434: 
-〰435: generate-id(node()?) as xs:string
+〰432: Returns a sequence of positive integers giving the positions within the sequence $seq of items that are equal to $search.
+〰433: 
+〰434: innermost
+〰435: innermost(node()*) as node()*
 〰436: 
-〰437: This function returns a string that uniquely identifies a given node.
+〰437: Returns every node within the input sequence that is not an ancestor of another member of the input sequence; the nodes are returned in document order with duplicates eliminated.
 〰438: 
-〰439: has-children
-〰440: has-children() as xs:boolean
+〰439: in-scope-prefixes
+〰440: in-scope-prefixes(element()) as xs:string*
 〰441: 
-〰442: has-children(node()?) as xs:boolean
+〰442: Returns the prefixes of the in-scope namespaces for an element node.
 〰443: 
-〰444: Returns true if the supplied node has one or more child nodes (of any kind).
-〰445: 
-〰446: head
-〰447: head(item()*) as item()?
+〰444: insert-before
+〰445: insert-before(item()*, xs:integer, item()*) as item()*
+〰446: 
+〰447: Returns a sequence constructed by inserting an item or a sequence of items at a given position within an existing sequence.
 〰448: 
-〰449: Returns the first item in a sequence.
-〰450: 
-〰451: hours-from-dateTime
-〰452: hours-from-dateTime(xs:dateTime?) as xs:integer?
+〰449: iri-to-uri
+〰450: iri-to-uri(xs:string?) as xs:string
+〰451: 
+〰452: Converts a string containing an IRI into a URI according to the rules of [rfc3987].
 〰453: 
-〰454: Returns the hours component of an xs:dateTime.
-〰455: 
-〰456: hours-from-duration
-〰457: hours-from-duration(xs:duration?) as xs:integer?
+〰454: json-doc
+〰455: json-doc(xs:string?) as item()?
+〰456: 
+〰457: json-doc(xs:string?, map(*)) as item()?
 〰458: 
-〰459: Returns the number of hours in a duration.
+〰459: Reads an external resource containing JSON, and returns the result of parsing the resource as JSON.
 〰460: 
-〰461: hours-from-time
-〰462: hours-from-time(xs:time?) as xs:integer?
+〰461: json-to-xml
+〰462: json-to-xml(xs:string?) as document-node()?
 〰463: 
-〰464: Returns the hours component of an xs:time.
+〰464: json-to-xml(xs:string?, map(*)) as document-node()?
 〰465: 
-〰466: id
-〰467: id(xs:string*) as element()*
-〰468: 
-〰469: id(xs:string*, node()) as element()*
+〰466: Parses a string supplied in the form of a JSON text, returning the results in the form of an XML document node.
+〰467: 
+〰468: lang
+〰469: lang(xs:string?) as xs:boolean
 〰470: 
-〰471: Returns the sequence of element nodes that have an ID value matching the value of one or more of the IDREF values supplied in $arg.
+〰471: lang(xs:string?, node()) as xs:boolean
 〰472: 
-〰473: idref
-〰474: idref(xs:string*) as node()*
-〰475: 
-〰476: idref(xs:string*, node()) as node()*
+〰473: This function tests whether the language of $node, or the context item if the second argument is omitted, as specified by xml:lang attributes is the same as, or is a sublanguage of, the language specified by $testlang.
+〰474: 
+〰475: last
+〰476: last() as xs:integer
 〰477: 
-〰478: Returns the sequence of element or attribute nodes with an IDREF value matching the value of one or more of the ID values supplied in $arg.
+〰478: Returns the context size from the dynamic context.
 〰479: 
-〰480: implicit-timezone
-〰481: implicit-timezone() as xs:dayTimeDuration
+〰480: load-xquery-module
+〰481: load-xquery-module(xs:string) as map(*)
 〰482: 
-〰483: Returns the value of the implicit timezone property from the dynamic context.
+〰483: load-xquery-module(xs:string, map(*)) as map(*)
 〰484: 
-〰485: index-of
-〰486: index-of(xs:anyAtomicType*, xs:anyAtomicType) as xs:integer*
-〰487: 
-〰488: index-of(xs:anyAtomicType*, xs:anyAtomicType, xs:string) as xs:integer*
+〰485: Provides access to the public functions and global variables of a dynamically-loaded XQuery library module.
+〰486: 
+〰487: local-name
+〰488: local-name() as xs:string
 〰489: 
-〰490: Returns a sequence of positive integers giving the positions within the sequence $seq of items that are equal to $search.
+〰490: local-name(node()?) as xs:string
 〰491: 
-〰492: innermost
-〰493: innermost(node()*) as node()*
-〰494: 
-〰495: Returns every node within the input sequence that is not an ancestor of another member of the input sequence; the nodes are returned in document order with duplicates eliminated.
+〰492: Returns the local part of the name of $arg as an xs:string that is either the zero-length string, or has the lexical form of an xs:NCName.
+〰493: 
+〰494: local-name-from-QName
+〰495: local-name-from-QName(xs:QName?) as xs:NCName?
 〰496: 
-〰497: in-scope-prefixes
-〰498: in-scope-prefixes(element()) as xs:string*
-〰499: 
-〰500: Returns the prefixes of the in-scope namespaces for an element node.
+〰497: Returns the local part of the supplied QName.
+〰498: 
+〰499: lower-case
+〰500: lower-case(xs:string?) as xs:string
 〰501: 
-〰502: insert-before
-〰503: insert-before(item()*, xs:integer, item()*) as item()*
-〰504: 
-〰505: Returns a sequence constructed by inserting an item or a sequence of items at a given position within an existing sequence.
+〰502: Converts a string to lower case.
+〰503: 
+〰504: matches
+〰505: matches(xs:string?, xs:string) as xs:boolean
 〰506: 
-〰507: iri-to-uri
-〰508: iri-to-uri(xs:string?) as xs:string
-〰509: 
-〰510: Converts a string containing an IRI into a URI according to the rules of [rfc3987].
+〰507: matches(xs:string?, xs:string, xs:string) as xs:boolean
+〰508: 
+〰509: Returns true if the supplied string matches a given regular expression.
+〰510: 
 〰511: 
-〰512: json-doc
-〰513: json-doc(xs:string?) as item()?
-〰514: 
-〰515: json-doc(xs:string?, map(*)) as item()?
+〰512: Returns a value that is equal to the lowest value appearing in the input sequence.
+〰513: 
+〰514: minutes-from-dateTime
+〰515: minutes-from-dateTime(xs:dateTime?) as xs:integer?
 〰516: 
-〰517: Reads an external resource containing JSON, and returns the result of parsing the resource as JSON.
+〰517: Returns the minute component of an xs:dateTime.
 〰518: 
-〰519: json-to-xml
-〰520: json-to-xml(xs:string?) as document-node()?
+〰519: minutes-from-duration
+〰520: minutes-from-duration(xs:duration?) as xs:integer?
 〰521: 
-〰522: json-to-xml(xs:string?, map(*)) as document-node()?
+〰522: Returns the number of minutes in a duration.
 〰523: 
-〰524: Parses a string supplied in the form of a JSON text, returning the results in the form of an XML document node.
-〰525: 
-〰526: lang
-〰527: lang(xs:string?) as xs:boolean
+〰524: minutes-from-time
+〰525: minutes-from-time(xs:time?) as xs:integer?
+〰526: 
+〰527: Returns the minutes component of an xs:time.
 〰528: 
-〰529: lang(xs:string?, node()) as xs:boolean
-〰530: 
-〰531: This function tests whether the language of $node, or the context item if the second argument is omitted, as specified by xml:lang attributes is the same as, or is a sublanguage of, the language specified by $testlang.
-〰532: 
-〰533: last
-〰534: last() as xs:integer
-〰535: 
-〰536: Returns the context size from the dynamic context.
-〰537: 
-〰538: load-xquery-module
-〰539: load-xquery-module(xs:string) as map(*)
-〰540: 
-〰541: load-xquery-module(xs:string, map(*)) as map(*)
-〰542: 
-〰543: Provides access to the public functions and global variables of a dynamically-loaded XQuery library module.
-〰544: 
-〰545: local-name
-〰546: local-name() as xs:string
-〰547: 
-〰548: local-name(node()?) as xs:string
-〰549: 
-〰550: Returns the local part of the name of $arg as an xs:string that is either the zero-length string, or has the lexical form of an xs:NCName.
-〰551: 
-〰552: local-name-from-QName
-〰553: local-name-from-QName(xs:QName?) as xs:NCName?
-〰554: 
-〰555: Returns the local part of the supplied QName.
-〰556: 
-〰557: lower-case
-〰558: lower-case(xs:string?) as xs:string
-〰559: 
-〰560: Converts a string to lower case.
-〰561: 
-〰562: matches
-〰563: matches(xs:string?, xs:string) as xs:boolean
-〰564: 
-〰565: matches(xs:string?, xs:string, xs:string) as xs:boolean
-〰566: 
-〰567: Returns true if the supplied string matches a given regular expression.
-〰568: 
-〰569: max
-〰570: max(xs:anyAtomicType*) as xs:anyAtomicType?
-〰571: 
-〰572: max(xs:anyAtomicType*, xs:string) as xs:anyAtomicType?
-〰573: 
-〰574: Returns a value that is equal to the highest value appearing in the input sequence.
-〰575: 
-〰576: min
-〰577: min(xs:anyAtomicType*) as xs:anyAtomicType?
-〰578: 
-〰579: min(xs:anyAtomicType*, xs:string) as xs:anyAtomicType?
-〰580: 
-〰581: Returns a value that is equal to the lowest value appearing in the input sequence.
-〰582: 
-〰583: minutes-from-dateTime
-〰584: minutes-from-dateTime(xs:dateTime?) as xs:integer?
-〰585: 
-〰586: Returns the minute component of an xs:dateTime.
-〰587: 
-〰588: minutes-from-duration
-〰589: minutes-from-duration(xs:duration?) as xs:integer?
-〰590: 
-〰591: Returns the number of minutes in a duration.
-〰592: 
-〰593: minutes-from-time
-〰594: minutes-from-time(xs:time?) as xs:integer?
+〰529: month-from-date
+〰530: month-from-date(xs:date?) as xs:integer?
+〰531: 
+〰532: Returns the month component of an xs:date.
+〰533: 
+〰534: month-from-dateTime
+〰535: month-from-dateTime(xs:dateTime?) as xs:integer?
+〰536: 
+〰537: Returns the month component of an xs:dateTime.
+〰538: 
+〰539: months-from-duration
+〰540: months-from-duration(xs:duration?) as xs:integer?
+〰541: 
+〰542: Returns the number of months in a duration.
+〰543: 
+〰544: name
+〰545: name() as xs:string
+〰546: 
+〰547: name(node()?) as xs:string
+〰548: 
+〰549: Returns the name of a node, as an xs:string that is either the zero-length string, or has the lexical form of an xs:QName.
+〰550: 
+〰551: namespace-uri
+〰552: namespace-uri() as xs:anyURI
+〰553: 
+〰554: namespace-uri(node()?) as xs:anyURI
+〰555: 
+〰556: Returns the namespace URI part of the name of $arg, as an xs:anyURI value.
+〰557: 
+〰558: namespace-uri-for-prefix
+〰559: namespace-uri-for-prefix(xs:string?, element()) as xs:anyURI?
+〰560: 
+〰561: Returns the namespace URI of one of the in-scope namespaces for $element, identified by its namespace prefix.
+〰562: 
+〰563: namespace-uri-from-QName
+〰564: namespace-uri-from-QName(xs:QName?) as xs:anyURI?
+〰565: 
+〰566: Returns the namespace URI part of the supplied QName.
+〰567: 
+〰568: nilled
+〰569: nilled() as xs:boolean?
+〰570: 
+〰571: nilled(node()?) as xs:boolean?
+〰572: 
+〰573: Returns true for an element that is nilled.
+〰574: 
+〰575: node-name
+〰576: node-name() as xs:QName?
+〰577: 
+〰578: node-name(node()?) as xs:QName?
+〰579: 
+〰580: Returns the name of a node, as an xs:QName.
+〰581: 
+〰582: normalize-space
+〰583: normalize-space() as xs:string
+〰584: 
+〰585: normalize-space(xs:string?) as xs:string
+〰586: 
+〰587: Returns the value of $arg with leading and trailing whitespace removed, and sequences of internal whitespace reduced to a single space character.
+〰588: 
+〰589: normalize-unicode
+〰590: normalize-unicode(xs:string?) as xs:string
+〰591: 
+〰592: normalize-unicode(xs:string?, xs:string) as xs:string
+〰593: 
+〰594: Returns the value of $arg after applying Unicode normalization.
 〰595: 
-〰596: Returns the minutes component of an xs:time.
-〰597: 
-〰598: month-from-date
-〰599: month-from-date(xs:date?) as xs:integer?
+〰596: number
+〰597: number() as xs:double
+〰598: 
+〰599: number(xs:anyAtomicType?) as xs:double
 〰600: 
-〰601: Returns the month component of an xs:date.
+〰601: Returns the value indicated by $arg or, if $arg is not specified, the context item after atomization, converted to an xs:double.
 〰602: 
-〰603: month-from-dateTime
-〰604: month-from-dateTime(xs:dateTime?) as xs:integer?
+〰603: one-or-more
+〰604: one-or-more(item()*) as item()+
 〰605: 
-〰606: Returns the month component of an xs:dateTime.
+〰606: Returns $arg if it contains one or more items. Otherwise, raises an error.
 〰607: 
-〰608: months-from-duration
-〰609: months-from-duration(xs:duration?) as xs:integer?
+〰608: outermost
+〰609: outermost(node()*) as node()*
 〰610: 
-〰611: Returns the number of months in a duration.
+〰611: Returns every node within the input sequence that has no ancestor that is itself a member of the input sequence; the nodes are returned in document order with duplicates eliminated.
 〰612: 
-〰613: name
-〰614: name() as xs:string
+〰613: parse-ietf-date
+〰614: parse-ietf-date(xs:string?) as xs:dateTime?
 〰615: 
-〰616: name(node()?) as xs:string
+〰616: Parses a string containing the date and time in IETF format, returning the corresponding xs:dateTime value.
 〰617: 
-〰618: Returns the name of a node, as an xs:string that is either the zero-length string, or has the lexical form of an xs:QName.
-〰619: 
-〰620: namespace-uri
-〰621: namespace-uri() as xs:anyURI
+〰618: parse-json
+〰619: parse-json(xs:string?) as item()?
+〰620: 
+〰621: parse-json(xs:string?, map(*)) as item()?
 〰622: 
-〰623: namespace-uri(node()?) as xs:anyURI
+〰623: Parses a string supplied in the form of a JSON text, returning the results typically in the form of a map or array.
 〰624: 
-〰625: Returns the namespace URI part of the name of $arg, as an xs:anyURI value.
-〰626: 
-〰627: namespace-uri-for-prefix
-〰628: namespace-uri-for-prefix(xs:string?, element()) as xs:anyURI?
+〰625: parse-xml
+〰626: parse-xml(xs:string?) as document-node(element(*))?
+〰627: 
+〰628: This function takes as input an XML document represented as a string, and returns the document node at the root of an XDM tree representing the parsed document.
 〰629: 
-〰630: Returns the namespace URI of one of the in-scope namespaces for $element, identified by its namespace prefix.
-〰631: 
-〰632: namespace-uri-from-QName
-〰633: namespace-uri-from-QName(xs:QName?) as xs:anyURI?
+〰630: parse-xml-fragment
+〰631: parse-xml-fragment(xs:string?) as document-node()?
+〰632: 
+〰633: This function takes as input an XML external entity represented as a string, and returns the document node at the root of an XDM tree representing the parsed document fragment.
 〰634: 
-〰635: Returns the namespace URI part of the supplied QName.
-〰636: 
-〰637: nilled
-〰638: nilled() as xs:boolean?
+〰635: path
+〰636: path() as xs:string?
+〰637: 
+〰638: path(node()?) as xs:string?
 〰639: 
-〰640: nilled(node()?) as xs:boolean?
+〰640: Returns a path expression that can be used to select the supplied node relative to the root of its containing document.
 〰641: 
-〰642: Returns true for an element that is nilled.
-〰643: 
-〰644: node-name
-〰645: node-name() as xs:QName?
+〰642: position
+〰643: position() as xs:integer
+〰644: 
+〰645: Returns the context position from the dynamic context.
 〰646: 
-〰647: node-name(node()?) as xs:QName?
-〰648: 
-〰649: Returns the name of a node, as an xs:QName.
-〰650: 
-〰651: normalize-space
-〰652: normalize-space() as xs:string
-〰653: 
-〰654: normalize-space(xs:string?) as xs:string
-〰655: 
-〰656: Returns the value of $arg with leading and trailing whitespace removed, and sequences of internal whitespace reduced to a single space character.
-〰657: 
-〰658: normalize-unicode
-〰659: normalize-unicode(xs:string?) as xs:string
-〰660: 
-〰661: normalize-unicode(xs:string?, xs:string) as xs:string
-〰662: 
-〰663: Returns the value of $arg after applying Unicode normalization.
-〰664: 
-〰665: not
-〰666: not(item()*) as xs:boolean
-〰667: 
-〰668: Returns true if the effective boolean value of $arg is false, or false if it is true.
-〰669: 
-〰670: number
-〰671: number() as xs:double
-〰672: 
-〰673: number(xs:anyAtomicType?) as xs:double
-〰674: 
-〰675: Returns the value indicated by $arg or, if $arg is not specified, the context item after atomization, converted to an xs:double.
-〰676: 
-〰677: one-or-more
-〰678: one-or-more(item()*) as item()+
-〰679: 
-〰680: Returns $arg if it contains one or more items. Otherwise, raises an error.
-〰681: 
-〰682: outermost
-〰683: outermost(node()*) as node()*
-〰684: 
-〰685: Returns every node within the input sequence that has no ancestor that is itself a member of the input sequence; the nodes are returned in document order with duplicates eliminated.
-〰686: 
-〰687: parse-ietf-date
-〰688: parse-ietf-date(xs:string?) as xs:dateTime?
-〰689: 
-〰690: Parses a string containing the date and time in IETF format, returning the corresponding xs:dateTime value.
-〰691: 
-〰692: parse-json
-〰693: parse-json(xs:string?) as item()?
-〰694: 
-〰695: parse-json(xs:string?, map(*)) as item()?
-〰696: 
-〰697: Parses a string supplied in the form of a JSON text, returning the results typically in the form of a map or array.
-〰698: 
-〰699: parse-xml
-〰700: parse-xml(xs:string?) as document-node(element(*))?
-〰701: 
-〰702: This function takes as input an XML document represented as a string, and returns the document node at the root of an XDM tree representing the parsed document.
-〰703: 
-〰704: parse-xml-fragment
-〰705: parse-xml-fragment(xs:string?) as document-node()?
+〰647: prefix-from-QName
+〰648: prefix-from-QName(xs:QName?) as xs:NCName?
+〰649: 
+〰650: Returns the prefix component of the supplied QName.
+〰651: 
+〰652: QName
+〰653: QName(xs:string?, xs:string) as xs:QName
+〰654: 
+〰655: Returns an xs:QName value formed using a supplied namespace URI and lexical QName.
+〰656: 
+〰657: random-number-generator
+〰658: random-number-generator() as map(xs:string, item())
+〰659: 
+〰660: random-number-generator(xs:anyAtomicType?) as map(xs:string, item())
+〰661: 
+〰662: Returns a random number generator, which can be used to generate sequences of random numbers.
+〰663: 
+〰664: remove
+〰665: remove(item()*, xs:integer) as item()*
+〰666: 
+〰667: Returns a new sequence containing all the items of $target except the item at position $position.
+〰668: 
+〰669: replace
+〰670: replace(xs:string?, xs:string, xs:string) as xs:string
+〰671: 
+〰672: replace(xs:string?, xs:string, xs:string, xs:string) as xs:string
+〰673: 
+〰674: Returns a string produced from the input string by replacing any substrings that match a given regular expression with a supplied replacement string.
+〰675: 
+〰676: resolve-QName
+〰677: resolve-QName(xs:string?, element()) as xs:QName?
+〰678: 
+〰679: Returns an xs:QName value (that is, an expanded-QName) by taking an xs:string that has the lexical form of an xs:QName (a string in the form "prefix:local-name" or "local-name") and resolving it using the in-scope namespaces for a given element.
+〰680: 
+〰681: resolve-uri
+〰682: resolve-uri(xs:string?) as xs:anyURI?
+〰683: 
+〰684: resolve-uri(xs:string?, xs:string) as xs:anyURI?
+〰685: 
+〰686: Resolves a relative IRI reference against an absolute IRI.
+〰687: 
+〰688: reverse
+〰689: reverse(item()*) as item()*
+〰690: 
+〰691: Reverses the order of items in a sequence.
+〰692: 
+〰693: root
+〰694: root() as node()
+〰695: 
+〰696: root(node()?) as node()?
+〰697: 
+〰698: Returns the root of the tree to which $arg belongs. This will usually, but not necessarily, be a document node.
+〰699: 
+〰700: round
+〰701: round(xs:numeric?) as xs:numeric?
+〰702: 
+〰703: round(xs:numeric?, xs:integer) as xs:numeric?
+〰704: 
+〰705: Rounds a value to a specified number of decimal places, rounding upwards if two such values are equally near.
 〰706: 
-〰707: This function takes as input an XML external entity represented as a string, and returns the document node at the root of an XDM tree representing the parsed document fragment.
-〰708: 
-〰709: path
-〰710: path() as xs:string?
+〰707: round-half-to-even
+〰708: round-half-to-even(xs:numeric?) as xs:numeric?
+〰709: 
+〰710: round-half-to-even(xs:numeric?, xs:integer) as xs:numeric?
 〰711: 
-〰712: path(node()?) as xs:string?
+〰712: Rounds a value to a specified number of decimal places, rounding to make the last digit even if two such values are equally near.
 〰713: 
-〰714: Returns a path expression that can be used to select the supplied node relative to the root of its containing document.
-〰715: 
-〰716: position
-〰717: position() as xs:integer
+〰714: seconds-from-dateTime
+〰715: seconds-from-dateTime(xs:dateTime?) as xs:decimal?
+〰716: 
+〰717: Returns the seconds component of an xs:dateTime.
 〰718: 
-〰719: Returns the context position from the dynamic context.
-〰720: 
-〰721: prefix-from-QName
-〰722: prefix-from-QName(xs:QName?) as xs:NCName?
+〰719: seconds-from-duration
+〰720: seconds-from-duration(xs:duration?) as xs:decimal?
+〰721: 
+〰722: Returns the number of seconds in a duration.
 〰723: 
-〰724: Returns the prefix component of the supplied QName.
-〰725: 
-〰726: QName
-〰727: QName(xs:string?, xs:string) as xs:QName
+〰724: seconds-from-time
+〰725: seconds-from-time(xs:time?) as xs:decimal?
+〰726: 
+〰727: Returns the seconds component of an xs:time.
 〰728: 
-〰729: Returns an xs:QName value formed using a supplied namespace URI and lexical QName.
-〰730: 
-〰731: random-number-generator
-〰732: random-number-generator() as map(xs:string, item())
+〰729: serialize
+〰730: serialize(item()*) as xs:string
+〰731: 
+〰732: serialize(item()*, item()?) as xs:string
 〰733: 
-〰734: random-number-generator(xs:anyAtomicType?) as map(xs:string, item())
+〰734: This function serializes the supplied input sequence $arg as described in [xslt-xquery-serialization-31], returning the serialized representation of the sequence as a string.
 〰735: 
-〰736: Returns a random number generator, which can be used to generate sequences of random numbers.
-〰737: 
-〰738: remove
-〰739: remove(item()*, xs:integer) as item()*
+〰736: sort
+〰737: sort(item()*) as item()*
+〰738: 
+〰739: sort(item()*, xs:string?) as item()*
 〰740: 
-〰741: Returns a new sequence containing all the items of $target except the item at position $position.
+〰741: sort(item()*, xs:string?, function(item()) as xs:anyAtomicType*) as item()*
 〰742: 
-〰743: replace
-〰744: replace(xs:string?, xs:string, xs:string) as xs:string
-〰745: 
-〰746: replace(xs:string?, xs:string, xs:string, xs:string) as xs:string
+〰743: Sorts a supplied sequence, based on the value of a sort key supplied as a function.
+〰744: 
+〰745: starts-with
+〰746: starts-with(xs:string?, xs:string?) as xs:boolean
 〰747: 
-〰748: Returns a string produced from the input string by replacing any substrings that match a given regular expression with a supplied replacement string.
+〰748: starts-with(xs:string?, xs:string?, xs:string) as xs:boolean
 〰749: 
-〰750: resolve-QName
-〰751: resolve-QName(xs:string?, element()) as xs:QName?
-〰752: 
-〰753: Returns an xs:QName value (that is, an expanded-QName) by taking an xs:string that has the lexical form of an xs:QName (a string in the form "prefix:local-name" or "local-name") and resolving it using the in-scope namespaces for a given element.
+〰750: Returns true if the string $arg1 contains $arg2 as a leading substring, taking collations into account.
+〰751: 
+〰752: static-base-uri
+〰753: static-base-uri() as xs:anyURI?
 〰754: 
-〰755: resolve-uri
-〰756: resolve-uri(xs:string?) as xs:anyURI?
-〰757: 
-〰758: resolve-uri(xs:string?, xs:string) as xs:anyURI?
+〰755: This function returns the value of the static base URI property from the static context.
+〰756: 
+〰757: string
+〰758: string() as xs:string
 〰759: 
-〰760: Resolves a relative IRI reference against an absolute IRI.
+〰760: string(item()?) as xs:string
 〰761: 
-〰762: reverse
-〰763: reverse(item()*) as item()*
-〰764: 
-〰765: Reverses the order of items in a sequence.
+〰762: Returns the value of $arg represented as an xs:string.
+〰763: 
+〰764: string-join
+〰765: string-join(xs:anyAtomicType*) as xs:string
 〰766: 
-〰767: root
-〰768: root() as node()
-〰769: 
-〰770: root(node()?) as node()?
-〰771: 
-〰772: Returns the root of the tree to which $arg belongs. This will usually, but not necessarily, be a document node.
+〰767: string-join(xs:anyAtomicType*, xs:string) as xs:string
+〰768: 
+〰769: Returns a string created by concatenating the items in a sequence, with a defined separator between adjacent items.
+〰770: 
+〰771: string-length
+〰772: string-length() as xs:integer
 〰773: 
-〰774: round
-〰775: round(xs:numeric?) as xs:numeric?
-〰776: 
-〰777: round(xs:numeric?, xs:integer) as xs:numeric?
-〰778: 
-〰779: Rounds a value to a specified number of decimal places, rounding upwards if two such values are equally near.
+〰774: string-length(xs:string?) as xs:integer
+〰775: 
+〰776: Returns the number of characters in a string.
+〰777: 
+〰778: string-to-codepoints
+〰779: string-to-codepoints(xs:string?) as xs:integer*
 〰780: 
-〰781: round-half-to-even
-〰782: round-half-to-even(xs:numeric?) as xs:numeric?
-〰783: 
-〰784: round-half-to-even(xs:numeric?, xs:integer) as xs:numeric?
+〰781: Returns the sequence of codepoints that constitute an xs:string value.
+〰782: 
+〰783: subsequence
+〰784: subsequence(item()*, xs:double) as item()*
 〰785: 
-〰786: Rounds a value to a specified number of decimal places, rounding to make the last digit even if two such values are equally near.
+〰786: subsequence(item()*, xs:double, xs:double) as item()*
 〰787: 
-〰788: seconds-from-dateTime
-〰789: seconds-from-dateTime(xs:dateTime?) as xs:decimal?
-〰790: 
-〰791: Returns the seconds component of an xs:dateTime.
+〰788: Returns the contiguous sequence of items in the value of $sourceSeq beginning at the position indicated by the value of $startingLoc and continuing for the number of items indicated by the value of $length.
+〰789: 
+〰790: substring
+〰791: substring(xs:string?, xs:double) as xs:string
 〰792: 
-〰793: seconds-from-duration
-〰794: seconds-from-duration(xs:duration?) as xs:decimal?
-〰795: 
-〰796: Returns the number of seconds in a duration.
-〰797: 
-〰798: seconds-from-time
-〰799: seconds-from-time(xs:time?) as xs:decimal?
-〰800: 
-〰801: Returns the seconds component of an xs:time.
-〰802: 
-〰803: serialize
-〰804: serialize(item()*) as xs:string
-〰805: 
-〰806: serialize(item()*, item()?) as xs:string
-〰807: 
-〰808: This function serializes the supplied input sequence $arg as described in [xslt-xquery-serialization-31], returning the serialized representation of the sequence as a string.
-〰809: 
-〰810: sort
-〰811: sort(item()*) as item()*
-〰812: 
-〰813: sort(item()*, xs:string?) as item()*
-〰814: 
-〰815: sort(item()*, xs:string?, function(item()) as xs:anyAtomicType*) as item()*
-〰816: 
-〰817: Sorts a supplied sequence, based on the value of a sort key supplied as a function.
+〰793: substring(xs:string?, xs:double, xs:double) as xs:string
+〰794: 
+〰795: Returns the portion of the value of $sourceString beginning at the position indicated by the value of $start and continuing for the number of characters indicated by the value of $length.
+〰796: 
+〰797: substring-after
+〰798: substring-after(xs:string?, xs:string?) as xs:string
+〰799: 
+〰800: substring-after(xs:string?, xs:string?, xs:string) as xs:string
+〰801: 
+〰802: Returns the part of $arg1 that follows the first occurrence of $arg2, taking collations into account.
+〰803: 
+〰804: substring-before
+〰805: substring-before(xs:string?, xs:string?) as xs:string
+〰806: 
+〰807: substring-before(xs:string?, xs:string?, xs:string) as xs:string
+〰808: 
+〰809: Returns the part of $arg1 that precedes the first occurrence of $arg2, taking collations into account.
+〰810: 
+〰811: tail
+〰812: tail(item()*) as item()*
+〰813: 
+〰814: Returns all but the first item in a sequence.
+〰815: 
+〰816: timezone-from-date
+〰817: timezone-from-date(xs:date?) as xs:dayTimeDuration?
 〰818: 
-〰819: starts-with
-〰820: starts-with(xs:string?, xs:string?) as xs:boolean
-〰821: 
-〰822: starts-with(xs:string?, xs:string?, xs:string) as xs:boolean
+〰819: Returns the timezone component of an xs:date.
+〰820: 
+〰821: timezone-from-dateTime
+〰822: timezone-from-dateTime(xs:dateTime?) as xs:dayTimeDuration?
 〰823: 
-〰824: Returns true if the string $arg1 contains $arg2 as a leading substring, taking collations into account.
+〰824: Returns the timezone component of an xs:dateTime.
 〰825: 
-〰826: static-base-uri
-〰827: static-base-uri() as xs:anyURI?
+〰826: timezone-from-time
+〰827: timezone-from-time(xs:time?) as xs:dayTimeDuration?
 〰828: 
-〰829: This function returns the value of the static base URI property from the static context.
+〰829: Returns the timezone component of an xs:time.
 〰830: 
-〰831: string
-〰832: string() as xs:string
+〰831: tokenize
+〰832: tokenize(xs:string?) as xs:string*
 〰833: 
-〰834: string(item()?) as xs:string
+〰834: tokenize(xs:string?, xs:string) as xs:string*
 〰835: 
-〰836: Returns the value of $arg represented as an xs:string.
+〰836: tokenize(xs:string?, xs:string, xs:string) as xs:string*
 〰837: 
-〰838: string-join
-〰839: string-join(xs:anyAtomicType*) as xs:string
-〰840: 
-〰841: string-join(xs:anyAtomicType*, xs:string) as xs:string
+〰838: Returns a sequence of strings constructed by splitting the input wherever a separator is found; the separator is any substring that matches a given regular expression.
+〰839: 
+〰840: trace
+〰841: trace(item()*) as item()*
 〰842: 
-〰843: Returns a string created by concatenating the items in a sequence, with a defined separator between adjacent items.
+〰843: trace(item()*, xs:string) as item()*
 〰844: 
-〰845: string-length
-〰846: string-length() as xs:integer
-〰847: 
-〰848: string-length(xs:string?) as xs:integer
+〰845: Provides an execution trace intended to be used in debugging queries.
+〰846: 
+〰847: transform
+〰848: transform(map(*)) as map(*)
 〰849: 
-〰850: Returns the number of characters in a string.
+〰850: Invokes a transformation using a dynamically-loaded XSLT stylesheet.
 〰851: 
-〰852: string-to-codepoints
-〰853: string-to-codepoints(xs:string?) as xs:integer*
+〰852: translate
+〰853: translate(xs:string?, xs:string, xs:string) as xs:string
 〰854: 
-〰855: Returns the sequence of codepoints that constitute an xs:string value.
+〰855: Returns the value of $arg modified by replacing or removing individual characters.
 〰856: 
-〰857: subsequence
-〰858: subsequence(item()*, xs:double) as item()*
+〰857: unordered
+〰858: unordered(item()*) as item()*
 〰859: 
-〰860: subsequence(item()*, xs:double, xs:double) as item()*
+〰860: Returns the items of $sourceSeq in an implementation-dependent order.
 〰861: 
-〰862: Returns the contiguous sequence of items in the value of $sourceSeq beginning at the position indicated by the value of $startingLoc and continuing for the number of items indicated by the value of $length.
-〰863: 
-〰864: substring
-〰865: substring(xs:string?, xs:double) as xs:string
+〰862: unparsed-text
+〰863: unparsed-text(xs:string?) as xs:string?
+〰864: 
+〰865: unparsed-text(xs:string?, xs:string) as xs:string?
 〰866: 
-〰867: substring(xs:string?, xs:double, xs:double) as xs:string
+〰867: The fn:unparsed-text function reads an external resource (for example, a file) and returns a string representation of the resource.
 〰868: 
-〰869: Returns the portion of the value of $sourceString beginning at the position indicated by the value of $start and continuing for the number of characters indicated by the value of $length.
-〰870: 
-〰871: substring-after
-〰872: substring-after(xs:string?, xs:string?) as xs:string
+〰869: unparsed-text-available
+〰870: unparsed-text-available(xs:string?) as xs:boolean
+〰871: 
+〰872: unparsed-text-available(xs:string?, xs:string) as xs:boolean
 〰873: 
-〰874: substring-after(xs:string?, xs:string?, xs:string) as xs:string
+〰874: Because errors in evaluating the fn:unparsed-text function are non-recoverable, these two functions are provided to allow an application to determine whether a call with particular arguments would succeed.
 〰875: 
-〰876: Returns the part of $arg1 that follows the first occurrence of $arg2, taking collations into account.
-〰877: 
-〰878: substring-before
-〰879: substring-before(xs:string?, xs:string?) as xs:string
+〰876: unparsed-text-lines
+〰877: unparsed-text-lines(xs:string?) as xs:string*
+〰878: 
+〰879: unparsed-text-lines(xs:string?, xs:string) as xs:string*
 〰880: 
-〰881: substring-before(xs:string?, xs:string?, xs:string) as xs:string
+〰881: The fn:unparsed-text-lines function reads an external resource (for example, a file) and returns its contents as a sequence of strings, one for each line of text in the string representation of the resource.
 〰882: 
-〰883: Returns the part of $arg1 that precedes the first occurrence of $arg2, taking collations into account.
-〰884: 
-〰885: sum
-〰886: sum(xs:anyAtomicType*) as xs:anyAtomicType
+〰883: upper-case
+〰884: upper-case(xs:string?) as xs:string
+〰885: 
+〰886: Converts a string to upper case.
 〰887: 
-〰888: sum(xs:anyAtomicType*, xs:anyAtomicType?) as xs:anyAtomicType?
-〰889: 
-〰890: Returns a value obtained by adding together the values in $arg.
-〰891: 
-〰892: tail
-〰893: tail(item()*) as item()*
+〰888: uri-collection
+〰889: uri-collection() as xs:anyURI*
+〰890: 
+〰891: uri-collection(xs:string?) as xs:anyURI*
+〰892: 
+〰893: Returns a sequence of xs:anyURI values representing the URIs in a URI collection.
 〰894: 
-〰895: Returns all but the first item in a sequence.
-〰896: 
-〰897: timezone-from-date
-〰898: timezone-from-date(xs:date?) as xs:dayTimeDuration?
+〰895: xml-to-json
+〰896: xml-to-json(node()?) as xs:string?
+〰897: 
+〰898: xml-to-json(node()?, map(*)) as xs:string?
 〰899: 
-〰900: Returns the timezone component of an xs:date.
+〰900: Converts an XML tree, whose format corresponds to the XML representation of JSON defined in this specification, into a string conforming to the JSON grammar.
 〰901: 
-〰902: timezone-from-dateTime
-〰903: timezone-from-dateTime(xs:dateTime?) as xs:dayTimeDuration?
+〰902: year-from-date
+〰903: year-from-date(xs:date?) as xs:integer?
 〰904: 
-〰905: Returns the timezone component of an xs:dateTime.
+〰905: Returns the year component of an xs:date.
 〰906: 
-〰907: timezone-from-time
-〰908: timezone-from-time(xs:time?) as xs:dayTimeDuration?
+〰907: year-from-dateTime
+〰908: year-from-dateTime(xs:dateTime?) as xs:integer?
 〰909: 
-〰910: Returns the timezone component of an xs:time.
+〰910: Returns the year component of an xs:dateTime.
 〰911: 
-〰912: tokenize
-〰913: tokenize(xs:string?) as xs:string*
+〰912: years-from-duration
+〰913: years-from-duration(xs:duration?) as xs:integer?
 〰914: 
-〰915: tokenize(xs:string?, xs:string) as xs:string*
+〰915: Returns the number of years in a duration.
 〰916: 
-〰917: tokenize(xs:string?, xs:string, xs:string) as xs:string*
-〰918: 
-〰919: Returns a sequence of strings constructed by splitting the input wherever a separator is found; the separator is any substring that matches a given regular expression.
-〰920: 
-〰921: trace
-〰922: trace(item()*) as item()*
-〰923: 
-〰924: trace(item()*, xs:string) as item()*
-〰925: 
-〰926: Provides an execution trace intended to be used in debugging queries.
-〰927: 
-〰928: transform
-〰929: transform(map(*)) as map(*)
-〰930: 
-〰931: Invokes a transformation using a dynamically-loaded XSLT stylesheet.
-〰932: 
-〰933: translate
-〰934: translate(xs:string?, xs:string, xs:string) as xs:string
-〰935: 
-〰936: Returns the value of $arg modified by replacing or removing individual characters.
-〰937: 
-〰938: true
-〰939: true() as xs:boolean
-〰940: 
-〰941: Returns the xs:boolean value true.
-〰942: 
-〰943: unordered
-〰944: unordered(item()*) as item()*
-〰945: 
-〰946: Returns the items of $sourceSeq in an implementation-dependent order.
-〰947: 
-〰948: unparsed-text
-〰949: unparsed-text(xs:string?) as xs:string?
+〰917: zero-or-one
+〰918: zero-or-one(item()*) as item()?
+〰919: 
+〰920: Returns $arg if it contains zero or one items. Otherwise, raises an error.
+〰921: 
+〰922: 3 XSL Transformations (XSLT) Functions
+〰923: This section lists all of the functions in this namespace that are defined in the [XSLT 3.0] specification.
+〰924: 
+〰925: The normative definitions of these functions are in the [XSLT 3.0] specification. For convenience, a very brief, non-normative summary of each function is provided. For details, follow the link on the “Summary:” introductory text below each function.
+〰926: 
+〰927: Note that XSLT 3.0, because it is not dependent on XPath 3.1, also reproduces some of the functions specifications that appear in XPath 3.1. For an XSLT 3.0 processor that works with XPath 3.0, the normative specification in this case is the one that appears in the XSLT 3.0 specification.
+〰928: 
+〰929: accumulator-after
+〰930: accumulator-after(xs:string) as item()*
+〰931: 
+〰932: Returns the post-descent value of the selected accumulator at the context node.
+〰933: 
+〰934: accumulator-before
+〰935: accumulator-before(xs:string) as item()*
+〰936: 
+〰937: Returns the pre-descent value of the selected accumulator at the context node.
+〰938: 
+〰939: available-system-properties
+〰940: available-system-properties() as xs:QName*
+〰941: 
+〰942: Returns a list of system property names that are suitable for passing to the system-property function, as a sequence of QNames.
+〰943: 
+〰944: collation-key
+〰945: collation-key(xs:string) as xs:base64Binary
+〰946: 
+〰947: collation-key(xs:string, xs:string) as xs:base64Binary
+〰948: 
+〰949: Given a string value and a collation, generates an internal value called a collation key, with the property that the matching and ordering of collation keys reflects the matching and ordering of strings under the specified collation.
 〰950: 
-〰951: unparsed-text(xs:string?, xs:string) as xs:string?
-〰952: 
-〰953: The fn:unparsed-text function reads an external resource (for example, a file) and returns a string representation of the resource.
-〰954: 
-〰955: unparsed-text-available
-〰956: unparsed-text-available(xs:string?) as xs:boolean
+〰951: copy-of
+〰952: copy-of() as item()
+〰953: 
+〰954: copy-of(item()*) as item()*
+〰955: 
+〰956: Returns a deep copy of the sequence supplied as the $input argument, or of the context item if the argument is absent.
 〰957: 
-〰958: unparsed-text-available(xs:string?, xs:string) as xs:boolean
-〰959: 
-〰960: Because errors in evaluating the fn:unparsed-text function are non-recoverable, these two functions are provided to allow an application to determine whether a call with particular arguments would succeed.
-〰961: 
-〰962: unparsed-text-lines
-〰963: unparsed-text-lines(xs:string?) as xs:string*
-〰964: 
-〰965: unparsed-text-lines(xs:string?, xs:string) as xs:string*
-〰966: 
-〰967: The fn:unparsed-text-lines function reads an external resource (for example, a file) and returns its contents as a sequence of strings, one for each line of text in the string representation of the resource.
-〰968: 
-〰969: upper-case
-〰970: upper-case(xs:string?) as xs:string
-〰971: 
-〰972: Converts a string to upper case.
-〰973: 
-〰974: uri-collection
-〰975: uri-collection() as xs:anyURI*
-〰976: 
-〰977: uri-collection(xs:string?) as xs:anyURI*
-〰978: 
-〰979: Returns a sequence of xs:anyURI values representing the URIs in a URI collection.
-〰980: 
-〰981: xml-to-json
-〰982: xml-to-json(node()?) as xs:string?
-〰983: 
-〰984: xml-to-json(node()?, map(*)) as xs:string?
-〰985: 
-〰986: Converts an XML tree, whose format corresponds to the XML representation of JSON defined in this specification, into a string conforming to the JSON grammar.
+〰958: current
+〰959: current() as item()
+〰960: 
+〰961: Returns the item that is the context item for the evaluation of the containing XPath expression
+〰962: 
+〰963: current-group
+〰964: current-group() as item()*
+〰965: 
+〰966: Returns the group currently being processed by an xsl:for-each-group instruction.
+〰967: 
+〰968: current-grouping-key
+〰969: current-grouping-key() as xs:anyAtomicType*
+〰970: 
+〰971: Returns the grouping key of the group currently being processed using the xsl:for-each-group instruction.
+〰972: 
+〰973: current-merge-group
+〰974: current-merge-group() as item()*
+〰975: 
+〰976: current-merge-group(xs:string) as item()*
+〰977: 
+〰978: Returns the group of items currently being processed by an xsl:merge instruction.
+〰979: 
+〰980: current-merge-key
+〰981: current-merge-key() as xs:anyAtomicType*
+〰982: 
+〰983: Returns the merge key of the merge group currently being processed using the xsl:merge instruction.
+〰984: 
+〰985: current-output-uri
+〰986: current-output-uri() as xs:anyURI?
 〰987: 
-〰988: year-from-date
-〰989: year-from-date(xs:date?) as xs:integer?
-〰990: 
-〰991: Returns the year component of an xs:date.
+〰988: Returns the value of the .
+〰989: 
+〰990: deep-equal
+〰991: deep-equal(item()*, item()*) as xs:boolean
 〰992: 
-〰993: year-from-dateTime
-〰994: year-from-dateTime(xs:dateTime?) as xs:integer?
-〰995: 
-〰996: Returns the year component of an xs:dateTime.
-〰997: 
-〰998: years-from-duration
-〰999: years-from-duration(xs:duration?) as xs:integer?
-〰1000:
-〰1001:Returns the number of years in a duration.
-〰1002:
-〰1003:zero-or-one
-〰1004:zero-or-one(item()*) as item()?
-〰1005:
-〰1006:Returns $arg if it contains zero or one items. Otherwise, raises an error.
-〰1007:
-〰1008:3 XSL Transformations (XSLT) Functions
-〰1009:This section lists all of the functions in this namespace that are defined in the [XSLT 3.0] specification.
-〰1010:
-〰1011:The normative definitions of these functions are in the [XSLT 3.0] specification. For convenience, a very brief, non-normative summary of each function is provided. For details, follow the link on the “Summary:” introductory text below each function.
-〰1012:
-〰1013:Note that XSLT 3.0, because it is not dependent on XPath 3.1, also reproduces some of the functions specifications that appear in XPath 3.1. For an XSLT 3.0 processor that works with XPath 3.0, the normative specification in this case is the one that appears in the XSLT 3.0 specification.
-〰1014:
-〰1015:accumulator-after
-〰1016:accumulator-after(xs:string) as item()*
-〰1017:
-〰1018:Returns the post-descent value of the selected accumulator at the context node.
-〰1019:
-〰1020:accumulator-before
-〰1021:accumulator-before(xs:string) as item()*
+〰993: deep-equal(item()*, item()*, xs:string) as xs:boolean
+〰994: 
+〰995: This function assesses whether two sequences are deep-equal to each other. The function as described here extends the definition of the XPath 3.0 deep-equal to explain how it should handle maps; it is intended to replace the existing deep-equal function at some stage in the future.
+〰996: 
+〰997: document
+〰998: document(item()*) as node()*
+〰999: 
+〰1000:document(item()*, node()) as node()*
+〰1001:
+〰1002:Provides access to XML documents identified by a URI.
+〰1003:
+〰1004:element-available
+〰1005:element-available(xs:string) as xs:boolean
+〰1006:
+〰1007:Determines whether a particular instruction is or is not available for use. The function is particularly useful for calling within an [xsl:]use-when attribute (see ) to test whether a particular is available.
+〰1008:
+〰1009:function-available
+〰1010:function-available(xs:string) as xs:boolean
+〰1011:
+〰1012:function-available(xs:string, xs:integer) as xs:boolean
+〰1013:
+〰1014:Determines whether a particular function is or is not available for use. The function is particularly useful for calling within an [xsl:]use-when attribute (see ) to test whether a particular is available.
+〰1015:
+〰1016:json-to-xml
+〰1017:json-to-xml(xs:string) as document-node()
+〰1018:
+〰1019:json-to-xml(xs:string, map(*)) as document-node()
+〰1020:
+〰1021:Parses a string supplied in the form of a JSON text, returning the results in the form of an XML document node.
 〰1022:
-〰1023:Returns the pre-descent value of the selected accumulator at the context node.
-〰1024:
-〰1025:available-system-properties
-〰1026:available-system-properties() as xs:QName*
+〰1023:key
+〰1024:key(xs:string, xs:anyAtomicType*) as node()*
+〰1025:
+〰1026:key(xs:string, xs:anyAtomicType*, node()) as node()*
 〰1027:
-〰1028:Returns a list of system property names that are suitable for passing to the system-property function, as a sequence of QNames.
+〰1028:Returns the nodes that match a supplied key value.
 〰1029:
-〰1030:collation-key
-〰1031:collation-key(xs:string) as xs:base64Binary
+〰1030:regex-group
+〰1031:regex-group(xs:integer) as xs:string
 〰1032:
-〰1033:collation-key(xs:string, xs:string) as xs:base64Binary
+〰1033:Returns the string captured by a parenthesized subexpression of the regular expression used during evaluation of the xsl:analyze-string instruction.
 〰1034:
-〰1035:Given a string value and a collation, generates an internal value called a collation key, with the property that the matching and ordering of collation keys reflects the matching and ordering of strings under the specified collation.
-〰1036:
-〰1037:copy-of
-〰1038:copy-of() as item()
+〰1035:snapshot
+〰1036:snapshot() as item()
+〰1037:
+〰1038:snapshot(item()*) as item()*
 〰1039:
-〰1040:copy-of(item()*) as item()*
+〰1040:Returns a copy of a sequence, retaining copies of the ancestors and descendants of any node in the input sequence, together with their attributes and namespaces.
 〰1041:
-〰1042:Returns a deep copy of the sequence supplied as the $input argument, or of the context item if the argument is absent.
-〰1043:
-〰1044:current
-〰1045:current() as item()
+〰1042:stream-available
+〰1043:stream-available(xs:string?) as xs:boolean
+〰1044:
+〰1045:Determines, as far as possible, whether a document is available for streamed processing using xsl:source-document.
 〰1046:
-〰1047:Returns the item that is the context item for the evaluation of the containing XPath expression
-〰1048:
-〰1049:current-group
-〰1050:current-group() as item()*
+〰1047:system-property
+〰1048:system-property(xs:string) as xs:string
+〰1049:
+〰1050:Returns the value of a system property
 〰1051:
-〰1052:Returns the group currently being processed by an xsl:for-each-group instruction.
-〰1053:
-〰1054:current-grouping-key
-〰1055:current-grouping-key() as xs:anyAtomicType*
+〰1052:type-available
+〰1053:type-available(xs:string) as xs:boolean
+〰1054:
+〰1055:Used to control how a stylesheet behaves if a particular schema type is or is not available in the static context.
 〰1056:
-〰1057:Returns the grouping key of the group currently being processed using the xsl:for-each-group instruction.
-〰1058:
-〰1059:current-merge-group
-〰1060:current-merge-group() as item()*
+〰1057:unparsed-entity-public-id
+〰1058:unparsed-entity-public-id(xs:string) as xs:string
+〰1059:
+〰1060:unparsed-entity-public-id(xs:string, node()) as xs:string
 〰1061:
-〰1062:current-merge-group(xs:string) as item()*
+〰1062:Returns the public identifier of an unparsed entity
 〰1063:
-〰1064:Returns the group of items currently being processed by an xsl:merge instruction.
-〰1065:
-〰1066:current-merge-key
-〰1067:current-merge-key() as xs:anyAtomicType*
+〰1064:unparsed-entity-uri
+〰1065:unparsed-entity-uri(xs:string) as xs:anyURI
+〰1066:
+〰1067:unparsed-entity-uri(xs:string, node()) as xs:anyURI
 〰1068:
-〰1069:Returns the merge key of the merge group currently being processed using the xsl:merge instruction.
+〰1069:Returns the URI (system identifier) of an unparsed entity
 〰1070:
-〰1071:current-output-uri
-〰1072:current-output-uri() as xs:anyURI?
+〰1071:xml-to-json
+〰1072:xml-to-json(node()?) as xs:string?
 〰1073:
-〰1074:Returns the value of the .
+〰1074:xml-to-json(node()?, map(*)) as xs:string?
 〰1075:
-〰1076:deep-equal
-〰1077:deep-equal(item()*, item()*) as xs:boolean
-〰1078:
-〰1079:deep-equal(item()*, item()*, xs:string) as xs:boolean
+〰1076:Converts an XML tree, whose format corresponds to the XML representation of JSON defined in this specification, into a string conforming to the JSON grammar.
+〰1077:
+〰1078:4 XQuery Update Functions
+〰1079:This section lists all of the functions in this namespace that are defined in the [XQuery Update 1.0] specification.
 〰1080:
-〰1081:This function assesses whether two sequences are deep-equal to each other. The function as described here extends the definition of the XPath 3.0 deep-equal to explain how it should handle maps; it is intended to replace the existing deep-equal function at some stage in the future.
+〰1081:The normative definitions of these functions are in the [XQuery Update 1.0] specification. For convenience, a very brief, non-normative summary of each function is provided. For details, follow the link on the “Summary:” introductory text below each function.
 〰1082:
-〰1083:document
-〰1084:document(item()*) as node()*
+〰1083:put
+〰1084:put(node(), xs:string) as empty-sequence()
 〰1085:
-〰1086:document(item()*, node()) as node()*
+〰1086:Stores a document or element to the location specified by $uri. This function is normally invoked to create a resource on an external storage system such as a file system or a database.
 〰1087:
-〰1088:Provides access to XML documents identified by a URI.
+〰1088:The external effects of fn:put are implementation-defined, since they occur outside the domain of XQuery. The intent is that, if fn:put is invoked on a document node and no error is raised, a subsequent query can access the stored document by invoking fn:doc with the same URI.
 〰1089:
-〰1090:element-available
-〰1091:element-available(xs:string) as xs:boolean
-〰1092:
-〰1093:Determines whether a particular instruction is or is not available for use. The function is particularly useful for calling within an [xsl:]use-when attribute (see ) to test whether a particular is available.
-〰1094:
-〰1095:function-available
-〰1096:function-available(xs:string) as xs:boolean
-〰1097:
-〰1098:function-available(xs:string, xs:integer) as xs:boolean
-〰1099:
-〰1100:Determines whether a particular function is or is not available for use. The function is particularly useful for calling within an [xsl:]use-when attribute (see ) to test whether a particular is available.
-〰1101:
-〰1102:json-to-xml
-〰1103:json-to-xml(xs:string) as document-node()
-〰1104:
-〰1105:json-to-xml(xs:string, map(*)) as document-node()
-〰1106:
-〰1107:Parses a string supplied in the form of a JSON text, returning the results in the form of an XML document node.
-〰1108:
-〰1109:key
-〰1110:key(xs:string, xs:anyAtomicType*) as node()*
-〰1111:
-〰1112:key(xs:string, xs:anyAtomicType*, node()) as node()*
-〰1113:
-〰1114:Returns the nodes that match a supplied key value.
-〰1115:
-〰1116:regex-group
-〰1117:regex-group(xs:integer) as xs:string
-〰1118:
-〰1119:Returns the string captured by a parenthesized subexpression of the regular expression used during evaluation of the xsl:analyze-string instruction.
-〰1120:
-〰1121:snapshot
-〰1122:snapshot() as item()
-〰1123:
-〰1124:snapshot(item()*) as item()*
-〰1125:
-〰1126:Returns a copy of a sequence, retaining copies of the ancestors and descendants of any node in the input sequence, together with their attributes and namespaces.
-〰1127:
-〰1128:stream-available
-〰1129:stream-available(xs:string?) as xs:boolean
-〰1130:
-〰1131:Determines, as far as possible, whether a document is available for streamed processing using xsl:source-document.
-〰1132:
-〰1133:system-property
-〰1134:system-property(xs:string) as xs:string
-〰1135:
-〰1136:Returns the value of a system property
-〰1137:
-〰1138:type-available
-〰1139:type-available(xs:string) as xs:boolean
-〰1140:
-〰1141:Used to control how a stylesheet behaves if a particular schema type is or is not available in the static context.
-〰1142:
-〰1143:unparsed-entity-public-id
-〰1144:unparsed-entity-public-id(xs:string) as xs:string
-〰1145:
-〰1146:unparsed-entity-public-id(xs:string, node()) as xs:string
-〰1147:
-〰1148:Returns the public identifier of an unparsed entity
-〰1149:
-〰1150:unparsed-entity-uri
-〰1151:unparsed-entity-uri(xs:string) as xs:anyURI
-〰1152:
-〰1153:unparsed-entity-uri(xs:string, node()) as xs:anyURI
-〰1154:
-〰1155:Returns the URI (system identifier) of an unparsed entity
-〰1156:
-〰1157:xml-to-json
-〰1158:xml-to-json(node()?) as xs:string?
-〰1159:
-〰1160:xml-to-json(node()?, map(*)) as xs:string?
-〰1161:
-〰1162:Converts an XML tree, whose format corresponds to the XML representation of JSON defined in this specification, into a string conforming to the JSON grammar.
-〰1163:
-〰1164:4 XQuery Update Functions
-〰1165:This section lists all of the functions in this namespace that are defined in the [XQuery Update 1.0] specification.
-〰1166:
-〰1167:The normative definitions of these functions are in the [XQuery Update 1.0] specification. For convenience, a very brief, non-normative summary of each function is provided. For details, follow the link on the “Summary:” introductory text below each function.
-〰1168:
-〰1169:put
-〰1170:put(node(), xs:string) as empty-sequence()
-〰1171:
-〰1172:Stores a document or element to the location specified by $uri. This function is normally invoked to create a resource on an external storage system such as a file system or a database.
-〰1173:
-〰1174:The external effects of fn:put are implementation-defined, since they occur outside the domain of XQuery. The intent is that, if fn:put is invoked on a document node and no error is raised, a subsequent query can access the stored document by invoking fn:doc with the same URI.
-〰1175:
-〰1176:5 XML Schema
-〰1177:Two functions, fn:analyze-string and fn:json-to-xml, return results that are always valid according to a defined XSD schema. A third function, fn:xml-to-json, requires input that is valid according to this schema.
-〰1178:
-〰1179:The target namespace of these schema components is http://www.w3.org/2005/xpath-functions.
-〰1180:
-〰1181:The schema components are defined in a schema document located at https://www.w3.org/TR/xpath-functions-31/xpath-functions.xsd.
-〰1182:
-〰1183:6 Normative References
-〰1184:These documents describe the names that are defined in this namespace at the time of publication. The W3C reserves the right to define additional names in this namespace in the future.
-〰1185:
-〰1186:XPath and XQuery Functions and Operators 3.1
-〰1187:XQuery and XPath Functions and Operators 3.1 (21 March 2017 version)
-〰1188:
-〰1189:XSLT 3.0
-〰1190:XSL Transformations (XSLT) Version 3.0 (7 February 2017 version)
-〰1191:
-〰1192:XQuery Update 1.0
-〰1193:XQuery Update Facility 1.0 (25 January 2011 version)
-〰1194:
-〰1195:7 Non-Normative References
-〰1196:Resource Directory Description Language (RDDL)
-〰1197:Resource Directory Description Language (RDDL) (4 July 2007)
-〰1198:
-〰1199:Gleaning Resource Descriptions from Dialects of Languages (GRDDL)
-〰1200:Gleaning Resource Descriptions from Dialects of Languages (GRDDL) (Recommendation of 11 September 2007)
-〰1201:
-〰1202:Resource Description Framework (RDF): Concepts and Abstract Syntax
-〰1203:Resource Description Framework (RDF): Concepts and Abstract Syntax (Recommendation of 10 February 2004)
-〰1204:        */
-〰1205:    }
-〰1206:}
+〰1090:
+〰1091:        */
+〰1092:    }
+〰1093:}
 ```
 
 ## Links

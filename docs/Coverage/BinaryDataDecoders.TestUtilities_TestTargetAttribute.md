@@ -7,18 +7,20 @@
 | Class           | `BinaryDataDecoders.TestUtilities.TestTargetAttribute` |
 | Assembly        | `BinaryDataDecoders.TestUtilities`                     |
 | Coveredlines    | `1`                                                    |
-| Uncoveredlines  | `0`                                                    |
-| Coverablelines  | `1`                                                    |
+| Uncoveredlines  | `2`                                                    |
+| Coverablelines  | `3`                                                    |
 | Totallines      | `27`                                                   |
-| Linecoverage    | `100`                                                  |
+| Linecoverage    | `33.3`                                                 |
 | Coveredbranches | `0`                                                    |
 | Totalbranches   | `0`                                                    |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name    |
-| :--------- | :---- | :------- | :------ |
-| 1          | 100   | 100      | `ctor`  |
+| Complexity | Lines | Branches | Name         |
+| :--------- | :---- | :------- | :----------- |
+| 1          | 100   | 100      | `ctor`       |
+| 1          | 0     | 100      | `get_Class`  |
+| 1          | 0     | 100      | `get_Member` |
 
 ## Files
 
@@ -44,12 +46,12 @@
 〰17:          /// <summary>
 〰18:          /// required type reference for related test
 〰19:          /// </summary>
-〰20:          public Type Class { get; }
+‼20:          public Type Class { get; }
 〰21:  
 〰22:          /// <summary>
 〰23:          /// optional member mapping for related test
 〰24:          /// </summary>
-〰25:          public string? Member { get; set; }
+‼25:          public string? Member { get; set; }
 〰26:      }
 〰27:  }
 ```

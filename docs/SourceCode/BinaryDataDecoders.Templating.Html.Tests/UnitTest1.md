@@ -26,7 +26,7 @@
  - TestMethod
 
 
-#### Public Async Method - QueryTest
+#### Public Method - QueryTest
 
 ##### Attributes
 

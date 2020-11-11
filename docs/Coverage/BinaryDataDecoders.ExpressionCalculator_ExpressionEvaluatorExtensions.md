@@ -6,19 +6,20 @@
 | :-------------- | :--------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Evaluators.ExpressionEvaluatorExtensions` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                          |
-| Coveredlines    | `9`                                                                                |
+| Coveredlines    | `16`                                                                               |
 | Uncoveredlines  | `0`                                                                                |
-| Coverablelines  | `9`                                                                                |
+| Coverablelines  | `16`                                                                               |
 | Totallines      | `58`                                                                               |
 | Linecoverage    | `100`                                                                              |
-| Coveredbranches | `4`                                                                                |
-| Totalbranches   | `4`                                                                                |
-| Branchcoverage  | `100`                                                                              |
+| Coveredbranches | `7`                                                                                |
+| Totalbranches   | `8`                                                                                |
+| Branchcoverage  | `87.5`                                                                             |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name        |
 | :--------- | :---- | :------- | :---------- |
+| 4          | 100   | 75.00    | `Sequence`  |
 | 1          | 100   | 100      | `Product`   |
 | 1          | 100   | 100      | `Sum`       |
 | 4          | 100   | 100      | `Factorial` |
@@ -48,16 +49,16 @@
 〰18:              EvaluationPredicate<T>? predicate = null
 〰19:              ) where T : struct, IComparable<T>, IEquatable<T>
 〰20:          {
-〰21:              var index = 0;
-〰22:              var current = seed;
+✔21:              var index = 0;
+✔22:              var current = seed;
 〰23:  
-〰24:              while (predicate?.Invoke(evaluator, current, index) ?? true)
+⚠24:              while (predicate?.Invoke(evaluator, current, index) ?? true)
 〰25:              {
-〰26:                  yield return current;
-〰27:                  current = function(evaluator, current, index);
-〰28:                  index++;
+✔26:                  yield return current;
+✔27:                  current = function(evaluator, current, index);
+✔28:                  index++;
 〰29:              }
-〰30:          }
+✔30:          }
 〰31:  
 〰32:          public static T Product<T>(
 〰33:              this IExpressionEvaluator<T> evaluator,
