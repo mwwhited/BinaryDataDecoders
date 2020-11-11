@@ -14,7 +14,7 @@ namespace BinaryDataDecoders.Apple2.ApplesoftBASIC
         /// <returns></returns>
         public string GetToken(byte code) => tokens.Where(t => t.code == code).Select(t => t.token).FirstOrDefault();
 
-        private (int code, string token)[] tokens = new[]
+        private readonly (int code, string token)[] tokens = new[]
         {
             (0x80, "END"),
             (0x81, "FOR"),

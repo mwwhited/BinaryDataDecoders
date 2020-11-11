@@ -40,13 +40,18 @@ namespace BinaryDataDecoders.ToolKit.IO
                     //scheduled for reboot so good to go
                     return;
                 }
+#pragma warning disable CA1031 // Do not catch general exception types
                 catch
                 {
                     //yep, another.  it's just a temp file give up it it doesn't work.  
                 }
+#pragma warning restore CA1031 // Do not catch general exception types
 
-                //something happen above so throw the original exception.
-                throw;
+                if (disposing)
+                {
+                    //something happen above so throw the original exception.
+                    throw;
+                }
             }
         }
     }

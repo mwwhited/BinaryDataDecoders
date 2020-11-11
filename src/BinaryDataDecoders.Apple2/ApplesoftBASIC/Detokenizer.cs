@@ -26,19 +26,19 @@ namespace BinaryDataDecoders.Apple2.ApplesoftBASIC
             //yield return $"$$$ HEADER: 0x{header1:X}, 0x{header2:X}";
             yield return $"$$$ FILE SIZE :{BitConverter.ToUInt16(new[] { header1, header2 })}";
 
-            var notDone = false;
+            bool notDone;
             do
             {
-                var addressOfNextLine = BitConverter.ToUInt16(new[] { (byte)((notDone = e.MoveNext()) ? e.Current : 0), (byte)(e.MoveNext() ? e.Current : 0) });
+                var addressOfNextLine = BitConverter.ToUInt16(new[] { (byte)(e.MoveNext() ? e.Current : 0), (byte)(e.MoveNext() ? e.Current : 0) });
                 var lineNumber = BitConverter.ToUInt16(new[] { (byte)((notDone = e.MoveNext()) ? e.Current : 0), (byte)(e.MoveNext() ? e.Current : 0) });
 
                 if (addressOfNextLine == 0 || lineNumber == 0) continue;
 
-                var nextLine = false;
+                bool nextLine;
                 var sb = new StringBuilder($"{lineNumber} "); //0x{addressOfNextLine:X}]\t
                 do
                 {
-                    var v = (byte)((nextLine = e.MoveNext()) ? e.Current : 0);
+                    var v = (byte)(e.MoveNext() ? e.Current : 0);
                     if (nextLine = (v == 0))
                     {
                         //End of Line
