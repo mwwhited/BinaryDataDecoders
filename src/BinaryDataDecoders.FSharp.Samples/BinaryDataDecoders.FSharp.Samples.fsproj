@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<IsPackable>false</IsPackable>
+		<Copyright>Matthew Whited 2020</Copyright>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
+		<RepositoryType>GitHub</RepositoryType>
+		<Authors>Matthew Whited</Authors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="Library.fs" />
+	</ItemGroup>
+
+</Project>

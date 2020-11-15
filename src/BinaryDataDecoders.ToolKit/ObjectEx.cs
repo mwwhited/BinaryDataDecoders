@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.IO;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BinaryDataDecoders.ToolKit
 {
@@ -51,5 +54,30 @@ namespace BinaryDataDecoders.ToolKit
         /// <returns></returns>
         public static string GetXmlNamespaceForOutput(this object obj) =>
             obj.GetType().GetXmlNamespace() + ToolkitConstants.XmlNamespaces.OutputSuffix;
+
+
+        public static XName GetXmlElementName(this object @object, bool excludeNamespace = false) =>
+            @object.GetType().GetXmlElementName(excludeNamespace);
+
+        public static XName GetXmlItemName(this IEnumerable enumerable, bool excludeNamespace) =>
+            enumerable.GetXmlItemName(enumerable.GetXmlElementName(excludeNamespace));
+
+        public static XName GetXmlItemName(this IEnumerable enumerable, XName? elementName = null)
+        {
+            var elementType = enumerable.GetType().GetElementType();
+            var itemName = elementType?.Name;
+            return XName.Get(itemName switch
+            {
+                _ when elementType?.IsAnonymousType() ?? false =>
+                    elementName switch
+                    {
+                        _ when elementName?.LocalName.EndsWith("es") ?? false => elementName.LocalName.Substring(0, elementName.LocalName.Length - 2),
+                        _ when elementName?.LocalName.EndsWith("s") ?? false => elementName.LocalName.Substring(0, elementName.LocalName.Length - 1),
+                        _ when string.Equals(elementName?.LocalName, "object", System.StringComparison.InvariantCultureIgnoreCase) => null,
+                        _ => null,
+                    },
+                _ => itemName
+            } ?? "item", elementName?.NamespaceName ?? elementType?.GetXmlNamespace() ?? "");
+        }
     }
 }

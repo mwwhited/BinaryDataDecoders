@@ -8,7 +8,7 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory("DACPAC")]
         public void Test()
         {
             var testFile = @"C:\Repos\GCA\RSMBilling\src\GCAInvoicing\Lightwell.Nucleus.Persistence.NucleusDb\bin\Debug\Lightwell.Nucleus.Persistence.NucleusDb.dacpac";
