@@ -1,21 +1,5 @@
 # BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators.ExpressionEvaluatorExtensionsTests
 
-## Sum_Test
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sum
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
 ## Product_Test
 
 ### Targets
@@ -32,11 +16,11 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## Sequence_Test
+## Sum_Test
 
 ### Targets
 
-* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sequence
+* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sum
   * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
@@ -46,13 +30,29 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.01
+* Duration: 00:00:00.00
 
 ## Factorial_Test
 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Factorial
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+## Sequence_Test
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sequence
   * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories

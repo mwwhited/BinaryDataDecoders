@@ -71,4 +71,14 @@
  - (
  - "1.0.0.0"
  - )
+ - System
+ - .
+ - Reflection
+ - .
+ - AssemblyMetadataAttribute
+ - (
+ - "RepositoryUrl"
+ - ,
+ - "https://github.com/mwwhited/BinaryDataDecoders/"
+ - )
 

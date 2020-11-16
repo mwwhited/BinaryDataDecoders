@@ -6,11 +6,11 @@
 | :-------------- | :----------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.DecimalPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
-| Coveredlines    | `1`                                                          |
-| Uncoveredlines  | `0`                                                          |
+| Coveredlines    | `0`                                                          |
+| Uncoveredlines  | `1`                                                          |
 | Coverablelines  | `1`                                                          |
 | Totallines      | `7`                                                          |
-| Linecoverage    | `100`                                                        |
+| Linecoverage    | `0`                                                          |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `0`                                                          |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 100   | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -29,7 +29,7 @@
 〰2:   {
 〰3:       public class DecimalPathSegment : BaseValuePathSegment<decimal>
 〰4:       {
-✔5:           public DecimalPathSegment(decimal value) : base(value) { }
+‼5:           public DecimalPathSegment(decimal value) : base(value) { }
 〰6:       }
 〰7:   }
 ```

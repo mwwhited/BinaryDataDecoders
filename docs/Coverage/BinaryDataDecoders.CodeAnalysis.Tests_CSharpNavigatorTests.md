@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.CodeAnalysis.Tests.CSharp.CSharpNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis.Tests`                             |
-| Coveredlines    | `20`                                                                |
-| Uncoveredlines  | `0`                                                                 |
+| Coveredlines    | `0`                                                                 |
+| Uncoveredlines  | `20`                                                                |
 | Coverablelines  | `20`                                                                |
 | Totallines      | `45`                                                                |
-| Linecoverage    | `100`                                                               |
+| Linecoverage    | `0`                                                                 |
 | Coveredbranches | `0`                                                                 |
 | Totalbranches   | `0`                                                                 |
 
@@ -18,8 +18,8 @@
 
 | Complexity | Lines | Branches | Name              |
 | :--------- | :---- | :------- | :---------------- |
-| 1          | 100   | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `TestXPath`       |
+| 1          | 0     | 100      | `get_TestContext` |
+| 1          | 0     | 100      | `TestXPath`       |
 
 ## Files
 
@@ -39,36 +39,36 @@
 〰11:      [TestClass]
 〰12:      public class CSharpNavigatorTests
 〰13:      {
-✔14:          public TestContext TestContext { get; set; }
+‼14:          public TestContext TestContext { get; set; }
 〰15:  
 〰16:          [TestMethod]
 〰17:          [TestCategory(TestCategories.Unit)]
 〰18:          [TestTarget(typeof(SyntaxTreeNavigatorFactory), Member = nameof(SyntaxTreeNavigatorFactory.AsNode))]
 〰19:          public void TestXPath()
 〰20:          {
-✔21:              var filePath = @"SampleClasses.cs";
-✔22:              using var stream = this.GetResourceStream(filePath);
-✔23:              var content = SourceText.From(stream);
-✔24:              var syntax = CSharpSyntaxTree.ParseText(content);
-✔25:              var node = syntax.AsNode(filePath);
-✔26:              var nav = new ExtensibleNavigator(node);
-✔27:              var navigator = nav.Clone();
+‼21:              var filePath = @"SampleClasses.cs";
+‼22:              using var stream = this.GetResourceStream(filePath);
+‼23:              var content = SourceText.From(stream);
+‼24:              var syntax = CSharpSyntaxTree.ParseText(content);
+‼25:              var node = syntax.AsNode(filePath);
+‼26:              var nav = new ExtensibleNavigator(node);
+‼27:              var navigator = nav.Clone();
 〰28:              // this.TestContext.WriteLine(navigator.OuterXml);
-✔29:              this.TestContext.AddResult(node);
+‼29:              this.TestContext.AddResult(node);
 〰30:  
-✔31:              var query = navigator.Compile(@"//cs-n:CompilationUnit//*[self::cs-n:ClassDeclaration or self::cs-n:InterfaceDeclaration or self::cs-n:StructDeclaration or self::cs-n:EnumDeclaration]");
-✔32:              var manager = new XmlNamespaceManager(navigator.NameTable);
-✔33:              manager.AddNamespace("cs-n", "bdd:CodeAnalysis/Node");
-✔34:              query.SetContext(manager);
-✔35:              var selected = navigator.Select(query);
+‼31:              var query = navigator.Compile(@"//cs-n:CompilationUnit//*[self::cs-n:ClassDeclaration or self::cs-n:InterfaceDeclaration or self::cs-n:StructDeclaration or self::cs-n:EnumDeclaration]");
+‼32:              var manager = new XmlNamespaceManager(navigator.NameTable);
+‼33:              manager.AddNamespace("cs-n", "bdd:CodeAnalysis/Node");
+‼34:              query.SetContext(manager);
+‼35:              var selected = navigator.Select(query);
 〰36:  
-✔37:              Assert.AreEqual(13, selected.Count);
+‼37:              Assert.AreEqual(13, selected.Count);
 〰38:  
-✔39:              var rootQuery = navigator.Compile("/");
-✔40:              rootQuery.SetContext(manager);
-✔41:              var root = navigator.Select(rootQuery);
-✔42:              Assert.AreEqual(1, root.Count);
-✔43:          }
+‼39:              var rootQuery = navigator.Compile("/");
+‼40:              rootQuery.SetContext(manager);
+‼41:              var root = navigator.Select(rootQuery);
+‼42:              Assert.AreEqual(1, root.Count);
+‼43:          }
 〰44:      }
 〰45:  }
 ```

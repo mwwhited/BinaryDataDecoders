@@ -9,6 +9,12 @@
 
 ### Members
 
+#### Private Field - NAMESPACE
+
+##### Summary
+
+ * Type: 
+
 #### Public Static Method - ToNavigable
 
 #####  Parameters
@@ -20,4 +26,22 @@
 #####  Parameters
 
  - this TSqlModel build 
+
+#### Private Static Method - SelectValue
+
+#####  Parameters
+
+ - object arg 
+
+#### Private Static Method - SelectAttributes
+
+#####  Parameters
+
+ - object input 
+
+#### Private Static Method - SelectChildren
+
+#####  Parameters
+
+ - object input 
 

@@ -6,11 +6,11 @@
 | :-------------- | :-------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.Int16ExpressionParserTests` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                   |
-| Coveredlines    | `1`                                                                               |
-| Uncoveredlines  | `0`                                                                               |
+| Coveredlines    | `0`                                                                               |
+| Uncoveredlines  | `1`                                                                               |
 | Coverablelines  | `1`                                                                               |
 | Totallines      | `387`                                                                             |
-| Linecoverage    | `100`                                                                             |
+| Linecoverage    | `0`                                                                               |
 | Coveredbranches | `0`                                                                               |
 | Totalbranches   | `0`                                                                               |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 100   | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -59,7 +59,7 @@
 〰32:      [TestClass]
 〰33:      public class Int16ExpressionParserTests : ExpressionParserTests<short>
 〰34:      {
-✔35:          public Int16ExpressionParserTests() : base(skipDecimal: true) { }
+‼35:          public Int16ExpressionParserTests() : base(skipDecimal: true) { }
 〰36:      }
 〰37:      [TestClass]
 〰38:      public class Int32ExpressionParserTests : ExpressionParserTests<int>

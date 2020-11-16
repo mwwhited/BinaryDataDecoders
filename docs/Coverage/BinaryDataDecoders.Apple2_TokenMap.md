@@ -42,7 +42,7 @@
 〰14:          /// <returns></returns>
 ✔15:          public string GetToken(byte code) => tokens.Where(t => t.code == code).Select(t => t.token).FirstOrDefault();
 〰16:  
-✔17:          private (int code, string token)[] tokens = new[]
+✔17:          private readonly (int code, string token)[] tokens = new[]
 ✔18:          {
 ✔19:              (0x80, "END"),
 ✔20:              (0x81, "FOR"),

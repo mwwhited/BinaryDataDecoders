@@ -9,35 +9,24 @@
 
 ### Members
 
-#### Private Static ReadOnly Field - WriteTypes
-
-##### Summary
-
- * Type: 
-
-#### Public Static Method - IsSimpleType
+#### Public Static Method - AsXElement
 
 #####  Parameters
 
- - this Type type 
+ - this object input 
 
-#### Private Static Method - ToXml
+#### Private Static Method - ReflectPropertyXml
 
 #####  Parameters
 
- - this PropertyInfo prop 
+ - PropertyInfo prop 
  - object ? input 
+ - XName parentName 
 
-#### Public Static Method - ToXml
-
-#####  Parameters
-
- - this object input 
-
-#### Public Static Method - ToXml
+#### Private Static Method - ReflectObjectXml
 
 #####  Parameters
 
- - this object input 
- - string ? element 
+ - object input 
+ - XName ? elementName = null 
 

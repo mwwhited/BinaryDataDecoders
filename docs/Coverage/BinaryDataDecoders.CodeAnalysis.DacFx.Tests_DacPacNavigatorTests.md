@@ -36,7 +36,7 @@
 〰8:       {
 ‼9:           public TestContext TestContext { get; set; }
 〰10:  
-〰11:          [TestMethod]
+〰11:          [TestMethod, TestCategory("DACPAC")]
 〰12:          public void Test()
 〰13:          {
 ‼14:              var testFile = @"C:\Repos\GCA\RSMBilling\src\GCAInvoicing\Lightwell.Nucleus.Persistence.NucleusDb\bin\Debug\Lightwell.Nucleus.Persistence.NucleusDb.dacpac";

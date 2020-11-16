@@ -6,20 +6,20 @@
 | :-------------- | :--------------------------------------------------- |
 | Class           | `BinaryDataDecoders.IO.Functions.ChecksumCalculator` |
 | Assembly        | `BinaryDataDecoders.IO`                              |
-| Coveredlines    | `4`                                                  |
-| Uncoveredlines  | `0`                                                  |
+| Coveredlines    | `0`                                                  |
+| Uncoveredlines  | `4`                                                  |
 | Coverablelines  | `4`                                                  |
 | Totallines      | `25`                                                 |
-| Linecoverage    | `100`                                                |
-| Coveredbranches | `2`                                                  |
+| Linecoverage    | `0`                                                  |
+| Coveredbranches | `0`                                                  |
 | Totalbranches   | `2`                                                  |
-| Branchcoverage  | `100`                                                |
+| Branchcoverage  | `0`                                                  |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 2          | 100   | 100      | `Simple16` |
+| 2          | 0     | 0        | `Simple16` |
 
 ## Files
 
@@ -44,10 +44,10 @@
 〰16:          /// <returns>checksum value</returns>
 〰17:          public ushort Simple16(ReadOnlySpan<ushort> buffer)
 〰18:          {
-✔19:              int sum = -1;
-✔20:              foreach (var term in buffer)
-✔21:                  sum -= term;
-✔22:              return (ushort)(sum % 0xffff);
+‼19:              int sum = -1;
+‼20:              foreach (var term in buffer)
+‼21:                  sum -= term;
+‼22:              return (ushort)(sum % 0xffff);
 〰23:          }
 〰24:      }
 〰25:  }

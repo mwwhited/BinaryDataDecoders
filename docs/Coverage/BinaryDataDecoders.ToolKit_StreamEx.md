@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.IO.StreamEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`             |
-| Coveredlines    | `6`                                      |
-| Uncoveredlines  | `6`                                      |
+| Coveredlines    | `0`                                      |
+| Uncoveredlines  | `12`                                     |
 | Coverablelines  | `12`                                     |
 | Totallines      | `26`                                     |
-| Linecoverage    | `50`                                     |
+| Linecoverage    | `0`                                      |
 | Coveredbranches | `0`                                      |
 | Totalbranches   | `0`                                      |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name              |
 | :--------- | :---- | :------- | :---------------- |
-| 1          | 100   | 100      | `AsTempFileAsync` |
+| 1          | 0     | 100      | `AsTempFileAsync` |
 | 1          | 0     | 100      | `AsTempFile`      |
 
 ## Files
@@ -35,12 +35,12 @@
 〰7:       {
 〰8:           public static async Task<ITempFile> AsTempFileAsync(this Stream stream)
 〰9:           {
-✔10:              var temp = new TempFileHandle();
-✔11:              using var fs = File.OpenWrite(temp.FilePath);
-✔12:              await stream.CopyToAsync(fs).ConfigureAwait(false);
-✔13:              fs.Close();
-✔14:              return temp;
-✔15:          }
+‼10:              var temp = new TempFileHandle();
+‼11:              using var fs = File.OpenWrite(temp.FilePath);
+‼12:              await stream.CopyToAsync(fs).ConfigureAwait(false);
+‼13:              fs.Close();
+‼14:              return temp;
+‼15:          }
 〰16:  
 〰17:          public static ITempFile AsTempFile(this Stream stream)
 〰18:          {

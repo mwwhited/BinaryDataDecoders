@@ -6,21 +6,21 @@
 | :-------------- | :---------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.PathBaseTypePathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                      |
-| Coveredlines    | `6`                                                               |
-| Uncoveredlines  | `1`                                                               |
+| Coveredlines    | `0`                                                               |
+| Uncoveredlines  | `7`                                                               |
 | Coverablelines  | `7`                                                               |
 | Totallines      | `14`                                                              |
-| Linecoverage    | `85.7`                                                            |
-| Coveredbranches | `3`                                                               |
+| Linecoverage    | `0`                                                               |
+| Coveredbranches | `0`                                                               |
 | Totalbranches   | `4`                                                               |
-| Branchcoverage  | `75`                                                              |
+| Branchcoverage  | `0`                                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `ctor`     |
-| 4          | 83.33 | 75.00    | `ToString` |
+| 1          | 0     | 100      | `ctor`     |
+| 4          | 0     | 0        | `ToString` |
 
 ## Files
 
@@ -31,14 +31,14 @@
 〰2:   {
 〰3:       public sealed class PathBaseTypePathSegment : BaseValuePathSegment<PathBaseTypes>
 〰4:       {
-✔5:           public PathBaseTypePathSegment(PathBaseTypes type) : base(type) { }
+‼5:           public PathBaseTypePathSegment(PathBaseTypes type) : base(type) { }
 〰6:   
-⚠7:           public override string ToString() => Value switch
-✔8:           {
-✔9:               PathBaseTypes.Root => ":",
-✔10:              PathBaseTypes.Relative => ".",
+‼7:           public override string ToString() => Value switch
+‼8:           {
+‼9:               PathBaseTypes.Root => ":",
+‼10:              PathBaseTypes.Relative => ".",
 ‼11:              _ => $"{Value}",
-✔12:          };
+‼12:          };
 〰13:      }
 〰14:  }
 ```

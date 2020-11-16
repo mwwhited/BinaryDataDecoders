@@ -85,3 +85,36 @@
 
  - this Type type 
 
+#### Private Static ReadOnly Field - _simpleTypes
+
+##### Summary
+
+ * Type: 
+
+#### Public Static Method - IsSimpleType
+
+##### Comments
+
+ <summary>
+ check if type is "simple" .. primitive or [decimal, datetime, bool]
+ </summary>
+ <paramname="type"></param>
+ <returns></returns>
+
+#####  Parameters
+
+ - this Type type 
+
+#### Public Static Method - IsAnonymousType
+
+#####  Parameters
+
+ - this Type type 
+
+#### Public Static Method - GetXmlElementName
+
+#####  Parameters
+
+ - this Type type 
+ - bool excludeNamespace = false 
+

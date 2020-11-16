@@ -6,9 +6,9 @@
 | :-------------- | :----------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Apple2.ApplesoftBASIC.Detokenizer` |
 | Assembly        | `BinaryDataDecoders.Apple2`                            |
-| Coveredlines    | `22`                                                   |
+| Coveredlines    | `20`                                                   |
 | Uncoveredlines  | `0`                                                    |
-| Coverablelines  | `22`                                                   |
+| Coverablelines  | `20`                                                   |
 | Totallines      | `63`                                                   |
 | Linecoverage    | `100`                                                  |
 | Coveredbranches | `22`                                                   |
@@ -55,19 +55,19 @@
 〰26:              //yield return $"$$$ HEADER: 0x{header1:X}, 0x{header2:X}";
 ✔27:              yield return $"$$$ FILE SIZE :{BitConverter.ToUInt16(new[] { header1, header2 })}";
 〰28:  
-✔29:              var notDone = false;
+〰29:              bool notDone;
 〰30:              do
 〰31:              {
-⚠32:                  var addressOfNextLine = BitConverter.ToUInt16(new[] { (byte)((notDone = e.MoveNext()) ? e.Current : 0), (byte)(e.MoveNext() ? e.Current : 0) });
+⚠32:                  var addressOfNextLine = BitConverter.ToUInt16(new[] { (byte)(e.MoveNext() ? e.Current : 0), (byte)(e.MoveNext() ? e.Current : 0) });
 ✔33:                  var lineNumber = BitConverter.ToUInt16(new[] { (byte)((notDone = e.MoveNext()) ? e.Current : 0), (byte)(e.MoveNext() ? e.Current : 0) });
 〰34:  
 ✔35:                  if (addressOfNextLine == 0 || lineNumber == 0) continue;
 〰36:  
-✔37:                  var nextLine = false;
+〰37:                  bool nextLine;
 ✔38:                  var sb = new StringBuilder($"{lineNumber} "); //0x{addressOfNextLine:X}]\t
 〰39:                  do
 〰40:                  {
-⚠41:                      var v = (byte)((nextLine = e.MoveNext()) ? e.Current : 0);
+⚠41:                      var v = (byte)(e.MoveNext() ? e.Current : 0);
 ✔42:                      if (nextLine = (v == 0))
 〰43:                      {
 〰44:                          //End of Line

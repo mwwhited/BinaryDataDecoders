@@ -6,23 +6,23 @@
 | :-------------- | :---------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.InnerExpressionReducer`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                     |
-| Coveredlines    | `31`                                                                          |
-| Uncoveredlines  | `0`                                                                           |
+| Coveredlines    | `0`                                                                           |
+| Uncoveredlines  | `31`                                                                          |
 | Coverablelines  | `31`                                                                          |
 | Totallines      | `54`                                                                          |
-| Linecoverage    | `100`                                                                         |
-| Coveredbranches | `12`                                                                          |
+| Linecoverage    | `0`                                                                           |
+| Coveredbranches | `0`                                                                           |
 | Totalbranches   | `12`                                                                          |
-| Branchcoverage  | `100`                                                                         |
+| Branchcoverage  | `0`                                                                           |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 4          | 100   | 100      | `Optimize` |
-| 1          | 100   | 100      | `Optimize` |
-| 6          | 100   | 100      | `Optimize` |
-| 2          | 100   | 100      | `Optimize` |
+| 4          | 0     | 0        | `Optimize` |
+| 1          | 0     | 100      | `Optimize` |
+| 6          | 0     | 0        | `Optimize` |
+| 2          | 0     | 0        | `Optimize` |
 
 ## Files
 
@@ -44,43 +44,43 @@
 〰13:          where T : struct, IComparable<T>, IEquatable<T>
 〰14:      {
 〰15:          public ExpressionBase<T> Optimize(ExpressionBase<T> expression) =>
-✔16:              expression switch
-✔17:              {
-✔18:                  InnerExpression<T> inner => Optimize(inner.Expression),
-✔19:                  BinaryOperatorExpression<T> binaryOperator => Optimize(binaryOperator),
-✔20:                  _ => expression
-✔21:              };
+‼16:              expression switch
+‼17:              {
+‼18:                  InnerExpression<T> inner => Optimize(inner.Expression),
+‼19:                  BinaryOperatorExpression<T> binaryOperator => Optimize(binaryOperator),
+‼20:                  _ => expression
+‼21:              };
 〰22:  
 〰23:          private ExpressionBase<T> Optimize(BinaryOperatorExpression<T> expression) =>
-✔24:              new BinaryOperatorExpression<T>(
-✔25:                  Optimize(expression.Operator, expression.Left),
-✔26:                  expression.Operator,
-✔27:                  Optimize(expression.Operator, expression.Right)
-✔28:                  );
+‼24:              new BinaryOperatorExpression<T>(
+‼25:                  Optimize(expression.Operator, expression.Left),
+‼26:                  expression.Operator,
+‼27:                  Optimize(expression.Operator, expression.Right)
+‼28:                  );
 〰29:  
 〰30:          private ExpressionBase<T> Optimize(BinaryOperators parentOperator, ExpressionBase<T> expression) =>
-✔31:              expression switch
-✔32:              {
-✔33:                  InnerExpression<T> inner =>
-✔34:                      inner.Expression switch
-✔35:                      {
-✔36:                          BinaryOperatorExpression<T> binaryOperator => Optimize(parentOperator, binaryOperator),
-✔37:                          _ => Optimize(inner.Expression)
-✔38:                      },
-✔39:  
-✔40:                  BinaryOperatorExpression<T> binaryOperator =>
-✔41:                      new BinaryOperatorExpression<T>(
-✔42:                          Optimize(binaryOperator.Operator, binaryOperator.Left),
-✔43:                          binaryOperator.Operator,
-✔44:                          Optimize(binaryOperator.Operator, binaryOperator.Right)
-✔45:                          ),
-✔46:  
-✔47:                  _ => expression
-✔48:              };
+‼31:              expression switch
+‼32:              {
+‼33:                  InnerExpression<T> inner =>
+‼34:                      inner.Expression switch
+‼35:                      {
+‼36:                          BinaryOperatorExpression<T> binaryOperator => Optimize(parentOperator, binaryOperator),
+‼37:                          _ => Optimize(inner.Expression)
+‼38:                      },
+‼39:  
+‼40:                  BinaryOperatorExpression<T> binaryOperator =>
+‼41:                      new BinaryOperatorExpression<T>(
+‼42:                          Optimize(binaryOperator.Operator, binaryOperator.Left),
+‼43:                          binaryOperator.Operator,
+‼44:                          Optimize(binaryOperator.Operator, binaryOperator.Right)
+‼45:                          ),
+‼46:  
+‼47:                  _ => expression
+‼48:              };
 〰49:  
 〰50:          private ExpressionBase<T> Optimize(BinaryOperators parentOperator, BinaryOperatorExpression<T> expression) =>
-✔51:              parentOperator.GetPriority() > expression.Operator.GetPriority() ?
-✔52:                  (ExpressionBase<T>)new InnerExpression<T>(expression) : expression;
+‼51:              parentOperator.GetPriority() > expression.Operator.GetPriority() ?
+‼52:                  (ExpressionBase<T>)new InnerExpression<T>(expression) : expression;
 〰53:      }
 〰54:  }
 ```

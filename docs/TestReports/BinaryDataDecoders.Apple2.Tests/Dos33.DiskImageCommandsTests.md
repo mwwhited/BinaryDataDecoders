@@ -45,7 +45,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.07
+* Duration: 00:00:00.04
 
 #### Standard Out
 
@@ -70,7 +70,7 @@ TestContext Messages:
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.03
+* Duration: 00:00:00.06
 
 ## GetCatalogsTest
 
@@ -86,7 +86,7 @@ TestContext Messages:
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.05
+* Duration: 00:00:00.04
 
 #### Standard Out
 

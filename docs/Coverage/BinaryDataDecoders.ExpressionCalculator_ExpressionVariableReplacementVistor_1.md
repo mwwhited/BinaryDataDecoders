@@ -6,24 +6,24 @@
 | :-------------- | :--------------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Visitors.ExpressionVariableReplacementVistor`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                                |
-| Coveredlines    | `38`                                                                                     |
-| Uncoveredlines  | `23`                                                                                     |
+| Coveredlines    | `0`                                                                                      |
+| Uncoveredlines  | `61`                                                                                     |
 | Coverablelines  | `61`                                                                                     |
 | Totallines      | `89`                                                                                     |
-| Linecoverage    | `62.2`                                                                                   |
-| Coveredbranches | `24`                                                                                     |
+| Linecoverage    | `0`                                                                                      |
+| Coveredbranches | `0`                                                                                      |
 | Totalbranches   | `34`                                                                                     |
-| Branchcoverage  | `70.5`                                                                                   |
+| Branchcoverage  | `0`                                                                                      |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name            |
 | :--------- | :---- | :------- | :-------------- |
-| 10         | 42.85 | 60.0     | `Visit`         |
-| 8          | 57.89 | 62.50    | `Visit`         |
-| 8          | 63.15 | 75.00    | `Visit`         |
-| 4          | 100   | 75.00    | `CheckVariable` |
-| 4          | 100   | 100      | `CheckVariable` |
+| 10         | 0     | 0        | `Visit`         |
+| 8          | 0     | 0        | `Visit`         |
+| 8          | 0     | 0        | `Visit`         |
+| 4          | 0     | 0        | `CheckVariable` |
+| 4          | 0     | 0        | `CheckVariable` |
 
 ## Files
 
@@ -50,21 +50,21 @@
 ‼18:                      unary.Operator,
 ‼19:                      Visit(unary.Operand, variables)
 ‼20:                      ),
-✔21:                  BinaryOperatorExpression<T> binary => new BinaryOperatorExpression<T>(
-✔22:                      Visit(binary.Left, variables),
-✔23:                      binary.Operator,
-✔24:                      Visit(binary.Right, variables)
-✔25:                      ),
+‼21:                  BinaryOperatorExpression<T> binary => new BinaryOperatorExpression<T>(
+‼22:                      Visit(binary.Left, variables),
+‼23:                      binary.Operator,
+‼24:                      Visit(binary.Right, variables)
+‼25:                      ),
 〰26:  
 〰27:                  VariableExpression<T> variable =>
-⚠28:                      new VariableExpression<T>(variables.FirstOrDefault(v => v.input == variable.Name).output ?? variable.Name),
+‼28:                      new VariableExpression<T>(variables.FirstOrDefault(v => v.input == variable.Name).output ?? variable.Name),
 〰29:  
 ‼30:                  _ => expression.Clone(),
 〰31:              };
 〰32:  
 〰33:          public ExpressionBase<T> Visit(ExpressionBase<T> expression, IEnumerable<(string name, T value)> variables) =>
-⚠34:              expression switch
-✔35:              {
+‼34:              expression switch
+‼35:              {
 ‼36:                  InnerExpression<T> inner => new InnerExpression<T>(
 ‼37:                      Visit(inner.Expression, variables)
 ‼38:                      ),
@@ -72,20 +72,20 @@
 ‼40:                      unary.Operator,
 ‼41:                      Visit(unary.Operand, variables)
 ‼42:                      ),
-✔43:                  BinaryOperatorExpression<T> binary => new BinaryOperatorExpression<T>(
-✔44:                      Visit(binary.Left, variables),
-✔45:                      binary.Operator,
-✔46:                      Visit(binary.Right, variables)
-✔47:                      ),
-✔48:  
-✔49:                  VariableExpression<T> variable => CheckVariable(variable, variables),
-✔50:  
+‼43:                  BinaryOperatorExpression<T> binary => new BinaryOperatorExpression<T>(
+‼44:                      Visit(binary.Left, variables),
+‼45:                      binary.Operator,
+‼46:                      Visit(binary.Right, variables)
+‼47:                      ),
+‼48:  
+‼49:                  VariableExpression<T> variable => CheckVariable(variable, variables),
+‼50:  
 ‼51:                  _ => expression.Clone(),
-✔52:              };
+‼52:              };
 〰53:  
 〰54:          public ExpressionBase<T> Visit(ExpressionBase<T> expression, IEnumerable<(string name, ExpressionBase<T> value)> variables) =>
-⚠55:              expression switch
-✔56:              {
+‼55:              expression switch
+‼56:              {
 ‼57:                  InnerExpression<T> inner => new InnerExpression<T>(
 ‼58:                      Visit(inner.Expression, variables)
 ‼59:                      ),
@@ -93,30 +93,30 @@
 ‼61:                      unary.Operator,
 ‼62:                      Visit(unary.Operand, variables)
 ‼63:                      ),
-✔64:                  BinaryOperatorExpression<T> binary => new BinaryOperatorExpression<T>(
-✔65:                      Visit(binary.Left, variables),
-✔66:                      binary.Operator,
-✔67:                      Visit(binary.Right, variables)
-✔68:                      ),
-✔69:  
-✔70:                  VariableExpression<T> variable => CheckVariable(variable, variables),
-✔71:  
-✔72:                  _ => expression.Clone(),
-✔73:              };
+‼64:                  BinaryOperatorExpression<T> binary => new BinaryOperatorExpression<T>(
+‼65:                      Visit(binary.Left, variables),
+‼66:                      binary.Operator,
+‼67:                      Visit(binary.Right, variables)
+‼68:                      ),
+‼69:  
+‼70:                  VariableExpression<T> variable => CheckVariable(variable, variables),
+‼71:  
+‼72:                  _ => expression.Clone(),
+‼73:              };
 〰74:  
 〰75:          private ExpressionBase<T> CheckVariable(VariableExpression<T> variable, IEnumerable<(string name, T value)> variables)
 〰76:          {
-✔77:              var value = (from v in variables
-✔78:                           where variable.Name == v.name
-✔79:                           select (T?)v.value).FirstOrDefault();
-⚠80:              return value.HasValue ?
-✔81:                  new NumberExpression<T>(value.Value) :
-✔82:                  variable.Clone();
+‼77:              var value = (from v in variables
+‼78:                           where variable.Name == v.name
+‼79:                           select (T?)v.value).FirstOrDefault();
+‼80:              return value.HasValue ?
+‼81:                  new NumberExpression<T>(value.Value) :
+‼82:                  variable.Clone();
 〰83:          }
 〰84:          private ExpressionBase<T> CheckVariable(VariableExpression<T> variable, IEnumerable<(string name, ExpressionBase<T> value)> variables) =>
-✔85:               (from v in variables
-✔86:                where variable.Name == v.name
-✔87:                select v.value).FirstOrDefault() ?? variable.Clone();
+‼85:               (from v in variables
+‼86:                where variable.Name == v.name
+‼87:                select v.value).FirstOrDefault() ?? variable.Clone();
 〰88:      }
 〰89:  }
 ```

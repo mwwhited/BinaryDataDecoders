@@ -6,11 +6,11 @@
 | :-------------- | :-------------------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators.ExpressionEvaluatorExtensionsTests` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                               |
-| Coveredlines    | `19`                                                                                          |
-| Uncoveredlines  | `1`                                                                                           |
+| Coveredlines    | `0`                                                                                           |
+| Uncoveredlines  | `20`                                                                                          |
 | Coverablelines  | `20`                                                                                          |
 | Totallines      | `51`                                                                                          |
-| Linecoverage    | `95`                                                                                          |
+| Linecoverage    | `0`                                                                                           |
 | Coveredbranches | `0`                                                                                           |
 | Totalbranches   | `0`                                                                                           |
 
@@ -19,10 +19,10 @@
 | Complexity | Lines | Branches | Name              |
 | :--------- | :---- | :------- | :---------------- |
 | 1          | 0     | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `Sequence_Test`   |
-| 1          | 100   | 100      | `Product_Test`    |
-| 1          | 100   | 100      | `Sum_Test`        |
-| 1          | 100   | 100      | `Factorial_Test`  |
+| 1          | 0     | 100      | `Sequence_Test`   |
+| 1          | 0     | 100      | `Product_Test`    |
+| 1          | 0     | 100      | `Sum_Test`        |
+| 1          | 0     | 100      | `Factorial_Test`  |
 
 ## Files
 
@@ -44,40 +44,40 @@
 〰13:          [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Sequence))]
 〰14:          public void Sequence_Test()
 〰15:          {
-✔16:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
-✔17:              var sequence = evaluator.Sequence(5, (ev, n, i) => n - 1, (ev, n, i) => n > 0);
-✔18:              var result = string.Join(";", sequence);
-✔19:              Assert.AreEqual("5;4;3;2;1", result);
-✔20:          }
+‼16:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
+‼17:              var sequence = evaluator.Sequence(5, (ev, n, i) => n - 1, (ev, n, i) => n > 0);
+‼18:              var result = string.Join(";", sequence);
+‼19:              Assert.AreEqual("5;4;3;2;1", result);
+‼20:          }
 〰21:  
 〰22:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰23:          [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Product))]
 〰24:          public void Product_Test()
 〰25:          {
-✔26:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
-✔27:              var sequence = evaluator.Sequence(4, (ev, n, i) => n - 1, (ev, n, i) => n > 0);
-✔28:              var result = evaluator.Product(sequence);
-✔29:              Assert.AreEqual(24m, result);
-✔30:          }
+‼26:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
+‼27:              var sequence = evaluator.Sequence(4, (ev, n, i) => n - 1, (ev, n, i) => n > 0);
+‼28:              var result = evaluator.Product(sequence);
+‼29:              Assert.AreEqual(24m, result);
+‼30:          }
 〰31:  
 〰32:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰33:          [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Sum))]
 〰34:          public void Sum_Test()
 〰35:          {
-✔36:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
-✔37:              var sequence = evaluator.Sequence(5, (ev, n, i) => n - 1, (ev, n, i) => n > 0);
-✔38:              var result = evaluator.Sum(sequence);
-✔39:              Assert.AreEqual(15m, result);
-✔40:          }
+‼36:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
+‼37:              var sequence = evaluator.Sequence(5, (ev, n, i) => n - 1, (ev, n, i) => n > 0);
+‼38:              var result = evaluator.Sum(sequence);
+‼39:              Assert.AreEqual(15m, result);
+‼40:          }
 〰41:  
 〰42:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰43:          [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Factorial))]
 〰44:          public void Factorial_Test()
 〰45:          {
-✔46:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
-✔47:              var result = evaluator.Factorial(5);
-✔48:              Assert.AreEqual(120m, result);
-✔49:          }
+‼46:              var evaluator = ExpressionEvaluatorFactory.Create<decimal>();
+‼47:              var result = evaluator.Factorial(5);
+‼48:              Assert.AreEqual(120m, result);
+‼49:          }
 〰50:      }
 〰51:  }
 ```

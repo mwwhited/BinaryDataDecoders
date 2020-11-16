@@ -24,5 +24,9 @@
 ##### Attributes
 
  - TestMethod
+ - TestCategory
+ - (
+ - "DACPAC"
+ - )
 
 

@@ -15,15 +15,54 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.02 | `SimpleParserTests`                                  |
-| ✔ Passed             | 00:00:00.01 | `Parse all operators test`                           |
+| ⚠ Inconclusive       | 00:00:00.04 | `SimpleParserTests`                                  |
+| ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |
 | ⚠ Inconclusive       | 00:00:00.00 | `Just decimal value`                                 |
-| ✔ Passed             | 00:00:00.00 | `Simple factorial`                                   |
+| ✔ Passed             | 00:00:00.03 | `Simple factorial`                                   |
 | ✔ Passed             | 00:00:00.00 | `Negative factorial`                                 |
 | ⚠ Inconclusive       | 00:00:00.00 | `Parse Complex Expression`                           |
 | ✔ Passed             | 00:00:00.00 | `SimpleParserTests (B*--A,B * --A)`                  |
+
+## OptimizerTests_WithExceptions
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+| Outcome              | Duration    | Test Name                                            |
+| :------------------- | ----------: | :--------------------------------------------------- |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests_WithExceptions`                      |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests_WithExceptions (B/0)`                |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests_WithExceptions (B%0)`                |
+
+## GetDistinctVariablesTests
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::GetDistinctVariableNames
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+| Outcome              | Duration    | Test Name                                            |
+| :------------------- | ----------: | :--------------------------------------------------- |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests`                          |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+B,A, B)`             |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (Abc+XyW1,Abc, XyW1)`     |
 
 ## OptimizerTests
 
@@ -40,9 +79,9 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.07 | `OptimizerTests`                                     |
-| ✔ Passed             | 00:00:00.01 | `OptimizerTests ((A),A)`                             |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
+| ⚠ Inconclusive       | 00:00:00.06 | `OptimizerTests`                                     |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
+| ✔ Passed             | 00:00:00.01 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B*1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (1*B,B)`                             |
@@ -79,25 +118,6 @@
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!,N!!)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!!,N!!!)`                         |
 
-## OptimizerTests_WithExceptions
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-| Outcome              | Duration    | Test Name                                            |
-| :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests_WithExceptions`                      |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests_WithExceptions (B/0)`                |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests_WithExceptions (B%0)`                |
-
 ## PoorlyFormedExpressions
 
 ### Targets
@@ -113,14 +133,14 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.02 | `PoorlyFormedExpressions`                            |
+| ✔ Passed             | 00:00:00.03 | `PoorlyFormedExpressions`                            |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (-A!)`                      |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**)`                      |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**A)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B***A)`                    |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B*+*A)`                    |
-| ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B*-*A)`                    |
+| ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions (B*-*A)`                    |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions ()`                         |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (b)`                        |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (b+1)`                      |
@@ -141,7 +161,7 @@
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
 | ⚠ Inconclusive       | 00:00:00.12 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.02 | `Check Expressions "A"`                              |
+| ✔ Passed             | 00:00:00.04 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
@@ -210,26 +230,6 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A/B)*((C*D)*E))+F"`            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A/(A+B))"`                      |
 | ✔ Passed             | 00:00:00.00 | `VerifyOptimizerForComplexExpressions (A!)`          |
-
-## GetDistinctVariablesTests
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::GetDistinctVariableNames
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-| Outcome              | Duration    | Test Name                                            |
-| :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.01 | `GetDistinctVariablesTests`                          |
-| ✔ Passed             | 00:00:00.01 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
-| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+B,A, B)`             |
-| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (Abc+XyW1,Abc, XyW1)`     |
 
 ## Links
 

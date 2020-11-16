@@ -6,11 +6,11 @@
 | :-------------- | :---------------------------------------- |
 | Class           | `ExpressionTreeBaseVisitor`1`             |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator` |
-| Coveredlines    | `1`                                       |
-| Uncoveredlines  | `5`                                       |
+| Coveredlines    | `0`                                       |
+| Uncoveredlines  | `6`                                       |
 | Coverablelines  | `6`                                       |
 | Totallines      | `96`                                      |
-| Linecoverage    | `16.6`                                    |
+| Linecoverage    | `0`                                       |
 | Coveredbranches | `0`                                       |
 | Totalbranches   | `0`                                       |
 
@@ -23,7 +23,7 @@
 | 1          | 0     | 100      | `VisitInnerExpression`              |
 | 1          | 0     | 100      | `VisitUnaryOperatorLeftExpression`  |
 | 1          | 0     | 100      | `VisitUnaryOperatorRightExpression` |
-| 1          | 100   | 100      | `VisitExpression`                   |
+| 1          | 0     | 100      | `VisitExpression`                   |
 
 ## Files
 
@@ -124,7 +124,7 @@
 〰92:  	/// </summary>
 〰93:  	/// <param name="context">The parse tree.</param>
 〰94:  	/// <return>The visitor result.</return>
-✔95:  	public virtual Result VisitExpression([NotNull] ExpressionTreeParser.ExpressionContext context) { return VisitChildren(context); }
+‼95:  	public virtual Result VisitExpression([NotNull] ExpressionTreeParser.ExpressionContext context) { return VisitChildren(context); }
 〰96:  }
 ```
 

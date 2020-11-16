@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.LogicBinaryOperationPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                              |
-| Coveredlines    | `2`                                                                       |
-| Uncoveredlines  | `0`                                                                       |
+| Coveredlines    | `0`                                                                       |
+| Uncoveredlines  | `2`                                                                       |
 | Coverablelines  | `2`                                                                       |
 | Totallines      | `12`                                                                      |
-| Linecoverage    | `100`                                                                     |
+| Linecoverage    | `0`                                                                       |
 | Coveredbranches | `0`                                                                       |
 | Totalbranches   | `0`                                                                       |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 100   | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -33,8 +33,8 @@
 〰6:               IPathSegment left,
 〰7:               IPathSegment<LogicOperationTypes> @operator,
 〰8:               IPathSegment right
-✔9:               ) : base(left, @operator, right)
-✔10:          { }
+‼9:               ) : base(left, @operator, right)
+‼10:          { }
 〰11:      }
 〰12:  }
 ```

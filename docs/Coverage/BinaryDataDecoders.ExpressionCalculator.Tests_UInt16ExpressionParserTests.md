@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.UInt16ExpressionParserTests` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                    |
-| Coveredlines    | `1`                                                                                |
-| Uncoveredlines  | `0`                                                                                |
+| Coveredlines    | `0`                                                                                |
+| Uncoveredlines  | `1`                                                                                |
 | Coverablelines  | `1`                                                                                |
 | Totallines      | `387`                                                                              |
-| Linecoverage    | `100`                                                                              |
+| Linecoverage    | `0`                                                                                |
 | Coveredbranches | `0`                                                                                |
 | Totalbranches   | `0`                                                                                |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 100   | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -80,7 +80,7 @@
 〰53:      [TestClass]
 〰54:      public class UInt16ExpressionParserTests : ExpressionParserTests<ushort>
 〰55:      {
-✔56:          public UInt16ExpressionParserTests() : base(skipDecimal: true, skipNegative: true) { }
+‼56:          public UInt16ExpressionParserTests() : base(skipDecimal: true, skipNegative: true) { }
 〰57:      }
 〰58:      [TestClass]
 〰59:      public class UInt32ExpressionParserTests : ExpressionParserTests<uint>

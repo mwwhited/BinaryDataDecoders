@@ -6,49 +6,49 @@
 | :-------------- | :------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNavigator` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                            |
-| Coveredlines    | `59`                                                    |
-| Uncoveredlines  | `115`                                                   |
+| Coveredlines    | `0`                                                     |
+| Uncoveredlines  | `174`                                                   |
 | Coverablelines  | `174`                                                   |
 | Totallines      | `271`                                                   |
-| Linecoverage    | `33.9`                                                  |
-| Coveredbranches | `22`                                                    |
+| Linecoverage    | `0`                                                     |
+| Coveredbranches | `0`                                                     |
 | Totalbranches   | `88`                                                    |
-| Branchcoverage  | `25`                                                    |
+| Branchcoverage  | `0`                                                     |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                       |
 | :--------- | :---- | :------- | :------------------------- |
-| 1          | 100   | 100      | `ctor`                     |
-| 1          | 100   | 100      | `Clone`                    |
+| 1          | 0     | 100      | `ctor`                     |
+| 1          | 0     | 100      | `Clone`                    |
 | 2          | 0     | 0        | `get_BaseURI`              |
 | 2          | 0     | 0        | `get_IsEmptyElement`       |
-| 2          | 100   | 100      | `get_LocalName`            |
+| 2          | 0     | 0        | `get_LocalName`            |
 | 2          | 0     | 0        | `get_Name`                 |
-| 2          | 100   | 100      | `get_NamespaceURI`         |
+| 2          | 0     | 0        | `get_NamespaceURI`         |
 | 2          | 0     | 0        | `get_NameTable`            |
-| 6          | 80.0  | 66.66    | `get_NodeType`             |
+| 6          | 0     | 0        | `get_NodeType`             |
 | 2          | 0     | 0        | `get_Prefix`               |
-| 2          | 80.0  | 50.0     | `get_Value`                |
+| 2          | 0     | 0        | `get_Value`                |
 | 2          | 0     | 0        | `LookupNamespace`          |
 | 2          | 0     | 0        | `LookupPrefix`             |
 | 2          | 0     | 0        | `get_HasAttributes`        |
 | 2          | 0     | 0        | `get_HasChildren`          |
 | 6          | 0     | 0        | `IsSamePosition`           |
-| 4          | 80.0  | 50.0     | `MoveTo`                   |
+| 4          | 0     | 0        | `MoveTo`                   |
 | 2          | 0     | 0        | `MoveToFirstAttribute`     |
 | 2          | 0     | 0        | `MoveToNextNamespace`      |
 | 2          | 0     | 0        | `MoveToFirstNamespace`     |
 | 2          | 0     | 0        | `MoveToId`                 |
 | 2          | 0     | 0        | `MoveToNextAttribute`      |
-| 2          | 80.0  | 50.0     | `MoveToFirstChild`         |
-| 9          | 84.61 | 66.66    | `MoveToFirstChildInternal` |
-| 2          | 100   | 100      | `MoveToNext`               |
-| 7          | 66.66 | 28.57    | `MoveToNextInternal`       |
+| 2          | 0     | 0        | `MoveToFirstChild`         |
+| 9          | 0     | 0        | `MoveToFirstChildInternal` |
+| 2          | 0     | 0        | `MoveToNext`               |
+| 7          | 0     | 0        | `MoveToNextInternal`       |
 | 2          | 0     | 0        | `MoveToPrevious`           |
 | 7          | 0     | 0        | `MoveToPreviousInternal`   |
 | 9          | 0     | 0        | `MoveToParent`             |
-| 1          | 100   | 100      | `MoveToRoot`               |
+| 1          | 0     | 100      | `MoveToRoot`               |
 
 ## Files
 
@@ -66,12 +66,12 @@
 〰9:           private WrapperState _state;
 〰10:          private IWrappedNode _node;
 〰11:  
-✔12:          public WrappedNavigator(IWrappedNode node)
+‼12:          public WrappedNavigator(IWrappedNode node)
 〰13:          {
-✔14:              _node = node;
-✔15:          }
+‼14:              _node = node;
+‼15:          }
 〰16:  
-✔17:          public override XPathNavigator Clone() => new WrappedNavigator(_node) { _state = this._state };
+‼17:          public override XPathNavigator Clone() => new WrappedNavigator(_node) { _state = this._state };
 〰18:  
 ‼19:          public override string BaseURI => _state switch
 ‼20:          {
@@ -85,11 +85,11 @@
 ‼28:              _ => false,
 ‼29:          };
 〰30:  
-✔31:          public override string LocalName => _state switch
-✔32:          {
-✔33:              WrapperState.Child => _node.Current.LocalName,
-✔34:              _ => _state.ToString()
-✔35:          };
+‼31:          public override string LocalName => _state switch
+‼32:          {
+‼33:              WrapperState.Child => _node.Current.LocalName,
+‼34:              _ => _state.ToString()
+‼35:          };
 〰36:  
 ‼37:          public override string Name => _state switch
 ‼38:          {
@@ -97,11 +97,11 @@
 ‼40:              _ => _state.ToString()
 ‼41:          };
 〰42:  
-✔43:          public override string NamespaceURI => _state switch
-✔44:          {
-✔45:              WrapperState.Child => _node.Current.NamespaceURI,
-✔46:              _ => ""
-✔47:          };
+‼43:          public override string NamespaceURI => _state switch
+‼44:          {
+‼45:              WrapperState.Child => _node.Current.NamespaceURI,
+‼46:              _ => ""
+‼47:          };
 〰48:  
 ‼49:          public override XmlNameTable? NameTable => _state switch
 ‼50:          {
@@ -109,16 +109,16 @@
 ‼52:              _ => null
 ‼53:          };
 〰54:  
-⚠55:          public override XPathNodeType NodeType => _state switch
-✔56:          {
-✔57:              WrapperState.Child => _node.Current.NodeType switch
-✔58:              {
+‼55:          public override XPathNodeType NodeType => _state switch
+‼56:          {
+‼57:              WrapperState.Child => _node.Current.NodeType switch
+‼58:              {
 ‼59:                  XPathNodeType.Root => throw new NotSupportedException(), // XPathNodeType.Element, //Children can not be root elements
-✔60:                  _ => _node.Current.NodeType
-✔61:              },
+‼60:                  _ => _node.Current.NodeType
+‼61:              },
 ‼62:              WrapperState.Root => XPathNodeType.Root,
-✔63:              _ => XPathNodeType.Element,
-✔64:          };
+‼63:              _ => XPathNodeType.Element,
+‼64:          };
 〰65:  
 ‼66:          public override string Prefix => _state switch
 ‼67:          {
@@ -126,11 +126,11 @@
 ‼69:              _ => ""
 ‼70:          };
 〰71:  
-⚠72:          public override string Value => _state switch
-✔73:          {
-✔74:              WrapperState.Child => _node.Current.Value,
+‼72:          public override string Value => _state switch
+‼73:          {
+‼74:              WrapperState.Child => _node.Current.Value,
 ‼75:              _ => ""
-✔76:          };
+‼76:          };
 〰77:  
 ‼78:          public override string LookupNamespace(string prefix) => _state switch
 ‼79:          {
@@ -167,11 +167,11 @@
 〰110: 
 〰111:         public override bool MoveTo(XPathNavigator other)
 〰112:         {
-⚠113:             if (other is WrappedNavigator wrapped && wrapped._node != null)
+‼113:             if (other is WrappedNavigator wrapped && wrapped._node != null)
 〰114:             {
-✔115:                 _node = wrapped._node;
-✔116:                 _state = wrapped._state;
-✔117:                 return true;
+‼115:                 _node = wrapped._node;
+‼116:                 _state = wrapped._state;
+‼117:                 return true;
 〰118:             }
 ‼119:             return false;
 〰120:         }
@@ -205,31 +205,31 @@
 ‼148:             _ => false
 ‼149:         };
 〰150: 
-⚠151:         public override bool MoveToFirstChild() => _state switch
-✔152:         {
+‼151:         public override bool MoveToFirstChild() => _state switch
+‼152:         {
 ‼153:             WrapperState.Child => _node.Current.MoveToFirstChild(),
-✔154:             _ => MoveToFirstChildInternal()
-✔155:         };
+‼154:             _ => MoveToFirstChildInternal()
+‼155:         };
 〰156:         private bool MoveToFirstChildInternal()
 〰157:         {
-⚠158:             switch (_state)
+‼158:             switch (_state)
 〰159:             {
 〰160:                 case WrapperState.Root:
-✔161:                     _state = WrapperState.Top;
-✔162:                     return true;
+‼161:                     _state = WrapperState.Top;
+‼162:                     return true;
 〰163: 
 〰164:                 case WrapperState.Top:
-✔165:                     _state = WrapperState.Node;
+‼165:                     _state = WrapperState.Node;
 ‼166:                     if (_node.First == null) return false;
-✔167:                     _node = _node.First;
-✔168:                     return true;
+‼167:                     _node = _node.First;
+‼168:                     return true;
 〰169: 
 〰170:                 case WrapperState.Node:
-✔171:                     _node.Current.MoveToRoot();
-✔172:                     var result = _node.Current.MoveToFirstChild();
-✔173:                     if (result)
-✔174:                         _state = WrapperState.Child;
-✔175:                     return result;
+‼171:                     _node.Current.MoveToRoot();
+‼172:                     var result = _node.Current.MoveToFirstChild();
+‼173:                     if (result)
+‼174:                         _state = WrapperState.Child;
+‼175:                     return result;
 〰176: 
 〰177:                 default:
 〰178:                 case WrapperState.Child:
@@ -237,26 +237,26 @@
 〰180:             }
 〰181:         }
 〰182: 
-✔183:         public override bool MoveToNext() => _state switch
-✔184:         {
-✔185:             WrapperState.Child => _node.Current.MoveToNext(),
-✔186:             _ => MoveToNextInternal()
-✔187:         };
+‼183:         public override bool MoveToNext() => _state switch
+‼184:         {
+‼185:             WrapperState.Child => _node.Current.MoveToNext(),
+‼186:             _ => MoveToNextInternal()
+‼187:         };
 〰188:         private bool MoveToNextInternal()
 〰189:         {
-⚠190:             switch (_state)
+‼190:             switch (_state)
 〰191:             {
 〰192:                 case WrapperState.Root:
 〰193:                 case WrapperState.Top:
 ‼194:                     return false;
 〰195: 
 〰196:                 case WrapperState.Node:
-⚠197:                     if (_node.Next == null)
+‼197:                     if (_node.Next == null)
 ‼198:                         return false;
-✔199:                     _node = _node.Next;
-✔200:                     _node.Current.MoveToRoot();
-✔201:                     var result = _node.Current.MoveToFirstChild();
-✔202:                     return true;
+‼199:                     _node = _node.Next;
+‼200:                     _node.Current.MoveToRoot();
+‼201:                     var result = _node.Current.MoveToFirstChild();
+‼202:                     return true;
 〰203: 
 〰204:                 default:
 〰205:                 case WrapperState.Child:
@@ -321,9 +321,9 @@
 〰264:         }
 〰265:         public override void MoveToRoot()
 〰266:         {
-✔267:             _node = _node.First;
-✔268:             _state = WrapperState.Root;
-✔269:         }
+‼267:             _node = _node.First;
+‼268:             _state = WrapperState.Root;
+‼269:         }
 〰270:     }
 〰271: }
 ```

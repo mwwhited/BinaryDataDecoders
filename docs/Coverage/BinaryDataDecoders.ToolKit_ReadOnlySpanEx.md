@@ -6,22 +6,22 @@
 | :-------------- | :------------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.ReadOnlySpanEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                |
-| Coveredlines    | `23`                                        |
-| Uncoveredlines  | `1`                                         |
+| Coveredlines    | `16`                                        |
+| Uncoveredlines  | `8`                                         |
 | Coverablelines  | `24`                                        |
 | Totallines      | `71`                                        |
-| Linecoverage    | `95.8`                                      |
-| Coveredbranches | `10`                                        |
+| Linecoverage    | `66.6`                                      |
+| Coveredbranches | `8`                                         |
 | Totalbranches   | `10`                                        |
-| Branchcoverage  | `100`                                       |
+| Branchcoverage  | `80`                                        |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                  |
 | :--------- | :---- | :------- | :-------------------- |
 | 1          | 0     | 100      | `StartsWith`          |
-| 1          | 100   | 100      | `CopyWithTransform`   |
-| 10         | 100   | 100      | `CopyToWithTransform` |
+| 1          | 0     | 100      | `CopyWithTransform`   |
+| 10         | 88.88 | 80.0     | `CopyToWithTransform` |
 
 ## Files
 
@@ -57,11 +57,11 @@
 〰27:          public static Span<TOut> CopyWithTransform<TIn, TOut>(this ReadOnlySpan<TIn> input, Func<TIn, TOut> transform)
 〰28:              where TOut : struct
 〰29:          {
-✔30:              var size = Marshal.SizeOf<TOut>();
-✔31:              var data = new byte[size * input.Length];
-✔32:              Span<TOut> target = MemoryMarshal.Cast<byte, TOut>(data);
-✔33:              CopyToWithTransform(input, target, transform);
-✔34:              return target;
+‼30:              var size = Marshal.SizeOf<TOut>();
+‼31:              var data = new byte[size * input.Length];
+‼32:              Span<TOut> target = MemoryMarshal.Cast<byte, TOut>(data);
+‼33:              CopyToWithTransform(input, target, transform);
+‼34:              return target;
 〰35:          }
 〰36:  
 〰37:          /// <summary>
@@ -74,11 +74,11 @@
 〰44:          /// <param name="transform"></param>
 〰45:          public static void CopyToWithTransform<TIn, TOut>(this ReadOnlySpan<TIn> input, Span<TOut> target, Func<TIn, TOut> transform)
 〰46:          {
-✔47:              int index = input.Length % 8;
+⚠47:              int index = input.Length % 8;
 〰48:              switch (index)
 〰49:              {
-✔50:                  case 7: target[6] = transform(input[6]); goto case 6;
-✔51:                  case 6: target[5] = transform(input[5]); goto case 5;
+‼50:                  case 7: target[6] = transform(input[6]); goto case 6;
+‼51:                  case 6: target[5] = transform(input[5]); goto case 5;
 ✔52:                  case 5: target[4] = transform(input[4]); goto case 4;
 ✔53:                  case 4: target[3] = transform(input[3]); goto case 3;
 ✔54:                  case 3: target[2] = transform(input[2]); goto case 2;

@@ -85,3 +85,24 @@
 
  - this object obj 
 
+#### Public Static Method - GetXmlElementName
+
+#####  Parameters
+
+ - this object @object 
+ - bool excludeNamespace = false 
+
+#### Public Static Method - GetXmlItemName
+
+#####  Parameters
+
+ - this IEnumerable enumerable 
+ - bool excludeNamespace 
+
+#### Public Static Method - GetXmlItemName
+
+#####  Parameters
+
+ - this IEnumerable enumerable 
+ - XName ? elementName = null 
+

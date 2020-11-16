@@ -6,23 +6,23 @@
 | :-------------- | :----------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.XPathExtensions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                           |
-| Coveredlines    | `4`                                                    |
-| Uncoveredlines  | `19`                                                   |
+| Coveredlines    | `0`                                                    |
+| Uncoveredlines  | `23`                                                   |
 | Coverablelines  | `23`                                                   |
 | Totallines      | `71`                                                   |
-| Linecoverage    | `17.3`                                                 |
-| Coveredbranches | `1`                                                    |
+| Linecoverage    | `0`                                                    |
+| Coveredbranches | `0`                                                    |
 | Totalbranches   | `18`                                                   |
-| Branchcoverage  | `5.5`                                                  |
+| Branchcoverage  | `0`                                                    |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                |
 | :--------- | :---- | :------- | :------------------ |
-| 1          | 100   | 100      | `ToXPathExpression` |
-| 2          | 100   | 50.0     | `MergeNavigators`   |
-| 1          | 100   | 100      | `MergeWith`         |
-| 1          | 100   | 100      | `MergeWith`         |
+| 1          | 0     | 100      | `ToXPathExpression` |
+| 2          | 0     | 0        | `MergeNavigators`   |
+| 1          | 0     | 100      | `MergeWith`         |
+| 1          | 0     | 100      | `MergeWith`         |
 | 1          | 0     | 100      | `AsNavigatorSet`    |
 | 16         | 0     | 0        | `AsNodeSet`         |
 
@@ -45,15 +45,15 @@
 〰12:      public static class XPathExtensions
 〰13:      {
 〰14:          public static string ToXPathExpression(this IPathSegment path) =>
-✔15:              new XPathExpressionBuilder().BuildXPathExpression(path);
+‼15:              new XPathExpressionBuilder().BuildXPathExpression(path);
 〰16:  
 〰17:          public static IXPathNavigable MergeNavigators(this IEnumerable<IXPathNavigable> navigators) =>
-⚠18:              new WrappedNavigator(WrappedNode.Build(navigators) ?? throw new ArgumentNullException(nameof(navigators)));
+‼18:              new WrappedNavigator(WrappedNode.Build(navigators) ?? throw new ArgumentNullException(nameof(navigators)));
 〰19:  
 〰20:          public static IXPathNavigable MergeWith(this IXPathNavigable navigator, params IXPathNavigable[] navigators) =>
-✔21:               navigator.MergeWith(navigators.AsEnumerable());
+‼21:               navigator.MergeWith(navigators.AsEnumerable());
 〰22:          public static IXPathNavigable MergeWith(this IXPathNavigable navigator, IEnumerable<IXPathNavigable> navigators) =>
-✔23:              new[] { navigator }.Concat(navigators).MergeNavigators();
+‼23:              new[] { navigator }.Concat(navigators).MergeNavigators();
 〰24:  
 〰25:          public static IEnumerable<XPathNavigator> AsNavigatorSet(this XPathNodeIterator iterator) =>
 ‼26:              iterator.OfType<IXPathNavigable>().Select(node => node.CreateNavigator());

@@ -6,28 +6,28 @@
 | :-------------- | :------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperatorExpression`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                       |
-| Coveredlines    | `26`                                                                            |
-| Uncoveredlines  | `1`                                                                             |
+| Coveredlines    | `0`                                                                             |
+| Uncoveredlines  | `27`                                                                            |
 | Coverablelines  | `27`                                                                            |
 | Totallines      | `50`                                                                            |
-| Linecoverage    | `96.2`                                                                          |
-| Coveredbranches | `7`                                                                             |
+| Linecoverage    | `0`                                                                             |
+| Coveredbranches | `0`                                                                             |
 | Totalbranches   | `8`                                                                             |
-| Branchcoverage  | `87.5`                                                                          |
+| Branchcoverage  | `0`                                                                             |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                 |
 | :--------- | :---- | :------- | :------------------- |
-| 1          | 100   | 100      | `cctor`              |
-| 1          | 100   | 100      | `ctor`               |
-| 1          | 100   | 100      | `get_Operator`       |
-| 1          | 100   | 100      | `get_Operand`        |
-| 1          | 100   | 100      | `Clone`              |
-| 4          | 85.71 | 75.00    | `Evaluate`           |
-| 2          | 100   | 100      | `get_OperandString`  |
-| 1          | 100   | 100      | `get_OperatorString` |
-| 2          | 100   | 100      | `ToString`           |
+| 1          | 0     | 100      | `cctor`              |
+| 1          | 0     | 100      | `ctor`               |
+| 1          | 0     | 100      | `get_Operator`       |
+| 1          | 0     | 100      | `get_Operand`        |
+| 1          | 0     | 100      | `Clone`              |
+| 4          | 0     | 0        | `Evaluate`           |
+| 2          | 0     | 0        | `get_OperandString`  |
+| 1          | 0     | 100      | `get_OperatorString` |
+| 2          | 0     | 0        | `ToString`           |
 
 ## Files
 
@@ -44,44 +44,44 @@
 〰8:       public sealed class UnaryOperatorExpression<T> : ExpressionBase<T>
 〰9:           where T : struct, IComparable<T>, IEquatable<T>
 〰10:      {
-✔11:          private static readonly IExpressionEvaluator<T> _evaluator = ExpressionEvaluatorFactory.Create<T>();
+‼11:          private static readonly IExpressionEvaluator<T> _evaluator = ExpressionEvaluatorFactory.Create<T>();
 〰12:  
-✔13:          public UnaryOperatorExpression(
-✔14:              UnaryOperators @operator,
-✔15:              ExpressionBase<T> operand
-✔16:              )
+‼13:          public UnaryOperatorExpression(
+‼14:              UnaryOperators @operator,
+‼15:              ExpressionBase<T> operand
+‼16:              )
 〰17:          {
-✔18:              Operator = @operator;
-✔19:              Operand = operand;
-✔20:          }
+‼18:              Operator = @operator;
+‼19:              Operand = operand;
+‼20:          }
 〰21:  
-✔22:          public UnaryOperators Operator { get; }
-✔23:          public ExpressionBase<T> Operand { get; }
+‼22:          public UnaryOperators Operator { get; }
+‼23:          public ExpressionBase<T> Operand { get; }
 〰24:  
-✔25:          public override ExpressionBase<T> Clone() => new UnaryOperatorExpression<T>(Operator, Operand.Clone());
+‼25:          public override ExpressionBase<T> Clone() => new UnaryOperatorExpression<T>(Operator, Operand.Clone());
 〰26:  
 〰27:          public override T Evaluate(IDictionary<string, T> variables) =>
-⚠28:              Operator switch
-✔29:              {
-✔30:                  Negate => _evaluator.Negate(Operand.Evaluate(variables)),
-✔31:                  Factorial => _evaluator.Factorial(Operand.Evaluate(variables)),
-✔32:  
+‼28:              Operator switch
+‼29:              {
+‼30:                  Negate => _evaluator.Negate(Operand.Evaluate(variables)),
+‼31:                  Factorial => _evaluator.Factorial(Operand.Evaluate(variables)),
+‼32:  
 ‼33:                  _ => throw new NotSupportedException($"Operator {Operator} not supported")
-✔34:              };
+‼34:              };
 〰35:  
 〰36:          private string OperandString =>
-✔37:                  Operand switch
-✔38:                  {
-✔39:                      BinaryOperatorExpression<T> _ => $"({Operand})",
-✔40:                      _ => $"{Operand}",
-✔41:                  };
+‼37:                  Operand switch
+‼38:                  {
+‼39:                      BinaryOperatorExpression<T> _ => $"({Operand})",
+‼40:                      _ => $"{Operand}",
+‼41:                  };
 〰42:  
-✔43:          private string OperatorString => Operator.AsString();
+‼43:          private string OperatorString => Operator.AsString();
 〰44:  
 〰45:          public override string ToString() =>
-✔46:              Operator.IsRight() ?
-✔47:                  $"{OperandString}{OperatorString}" :
-✔48:                  $"{OperatorString}{OperandString}";
+‼46:              Operator.IsRight() ?
+‼47:                  $"{OperandString}{OperatorString}" :
+‼48:                  $"{OperatorString}{OperandString}";
 〰49:      }
 〰50:  }
 ```

@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.BinaryOperationPathSegment`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                           |
-| Coveredlines    | `5`                                                                    |
-| Uncoveredlines  | `0`                                                                    |
+| Coveredlines    | `0`                                                                    |
+| Uncoveredlines  | `5`                                                                    |
 | Coverablelines  | `5`                                                                    |
 | Totallines      | `18`                                                                   |
-| Linecoverage    | `100`                                                                  |
+| Linecoverage    | `0`                                                                    |
 | Coveredbranches | `0`                                                                    |
 | Totalbranches   | `0`                                                                    |
 
@@ -18,9 +18,9 @@
 
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
-| 1          | 100   | 100      | `get_Operator` |
-| 1          | 100   | 100      | `ctor`         |
-| 1          | 100   | 100      | `ToString`     |
+| 1          | 0     | 100      | `get_Operator` |
+| 1          | 0     | 100      | `ctor`         |
+| 1          | 0     | 100      | `ToString`     |
 
 ## Files
 
@@ -31,18 +31,18 @@
 〰2:   {
 〰3:       public abstract class BinaryOperationPathSegment<T> : BinaryPathSegment
 〰4:       {
-✔5:           public IPathSegment<T> Operator { get; }
+‼5:           public IPathSegment<T> Operator { get; }
 〰6:   
 〰7:           public BinaryOperationPathSegment(
 〰8:               IPathSegment left,
 〰9:               IPathSegment<T> @operator,
 〰10:              IPathSegment right
-✔11:              ) : base(left, right)
+‼11:              ) : base(left, right)
 〰12:          {
-✔13:              Operator = @operator;
-✔14:          }
+‼13:              Operator = @operator;
+‼14:          }
 〰15:  
-✔16:          public override string ToString() => $"{Left} {Operator} {Right}";
+‼16:          public override string ToString() => $"{Left} {Operator} {Right}";
 〰17:      }
 〰18:  }
 ```

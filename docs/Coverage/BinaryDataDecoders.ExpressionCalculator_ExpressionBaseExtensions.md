@@ -6,37 +6,37 @@
 | :-------------- | :----------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.ExpressionBaseExtensions` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                      |
-| Coveredlines    | `36`                                                                           |
-| Uncoveredlines  | `3`                                                                            |
+| Coveredlines    | `0`                                                                            |
+| Uncoveredlines  | `39`                                                                           |
 | Coverablelines  | `39`                                                                           |
 | Totallines      | `102`                                                                          |
-| Linecoverage    | `92.3`                                                                         |
-| Coveredbranches | `22`                                                                           |
+| Linecoverage    | `0`                                                                            |
+| Coveredbranches | `0`                                                                            |
 | Totalbranches   | `22`                                                                           |
-| Branchcoverage  | `100`                                                                          |
+| Branchcoverage  | `0`                                                                            |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                       |
 | :--------- | :---- | :------- | :------------------------- |
-| 1          | 100   | 100      | `Optimize`                 |
-| 1          | 100   | 100      | `EmptySet`                 |
-| 8          | 100   | 100      | `GetAllExpressions`        |
-| 4          | 100   | 100      | `Evaluate`                 |
-| 1          | 100   | 100      | `Evaluate`                 |
-| 2          | 100   | 100      | `GetDistinctVariableNames` |
-| 6          | 100   | 100      | `GenerateTestValues`       |
-| 1          | 100   | 100      | `ParseAsExpression`        |
-| 1          | 100   | 100      | `ReplaceVariables`         |
-| 1          | 100   | 100      | `ReplaceVariables`         |
-| 1          | 100   | 100      | `PreEvaluate`              |
-| 1          | 100   | 100      | `PreEvaluate`              |
-| 2          | 100   | 100      | `PreEvaluate`              |
-| 1          | 100   | 100      | `PreEvaluate`              |
+| 1          | 0     | 100      | `Optimize`                 |
+| 1          | 0     | 100      | `EmptySet`                 |
+| 8          | 0     | 0        | `GetAllExpressions`        |
+| 4          | 0     | 0        | `Evaluate`                 |
+| 1          | 0     | 100      | `Evaluate`                 |
+| 2          | 0     | 0        | `GetDistinctVariableNames` |
+| 6          | 0     | 0        | `GenerateTestValues`       |
+| 1          | 0     | 100      | `ParseAsExpression`        |
+| 1          | 0     | 100      | `ReplaceVariables`         |
+| 1          | 0     | 100      | `ReplaceVariables`         |
+| 1          | 0     | 100      | `PreEvaluate`              |
+| 1          | 0     | 100      | `PreEvaluate`              |
+| 2          | 0     | 0        | `PreEvaluate`              |
 | 1          | 0     | 100      | `PreEvaluate`              |
 | 1          | 0     | 100      | `PreEvaluate`              |
 | 1          | 0     | 100      | `PreEvaluate`              |
-| 1          | 100   | 100      | `PreEvaluate`              |
+| 1          | 0     | 100      | `PreEvaluate`              |
+| 1          | 0     | 100      | `PreEvaluate`              |
 
 ## Files
 
@@ -57,82 +57,82 @@
 〰12:      {
 〰13:          public static ExpressionBase<T> Optimize<T>(this ExpressionBase<T> expression)
 〰14:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔15:                  new ExpressionOptimizationProvider<T>().Optimize(expression);
+‼15:                  new ExpressionOptimizationProvider<T>().Optimize(expression);
 〰16:  
 〰17:          public static IDictionary<string, T> EmptySet<T>()
 〰18:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔19:                  new Dictionary<string, T>();
+‼19:                  new Dictionary<string, T>();
 〰20:  
 〰21:          public static IEnumerable<ExpressionBase<T>> GetAllExpressions<T>(this ExpressionBase<T> expression)
 〰22:              where T : struct, IComparable<T>, IEquatable<T>
 〰23:          {
-✔24:              yield return expression;
+‼24:              yield return expression;
 〰25:  
-✔26:              var subExpressions = expression switch
-✔27:              {
-✔28:                  InnerExpression<T> inner => GetAllExpressions(inner.Expression),
-✔29:                  UnaryOperatorExpression<T> unary => GetAllExpressions(unary.Operand),
-✔30:                  BinaryOperatorExpression<T> binary => GetAllExpressions(binary.Left).Concat(GetAllExpressions(binary.Right)),
-✔31:                  _ => Enumerable.Empty<ExpressionBase<T>>()
-✔32:              };
+‼26:              var subExpressions = expression switch
+‼27:              {
+‼28:                  InnerExpression<T> inner => GetAllExpressions(inner.Expression),
+‼29:                  UnaryOperatorExpression<T> unary => GetAllExpressions(unary.Operand),
+‼30:                  BinaryOperatorExpression<T> binary => GetAllExpressions(binary.Left).Concat(GetAllExpressions(binary.Right)),
+‼31:                  _ => Enumerable.Empty<ExpressionBase<T>>()
+‼32:              };
 〰33:  
-✔34:              foreach (var sub in subExpressions)
-✔35:                  yield return sub;
-✔36:          }
+‼34:              foreach (var sub in subExpressions)
+‼35:                  yield return sub;
+‼36:          }
 〰37:  
 〰38:          public static T Evaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, T value)> variables)
 〰39:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔40:              expression.Evaluate(variables.ToDictionary(k => k.name, v => v.value));
+‼40:              expression.Evaluate(variables.ToDictionary(k => k.name, v => v.value));
 〰41:          public static T Evaluate<T>(this ExpressionBase<T> expression, params (string name, T value)[] variables)
-✔42:              where T : struct, IComparable<T>, IEquatable<T> => expression.Evaluate(variables.AsEnumerable());
+‼42:              where T : struct, IComparable<T>, IEquatable<T> => expression.Evaluate(variables.AsEnumerable());
 〰43:  
 〰44:          public static IEnumerable<string> GetDistinctVariableNames<T>(this ExpressionBase<T> expression)
 〰45:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔46:              expression.GetAllExpressions()
-✔47:                        .OfType<VariableExpression<T>>()
-✔48:                        .Select(s => s.Name)
-✔49:                        .Distinct();
+‼46:              expression.GetAllExpressions()
+‼47:                        .OfType<VariableExpression<T>>()
+‼48:                        .Select(s => s.Name)
+‼49:                        .Distinct();
 〰50:  
 〰51:          public static IDictionary<string, T> GenerateTestValues<T>(this ExpressionBase<T> expression, int scale = 4, bool includeNegatives = false, int places = 2)
 〰52:              where T : struct, IComparable<T>, IEquatable<T>
 〰53:          {
-✔54:              var evaluator = ExpressionEvaluatorFactory.Create<T>();
+‼54:              var evaluator = ExpressionEvaluatorFactory.Create<T>();
 〰55:  
-✔56:              var variableNames = expression.GetDistinctVariableNames();
-✔57:              var rand = new Random();
+‼56:              var variableNames = expression.GetDistinctVariableNames();
+‼57:              var rand = new Random();
 〰58:  
-✔59:              var variables = new Dictionary<string, T>();
-✔60:              foreach (var variableName in variableNames)
+‼59:              var variables = new Dictionary<string, T>();
+‼60:              foreach (var variableName in variableNames)
 〰61:              {
-✔62:                  var randomValue = Math.Round(rand.NextDouble() * Math.Pow(10, scale) * (includeNegatives && rand.Next() % 2 == 0 ? -1 : 1), places);
-✔63:                  var value = evaluator.GetValue(randomValue);
-✔64:                  variables.Add(variableName, value);
+‼62:                  var randomValue = Math.Round(rand.NextDouble() * Math.Pow(10, scale) * (includeNegatives && rand.Next() % 2 == 0 ? -1 : 1), places);
+‼63:                  var value = evaluator.GetValue(randomValue);
+‼64:                  variables.Add(variableName, value);
 〰65:              }
-✔66:              return variables;
+‼66:              return variables;
 〰67:          }
 〰68:  
 〰69:          public static ExpressionBase<T> ParseAsExpression<T>(this string input)
 〰70:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔71:              new ExpressionParser<T>().Parse(input);
+‼71:              new ExpressionParser<T>().Parse(input);
 〰72:  
 〰73:          public static ExpressionBase<T> ReplaceVariables<T>(this ExpressionBase<T> expression, IEnumerable<(string input, string output)> variables)
 〰74:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔75:              new ExpressionVariableReplacementVistor<T>().Visit(expression, variables);
+‼75:              new ExpressionVariableReplacementVistor<T>().Visit(expression, variables);
 〰76:  
 〰77:          public static ExpressionBase<T> ReplaceVariables<T>(this ExpressionBase<T> expression, params (string input, string output)[] variables)
-✔78:              where T : struct, IComparable<T>, IEquatable<T> => expression.ReplaceVariables(variables.AsEnumerable());
+‼78:              where T : struct, IComparable<T>, IEquatable<T> => expression.ReplaceVariables(variables.AsEnumerable());
 〰79:  
 〰80:          public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, T value)> variables)
 〰81:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔82:              new ExpressionVariableReplacementVistor<T>().Visit(expression, variables);
+‼82:              new ExpressionVariableReplacementVistor<T>().Visit(expression, variables);
 〰83:          public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, params (string name, T value)[] variables)
-✔84:              where T : struct, IComparable<T>, IEquatable<T> => expression.PreEvaluate(variables.AsEnumerable());
+‼84:              where T : struct, IComparable<T>, IEquatable<T> => expression.PreEvaluate(variables.AsEnumerable());
 〰85:  
 〰86:          public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, IEnumerable<(string name, ExpressionBase<T> value)> variables)
 〰87:              where T : struct, IComparable<T>, IEquatable<T> =>
-✔88:              variables.Aggregate(expression, (exp, v) => new ExpressionVariableReplacementVistor<T>().Visit(exp, new[] { v }));
+‼88:              variables.Aggregate(expression, (exp, v) => new ExpressionVariableReplacementVistor<T>().Visit(exp, new[] { v }));
 〰89:          public static ExpressionBase<T> PreEvaluate<T>(this ExpressionBase<T> expression, params (string name, ExpressionBase<T> value)[] variables)
-✔90:              where T : struct, IComparable<T>, IEquatable<T> => expression.PreEvaluate(variables.AsEnumerable());
+‼90:              where T : struct, IComparable<T>, IEquatable<T> => expression.PreEvaluate(variables.AsEnumerable());
 〰91:  
 〰92:          public static ExpressionBase<T> PreEvaluate<T>(this string expression, IEnumerable<(string name, ExpressionBase<T> value)> variables)
 ‼93:              where T : struct, IComparable<T>, IEquatable<T> => ((ExpressionBase<T>)expression).PreEvaluate(variables);
@@ -142,7 +142,7 @@
 〰97:          public static ExpressionBase<decimal> PreEvaluate(this string expression, IEnumerable<(string name, ExpressionBase<decimal> value)> variables) =>
 ‼98:              ((ExpressionBase<decimal>)expression).PreEvaluate(variables);
 〰99:          public static ExpressionBase<decimal> PreEvaluate(this string expression, params (string name, ExpressionBase<decimal> value)[] variables) =>
-✔100:             ((ExpressionBase<decimal>)expression).PreEvaluate(variables);
+‼100:             ((ExpressionBase<decimal>)expression).PreEvaluate(variables);
 〰101:     }
 〰102: }
 ```

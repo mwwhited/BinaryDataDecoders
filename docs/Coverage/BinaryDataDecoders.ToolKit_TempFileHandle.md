@@ -6,25 +6,25 @@
 | :-------------- | :--------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.IO.TempFileHandle` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                   |
-| Coveredlines    | `8`                                            |
-| Uncoveredlines  | `11`                                           |
-| Coverablelines  | `19`                                           |
-| Totallines      | `53`                                           |
-| Linecoverage    | `42.1`                                         |
-| Coveredbranches | `1`                                            |
-| Totalbranches   | `4`                                            |
-| Branchcoverage  | `25`                                           |
+| Coveredlines    | `0`                                            |
+| Uncoveredlines  | `21`                                           |
+| Coverablelines  | `21`                                           |
+| Totallines      | `58`                                           |
+| Linecoverage    | `0`                                            |
+| Coveredbranches | `0`                                            |
+| Totalbranches   | `6`                                            |
+| Branchcoverage  | `0`                                            |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
-| 1          | 100   | 100      | `get_FilePath` |
-| 1          | 100   | 100      | `ctor`         |
+| 1          | 0     | 100      | `get_FilePath` |
+| 1          | 0     | 100      | `ctor`         |
 | 1          | 0     | 100      | `ToString`     |
 | 1          | 0     | 100      | `Finalize`     |
-| 1          | 100   | 100      | `Dispose`      |
-| 4          | 25.00 | 25.00    | `Dispose`      |
+| 1          | 0     | 100      | `Dispose`      |
+| 6          | 0     | 0        | `Dispose`      |
 
 ## Files
 
@@ -39,9 +39,9 @@
 〰6:   {
 〰7:       public sealed class TempFileHandle : ITempFile
 〰8:       {
-✔9:           public string FilePath { get; }
+‼9:           public string FilePath { get; }
 〰10:  
-✔11:          public TempFileHandle() => FilePath = Path.GetTempFileName();
+‼11:          public TempFileHandle() => FilePath = Path.GetTempFileName();
 〰12:  
 ‼13:          public override string ToString() => FilePath;
 〰14:  
@@ -49,9 +49,9 @@
 〰16:  
 〰17:          public void Dispose()
 〰18:          {
-✔19:              this.Dispose(true);
-✔20:              GC.SuppressFinalize(this);
-✔21:          }
+‼19:              this.Dispose(true);
+‼20:              GC.SuppressFinalize(this);
+‼21:          }
 〰22:  
 〰23:          private void Dispose(bool disposing)
 〰24:          {
@@ -59,8 +59,8 @@
 〰26:  
 〰27:              try
 〰28:              {
-✔29:                  File.Delete(FilePath);
-✔30:              }
+‼29:                  File.Delete(FilePath);
+‼30:              }
 ‼31:              catch
 〰32:              {
 〰33:                  //Note: yeah, I don't care why it failed.
@@ -73,17 +73,22 @@
 〰40:                      //scheduled for reboot so good to go
 ‼41:                      return;
 〰42:                  }
-‼43:                  catch
-〰44:                  {
-〰45:                      //yep, another.  it's just a temp file give up it it doesn't work.
-‼46:                  }
-〰47:  
-〰48:                  //something happen above so throw the original exception.
-‼49:                  throw;
-〰50:              }
-✔51:          }
-〰52:      }
-〰53:  }
+〰43:  #pragma warning disable CA1031 // Do not catch general exception types
+‼44:                  catch
+〰45:                  {
+〰46:                      //yep, another.  it's just a temp file give up it it doesn't work.
+‼47:                  }
+〰48:  #pragma warning restore CA1031 // Do not catch general exception types
+〰49:  
+‼50:                  if (disposing)
+〰51:                  {
+〰52:                      //something happen above so throw the original exception.
+‼53:                      throw;
+〰54:                  }
+‼55:              }
+‼56:          }
+〰57:      }
+〰58:  }
 ```
 
 ## Links

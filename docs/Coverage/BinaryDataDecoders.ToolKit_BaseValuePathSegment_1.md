@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.BaseValuePathSegment`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                     |
-| Coveredlines    | `5`                                                              |
-| Uncoveredlines  | `0`                                                              |
+| Coveredlines    | `0`                                                              |
+| Uncoveredlines  | `5`                                                              |
 | Coverablelines  | `5`                                                              |
 | Totallines      | `13`                                                             |
-| Linecoverage    | `100`                                                            |
+| Linecoverage    | `0`                                                              |
 | Coveredbranches | `0`                                                              |
 | Totalbranches   | `0`                                                              |
 
@@ -18,9 +18,9 @@
 
 | Complexity | Lines | Branches | Name        |
 | :--------- | :---- | :------- | :---------- |
-| 1          | 100   | 100      | `ctor`      |
-| 1          | 100   | 100      | `get_Value` |
-| 1          | 100   | 100      | `ToString`  |
+| 1          | 0     | 100      | `ctor`      |
+| 1          | 0     | 100      | `get_Value` |
+| 1          | 0     | 100      | `ToString`  |
 
 ## Files
 
@@ -31,13 +31,13 @@
 〰2:   {
 〰3:       public abstract class BaseValuePathSegment<T> : IPathSegment<T>
 〰4:       {
-✔5:           protected BaseValuePathSegment(T value)
+‼5:           protected BaseValuePathSegment(T value)
 〰6:           {
-✔7:               Value = value;
-✔8:           }
+‼7:               Value = value;
+‼8:           }
 〰9:   
-✔10:          public T Value { get; }
-✔11:          public override string ToString() => $"{Value}";
+‼10:          public T Value { get; }
+‼11:          public override string ToString() => $"{Value}";
 〰12:      }
 〰13:  }
 ```

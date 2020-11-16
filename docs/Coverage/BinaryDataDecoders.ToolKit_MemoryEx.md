@@ -6,14 +6,14 @@
 | :-------------- | :------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.MemoryEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`          |
-| Coveredlines    | `33`                                  |
-| Uncoveredlines  | `21`                                  |
+| Coveredlines    | `0`                                   |
+| Uncoveredlines  | `54`                                  |
 | Coverablelines  | `54`                                  |
 | Totallines      | `126`                                 |
-| Linecoverage    | `61.1`                                |
-| Coveredbranches | `17`                                  |
+| Linecoverage    | `0`                                   |
+| Coveredbranches | `0`                                   |
 | Totalbranches   | `34`                                  |
-| Branchcoverage  | `50`                                  |
+| Branchcoverage  | `0`                                   |
 
 ## Metrics
 
@@ -22,12 +22,12 @@
 | 1          | 0     | 100      | `AsMemory`           |
 | 1          | 0     | 100      | `Distinct`           |
 | 2          | 0     | 0        | `BytesFromHexString` |
-| 1          | 100   | 100      | `Split`              |
 | 1          | 0     | 100      | `Split`              |
-| 4          | 100   | 100      | `Split`              |
-| 4          | 80.0  | 75.00    | `SplitWithExclude`   |
-| 4          | 80.0  | 75.00    | `SplitWithReturn`    |
-| 8          | 83.33 | 87.50    | `SplitWithCarry`     |
+| 1          | 0     | 100      | `Split`              |
+| 4          | 0     | 0        | `Split`              |
+| 4          | 0     | 0        | `SplitWithExclude`   |
+| 4          | 0     | 0        | `SplitWithReturn`    |
+| 8          | 0     | 0        | `SplitWithCarry`     |
 
 ## Files
 
@@ -80,80 +80,80 @@
 〰44:          }
 〰45:  
 〰46:          public static IEnumerable<Memory<byte>> Split(this Memory<byte> memory, byte delimiter, DelimiterOptions option = DelimiterOptions.Exclude) =>
-✔47:              memory.Split<byte>(delimiter, option);
+‼47:              memory.Split<byte>(delimiter, option);
 〰48:  
 〰49:          public static IEnumerable<Memory<char>> Split(this Memory<char> memory, char delimiter, DelimiterOptions option = DelimiterOptions.Exclude) =>
 ‼50:              memory.Split<char>(delimiter, option);
 〰51:  
 〰52:          public static IEnumerable<Memory<T>> Split<T>(this Memory<T> memory, T delimiter, DelimiterOptions option = DelimiterOptions.Exclude) where T : IEquatable<T> =>
-✔53:              option switch
-✔54:              {
-✔55:                  DelimiterOptions.Return => SplitWithReturn(memory, delimiter),
-✔56:                  DelimiterOptions.Carry => SplitWithCarry(memory, delimiter),
-✔57:                  _ => SplitWithExclude(memory, delimiter),
-✔58:              };
+‼53:              option switch
+‼54:              {
+‼55:                  DelimiterOptions.Return => SplitWithReturn(memory, delimiter),
+‼56:                  DelimiterOptions.Carry => SplitWithCarry(memory, delimiter),
+‼57:                  _ => SplitWithExclude(memory, delimiter),
+‼58:              };
 〰59:  
 〰60:          private static IEnumerable<Memory<T>> SplitWithExclude<T>(this Memory<T> memory, T delimiter) where T : IEquatable<T>
 〰61:          {
-✔62:              var pointer = 0;
-⚠63:              while (memory.Length > pointer)
+‼62:              var pointer = 0;
+‼63:              while (memory.Length > pointer)
 〰64:              {
-✔65:                  var segment = memory.Span.Slice(pointer);
-✔66:                  var next = segment.IndexOf(delimiter) + 1;
+‼65:                  var segment = memory.Span.Slice(pointer);
+‼66:                  var next = segment.IndexOf(delimiter) + 1;
 〰67:  
-✔68:                  if (next <= 0)
+‼68:                  if (next <= 0)
 〰69:                  {
-✔70:                      yield return memory.Slice(pointer);
+‼70:                      yield return memory.Slice(pointer);
 ‼71:                      yield break;
 〰72:                  }
 〰73:                  else
 〰74:                  {
-✔75:                      yield return memory.Slice(pointer, next - 1);
-✔76:                      pointer += next;
+‼75:                      yield return memory.Slice(pointer, next - 1);
+‼76:                      pointer += next;
 〰77:                  }
 〰78:              }
 ‼79:          }
 〰80:  
 〰81:          private static IEnumerable<Memory<T>> SplitWithReturn<T>(this Memory<T> memory, T delimiter) where T : IEquatable<T>
 〰82:          {
-✔83:              var pointer = 0;
-⚠84:              while (memory.Length > pointer)
+‼83:              var pointer = 0;
+‼84:              while (memory.Length > pointer)
 〰85:              {
-✔86:                  var segment = memory.Span.Slice(pointer);
-✔87:                  var next = segment.IndexOf(delimiter) + 1;
+‼86:                  var segment = memory.Span.Slice(pointer);
+‼87:                  var next = segment.IndexOf(delimiter) + 1;
 〰88:  
-✔89:                  if (next <= 0)
+‼89:                  if (next <= 0)
 〰90:                  {
-✔91:                      yield return memory.Slice(pointer);
+‼91:                      yield return memory.Slice(pointer);
 ‼92:                      yield break;
 〰93:                  }
 〰94:                  else
 〰95:                  {
-✔96:                      yield return memory.Slice(pointer, next);
-✔97:                      pointer += next;
+‼96:                      yield return memory.Slice(pointer, next);
+‼97:                      pointer += next;
 〰98:                  }
 〰99:              }
 ‼100:         }
 〰101: 
 〰102:         private static IEnumerable<Memory<T>> SplitWithCarry<T>(this Memory<T> memory, T delimiter) where T : IEquatable<T>
 〰103:         {
-✔104:             var pointer = 0;
-⚠105:             while (memory.Length > pointer)
+‼104:             var pointer = 0;
+‼105:             while (memory.Length > pointer)
 〰106:             {
-✔107:                 var bump = delimiter.Equals(memory.Span[pointer]);
-✔108:                 var segmentPointer = bump ? pointer + 1 : pointer;
-✔109:                 var segment = memory.Span.Slice(segmentPointer);
-✔110:                 var next = segment.IndexOf(delimiter) + (bump ? 1 : 0);
+‼107:                 var bump = delimiter.Equals(memory.Span[pointer]);
+‼108:                 var segmentPointer = bump ? pointer + 1 : pointer;
+‼109:                 var segment = memory.Span.Slice(segmentPointer);
+‼110:                 var next = segment.IndexOf(delimiter) + (bump ? 1 : 0);
 〰111: 
-✔112:                 if (next <= 0)
+‼112:                 if (next <= 0)
 〰113:                 {
-✔114:                     yield return memory.Slice(pointer);
+‼114:                     yield return memory.Slice(pointer);
 ‼115:                     yield break;
 〰116:                 }
 〰117:                 else
 〰118:                 {
-✔119:                     yield return memory.Slice(pointer, next);
-✔120:                     pointer += next;
+‼119:                     yield return memory.Slice(pointer, next);
+‼120:                     pointer += next;
 〰121:                 }
 〰122:             }
 ‼123:         }

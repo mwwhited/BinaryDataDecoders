@@ -6,28 +6,28 @@
 | :-------------- | :----------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.ExpressionParserTests`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                |
-| Coveredlines    | `67`                                                                           |
-| Uncoveredlines  | `26`                                                                           |
+| Coveredlines    | `0`                                                                            |
+| Uncoveredlines  | `93`                                                                           |
 | Coverablelines  | `93`                                                                           |
 | Totallines      | `387`                                                                          |
-| Linecoverage    | `72`                                                                           |
-| Coveredbranches | `20`                                                                           |
+| Linecoverage    | `0`                                                                            |
+| Coveredbranches | `0`                                                                            |
 | Totalbranches   | `42`                                                                           |
-| Branchcoverage  | `47.6`                                                                         |
+| Branchcoverage  | `0`                                                                            |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                                   |
 | :--------- | :---- | :------- | :------------------------------------- |
 | 1          | 0     | 100      | `cctor`                                |
-| 1          | 100   | 100      | `ctor`                                 |
-| 1          | 100   | 100      | `get_TestContext`                      |
-| 1          | 66.66 | 100      | `PoorlyFormedExpressions`              |
-| 4          | 100   | 100      | `SimpleParserTests`                    |
-| 8          | 87.50 | 100      | `OptimizerTests`                       |
-| 1          | 57.14 | 100      | `OptimizerTests_WithExceptions`        |
-| 1          | 100   | 100      | `GetDistinctVariablesTests`            |
-| 10         | 80.76 | 80.0     | `VerifyOptimizerForComplexExpressions` |
+| 1          | 0     | 100      | `ctor`                                 |
+| 1          | 0     | 100      | `get_TestContext`                      |
+| 1          | 0     | 100      | `PoorlyFormedExpressions`              |
+| 4          | 0     | 0        | `SimpleParserTests`                    |
+| 8          | 0     | 0        | `OptimizerTests`                       |
+| 1          | 0     | 100      | `OptimizerTests_WithExceptions`        |
+| 1          | 0     | 100      | `GetDistinctVariablesTests`            |
+| 10         | 0     | 0        | `VerifyOptimizerForComplexExpressions` |
 | 20         | 0     | 0        | `TestBuilder`                          |
 
 ## Files
@@ -112,16 +112,16 @@
 〰75:          private readonly bool _skipNegative;
 ‼76:          private static readonly IExpressionEvaluator<T> _evaluator = ExpressionEvaluatorFactory.Create<T>();
 〰77:  
-✔78:          protected ExpressionParserTests(
-✔79:              bool skipDecimal = false,
-✔80:              bool skipNegative = false
-✔81:              )
+‼78:          protected ExpressionParserTests(
+‼79:              bool skipDecimal = false,
+‼80:              bool skipNegative = false
+‼81:              )
 〰82:          {
-✔83:              _skipDecimal = skipDecimal;
-✔84:              _skipNegative = skipNegative;
-✔85:          }
+‼83:              _skipDecimal = skipDecimal;
+‼84:              _skipNegative = skipNegative;
+‼85:          }
 〰86:  
-✔87:          public TestContext TestContext { get; set; }
+‼87:          public TestContext TestContext { get; set; }
 〰88:  
 〰89:  
 〰90:          [DataTestMethod, TestCategory(TestCategories.Unit)]
@@ -142,15 +142,15 @@
 〰105:         {
 〰106:             try
 〰107:             {
-✔108:                 TestContext.WriteLine($"Input: {input}");
-✔109:                 var parsed = new ExpressionParser<T>().Parse(input);
+‼108:                 TestContext.WriteLine($"Input: {input}");
+‼109:                 var parsed = new ExpressionParser<T>().Parse(input);
 ‼110:                 Assert.Fail("You shouldn't get here!");
 ‼111:             }
-✔112:             catch (Exception ex)
+‼112:             catch (Exception ex)
 〰113:             {
-✔114:                 this.TestContext.WriteLine(ex.Message);
-✔115:                 this.TestContext.WriteLine(ex.GetType().ToString());
-✔116:                 throw;
+‼114:                 this.TestContext.WriteLine(ex.Message);
+‼115:                 this.TestContext.WriteLine(ex.GetType().ToString());
+‼116:                 throw;
 〰117:             }
 ‼118:         }
 〰119: 
@@ -166,18 +166,18 @@
 〰129:         [TestTarget(typeof(ExpressionParser<>), Member = nameof(ExpressionParser<double>.Parse))]
 〰130:         public void SimpleParserTests(string input, string result)
 〰131:         {
-✔132:             if (_skipDecimal && input.Contains("."))
+‼132:             if (_skipDecimal && input.Contains("."))
 〰133:             {
-✔134:                 Assert.Inconclusive("Decimals not supported");
+‼134:                 Assert.Inconclusive("Decimals not supported");
 〰135:             }
 〰136:             else
 〰137:             {
-✔138:                 TestContext.WriteLine($"Input: {input}");
-✔139:                 var parsed = new ExpressionParser<T>().Parse(input);
-✔140:                 TestContext.WriteLine($"As Parsed: {parsed}");
-✔141:                 Assert.AreEqual(result, parsed.ToString());
+‼138:                 TestContext.WriteLine($"Input: {input}");
+‼139:                 var parsed = new ExpressionParser<T>().Parse(input);
+‼140:                 TestContext.WriteLine($"As Parsed: {parsed}");
+‼141:                 Assert.AreEqual(result, parsed.ToString());
 〰142:             }
-✔143:         }
+‼143:         }
 〰144: 
 〰145:         [DataTestMethod, TestCategory(TestCategories.Unit)]
 〰146:         [DataRow("(A)", "A")]
@@ -223,33 +223,33 @@
 〰186:         [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Optimize))]
 〰187:         public void OptimizerTests(string input, string result)
 〰188:         {
-✔189:             if (Marshal.SizeOf<T>() == 1 && input.Contains("!!"))
+‼189:             if (Marshal.SizeOf<T>() == 1 && input.Contains("!!"))
 〰190:             {
-✔191:                 Assert.Inconclusive($"{nameof(input)}: \"{input}\" not supported");
+‼191:                 Assert.Inconclusive($"{nameof(input)}: \"{input}\" not supported");
 ‼192:                 return;
 〰193:             }
 〰194:             try
 〰195:             {
-✔196:                 TestContext.WriteLine($"Input: {input}");
-✔197:                 var parsed = new ExpressionParser<T>().Parse(input);
-✔198:                 TestContext.WriteLine($"As Parsed: {parsed}");
-✔199:                 var optimized = parsed.Optimize();
-✔200:                 TestContext.WriteLine($"As Optimized: {optimized}");
+‼196:                 TestContext.WriteLine($"Input: {input}");
+‼197:                 var parsed = new ExpressionParser<T>().Parse(input);
+‼198:                 TestContext.WriteLine($"As Parsed: {parsed}");
+‼199:                 var optimized = parsed.Optimize();
+‼200:                 TestContext.WriteLine($"As Optimized: {optimized}");
 〰201: 
-✔202:                 if (_skipNegative && result.StartsWith("-"))
+‼202:                 if (_skipNegative && result.StartsWith("-"))
 〰203:                 {
-✔204:                     Assert.Inconclusive($"Negative not supported");
+‼204:                     Assert.Inconclusive($"Negative not supported");
 〰205:                 }
 〰206:                 else
 〰207:                 {
-✔208:                     Assert.AreEqual(result, optimized.ToString());
+‼208:                     Assert.AreEqual(result, optimized.ToString());
 〰209:                 }
-✔210:             }
-✔211:             catch (NotSupportedException nse) when (_skipNegative && nse.Message == nameof(IExpressionEvaluator<T>.Negate))
+‼210:             }
+‼211:             catch (NotSupportedException nse) when (_skipNegative && nse.Message == nameof(IExpressionEvaluator<T>.Negate))
 〰212:             {
-✔213:                 Assert.Inconclusive($"{nse.Message} not supported");
+‼213:                 Assert.Inconclusive($"{nse.Message} not supported");
 ‼214:             }
-✔215:         }
+‼215:         }
 〰216: 
 〰217:         [DataTestMethod, TestCategory(TestCategories.Unit)]
 〰218:         [DataRow("B/0")]
@@ -258,10 +258,10 @@
 〰221:         [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Optimize))]
 〰222:         public void OptimizerTests_WithExceptions(string input)
 〰223:         {
-✔224:             TestContext.WriteLine($"Input: {input}");
-✔225:             var parsed = new ExpressionParser<T>().Parse(input);
-✔226:             TestContext.WriteLine($"As Parsed: {parsed}");
-✔227:             var optimized = parsed.Optimize();
+‼224:             TestContext.WriteLine($"Input: {input}");
+‼225:             var parsed = new ExpressionParser<T>().Parse(input);
+‼226:             TestContext.WriteLine($"As Parsed: {parsed}");
+‼227:             var optimized = parsed.Optimize();
 ‼228:             TestContext.WriteLine($"As Optimized: {optimized}");
 ‼229:             Assert.Fail("You shouldn't get here");
 ‼230:         }
@@ -273,13 +273,13 @@
 〰236:         [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.GetDistinctVariableNames))]
 〰237:         public void GetDistinctVariablesTests(string input, string result)
 〰238:         {
-✔239:             TestContext.WriteLine($"Input: {input}");
-✔240:             var parsed = new ExpressionParser<T>().Parse(input);
-✔241:             TestContext.WriteLine($"As Parsed: {parsed}");
-✔242:             var variables = string.Join(", ", parsed.GetDistinctVariableNames());
-✔243:             TestContext.WriteLine($"Variables: {variables}");
-✔244:             Assert.AreEqual(result, variables.ToString());
-✔245:         }
+‼239:             TestContext.WriteLine($"Input: {input}");
+‼240:             var parsed = new ExpressionParser<T>().Parse(input);
+‼241:             TestContext.WriteLine($"As Parsed: {parsed}");
+‼242:             var variables = string.Join(", ", parsed.GetDistinctVariableNames());
+‼243:             TestContext.WriteLine($"Variables: {variables}");
+‼244:             Assert.AreEqual(result, variables.ToString());
+‼245:         }
 〰246: 
 〰247:         [DataTestMethod, TestCategory(TestCategories.Unit)]
 〰248:         [DataRow("A", DisplayName = "Check Expressions \"A\"")]
@@ -354,40 +354,40 @@
 〰317:         [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Optimize))]
 〰318:         public void VerifyOptimizerForComplexExpressions(string input)
 〰319:         {
-✔320:             var includesFactorial = input.Contains("!");
-✔321:             var x = 0;
+‼320:             var includesFactorial = input.Contains("!");
+‼321:             var x = 0;
 〰322:         tryAgain:
 〰323:             try
 〰324:             {
-✔325:                 if (_skipDecimal && input.Contains("."))
+‼325:                 if (_skipDecimal && input.Contains("."))
 〰326:                 {
-✔327:                     Assert.Inconclusive("Decimals not supported");
+‼327:                     Assert.Inconclusive("Decimals not supported");
 〰328:                 }
 〰329:                 else
 〰330:                 {
-✔331:                     TestContext.WriteLine($"Input: {input}");
-✔332:                     var parsed = new ExpressionParser<T>().Parse(input);
-✔333:                     TestContext.WriteLine($"As Parsed: {parsed}");
-✔334:                     var optimized = parsed.Optimize();
-✔335:                     TestContext.WriteLine($"As Optimized: {optimized}");
+‼331:                     TestContext.WriteLine($"Input: {input}");
+‼332:                     var parsed = new ExpressionParser<T>().Parse(input);
+‼333:                     TestContext.WriteLine($"As Parsed: {parsed}");
+‼334:                     var optimized = parsed.Optimize();
+‼335:                     TestContext.WriteLine($"As Optimized: {optimized}");
 〰336: 
-✔337:                     var testValues = parsed.GenerateTestValues(includeNegatives: !includesFactorial, scale: includesFactorial ? 1 : 4);
+‼337:                     var testValues = parsed.GenerateTestValues(includeNegatives: !includesFactorial, scale: includesFactorial ? 1 : 4);
 〰338: 
-✔339:                     var variables = string.Join(", ", testValues.Select(kvp => (Name: kvp.Key, kvp.Value)));
-✔340:                     TestContext.WriteLine($"Variables: {variables}");
+‼339:                     var variables = string.Join(", ", testValues.Select(kvp => (Name: kvp.Key, kvp.Value)));
+‼340:                     TestContext.WriteLine($"Variables: {variables}");
 〰341: 
-✔342:                     var resultAsParsed = parsed.Evaluate(testValues);
-✔343:                     var resultAsOptimized = optimized.Evaluate(testValues);
+‼342:                     var resultAsParsed = parsed.Evaluate(testValues);
+‼343:                     var resultAsOptimized = optimized.Evaluate(testValues);
 〰344: 
-✔345:                     TestContext.WriteLine($"Parsed Result: {resultAsParsed}");
-✔346:                     TestContext.WriteLine($"Optimized Result: {resultAsOptimized}");
+‼345:                     TestContext.WriteLine($"Parsed Result: {resultAsParsed}");
+‼346:                     TestContext.WriteLine($"Optimized Result: {resultAsOptimized}");
 〰347: 
-✔348:                     Assert.AreEqual(resultAsParsed, resultAsOptimized);
+‼348:                     Assert.AreEqual(resultAsParsed, resultAsOptimized);
 〰349:                 }
-✔350:             }
-✔351:             catch (NotSupportedException nse) when (_skipNegative && nse.Message == nameof(IExpressionEvaluator<T>.Negate))
+‼350:             }
+‼351:             catch (NotSupportedException nse) when (_skipNegative && nse.Message == nameof(IExpressionEvaluator<T>.Negate))
 〰352:             {
-✔353:                 Assert.Inconclusive($"{nse.Message} not supported");
+‼353:                 Assert.Inconclusive($"{nse.Message} not supported");
 ‼354:             }
 ‼355:             catch (DivideByZeroException)
 〰356:             {
@@ -397,7 +397,7 @@
 〰360:                 }
 ‼361:                 goto tryAgain;
 〰362:             }
-✔363:         }
+‼363:         }
 〰364: 
 〰365:         [TestMethod, Ignore]
 〰366:         public void TestBuilder()
