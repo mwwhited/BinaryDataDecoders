@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        IXPathNavigable ReadAsXml(string fileName);
+        IXPathNavigable? ReadAsXml(string fileName);
 
         /// <summary>
         /// Single action transform

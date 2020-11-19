@@ -3,11 +3,8 @@
 using BinaryDataDecoders.ToolKit.IO;
 using BinaryDataDecoders.ToolKit.Xml.XPath;
 using System;
-using System.Dynamic;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
@@ -40,17 +37,25 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public IXPathNavigable ReadAsXml(string fileName)
+        public IXPathNavigable? ReadAsXml(string fileName)
         {
-            var xmlreader = XmlReader.Create(fileName, new XmlReaderSettings
+            try
             {
-                DtdProcessing = DtdProcessing.Ignore,
-                ConformanceLevel = ConformanceLevel.Document,
-                NameTable = new NameTable(),
-            });
-            var xmlDocument = new XmlDocument();
-            xmlDocument.Load(xmlreader);
-            return xmlDocument;
+                var xmlreader = XmlReader.Create(fileName, new XmlReaderSettings
+                {
+                    DtdProcessing = DtdProcessing.Ignore,
+                    ConformanceLevel = ConformanceLevel.Document,
+                    NameTable = new NameTable(),
+                });
+                var xmlDocument = new XmlDocument();
+                xmlDocument.Load(xmlreader);
+                return xmlDocument;
+            }
+            catch
+            {
+                return null;
+                //TODO: do something smart
+            }
         }
 
         /// <summary>
