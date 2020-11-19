@@ -24,7 +24,8 @@ version() {
 	#export PATH="$PATH:/github/home/.dotnet/tools"
 	buildVersion=`dotnet gitversion /output json /showvariable FullSemVer`
 	echo GitVersion= $buildVersion
-	echo "::set-env name=buildVersion::$buildVersion"
+	# echo "::set-env name=buildVersion::$buildVersion"
+	echo "buildVersion=$buildVersion" >> $GITHUB_ENV
 }
 
 clean() {  
