@@ -18,7 +18,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.XPath
         {
             var di1 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\templates").ToNavigable();
             var di2 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\docs\Code").ToNavigable();
-            var navs = new[] { di1, di2, di1 };
+            var navs = new[] { ("f1", di1), ("f2", di2), ("f3", di1) };
             var merged = navs.MergeNavigators();
             this.TestContext.AddResult(merged);
         }
@@ -27,10 +27,10 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.XPath
         [TestTarget(typeof(XPathExtensions), Member = nameof(XPathExtensions.MergeWith))]
         public void MergeMultipleTest()
         {
-            var x1 = new XDocument(new XElement("top1", "test1"));
-            var x2 = new XDocument(new XElement("top2", "test2"));
+            var x1 = ("x1", (IXPathNavigable)new XDocument(new XElement("top1", "test1")));
+            var x2 = ("x2", (IXPathNavigable)new XDocument(new XElement("top2", "test2")));
 
-            var merged = x1.CreateNavigator().MergeWith(x2.CreateNavigator());
+            var merged = x1.MergeWith(x2);
             var mergedNav = merged.CreateNavigator();
             mergedNav.MoveToRoot();
 
