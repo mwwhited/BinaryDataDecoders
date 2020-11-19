@@ -10,5 +10,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         IWrappedNode First { get; }
         IWrappedNode Last { get; }
+
+        string Source { get; }
     }
 }

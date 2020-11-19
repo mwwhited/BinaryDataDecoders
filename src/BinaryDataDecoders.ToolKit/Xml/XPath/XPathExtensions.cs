@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
@@ -14,13 +13,13 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public static string ToXPathExpression(this IPathSegment path) =>
             new XPathExpressionBuilder().BuildXPathExpression(path);
 
-        public static IXPathNavigable MergeNavigators(this IEnumerable<IXPathNavigable> navigators) =>
+        public static IXPathNavigable MergeNavigators(this IEnumerable<(string source, IXPathNavigable? navigator)> navigators) =>
             new WrappedNavigator(WrappedNode.Build(navigators) ?? throw new ArgumentNullException(nameof(navigators)));
 
-        public static IXPathNavigable MergeWith(this IXPathNavigable navigator, params IXPathNavigable[] navigators) =>
+        public static IXPathNavigable MergeWith(this (string source, IXPathNavigable? navigator) navigator, params (string source, IXPathNavigable? navigator)[] navigators) =>
              navigator.MergeWith(navigators.AsEnumerable());
-        public static IXPathNavigable MergeWith(this IXPathNavigable navigator, IEnumerable<IXPathNavigable> navigators) =>
-            new[] { navigator }.Concat(navigators).MergeNavigators();
+        public static IXPathNavigable MergeWith(this (string source, IXPathNavigable? navigator) navigator, IEnumerable<(string source, IXPathNavigable? navigator)> navigators) =>
+            new[] { ( navigator) }.Concat(navigators).MergeNavigators();
 
         public static IEnumerable<XPathNavigator> AsNavigatorSet(this XPathNodeIterator iterator) =>
             iterator.OfType<IXPathNavigable>().Select(node => node.CreateNavigator());

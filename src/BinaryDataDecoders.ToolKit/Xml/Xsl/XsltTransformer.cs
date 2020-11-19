@@ -70,7 +70,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="output">resulting text content</param>
         public void Transform(string template, string inputSource, IXPathNavigable input, string output)
         {
-            var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);            
+            var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 
             xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t[{Thread.CurrentThread.ManagedThreadId}]{eventArgs.Message}");
 
@@ -92,7 +92,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 NameTable = new NameTable(),
             });
             var xsltSettings = new XsltSettings(false, false);
-            
+
             xslt.Load(xmlreader, xsltSettings, null);
 
             var outputDir = Path.GetDirectoryName(output);
@@ -214,9 +214,10 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 
                 if (!inputFiles.Any()) throw new FileNotFoundException($"input");
 
-                var navigators = inputFiles.Select(f => inputNavigatorFactory(f)).ToList();
+                //TODO: should probably add the file to the input navigator
+                var navigators = inputFiles.Select(f => (f, (IXPathNavigable?)inputNavigatorFactory(f))).ToList();
 
-                //TODO: need to figoure out why this wont navigate correctly.
+                //TODO: need to figure out why this won't navigate correctly.
                 var merged = navigators.MergeNavigators().CreateNavigator();
                 var doc = new XmlDocument();
                 doc.LoadXml(merged.OuterXml);

@@ -31,12 +31,14 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public override string LocalName => _state switch
         {
             WrapperState.Child => _node.Current.LocalName,
+            WrapperState.NodeAttribute => "Source",
             _ => _state.ToString()
         };
 
         public override string Name => _state switch
         {
             WrapperState.Child => _node.Current.Name,
+            WrapperState.NodeAttribute => "Source",
             _ => _state.ToString()
         };
 
@@ -60,6 +62,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 _ => _node.Current.NodeType
             },
             WrapperState.Root => XPathNodeType.Root,
+            WrapperState.NodeAttribute => XPathNodeType.Attribute,
             _ => XPathNodeType.Element,
         };
 
@@ -72,6 +75,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public override string Value => _state switch
         {
             WrapperState.Child => _node.Current.Value,
+            WrapperState.NodeAttribute => _node.Source,
             _ => ""
         };
 
@@ -89,6 +93,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public override bool HasAttributes => _state switch
         {
             WrapperState.Child => _node.Current.HasAttributes,
+            WrapperState.Node => true,
             _ => false
         };
 
@@ -122,6 +127,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         public override bool MoveToFirstAttribute() => _state switch
         {
             WrapperState.Child => _node.Current.MoveToFirstAttribute(),
+            WrapperState.Node => (_state = WrapperState.NodeAttribute) == WrapperState.NodeAttribute,
             _ => false
         };
 
@@ -161,6 +167,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     _state = WrapperState.Top;
                     return true;
 
+                case WrapperState.NodeAttribute:
                 case WrapperState.Top:
                     _state = WrapperState.Node;
                     if (_node.First == null) return false;
@@ -193,6 +200,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 case WrapperState.Top:
                     return false;
 
+                case WrapperState.NodeAttribute:
                 case WrapperState.Node:
                     if (_node.Next == null)
                         return false;
@@ -220,6 +228,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                 case WrapperState.Top:
                     return false;
 
+                case WrapperState.NodeAttribute:
                 case WrapperState.Node:
                     if (_node.Previous == null)
                         return false;
@@ -243,6 +252,9 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
                     _state = WrapperState.Root;
                     return true;
 
+                case WrapperState.NodeAttribute:
+                    _state = WrapperState.Node;
+                    return true;
                 case WrapperState.Node:
                     _state = WrapperState.Top;
                     return true;

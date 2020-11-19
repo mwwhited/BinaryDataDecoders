@@ -22,6 +22,7 @@ SET WIKI_PATH=%SANDBOX_PATH%\docs
 SET TEST_RUN_SETTINGS=%BUILD_PATH%\.runsettings
 SET BUILD_LOG=%OUTPUT_PATH%\dotnet_build.binlog
 SET TEST_LOG=%TEST_RESULTS_PATH%\dotnet_test.trx
+SET REFERENCE_GRAPH=%OUTPUT_PATH%\references.dg
 
 REM java is required for antlr4
 SET JAVA_EXEC=%JAVA_HOME%\bin\java.exe
@@ -79,6 +80,7 @@ echo "Build Packages"
 
 REM https://github.com/laurenprinn/MSBuildStructuredLog
 dotnet build "%BUILD_PROJECT%" --configuration %Configuration% --no-restore /p:Version=%BUILD_VERSION% "/bl:logfile=%BUILD_LOG%"
+dotnet build "%BUILD_PROJECT%" --configuration %Configuration% /t:GenerateRestoreGraphFile "/p:RestoreGraphOutputPath=%REFERENCE_GRAPH%"
 IF %errorlevel% NEQ 0 GOTO error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 

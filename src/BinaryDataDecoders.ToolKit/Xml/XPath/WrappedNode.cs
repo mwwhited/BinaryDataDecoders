@@ -1,20 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.InteropServices.ComTypes;
 using System.Xml.XPath;
 
 namespace BinaryDataDecoders.ToolKit.Xml.XPath
 {
-    [DebuggerDisplay("{Current}")]
+    [DebuggerDisplay("{Current}-{Source}")]
     internal class WrappedNode : IWrappedNode
     {
-        private WrappedNode(IXPathNavigable nav, IWrappedNode? previous)
+        private WrappedNode(string source, IXPathNavigable nav, IWrappedNode? previous)
         {
             var xpathNav = nav.CreateNavigator();
             xpathNav.MoveToRoot();
             Current = xpathNav;
             Previous = previous;
+            Source = source;
         }
+
+        public string Source { get; }
 
         public IWrappedNode? Previous { get; }
         public XPathNavigator Current { get; }
@@ -42,7 +44,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         }
 
 
-        public static IWrappedNode? Build(IEnumerable<IXPathNavigable?> children)
+        public static IWrappedNode? Build(IEnumerable<(string source, IXPathNavigable? navigator)> children)
         {
             var enumerator = children.GetEnumerator();
             WrappedNode? first = null;
@@ -50,8 +52,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
             while (enumerator.MoveNext())
             {
-                if (enumerator.Current == null) continue;
-                var newItem = new WrappedNode(enumerator.Current, previous);
+                if (enumerator.Current.navigator == null) continue;
+                var newItem = new WrappedNode(enumerator.Current.source, enumerator.Current.navigator, previous);
                 if (previous != null)
                 {
                     previous.Next = newItem;

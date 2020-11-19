@@ -63,6 +63,10 @@
     "WSL 2": {
       "commandName": "WSL2",
       "distributionName": ""
+    },
+    "BinaryDataDecoders.Xslt.Cli (Merge Projects to Xml)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)..\\**\\*.*proj\" -o \"$(SolutionDir)..\\Publish\\Results\\Merged_Projects.xml\" -s \"$(SolutionDir)..\" -m "
     }
   }
 }

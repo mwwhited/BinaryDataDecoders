@@ -5,6 +5,7 @@
         Root,
         Top,
         Node,
+        NodeAttribute,
         Child,
     }
 }
