@@ -27,8 +27,8 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.XPath
         [TestTarget(typeof(XPathExtensions), Member = nameof(XPathExtensions.MergeWith))]
         public void MergeMultipleTest()
         {
-            var x1 = ("x1", (IXPathNavigable)new XDocument(new XElement("top1", "test1")));
-            var x2 = ("x2", (IXPathNavigable)new XDocument(new XElement("top2", "test2")));
+            var x1 = ("x1", new XDocument(new XElement("top1", "test1")).CreateNavigator());
+            var x2 = ("x2", new XDocument(new XElement("top2", "test2")).CreateNavigator());
 
             var merged = x1.MergeWith(x2);
             var mergedNav = merged.CreateNavigator();
