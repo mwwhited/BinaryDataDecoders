@@ -10,7 +10,8 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
     [FileExtension(".dacpac")]
     public class DacPacNavigator : IToXPathNavigable
     {
-        public IXPathNavigable ToNavigable(string filePath) => new TSqlModel(filePath).ToNavigable();
+        public IXPathNavigable ToNavigable(string filePath) =>
+            new DacPacElementNodeBuilder(new TSqlModel(filePath)).Build().ToNavigable();
 
         public IXPathNavigable ToNavigable(Stream stream)
         {

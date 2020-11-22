@@ -20,8 +20,8 @@ namespace BinaryDataDecoders.ToolKit.Tests.Reflection
             this.mockRepository = new MockRepository(MockBehavior.Strict);
         }
 
-        private ReflectionElementNode CreateReflectionElementNode(object testData, bool excludeNamespace = false) =>
-            new ReflectionElementNode(testData, excludeNamespace);
+        private ReflectionElementNodeBuilder CreateReflectionElementNode(object testData, bool excludeNamespace = false) =>
+            new ReflectionElementNodeBuilder(testData, excludeNamespace);
 
         [TestMethod]
         [TestCategory(TestCategories.Unit)]

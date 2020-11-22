@@ -2,7 +2,6 @@
 using Microsoft.SqlServer.Dac.Model;
 using Microsoft.SqlServer.TransactSql.ScriptDom;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -10,6 +9,7 @@ using System.Xml.XPath;
 
 namespace BinaryDataDecoders.CodeAnalysis.DacFx
 {
+
     public static class DacPacNavigatorFactory
     {
         private const string NAMESPACE = "";
