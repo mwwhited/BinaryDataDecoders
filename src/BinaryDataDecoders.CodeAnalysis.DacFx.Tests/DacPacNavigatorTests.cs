@@ -11,7 +11,7 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx.Tests
         [TestMethod, TestCategory("DACPAC")]
         public void Test()
         {
-            var testFile = @"C:\Repos\GCA\RSMBilling\src\GCAInvoicing\Lightwell.Nucleus.Persistence.NucleusDb\bin\Debug\Lightwell.Nucleus.Persistence.NucleusDb.dacpac";
+            var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\netstandard2.0\BinaryDataDecoders.SqlServer.Samples.dacpac";
             var builder = new DacPacNavigator();
             var nav = builder.ToNavigable(testFile);
             this.TestContext.AddResult(nav);

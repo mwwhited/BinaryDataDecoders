@@ -52,6 +52,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
 	ProjectSection(SolutionItems) = preProject
 		.runsettings = .runsettings
+		BinaryDataDecoders.slnproj = BinaryDataDecoders.slnproj
 		build.bat = build.bat
 		build.sh = build.sh
 		GitVersion.yml = GitVersion.yml
@@ -140,6 +141,8 @@ EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "BinaryDataDecoders.FSharp.Samples", "BinaryDataDecoders.FSharp.Samples\BinaryDataDecoders.FSharp.Samples.fsproj", "{86360264-3C46-44CD-BE66-21D0FBCBAF73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LanguageSamples", "LanguageSamples", "{2A3D7512-2575-4D02-B4DF-E37742A42E8B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BinaryDataDecoders.SqlServer.Samples", "BinaryDataDecoders.SqlServer.Samples\BinaryDataDecoders.SqlServer.Samples.sqlproj", "{C77F8918-B7DE-4937-AA65-65BEDE4720BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -323,6 +326,12 @@ Global
 		{86360264-3C46-44CD-BE66-21D0FBCBAF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86360264-3C46-44CD-BE66-21D0FBCBAF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86360264-3C46-44CD-BE66-21D0FBCBAF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C77F8918-B7DE-4937-AA65-65BEDE4720BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C77F8918-B7DE-4937-AA65-65BEDE4720BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C77F8918-B7DE-4937-AA65-65BEDE4720BE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C77F8918-B7DE-4937-AA65-65BEDE4720BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C77F8918-B7DE-4937-AA65-65BEDE4720BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C77F8918-B7DE-4937-AA65-65BEDE4720BE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -336,6 +345,7 @@ Global
 		{56263BB0-98DC-4471-81CC-1DD3B2D107D8} = {F91910A6-92E0-42F8-AED2-A77A585BCD72}
 		{E76B3AD8-5FB1-4998-A1B4-B9932D35933D} = {D330C7E6-F60B-4EB8-969A-9880EA6F2939}
 		{86360264-3C46-44CD-BE66-21D0FBCBAF73} = {2A3D7512-2575-4D02-B4DF-E37742A42E8B}
+		{C77F8918-B7DE-4937-AA65-65BEDE4720BE} = {2A3D7512-2575-4D02-B4DF-E37742A42E8B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A0F5E9F-1152-44D6-AAC1-32C474A8585F}

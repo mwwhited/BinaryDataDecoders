@@ -41,7 +41,12 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
                 yield return (XName.Get("AST", NAMESPACE), ast);
         }
 
+        private IEnumerable<(XName name, string? value)>? AllAttributeSelector(object model)
+        {
+            yield return (XName.Get("ref-id", NAMESPACE), model?.GetHashCode().ToString());
+        }
         protected override IEnumerable<(XName name, string? value)>? AttributeSelector(object model) =>
+            AllAttributeSelector(model).Concat(
             model switch
             {
                 TSqlModel sql => AttributeSelector(sql),
@@ -50,7 +55,7 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
                 Literal literal => AttributeSelector(literal),
                 Type type => AttributeSelector(type),
                 _ => base.AttributeSelector(model)
-            };
+            }?? Enumerable.Empty<(XName name, string? value)>());
         private IEnumerable<(XName name, string? value)>? AttributeSelector(Identifier model)
         {
             yield return (XName.Get(nameof(model.QuoteType), NAMESPACE), model.QuoteType.ToString());
@@ -82,8 +87,9 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
         {
             "Item", "Count",
             "StartOffset", "FragmentLength", "StartLine", "StartColumn", "FirstTokenIndex", "LastTokenIndex",
+            "OwningType",
         };
-        private HashSet<(object, PropertyInfo)> _collected = new HashSet<(object, PropertyInfo)>();
+        private HashSet<object> _collected = new HashSet<object>();
         protected override bool AllowNavigate(object model, PropertyInfo property)
         {
             var check = base.AllowNavigate(model, property);

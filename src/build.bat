@@ -12,7 +12,7 @@ SET Configuration=Release
 
 SET SANDBOX_PATH=%~dp0..
 SET BUILD_PATH=%SANDBOX_PATH%\src
-SET BUILD_PROJECT=%BUILD_PATH%\BinaryDataDecoders.sln
+SET BUILD_PROJECT=%BUILD_PATH%\BinaryDataDecoders.slnproj
 SET OUTPUT_PATH=%SANDBOX_PATH%\Publish
 SET TEST_RESULTS_PATH=%OUTPUT_PATH%\TestResults
 SET DOCS_PATH=%OUTPUT_PATH%\docs
@@ -79,7 +79,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 echo "Build Packages"
 
 REM https://github.com/laurenprinn/MSBuildStructuredLog
-dotnet build "%BUILD_PROJECT%" --configuration %Configuration% --no-restore /p:Version=%BUILD_VERSION% "/bl:logfile=%BUILD_LOG%"
+dotnet build "%BUILD_PROJECT%" --configuration %Configuration% --no-restore /p:Version=%BUILD_VERSION% /p:DBVersion=%BUILD_VERSION% "/bl:logfile=%BUILD_LOG%"
 dotnet build "%BUILD_PROJECT%" --configuration %Configuration% /t:GenerateRestoreGraphFile "/p:RestoreGraphOutputPath=%REFERENCE_GRAPH%"
 IF %errorlevel% NEQ 0 GOTO error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
