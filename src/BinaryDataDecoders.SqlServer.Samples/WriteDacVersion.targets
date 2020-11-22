@@ -3,7 +3,7 @@
   <Target Name="WriteDacVersion">
     <PropertyGroup>
       <DacVersion Condition="'$(DacVersion)'==''">0.0.0.1</DacVersion>
-      <BuildVersion Condition="'$(BuildVersion)'==''">0.0.0-LocalDev+0</BuildVersion>
+      <Version Condition="'$(Version)'==''">0.0.0-LocalDev+0</Version>
     </PropertyGroup>
     <PropertyGroup>
       <DatabaseVersionScript>

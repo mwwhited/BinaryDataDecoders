@@ -1,11 +1,31 @@
-<Project Sdk="MSBuild.Sdk.SqlProj/1.9.0">
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <SqlServerVersion>Sql150</SqlServerVersion>
-        <!-- For additional properties that can be set here, please refer to https://github.com/rr-wfm/MSBuild.Sdk.SqlProj#model-properties -->
-    </PropertyGroup>
+<Project Sdk="MSBuild.Sdk.SqlProj/1.9.0" DefaultTargets="WriteDacVersion;Build">
+  <Import Project="WriteDacVersion.targets" />
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SqlServerVersion>Sql150</SqlServerVersion>
+    <!-- For additional properties that can be set here, please refer to https://github.com/rr-wfm/MSBuild.Sdk.SqlProj#model-properties -->
+  </PropertyGroup>
 
-    <PropertyGroup>
-        <!-- Refer to https://github.com/rr-wfm/MSBuild.Sdk.SqlProj#publishing-support for supported publishing options -->
-    </PropertyGroup>
+  <PropertyGroup>
+    <!-- Refer to https://github.com/rr-wfm/MSBuild.Sdk.SqlProj#publishing-support for supported publishing options -->
+    <DacVersion>$(DbVersion)</DacVersion>
+    <BuildVersion>$(Version)</BuildVersion>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <SqlCmdVariable Include="DbVersion">
+      <DefaultValue>0.0.0.0</DefaultValue>
+      <Value>$(DbVersion)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BuildVersion">
+      <DefaultValue>0.0.0-Local+0</DefaultValue>
+      <Value>$(BuildVersion)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Scripts\**" />
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
+    <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
+  </ItemGroup>
 </Project>
