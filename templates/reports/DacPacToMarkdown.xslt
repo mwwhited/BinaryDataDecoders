@@ -36,8 +36,23 @@
 	<xsl:param name="files" />
 
 	<xsl:template match="/">
-    
-	</xsl:template>
+    <xsl:text># Database </xsl:text>&cr;
+    &cr;
+    <xsl:apply-templates select="TSqlModel/Schema" mode="schema" />    
+  </xsl:template>
+
+  <xsl:template match="Schema" mode="schema">
+    <xsl:variable name="schema-name" select="Name/Parts/String[1]" />
+    <xsl:variable name="children" select="../*[count(Name/Parts/String)=2 and Name/Parts/String[1]/text()=$schema-name]" />
+    <xsl:text>## Schema - </xsl:text><xsl:value-of select="$schema-name"/>&cr;
+    &cr;
+
+    <xsl:for-each select="$children">
+      <!--Name/Parts/String[2]"/>-->
+      <xsl:text>### </xsl:text><xsl:value-of select="local-name(.)"/><xsl:text> - </xsl:text><xsl:value-of select="Name/Parts/String[2]" />&cr;
+    </xsl:for-each>
+    &cr;
+  </xsl:template>
 
 	<xsl:template match="@* | node()" mode="copy">
 		<xsl:copy>

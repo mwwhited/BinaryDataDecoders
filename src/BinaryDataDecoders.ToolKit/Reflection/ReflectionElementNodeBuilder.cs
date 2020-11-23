@@ -111,7 +111,8 @@ namespace BinaryDataDecoders.ToolKit.Reflection
                 string @string => @string,
                 char[] chars => new string(chars),
                 IEnumerable<char> chars => new string(chars.ToArray()),
-                _ => model.ToString()
+
+                _ => null // model.ToString()
             } : null;
 
         protected virtual bool IsValue(object input) =>

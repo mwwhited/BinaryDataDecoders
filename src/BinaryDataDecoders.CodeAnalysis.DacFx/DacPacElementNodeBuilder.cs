@@ -29,8 +29,11 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
             })?.Concat(base.ChildSelector(model) ?? Enumerable.Empty<(XName name, object child)>());
         private IEnumerable<(XName name, object child)>? ChildSelector(TSqlModel model)
         {
-            foreach (var i in model.GetObjects(DacQueryScopes.SameDatabase | DacQueryScopes.UserDefined))
+            foreach (var i in model.GetObjects(DacQueryScopes.Default | DacQueryScopes.SameDatabase).Where(i => i.Name.Parts.Count == 1))
+            {
+                // Debug.WriteLine(i.ObjectType.Name + "\t" + i.Name);
                 yield return (XName.Get(i.ObjectType.Name, NAMESPACE), i);
+            }
         }
         private IEnumerable<(XName name, object child)>? ChildSelector(TSqlObject model)
         {
@@ -39,6 +42,9 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
 
             if (model.TryGetAst(out var ast))
                 yield return (XName.Get("AST", NAMESPACE), ast);
+
+            if (model.TryGetScript(out var script))
+                yield return (XName.Get("SCRIPT", NAMESPACE), script);
         }
 
         private IEnumerable<(XName name, string? value)>? AllAttributeSelector(object model)
@@ -55,7 +61,7 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
                 Literal literal => AttributeSelector(literal),
                 Type type => AttributeSelector(type),
                 _ => base.AttributeSelector(model)
-            }?? Enumerable.Empty<(XName name, string? value)>());
+            } ?? Enumerable.Empty<(XName name, string? value)>());
         private IEnumerable<(XName name, string? value)>? AttributeSelector(Identifier model)
         {
             yield return (XName.Get(nameof(model.QuoteType), NAMESPACE), model.QuoteType.ToString());
@@ -73,33 +79,33 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
         }
         private IEnumerable<(XName name, string? value)>? AttributeSelector(TSqlObject model)
         {
-            yield break;
-            //yield return (XName.Get(nameof(model.LiteralType), NAMESPACE), model.LiteralType.ToString());
-            //yield return (XName.Get(nameof(model.Collation), NAMESPACE), model.Collation?.ToString());
+            yield return (XName.Get(nameof(model.Name), NAMESPACE), model.Name.ToString());
         }
         private IEnumerable<(XName name, string? value)>? AttributeSelector(Type model)
         {
-            yield return (XName.Get(nameof(model.AssemblyQualifiedName), NAMESPACE), model.AssemblyQualifiedName);
-            yield return (XName.Get(nameof(model.Namespace), NAMESPACE), model.Namespace);
+            //  yield return (XName.Get(nameof(model.AssemblyQualifiedName), NAMESPACE), model.AssemblyQualifiedName);
+            // yield return (XName.Get(nameof(model.Namespace), NAMESPACE), model.Namespace);
+            yield break;
         }
 
         private HashSet<string> _excludeProperties = new HashSet<string>()
         {
             "Item", "Count",
             "StartOffset", "FragmentLength", "StartLine", "StartColumn", "FirstTokenIndex", "LastTokenIndex",
-            "OwningType",
+            "OwningType", "ObjectType",
+            //"ExtendedProperty",
         };
         private HashSet<object> _collected = new HashSet<object>();
         protected override bool AllowNavigate(object model, PropertyInfo property)
         {
             var check = base.AllowNavigate(model, property);
             if (!check) return false;
+            if (property.PropertyType.IsInstanceOfType(typeof(ObjectIdentifier))) return false;
+
             if (_excludeProperties.Contains(property.Name)) return false;
 
-            if (_collected.Contains((model, property)))
+            if (_collected.Contains(model))
             {
-                //TODO: external reference?
-                //Debug.WriteLine($"Loop Detected: {(model, property)}");
                 return false;
             }
 
@@ -111,7 +117,7 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
             model switch
             {
                 TSqlModel _ => null,
-                TSqlObject sql => null,
+                TSqlObject _ => null,
                 Identifier ident => ident.ToString(),
                 Literal literal => literal.Value,
                 Type type => type.ToString(),

@@ -89,6 +89,8 @@
     <Folder Include="Scripts" />
     <Folder Include="Scripts\PostDeployment" />
     <Folder Include="Scripts\PreDeployment" />
+    <Folder Include="Service Broker\" />
+    <Folder Include="dbo\Sequences\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BinaryDataDecoders.SqlServer.Samples.dbproj" />
@@ -232,6 +234,13 @@
     <Build Include="ExtendedProperties.sql" />
     <None Include="Scripts\PostDeployment\SetDatabaseVersion.sql" />
     <None Include="Scripts\PostDeployment\SetDacVersion.sql" />
+    <Build Include="dbo\User Defined Types\UserDefinedTableType.sql" />
+    <Build Include="Service Broker\local___Message_Contract.sql" />
+    <Build Include="Service Broker\local___Message_Response.sql" />
+    <Build Include="Service Broker\local___Message_Request.sql" />
+    <Build Include="Service Broker\MessageQueue.sql" />
+    <Build Include="Service Broker\local___Message_Service.sql" />
+    <Build Include="dbo\Sequences\Sequence.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />

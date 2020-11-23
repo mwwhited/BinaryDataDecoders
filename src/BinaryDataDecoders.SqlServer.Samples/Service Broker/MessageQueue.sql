@@ -1,0 +1,2 @@
+﻿CREATE QUEUE [dbo].[MessageQueue];
+

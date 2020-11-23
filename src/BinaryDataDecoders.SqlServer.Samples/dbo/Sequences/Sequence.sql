@@ -1,0 +1,4 @@
+﻿CREATE SEQUENCE [dbo].[Sequence]
+    AS BIGINT
+    INCREMENT BY 1;
+

@@ -70,11 +70,11 @@
     },
     "BinaryDataDecoders.Xslt.Cli (DacPac to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.dacpac\" -o \"$(SolutionDir)..\\Publish\\docs\\Database\\*.md\" -s \"$(SolutionDir)..\" -x DACPAC"
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\bin\\**\\*.dacpac\" -o \"$(SolutionDir)..\\Publish\\Results\\Database\\*.xml\" -s \"$(SolutionDir)..\" -x DacPac"
     },
     "BinaryDataDecoders.Xslt.Cli (DacPac to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\DacPacToMarkdown.xslt\" -i \"$(SolutionDir)..\\**\\*.dacppac\" -o \"$(SolutionDir)..\\Publish\\Results\\Databases\\*.md\" -s \"$(SolutionDir)..\" "
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\DacPacToMarkdown.xslt\" -i \"$(SolutionDir)**\\bin\\**\\*.dacpac\" -o \"$(SolutionDir)..\\Publish\\docs\\Database\\*.md\" -s \"$(SolutionDir)..\" -x DacPac"
     },
     "WSL 2": {
       "commandName": "WSL2",
