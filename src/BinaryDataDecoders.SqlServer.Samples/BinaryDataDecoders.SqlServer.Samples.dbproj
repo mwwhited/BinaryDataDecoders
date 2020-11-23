@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Scripts\**" />
+    <Content Remove="Scripts\**\*.sql" />
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
   </ItemGroup>

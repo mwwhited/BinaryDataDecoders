@@ -86,13 +86,13 @@
     <Folder Include="Person\XMLSchemaCollections\" />
     <Folder Include="HumanResources\XMLSchemaCollections\" />
     <Folder Include="Scripts" />
+    <Folder Include="Scripts\PostDeployment" />
+    <Folder Include="Scripts\PreDeployment" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BinaryDataDecoders.SqlServer.Samples.dbproj" />
     <None Include="README.md" />
     <None Include="Db2Project.scmp" />
-    <None Include="Scripts\SetDacVersion.sql" />
-    <None Include="Scripts\SetDatabaseVersion.sql" />
     <None Include="WriteDacVersion.targets" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +226,8 @@
     <Build Include="Person\XMLSchemaCollections\AdditionalContactInfoSchemaCollection.sql" />
     <Build Include="HumanResources\XMLSchemaCollections\HRResumeSchemaCollection.sql" />
     <Build Include="ExtendedProperties.sql" />
+    <None Include="Scripts\PostDeployment\SetDatabaseVersion.sql" />
+    <None Include="Scripts\PostDeployment\SetDacVersion.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />

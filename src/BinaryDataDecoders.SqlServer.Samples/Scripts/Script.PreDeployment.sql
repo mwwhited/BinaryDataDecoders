@@ -1,1 +1,1 @@
-﻿:r SetDacVersion.sql
+﻿

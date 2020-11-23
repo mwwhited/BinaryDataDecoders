@@ -9,7 +9,7 @@
 BEGIN
 EXEC sp_updateextendedproperty
 	@name='DbVersion',
-	@value ='$(BuildVersion)',
+	@value = @BuildVersion,
 	@level0type = NULL,
 	@level0name = NULL,
 	@level1type = NULL,
@@ -21,7 +21,7 @@ ELSE
 BEGIN
 EXEC sp_addextendedproperty
 	@name='DbVersion',
-	@value ='$(BuildVersion)',
+	@value = @BuildVersion,
 	@level0type = NULL,
 	@level0name = NULL,
 	@level1type = NULL,
@@ -29,5 +29,5 @@ EXEC sp_addextendedproperty
 	@level2type = NULL,
 	@level2name = NULL;
 END
-PRINT 'DacVersion = $(DacVersion)';
-PRINT 'BuildVersion = $(BuildVersion)';
+PRINT 'DacVersion = ' + @DacVersion;
+PRINT 'BuildVersion = ' + @BuildVersion;
