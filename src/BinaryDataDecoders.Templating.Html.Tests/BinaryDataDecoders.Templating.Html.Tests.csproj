@@ -5,11 +5,6 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
-		<Copyright>Matthew Whited 2020</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-		<RepositoryType>GitHub</RepositoryType>
-		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -21,13 +16,6 @@
 	  <EmbeddedResource Include="SimpleCopy.xslt" />
 	  <EmbeddedResource Include="TestTemplate.html" />
 	</ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\LICENSE" Link="LICENSE">
-      <PackagePath />
-      <Pack>True</Pack>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />

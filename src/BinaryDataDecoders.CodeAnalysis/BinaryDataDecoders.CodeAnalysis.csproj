@@ -5,19 +5,7 @@
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Copyright>Matthew Whited 2020</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-		<RepositoryType>GitHub</RepositoryType>
-		<Authors>Matthew Whited</Authors>
-		<Nullable>enable</Nullable>
 	</PropertyGroup>
-	<ItemGroup>
-		<None Include="..\..\LICENSE">
-			<Pack>True</Pack>
-			<PackagePath />
-		</None>
-	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
 		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="3.7.0" />

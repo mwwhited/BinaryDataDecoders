@@ -6,11 +6,6 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Copyright>Matthew Whited 2020</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-		<RepositoryType>GitHub</RepositoryType>
-		<Authors>Matthew Whited</Authors>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
@@ -26,13 +21,6 @@
 		<Antlr4 Include="Parser\ExpressionTree.g4">
 			<Listener>false</Listener>
 		</Antlr4>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="..\..\LICENSE" Link="LICENSE">
-			<PackagePath />
-			<Pack>True</Pack>
-		</None>
 	</ItemGroup>
 
 	<ItemGroup>

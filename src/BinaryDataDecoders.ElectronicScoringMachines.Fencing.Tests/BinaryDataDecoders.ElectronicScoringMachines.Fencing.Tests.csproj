@@ -5,21 +5,8 @@
   <PropertyGroup>
 	  <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
-    <Copyright>Matthew Whited 2020</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
-    <Authors>Matthew Whited</Authors>
   </PropertyGroup>
-
-	
-  <ItemGroup>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath />
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />

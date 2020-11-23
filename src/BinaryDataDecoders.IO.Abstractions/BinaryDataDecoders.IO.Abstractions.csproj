@@ -6,20 +6,7 @@
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Copyright>Matthew Whited 2020</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-		<RepositoryType>GitHub</RepositoryType>
-		<Authors>Matthew Whited</Authors>
 		<RootNamespace>BinaryDataDecoders.IO</RootNamespace>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<None Include="..\..\LICENSE" Link="LICENSE">
-			<PackagePath/>
-			<Pack>True</Pack>
-		</None>
-	</ItemGroup>
-
 
 </Project>

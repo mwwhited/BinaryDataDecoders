@@ -5,11 +5,6 @@
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Copyright>Matthew Whited 2020</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-		<RepositoryType>GitHub</RepositoryType>
-		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,14 +13,7 @@
 			<Visitor>true</Visitor>
 		</Antlr4>
 	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="..\..\LICENSE" Link="LICENSE">
-			<PackagePath></PackagePath>
-			<Pack>True</Pack>
-		</None>
-	</ItemGroup>
-
+  
 	<ItemGroup>
 		<PackageReference Include="System.Text.Json" Version="5.0.0" />
 		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />

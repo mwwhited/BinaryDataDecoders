@@ -4,11 +4,6 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
-		<Copyright>Matthew Whited 2020</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-		<RepositoryType>GitHub</RepositoryType>
-		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -37,10 +32,6 @@
 	<ItemGroup>
 		<EmbeddedResource Include="..\..\.github\workflows\codeql-analysis.yml" Link="codeql-analysis.yml" />
 		<EmbeddedResource Include="..\..\.github\workflows\dotnet-core.yml" Link="dotnet-core.yml" />
-		<None Include="..\..\LICENSE">
-			<Pack>True</Pack>
-			<PackagePath />
-		</None>
 	</ItemGroup>
 
 </Project>

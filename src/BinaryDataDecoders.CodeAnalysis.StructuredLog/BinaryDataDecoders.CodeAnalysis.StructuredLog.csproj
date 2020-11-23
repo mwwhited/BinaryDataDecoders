@@ -5,21 +5,8 @@
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Copyright>Matthew Whited 2020</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
-		<RepositoryType>GitHub</RepositoryType>
-		<Authors>Matthew Whited</Authors>
-		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	
-	<ItemGroup>
-		<None Include="..\..\LICENSE">
-			<Pack>True</Pack>
-			<PackagePath />
-		</None>
-	</ItemGroup>
-
 	<ItemGroup>
 		<PackageReference Include="MSBuild.StructuredLogger" Version="2.1.215" />
 	</ItemGroup>
