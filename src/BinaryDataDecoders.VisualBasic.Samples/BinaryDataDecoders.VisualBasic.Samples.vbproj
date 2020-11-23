@@ -12,4 +12,8 @@
 		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <None Include="..\..\LICENSE" Link="LICENSE" />
+	</ItemGroup>
+
 </Project>

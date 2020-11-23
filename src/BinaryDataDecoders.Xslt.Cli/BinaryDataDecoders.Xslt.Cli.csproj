@@ -29,6 +29,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\BinaryDataDecoders.CodeAnalysis.DacFx\BinaryDataDecoders.CodeAnalysis.DacFx.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.CodeAnalysis.StructuredLog\BinaryDataDecoders.CodeAnalysis.StructuredLog.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.CodeAnalysis\BinaryDataDecoders.CodeAnalysis.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.Templating.Html\BinaryDataDecoders.Templating.Html.csproj" />

@@ -12,6 +12,7 @@
         CSharp = 256,
         VB,
         MSBuildStructuredLog,
+        DacPac,
 
         Path = 512,
 

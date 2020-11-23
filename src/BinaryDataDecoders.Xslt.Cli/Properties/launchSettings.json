@@ -68,6 +68,14 @@
       "commandName": "Project",
       "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\MergedProjectsToMarkdown.xslt\" -i \"$(SolutionDir)..\\**\\*.*proj\" -o \"$(SolutionDir)..\\Publish\\Results\\Merged_Projects.md\" -s \"$(SolutionDir)..\" -m "
     },
+    "BinaryDataDecoders.Xslt.Cli (DacPac to Xml)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" -i \"$(SolutionDir)**\\*.dacpac\" -o \"$(SolutionDir)..\\Publish\\docs\\Database\\*.md\" -s \"$(SolutionDir)..\" -x DACPAC"
+    },
+    "BinaryDataDecoders.Xslt.Cli (DacPac to Markdown)": {
+      "commandName": "Project",
+      "commandLineArgs": "-t \"$(SolutionDir)..\\templates\\reports\\DacPacToMarkdown.xslt\" -i \"$(SolutionDir)..\\**\\*.dacppac\" -o \"$(SolutionDir)..\\Publish\\Results\\Databases\\*.md\" -s \"$(SolutionDir)..\" "
+    },
     "WSL 2": {
       "commandName": "WSL2",
       "distributionName": ""

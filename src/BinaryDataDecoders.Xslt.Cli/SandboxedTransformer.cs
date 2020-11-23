@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.CodeAnalysis.CSharp;
+using BinaryDataDecoders.CodeAnalysis.DacFx;
 using BinaryDataDecoders.CodeAnalysis.StructuredLog;
 using BinaryDataDecoders.CodeAnalysis.VisualBasic;
 using BinaryDataDecoders.Templating.Html;
@@ -52,6 +53,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                 InputTypes.CSharp => new CSharpNavigator().ToNavigable,
                 InputTypes.VB => new VisualBasicNavigator().ToNavigable,
                 InputTypes.MSBuildStructuredLog => new StructuredLogNavigator().ToNavigable,
+                InputTypes.DacPac => new DacPacNavigator().ToNavigable,
 
                 InputTypes.Path => new PathNavigator().ToNavigable,
 
@@ -70,6 +72,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                 ".CS" => GetNavigator(InputTypes.CSharp),
                 ".VB" => GetNavigator(InputTypes.VB),
                 ".BINLOG" => GetNavigator(InputTypes.MSBuildStructuredLog),
+                ".DACPAC" => GetNavigator(InputTypes.DacPac),
 
                 _ => GetNavigator(InputTypes.Unknown),
             };

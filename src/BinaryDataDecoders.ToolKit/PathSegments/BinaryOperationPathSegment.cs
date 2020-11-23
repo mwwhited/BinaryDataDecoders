@@ -4,7 +4,7 @@
     {
         public IPathSegment<T> Operator { get; }
 
-        public BinaryOperationPathSegment(
+        protected BinaryOperationPathSegment(
             IPathSegment left,
             IPathSegment<T> @operator,
             IPathSegment right

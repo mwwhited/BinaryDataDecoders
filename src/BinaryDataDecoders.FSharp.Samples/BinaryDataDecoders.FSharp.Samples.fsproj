@@ -13,7 +13,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="..\..\LICENSE" Link="LICENSE" />
 		<Compile Include="Library.fs" />
 	</ItemGroup>
+
+	<ItemGroup />
 
 </Project>

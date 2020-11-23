@@ -1,10 +1,16 @@
 <Project Sdk="Microsoft.Build.Traversal/2.2.3">
     <!-- https://github.com/microsoft/MSBuildSdks/tree/master/src/Traversal -->
+  <PropertyGroup>
+    <CleanInParallel>true</CleanInParallel>
+    <TestInParallel>true</TestInParallel>
+    <PackInParallel>true</PackInParallel>
+    <PublishInParallel>true</PublishInParallel>
+  </PropertyGroup>
   <ItemGroup>
     <!-- Build all projects recursively under the "src" folder -->
     <ProjectReference Include="**\*.csproj" />
     <ProjectReference Include="**\*.vbproj" />
     <ProjectReference Include="**\*.fsproj" />
-    <ProjectReference Include="**\*.dbproj" />
+    <ProjectReference Include="**\*.dbproj" Publish="false" Pack="false" />
   </ItemGroup>
 </Project>

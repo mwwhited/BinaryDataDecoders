@@ -11,6 +11,7 @@
     <RepositoryType>GitHub</RepositoryType>
     <Authors>Matthew Whited</Authors>
   </PropertyGroup>
+  
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>

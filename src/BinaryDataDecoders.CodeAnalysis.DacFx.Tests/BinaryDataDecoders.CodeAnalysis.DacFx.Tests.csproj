@@ -12,6 +12,13 @@
 		<Authors>Matthew Whited</Authors>
 	</PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath />
+    </None>
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
 		<PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />

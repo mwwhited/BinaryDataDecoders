@@ -95,6 +95,9 @@
     <None Include="README.md" />
     <None Include="Db2Project.scmp" />
     <None Include="WriteDacVersion.targets" />
+    <None Include="..\..\LICENSE">
+      <Link>LICENSE</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\ErrorLog.sql" />

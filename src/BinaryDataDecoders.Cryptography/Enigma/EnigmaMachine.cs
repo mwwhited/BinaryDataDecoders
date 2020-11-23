@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.Cryptography.Enigma
         private string[] plugboard;
         private int[] postions;
         private int[] ringSettings;
-        private EnigmaRotor[] rotors;
+        private readonly EnigmaRotor[] rotors;
         private EnigmaReflector reflector;
         public EnigmaMachine(EnigmaRotor[] rotors,
                              EnigmaReflector reflector,
