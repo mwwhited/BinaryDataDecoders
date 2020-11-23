@@ -12,7 +12,7 @@
     <BuildVersion>$(Version)</BuildVersion>
   </PropertyGroup>
   
-  <ItemGroup>
+  <!--<ItemGroup>
     <SqlCmdVariable Include="DbVersion">
       <DefaultValue>0.0.0.0</DefaultValue>
       <Value>$(DbVersion)</Value>
@@ -21,9 +21,10 @@
       <DefaultValue>0.0.0-Local+0</DefaultValue>
       <Value>$(BuildVersion)</Value>
     </SqlCmdVariable>
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
+    <Content Remove="obj\**\*.sql" />
     <Content Remove="Scripts\**\*.sql" />
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
