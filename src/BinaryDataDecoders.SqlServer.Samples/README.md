@@ -12,5 +12,11 @@ Version support added by support (https://gist.github.com/mwwhited/04a17983232a8
 dotnet clean BinaryDataDecoders.SqlServer.Samples.dbproj /p:Version=1.2.3+test /p:DBVersion=1.2.3.4
 dotnet build BinaryDataDecoders.SqlServer.Samples.dbproj /p:Version=1.2.3+test /p:DBVersion=1.2.3.4
 
-sqlpackage /Action:Publish /SourceFile:".\bin\Debug\netstandard2.0\BinaryDataDecoders.SqlServer.Samples.dacpac" /TargetDatabaseName:Adventure /TargetServerName:(localdb)\AzureDTC
+sqlpackage /Action:Publish /SourceFile:"BinaryDataDecoders.SqlServer.Samples\bin\Debug\netstandard2.0\BinaryDataDecoders.SqlServer.Samples.dacpac" /TargetDatabaseName:Adventure /TargetServerName:(localdb)\AzureDTC
+
+
+sqlpackage /Action:Extract /SourceDatabaseName:AdventureWorks /SourceServerName:(localdb)\AzureDTC /TargetFile:test.dacpac
+sqlpackage /Action:Extract /SourceDatabaseName:AdventureWorks /SourceServerName:(localdb)\AzureDTC /TargetFile:test.dacpac /p:ExtractAllTableData=true
+sqlpackage /Action:Publish /TargetFile:test.dacpac /TargetDatabaseName:Adventure /TargetServerName:(localdb)\AzureDTC
+
 ```
