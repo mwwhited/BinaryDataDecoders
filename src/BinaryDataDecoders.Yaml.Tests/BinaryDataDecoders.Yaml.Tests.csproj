@@ -30,7 +30,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="..\..\.github\workflows\codeql-analysis.yml" Link="codeql-analysis.yml" />
 		<EmbeddedResource Include="..\..\.github\workflows\dotnet-core.yml" Link="dotnet-core.yml" />
 	</ItemGroup>
 

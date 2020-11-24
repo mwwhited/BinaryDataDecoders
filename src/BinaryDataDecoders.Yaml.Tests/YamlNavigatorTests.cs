@@ -1,8 +1,6 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BinaryDataDecoders.Yaml;
 using BinaryDataDecoders.TestUtilities;
 using BinaryDataDecoders.ToolKit;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 
 namespace BinaryDataDecoders.Yaml.Tests
@@ -15,7 +13,7 @@ namespace BinaryDataDecoders.Yaml.Tests
         [DataTestMethod]
         [DataRow("Example.yml")]
         [DataRow("dotnet-core.yml")]
-        [DataRow("codeql-analysis.yml")]
+        //[DataRow("codeql-analysis.yml")]
         public void ToNavigableTest(string resourceName)
         {
             var nav = new YamlNavigator();
