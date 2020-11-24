@@ -15,7 +15,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.01 | `SimpleParserTests`                                  |
+| ⚠ Inconclusive       | 00:00:00.02 | `SimpleParserTests`                                  |
 | ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |
@@ -145,7 +145,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions`                            |
+| ✔ Passed             | 00:00:00.02 | `PoorlyFormedExpressions`                            |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (-A!)`                      |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**)`                      |

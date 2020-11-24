@@ -14,7 +14,18 @@
     <BddXslt Condition="'$(BddXslBinPath)'!=''">dotnet &quot;$(BddXslBinPath)&quot;</BddXslt>
 
   </PropertyGroup>
-
+ <!--
+  <PropertyGroup>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+   <_DebugSymbolsProduced>false</_DebugSymbolsProduced>
+    <_DocumentationFileProduced>false</_DocumentationFileProduced>
+    <PublishProfileImported>false</PublishProfileImported>
+    <_DocumentationFileProduced>false</_DocumentationFileProduced>
+    <_GenerateRestoreProjectPathItemsPerFramework>false</_GenerateRestoreProjectPathItemsPerFramework>
+    <_CopyResolvedFilesToPublishPreserveNewest>false</_CopyResolvedFilesToPublishPreserveNewest>
+  </PropertyGroup>
+ -->
+ 
   <PropertyGroup>
     <SANDBOX_PATH>$(BaseDirectory)\..</SANDBOX_PATH>
     <BUILD_PATH>$(BaseDirectory)</BUILD_PATH>
@@ -102,8 +113,32 @@
     <_GetChildProjectCopyToPublishDirectoryItems>false</_GetChildProjectCopyToPublishDirectoryItems>
     <PublishReadyToRunComposite>false</PublishReadyToRunComposite>    
   </PropertyGroup>
-  <Target Name="CreateManifestResourceNames">
-  </Target>
+  
+  <Target Name="Publish" DependsOnTargets="Build">
+  
+     1>Done building target "_CopyResolvedFilesToPublishPreserveNewest" in project "BinaryDataDecoders.rptproj".
+       Target "_ComputeResolvedFilesToPublishTypes" skipped. Previously built successfully.
+     1>Target "_CopyResolvedFilesToPublishAlways" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "CopyFilesToPublishDirectory" depends on it):
+       Task "Copy"
+       Done executing task "Copy".
+     1>Done building target "_CopyResolvedFilesToPublishAlways" in project "BinaryDataDecoders.rptproj".
+     1>Target "CopyFilesToPublishDirectory" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "ComputeAndCopyFilesToPublishDirectory" depends on it):
+     1>Done building target "CopyFilesToPublishDirectory" in project "BinaryDataDecoders.rptproj".
+     1>Target "ComputeAndCopyFilesToPublishDirectory" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "_PublishBuildAlternative" depends on it):
+     1>Done building target "ComputeAndCopyFilesToPublishDirectory" in project "BinaryDataDecoders.rptproj".
+     1>Target "_PublishBuildAlternative" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "Publish" depends on it):
+     1>Done building target "_PublishBuildAlternative" in project "BinaryDataDecoders.rptproj".
+       Target "_PublishNoBuildAlternative" skipped, due to false condition; ('$(NoBuild)' == 'true') was evaluated as ('' == 'true').
+       Target "_CheckForLanguageAndPublishFeatureCombinationSupport" skipped. Previously built successfully.
+     1>Target "Publish" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (entry point):
+       Task "Message"
+         Bi
+  -->
+  <!--<ItemGroup>
+    <Documents Include="$(DOCS_PATH)\**\*.*" />
+  </ItemGroup>
+  
+  <Target Name="CreateManifestResourceNames" />
   <Target Name="Publish" DependsOnTargets="Build">
     <Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
     <Message Text="BUILD_PATH: $(BUILD_PATH)" />
@@ -116,7 +151,14 @@
     <Message Text="BUILD_LOG: $(BUILD_LOG)" />
     <Message Text="TEST_LOG: $(TEST_LOG)" />
     <Message Text="BddXslt: $(BddXslt)" />
-  </Target>
-  -->
+
+    <Message Text="Clean Up  Reports: &quot;$(DOCS_PATH)&quot;" />
+    <Exec Command="rmdir /s/q &quot;$(WIKI_PATH)&quot;" />
+
+    <Copy
+        SourceFiles="@(Documents)"
+        DestinationFolder="$(WIKI_PATH)"
+        />
+  </Target>-->
 
 </Project>

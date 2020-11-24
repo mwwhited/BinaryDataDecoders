@@ -133,7 +133,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions`                            |
+| ✔ Passed             | 00:00:00.02 | `PoorlyFormedExpressions`                            |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (-A!)`                      |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**)`                      |
@@ -142,7 +142,7 @@
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B*+*A)`                    |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B*-*A)`                    |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions ()`                         |
-| ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (b)`                        |
+| ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions (b)`                        |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (b+1)`                      |
 
 ## VerifyOptimizerForComplexExpressions
@@ -160,8 +160,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.07 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
+| ⚠ Inconclusive       | 00:00:00.10 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.03 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
@@ -225,7 +225,7 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A/B)*(((C*D)*E)*F))+(C*D*G))+H"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A*B)+((A*C)-A)*D)+E"`          |
 | ⚠ Inconclusive       | 00:00:00.00 | `Check Expressions "((((((A-B-1E-06)/C)+0.999999)/1000000)*1000000)*((D*E)*F)*G)+H"` |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A/B)*((C*D)*E)*F)*G)+H"`      |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "(((A/B)*((C*D)*E)*F)*G)+H"`      |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A/B)*(((C*D)*E)*F))+G"`        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A/B)*((C*D)*E))+F"`            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A/(A+B))"`                      |
