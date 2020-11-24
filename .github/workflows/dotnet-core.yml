@@ -12,6 +12,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    #runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2      
@@ -32,7 +33,8 @@ jobs:
         dotnet tool restore
         buildVersion=`dotnet gitversion /output json /showvariable FullSemVer`
         dacVersion=`dotnet gitversion /output json /showvariable AssemblySemVer`
-        echo GitVersion= $buildVersion ($dacVersion)
+        echo Build Version= $buildVersion
+        echo DAC Version= $dacVersion        
         echo "buildVersion=$buildVersion" >> $GITHUB_ENV   
         echo "dacVersion=$dacVersion" >> $GITHUB_ENV
         echo "BUILD_PROJECT=src/BinaryDataDecoders.slnproj" >> $GITHUB_ENV
@@ -46,8 +48,8 @@ jobs:
 
     - name: Clean Project
       run: dotnet clean "$BUILD_PROJECT"
-    - name: Clean Reports
-      run: dotnet clean "$REPORT_PROJECT"
+    #- name: Clean Reports
+    #  run: dotnet clean "$REPORT_PROJECT"
             
     - name: Restore Project
       run: dotnet restore "$BUILD_PROJECT"
