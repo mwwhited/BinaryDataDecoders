@@ -5,12 +5,13 @@
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
+
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Compile Include="Library.fs" />
 	</ItemGroup>
 
-	<ItemGroup />
 
 </Project>

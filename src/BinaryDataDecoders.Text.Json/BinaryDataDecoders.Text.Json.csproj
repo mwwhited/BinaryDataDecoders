@@ -5,6 +5,8 @@
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -15,9 +17,9 @@
 	</ItemGroup>
   
 	<ItemGroup>
-		<PackageReference Include="System.Text.Json" Version="5.0.0" />
-		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
-		<PackageReference Include="Antlr4BuildTasks" Version="8.7.0" />
+		<PackageReference Include="System.Text.Json" Version="5.0.0"  />
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
+    <PackageReference Include="Antlr4BuildTasks" Version="8.7.0" />
 	</ItemGroup>
 
 	<ItemGroup>

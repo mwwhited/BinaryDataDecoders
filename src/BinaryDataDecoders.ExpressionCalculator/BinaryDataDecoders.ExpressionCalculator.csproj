@@ -7,6 +7,8 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Nullable>enable</Nullable>
+
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -24,8 +26,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
-		<PackageReference Include="Antlr4BuildTasks" Version="8.7.0" />
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
+    <PackageReference Include="Antlr4BuildTasks" Version="8.7.0" />
 	</ItemGroup>
 
 </Project>
