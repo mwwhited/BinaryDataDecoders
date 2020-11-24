@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryDataDecoders.ToolKit.IO;
+using System;
 using System.IO;
 
 namespace BinaryDataDecoders.ToolKit.Security
@@ -27,7 +28,7 @@ namespace BinaryDataDecoders.ToolKit.Security
                 );
 
             if (!composedPath.StartsWith(sandbox)) throw new ApplicationException($"invalid path requested: {filePath}");
-            return composedPath;
+            return PathEx.FixUpPath(composedPath);
         }
 
         ///// <summary>
