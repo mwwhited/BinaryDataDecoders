@@ -114,7 +114,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F919
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{56263BB0-98DC-4471-81CC-1DD3B2D107D8}"
 	ProjectSection(SolutionItems) = preProject
-		..\.github\workflows\codeql-analysis.yml = ..\.github\workflows\codeql-analysis.yml
+		..\.github\workflows\codeql-analysis.yml.disabled = ..\.github\workflows\codeql-analysis.yml.disabled
 		..\.github\workflows\dotnet-core.yml = ..\.github\workflows\dotnet-core.yml
 	EndProjectSection
 EndProject

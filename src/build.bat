@@ -112,7 +112,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
-dotnet build BinaryDataDecoders.rptproj -v n
+dotnet build BinaryDataDecoders.rptproj -v n -f netcoreapp3.1
 IF %errorlevel% NEQ 0 GOTO error
 
 REM dotnet publish BinaryDataDecoders.rptproj -f netcoreapp3.1 -v n

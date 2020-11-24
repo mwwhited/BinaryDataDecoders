@@ -27,6 +27,9 @@ namespace BinaryDataDecoders.ToolKit.IO
             path.EndsWith(Path.DirectorySeparatorChar) ||
             path.EndsWith(Path.AltDirectorySeparatorChar);
 
+        public static string FixUpPath(string path) =>
+           string.Join(Path.DirectorySeparatorChar, path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
+
         public static string GetBasePath(string path)
         {
             path = Path.GetFullPath(path);

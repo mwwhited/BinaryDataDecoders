@@ -76,6 +76,11 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="output">resulting text content</param>
         public void Transform(string template, string inputSource, IXPathNavigable input, string output)
         {
+            template = PathEx.FixUpPath(template);
+            inputSource = PathEx.FixUpPath(inputSource);
+            output = PathEx.FixUpPath(output);
+            var sandbox = PathEx.FixUpPath(_sandbox);
+
             var xsltArgumentList = new XsltArgumentList().AddExtensions(_extensions);
 
             xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t[{Thread.CurrentThread.ManagedThreadId}]{eventArgs.Message}");
@@ -87,7 +92,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 new XAttribute(nameof(input) + "Type", input.GetType().AssemblyQualifiedName),
                 new XAttribute(nameof(output), Path.GetFullPath(output)),
                 new XAttribute(nameof(output) + "Path", Path.GetDirectoryName(Path.GetFullPath(output))),
-                new XAttribute("sandbox", Path.GetFullPath(_sandbox))
+                new XAttribute("sandbox", Path.GetFullPath(sandbox))
                 ).ToXPathNavigable().CreateNavigator());
 
             var xslt = new XslCompiledTransform(false);
