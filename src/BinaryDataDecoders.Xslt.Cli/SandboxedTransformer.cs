@@ -79,6 +79,14 @@ namespace BinaryDataDecoders.Xslt.Cli
 
         public void TransformAll(string template, string input, InputTypes inputType, string output, bool merge)
         {
+#if DEBUG
+            Console.WriteLine($"template: {template}");
+            Console.WriteLine($"input: {input}");
+            Console.WriteLine($"inputType: {inputType}");
+            Console.WriteLine($"output: {output}");
+            Console.WriteLine($"merge: {merge}");
+#endif
+
             switch (inputType)
             {
                 case InputTypes.Path:

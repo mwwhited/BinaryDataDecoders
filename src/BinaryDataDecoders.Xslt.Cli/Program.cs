@@ -1,4 +1,5 @@
-﻿using CommandLine;
+﻿using BinaryDataDecoders.ToolKit.IO;
+using CommandLine;
 using System;
 using System.IO;
 
@@ -18,7 +19,7 @@ namespace BinaryDataDecoders.Xslt.Cli
                               (string.IsNullOrWhiteSpace(o.Sandbox) ?
                                 Path.GetDirectoryName(o.Output) :
                                 o.Sandbox) ?? throw new ArgumentNullException(nameof(o.Sandbox)))
-                            .TransformAll(o.Template, o.Input, o.InputType, o.Output, o.Merge);
+                            .TransformAll(PathEx.FixUpPath( o.Template), PathEx.FixUpPath(o.Input), o.InputType, PathEx.FixUpPath(o.Output), o.Merge);
                       });
             }
             catch (Exception)

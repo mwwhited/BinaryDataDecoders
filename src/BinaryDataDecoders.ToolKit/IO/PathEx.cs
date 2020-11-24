@@ -28,14 +28,14 @@ namespace BinaryDataDecoders.ToolKit.IO
             path.EndsWith(Path.AltDirectorySeparatorChar);
 
         public static string FixUpPath(string path) =>
-           string.Join(Path.DirectorySeparatorChar, path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
+           string.Join(Path.DirectorySeparatorChar, path.Split('/', '\\'));
 
         public static string GetBasePath(string path)
         {
             path = Path.GetFullPath(path);
             if (EndsInDirectorySeparator(path)) path += "*.*";
             var wildCards = new[] { '*', '?' };
-            var pathSegments = path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            var pathSegments = path.Split('/', '\\');
             var segmentsQuery = from ps in pathSegments
                                 select (segment: ps, hasWildcard: wildCards.Any(c => ps.Contains(c)));
             var basePath = string.Join(Path.DirectorySeparatorChar, segmentsQuery.TakeWhile(ps => !ps.hasWildcard).Select(ps => ps.segment));
@@ -60,7 +60,7 @@ namespace BinaryDataDecoders.ToolKit.IO
 
             if (EndsInDirectorySeparator(wildcardPath)) wildcardPath += "*.*";
             var wildCards = new[] { '*', '?' };
-            var pathSegments = wildcardPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            var pathSegments = wildcardPath.Split('/', '\\');
             var segmentsQuery = from ps in pathSegments
                                 select (segment: ps, hasWildcard: wildCards.Any(c => ps.Contains(c)));
             var basePath = string.Join(Path.DirectorySeparatorChar, segmentsQuery.TakeWhile(ps => !ps.hasWildcard).Select(ps => ps.segment));
@@ -88,7 +88,7 @@ namespace BinaryDataDecoders.ToolKit.IO
             }
             path = Path.GetFullPath(path);
             var wildCards = new[] { '*', '?' };
-            var pathSegments = wildcardPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            var pathSegments = wildcardPath.Split('/', '\\');
             var segmentsQuery = from ps in pathSegments
                                 select (segment: ps, hasWildcard: wildCards.Any(c => ps.Contains(c)));
 
