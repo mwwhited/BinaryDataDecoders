@@ -52,6 +52,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
 	ProjectSection(SolutionItems) = preProject
 		.runsettings = .runsettings
+		BinaryDataDecoders.rptproj = BinaryDataDecoders.rptproj
 		BinaryDataDecoders.slnproj = BinaryDataDecoders.slnproj
 		build.bat = build.bat
 		build.sh = build.sh
@@ -59,6 +60,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.targets = Directory.Build.targets
 		Directory.Packages.props = Directory.Packages.props
 		GitVersion.yml = GitVersion.yml
+		global.json = global.json
 		Notes.md = Notes.md
 	EndProjectSection
 EndProject

@@ -29,3 +29,15 @@
 
  - this Stream ? stream 
 
+#### Public Static Async Method - AsBytesAsync
+
+#####  Parameters
+
+ - this Stream ? stream 
+
+#### Public Static Method - AsBytes
+
+#####  Parameters
+
+ - this Stream ? stream 
+

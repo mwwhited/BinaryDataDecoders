@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Parser.ExpressionParser`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                           |
-| Coveredlines    | `0`                                                                 |
-| Uncoveredlines  | `12`                                                                |
+| Coveredlines    | `12`                                                                |
+| Uncoveredlines  | `0`                                                                 |
 | Coverablelines  | `12`                                                                |
 | Totallines      | `25`                                                                |
-| Linecoverage    | `0`                                                                 |
+| Linecoverage    | `100`                                                               |
 | Coveredbranches | `0`                                                                 |
 | Totalbranches   | `0`                                                                 |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `Parse` |
+| 1          | 100   | 100      | `Parse` |
 
 ## Files
 
@@ -36,18 +36,18 @@
 〰9:           where T : struct, IComparable<T>, IEquatable<T>
 〰10:      {
 〰11:          public ExpressionBase<T> Parse(string input) =>
-‼12:              new ExpressionTreeVisitor<T>().Visit(
-‼13:                  new ExpressionTreeParser(
-‼14:                          new CommonTokenStream(
-‼15:                              new ExpressionTreeLexer(
-‼16:                                  new AntlrInputStream(input)
-‼17:                                  )
-‼18:                              )
-‼19:                          )
-‼20:                      {
-‼21:                          ErrorHandler = new BailErrorStrategy(),
-‼22:                      }.start()
-‼23:                  );
+✔12:              new ExpressionTreeVisitor<T>().Visit(
+✔13:                  new ExpressionTreeParser(
+✔14:                          new CommonTokenStream(
+✔15:                              new ExpressionTreeLexer(
+✔16:                                  new AntlrInputStream(input)
+✔17:                                  )
+✔18:                              )
+✔19:                          )
+✔20:                      {
+✔21:                          ErrorHandler = new BailErrorStrategy(),
+✔22:                      }.start()
+✔23:                  );
 〰24:      }
 〰25:  }
 ```

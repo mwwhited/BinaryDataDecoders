@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.2.0-beta.199"
+ - "0.2.0-beta.219"
  - )
  - System
  - .
@@ -70,5 +70,15 @@
  - AssemblyVersionAttribute
  - (
  - "0.2.0.0"
+ - )
+ - System
+ - .
+ - Reflection
+ - .
+ - AssemblyMetadataAttribute
+ - (
+ - "RepositoryUrl"
+ - ,
+ - "https://github.com/mwwhited/BinaryDataDecoders/"
  - )
 

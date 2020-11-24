@@ -7,12 +7,12 @@
 | Class           | `BinaryDataDecoders.ToolKit.StreamEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`          |
 | Coveredlines    | `0`                                   |
-| Uncoveredlines  | `4`                                   |
-| Coverablelines  | `4`                                   |
-| Totallines      | `23`                                  |
+| Uncoveredlines  | `14`                                  |
+| Coverablelines  | `14`                                  |
+| Totallines      | `38`                                  |
 | Linecoverage    | `0`                                   |
 | Coveredbranches | `0`                                   |
-| Totalbranches   | `2`                                   |
+| Totalbranches   | `6`                                   |
 | Branchcoverage  | `0`                                   |
 
 ## Metrics
@@ -20,6 +20,8 @@
 | Complexity | Lines | Branches | Name                |
 | :--------- | :---- | :------- | :------------------ |
 | 2          | 0     | 0        | `ReadAsStringAsync` |
+| 2          | 0     | 0        | `AsBytesAsync`      |
+| 2          | 0     | 0        | `AsBytes`           |
 
 ## Files
 
@@ -47,8 +49,23 @@
 ‼19:              using var sr = new StreamReader(stream); //TODO: should this leave the underlying stream open?
 ‼20:              return await sr.ReadToEndAsync().ConfigureAwait(false);
 ‼21:          }
-〰22:      }
-〰23:  }
+〰22:  
+〰23:          public static async Task<byte[]?> AsBytesAsync(this Stream? stream)
+〰24:          {
+‼25:              if (stream == null) return null;
+‼26:              using var ms = new MemoryStream();
+‼27:              await stream.CopyToAsync(ms).ConfigureAwait(false);
+‼28:              return ms.ToArray();
+‼29:          }
+〰30:          public static byte[]? AsBytes(this Stream? stream)
+〰31:          {
+‼32:              if (stream == null) return null;
+‼33:              using var ms = new MemoryStream();
+‼34:              stream.CopyTo(ms);
+‼35:              return ms.ToArray();
+‼36:          }
+〰37:      }
+〰38:  }
 ```
 
 ## Links

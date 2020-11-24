@@ -19,21 +19,21 @@
 
 #####  Parameters
 
- - this IEnumerable < IXPathNavigable > navigators 
+ - this IEnumerable < ( string source , IXPathNavigable ? navigator ) > navigators 
 
 #### Public Static Method - MergeWith
 
 #####  Parameters
 
- - this IXPathNavigable navigator 
- - params IXPathNavigable [  ] navigators 
+ - this ( string source , IXPathNavigable ? navigator ) navigator 
+ - params ( string source , IXPathNavigable ? navigator ) [  ] navigators 
 
 #### Public Static Method - MergeWith
 
 #####  Parameters
 
- - this IXPathNavigable navigator 
- - IEnumerable < IXPathNavigable > navigators 
+ - this ( string source , IXPathNavigable ? navigator ) navigator 
+ - IEnumerable < ( string source , IXPathNavigable ? navigator ) > navigators 
 
 #### Public Static Method - AsNavigatorSet
 

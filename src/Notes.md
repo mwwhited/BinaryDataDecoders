@@ -7,3 +7,6 @@
     * [BinaryDataDecoders.FSharp.Samples](.\BinaryDataDecoders.FSharp.Samples\BinaryDataDecoders.FSharp.Samples.fsproj)
     * [BinaryDataDecoders.ExpressionCalculator](.\BinaryDataDecoders.ExpressionCalculator\BinaryDataDecoders.ExpressionCalculator.csproj)
     * [BinaryDataDecoders.Text.Json](.\BinaryDataDecoders.Text.Json\BinaryDataDecoders.Text.Json.csproj)
+* Figure out how to make rptproj have a publish target
+  * use new publish mode to replace robocopy from build.bat script
+* change github build back to yaml from linux script

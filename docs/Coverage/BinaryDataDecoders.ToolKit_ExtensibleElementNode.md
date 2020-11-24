@@ -6,11 +6,11 @@
 | :-------------- | :----------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
-| Coveredlines    | `0`                                                          |
-| Uncoveredlines  | `2`                                                          |
+| Coveredlines    | `2`                                                          |
+| Uncoveredlines  | `0`                                                          |
 | Coverablelines  | `2`                                                          |
 | Totallines      | `196`                                                        |
-| Linecoverage    | `0`                                                          |
+| Linecoverage    | `100`                                                        |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `0`                                                          |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| 1          | 100   | 100      | `ctor`  |
 
 ## Files
 
@@ -46,9 +46,9 @@
 〰19:              Func<object, IEnumerable<XName>?>? namespacesSelector = null,
 〰20:              Predicate<object>? preserveWhitespace = null
 〰21:              )
-‼22:              : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
+✔22:              : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
 〰23:          {
-‼24:          }
+✔24:          }
 〰25:      }
 〰26:      [DebuggerDisplay("E:>{Name}")]
 〰27:      public class ExtensibleElementNode<T> : IElementNode, ISimpleNode

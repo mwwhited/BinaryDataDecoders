@@ -13,7 +13,7 @@
  - .
  - AssemblyCompanyAttribute
  - (
- - "BinaryDataDecoders.ExpressionCalculator.Tests"
+ - "Matthew Whited"
  - )
  - System
  - .
@@ -22,6 +22,14 @@
  - AssemblyConfigurationAttribute
  - (
  - "Debug"
+ - )
+ - System
+ - .
+ - Reflection
+ - .
+ - AssemblyCopyrightAttribute
+ - (
+ - "Matthew Whited 2020"
  - )
  - System
  - .
@@ -62,5 +70,15 @@
  - AssemblyVersionAttribute
  - (
  - "1.0.0.0"
+ - )
+ - System
+ - .
+ - Reflection
+ - .
+ - AssemblyMetadataAttribute
+ - (
+ - "RepositoryUrl"
+ - ,
+ - "https://github.com/mwwhited/BinaryDataDecoders/"
  - )
 

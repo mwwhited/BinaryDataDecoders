@@ -6,25 +6,25 @@
 | :-------------- | :--------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.IO.TempFileHandle` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                   |
-| Coveredlines    | `0`                                            |
-| Uncoveredlines  | `21`                                           |
+| Coveredlines    | `8`                                            |
+| Uncoveredlines  | `13`                                           |
 | Coverablelines  | `21`                                           |
 | Totallines      | `58`                                           |
-| Linecoverage    | `0`                                            |
-| Coveredbranches | `0`                                            |
+| Linecoverage    | `38`                                           |
+| Coveredbranches | `1`                                            |
 | Totalbranches   | `6`                                            |
-| Branchcoverage  | `0`                                            |
+| Branchcoverage  | `16.6`                                         |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
-| 1          | 0     | 100      | `get_FilePath` |
-| 1          | 0     | 100      | `ctor`         |
+| 1          | 100   | 100      | `get_FilePath` |
+| 1          | 100   | 100      | `ctor`         |
 | 1          | 0     | 100      | `ToString`     |
 | 1          | 0     | 100      | `Finalize`     |
-| 1          | 0     | 100      | `Dispose`      |
-| 6          | 0     | 0        | `Dispose`      |
+| 1          | 100   | 100      | `Dispose`      |
+| 6          | 21.42 | 16.66    | `Dispose`      |
 
 ## Files
 
@@ -39,9 +39,9 @@
 〰6:   {
 〰7:       public sealed class TempFileHandle : ITempFile
 〰8:       {
-‼9:           public string FilePath { get; }
+✔9:           public string FilePath { get; }
 〰10:  
-‼11:          public TempFileHandle() => FilePath = Path.GetTempFileName();
+✔11:          public TempFileHandle() => FilePath = Path.GetTempFileName();
 〰12:  
 ‼13:          public override string ToString() => FilePath;
 〰14:  
@@ -49,9 +49,9 @@
 〰16:  
 〰17:          public void Dispose()
 〰18:          {
-‼19:              this.Dispose(true);
-‼20:              GC.SuppressFinalize(this);
-‼21:          }
+✔19:              this.Dispose(true);
+✔20:              GC.SuppressFinalize(this);
+✔21:          }
 〰22:  
 〰23:          private void Dispose(bool disposing)
 〰24:          {
@@ -59,8 +59,8 @@
 〰26:  
 〰27:              try
 〰28:              {
-‼29:                  File.Delete(FilePath);
-‼30:              }
+✔29:                  File.Delete(FilePath);
+✔30:              }
 ‼31:              catch
 〰32:              {
 〰33:                  //Note: yeah, I don't care why it failed.
@@ -86,7 +86,7 @@
 ‼53:                      throw;
 〰54:                  }
 ‼55:              }
-‼56:          }
+✔56:          }
 〰57:      }
 〰58:  }
 ```

@@ -27,7 +27,7 @@
 
  * Type: 
 
-#### Private Field - rotors
+#### Private ReadOnly Field - rotors
 
 ##### Summary
 

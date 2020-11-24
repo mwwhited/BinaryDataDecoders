@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.UInt32ExpressionParserTests` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                    |
-| Coveredlines    | `0`                                                                                |
-| Uncoveredlines  | `1`                                                                                |
+| Coveredlines    | `1`                                                                                |
+| Uncoveredlines  | `0`                                                                                |
 | Coverablelines  | `1`                                                                                |
 | Totallines      | `387`                                                                              |
-| Linecoverage    | `0`                                                                                |
+| Linecoverage    | `100`                                                                              |
 | Coveredbranches | `0`                                                                                |
 | Totalbranches   | `0`                                                                                |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| 1          | 100   | 100      | `ctor`  |
 
 ## Files
 
@@ -85,7 +85,7 @@
 〰58:      [TestClass]
 〰59:      public class UInt32ExpressionParserTests : ExpressionParserTests<uint>
 〰60:      {
-‼61:          public UInt32ExpressionParserTests() : base(skipDecimal: true, skipNegative: true) { }
+✔61:          public UInt32ExpressionParserTests() : base(skipDecimal: true, skipNegative: true) { }
 〰62:      }
 〰63:      [TestClass]
 〰64:      public class UInt64ExpressionParserTests : ExpressionParserTests<ulong>

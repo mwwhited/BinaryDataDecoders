@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.SqlProj/1.9.0" DefaultTargets="WriteDacVersion;Build">
+<Project Sdk="MSBuild.Sdk.SqlProj" DefaultTargets="WriteDacVersion;Build">
   <Import Project="WriteDacVersion.targets" />
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>

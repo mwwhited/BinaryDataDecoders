@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                     |
 | Uncoveredlines  | `4`                                                     |
 | Coverablelines  | `4`                                                     |
-| Totallines      | `21`                                                    |
+| Totallines      | `22`                                                    |
 | Linecoverage    | `0`                                                     |
 | Coveredbranches | `0`                                                     |
 | Totalbranches   | `0`                                                     |
@@ -38,15 +38,16 @@
 〰10:      [FileExtension(".dacpac")]
 〰11:      public class DacPacNavigator : IToXPathNavigable
 〰12:      {
-‼13:          public IXPathNavigable ToNavigable(string filePath) => new TSqlModel(filePath).ToNavigable();
-〰14:  
-〰15:          public IXPathNavigable ToNavigable(Stream stream)
-〰16:          {
-‼17:              using var temp = stream.AsTempFile();
-‼18:              return ToNavigable(temp.FilePath);
-‼19:          }
-〰20:      }
-〰21:  }
+〰13:          public IXPathNavigable ToNavigable(string filePath) =>
+‼14:              new DacPacElementNodeBuilder(new TSqlModel(filePath)).Build().ToNavigable();
+〰15:  
+〰16:          public IXPathNavigable ToNavigable(Stream stream)
+〰17:          {
+‼18:              using var temp = stream.AsTempFile();
+‼19:              return ToNavigable(temp.FilePath);
+‼20:          }
+〰21:      }
+〰22:  }
 ```
 
 ## Links

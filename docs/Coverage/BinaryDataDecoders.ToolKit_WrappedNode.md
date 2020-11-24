@@ -6,26 +6,27 @@
 | :-------------- | :------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNode` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                       |
-| Coveredlines    | `0`                                                |
-| Uncoveredlines  | `26`                                               |
-| Coverablelines  | `26`                                               |
-| Totallines      | `65`                                               |
-| Linecoverage    | `0`                                                |
-| Coveredbranches | `0`                                                |
+| Coveredlines    | `23`                                               |
+| Uncoveredlines  | `5`                                                |
+| Coverablelines  | `28`                                               |
+| Totallines      | `67`                                               |
+| Linecoverage    | `82.1`                                             |
+| Coveredbranches | `9`                                                |
 | Totalbranches   | `12`                                               |
-| Branchcoverage  | `0`                                                |
+| Branchcoverage  | `75`                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
-| 1          | 0     | 100      | `ctor`         |
-| 1          | 0     | 100      | `get_Previous` |
-| 1          | 0     | 100      | `get_Current`  |
-| 1          | 0     | 100      | `get_Next`     |
-| 2          | 0     | 0        | `get_First`    |
+| 1          | 100   | 100      | `ctor`         |
+| 1          | 0     | 100      | `get_Source`   |
+| 1          | 100   | 100      | `get_Previous` |
+| 1          | 100   | 100      | `get_Current`  |
+| 1          | 100   | 100      | `get_Next`     |
+| 2          | 66.66 | 50.0     | `get_First`    |
 | 2          | 0     | 0        | `get_Last`     |
-| 8          | 0     | 0        | `Build`        |
+| 8          | 100   | 100      | `Build`        |
 
 ## Files
 
@@ -34,69 +35,71 @@
 ```CSharp
 〰1:   using System.Collections.Generic;
 〰2:   using System.Diagnostics;
-〰3:   using System.Runtime.InteropServices.ComTypes;
-〰4:   using System.Xml.XPath;
-〰5:   
-〰6:   namespace BinaryDataDecoders.ToolKit.Xml.XPath
-〰7:   {
-〰8:       [DebuggerDisplay("{Current}")]
-〰9:       internal class WrappedNode : IWrappedNode
-〰10:      {
-‼11:          private WrappedNode(IXPathNavigable nav, IWrappedNode? previous)
-〰12:          {
-‼13:              var xpathNav = nav.CreateNavigator();
-‼14:              xpathNav.MoveToRoot();
-‼15:              Current = xpathNav;
-‼16:              Previous = previous;
-‼17:          }
+〰3:   using System.Xml.XPath;
+〰4:   
+〰5:   namespace BinaryDataDecoders.ToolKit.Xml.XPath
+〰6:   {
+〰7:       [DebuggerDisplay("{Current}-{Source}")]
+〰8:       internal class WrappedNode : IWrappedNode
+〰9:       {
+✔10:          private WrappedNode(string source, IXPathNavigable nav, IWrappedNode? previous)
+〰11:          {
+✔12:              var xpathNav = nav.CreateNavigator();
+✔13:              xpathNav.MoveToRoot();
+✔14:              Current = xpathNav;
+✔15:              Previous = previous;
+✔16:              Source = source;
+✔17:          }
 〰18:  
-‼19:          public IWrappedNode? Previous { get; }
-‼20:          public XPathNavigator Current { get; }
-〰21:  
-‼22:          public IWrappedNode? Next { get; private set; }
+‼19:          public string Source { get; }
+〰20:  
+✔21:          public IWrappedNode? Previous { get; }
+✔22:          public XPathNavigator Current { get; }
 〰23:  
-〰24:          public IWrappedNode First
-〰25:          {
-〰26:              get
-〰27:              {
-‼28:                  IWrappedNode c = this;
-‼29:                  while (c.Previous != null) c = c.Previous;
-‼30:                  return c;
-〰31:              }
-〰32:          }
-〰33:  
-〰34:          public IWrappedNode Last
-〰35:          {
-〰36:              get
-〰37:              {
-‼38:                  IWrappedNode c = this;
-‼39:                  while (c.Next != null) c = c.Next;
-‼40:                  return c;
-〰41:              }
-〰42:          }
-〰43:  
-〰44:  
-〰45:          public static IWrappedNode? Build(IEnumerable<IXPathNavigable?> children)
-〰46:          {
-‼47:              var enumerator = children.GetEnumerator();
-‼48:              WrappedNode? first = null;
-‼49:              WrappedNode? previous = null;
-〰50:  
-‼51:              while (enumerator.MoveNext())
-〰52:              {
-‼53:                  if (enumerator.Current == null) continue;
-‼54:                  var newItem = new WrappedNode(enumerator.Current, previous);
-‼55:                  if (previous != null)
-〰56:                  {
-‼57:                      previous.Next = newItem;
-〰58:                  }
-‼59:                  if (first == null) first = newItem;
-‼60:                  previous = newItem;
-〰61:              }
-‼62:              return first;
-〰63:          }
-〰64:      }
-〰65:  }
+✔24:          public IWrappedNode? Next { get; private set; }
+〰25:  
+〰26:          public IWrappedNode First
+〰27:          {
+〰28:              get
+〰29:              {
+✔30:                  IWrappedNode c = this;
+‼31:                  while (c.Previous != null) c = c.Previous;
+✔32:                  return c;
+〰33:              }
+〰34:          }
+〰35:  
+〰36:          public IWrappedNode Last
+〰37:          {
+〰38:              get
+〰39:              {
+‼40:                  IWrappedNode c = this;
+‼41:                  while (c.Next != null) c = c.Next;
+‼42:                  return c;
+〰43:              }
+〰44:          }
+〰45:  
+〰46:  
+〰47:          public static IWrappedNode? Build(IEnumerable<(string source, IXPathNavigable? navigator)> children)
+〰48:          {
+✔49:              var enumerator = children.GetEnumerator();
+✔50:              WrappedNode? first = null;
+✔51:              WrappedNode? previous = null;
+〰52:  
+✔53:              while (enumerator.MoveNext())
+〰54:              {
+✔55:                  if (enumerator.Current.navigator == null) continue;
+✔56:                  var newItem = new WrappedNode(enumerator.Current.source, enumerator.Current.navigator, previous);
+✔57:                  if (previous != null)
+〰58:                  {
+✔59:                      previous.Next = newItem;
+〰60:                  }
+✔61:                  if (first == null) first = newItem;
+✔62:                  previous = newItem;
+〰63:              }
+✔64:              return first;
+〰65:          }
+〰66:      }
+〰67:  }
 ```
 
 ## Links

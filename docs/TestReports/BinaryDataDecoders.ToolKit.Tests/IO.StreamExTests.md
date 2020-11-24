@@ -9,7 +9,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.09
+* Duration: 00:00:00.02
 
 #### Standard Out
 

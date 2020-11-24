@@ -34,11 +34,11 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.08 | `SimpleParserTests`                                  |
-| ✔ Passed             | 00:00:00.01 | `Parse all operators test`                           |
+| ⚠ Inconclusive       | 00:00:00.05 | `SimpleParserTests`                                  |
+| ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |
-| ⚠ Inconclusive       | 00:00:00.06 | `Just decimal value`                                 |
+| ⚠ Inconclusive       | 00:00:00.04 | `Just decimal value`                                 |
 | ✔ Passed             | 00:00:00.00 | `Simple factorial`                                   |
 | ✔ Passed             | 00:00:00.00 | `Negative factorial`                                 |
 | ⚠ Inconclusive       | 00:00:00.00 | `Parse Complex Expression`                           |
@@ -59,8 +59,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.03 | `GetDistinctVariablesTests`                          |
-| ✔ Passed             | 00:00:00.03 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests`                          |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+B,A, B)`             |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (Abc+XyW1,Abc, XyW1)`     |
 
@@ -79,11 +79,11 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.04 | `PoorlyFormedExpressions`                            |
+| ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions`                            |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (-A!)`                      |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B/*1)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**)`                      |
-| ✔ Passed             | 00:00:00.02 | `PoorlyFormedExpressions (B**A)`                     |
+| ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**A)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B***A)`                    |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B*+*A)`                    |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B*-*A)`                    |
@@ -106,7 +106,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.05 | `OptimizerTests`                                     |
+| ⚠ Inconclusive       | 00:00:00.02 | `OptimizerTests`                                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
@@ -141,7 +141,7 @@
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (A!,A!)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A)!,A!)`                           |
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (3!!,720)`                           |
-| ⚠ Inconclusive       | 00:00:00.01 | `OptimizerTests (2!!!,2)`                            |
+| ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (2!!!,2)`                            |
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (N!!,N!!)`                           |
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (N!!!,N!!!)`                         |
 
@@ -160,8 +160,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.15 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.06 | `Check Expressions "A"`                              |
+| ⚠ Inconclusive       | 00:00:00.06 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.02 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |

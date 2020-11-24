@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.Build.Traversal/2.2.3">
+<Project Sdk="Microsoft.Build.Traversal">
     <!-- https://github.com/microsoft/MSBuildSdks/tree/master/src/Traversal -->
   <PropertyGroup>
     <CleanInParallel>true</CleanInParallel>
@@ -12,5 +12,6 @@
     <ProjectReference Include="**\*.vbproj" />
     <ProjectReference Include="**\*.fsproj" />
     <ProjectReference Include="**\*.dbproj" Publish="false" Pack="false" />
+    <!--<ProjectReference Include="**\*.rptproj" />-->
   </ItemGroup>
 </Project>

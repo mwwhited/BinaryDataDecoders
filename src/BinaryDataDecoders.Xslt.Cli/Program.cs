@@ -8,16 +8,24 @@ namespace BinaryDataDecoders.Xslt.Cli
     {
         static void Main(string[] args)
         {
-            Parser.Default
-                  .ParseArguments<CommandLineOptions>(args)
-                  .WithParsed(o =>
-                  {
-                      new SandboxedTransformer(
-                          (string.IsNullOrWhiteSpace(o.Sandbox) ?
-                            Path.GetDirectoryName(o.Output) :
-                            o.Sandbox) ?? throw new ArgumentNullException(nameof(o.Sandbox)))
-                        .TransformAll(o.Template, o.Input, o.InputType, o.Output, o.Merge);
-                  });
+            try
+            {
+                Parser.Default
+                      .ParseArguments<CommandLineOptions>(args)
+                      .WithParsed(o =>
+                      {
+                          new SandboxedTransformer(
+                              (string.IsNullOrWhiteSpace(o.Sandbox) ?
+                                Path.GetDirectoryName(o.Output) :
+                                o.Sandbox) ?? throw new ArgumentNullException(nameof(o.Sandbox)))
+                            .TransformAll(o.Template, o.Input, o.InputType, o.Output, o.Merge);
+                      });
+            }
+            catch (Exception)
+            {
+                //Console.Error.WriteLine(ex.Message);
+                Environment.Exit(1);
+            }
         }
     }
 }

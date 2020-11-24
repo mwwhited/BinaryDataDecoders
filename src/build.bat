@@ -52,8 +52,6 @@ REM PAUSE
 
 echo "Git fetch"
 git fetch --prune
-dotnet tool install --local gitversion.tool
-dotnet tool update gitversion.tool
 FOR /F "tokens=* USEBACKQ" %%g IN (`dotnet gitversion /output json /showvariable FullSemVer`) DO (SET BUILD_VERSION=%%g)
 if "%BUILD_VERSION%"=="" GOTO error
 ECHO Building Version=  "%BUILD_VERSION%"
@@ -65,6 +63,7 @@ IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
 IF "%DO_NOT_CLEAN%"=="1" GOTO skip_clean
 echo "Clean Packages"
 dotnet clean "%BUILD_PROJECT%" -v m
+dotnet clean BinaryDataDecoders.rptproj -v n
 rmdir /s/q "%OUTPUT_PATH%"
 :skip_clean
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
@@ -86,19 +85,10 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :test
 echo "Run Tests"
-REM FOR /D %%T IN ("%BUILD_PATH%\*.Tests") DO (
-REM dotnet test "%%T" --no-build --no-restore ^
-REM --collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
-REM --nologo --filter "TestCategory=Unit|TestCategory=Simulate" ^
-REM -s "%TEST_RUN_SETTINGS%" /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true ^
-REM --logger "trx;LogFileName=%%~nxT.trx"
-REM IF %errorlevel% NEQ 0 GOTO error
-REM )
 
 dotnet test "%BUILD_PROJECT%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
 --nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s "%TEST_RUN_SETTINGS%" /p:CollectCoverage=true ^
 /p:CopyLocalLockFileAssemblies=true
-REM --logger "trx"
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
@@ -116,49 +106,13 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :report
 echo "Build Reports"
-dotnet tool install --local dotnet-reportgenerator-globaltool
-dotnet tool update dotnet-reportgenerator-globaltool
 dotnet reportgenerator "-reports:%TEST_RESULTS_PATH%\**\coverage.cobertura.xml" "-targetDir:%RESULTS_PATH%\Coverage" "-reportTypes:Xml" "-title:%BUILD_PROJECT% - (%BUILD_VERSION%)"
 IF %errorlevel% NEQ 0 GOTO error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
-dotnet tool uninstall BinaryDataDecoders.Xslt.Cli --global
-dotnet tool uninstall BinaryDataDecoders.Xslt.Cli --local
-dotnet tool install --add-source "%OUTPUT_PATH%\Nuget" --local BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
-REM dotnet tool update BinaryDataDecoders.Xslt.Cli --version %BUILD_VERSION% --no-cache
-
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (TestResults) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\TestResultsToMarkdown.xslt" -i "%TEST_RESULTS_PATH%\*.trx" -o "%DOCS_PATH%\TestReports\Summary.md" -s "%SANDBOX_PATH%" -m
-IF %errorlevel% NEQ 0 GOTO error
-
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (Coverage) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\CoverageToMarkdown.xslt" -i "%RESULTS_PATH%\Coverage\*.xml" -o "%DOCS_PATH%\Coverage\*.md"  -s "%SANDBOX_PATH%"
-IF %errorlevel% NEQ 0 GOTO error
-
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Structured) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\XmlCommentsToStructuredXml.xslt" -i "%RESULTS_PATH%\Binary\*.xml" -o "%RESULTS_PATH%\Code\*.xml" -s "%SANDBOX_PATH%"
-IF %errorlevel% NEQ 0 GOTO error
-
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (XmlComments to Markdown) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\XmlCommentsToMarkdown.xslt" -i "%RESULTS_PATH%\Code\*.xml" -o "%DOCS_PATH%\Code\*.md" -s "%SANDBOX_PATH%"
-IF %errorlevel% NEQ 0 GOTO error
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to Markdown) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x CSharp
-IF %errorlevel% NEQ 0 GOTO error
-
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to Markdown) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\CSharpToMarkdown.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%DOCS_PATH%\SourceCode\*.md" -s "%SANDBOX_PATH%" -x VB
-IF %errorlevel% NEQ 0 GOTO error
-
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (Build Log to Markdown) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\BuildLogToMarkdown.xslt" -i "%BUILD_LOG%" -o "%DOCS_PATH%\BuildLog.md" -s "%SANDBOX_PATH%" -x MSBuildStructuredLog
-IF %errorlevel% NEQ 0 GOTO error
-
-REM This should be the last of the markdown files
-ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to Markdown) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\PathToMarkdown.xslt" -i "%DOCS_PATH%" -o "%DOCS_PATH%\TOC.md" -s "%SANDBOX_PATH%" -x Path
+dotnet build BinaryDataDecoders.rptproj -v n
 IF %errorlevel% NEQ 0 GOTO error
 
 IF "%NO_XML_TRANSFORM%"=="1" GOTO skip_xml_out
@@ -173,7 +127,6 @@ ECHO ">>> BinaryDataDecoders.Xslt.Cli (Build Log to XML) <<<"
 %XSLT_CMD% -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_LOG%" -o "%RESULTS_PATH%\BuildLog.xml" -s "%SANDBOX_PATH%" -x MSBuildStructuredLog
 :skip_xml_out
 
-dotnet tool uninstall BinaryDataDecoders.Xslt.Cli --local
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :wiki

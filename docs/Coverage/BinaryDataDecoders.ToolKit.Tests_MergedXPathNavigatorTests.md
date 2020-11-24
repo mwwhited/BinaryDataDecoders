@@ -47,7 +47,7 @@
 〰18:          {
 ‼19:              var di1 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\templates").ToNavigable();
 ‼20:              var di2 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\docs\Code").ToNavigable();
-‼21:              var navs = new[] { di1, di2, di1 };
+‼21:              var navs = new[] { ("f1", di1), ("f2", di2), ("f3", di1) };
 ‼22:              var merged = navs.MergeNavigators();
 ‼23:              this.TestContext.AddResult(merged);
 ‼24:          }
@@ -56,10 +56,10 @@
 〰27:          [TestTarget(typeof(XPathExtensions), Member = nameof(XPathExtensions.MergeWith))]
 〰28:          public void MergeMultipleTest()
 〰29:          {
-✔30:              var x1 = new XDocument(new XElement("top1", "test1"));
-✔31:              var x2 = new XDocument(new XElement("top2", "test2"));
+✔30:              var x1 = ("x1", new XDocument(new XElement("top1", "test1")).CreateNavigator());
+✔31:              var x2 = ("x2", new XDocument(new XElement("top2", "test2")).CreateNavigator());
 〰32:  
-✔33:              var merged = x1.CreateNavigator().MergeWith(x2.CreateNavigator());
+✔33:              var merged = x1.MergeWith(x2);
 ✔34:              var mergedNav = merged.CreateNavigator();
 ✔35:              mergedNav.MoveToRoot();
 〰36:  

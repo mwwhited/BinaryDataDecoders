@@ -6,14 +6,14 @@
 | :-------------- | :---------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.TypeEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`        |
-| Coveredlines    | `1`                                 |
-| Uncoveredlines  | `25`                                |
+| Coveredlines    | `13`                                |
+| Uncoveredlines  | `13`                                |
 | Coverablelines  | `26`                                |
 | Totallines      | `100`                               |
-| Linecoverage    | `3.8`                               |
-| Coveredbranches | `0`                                 |
+| Linecoverage    | `50`                                |
+| Coveredbranches | `5`                                 |
 | Totalbranches   | `24`                                |
-| Branchcoverage  | `0`                                 |
+| Branchcoverage  | `20.8`                              |
 
 ## Metrics
 
@@ -23,10 +23,10 @@
 | 2          | 0     | 0        | `GetResourceAsStringAsync` |
 | 6          | 0     | 0        | `GetXmlNamespace`          |
 | 2          | 0     | 0        | `GetXmlNamespaceForOutput` |
-| 1          | 0     | 100      | `cctor`                    |
-| 2          | 0     | 0        | `IsSimpleType`             |
+| 1          | 100   | 100      | `cctor`                    |
+| 2          | 100   | 100      | `IsSimpleType`             |
 | 8          | 0     | 0        | `IsAnonymousType`          |
-| 4          | 0     | 0        | `GetXmlElementName`        |
+| 4          | 100   | 75.00    | `GetXmlElementName`        |
 
 ## Files
 
@@ -101,20 +101,20 @@
 〰66:          public static string GetXmlNamespaceForOutput(this Type type) =>
 ‼67:              type?.GetXmlNamespace() + ToolkitConstants.XmlNamespaces.OutputSuffix;
 〰68:  
-‼69:          private static readonly Type[] _simpleTypes = new[] {
-‼70:              typeof(decimal), typeof(decimal?),
-‼71:              typeof(Guid),typeof(Guid?),
-‼72:              typeof(bool), typeof(bool?),
-‼73:              typeof(DateTime), typeof(DateTime?),
-‼74:              typeof(DateTimeOffset),typeof(DateTimeOffset?),
-‼75:              typeof(TimeSpan),typeof(TimeSpan?),
-‼76:          };
+✔69:          private static readonly Type[] _simpleTypes = new[] {
+✔70:              typeof(decimal), typeof(decimal?),
+✔71:              typeof(Guid),typeof(Guid?),
+✔72:              typeof(bool), typeof(bool?),
+✔73:              typeof(DateTime), typeof(DateTime?),
+✔74:              typeof(DateTimeOffset),typeof(DateTimeOffset?),
+✔75:              typeof(TimeSpan),typeof(TimeSpan?),
+✔76:          };
 〰77:          /// <summary>
 〰78:          /// check if type is "simple" .. primitive or [decimal, datetime, bool]
 〰79:          /// </summary>
 〰80:          /// <param name="type"></param>
 〰81:          /// <returns></returns>
-‼82:          public static bool IsSimpleType(this Type type) => type.IsPrimitive || _simpleTypes.Contains(type);
+✔82:          public static bool IsSimpleType(this Type type) => type.IsPrimitive || _simpleTypes.Contains(type);
 〰83:  
 〰84:          public static bool IsAnonymousType(this Type type) =>
 ‼85:              type?.Name switch
@@ -126,10 +126,10 @@
 〰91:  
 〰92:          public static XName GetXmlElementName(this Type type, bool excludeNamespace = false)
 〰93:          {
-‼94:              var objectName = type.Name;
-‼95:              if (objectName.StartsWith("<>f__AnonymousType")) objectName = "object";
+✔94:              var objectName = type.Name;
+✔95:              if (objectName.StartsWith("<>f__AnonymousType")) objectName = "object";
 〰96:  
-‼97:              return XName.Get(XmlConvert.EncodeName(objectName), excludeNamespace ? "" : type.GetXmlNamespace());
+⚠97:              return XName.Get(XmlConvert.EncodeName(objectName), excludeNamespace ? "" : type.GetXmlNamespace());
 〰98:          }
 〰99:      }
 〰100: }

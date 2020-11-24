@@ -15,7 +15,7 @@
 
  * Type: IPathSegment < T > 
 
-#### Public Constructor - BinaryOperationPathSegment
+#### Constructor - BinaryOperationPathSegment
 
 #####  Parameters
 

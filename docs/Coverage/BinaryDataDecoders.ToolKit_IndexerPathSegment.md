@@ -6,11 +6,11 @@
 | :-------------- | :----------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.IndexerPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
-| Coveredlines    | `0`                                                          |
-| Uncoveredlines  | `7`                                                          |
+| Coveredlines    | `7`                                                          |
+| Uncoveredlines  | `0`                                                          |
 | Coverablelines  | `7`                                                          |
 | Totallines      | `16`                                                         |
-| Linecoverage    | `0`                                                          |
+| Linecoverage    | `100`                                                        |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `0`                                                          |
 
@@ -18,9 +18,9 @@
 
 | Complexity | Lines | Branches | Name        |
 | :--------- | :---- | :------- | :---------- |
-| 1          | 0     | 100      | `get_Child` |
-| 1          | 0     | 100      | `ctor`      |
-| 1          | 0     | 100      | `ToString`  |
+| 1          | 100   | 100      | `get_Child` |
+| 1          | 100   | 100      | `ctor`      |
+| 1          | 100   | 100      | `ToString`  |
 
 ## Files
 
@@ -31,16 +31,16 @@
 〰2:   {
 〰3:       public class IndexerPathSegment : IPathSegment
 〰4:       {
-‼5:           public IPathSegment Child { get; }
+✔5:           public IPathSegment Child { get; }
 〰6:   
-‼7:           public IndexerPathSegment(
-‼8:               IPathSegment child
-‼9:               )
+✔7:           public IndexerPathSegment(
+✔8:               IPathSegment child
+✔9:               )
 〰10:          {
-‼11:              Child = child;
-‼12:          }
+✔11:              Child = child;
+✔12:          }
 〰13:  
-‼14:          public override string ToString() => $"[{Child}]";
+✔14:          public override string ToString() => $"[{Child}]";
 〰15:      }
 〰16:  }
 ```

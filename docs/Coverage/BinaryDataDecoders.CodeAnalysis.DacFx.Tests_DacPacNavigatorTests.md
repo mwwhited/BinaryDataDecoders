@@ -39,7 +39,7 @@
 〰11:          [TestMethod, TestCategory("DACPAC")]
 〰12:          public void Test()
 〰13:          {
-‼14:              var testFile = @"C:\Repos\GCA\RSMBilling\src\GCAInvoicing\Lightwell.Nucleus.Persistence.NucleusDb\bin\Debug\Lightwell.Nucleus.Persistence.NucleusDb.dacpac";
+‼14:              var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\netstandard2.0\BinaryDataDecoders.SqlServer.Samples.dacpac";
 ‼15:              var builder = new DacPacNavigator();
 ‼16:              var nav = builder.ToNavigable(testFile);
 ‼17:              this.TestContext.AddResult(nav);

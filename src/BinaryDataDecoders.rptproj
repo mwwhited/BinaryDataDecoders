@@ -1,0 +1,122 @@
+<Project Sdk="Microsoft.Build.NoTargets">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
+
+    <BaseDirectory Condition="'$(SolutionDir)'==''">.</BaseDirectory>
+    <BaseDirectory Condition="'$(SolutionDir)'!=''">$(SolutionDir)</BaseDirectory>
+    <BaseDirectory>$([System.IO.Path]::GetFullPath('$(BaseDirectory)'))</BaseDirectory>
+
+    <BddXslBinPath31>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\netcoreapp3.1\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath31>
+    <BddXslBinPath5>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net5.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath5>
+    <BddXslBinPath Condition="Exists($(BddXslBinPath31))">$(BddXslBinPath31)</BddXslBinPath>
+    <BddXslBinPath Condition="Exists($(BddXslBinPath5))">$(BddXslBinPath5)</BddXslBinPath>
+    <BddXslt Condition="'$(BddXslBinPath)'!=''">dotnet &quot;$(BddXslBinPath)&quot;</BddXslt>
+
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SANDBOX_PATH>$(BaseDirectory)\..</SANDBOX_PATH>
+    <BUILD_PATH>$(BaseDirectory)</BUILD_PATH>
+    <OUTPUT_PATH>$(BaseDirectory)\..\Publish</OUTPUT_PATH>
+    <TEST_RESULTS_PATH>$(OUTPUT_PATH)\TestResults</TEST_RESULTS_PATH>
+    <DOCS_PATH>$(OUTPUT_PATH)\docs</DOCS_PATH>
+    <RESULTS_PATH>$(OUTPUT_PATH)\Results</RESULTS_PATH>
+    <TEMPLATES_PATH>$(SANDBOX_PATH)\templates\reports</TEMPLATES_PATH>
+    <WIKI_PATH>$(SANDBOX_PATH)\docs</WIKI_PATH>
+
+    <BUILD_LOG>$(OUTPUT_PATH)\dotnet_build.binlog</BUILD_LOG>
+    <TEST_LOG>$(TEST_RESULTS_PATH)\dotnet_test.trx</TEST_LOG>
+
+  </PropertyGroup>
+
+  <Target Name="CleanReports" AfterTargets="Clean">
+    <Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
+    <Message Text="BUILD_PATH: $(BUILD_PATH)" />
+    <Message Text="OUTPUT_PATH: $(OUTPUT_PATH)" />
+    <Message Text="TEST_RESULTS_PATH: $(TEST_RESULTS_PATH)" />
+    <Message Text="DOCS_PATH: $(DOCS_PATH)" />
+    <Message Text="RESULTS_PATH: $(RESULTS_PATH)" />
+    <Message Text="TEMPLATES_PATH: $(TEMPLATES_PATH)" />
+    <Message Text="WIKI_PATH: $(WIKI_PATH)" />
+    <Message Text="BUILD_LOG: $(BUILD_LOG)" />
+    <Message Text="TEST_LOG: $(TEST_LOG)" />
+    <Message Text="BddXslt: $(BddXslt)" />
+
+    <Message Text="Clean Up  Reports: &quot;$(DOCS_PATH)&quot;" />
+    <Exec Command="rmdir /s/q &quot;$(DOCS_PATH)&quot;" />
+  </Target>
+
+  <Target Name="GenerateReports" AfterTargets="Build">
+    <Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
+    <Message Text="BUILD_PATH: $(BUILD_PATH)" />
+    <Message Text="OUTPUT_PATH: $(OUTPUT_PATH)" />
+    <Message Text="TEST_RESULTS_PATH: $(TEST_RESULTS_PATH)" />
+    <Message Text="DOCS_PATH: $(DOCS_PATH)" />
+    <Message Text="RESULTS_PATH: $(RESULTS_PATH)" />
+    <Message Text="TEMPLATES_PATH: $(TEMPLATES_PATH)" />
+    <Message Text="WIKI_PATH: $(WIKI_PATH)" />
+    <Message Text="BUILD_LOG: $(BUILD_LOG)" />
+    <Message Text="TEST_LOG: $(TEST_LOG)" />
+    <Message Text="BddXslt: $(BddXslt)" />
+
+    <Message Text="Generate Reports: XmlComments to Structured" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; -i &quot;$(RESULTS_PATH)\Binary\*.xml&quot; -o &quot;$(RESULTS_PATH)\Code\*.xml&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
+
+    <Message Text="Generate Reports: XmlComments to Markdown" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToMarkdown.xslt&quot; -i &quot;$(RESULTS_PATH)\Code\*.xml&quot; -o &quot;$(DOCS_PATH)\Code\*.md&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
+
+    <Message Text="Generate Reports: CSharp to Markdown" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\CSharpToMarkdown.xslt&quot; -i &quot;$(BUILD_PATH)\**\*.cs&quot; -o &quot;$(DOCS_PATH)\SourceCode\*.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x CSharp" />
+
+    <Message Text="Generate Reports: VB to Markdown" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\VbToMarkdown.xslt&quot; -i &quot;$(BUILD_PATH)\**\*.vb&quot; -o &quot;$(DOCS_PATH)\SourceCode\*.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x VB" />
+
+    <Message Text="Generate Reports: Build Log to Markdown" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\BuildLogToMarkdown.xslt&quot; -i &quot;$(BUILD_LOG)&quot; -o &quot;$(DOCS_PATH)\BuildLog.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x MSBuildStructuredLog" />
+
+
+    <Message Text="Generate Reports: TestResults" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\TestResultsToMarkdown.xslt&quot; -i &quot;$(TEST_RESULTS_PATH)\*.trx&quot; -o &quot;$(DOCS_PATH)\TestReports\Summary.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -m" />
+
+    <Message Text="Generate Reports: Coverage" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\CoverageToMarkdown.xslt&quot; -i &quot;$(RESULTS_PATH)\Coverage\*.xml&quot; -o &quot;$(DOCS_PATH)\Coverage\*.md&quot;  -s &quot;$(SANDBOX_PATH)&quot;" />
+
+    <!-- This one should be last -->
+    <Message Text="Generate Reports: Docs to Markdown" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\PathToMarkdown.xslt&quot; -i &quot;$(DOCS_PATH)&quot; -o &quot;$(DOCS_PATH)\TOC.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x Path" />
+  </Target>
+
+
+  <!--
+  
+  <PropertyGroup>
+    <OutputType>Reports</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IsPackable>false</IsPackable>
+    <_CopyResolvedFilesToPublishPreserveNewest>false</_CopyResolvedFilesToPublishPreserveNewest>
+    <_DebugSymbolsProduced>false</_DebugSymbolsProduced>
+    <DefaultCopyToPublishDirectoryMetadata>false</DefaultCopyToPublishDirectoryMetadata>
+    <_GetChildProjectCopyToPublishDirectoryItems>false</_GetChildProjectCopyToPublishDirectoryItems>
+    <PublishReadyToRunComposite>false</PublishReadyToRunComposite>    
+  </PropertyGroup>
+  <Target Name="CreateManifestResourceNames">
+  </Target>
+  <Target Name="Publish" DependsOnTargets="Build">
+    <Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
+    <Message Text="BUILD_PATH: $(BUILD_PATH)" />
+    <Message Text="OUTPUT_PATH: $(OUTPUT_PATH)" />
+    <Message Text="TEST_RESULTS_PATH: $(TEST_RESULTS_PATH)" />
+    <Message Text="DOCS_PATH: $(DOCS_PATH)" />
+    <Message Text="RESULTS_PATH: $(RESULTS_PATH)" />
+    <Message Text="TEMPLATES_PATH: $(TEMPLATES_PATH)" />
+    <Message Text="WIKI_PATH: $(WIKI_PATH)" />
+    <Message Text="BUILD_LOG: $(BUILD_LOG)" />
+    <Message Text="TEST_LOG: $(TEST_LOG)" />
+    <Message Text="BddXslt: $(BddXslt)" />
+  </Target>
+  -->
+
+</Project>

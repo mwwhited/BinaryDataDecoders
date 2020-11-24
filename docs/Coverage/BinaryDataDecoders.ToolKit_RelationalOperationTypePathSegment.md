@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.RelationalOperationTypePathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                                 |
-| Coveredlines    | `0`                                                                          |
-| Uncoveredlines  | `1`                                                                          |
+| Coveredlines    | `1`                                                                          |
+| Uncoveredlines  | `0`                                                                          |
 | Coverablelines  | `1`                                                                          |
 | Totallines      | `8`                                                                          |
-| Linecoverage    | `0`                                                                          |
+| Linecoverage    | `100`                                                                        |
 | Coveredbranches | `0`                                                                          |
 | Totalbranches   | `0`                                                                          |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| 1          | 100   | 100      | `ctor`  |
 
 ## Files
 
@@ -30,7 +30,7 @@
 〰3:   {
 〰4:       public sealed class RelationalOperationTypePathSegment : BaseValuePathSegment<RelationalOperationTypes>
 〰5:       {
-‼6:           public RelationalOperationTypePathSegment(RelationalOperationTypes type) : base(type) { }
+✔6:           public RelationalOperationTypePathSegment(RelationalOperationTypes type) : base(type) { }
 〰7:       }
 〰8:   }
 ```

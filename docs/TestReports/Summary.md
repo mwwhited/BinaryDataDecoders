@@ -154,6 +154,8 @@
   * [SplitTest_Return](BinaryDataDecoders.ToolKit.Tests/MemoryExTests.md#SplitTest_Return)
 * [ReadOnlySpanExTests](BinaryDataDecoders.ToolKit.Tests/ReadOnlySpanExTests.md)
   * [CopyWithTransformTest_byte2byte_7bit](BinaryDataDecoders.ToolKit.Tests/ReadOnlySpanExTests.md#CopyWithTransformTest_byte2byte_7bit)
+* [Reflection.ReflectionElementNodeTests](BinaryDataDecoders.ToolKit.Tests/Reflection.ReflectionElementNodeTests.md)
+  * [ReflectionElementNodeTest](BinaryDataDecoders.ToolKit.Tests/Reflection.ReflectionElementNodeTests.md#ReflectionElementNodeTest)
 * [Xml.XPath.MergedXPathNavigatorTests](BinaryDataDecoders.ToolKit.Tests/Xml.XPath.MergedXPathNavigatorTests.md)
   * [MergeMultipleTest](BinaryDataDecoders.ToolKit.Tests/Xml.XPath.MergedXPathNavigatorTests.md#MergeMultipleTest)
 

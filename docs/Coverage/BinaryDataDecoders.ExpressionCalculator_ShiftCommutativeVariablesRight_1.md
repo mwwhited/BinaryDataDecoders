@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.ShiftCommutativeVariablesRight`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                             |
-| Coveredlines    | `0`                                                                                   |
-| Uncoveredlines  | `1`                                                                                   |
+| Coveredlines    | `1`                                                                                   |
+| Uncoveredlines  | `0`                                                                                   |
 | Coverablelines  | `1`                                                                                   |
 | Totallines      | `92`                                                                                  |
-| Linecoverage    | `0`                                                                                   |
+| Linecoverage    | `100`                                                                                 |
 | Coveredbranches | `0`                                                                                   |
 | Totalbranches   | `0`                                                                                   |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 0     | 100      | `Optimize` |
+| 1          | 100   | 100      | `Optimize` |
 
 ## Files
 
@@ -32,7 +32,7 @@
 〰5:   {
 〰6:       public sealed class ShiftCommutativeVariablesRight<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
 〰7:       {
-‼8:           public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
+✔8:           public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
 〰9:   		/*
 〰10:           if (expression instanceof InnerExpression) {
 〰11:  			var inner =(InnerExpression) expression;

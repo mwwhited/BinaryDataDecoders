@@ -16,27 +16,6 @@ https://github.com/coverlet-coverage/coverlet/blob/fc7ec26dcaed8fedba880ff13c6f1
 	<!--Configurations for data collectors-->
 	<DataCollectionRunSettings>
 		<DataCollectors>
-			<!-- <DataCollector
-				friendlyName="Code Coverage"
-				uri="datacollector://Microsoft/CodeCoverage/2.0"
-				assemblyQualifiedName="Microsoft.VisualStudio.Coverage.DynamicCoverageDataCollector, Microsoft.VisualStudio.TraceCollector, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-				<Configuration>
-					<CodeCoverage>
-						<ModulePaths>
-							<Exclude>
-								<ModulePath>.*CPPUnitTestFramework.*</ModulePath>
-							</Exclude>
-						</ModulePaths>
-
-						We recommend you do not change the following values:
-						<UseVerifiableInstrumentation>True</UseVerifiableInstrumentation>
-						<AllowLowIntegrityProcesses>True</AllowLowIntegrityProcesses>
-						<CollectFromChildProcesses>True</CollectFromChildProcesses>
-						<CollectAspDotNet>False</CollectAspDotNet>
-
-					</CodeCoverage>
-				</Configuration>
-			</DataCollector> -->
 
 			<DataCollector friendlyName="XPlat code coverage">
 				<Configuration>
@@ -79,9 +58,6 @@ https://github.com/coverlet-coverage/coverlet/blob/fc7ec26dcaed8fedba880ff13c6f1
 				</Configuration>
 			</Logger>
 			<Logger friendlyName="trx" enabled="True">
-				<!--<Configuration>
-					<LogFileName>TestResult.trx</LogFileName>
-				</Configuration>-->
 			</Logger>
 			
 			<!--<Logger friendlyName="html" enabled="True">
@@ -100,7 +76,6 @@ https://github.com/coverlet-coverage/coverlet/blob/fc7ec26dcaed8fedba880ff13c6f1
 		<DeleteDeploymentDirectoryAfterTestRunIsComplete>false</DeleteDeploymentDirectoryAfterTestRunIsComplete>
 		<DeploymentEnabled>true</DeploymentEnabled>
 		<DeployTestSourceDependencies>true</DeployTestSourceDependencies>
-
 	</MSTest>
 
 </RunSettings>

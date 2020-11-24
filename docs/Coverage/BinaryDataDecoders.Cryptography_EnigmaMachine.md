@@ -49,7 +49,7 @@
 〰12:          private string[] plugboard;
 〰13:          private int[] postions;
 〰14:          private int[] ringSettings;
-〰15:          private EnigmaRotor[] rotors;
+〰15:          private readonly EnigmaRotor[] rotors;
 〰16:          private EnigmaReflector reflector;
 ✔17:          public EnigmaMachine(EnigmaRotor[] rotors,
 ✔18:                               EnigmaReflector reflector,

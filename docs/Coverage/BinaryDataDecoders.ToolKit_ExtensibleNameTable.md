@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNameTable` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
-| Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `5`                                                        |
+| Coveredlines    | `2`                                                        |
+| Uncoveredlines  | `3`                                                        |
 | Coverablelines  | `5`                                                        |
 | Totallines      | `20`                                                       |
-| Linecoverage    | `0`                                                        |
+| Linecoverage    | `40`                                                       |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `0`                                                        |
 
@@ -18,9 +18,9 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| 1          | 100   | 100      | `ctor`  |
 | 1          | 0     | 100      | `Add`   |
-| 1          | 0     | 100      | `Add`   |
+| 1          | 100   | 100      | `Add`   |
 | 1          | 0     | 100      | `Get`   |
 | 1          | 0     | 100      | `Get`   |
 
@@ -35,12 +35,12 @@
 〰4:   {
 〰5:       internal class ExtensibleNameTable : XmlNameTable
 〰6:       {
-‼7:           private readonly NameTable _nameTable = new NameTable();
+✔7:           private readonly NameTable _nameTable = new NameTable();
 〰8:   
 〰9:           public override string Add(char[] array, int offset, int length) =>
 ‼10:              _nameTable.Add(array, offset, length);
 〰11:          public override string Add(string array) =>
-‼12:              _nameTable.Add(array);
+✔12:              _nameTable.Add(array);
 〰13:  
 〰14:          public override string Get(char[] array, int offset, int length) =>
 ‼15:              _nameTable.Get(array, offset, length);

@@ -6,11 +6,11 @@
 | :-------------- | :--------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleAttributeNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                     |
-| Coveredlines    | `0`                                                              |
-| Uncoveredlines  | `19`                                                             |
+| Coveredlines    | `16`                                                             |
+| Uncoveredlines  | `3`                                                              |
 | Coverablelines  | `19`                                                             |
 | Totallines      | `36`                                                             |
-| Linecoverage    | `0`                                                              |
+| Linecoverage    | `84.2`                                                           |
 | Coveredbranches | `0`                                                              |
 | Totalbranches   | `0`                                                              |
 
@@ -18,13 +18,13 @@
 
 | Complexity | Lines | Branches | Name                                                 |
 | :--------- | :---- | :------- | :--------------------------------------------------- |
-| 1          | 0     | 100      | `ctor`                                               |
-| 1          | 0     | 100      | `get_Parent`                                         |
-| 1          | 0     | 100      | `get_Name`                                           |
-| 1          | 0     | 100      | `get_Value`                                          |
-| 1          | 0     | 100      | `get_Next`                                           |
+| 1          | 100   | 100      | `ctor`                                               |
+| 1          | 100   | 100      | `get_Parent`                                         |
+| 1          | 100   | 100      | `get_Name`                                           |
+| 1          | 100   | 100      | `get_Value`                                          |
+| 1          | 100   | 100      | `get_Next`                                           |
 | 1          | 0     | 100      | `get_Previous`                                       |
-| 1          | 0     | 100      | `get_NodeType`                                       |
+| 1          | 100   | 100      | `get_NodeType`                                       |
 | 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathINodeget_Next`     |
 | 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathINodeget_Previous` |
 
@@ -44,26 +44,26 @@
 〰9:       {
 〰10:          private readonly T _item;
 〰11:  
-‼12:          public ExtensibleAttributeNode(
-‼13:               INode parent,
-‼14:               XName name,
-‼15:               T item,
-‼16:               string value
-‼17:              )
+✔12:          public ExtensibleAttributeNode(
+✔13:               INode parent,
+✔14:               XName name,
+✔15:               T item,
+✔16:               string value
+✔17:              )
 〰18:          {
-‼19:              Parent = parent;
-‼20:              Name = name;
-‼21:              _item = item;
-‼22:              Value = value;
-‼23:          }
-‼24:          public INode? Parent { get; }
-‼25:          public XName Name { get; }
-‼26:          public string? Value { get; }
+✔19:              Parent = parent;
+✔20:              Name = name;
+✔21:              _item = item;
+✔22:              Value = value;
+✔23:          }
+✔24:          public INode? Parent { get; }
+✔25:          public XName Name { get; }
+✔26:          public string? Value { get; }
 〰27:  
-‼28:          public IAttributeNode? Next { get; internal set; }
+✔28:          public IAttributeNode? Next { get; internal set; }
 ‼29:          public IAttributeNode? Previous { get; internal set; }
 〰30:  
-‼31:          public XPathNodeType NodeType { get; } = XPathNodeType.Attribute;
+✔31:          public XPathNodeType NodeType { get; } = XPathNodeType.Attribute;
 〰32:  
 ‼33:          INode? INode.Next => Next;
 ‼34:          INode? INode.Previous => Previous;

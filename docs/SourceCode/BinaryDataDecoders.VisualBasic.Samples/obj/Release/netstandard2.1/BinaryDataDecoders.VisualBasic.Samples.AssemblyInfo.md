@@ -2,6 +2,6 @@
 
 ## Summary
 
-* Language: Visual Basic
-* Path: src\BinaryDataDecoders.VisualBasic.Samples\obj\Release\netstandard2.1\BinaryDataDecoders.VisualBasic.Samples.AssemblyInfo.vb
+Language: 
+Path: C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.VisualBasic.Samples\obj\Release\netstandard2.1\BinaryDataDecoders.VisualBasic.Samples.AssemblyInfo.vb
 

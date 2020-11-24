@@ -6,21 +6,21 @@
 | :-------------- | :------------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Optimizers.ExpressionOptimizationProvider`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                             |
-| Coveredlines    | `0`                                                                                   |
-| Uncoveredlines  | `10`                                                                                  |
+| Coveredlines    | `10`                                                                                  |
+| Uncoveredlines  | `0`                                                                                   |
 | Coverablelines  | `10`                                                                                  |
 | Totallines      | `142`                                                                                 |
-| Linecoverage    | `0`                                                                                   |
-| Coveredbranches | `0`                                                                                   |
+| Linecoverage    | `100`                                                                                 |
+| Coveredbranches | `4`                                                                                   |
 | Totalbranches   | `4`                                                                                   |
-| Branchcoverage  | `0`                                                                                   |
+| Branchcoverage  | `100`                                                                                 |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 0     | 100      | `cctor`    |
-| 4          | 0     | 0        | `Optimize` |
+| 1          | 100   | 100      | `cctor`    |
+| 4          | 100   | 100      | `Optimize` |
 
 ## Files
 
@@ -37,19 +37,19 @@
 〰8:       public class ExpressionOptimizationProvider<T>
 〰9:           where T : struct, IComparable<T>, IEquatable<T>
 〰10:      {
-‼11:          private static readonly IEnumerable<IExpressionOptimizer<T>> _optimizations = new IExpressionOptimizer<T>[]
-‼12:          {
-‼13:              new InnerExpressionReducer<T>(),
-‼14:              new UnaryNumericExpressionReducer<T>(),
-‼15:              new IdentityExpressionOptimizer<T>(),
-‼16:              new DeterminedExpressionReducer<T>(),
-‼17:              new ShiftCommutativeVariablesRight<T>(),
-‼18:          };
+✔11:          private static readonly IEnumerable<IExpressionOptimizer<T>> _optimizations = new IExpressionOptimizer<T>[]
+✔12:          {
+✔13:              new InnerExpressionReducer<T>(),
+✔14:              new UnaryNumericExpressionReducer<T>(),
+✔15:              new IdentityExpressionOptimizer<T>(),
+✔16:              new DeterminedExpressionReducer<T>(),
+✔17:              new ShiftCommutativeVariablesRight<T>(),
+✔18:          };
 〰19:  
 〰20:          public ExpressionBase<T> Optimize(ExpressionBase<T> expression)
 〰21:          {
-‼22:              var optimized = _optimizations.Aggregate(expression.Clone(), (exp, operation) => operation.Optimize(exp));
-‼23:              return optimized.ToString().Equals(expression.ToString()) ? optimized : Optimize(optimized);
+✔22:              var optimized = _optimizations.Aggregate(expression.Clone(), (exp, operation) => operation.Optimize(exp));
+✔23:              return optimized.ToString().Equals(expression.ToString()) ? optimized : Optimize(optimized);
 〰24:          }
 〰25:      }
 〰26:  }

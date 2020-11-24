@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.ObjectEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`          |
-| Coveredlines    | `1`                                   |
-| Uncoveredlines  | `16`                                  |
+| Coveredlines    | `2`                                   |
+| Uncoveredlines  | `15`                                  |
 | Coverablelines  | `17`                                  |
-| Totallines      | `83`                                  |
-| Linecoverage    | `5.8`                                 |
+| Totallines      | `82`                                  |
+| Linecoverage    | `11.7`                                |
 | Coveredbranches | `0`                                   |
 | Totalbranches   | `28`                                  |
 | Branchcoverage  | `0`                                   |
@@ -23,7 +23,7 @@
 | 1          | 0     | 100      | `GetResourceAsStringAsync` |
 | 1          | 0     | 100      | `GetXmlNamespace`          |
 | 1          | 0     | 100      | `GetXmlNamespaceForOutput` |
-| 1          | 0     | 100      | `GetXmlElementName`        |
+| 1          | 100   | 100      | `GetXmlElementName`        |
 | 1          | 0     | 100      | `GetXmlItemName`           |
 | 28         | 0     | 0        | `GetXmlItemName`           |
 
@@ -35,86 +35,85 @@
 〰1:   using System.Collections;
 〰2:   using System.IO;
 〰3:   using System.Threading.Tasks;
-〰4:   using System.Xml;
-〰5:   using System.Xml.Linq;
-〰6:   
-〰7:   namespace BinaryDataDecoders.ToolKit
-〰8:   {
-〰9:       /// <summary>
-〰10:      /// Extension methods for System.Object
-〰11:      /// </summary>
-〰12:      public static class ObjectEx
-〰13:      {
-〰14:          /// <summary>
-〰15:          /// Access stream for resource found in the same name space as the referenced object
-〰16:          /// </summary>
-〰17:          /// <param name="context">object to use as locater</param>
-〰18:          /// <param name="filename">name of resource</param>
-〰19:          /// <returns>resource stream</returns>
-〰20:          public static Stream? GetResourceStream(this object context, string filename) =>
-✔21:              context.GetType().GetResourceStream(filename);
-〰22:  
-〰23:          /// <summary>
-〰24:          /// Access stream for resource found in the same name space as the referenced object
-〰25:          /// </summary>
-〰26:          /// <param name="context">object to use as locater</param>
-〰27:          /// <param name="filename">name of resource</param>
-〰28:          /// <returns>string content of resource</returns>
-〰29:          public static Task<string?> GetResourceAsStringAsync(this object context, string filename) =>
-‼30:              context.GetResourceStream(filename).ReadAsStringAsync();
-〰31:  
-〰32:          /// <summary>
-〰33:          /// Resolve XML Name space for referenced object.
-〰34:          /// </summary>
-〰35:          /// <remarks>
-〰36:          /// This will be generated as followed unless the provided object type is tagged wit han XmlRootAttribute
-〰37:          ///
-〰38:          /// <c>clr:{full class with namespace}, {containing assembly name}&quot;</c>
-〰39:          /// </remarks>
-〰40:          /// <param name="obj"></param>
-〰41:          /// <returns></returns>
-〰42:          public static string GetXmlNamespace(this object obj) =>
-‼43:              obj.GetType().GetXmlNamespace();
-〰44:  
-〰45:          /// <summary>
-〰46:          /// Resolve XML Namespace for referenced object.
-〰47:          /// </summary>
-〰48:          /// <remarks>
-〰49:          /// This will be generated as followed unless the provided object type is tagged wit han XmlRootAttribute
-〰50:          ///
-〰51:          /// <c>clr:{full class with namespace}, {containing assembly name}:out&quot;</c>
-〰52:          /// </remarks>
-〰53:          /// <param name="obj"></param>
-〰54:          /// <returns></returns>
-〰55:          public static string GetXmlNamespaceForOutput(this object obj) =>
-‼56:              obj.GetType().GetXmlNamespace() + ToolkitConstants.XmlNamespaces.OutputSuffix;
+〰4:   using System.Xml.Linq;
+〰5:   
+〰6:   namespace BinaryDataDecoders.ToolKit
+〰7:   {
+〰8:       /// <summary>
+〰9:       /// Extension methods for System.Object
+〰10:      /// </summary>
+〰11:      public static class ObjectEx
+〰12:      {
+〰13:          /// <summary>
+〰14:          /// Access stream for resource found in the same name space as the referenced object
+〰15:          /// </summary>
+〰16:          /// <param name="context">object to use as locater</param>
+〰17:          /// <param name="filename">name of resource</param>
+〰18:          /// <returns>resource stream</returns>
+〰19:          public static Stream? GetResourceStream(this object context, string filename) =>
+✔20:              context.GetType().GetResourceStream(filename);
+〰21:  
+〰22:          /// <summary>
+〰23:          /// Access stream for resource found in the same name space as the referenced object
+〰24:          /// </summary>
+〰25:          /// <param name="context">object to use as locater</param>
+〰26:          /// <param name="filename">name of resource</param>
+〰27:          /// <returns>string content of resource</returns>
+〰28:          public static Task<string?> GetResourceAsStringAsync(this object context, string filename) =>
+‼29:              context.GetResourceStream(filename).ReadAsStringAsync();
+〰30:  
+〰31:          /// <summary>
+〰32:          /// Resolve XML Name space for referenced object.
+〰33:          /// </summary>
+〰34:          /// <remarks>
+〰35:          /// This will be generated as followed unless the provided object type is tagged wit han XmlRootAttribute
+〰36:          ///
+〰37:          /// <c>clr:{full class with namespace}, {containing assembly name}&quot;</c>
+〰38:          /// </remarks>
+〰39:          /// <param name="obj"></param>
+〰40:          /// <returns></returns>
+〰41:          public static string GetXmlNamespace(this object obj) =>
+‼42:              obj.GetType().GetXmlNamespace();
+〰43:  
+〰44:          /// <summary>
+〰45:          /// Resolve XML Namespace for referenced object.
+〰46:          /// </summary>
+〰47:          /// <remarks>
+〰48:          /// This will be generated as followed unless the provided object type is tagged wit han XmlRootAttribute
+〰49:          ///
+〰50:          /// <c>clr:{full class with namespace}, {containing assembly name}:out&quot;</c>
+〰51:          /// </remarks>
+〰52:          /// <param name="obj"></param>
+〰53:          /// <returns></returns>
+〰54:          public static string GetXmlNamespaceForOutput(this object obj) =>
+‼55:              obj.GetType().GetXmlNamespace() + ToolkitConstants.XmlNamespaces.OutputSuffix;
+〰56:  
 〰57:  
-〰58:  
-〰59:          public static XName GetXmlElementName(this object @object, bool excludeNamespace = false) =>
-‼60:              @object.GetType().GetXmlElementName(excludeNamespace);
-〰61:  
-〰62:          public static XName GetXmlItemName(this IEnumerable enumerable, bool excludeNamespace) =>
-‼63:              enumerable.GetXmlItemName(enumerable.GetXmlElementName(excludeNamespace));
-〰64:  
-〰65:          public static XName GetXmlItemName(this IEnumerable enumerable, XName? elementName = null)
-〰66:          {
-‼67:              var elementType = enumerable.GetType().GetElementType();
-‼68:              var itemName = elementType?.Name;
-〰69:              return XName.Get(itemName switch
-〰70:              {
-‼71:                  _ when elementType?.IsAnonymousType() ?? false =>
-‼72:                      elementName switch
-‼73:                      {
-‼74:                          _ when elementName?.LocalName.EndsWith("es") ?? false => elementName.LocalName.Substring(0, elementName.LocalName.Length - 2),
-‼75:                          _ when elementName?.LocalName.EndsWith("s") ?? false => elementName.LocalName.Substring(0, elementName.LocalName.Length - 1),
-‼76:                          _ when string.Equals(elementName?.LocalName, "object", System.StringComparison.InvariantCultureIgnoreCase) => null,
-‼77:                          _ => null,
-‼78:                      },
-‼79:                  _ => itemName
-〰80:              } ?? "item", elementName?.NamespaceName ?? elementType?.GetXmlNamespace() ?? "");
-〰81:          }
-〰82:      }
-〰83:  }
+〰58:          public static XName GetXmlElementName(this object @object, bool excludeNamespace = false) =>
+✔59:              @object.GetType().GetXmlElementName(excludeNamespace);
+〰60:  
+〰61:          public static XName GetXmlItemName(this IEnumerable enumerable, bool excludeNamespace) =>
+‼62:              enumerable.GetXmlItemName(enumerable.GetXmlElementName(excludeNamespace));
+〰63:  
+〰64:          public static XName GetXmlItemName(this IEnumerable enumerable, XName? elementName = null)
+〰65:          {
+‼66:              var elementType = enumerable.GetType().GetElementType();
+‼67:              var itemName = elementType?.Name;
+〰68:              return XName.Get(itemName switch
+〰69:              {
+‼70:                  _ when elementType?.IsAnonymousType() ?? false =>
+‼71:                      elementName switch
+‼72:                      {
+‼73:                          _ when elementName?.LocalName.EndsWith("es") ?? false => elementName.LocalName.Substring(0, elementName.LocalName.Length - 2),
+‼74:                          _ when elementName?.LocalName.EndsWith("s") ?? false => elementName.LocalName.Substring(0, elementName.LocalName.Length - 1),
+‼75:                          _ when string.Equals(elementName?.LocalName, "object", System.StringComparison.InvariantCultureIgnoreCase) => null,
+‼76:                          _ => null,
+‼77:                      },
+‼78:                  _ => itemName
+〰79:              } ?? "item", elementName?.NamespaceName ?? elementType?.GetXmlNamespace() ?? "");
+〰80:          }
+〰81:      }
+〰82:  }
 ```
 
 ## Links

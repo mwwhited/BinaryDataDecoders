@@ -10,7 +10,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.02 | `ToXPathTest`                                        |
+| ✔ Passed             | 00:00:00.01 | `ToXPathTest`                                        |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($.options,/options)`                   |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($.options.quantity,/options/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ToXPathTest ($.*.quantity,/*/quantity)`             |
@@ -55,13 +55,13 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.41 | `ParserTest`                                         |
-| ✔ Passed             | 00:00:00.29 | `ParserTest ($.options,:/options)`                   |
+| ✔ Passed             | 00:00:00.29 | `ParserTest`                                         |
+| ✔ Passed             | 00:00:00.18 | `ParserTest ($.options,:/options)`                   |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.options.quantity,:/options/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.*.quantity,:/*/quantity)`             |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..quantity,:////quantity)`             |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.obj.*.quantity,:/obj/*/quantity)`     |
-| ✔ Passed             | 00:00:00.02 | `ParserTest ($.options[0].quantity,:/options/[0]/quantity)` |
+| ✔ Passed             | 00:00:00.01 | `ParserTest ($.options[0].quantity,:/options/[0]/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.store.book[*].author,:/store/book/[*]/author)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..author,:////author)`                 |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.store.*,:/store/*)`                   |

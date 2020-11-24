@@ -6,11 +6,11 @@
 | :-------------- | :-------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.UInt8ExpressionParserTests` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                   |
-| Coveredlines    | `0`                                                                               |
-| Uncoveredlines  | `1`                                                                               |
+| Coveredlines    | `1`                                                                               |
+| Uncoveredlines  | `0`                                                                               |
 | Coverablelines  | `1`                                                                               |
 | Totallines      | `387`                                                                             |
-| Linecoverage    | `0`                                                                               |
+| Linecoverage    | `100`                                                                             |
 | Coveredbranches | `0`                                                                               |
 | Totalbranches   | `0`                                                                               |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| 1          | 100   | 100      | `ctor`  |
 
 ## Files
 
@@ -75,7 +75,7 @@
 〰48:      [TestClass]
 〰49:      public class UInt8ExpressionParserTests : ExpressionParserTests<byte>
 〰50:      {
-‼51:          public UInt8ExpressionParserTests() : base(skipDecimal: true, skipNegative: true) { }
+✔51:          public UInt8ExpressionParserTests() : base(skipDecimal: true, skipNegative: true) { }
 〰52:      }
 〰53:      [TestClass]
 〰54:      public class UInt16ExpressionParserTests : ExpressionParserTests<ushort>

@@ -3,6 +3,7 @@
 using BinaryDataDecoders.ToolKit.IO;
 using BinaryDataDecoders.ToolKit.Xml.XPath;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -161,6 +162,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 
             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
 
+            var errors = new List<Exception>();
 #if PARALLEL
             inputFiles.AsParallel().ForAll(inputFile =>
 #else
@@ -184,6 +186,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 catch (Exception ex)
                 {
                     var rex = innerMost(ex);
+                    errors.Add(rex);
                     Console.Error.WriteLine($"!!! ERROR[{tid}]: \"{inputFileClean}\" => \"{outFileName}\" :: {rex.Message}");
                     try
                     {
@@ -205,6 +208,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 #if PARALLEL
             );
 #endif
+            if (errors.Any()) throw new AggregateException(errors);
         }
 
         public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
@@ -249,6 +253,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
                 {
                     // Eat and errors!
                 }
+                throw;
             }
         }
     }

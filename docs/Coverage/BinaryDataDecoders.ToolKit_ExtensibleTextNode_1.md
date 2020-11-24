@@ -6,11 +6,11 @@
 | :-------------- | :---------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleTextNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                |
-| Coveredlines    | `0`                                                         |
-| Uncoveredlines  | `2`                                                         |
+| Coveredlines    | `2`                                                         |
+| Uncoveredlines  | `0`                                                         |
 | Coverablelines  | `2`                                                         |
 | Totallines      | `18`                                                        |
-| Linecoverage    | `0`                                                         |
+| Linecoverage    | `100`                                                       |
 | Coveredbranches | `0`                                                         |
 | Totalbranches   | `0`                                                         |
 
@@ -18,7 +18,7 @@
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 1          | 0     | 100      | `ctor`  |
+| 1          | 100   | 100      | `ctor`  |
 
 ## Files
 
@@ -38,9 +38,9 @@
 〰11:               XName name,
 〰12:               T item,
 〰13:               string value
-‼14:              ) : base(parent, name, item, value, XPathNodeType.Text)
+✔14:              ) : base(parent, name, item, value, XPathNodeType.Text)
 〰15:          {
-‼16:          }
+✔16:          }
 〰17:      }
 〰18:  }
 ```

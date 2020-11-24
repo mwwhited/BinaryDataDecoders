@@ -39,3 +39,9 @@
 
  * Type: IWrappedNode 
 
+#### Property - Source
+
+##### Summary
+
+ * Type: string 
+

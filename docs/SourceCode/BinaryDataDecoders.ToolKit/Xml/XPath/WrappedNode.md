@@ -11,7 +11,7 @@
 
  - DebuggerDisplay
  - (
- - "{Current}"
+ - "{Current}-{Source}"
  - )
 
 ### Members
@@ -20,8 +20,15 @@
 
 #####  Parameters
 
+ - string source 
  - IXPathNavigable nav 
  - IWrappedNode ? previous 
+
+#### Public Property - Source
+
+##### Summary
+
+ * Type: string 
 
 #### Public Property - Previous
 
@@ -57,5 +64,5 @@
 
 #####  Parameters
 
- - IEnumerable < IXPathNavigable ? > children 
+ - IEnumerable < ( string source , IXPathNavigable ? navigator ) > children 
 

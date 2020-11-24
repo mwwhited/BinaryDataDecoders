@@ -6,11 +6,11 @@
 | :-------------- | :---------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.QuotedStringPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                      |
-| Coveredlines    | `0`                                                               |
-| Uncoveredlines  | `2`                                                               |
+| Coveredlines    | `2`                                                               |
+| Uncoveredlines  | `0`                                                               |
 | Coverablelines  | `2`                                                               |
 | Totallines      | `8`                                                               |
-| Linecoverage    | `0`                                                               |
+| Linecoverage    | `100`                                                             |
 | Coveredbranches | `0`                                                               |
 | Totalbranches   | `0`                                                               |
 
@@ -18,8 +18,8 @@
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 0     | 100      | `ctor`     |
-| 1          | 0     | 100      | `ToString` |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
 
 ## Files
 
@@ -30,8 +30,8 @@
 〰2:   {
 〰3:       public sealed class QuotedStringPathSegment : BaseValuePathSegment<string>
 〰4:       {
-‼5:           public QuotedStringPathSegment(string value) : base(value) { }
-‼6:           public override string ToString() => $@"""{Value}""";
+✔5:           public QuotedStringPathSegment(string value) : base(value) { }
+✔6:           public override string ToString() => $@"""{Value}""";
 〰7:       }
 〰8:   }
 ```

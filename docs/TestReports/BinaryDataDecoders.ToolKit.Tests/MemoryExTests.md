@@ -30,7 +30,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.06
+* Duration: 00:00:00.01
 
 ## SplitTest_Carry
 
