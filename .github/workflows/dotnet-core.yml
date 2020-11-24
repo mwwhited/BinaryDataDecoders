@@ -32,7 +32,8 @@ jobs:
         dotnet tool restore
         buildVersion=`dotnet gitversion /output json /showvariable FullSemVer`
         dacVersion=`dotnet gitversion /output json /showvariable AssemblySemVer`
-        echo GitVersion= $buildVersion ($dacVersion)
+        echo Build Version= $buildVersion
+        echo DAC Version= $dacVersion        
         echo "buildVersion=$buildVersion" >> $GITHUB_ENV   
         echo "dacVersion=$dacVersion" >> $GITHUB_ENV
         echo "BUILD_PROJECT=src/BinaryDataDecoders.slnproj" >> $GITHUB_ENV
