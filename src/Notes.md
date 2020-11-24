@@ -10,3 +10,4 @@
 * Figure out how to make rptproj have a publish target
   * use new publish mode to replace robocopy from build.bat script
 * change github build back to yaml from linux script
+* figure out how to make sql package either conditional on linux or actually build on ubuntu

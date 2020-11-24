@@ -115,6 +115,8 @@ echo "Transform Reports"
 dotnet build BinaryDataDecoders.rptproj -v n
 IF %errorlevel% NEQ 0 GOTO error
 
+REM dotnet publish BinaryDataDecoders.rptproj -f netcoreapp3.1 -v n
+
 IF "%NO_XML_TRANSFORM%"=="1" GOTO skip_xml_out
 :transform_xml
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"

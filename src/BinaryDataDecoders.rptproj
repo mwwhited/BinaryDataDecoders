@@ -55,7 +55,8 @@
     <Message Text="BddXslt: $(BddXslt)" />
 
     <Message Text="Clean Up  Reports: &quot;$(DOCS_PATH)&quot;" />
-    <Exec Command="rmdir /s/q &quot;$(DOCS_PATH)&quot;" />
+    <RemoveDir Directories="$(DOCS_PATH)" />
+    <!--<Exec Command="rmdir /s/q &quot;$(DOCS_PATH)&quot;" />-->
   </Target>
 
   <Target Name="GenerateReports" AfterTargets="Build">

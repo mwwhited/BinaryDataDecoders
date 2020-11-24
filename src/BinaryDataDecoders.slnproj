@@ -11,7 +11,7 @@
     <ProjectReference Include="**\*.csproj" />
     <ProjectReference Include="**\*.vbproj" />
     <ProjectReference Include="**\*.fsproj" />
-    <ProjectReference Include="**\*.dbproj" Publish="false" Pack="false" />
+    <!--<ProjectReference Include="**\*.dbproj" Publish="false" Pack="false" />-->
     <!--<ProjectReference Include="**\*.rptproj" />-->
   </ItemGroup>
 </Project>
