@@ -47,8 +47,8 @@ jobs:
 
     - name: Clean Project
       run: dotnet clean "$BUILD_PROJECT"
-    - name: Clean Reports
-      run: dotnet clean "$REPORT_PROJECT"
+    #- name: Clean Reports
+    #  run: dotnet clean "$REPORT_PROJECT"
             
     - name: Restore Project
       run: dotnet restore "$BUILD_PROJECT"
