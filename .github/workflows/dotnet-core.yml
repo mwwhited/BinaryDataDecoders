@@ -62,7 +62,7 @@ jobs:
     - name: Publish Project
       run: dotnet publish "$BUILD_PROJECT" --configuration $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary"
     - name: Publish Project to Nuget
-      run: dotnet nuget push "../Publish/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
       
     - name: Build Coverage Report
       run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
