@@ -23,7 +23,7 @@ jobs:
       with:
         dotnet-version: 3.1.x
         
-    - name: Build Project
+    - name: Setup Project Variables
       run: |
         OUTPUT_PATH=Publish
         TEST_RESULTS_PATH=$OUTPUT_PATH/TestResults
@@ -63,6 +63,10 @@ jobs:
       run: dotnet publish "$BUILD_PROJECT" -c $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary"
     - name: Publish Project to Nuget
       run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      
+    - name: List Files
+      run: |
+        tree -a "$RESULTS_PATH/Binary"
       
     - name: Build Coverage Report
       run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
