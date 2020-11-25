@@ -71,7 +71,7 @@ jobs:
     #- name: Build Coverage Report
     #  run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
     - name: Build Reports
-      run: cd src && dotnet build "BinaryDataDecoders.rptproj" -f netcoreapp3.1 -p:PublishedBinaries=$RESULTS_PATH/Binary -v n
+      run: dotnet build "BinaryDataDecoders.rptproj" -f netcoreapp3.1 -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src -v n
 
     - name: Publish Documents
       uses: actions/upload-artifact@v2
