@@ -11,7 +11,6 @@
     <BddXslBinPath5>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net5.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath5>
     <BddXslBinPathBin>$(PublishedBinaries)\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPathBin>
     
-    
     <BddXslBinPath Condition="Exists($(BddXslBinPath31))">$(BddXslBinPath31)</BddXslBinPath>
     <BddXslBinPath Condition="Exists($(BddXslBinPath5))">$(BddXslBinPath5)</BddXslBinPath>
     <BddXslBinPath Condition="Exists($(BddXslBinPathBin))">$(BddXslBinPathBin)</BddXslBinPath>
@@ -76,6 +75,10 @@
     <Message Text="BUILD_LOG: $(BUILD_LOG)" />
     <Message Text="TEST_LOG: $(TEST_LOG)" />
     <Message Text="BddXslt: $(BddXslt)" />
+    <Message Text="PublishedBinaries: $(PublishedBinaries)" />
+    <Message Text="SolutionDir: $(SolutionDir)" />
+    <Message Text="SolutionPath: $(SolutionPath)" />
+    <Message Text="BaseDirectory: $(BaseDirectory)" />
 
     <Message Text="Generate Reports: XmlComments to Structured" />
     <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; -i &quot;$(RESULTS_PATH)\Binary\*.xml&quot; -o &quot;$(RESULTS_PATH)\Code\*.xml&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
