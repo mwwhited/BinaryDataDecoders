@@ -61,8 +61,8 @@ jobs:
       run: dotnet pack "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore -o "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
     - name: Publish Project
       run: dotnet publish "$BUILD_PROJECT" -c $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary"
-    #- name: Publish Project to Nuget
-    #  run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+    - name: Publish Project to Nuget
+      run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
       
     #- name: List Files
     #  run: ls -R "$RESULTS_PATH/Binary"
