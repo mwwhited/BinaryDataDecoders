@@ -21,7 +21,11 @@ namespace BinaryDataDecoders.ToolKit
         /// <param name="filename">name of resource</param>
         /// <returns>resource stream</returns>
         public static Stream GetResourceStream(this Type classType, string filename) =>
-             classType.Assembly.GetManifestResourceStream($"{classType.Namespace}.{filename}");
+             classType.Assembly.GetManifestResourceStream($"{classType.Namespace}.{filename}") ??
+             classType.Assembly.GetManifestResourceStream(
+                 classType.Assembly.GetManifestResourceNames()
+                                   .FirstOrDefault(f => f.EndsWith($".{filename}"))
+                 );
 
         /// <summary>
         /// Access stream for resource found in the same name space as the referenced object 

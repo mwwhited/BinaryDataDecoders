@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace BinaryDataDecoders.ToolKit
 {
     public static class ConsoleEx
-    {
+    {        
         public static string? Prompt(string? prompt = null, string? defaultValue = null)
         {
             if (!string.IsNullOrWhiteSpace(prompt))
@@ -45,9 +45,9 @@ namespace BinaryDataDecoders.ToolKit
         public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
         {
             if (!string.IsNullOrWhiteSpace(prompt))
-                Console.Write("{0} ", prompt);
+                Console.Write($"{prompt} ");
             if (!string.IsNullOrWhiteSpace(defaultValue))
-                Console.Write("{0}", new string(hideWith, defaultValue.Length));
+                Console.Write($"{new string(hideWith, defaultValue.Length)}");
 
             var chars = new List<char>(defaultValue ?? "");
             while (true)

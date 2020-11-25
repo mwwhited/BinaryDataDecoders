@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
+
+
     public class RadexOneFactory
     {
         public ISegmenter GetSegmenter(OnSegmentReceived received) =>
@@ -25,13 +27,6 @@ namespace BinaryDataDecoders.Serial.Cli
     {
         public static void Execute()
         {
-            //var ws = Enumerable.Range(0, 100)
-            //                   .Select(i => new WriteSettingsRequest((ushort)i, (AlarmSettings)(i % 4), (ushort)(i * 10)))
-            //                   .ToArray();
-            //var sws = ws.AsSpan();
-            //var swsd = MemoryMarshal.Cast<WriteSettingsRequest, byte>(sws);
-            //var swsa = swsd.ToArray();
-
             var factory = new RadexOneFactory();
             var decoder = new RadexOneDecoder();
 
@@ -107,7 +102,7 @@ namespace BinaryDataDecoders.Serial.Cli
                               Marshal.Copy(ptr, requestBuffer, 0, requestBuffer.Length);
                               Marshal.FreeHGlobal(ptr);
 
-                              var hex = requestBuffer.ToHexString();
+                             // var hex = requestBuffer.ToHexString();
 
                               //7BFF 2000 _600 1800 ____ 4600 __08 _C00 F3F7
                               await port.BaseStream.WriteAsync(requestBuffer, 0, requestBuffer.Length, cts.Token);

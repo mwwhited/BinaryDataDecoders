@@ -6,6 +6,7 @@
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
   </ItemGroup>
