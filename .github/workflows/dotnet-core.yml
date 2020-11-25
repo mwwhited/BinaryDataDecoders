@@ -55,23 +55,23 @@ jobs:
       run: dotnet restore "$BUILD_PROJECT"
     - name: Build Project
       run: dotnet build "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-restore -p:Version=$buildVersion -p:DbVersion=$dacVersion "/bl:logfile=$OUTPUT_PATH/dotnet_build.binlog"
-    - name: Test Project
-      run: dotnet test "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore --nologo --collect:"XPlat Code Coverage" -r "$TEST_RESULTS_PATH" --filter "TestCategory=Unit|TestCategory=Simulate" -s "src/.runsettings" /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true
-    - name: Pack Project
-      run: dotnet pack "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore -o "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
+    #- name: Test Project
+    #  run: dotnet test "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore --nologo --collect:"XPlat Code Coverage" -r "$TEST_RESULTS_PATH" --filter "TestCategory=Unit|TestCategory=Simulate" -s "src/.runsettings" /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true
+    #- name: Pack Project
+    #  run: dotnet pack "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore -o "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
     - name: Publish Project
       run: dotnet publish "$BUILD_PROJECT" -c $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary"
-    - name: Publish Project to Nuget
-      run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+    #- name: Publish Project to Nuget
+    #  run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
       
     - name: List Files
       run: |
         ls -R "$RESULTS_PATH/Binary"
       
-    - name: Build Coverage Report
-      run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
+    #- name: Build Coverage Report
+    #  run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
     - name: Build Reports
-      run: dotnet build "$REPORT_PROJECT" -f netcoreapp3.1 /p:PublishedBinaries="$RESULTS_PATH/Binary" -v n
+      run: dotnet build "$REPORT_PROJECT" -f netcoreapp3.1 -p:PublishedBinaries=$RESULTS_PATH/Binary -v n
 
     - name: Publish Documents
       uses: actions/upload-artifact@v2
