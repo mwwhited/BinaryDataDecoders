@@ -9,7 +9,7 @@
 
     <BddXslBinPath31>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\netcoreapp3.1\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath31>
     <BddXslBinPath5>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net5.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath5>
-    <BddXslBinPathBin>$(PublishedBinaries)/BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPathBin>
+    <BddXslBinPathBin>$([System.IO.Path]::GetFullPath('$(PublishedBinaries)/BinaryDataDecoders.Xslt.Cli.dll'))</BddXslBinPathBin>
     
     <BddXslBinPath Condition="Exists($(BddXslBinPath31))">$(BddXslBinPath31)</BddXslBinPath>
     <BddXslBinPath Condition="Exists($(BddXslBinPath5))">$(BddXslBinPath5)</BddXslBinPath>
@@ -80,7 +80,7 @@
     <Message Text="SolutionPath: $(SolutionPath)" />
     <Message Text="BaseDirectory: $(BaseDirectory)" />
     <Message Text="BddXslBinPathBin: $(BddXslBinPathBin)" />
-    <Message Text="BddXslBinPathBin: $(BddXslBinPath)" />
+    <Message Text="BddXslBinPath: $(BddXslBinPath)" />
 
     <Message Text="Generate Reports: XmlComments to Structured" />
     <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; -i &quot;$(RESULTS_PATH)\Binary\*.xml&quot; -o &quot;$(RESULTS_PATH)\Code\*.xml&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
