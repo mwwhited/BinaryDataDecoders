@@ -9,8 +9,13 @@
 
     <BddXslBinPath31>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\netcoreapp3.1\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath31>
     <BddXslBinPath5>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net5.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath5>
+    <BddXslBinPathBin>$(PublishedBinaries)\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPathBin>
+    
+    
     <BddXslBinPath Condition="Exists($(BddXslBinPath31))">$(BddXslBinPath31)</BddXslBinPath>
     <BddXslBinPath Condition="Exists($(BddXslBinPath5))">$(BddXslBinPath5)</BddXslBinPath>
+    <BddXslBinPath Condition="Exists($(BddXslBinPathBin))">$(BddXslBinPathBin)</BddXslBinPath>
+    
     <BddXslt Condition="'$(BddXslBinPath)'!=''">dotnet &quot;$(BddXslBinPath)&quot;</BddXslt>
 
   </PropertyGroup>
