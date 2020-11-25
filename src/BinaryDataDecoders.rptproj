@@ -79,6 +79,8 @@
     <Message Text="SolutionDir: $(SolutionDir)" />
     <Message Text="SolutionPath: $(SolutionPath)" />
     <Message Text="BaseDirectory: $(BaseDirectory)" />
+    <Message Text="BddXslBinPathBin: $(BddXslBinPathBin)" />
+    <Message Text="BddXslBinPathBin: $(BddXslBinPath)" />
 
     <Message Text="Generate Reports: XmlComments to Structured" />
     <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; -i &quot;$(RESULTS_PATH)\Binary\*.xml&quot; -o &quot;$(RESULTS_PATH)\Code\*.xml&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
