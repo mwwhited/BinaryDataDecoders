@@ -219,8 +219,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.21 | `PoorlyFormedExpressions`                            |
-| ✔ Passed             | 00:00:00.17 | `PoorlyFormedExpressions (-A!)`                      |
+| ✔ Passed             | 00:00:00.10 | `PoorlyFormedExpressions`                            |
+| ✔ Passed             | 00:00:00.07 | `PoorlyFormedExpressions (-A!)`                      |
 | ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions (B/*1)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**)`                      |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**A)`                     |

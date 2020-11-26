@@ -10,8 +10,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.12 | `ParserTest`                                         |
-| ✔ Passed             | 00:00:00.08 | `ParserTest ($.options,:/options)`                   |
+| ✔ Passed             | 00:00:00.13 | `ParserTest`                                         |
+| ✔ Passed             | 00:00:00.09 | `ParserTest ($.options,:/options)`                   |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.options.quantity,:/options/quantity)` |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($.*.quantity,:/*/quantity)`             |
 | ✔ Passed             | 00:00:00.00 | `ParserTest ($..quantity,:////quantity)`             |

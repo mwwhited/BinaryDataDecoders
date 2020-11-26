@@ -34,9 +34,9 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.05 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
-| ✔ Passed             | 00:00:00.01 | `Check Expressions "A*1"`                            |
+| ⚠ Inconclusive       | 00:00:00.03 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.00 | `Check Expressions "A"`                              |
+| ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A-B)/A"`                        |
@@ -120,9 +120,9 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.02 | `OptimizerTests`                                     |
+| ⚠ Inconclusive       | 00:00:00.01 | `OptimizerTests`                                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
-| ✔ Passed             | 00:00:00.01 | `OptimizerTests ((A+(B)),A + B)`                     |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B*1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (1*B,B)`                             |
@@ -201,7 +201,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.01 | `SimpleParserTests`                                  |
+| ⚠ Inconclusive       | 00:00:00.00 | `SimpleParserTests`                                  |
 | ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |

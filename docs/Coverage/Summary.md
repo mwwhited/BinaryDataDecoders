@@ -4,8 +4,8 @@
 
 | Key             | Value                                     |
 | :-------------- | :---------------------------------------- |
-| Generatedon     | `11/26/2020 - 19:04:06`                   |
-| Parser          | `MultiReportParser (42x CoberturaParser)` |
+| Generatedon     | `11/26/2020 - 19:07:18`                   |
+| Parser          | `MultiReportParser (41x CoberturaParser)` |
 | Assemblies      | `50`                                      |
 | Classes         | `316`                                     |
 | Coveredlines    | `3735`                                    |

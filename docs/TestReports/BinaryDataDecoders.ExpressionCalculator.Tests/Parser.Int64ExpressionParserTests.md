@@ -16,7 +16,7 @@
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
 | ⚠ Inconclusive       | 00:00:00.04 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
+| ✔ Passed             | 00:00:00.00 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
@@ -31,7 +31,7 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A*B)*C)*D)+E"`                |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A/B)+(-1*C))*(D*E)*F)+G"`     |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B*(C/D))+E"`                  |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*(B/C)+D)"`                    |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "(A*(B/C)+D)"`                    |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A+B"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A/B)*(C*D)*E)+F"`              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A+((B*C)+D))*E)+F+(C*G)+H"`    |
@@ -101,7 +101,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.01 | `OptimizerTests`                                     |
+| ✔ Passed             | 00:00:00.02 | `OptimizerTests`                                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
@@ -135,7 +135,7 @@
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (-1*(A*B),-(A * B))`                 |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (A!,A!)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A)!,A!)`                           |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests (3!!,720)`                           |
+| ✔ Passed             | 00:00:00.01 | `OptimizerTests (3!!,720)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (2!!!,2)`                            |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!,N!!)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!!,N!!!)`                         |
@@ -155,8 +155,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests`                          |
-| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
+| ✔ Passed             | 00:00:00.01 | `GetDistinctVariablesTests`                          |
+| ✔ Passed             | 00:00:00.01 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+B,A, B)`             |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (Abc+XyW1,Abc, XyW1)`     |
 
