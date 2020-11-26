@@ -74,6 +74,14 @@ jobs:
       with:
         name: BinaryDataDecoders_Documents
         path: Publish/docs/  
+    - name: Commit Documentation and Tag
+      if: github.ref != 'refs/heads/master'
+      uses: EndBug/add-and-commit@v5
+      with:
+        message: '${{env.buildVersion}} (${{env.dacVersion}})'
+        tag: '${{env.buildVersion}}'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     # If master publish the docs
     - name: Update Documentation
