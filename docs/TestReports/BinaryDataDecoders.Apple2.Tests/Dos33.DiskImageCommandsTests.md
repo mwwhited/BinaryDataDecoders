@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetDataFileEntry
-  * BinaryDataDecoders.Apple2, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -36,7 +36,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 ### Targets
 
 * BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetTrackSectorListForFileEntry
-  * BinaryDataDecoders.Apple2, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -61,7 +61,7 @@ TestContext Messages:
 ### Targets
 
 * BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetCatalogs
-  * BinaryDataDecoders.Apple2, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -77,7 +77,7 @@ TestContext Messages:
 ### Targets
 
 * BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetCatalogs
-  * BinaryDataDecoders.Apple2, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -86,7 +86,7 @@ TestContext Messages:
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.01
+* Duration: 00:00:00.02
 
 #### Standard Out
 
