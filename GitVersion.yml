@@ -1,9 +1,10 @@
-next-version: 0.3.0
+#next-version: 0.3.0
 assembly-versioning-scheme: MajorMinorPatchTag
-mode: Mainline
+mode: ContinuousDeployment
 increment: Patch
 branches:
   master:
+    mode: ContinuousDeployment
     tag: rc
   develop:
     mode: ContinuousDeployment
