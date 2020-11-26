@@ -1,11 +1,8 @@
 ﻿using BinaryDataDecoders.Drawing.MultiScaleImages;
-using BinaryDataDecoders.ToolKit;
 using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 
 namespace BinaryDataDecoders.Drawing.Tests.MultiScaleImages
 {
