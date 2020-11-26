@@ -59,7 +59,9 @@ jobs:
     - name: Publish Project
       run: dotnet publish "$BUILD_PROJECT" -c $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary"
 
+    ## Don't publish PR's
     - name: Publish Project to Nuget
+      if: github.event_name != 'pull_request'
       run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
       
     - name: Build Coverage Report
@@ -74,8 +76,8 @@ jobs:
       with:
         name: BinaryDataDecoders_Documents
         path: Publish/docs/  
-    - name: Commit Documentation and Tag
-      if: github.ref != 'refs/heads/master'
+    - name: Commit Tag
+      if: github.ref != 'refs/heads/master' && github.event_name != 'pull_request'
       uses: EndBug/add-and-commit@v5
       with:
         message: '${{env.buildVersion}} (${{env.dacVersion}})'
@@ -85,10 +87,10 @@ jobs:
         
     # If master publish the docs
     - name: Update Documentation
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
       run: rsync -r Publish/docs/ docs
     - name: Commit Documentation and Tag
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
       uses: EndBug/add-and-commit@v5
       with:
         add: 'docs'
