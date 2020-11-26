@@ -66,7 +66,7 @@ Result: 2.1 + 3.4
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.01
+* Duration: 00:00:00.00
 
 #### Standard Out
 
