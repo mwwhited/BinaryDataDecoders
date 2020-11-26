@@ -4,16 +4,16 @@
 
 | Key             | Value                                     |
 | :-------------- | :---------------------------------------- |
-| Generatedon     | `11/26/2020 - 18:13:45`                   |
-| Parser          | `MultiReportParser (39x CoberturaParser)` |
+| Generatedon     | `11/26/2020 - 18:21:04`                   |
+| Parser          | `MultiReportParser (37x CoberturaParser)` |
 | Assemblies      | `50`                                      |
 | Classes         | `316`                                     |
-| Coveredlines    | `3738`                                    |
-| Uncoveredlines  | `4852`                                    |
+| Coveredlines    | `3735`                                    |
+| Uncoveredlines  | `4855`                                    |
 | Coverablelines  | `8590`                                    |
 | Totallines      | `21303`                                   |
-| Linecoverage    | `43.5`                                    |
-| Coveredbranches | `1073`                                    |
+| Linecoverage    | `43.4`                                    |
+| Coveredbranches | `1072`                                    |
 | Totalbranches   | `3179`                                    |
 | Branchcoverage  | `33.7`                                    |
 
@@ -502,12 +502,12 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `15`   |
-| coverage        | `87.7` |
-| coveredlines    | `208`  |
+| coverage        | `86.4` |
+| coveredlines    | `205`  |
 | coverablelines  | `237`  |
 | totallines      | `3811` |
-| branchcoverage  | `50`   |
-| coveredbranches | `21`   |
+| branchcoverage  | `47.6` |
+| coveredbranches | `20`   |
 | totalbranches   | `42`   |
 
 #### Classes
@@ -520,7 +520,7 @@
 | 100        | [Expressions.ExpressionBaseTests](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionBaseTests.md) |
 | 100        | [Expressions.NumberExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_NumberExpressionTests.md) |
 | 84         | [Expressions.VariableExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_VariableExpressionTests.md) |
-| 75.2       | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
+| 72         | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
 | 100        | [Parser.Int16ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int16ExpressionParserTests.md) |
 | 100        | [Parser.Int32ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int32ExpressionParserTests.md) |
 | 100        | [Parser.Int64ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int64ExpressionParserTests.md) |
