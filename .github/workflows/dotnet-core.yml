@@ -32,7 +32,6 @@ jobs:
         BUILD_PROJECT=src/BinaryDataDecoders.slnproj
         REPORT_PROJECT=src/BinaryDataDecoders.rptproj
         BUILD_CONFIGURATION=Release
-        git fetch --prune
         dotnet tool restore
         buildVersion=`dotnet gitversion /output json /showvariable FullSemVer`
         dacVersion=`dotnet gitversion /output json /showvariable AssemblySemVer`
@@ -49,11 +48,6 @@ jobs:
         echo "DOCS_PATH=$DOCS_PATH" >> $GITHUB_ENV 
         echo "RESULTS_PATH=$RESULTS_PATH" >> $GITHUB_ENV        
 
-    #- name: Clean Project
-    #  run: dotnet clean "$BUILD_PROJECT"
-    #- name: Clean Reports
-    #  run: dotnet clean "$REPORT_PROJECT"
-            
     - name: Restore Project
       run: dotnet restore "$BUILD_PROJECT"
     - name: Build Project
@@ -64,21 +58,29 @@ jobs:
       run: dotnet pack "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore -o "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
     - name: Publish Project
       run: dotnet publish "$BUILD_PROJECT" -c $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary"
+
     - name: Publish Project to Nuget
       run: dotnet nuget push "$OUTPUT_PATH/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
-      
-    #- name: List Files
-    #  run: ls -R "$RESULTS_PATH/Binary"
       
     - name: Build Coverage Report
       run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
     - name: Build Reports
       run: dotnet build "$REPORT_PROJECT" -f netcoreapp3.1 -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src -v n
+      
+    ## If not master just attach the docs as an artifact
+    - name: Publish Documents
+      if: github.ref != 'refs/heads/master'
+      uses: actions/upload-artifact@v2
+      with:
+        name: BinaryDataDecoders_Documents
+        path: Publish/docs/  
         
+    # If master publish the docs
     - name: Update Documentation
+      if: github.ref == 'refs/heads/master'
       run: rsync -r Publish/docs/ docs
-
     - name: Commit Documentation and Tag
+      if: github.ref == 'refs/heads/master'
       uses: EndBug/add-and-commit@v5
       with:
         add: 'docs'
