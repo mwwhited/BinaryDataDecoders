@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.2.2-beta.4"
+ - "0.2.2-dev-ChangeMasterToRC.6"
  - )
  - System
  - .
