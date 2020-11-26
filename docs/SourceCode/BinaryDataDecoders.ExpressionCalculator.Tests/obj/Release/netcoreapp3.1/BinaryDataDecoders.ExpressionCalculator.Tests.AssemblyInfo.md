@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.3.0-dev-ChangeMasterToRC.9"
+ - "0.3.0-rc.4"
  - )
  - System
  - .

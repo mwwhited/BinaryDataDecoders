@@ -67,7 +67,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests`                          |
+| ✔ Passed             | 00:00:00.01 | `GetDistinctVariablesTests`                          |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+B,A, B)`             |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (Abc+XyW1,Abc, XyW1)`     |
@@ -106,7 +106,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.02 | `VerifyOptimizerForComplexExpressions`               |
+| ⚠ Inconclusive       | 00:00:00.06 | `VerifyOptimizerForComplexExpressions`               |
 | ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
@@ -138,7 +138,7 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A+(-1*B))+((C*D)+E))*F+G+((A+(-1*B))+((C*D)+E))*H+I"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A*(B+(-1*C)))+D)+((E*(B+(-1*C)))+F)"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*((((B+(-1*C))*D)+E)+((F*((G*H)+I))+J))+K)+(-1*((B+(-1*C))+(-1*(((B+(-1*C))*D)+E))))"` |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*((B+(-1*C))+((D*E)+F))+G)+(H*((B+(-1*C))+((D*E)+F)+(A*((B+(-1*C))+((D*E)+F))+G))+I)"` |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "(A*((B+(-1*C))+((D*E)+F))+G)+(H*((B+(-1*C))+((D*E)+F)+(A*((B+(-1*C))+((D*E)+F))+G))+I)"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*((B+(-1*C))*D+E+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E))))+I*((B+(-1*C))*J+K+(F*G)+H+(A*((((B+(-1*C))*D)+E)+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E)))))+L"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A+(-1*B))*C)+D)+(B+(-1*A))"`  |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A*(((B*C)+D)+(E*F)))+(-1*(B*(1+(-1*C))+D)+G))"` |
@@ -192,13 +192,13 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.01 | `OptimizerTests`                                     |
+| ✔ Passed             | 00:00:00.04 | `OptimizerTests`                                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B*1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (1*B,B)`                             |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests (B*-1,-B)`                           |
+| ✔ Passed             | 00:00:00.01 | `OptimizerTests (B*-1,-B)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (-1*B,-B)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B/1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B/-1,-B)`                           |
@@ -226,7 +226,7 @@
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (-1*(A*B),-(A * B))`                 |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (A!,A!)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A)!,A!)`                           |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests (3!!,720)`                           |
+| ✔ Passed             | 00:00:00.02 | `OptimizerTests (3!!,720)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (2!!!,2)`                            |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!,N!!)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!!,N!!!)`                         |

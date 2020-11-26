@@ -140,8 +140,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.02 | `GetDistinctVariablesTests`                          |
-| ✔ Passed             | 00:00:00.02 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests`                          |
+| ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+C,A, B, C)`          |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (A+B+B,A, B)`             |
 | ✔ Passed             | 00:00:00.00 | `GetDistinctVariablesTests (Abc+XyW1,Abc, XyW1)`     |
 
@@ -160,8 +160,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.03 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
+| ⚠ Inconclusive       | 00:00:00.02 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.00 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
