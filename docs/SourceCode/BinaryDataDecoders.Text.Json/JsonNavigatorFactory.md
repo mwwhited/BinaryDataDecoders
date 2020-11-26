@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\JsonNavigatorFactory.cs
+* Path: src/BinaryDataDecoders.Text.Json/JsonNavigatorFactory.cs
 
 ## Public Static Class - JsonNavigatorFactory
 

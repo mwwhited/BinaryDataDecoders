@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathException.cs
+* Path: src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPathException.cs
 
 ## Public Class - JsonPathException
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Xml\XPath\INode.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Xml/XPath/INode.cs
 
 ## Public Interface - INode
 

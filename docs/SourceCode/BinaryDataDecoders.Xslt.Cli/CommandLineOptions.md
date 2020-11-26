@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Xslt.Cli\CommandLineOptions.cs
+* Path: src/BinaryDataDecoders.Xslt.Cli/CommandLineOptions.cs
 
 ## Public Class - CommandLineOptions
 

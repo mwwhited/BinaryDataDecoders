@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Segmenters\SegmenterBase.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Segmenters/SegmenterBase.cs
 
 ## Public Class - SegmenterBase
 

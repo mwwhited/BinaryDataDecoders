@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Segmenters\SegmentReadResult.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Segmenters/SegmentReadResult.cs
 
 ## Internal Class - SegmentReadResult
 

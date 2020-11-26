@@ -27,7 +27,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segmenters\StartAndFixLengthSegmenter.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Pipelines/Segmenters/StartAndFixLengthSegmenter.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Pipelines.Definitions;

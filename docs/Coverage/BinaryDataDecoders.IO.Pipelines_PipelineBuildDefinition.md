@@ -29,7 +29,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\PipelineBuildDefinition.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Pipelines/Definitions/PipelineBuildDefinition.cs
 
 ```CSharp
 〰1:   using System.IO.Pipelines;

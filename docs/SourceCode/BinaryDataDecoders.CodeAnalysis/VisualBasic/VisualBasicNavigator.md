@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\VisualBasic\VisualBasicNavigator.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/VisualBasic/VisualBasicNavigator.cs
 
 ## Public Class - VisualBasicNavigator
 

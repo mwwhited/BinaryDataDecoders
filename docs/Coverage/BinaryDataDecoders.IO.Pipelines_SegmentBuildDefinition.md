@@ -28,7 +28,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\SegmentBuildDefinition.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Pipelines/Definitions/SegmentBuildDefinition.cs
 
 ```CSharp
 〰1:   namespace BinaryDataDecoders.IO.Pipelines.Definitions

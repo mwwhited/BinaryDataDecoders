@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\IO\StreamEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/IO/StreamEx.cs
 
 ## Public Static Class - StreamEx
 

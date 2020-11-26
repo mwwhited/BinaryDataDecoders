@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleSignificantWhitespaceNode.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleSignificantWhitespaceNode.cs
 
 ## Internal Class - ExtensibleSignificantWhitespaceNode
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Xml\XPath\INamespaceNode.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Xml/XPath/INamespaceNode.cs
 
 ## Public Interface - INamespaceNode
 

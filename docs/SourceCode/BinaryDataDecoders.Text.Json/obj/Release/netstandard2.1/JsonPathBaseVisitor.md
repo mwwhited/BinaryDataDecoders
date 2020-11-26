@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\obj\Release\netstandard2.1\JsonPathBaseVisitor.cs
+* Path: src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathBaseVisitor.cs
 
 ## Public Class - JsonPathBaseVisitor
 

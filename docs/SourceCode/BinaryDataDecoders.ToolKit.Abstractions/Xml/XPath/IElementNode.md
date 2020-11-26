@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Xml\XPath\IElementNode.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Xml/XPath/IElementNode.cs
 
 ## Public Interface - IElementNode
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json.Tests\JsonPath\Parser\JsonPathFactoryTests.cs
+* Path: src/BinaryDataDecoders.Text.Json.Tests/JsonPath/Parser/JsonPathFactoryTests.cs
 
 ## Public Class - JsonPathFactoryTests
 

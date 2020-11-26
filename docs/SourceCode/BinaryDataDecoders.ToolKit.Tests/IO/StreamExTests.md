@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\IO\StreamExTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/IO/StreamExTests.cs
 
 ## Public Class - StreamExTests
 

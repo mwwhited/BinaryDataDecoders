@@ -22,7 +22,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\ResetAccumulatedResponse.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Quarta.RadexOne/ResetAccumulatedResponse.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Messages;

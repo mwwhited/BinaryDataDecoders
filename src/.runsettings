@@ -11,7 +11,7 @@ https://github.com/coverlet-coverage/coverlet/blob/fc7ec26dcaed8fedba880ff13c6f1
 	<!-- Configurations that affect the Test Framework -->
 	<RunConfiguration>
 		<MaxCpuCount>10</MaxCpuCount>
-    <TestSessionTimeout>10000</TestSessionTimeout>
+    <TestSessionTimeout>600000</TestSessionTimeout>
 	</RunConfiguration>
 
 	<!--Configurations for data collectors-->

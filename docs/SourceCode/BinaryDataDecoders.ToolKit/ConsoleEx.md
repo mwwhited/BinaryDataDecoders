@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\ConsoleEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/ConsoleEx.cs
 
 ## Public Static Class - ConsoleEx
 

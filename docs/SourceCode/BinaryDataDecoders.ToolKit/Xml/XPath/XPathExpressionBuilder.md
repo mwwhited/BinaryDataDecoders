@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\XPathExpressionBuilder.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/XPathExpressionBuilder.cs
 
 ## Public Class - XPathExpressionBuilder
 

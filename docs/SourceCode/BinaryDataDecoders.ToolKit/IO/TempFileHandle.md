@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\IO\TempFileHandle.cs
+* Path: src/BinaryDataDecoders.ToolKit/IO/TempFileHandle.cs
 
 ## Public Class - TempFileHandle
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\ExpressionBase.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/ExpressionBase.cs
 
 ## Public Class - ExpressionBase
 

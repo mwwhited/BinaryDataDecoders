@@ -31,7 +31,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\obj\Release\netstandard2.1\JsonPathLexer.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathLexer.cs
 
 ```CSharp
 〰1:   //------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
 〰8:   // </auto-generated>
 〰9:   //------------------------------------------------------------------------------
 〰10:  
-〰11:  // Generated from C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPath.g4 by ANTLR 4.8
+〰11:  // Generated from /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPath.g4 by ANTLR 4.8
 〰12:  
 〰13:  // Unreachable code detected
 〰14:  #pragma warning disable 0162

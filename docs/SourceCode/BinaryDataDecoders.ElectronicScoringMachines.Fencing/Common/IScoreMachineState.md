@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Common\IScoreMachineState.cs
+* Path: src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/IScoreMachineState.cs
 
 ## Public Interface - IScoreMachineState
 

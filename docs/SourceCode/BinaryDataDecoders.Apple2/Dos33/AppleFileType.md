@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Apple2\Dos33\AppleFileType.cs
+* Path: src/BinaryDataDecoders.Apple2/Dos33/AppleFileType.cs
 
 ## Public Enumeration - AppleFileType
 

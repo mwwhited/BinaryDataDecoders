@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\CSharp\CSharpSementicNavigator.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/CSharp/CSharpSementicNavigator.cs
 
 ## Public Class - CSharpSementicNavigator
 

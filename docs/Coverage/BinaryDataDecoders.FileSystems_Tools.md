@@ -27,7 +27,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\Tools.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.FileSystems/Iso9660/Tools.cs
 
 ```CSharp
 〰1:   using System;

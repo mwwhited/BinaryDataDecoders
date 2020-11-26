@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Xml\Xsl\IXsltTransformer.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Xml/Xsl/IXsltTransformer.cs
 
 ## Public Interface - IXsltTransformer
 

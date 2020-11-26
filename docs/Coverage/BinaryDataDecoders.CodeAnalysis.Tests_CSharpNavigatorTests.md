@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis.Tests\CSharp\CSharpNavigatorTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis.Tests/CSharp/CSharpNavigatorTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.TestUtilities;

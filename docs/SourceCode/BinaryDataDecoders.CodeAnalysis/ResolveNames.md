@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\ResolveNames.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/ResolveNames.cs
 
 ## Public Static Class - ResolveNames
 

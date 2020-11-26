@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\IO\PathExTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/IO/PathExTests.cs
 
 ## Public Class - PathExTests
 

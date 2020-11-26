@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Common\Cards.cs
+* Path: src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/Cards.cs
 
 ## Public Enumeration - Cards
 

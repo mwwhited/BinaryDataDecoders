@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit.Tests\IO\PathNavigatorFactoryTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Tests/IO/PathNavigatorFactoryTests.cs
 
 ```CSharp
 〰1:   using Microsoft.VisualStudio.TestTools.UnitTesting;

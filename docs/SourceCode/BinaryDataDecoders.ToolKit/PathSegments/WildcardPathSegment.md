@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\WildcardPathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/WildcardPathSegment.cs
 
 ## Public Class - WildcardPathSegment
 

@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.Apple2.ApplesoftBASIC::Detokenizer::GetLines
-  * BinaryDataDecoders.Apple2, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.02
+* Duration: 00:00:00.00
 
 #### Standard Out
 

@@ -45,7 +45,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.FileSystems\Iso9660\DirectoryRecord.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.FileSystems/Iso9660/DirectoryRecord.cs
 
 ```CSharp
 〰1:   using System;

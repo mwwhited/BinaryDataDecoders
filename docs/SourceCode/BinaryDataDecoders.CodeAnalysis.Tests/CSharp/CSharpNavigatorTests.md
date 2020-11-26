@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis.Tests\CSharp\CSharpNavigatorTests.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis.Tests/CSharp/CSharpNavigatorTests.cs
 
 ## Public Class - CSharpNavigatorTests
 

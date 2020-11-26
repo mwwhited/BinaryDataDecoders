@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\EFileShare.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/EFileShare.cs
 
 ## Public Enumeration - EFileShare
 

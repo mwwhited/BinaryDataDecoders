@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\CSharp\CSharpNavigator.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/CSharp/CSharpNavigator.cs
 
 ## Public Class - CSharpNavigator
 

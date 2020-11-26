@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator.Tests\Expressions\NumberExpressionTests.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator.Tests/Expressions/NumberExpressionTests.cs
 
 ## Public Class - NumberExpressionTests
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Html.Tests\UnitTest1.cs
+* Path: src/BinaryDataDecoders.Templating.Html.Tests/UnitTest1.cs
 
 ## Public Class - UnitTest1
 

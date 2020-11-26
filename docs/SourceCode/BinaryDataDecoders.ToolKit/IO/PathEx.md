@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\IO\PathEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/IO/PathEx.cs
 
 ## Public Static Class - PathEx
 
@@ -30,6 +30,12 @@
  - this string path 
 
 #### Public Static Method - EndsInDirectorySeparator
+
+#####  Parameters
+
+ - string path 
+
+#### Public Static Method - FixUpPath
 
 #####  Parameters
 

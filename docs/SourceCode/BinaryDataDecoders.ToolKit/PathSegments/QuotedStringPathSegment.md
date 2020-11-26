@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\QuotedStringPathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/QuotedStringPathSegment.cs
 
 ## Public Class - QuotedStringPathSegment
 

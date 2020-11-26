@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.Text.Json::JsonNavigatorFactory::ToNavigable
-  * BinaryDataDecoders.Text.Json, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Text.Json, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.23
+* Duration: 00:00:00.07
 
 #### Standard Out
 

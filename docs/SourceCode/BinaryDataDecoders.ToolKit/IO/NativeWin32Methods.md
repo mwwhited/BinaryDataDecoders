@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\IO\NativeWin32Methods.cs
+* Path: src/BinaryDataDecoders.ToolKit/IO/NativeWin32Methods.cs
 
 ## Internal Class - NativeWin32Methods
 

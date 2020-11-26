@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\Xml\Linq\ObjectXmlExtensionsTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs
 
 ## Public Class - ObjectXmlExtensionsTests
 

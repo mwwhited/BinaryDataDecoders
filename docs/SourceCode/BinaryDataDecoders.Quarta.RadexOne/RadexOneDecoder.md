@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Quarta.RadexOne\RadexOneDecoder.cs
+* Path: src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDecoder.cs
 
 ## Public Class - RadexOneDecoder
 

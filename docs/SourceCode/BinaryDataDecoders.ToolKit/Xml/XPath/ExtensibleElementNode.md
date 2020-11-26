@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleElementNode.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleElementNode.cs
 
 ## Public Class - ExtensibleElementNode
 

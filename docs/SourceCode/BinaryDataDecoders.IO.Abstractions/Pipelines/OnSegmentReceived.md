@@ -3,5 +3,5 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Pipelines\OnSegmentReceived.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Pipelines/OnSegmentReceived.cs
 

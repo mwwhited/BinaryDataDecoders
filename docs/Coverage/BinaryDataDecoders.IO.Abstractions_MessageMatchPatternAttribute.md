@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Abstractions\Messages\MessageMatchPatternAttribute.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Abstractions/Messages/MessageMatchPatternAttribute.cs
 
 ```CSharp
 〰1:   using System;

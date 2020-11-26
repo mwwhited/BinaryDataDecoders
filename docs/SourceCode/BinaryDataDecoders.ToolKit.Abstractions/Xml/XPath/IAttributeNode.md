@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Xml\XPath\IAttributeNode.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Xml/XPath/IAttributeNode.cs
 
 ## Public Interface - IAttributeNode
 

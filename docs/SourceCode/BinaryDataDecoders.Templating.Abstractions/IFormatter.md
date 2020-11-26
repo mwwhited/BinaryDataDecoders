@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Abstractions\IFormatter.cs
+* Path: src/BinaryDataDecoders.Templating.Abstractions/IFormatter.cs
 
 ## Public Interface - IFormatter
 

@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography.Tests\Lorenz\LorenzMachineTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Cryptography.Tests/Lorenz/LorenzMachineTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.Cryptography.Lorenz;

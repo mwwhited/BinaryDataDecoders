@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Reflection\ReflectionElementNodeBuilder.cs
+* Path: src/BinaryDataDecoders.ToolKit/Reflection/ReflectionElementNodeBuilder.cs
 
 ## Public Class - ReflectionElementNodeBuilder
 

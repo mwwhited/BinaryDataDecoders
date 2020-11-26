@@ -28,7 +28,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\SemanticModelNavigatorFactory.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Xml.XPath;

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Definitions\OnPipelineErrorExtensions.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Definitions/OnPipelineErrorExtensions.cs
 
 ## Internal Static Class - OnPipelineErrorExtensions
 

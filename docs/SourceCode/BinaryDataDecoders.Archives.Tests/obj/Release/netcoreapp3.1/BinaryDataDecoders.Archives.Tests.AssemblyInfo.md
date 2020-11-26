@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives.Tests\obj\Release\netcoreapp3.1\BinaryDataDecoders.Archives.Tests.AssemblyInfo.cs
+* Path: src/BinaryDataDecoders.Archives.Tests/obj/Release/netcoreapp3.1/BinaryDataDecoders.Archives.Tests.AssemblyInfo.cs
 
 ### Attributes
 
@@ -37,7 +37,7 @@
  - .
  - AssemblyFileVersionAttribute
  - (
- - "0.2.0.0"
+ - "0.2.2.0"
  - )
  - System
  - .
@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.2.0-beta.221"
+ - "0.2.2-dev-UpdateBuildScript.2"
  - )
  - System
  - .
@@ -69,16 +69,6 @@
  - .
  - AssemblyVersionAttribute
  - (
- - "0.2.0.0"
- - )
- - System
- - .
- - Reflection
- - .
- - AssemblyMetadataAttribute
- - (
- - "RepositoryUrl"
- - ,
- - "https://github.com/mwwhited/BinaryDataDecoders/"
+ - "0.2.2.0"
  - )
 

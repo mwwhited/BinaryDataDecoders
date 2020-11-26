@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\SemanticModelNavigatorFactory.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.cs
 
 ## Public Static Class - SemanticModelNavigatorFactory
 

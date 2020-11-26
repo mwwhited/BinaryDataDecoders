@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Ports\Parity.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Ports/Parity.cs
 
 ## Public Enumeration - Parity
 

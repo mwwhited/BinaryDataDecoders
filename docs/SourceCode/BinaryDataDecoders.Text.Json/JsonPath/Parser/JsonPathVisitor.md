@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathVisitor.cs
+* Path: src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPathVisitor.cs
 
 ## Public Class - JsonPathVisitor
 

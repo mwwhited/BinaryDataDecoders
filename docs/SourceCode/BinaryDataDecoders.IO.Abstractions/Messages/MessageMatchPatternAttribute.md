@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Messages\MessageMatchPatternAttribute.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Messages/MessageMatchPatternAttribute.cs
 
 ## Public Class - MessageMatchPatternAttribute
 

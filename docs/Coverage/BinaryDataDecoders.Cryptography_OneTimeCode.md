@@ -30,7 +30,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography\OneTimeCode.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Cryptography/OneTimeCode.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Codecs;

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleAttributeNode.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleAttributeNode.cs
 
 ## Internal Class - ExtensibleAttributeNode
 
