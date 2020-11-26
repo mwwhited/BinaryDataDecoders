@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.2.2-dev-BuildTest.3"
+ - "0.2.2-dev-BuildTest.7"
  - )
  - System
  - .
