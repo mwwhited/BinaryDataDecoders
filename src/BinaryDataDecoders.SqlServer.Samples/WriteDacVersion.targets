@@ -15,7 +15,7 @@
 DECLARE @DacVersion NVARCHAR(50)=&apos;$(DacVersion)&apos;;
 DECLARE @BuildVersion NVARCHAR(50)=&apos;$(Version)&apos;;
       </DatabaseVersionScript>
-      <SetDacVersionFile>$(ProjectDir)Scripts\PostDeployment\SetDacVersion.sql</SetDacVersionFile>
+      <SetDacVersionFile>$(ProjectDir)Scripts/PostDeployment/SetDacVersion.sql</SetDacVersionFile>
     </PropertyGroup>
     <Message Text="Writing $(SetDacVersionFile)" />
     <Message Text="Versions: $(DacVersion) = $(Version)" />
