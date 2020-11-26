@@ -46,8 +46,8 @@ jobs:
         echo "DOCS_PATH=$DOCS_PATH" >> $GITHUB_ENV 
         echo "RESULTS_PATH=$RESULTS_PATH" >> $GITHUB_ENV        
 
-    - name: Clean Project
-      run: dotnet clean "$BUILD_PROJECT"
+    #- name: Clean Project
+    #  run: dotnet clean "$BUILD_PROJECT"
     #- name: Clean Reports
     #  run: dotnet clean "$REPORT_PROJECT"
             
@@ -77,29 +77,4 @@ jobs:
       with:
         name: BinaryDataDecoders_Documents
         path: Publish/docs/      
-      
-    #- name: Build Project
-    #  run: |
-    #    cd ./src
-    #    chmod +x build.sh
-    #    ./build.sh
-    #    dotnet nuget push "../Publish/Nuget/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
-
-    #- name: Publish Documents
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: BinaryDataDecoders_Documents
-    #    path: Publish/docs/
-        
-    #- name: Publish Nuget Packages
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: BinaryDataDecoders_Packages
-    #    path: Publish/Nuget/
-        
-    #- name: Publish Test Results
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: BinaryDataDecoders_TestResults
-    #    path: Publish/TestResults/
 

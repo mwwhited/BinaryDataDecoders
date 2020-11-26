@@ -59,7 +59,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 		Directory.Packages.props = Directory.Packages.props
-		GitVersion.yml = GitVersion.yml
 		global.json = global.json
 		Notes.md = Notes.md
 	EndProjectSection
@@ -124,6 +123,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "parent", "parent", "{E76B3A
 		..\.editorconfig = ..\.editorconfig
 		..\.gitignore = ..\.gitignore
 		..\act_build.sh = ..\act_build.sh
+		..\GitVersion.yml = ..\GitVersion.yml
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
@@ -174,15 +174,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Drawing.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Net", "BinaryDataDecoders.Net\BinaryDataDecoders.Net.csproj", "{C4CC1AFC-FBB5-4969-B88B-D8FA42818449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Ports", "BinaryDataDecoders.IO.Ports\BinaryDataDecoders.IO.Ports.csproj", "{966D2EF6-C2BD-471A-A5CC-0C5DD06455F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Ports", "BinaryDataDecoders.IO.Ports\BinaryDataDecoders.IO.Ports.csproj", "{966D2EF6-C2BD-471A-A5CC-0C5DD06455F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.Ports.Tests", "BinaryDataDecoders.IO.Ports.Tests\BinaryDataDecoders.IO.Ports.Tests.csproj", "{36577E40-B7B5-4558-94E7-163F51E9A9C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Ports.Tests", "BinaryDataDecoders.IO.Ports.Tests\BinaryDataDecoders.IO.Ports.Tests.csproj", "{36577E40-B7B5-4558-94E7-163F51E9A9C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IO", "IO", "{B6086859-E23C-4CC0-8D01-7F023863FAD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.UsbHids", "BinaryDataDecoders.IO.UsbHids\BinaryDataDecoders.IO.UsbHids.csproj", "{6FD06250-A534-4F90-AC4D-B5BC2083D82B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.UsbHids", "BinaryDataDecoders.IO.UsbHids\BinaryDataDecoders.IO.UsbHids.csproj", "{6FD06250-A534-4F90-AC4D-B5BC2083D82B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.IO.UsbHids.Tests", "BinaryDataDecoders.IO.UsbHids.Tests\BinaryDataDecoders.IO.UsbHids.Tests.csproj", "{9DA77566-ACCD-4AB7-A659-1E93EE98E331}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.UsbHids.Tests", "BinaryDataDecoders.IO.UsbHids.Tests\BinaryDataDecoders.IO.UsbHids.Tests.csproj", "{9DA77566-ACCD-4AB7-A659-1E93EE98E331}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
