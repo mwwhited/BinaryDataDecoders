@@ -2,8 +2,8 @@ assembly-versioning-scheme: MajorMinorPatchTag
 mode: ContinuousDeployment
 branches:
   master:
-    mode: ContinuousDeployment
-    tag: beta
+    mode: Mainline
+    tag: rc
 ignore:
   sha: []
 merge-message-formats: {}
