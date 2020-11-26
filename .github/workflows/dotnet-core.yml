@@ -88,8 +88,8 @@ jobs:
       uses: EndBug/add-and-commit@v5
       with:
         add: 'docs'
-        message: '$buildVersion ($dacVersion)'
-        tag: '$buildVersion'
+        message: $buildVersion ($dacVersion)
+        tag: $buildVersion
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
