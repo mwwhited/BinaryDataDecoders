@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -8,10 +8,34 @@
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Remove="Notes\Bearing.cs" />
+	  <Compile Remove="Notes\Degree.cs" />
+	  <Compile Remove="Notes\GeneralHeading.cs" />
+	  <Compile Remove="Notes\Gprmc.cs" />
+	  <Compile Remove="Notes\HIDImports.cs" />
+	  <Compile Remove="Notes\Program.cs" />
+	  <Compile Remove="Notes\ROOT.CIMV2.Win32_ComputerSystem.cs" />
+	  <Compile Remove="Notes\ROOT.CIMV2.Win32_PnPEntity.cs" />
+	  <Compile Remove="Notes\ROOT.CIMV2.Win32_USBController.cs" />
+	</ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj"/>
-    <ProjectReference Include="..\BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj"/>
-    <ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj"/>
+    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Notes\Bearing.cs" />
+    <None Include="Notes\Degree.cs" />
+    <None Include="Notes\GeneralHeading.cs" />
+    <None Include="Notes\Gprmc.cs" />
+    <None Include="Notes\HIDImports.cs" />
+    <None Include="Notes\Program.cs" />
+    <None Include="Notes\ROOT.CIMV2.Win32_ComputerSystem.cs" />
+    <None Include="Notes\ROOT.CIMV2.Win32_PnPEntity.cs" />
+    <None Include="Notes\ROOT.CIMV2.Win32_USBController.cs" />
   </ItemGroup>
 
 </Project>
