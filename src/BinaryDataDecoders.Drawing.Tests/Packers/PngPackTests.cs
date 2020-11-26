@@ -15,7 +15,7 @@ namespace BinaryDataDecoders.Drawing.Tests.Packers
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void PngPackTest()
         {
             var sourceFileName = "TestData.DSC_4668.JPG";

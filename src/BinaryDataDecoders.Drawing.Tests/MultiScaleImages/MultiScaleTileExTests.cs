@@ -11,7 +11,7 @@ namespace BinaryDataDecoders.Drawing.Tests.MultiScaleImages
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void TestTileCreate()
         {
             var sourceFileName = "TestData.DSC_4668.JPG";

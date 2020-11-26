@@ -2,8 +2,12 @@
 <Project DefaultTargets="WriteDacVersion" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <Target Name="WriteDacVersion">
     <PropertyGroup>
-      <DacVersion Condition="'$(DacVersion)'==''">0.0.0.1</DacVersion>
-      <Version Condition="'$(Version)'==''">0.0.0-LocalDev+0</Version>
+
+      <DacVersion Condition="'$(DacVersion)'=='0.0.0.1'"></DacVersion>
+      <Version Condition="'$(DacVersion)'==''"></Version>
+
+      <DacVersion Condition="'$(DacVersion)'==''">0.0.0.0</DacVersion>
+      <Version Condition="'$(Version)'==''">0.0.0-Local+0</Version>
     </PropertyGroup>
     <PropertyGroup>
       <DatabaseVersionScript>
@@ -11,14 +15,12 @@
 DECLARE @DacVersion NVARCHAR(50)=&apos;$(DacVersion)&apos;;
 DECLARE @BuildVersion NVARCHAR(50)=&apos;$(Version)&apos;;
       </DatabaseVersionScript>
+      <SetDacVersionFile>$(ProjectDir)Scripts\PostDeployment\SetDacVersion.sql</SetDacVersionFile>
     </PropertyGroup>
-    <!--BaseIntermediateOutputPath-->
-    <Message Text="Writing $(BaseIntermediateOutputPath)\SetDacVersion.sql" />
-    <!--<Message Text="Writing $(ProjectDir)Scripts\PostDeployment\SetDacVersion.sql" />-->
+    <Message Text="Writing $(SetDacVersionFile)" />
     <Message Text="Versions: $(DacVersion) = $(Version)" />
-    <!--File="$(ProjectDir)Scripts\PostDeployment\SetDacVersion.sql"-->
     <WriteLinesToFile
-        File="$(BaseIntermediateOutputPath)\SetDacVersion.sql"
+        File="$(SetDacVersionFile)"
         Lines="$(DatabaseVersionScript)"
         Overwrite="true"
         Encoding="Unicode" />

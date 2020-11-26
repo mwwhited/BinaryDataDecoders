@@ -85,7 +85,7 @@ IDeviceReceiver <|-- SaintGeorgeDevice
 
 class Nmea0183Device {
     {static} @SerialPort(9600,N,8,1)
-    {static} @UsbHid(4451, 512)
+    {static} @UsbHid(4451, 512) #DeLorme
 }
 IDeviceReceiver <|-- Nmea0183Device
 

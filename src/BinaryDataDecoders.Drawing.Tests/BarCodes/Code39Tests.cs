@@ -16,7 +16,7 @@ namespace BinaryDataDecoders.Drawing.Tests.BarCodes
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void Test()
         {
 
