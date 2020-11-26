@@ -37,7 +37,7 @@
  - .
  - AssemblyFileVersionAttribute
  - (
- - "0.2.2.0"
+ - "0.3.0.0"
  - )
  - System
  - .
@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.2.2-beta.11"
+ - "0.3.0-dev-ChangeMasterToRC.9"
  - )
  - System
  - .
@@ -69,6 +69,6 @@
  - .
  - AssemblyVersionAttribute
  - (
- - "0.2.2.0"
+ - "0.3.0.0"
  - )
 
