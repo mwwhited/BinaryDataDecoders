@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.IO.Ports;
+using BinaryDataDecoders.IO.UsbHids;
 using BinaryDataDecoders.ToolKit;
 using HidSharp;
 using System;
@@ -10,103 +11,8 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Velleman.K8055
 {
-    [Flags]
-    public enum DigitalInputs : byte
-    {
-        I1 = 0x10,
-        I2 = 0x20,
-        I3 = 0x01,
-        I4 = 0x40,
-        I5 = 0x80,
-    }
 
-    [Flags]
-    public enum DigitalOutputs : byte
-    {
-        O1 = 0x01,
-        O2 = 0x02,
-        O3 = 0x04,
-        O4 = 0x08,
-        O5 = 0x10,
-        O6 = 0x20,
-        O7 = 0x40,
-        O8 = 0x80,
-    }
-
-    public enum Commands : byte
-    {
-        None = 0x00,
-        ResetCounter1 = 0x03,
-        ResetCounter2 = 0x04,
-        SetAnalogDigital = 0x05,
-    }
-    public interface IK8055Object
-    {
-    }
-    [StructLayout(LayoutKind.Explicit, Size = 9)]
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-    public struct K8055Response : IK8055Object
-    {
-        // 00-00-04-04-fd-0a-00-0b-00
-        [FieldOffset(0)]
-        public byte ReportId;
-        [FieldOffset(1)]
-        public DigitalInputs DigitalInputs;
-        [FieldOffset(2)]
-        public byte Reserved2;
-        [FieldOffset(3)]
-        public byte Analog1;
-        [FieldOffset(4)]
-        public byte Analog2;
-        [FieldOffset(5)]
-        public ushort Counter1;
-        [FieldOffset(6)]
-        public byte Reserved6;
-        [FieldOffset(7)]
-        public ushort Counter2;
-        [FieldOffset(8)]
-        public byte Reserved8;
-
-        public override string ToString() => new
-        {
-            ReportId,
-            DigitalInputs,
-            Reserved2,
-            Analog1,
-            Analog2,
-            Counter1,
-            Reserved6,
-            Counter2,
-            Reserved8,
-        }.ToString();
-    }
-
-    [StructLayout(LayoutKind.Explicit, Size = 9)]
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-    public struct K8055Request : IK8055Object
-    {
-        // 00-00-04-04-fd-0a-00-0b-00
-        [FieldOffset(0)]
-        public byte ReportId;
-        [FieldOffset(1)]
-        public Commands Command;
-        [FieldOffset(2)]
-        public DigitalOutputs Outputs;
-        [FieldOffset(3)]
-        public byte Analog1;
-        [FieldOffset(4)]
-        public byte Analog2;
-        [FieldOffset(5)]
-        public byte Reserved5;
-        [FieldOffset(6)]
-        public byte Reserved6;
-        [FieldOffset(7)]
-        public byte Debounce1;
-        [FieldOffset(8)]
-        public byte Debounce2;
-    }
-
-    [UsbHid(VendorId = 0x10cf, ProductId = 0x5500, ProductMask = 0xfff8)]
+    [UsbHid(vendorId: 0x10cf, productId: 0x5500, ProductMask = 0xfff8)]
     public class K8055Controller
     {
         public void Start(CancellationTokenSource cts, byte deviceAddress)

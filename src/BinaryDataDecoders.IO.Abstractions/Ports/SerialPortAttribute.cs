@@ -8,6 +8,19 @@ namespace BinaryDataDecoders.IO.Ports
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class SerialPortAttribute : Attribute
     {
+        public SerialPortAttribute() { }
+        public SerialPortAttribute(int baudRate)
+        {
+            BaudRate = baudRate;
+        }
+        public SerialPortAttribute(int baudRate, Parity parity, int dataBits, StopBits stopBits)
+            :this (baudRate)
+        {
+            Parity = parity;
+            DataBits = dataBits;
+            StopBits = stopBits;
+        }
+
         /// <summary>
         /// Default Baud Rate
         /// </summary>

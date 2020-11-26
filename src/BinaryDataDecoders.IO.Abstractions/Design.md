@@ -1,8 +1,8 @@
-# Generic Serial Port Console
+# BinaryDataDecoders.IO
 
 ## Summary
 
-The intent of this project is to build an simple console app that can interact with Serail Port devices
+Improved abstractions over System.IO and related functions.
 
 ## Design
 
@@ -33,38 +33,12 @@ class DeviceBuilder {
 }
 DeviceBuilder --|> IDeviceBuilder
 
-class RadexOneDevice {
-    {static} @SerialPort(9600,N,8,1)
-}
-IDeviceReceiver <|-- RadexOneDevice
-IDeviceTransmitter <|-- RadexOneDevice
-
-class FaveroDevice {
-    {static} @SerialPort(2400,N,8,1)
-}
-IDeviceReceiver <|-- FaveroDevice
-
-class SaintGeorgeDevice {
-    {static} @SerialPort(9600,N,8,1)
-}
-IDeviceReceiver <|-- SaintGeorgeDevice
-
-class Nmea0183Device {
-    {static} @SerialPort(9600,N,8,1)
-}
-IDeviceReceiver <|-- Nmea0183Device
-
-class ZStickDevice {
-    {static} @SerialPort(115200,N,8,1)
-}
-IDeviceReceiver <|-- ZStickDevice
-IDeviceTransmitter <|-- ZStickDevice
-
 class SerialPort << (@,#FF7700) >> {
-    +Baud : int
-    +Parity : ParityTypes
-    +DataBits: int
-    +StopBits: StopBitTypes
+    +Baud : int = 9600
+    +Parity : ParityTypes = N
+    +DataBits: int = 8
+    +StopBits: StopBitTypes = 1
+    +ctor(Baud)
     +ctor(Baud, Parity, DataBits, StopBits)
 }
 
@@ -84,4 +58,51 @@ enum StopBitTypes {
     OnePointFive {1.5}
 }
 SerialPort *-- StopBitTypes
+
+class UsbHid << (@,#FF7700) >> {
+    +VendorId : ushort
+    +ProductId : ushort
+    +ProductMask: ushort = 0xffff
+    +ctor(VendorId, ProductId)
+    +ctor(VendorId, ProductId, ProductMask)
+}
+
+class RadexOneDevice {
+    {static} @SerialPort(9600,N,8,1)
+}
+IDeviceReceiver <|-- RadexOneDevice
+IDeviceTransmitter <|-- RadexOneDevice
+
+class FaveroDevice {
+    {static} @SerialPort(2400,N,8,1)
+}
+IDeviceReceiver <|-- FaveroDevice
+
+class SaintGeorgeDevice {
+    {static} @SerialPort(9600,N,8,1)
+}
+IDeviceReceiver <|-- SaintGeorgeDevice
+
+class Nmea0183Device {
+    {static} @SerialPort(9600,N,8,1)
+    {static} @UsbHid(4451, 512)
+}
+IDeviceReceiver <|-- Nmea0183Device
+
+class ZStickDevice {
+    {static} @SerialPort(115200,N,8,1)
+}
+IDeviceReceiver <|-- ZStickDevice
+IDeviceTransmitter <|-- ZStickDevice
+
+class K8055Device {
+    {static} @UsbHid(0x10cf, 0x5500, 0xfff8)
+}
+IDeviceReceiver <|-- K8055Device
+IDeviceTransmitter <|-- K8055Device
+
+
+
+
+
 ```

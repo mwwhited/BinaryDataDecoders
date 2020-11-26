@@ -1,4 +1,5 @@
-﻿using HidSharp;
+﻿using BinaryDataDecoders.IO.UsbHids;
+using HidSharp;
 using System;
 using System.Linq;
 using System.Threading;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Kuando.Busylight
 {
+    [UsbHid(0x04d8, 0xf848)]
     public class Class1
     {
         public async Task Start(CancellationTokenSource cts)
