@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Abstractions\IPathResolver.cs
+* Path: src/BinaryDataDecoders.Templating.Abstractions/IPathResolver.cs
 
 ## Public Interface - IPathResolver
 

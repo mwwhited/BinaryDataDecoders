@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Quarta.RadexOne\DevicePing.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Quarta.RadexOne/DevicePing.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Messages;

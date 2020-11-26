@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Collections\DoubleLinkedListEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/Collections/DoubleLinkedListEx.cs
 
 ## Internal Static Class - DoubleLinkedListEx
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Apple2\Dos33\DiskImageCommands.cs
+* Path: src/BinaryDataDecoders.Apple2/Dos33/DiskImageCommands.cs
 
 ## Public Class - DiskImageCommands
 

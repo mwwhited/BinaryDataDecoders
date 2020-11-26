@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\VariableExpression.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/VariableExpression.cs
 
 ## Public Class - VariableExpression
 

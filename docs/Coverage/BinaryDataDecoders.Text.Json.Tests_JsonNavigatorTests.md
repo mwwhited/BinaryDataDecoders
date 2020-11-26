@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Text.Json.Tests\JsonNavigatorTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json.Tests/JsonNavigatorTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.TestUtilities;

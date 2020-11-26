@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\ExpressionBaseExtensions.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/ExpressionBaseExtensions.cs
 
 ## Public Static Class - ExpressionBaseExtensions
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\EnumerableXPathNodeIterator.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/EnumerableXPathNodeIterator.cs
 
 ## Public Class - EnumerableXPathNodeIterator
 

@@ -35,7 +35,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Reflection\ReflectionElementNodeBuilder.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/Reflection/ReflectionElementNodeBuilder.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Xml.XPath;

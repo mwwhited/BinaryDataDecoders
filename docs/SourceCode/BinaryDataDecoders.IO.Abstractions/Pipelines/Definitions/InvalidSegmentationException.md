@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Pipelines\Definitions\InvalidSegmentationException.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Pipelines/Definitions/InvalidSegmentationException.cs
 
 ## Public Class - InvalidSegmentationException
 

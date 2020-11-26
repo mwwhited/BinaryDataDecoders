@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.FileSystems\Iso9660\Tools.cs
+* Path: src/BinaryDataDecoders.FileSystems/Iso9660/Tools.cs
 
 ## Public Static Class - Tools
 

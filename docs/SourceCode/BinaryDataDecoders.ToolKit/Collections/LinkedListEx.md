@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Collections\LinkedListEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/Collections/LinkedListEx.cs
 
 ## Public Static Class - LinkedListEx
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Factories\StreamPipelineFactory.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Factories/StreamPipelineFactory.cs
 
 ## Internal Class - StreamPipelineFactory
 

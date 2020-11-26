@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\BcdEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/BcdEx.cs
 
 ## Public Static Class - BcdEx
 

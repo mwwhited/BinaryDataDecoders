@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Templating.Abstractions\TemplateTransformAttribute.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Templating.Abstractions/TemplateTransformAttribute.cs
 
 ```CSharp
 〰1:   using System;

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNamespaceNode.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleNamespaceNode.cs
 
 ## Internal Class - ExtensibleNamespaceNode
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Xml\XPath\IToXPathNavigable.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Xml/XPath/IToXPathNavigable.cs
 
 ## Public Interface - IToXPathNavigable
 

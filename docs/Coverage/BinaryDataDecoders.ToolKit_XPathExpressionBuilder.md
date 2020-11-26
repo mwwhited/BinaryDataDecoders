@@ -43,7 +43,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\XPath\XPathExpressionBuilder.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/Xml/XPath/XPathExpressionBuilder.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.PathSegments;

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\IO\PathNavigatorFactory.cs
+* Path: src/BinaryDataDecoders.ToolKit/IO/PathNavigatorFactory.cs
 
 ## Public Static Class - PathNavigatorFactory
 

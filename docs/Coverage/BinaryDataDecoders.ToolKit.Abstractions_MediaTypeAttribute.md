@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit.Abstractions\MetaData\MediaTypeAttribute.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Abstractions/MetaData/MediaTypeAttribute.cs
 
 ```CSharp
 〰1:   using System;

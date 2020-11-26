@@ -27,7 +27,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2\Dos33\FileEntry.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Apple2/Dos33/FileEntry.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.Apple2.Text;

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis.DacFx\DacPacElementNodeBuilder.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis.DacFx/DacPacElementNodeBuilder.cs
 
 ## Public Class - DacPacElementNodeBuilder
 

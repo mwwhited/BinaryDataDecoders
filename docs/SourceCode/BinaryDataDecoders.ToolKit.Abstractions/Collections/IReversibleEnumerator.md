@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Collections\IReversibleEnumerator.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Collections/IReversibleEnumerator.cs
 
 ## Public Interface - IReversibleEnumerator
 

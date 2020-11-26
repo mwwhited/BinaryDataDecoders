@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Collections\ReversableEnumerator.cs
+* Path: src/BinaryDataDecoders.ToolKit/Collections/ReversableEnumerator.cs
 
 ## Public Class - ReversableEnumerator
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\JsonPath\Parser\JsonPathFactory.cs
+* Path: src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPathFactory.cs
 
 ## Public Static Class - JsonPathFactory
 

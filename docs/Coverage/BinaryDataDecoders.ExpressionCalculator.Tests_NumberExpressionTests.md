@@ -26,7 +26,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator.Tests\Expressions\NumberExpressionTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator.Tests/Expressions/NumberExpressionTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ExpressionCalculator.Expressions;

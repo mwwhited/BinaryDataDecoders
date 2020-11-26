@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests\Favero\FaveroStateParserTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/Favero/FaveroStateParserTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;

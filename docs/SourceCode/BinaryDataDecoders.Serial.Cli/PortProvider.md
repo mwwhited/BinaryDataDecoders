@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Serial.Cli\PortProvider.cs
+* Path: src/BinaryDataDecoders.Serial.Cli/PortProvider.cs
 
 ## Public Class - PortProvider
 

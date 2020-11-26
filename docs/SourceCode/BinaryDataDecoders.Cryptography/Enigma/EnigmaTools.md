@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography\Enigma\EnigmaTools.cs
+* Path: src/BinaryDataDecoders.Cryptography/Enigma/EnigmaTools.cs
 
 ## Public Static Class - EnigmaTools
 

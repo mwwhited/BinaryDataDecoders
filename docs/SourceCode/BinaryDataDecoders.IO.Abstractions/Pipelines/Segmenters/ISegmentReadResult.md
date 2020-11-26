@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Pipelines\Segmenters\ISegmentReadResult.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Pipelines/Segmenters/ISegmentReadResult.cs
 
 ## Public Interface - ISegmentReadResult
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Quarta.RadexOne\AlarmSettings.cs
+* Path: src/BinaryDataDecoders.Quarta.RadexOne/AlarmSettings.cs
 
 ## Public Enumeration - AlarmSettings
 

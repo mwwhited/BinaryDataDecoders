@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\FaveroStateParser.cs
+* Path: src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Favero/FaveroStateParser.cs
 
 ## Public Class - FaveroStateParser
 

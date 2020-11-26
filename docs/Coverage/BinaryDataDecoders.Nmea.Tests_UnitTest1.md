@@ -22,7 +22,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Nmea.Tests\UnitTest1.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Nmea.Tests/UnitTest1.cs
 
 ```CSharp
 〰1:   using Microsoft.VisualStudio.TestTools.UnitTesting;

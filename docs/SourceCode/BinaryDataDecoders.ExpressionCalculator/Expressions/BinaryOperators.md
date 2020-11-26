@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\BinaryOperators.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/BinaryOperators.cs
 
 ## Public Enumeration - BinaryOperators
 

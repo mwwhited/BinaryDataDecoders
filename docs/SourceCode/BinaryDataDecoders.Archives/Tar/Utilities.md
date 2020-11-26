@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\Utilities.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/Utilities.cs
 
 ## Public Static Class - Utilities
 

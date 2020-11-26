@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit.Tests\IO\TempFileHandleTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Tests/IO/TempFileHandleTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.TestUtilities;

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Collections\IDoubleLinkedList.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Collections/IDoubleLinkedList.cs
 
 ## Public Interface - IDoubleLinkedList
 

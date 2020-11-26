@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit.Tests\Reflection\ReflectionElementNodeTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Reflection;

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Evaluators\UInt64ExpressionEvaluator.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Evaluators/UInt64ExpressionEvaluator.cs
 
 ## Public Class - UInt64ExpressionEvaluator
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Serial.Cli\SerialZStick.cs
+* Path: src/BinaryDataDecoders.Serial.Cli/SerialZStick.cs
 
 ## Public Class - ZStickFactory
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator.Tests\Expressions\VariableExpressionTests.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator.Tests/Expressions/VariableExpressionTests.cs
 
 ## Public Class - VariableExpressionTests
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\ISemanticModelNode.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/ISemanticModelNode.cs
 
 ## Internal Interface - ISemanticModelNode
 

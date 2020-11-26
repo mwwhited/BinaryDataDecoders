@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Cryptography.Tests\Enigma\EnigmaMachineTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Cryptography.Tests/Enigma/EnigmaMachineTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.Cryptography.Enigma;

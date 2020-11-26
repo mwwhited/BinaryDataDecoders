@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Segmenters\StartAndFixLengthSegmenter.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Segmenters/StartAndFixLengthSegmenter.cs
 
 ## Public Class - StartAndFixLengthSegmenter
 

@@ -27,7 +27,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit.Tests\Xml\Xsl\Extensions\XPath20FunctionsTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.TestUtilities;

@@ -31,7 +31,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Segment.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Pipelines/Segment.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Pipelines.Definitions;

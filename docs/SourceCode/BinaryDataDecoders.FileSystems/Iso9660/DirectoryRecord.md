@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.FileSystems\Iso9660\DirectoryRecord.cs
+* Path: src/BinaryDataDecoders.FileSystems/Iso9660/DirectoryRecord.cs
 
 ## Public Class - DirectoryRecord
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\SemanticModelNode.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/SemanticModelNode.cs
 
 ## Internal Class - SemanticModelNode
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\ECreationDisposition.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/ECreationDisposition.cs
 
 ## Public Enumeration - ECreationDisposition
 

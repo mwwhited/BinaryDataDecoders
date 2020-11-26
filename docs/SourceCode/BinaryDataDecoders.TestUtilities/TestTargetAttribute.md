@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.TestUtilities\TestTargetAttribute.cs
+* Path: src/BinaryDataDecoders.TestUtilities/TestTargetAttribute.cs
 
 ## Public Class - TestTargetAttribute
 

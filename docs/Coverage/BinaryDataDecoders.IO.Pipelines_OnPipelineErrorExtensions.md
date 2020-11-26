@@ -24,7 +24,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Pipelines\Definitions\OnPipelineErrorExtensions.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Pipelines/Definitions/OnPipelineErrorExtensions.cs
 
 ```CSharp
 〰1:   using System;

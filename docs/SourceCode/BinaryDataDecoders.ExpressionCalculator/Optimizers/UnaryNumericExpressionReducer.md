@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Optimizers\UnaryNumericExpressionReducer.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Optimizers/UnaryNumericExpressionReducer.cs
 
 ## Public Class - UnaryNumericExpressionReducer
 

@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Abstractions\Pipelines\Definitions\InvalidSegmentationException.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Abstractions/Pipelines/Definitions/InvalidSegmentationException.cs
 
 ```CSharp
 〰1:   using System;

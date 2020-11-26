@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Abstractions\IInstanceFactory.cs
+* Path: src/BinaryDataDecoders.Templating.Abstractions/IInstanceFactory.cs
 
 ## Public Interface - IInstanceFactory
 

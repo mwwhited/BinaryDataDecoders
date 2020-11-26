@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Segmenters\BetweenSegmenter.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Segmenters/BetweenSegmenter.cs
 
 ## Public Class - BetweenSegmenter
 

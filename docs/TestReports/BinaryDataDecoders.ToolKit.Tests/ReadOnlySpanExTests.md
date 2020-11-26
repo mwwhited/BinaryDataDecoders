@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::ReadOnlySpanEx::CopyWithTransform
-  * BinaryDataDecoders.ToolKit, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

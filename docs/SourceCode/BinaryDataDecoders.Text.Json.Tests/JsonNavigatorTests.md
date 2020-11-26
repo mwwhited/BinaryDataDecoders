@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json.Tests\JsonNavigatorTests.cs
+* Path: src/BinaryDataDecoders.Text.Json.Tests/JsonNavigatorTests.cs
 
 ## Public Class - JsonNavigatorTests
 

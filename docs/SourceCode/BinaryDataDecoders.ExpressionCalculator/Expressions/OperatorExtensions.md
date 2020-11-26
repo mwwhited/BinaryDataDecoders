@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\OperatorExtensions.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/OperatorExtensions.cs
 
 ## Public Static Class - OperatorExtensions
 

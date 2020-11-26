@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                |
 | Uncoveredlines  | `6`                                                |
 | Coverablelines  | `6`                                                |
-| Totallines      | `27`                                               |
+| Totallines      | `25`                                               |
 | Linecoverage    | `0`                                                |
 | Coveredbranches | `0`                                                |
 | Totalbranches   | `0`                                                |
@@ -23,36 +23,34 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Yaml.Tests\YamlNavigatorTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Yaml.Tests/YamlNavigatorTests.cs
 
 ```CSharp
-〰1:   using Microsoft.VisualStudio.TestTools.UnitTesting;
-〰2:   using BinaryDataDecoders.Yaml;
-〰3:   using BinaryDataDecoders.TestUtilities;
-〰4:   using BinaryDataDecoders.ToolKit;
-〰5:   using System.Threading.Tasks;
-〰6:   using System.IO;
-〰7:   
-〰8:   namespace BinaryDataDecoders.Yaml.Tests
-〰9:   {
-〰10:      [TestClass]
-〰11:      public class YamlNavigatorTests
-〰12:      {
-‼13:          public TestContext TestContext { get; set; }
-〰14:  
-〰15:          [DataTestMethod]
-〰16:          [DataRow("Example.yml")]
-〰17:          [DataRow("dotnet-core.yml")]
-〰18:          [DataRow("codeql-analysis.yml")]
-〰19:          public void ToNavigableTest(string resourceName)
-〰20:          {
-‼21:              var nav = new YamlNavigator();
-‼22:              var stream = this.GetResourceStream(resourceName);
-‼23:              var xpath = nav.ToNavigable(stream).CreateNavigator();
-‼24:              this.TestContext.AddResult(xpath, Path.ChangeExtension(resourceName, ".xml"));
-‼25:          }
-〰26:      }
-〰27:  }
+〰1:   using BinaryDataDecoders.TestUtilities;
+〰2:   using BinaryDataDecoders.ToolKit;
+〰3:   using Microsoft.VisualStudio.TestTools.UnitTesting;
+〰4:   using System.IO;
+〰5:   
+〰6:   namespace BinaryDataDecoders.Yaml.Tests
+〰7:   {
+〰8:       [TestClass]
+〰9:       public class YamlNavigatorTests
+〰10:      {
+‼11:          public TestContext TestContext { get; set; }
+〰12:  
+〰13:          [DataTestMethod]
+〰14:          [DataRow("Example.yml")]
+〰15:          [DataRow("dotnet-core.yml")]
+〰16:          //[DataRow("codeql-analysis.yml")]
+〰17:          public void ToNavigableTest(string resourceName)
+〰18:          {
+‼19:              var nav = new YamlNavigator();
+‼20:              var stream = this.GetResourceStream(resourceName);
+‼21:              var xpath = nav.ToNavigable(stream).CreateNavigator();
+‼22:              this.TestContext.AddResult(xpath, Path.ChangeExtension(resourceName, ".xml"));
+‼23:          }
+〰24:      }
+〰25:  }
 ```
 
 ## Links

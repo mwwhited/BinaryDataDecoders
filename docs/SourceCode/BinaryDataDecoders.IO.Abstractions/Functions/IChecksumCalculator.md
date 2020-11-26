@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Functions\IChecksumCalculator.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Functions/IChecksumCalculator.cs
 
 ## Public Interface - IChecksumCalculator
 

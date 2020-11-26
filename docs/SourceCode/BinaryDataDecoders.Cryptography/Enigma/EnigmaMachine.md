@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography\Enigma\EnigmaMachine.cs
+* Path: src/BinaryDataDecoders.Cryptography/Enigma/EnigmaMachine.cs
 
 ## Public Class - EnigmaMachine
 

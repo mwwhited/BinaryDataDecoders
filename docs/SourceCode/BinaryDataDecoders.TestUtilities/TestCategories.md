@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.TestUtilities\TestCategories.cs
+* Path: src/BinaryDataDecoders.TestUtilities/TestCategories.cs
 
 ## Public Static Class - TestCategories
 
@@ -28,6 +28,12 @@
  * Type: 
 
 #### Public Field - Integration
+
+##### Summary
+
+ * Type: 
+
+#### Public Field - DevLocal
 
 ##### Summary
 

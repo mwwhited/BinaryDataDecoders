@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\Xsl\XsltExtensionFactory.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/Xsl/XsltExtensionFactory.cs
 
 ## Public Class - XsltExtensionFactory
 

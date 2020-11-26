@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Serial.Cli\SerialRadexOne.cs
+* Path: src/BinaryDataDecoders.Serial.Cli/SerialRadexOne.cs
 
 ## Public Class - RadexOneFactory
 

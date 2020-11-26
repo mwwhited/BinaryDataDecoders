@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis.DacFx.Tests\DacPacNavigatorTests.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis.DacFx.Tests/DacPacNavigatorTests.cs
 
 ## Public Class - DacPacNavigatorTests
 

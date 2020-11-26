@@ -6,26 +6,26 @@
 | :-------------- | :---------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Codecs.Base32Codec` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                    |
-| Coveredlines    | `0`                                             |
-| Uncoveredlines  | `42`                                            |
+| Coveredlines    | `41`                                            |
+| Uncoveredlines  | `1`                                             |
 | Coverablelines  | `42`                                            |
 | Totallines      | `244`                                           |
-| Linecoverage    | `0`                                             |
-| Coveredbranches | `0`                                             |
+| Linecoverage    | `97.6`                                          |
+| Coveredbranches | `13`                                            |
 | Totalbranches   | `14`                                            |
-| Branchcoverage  | `0`                                             |
+| Branchcoverage  | `92.8`                                          |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name     |
 | :--------- | :---- | :------- | :------- |
-| 1          | 0     | 100      | `ctor`   |
-| 6          | 0     | 0        | `Encode` |
-| 8          | 0     | 0        | `Decode` |
+| 1          | 100   | 100      | `ctor`   |
+| 6          | 100   | 100      | `Encode` |
+| 8          | 95.00 | 87.50    | `Decode` |
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Codecs\Base32Codec.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/Codecs/Base32Codec.cs
 
 ```CSharp
 〰1:   using System;
@@ -66,7 +66,7 @@
 〰36:      {
 〰37:          //TODO: refactor this to use ReadOnlySpan/Memory
 〰38:  
-‼39:          private readonly string _base32Alphabet  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=";
+✔39:          private readonly string _base32Alphabet  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=";
 〰40:  
 〰41:          /// <summary>
 〰42:          /// Encoding 8bit binary data as base32 string
@@ -75,37 +75,37 @@
 〰45:          /// <returns>base32 string</returns>
 〰46:          public string Encode(byte[] data)
 〰47:          {
-‼48:              var vo = new byte[8];
-‼49:              var vi = new byte[5];
+✔48:              var vo = new byte[8];
+✔49:              var vi = new byte[5];
 〰50:  
-‼51:              var sb = new StringBuilder();
-‼52:              var l = data.Length;
-‼53:              for (var i = 0; i < l; i += 5)
+✔51:              var sb = new StringBuilder();
+✔52:              var l = data.Length;
+✔53:              for (var i = 0; i < l; i += 5)
 〰54:              {
-‼55:                  var cl = data.Length - i;
-‼56:                  Array.Clear(vi, 0, 5);
-‼57:                  Array.Copy(data, i, vi, 0, cl >= 5 ? 5 : cl);
+✔55:                  var cl = data.Length - i;
+✔56:                  Array.Clear(vi, 0, 5);
+✔57:                  Array.Copy(data, i, vi, 0, cl >= 5 ? 5 : cl);
 〰58:  
-‼59:                  vo[0] = (byte)((vi[0] & 0xf8) / 8);
-‼60:                  vo[1] = (byte)((vi[0] & 0x7) * 4 + (vi[1] & 0xc0) / 64);
-‼61:                  vo[2] = (byte)((vi[1] & 0x3E) / 2);
-‼62:                  vo[3] = (byte)((vi[1] & 0x1) * 16 + (vi[2] & 0xF0) / 16);
-‼63:                  vo[4] = (byte)((vi[2] & 0xF) * 2 + (vi[3] & 0x80) / 128);
-‼64:                  vo[5] = (byte)((vi[3] & 0x7E) / 4);
-‼65:                  vo[6] = (byte)((vi[3] & 0x3) * 8 + (vi[4] & 0xE0) / 32);
-‼66:                  vo[7] = (byte)((vi[4] & 0x1F));
+✔59:                  vo[0] = (byte)((vi[0] & 0xf8) / 8);
+✔60:                  vo[1] = (byte)((vi[0] & 0x7) * 4 + (vi[1] & 0xc0) / 64);
+✔61:                  vo[2] = (byte)((vi[1] & 0x3E) / 2);
+✔62:                  vo[3] = (byte)((vi[1] & 0x1) * 16 + (vi[2] & 0xF0) / 16);
+✔63:                  vo[4] = (byte)((vi[2] & 0xF) * 2 + (vi[3] & 0x80) / 128);
+✔64:                  vo[5] = (byte)((vi[3] & 0x7E) / 4);
+✔65:                  vo[6] = (byte)((vi[3] & 0x3) * 8 + (vi[4] & 0xE0) / 32);
+✔66:                  vo[7] = (byte)((vi[4] & 0x1F));
 〰67:  
-‼68:                  if (cl < 5)
+✔68:                  if (cl < 5)
 〰69:                  {
-‼70:                      var o = (int)Math.Ceiling(cl * 8d / 5d);
+✔70:                      var o = (int)Math.Ceiling(cl * 8d / 5d);
 〰71:  
-‼72:                      Array.Copy(new byte[] { 32, 32, 32, 32, 32, 32, 32, 32 }, 0, vo, o, 8 - o);
+✔72:                      Array.Copy(new byte[] { 32, 32, 32, 32, 32, 32, 32, 32 }, 0, vo, o, 8 - o);
 〰73:                  }
 〰74:  
-‼75:                  sb.Append(string.Join("", vo.Select(o => _base32Alphabet[o])));
+✔75:                  sb.Append(string.Join("", vo.Select(o => _base32Alphabet[o])));
 〰76:              }
 〰77:  
-‼78:              return sb.ToString();
+✔78:              return sb.ToString();
 〰79:          }
 〰80:  
 〰81:          /// <summary>
@@ -115,35 +115,35 @@
 〰85:          /// <returns>8bit data</returns>
 〰86:          public byte[] Decode(string input)
 〰87:          {
-‼88:              var vi = new byte[8];
-‼89:              var vo = new byte[5];
-‼90:              var l = input.Length;
+✔88:              var vi = new byte[8];
+✔89:              var vo = new byte[5];
+✔90:              var l = input.Length;
 〰91:  
-‼92:              var m = input.Length % 8;
-‼93:              if (m != 0)
+✔92:              var m = input.Length % 8;
+⚠93:              if (m != 0)
 ‼94:                  input += new string('=', 8 - m);
 〰95:  
-‼96:              var iData = input.Select(c => (byte)_base32Alphabet.IndexOf(c))
-‼97:                               .Select(c => c == 32 ? (byte)0 : c)
-‼98:                               .ToArray();
-‼99:              var oData = new byte[(int)(input.TrimEnd('=').Length * 5 / 8)];
+✔96:              var iData = input.Select(c => (byte)_base32Alphabet.IndexOf(c))
+✔97:                               .Select(c => c == 32 ? (byte)0 : c)
+✔98:                               .ToArray();
+✔99:              var oData = new byte[(int)(input.TrimEnd('=').Length * 5 / 8)];
 〰100: 
-‼101:             for (int i = 0, o = 0; i < l; i += 8, o += 5)
+✔101:             for (int i = 0, o = 0; i < l; i += 8, o += 5)
 〰102:             {
-‼103:                 Array.Copy(iData, i, vi, 0, 8);
+✔103:                 Array.Copy(iData, i, vi, 0, 8);
 〰104: 
-‼105:                 vo[0] = (byte)((vi[0]) * 8 + (vi[1] & 0x1C) / 4);
-‼106:                 vo[1] = (byte)((vi[1] & 0x3) * 64 + (vi[2]) * 2 + (vi[3] & 0x10) / 16);
-‼107:                 vo[2] = (byte)((vi[3] & 0xF) * 16 + (vi[4] & 0x1E) / 2);
-‼108:                 vo[3] = (byte)((vi[4] & 0x1) * 128 + (vi[5]) * 4 + (vi[6] & 0x18) / 8);
-‼109:                 vo[4] = (byte)((vi[6] & 0x7) * 32 + (vi[7]));
+✔105:                 vo[0] = (byte)((vi[0]) * 8 + (vi[1] & 0x1C) / 4);
+✔106:                 vo[1] = (byte)((vi[1] & 0x3) * 64 + (vi[2]) * 2 + (vi[3] & 0x10) / 16);
+✔107:                 vo[2] = (byte)((vi[3] & 0xF) * 16 + (vi[4] & 0x1E) / 2);
+✔108:                 vo[3] = (byte)((vi[4] & 0x1) * 128 + (vi[5]) * 4 + (vi[6] & 0x18) / 8);
+✔109:                 vo[4] = (byte)((vi[6] & 0x7) * 32 + (vi[7]));
 〰110: 
-‼111:                 var cl = oData.Length - o;
-‼112:                 Array.Copy(vo, 0, oData, o, cl < 5 ? cl : 5);
+✔111:                 var cl = oData.Length - o;
+✔112:                 Array.Copy(vo, 0, oData, o, cl < 5 ? cl : 5);
 〰113: 
 〰114:             }
 〰115: 
-‼116:             return oData;
+✔116:             return oData;
 〰117:         }
 〰118:     }
 〰119: 

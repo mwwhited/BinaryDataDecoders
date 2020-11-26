@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\MetaData\MediaTypeAttribute.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/MetaData/MediaTypeAttribute.cs
 
 ## Public Class - MediaTypeAttribute
 

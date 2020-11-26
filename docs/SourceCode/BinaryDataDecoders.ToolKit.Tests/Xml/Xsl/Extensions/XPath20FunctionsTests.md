@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\Xml\Xsl\Extensions\XPath20FunctionsTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs
 
 ## Public Class - XPath20FunctionsTests
 
