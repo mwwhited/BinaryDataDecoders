@@ -29,6 +29,9 @@ jobs:
         TEST_RESULTS_PATH=$OUTPUT_PATH/TestResults
         DOCS_PATH=$OUTPUT_PATH/docs
         RESULTS_PATH=$OUTPUT_PATH/Results     
+        BUILD_PROJECT=src/BinaryDataDecoders.slnproj
+        REPORT_PROJECT=src/BinaryDataDecoders.rptproj
+        BUILD_CONFIGURATION=Release
         git fetch --prune
         dotnet tool restore
         buildVersion=`dotnet gitversion /output json /showvariable FullSemVer`
@@ -37,9 +40,9 @@ jobs:
         echo DAC Version= $dacVersion        
         echo "buildVersion=$buildVersion" >> $GITHUB_ENV   
         echo "dacVersion=$dacVersion" >> $GITHUB_ENV
-        echo "BUILD_PROJECT=src/BinaryDataDecoders.slnproj" >> $GITHUB_ENV
-        echo "REPORT_PROJECT=src/BinaryDataDecoders.rptproj" >> $GITHUB_ENV
-        echo "BUILD_CONFIGURATION=Release" >> $GITHUB_ENV
+        echo "BUILD_PROJECT=$BUILD_PROJECT" >> $GITHUB_ENV
+        echo "REPORT_PROJECT=$REPORT_PROJECT" >> $GITHUB_ENV
+        echo "BUILD_CONFIGURATION=$BUILD_CONFIGURATION" >> $GITHUB_ENV
         echo "OUTPUT_PATH=$OUTPUT_PATH" >> $GITHUB_ENV  
         echo "SANDBOX_PATH=$SANDBOX_PATH" >> $GITHUB_ENV 
         echo "TEST_RESULTS_PATH=$TEST_RESULTS_PATH" >> $GITHUB_ENV 
@@ -76,5 +79,17 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: BinaryDataDecoders_Documents
-        path: Publish/docs/      
+        path: Publish/docs/
+        
+    - name: Update Documentation
+      run: rsync -r Publish/docs/ docs
+
+    - name: Commit Documentation and Tag
+      uses: EndBug/add-and-commit@v5
+      with:
+        add: 'docs'
+        message: '$buildVersion ($dacVersion)'
+        tag: '$buildVersion'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
