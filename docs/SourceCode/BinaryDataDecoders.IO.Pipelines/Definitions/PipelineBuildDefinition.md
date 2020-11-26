@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Definitions\PipelineBuildDefinition.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Definitions/PipelineBuildDefinition.cs
 
 ## Internal Class - PipelineBuildDefinition
 

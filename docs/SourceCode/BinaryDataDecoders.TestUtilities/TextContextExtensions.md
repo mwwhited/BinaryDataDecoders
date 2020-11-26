@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.TestUtilities\TextContextExtensions.cs
+* Path: src/BinaryDataDecoders.TestUtilities/TextContextExtensions.cs
 
 ## Public Static Class - TextContextExtensions
 

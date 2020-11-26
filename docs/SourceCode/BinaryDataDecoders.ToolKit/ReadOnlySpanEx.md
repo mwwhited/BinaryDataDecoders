@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\ReadOnlySpanEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/ReadOnlySpanEx.cs
 
 ## Public Static Class - ReadOnlySpanEx
 

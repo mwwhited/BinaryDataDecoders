@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis.StructuredLog\StructuredLogNavigator.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis.StructuredLog/StructuredLogNavigator.cs
 
 ## Public Class - StructuredLogNavigator
 

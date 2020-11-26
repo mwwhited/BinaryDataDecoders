@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\Xsl\Extensions\FileExtensions.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/Xsl/Extensions/FileExtensions.cs
 
 ## Public Class - FileExtensions
 

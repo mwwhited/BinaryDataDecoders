@@ -30,7 +30,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Collections\DoubleLinkedList.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/Collections/DoubleLinkedList.cs
 
 ```CSharp
 〰1:   using System;

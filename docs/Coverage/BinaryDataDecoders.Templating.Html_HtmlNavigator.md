@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Templating.Html\HtmlNavigator.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Templating.Html/HtmlNavigator.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.MetaData;

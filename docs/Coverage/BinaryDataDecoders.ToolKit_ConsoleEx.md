@@ -12,7 +12,7 @@
 | Totallines      | `82`                                   |
 | Linecoverage    | `0`                                    |
 | Coveredbranches | `0`                                    |
-| Totalbranches   | `32`                                   |
+| Totalbranches   | `34`                                   |
 | Branchcoverage  | `0`                                    |
 
 ## Metrics
@@ -20,11 +20,11 @@
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
 | 16         | 0     | 0        | `Prompt`       |
-| 16         | 0     | 0        | `PromptSecure` |
+| 18         | 0     | 0        | `PromptSecure` |
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\ConsoleEx.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/ConsoleEx.cs
 
 ```CSharp
 〰1:   using System;
@@ -74,9 +74,9 @@
 〰45:          public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
 〰46:          {
 ‼47:              if (!string.IsNullOrWhiteSpace(prompt))
-‼48:                  Console.Write("{0} ", prompt);
+‼48:                  Console.Write($"{prompt} ");
 ‼49:              if (!string.IsNullOrWhiteSpace(defaultValue))
-‼50:                  Console.Write("{0}", new string(hideWith, defaultValue.Length));
+‼50:                  Console.Write($"{new string(hideWith, defaultValue.Length)}");
 〰51:  
 ‼52:              var chars = new List<char>(defaultValue ?? "");
 ‼53:              while (true)

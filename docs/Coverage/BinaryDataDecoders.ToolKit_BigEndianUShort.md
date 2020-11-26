@@ -31,7 +31,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\BigEndianUShort.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/BigEndianUShort.cs
 
 ```CSharp
 〰1:   using System;

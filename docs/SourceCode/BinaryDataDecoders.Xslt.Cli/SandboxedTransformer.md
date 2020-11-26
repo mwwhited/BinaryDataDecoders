@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Xslt.Cli\SandboxedTransformer.cs
+* Path: src/BinaryDataDecoders.Xslt.Cli/SandboxedTransformer.cs
 
 ## Public Class - SandboxedTransformer
 

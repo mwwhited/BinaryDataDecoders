@@ -22,7 +22,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\LogicBinaryOperationPathSegment.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/PathSegments/LogicBinaryOperationPathSegment.cs
 
 ```CSharp
 〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments

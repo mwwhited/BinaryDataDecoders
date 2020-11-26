@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\TypeEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/TypeEx.cs
 
 ## Public Static Class - TypeEx
 

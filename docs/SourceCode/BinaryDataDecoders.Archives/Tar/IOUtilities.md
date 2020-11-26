@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\IOUtilities.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/IOUtilities.cs
 
 ## Public Static Class - IOUtilities
 

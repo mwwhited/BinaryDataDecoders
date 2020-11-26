@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\FILETIME.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/FILETIME.cs
 
 ## Internal Structure - FILETIME
 

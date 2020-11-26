@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Yaml.Tests\YamlNavigatorTests.cs
+* Path: src/BinaryDataDecoders.Yaml.Tests/YamlNavigatorTests.cs
 
 ## Public Class - YamlNavigatorTests
 
@@ -31,10 +31,6 @@
  - DataRow
  - (
  - "dotnet-core.yml"
- - )
- - DataRow
- - (
- - "codeql-analysis.yml"
  - )
 
 #####  Parameters

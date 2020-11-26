@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\SaintGeorge\SgStateParser.cs
+* Path: src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/SaintGeorge/SgStateParser.cs
 
 ## Public Class - SgStateParser
 

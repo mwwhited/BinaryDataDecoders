@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\DecimalPathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/DecimalPathSegment.cs
 
 ## Public Class - DecimalPathSegment
 

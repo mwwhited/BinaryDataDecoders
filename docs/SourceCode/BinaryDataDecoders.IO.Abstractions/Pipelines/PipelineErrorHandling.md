@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Pipelines\PipelineErrorHandling.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Pipelines/PipelineErrorHandling.cs
 
 ## Public Enumeration - PipelineErrorHandling
 

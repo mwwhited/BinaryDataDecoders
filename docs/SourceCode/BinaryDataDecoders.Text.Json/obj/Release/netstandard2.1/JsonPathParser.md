@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\obj\Release\netstandard2.1\JsonPathParser.cs
+* Path: src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathParser.cs
 
 ## Public Class - JsonPathParser
 

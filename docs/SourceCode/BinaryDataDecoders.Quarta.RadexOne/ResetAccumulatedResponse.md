@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Quarta.RadexOne\ResetAccumulatedResponse.cs
+* Path: src/BinaryDataDecoders.Quarta.RadexOne/ResetAccumulatedResponse.cs
 
 ## Public Structure - ResetAccumulatedResponse
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\Entry.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/Entry.cs
 
 ## Class - Entry
 

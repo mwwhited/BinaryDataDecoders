@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\TarHeader.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/TarHeader.cs
 
 ## Public Class - TarHeader
 

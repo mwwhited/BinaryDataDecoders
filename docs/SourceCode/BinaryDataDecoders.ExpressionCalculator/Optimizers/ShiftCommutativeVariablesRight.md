@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Optimizers\ShiftCommutativeVariablesRight.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Optimizers/ShiftCommutativeVariablesRight.cs
 
 ## Public Class - ShiftCommutativeVariablesRight
 

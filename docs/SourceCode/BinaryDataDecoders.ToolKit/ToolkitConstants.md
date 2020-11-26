@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\ToolkitConstants.cs
+* Path: src/BinaryDataDecoders.ToolKit/ToolkitConstants.cs
 
 ## Internal Static Class - ToolkitConstants
 

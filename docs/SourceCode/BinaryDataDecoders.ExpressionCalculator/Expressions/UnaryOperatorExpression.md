@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\UnaryOperatorExpression.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/UnaryOperatorExpression.cs
 
 ## Public Class - UnaryOperatorExpression
 

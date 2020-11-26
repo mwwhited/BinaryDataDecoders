@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Apple2\ApplesoftBASIC\TokenMap.cs
+* Path: src/BinaryDataDecoders.Apple2/ApplesoftBASIC/TokenMap.cs
 
 ## Public Class - TokenMap
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\PathSegments\IPathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/PathSegments/IPathSegment.cs
 
 ## Public Interface - IPathSegment
 

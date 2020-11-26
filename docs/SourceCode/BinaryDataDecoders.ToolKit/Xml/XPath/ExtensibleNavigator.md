@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNavigator.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleNavigator.cs
 
 ## Public Class - ExtensibleNavigator
 

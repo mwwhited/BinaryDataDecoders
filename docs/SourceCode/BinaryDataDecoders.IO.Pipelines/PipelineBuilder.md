@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\PipelineBuilder.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/PipelineBuilder.cs
 
 ## Public Static Class - PipelineBuilder
 

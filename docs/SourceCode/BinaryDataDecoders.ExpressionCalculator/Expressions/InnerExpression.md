@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\InnerExpression.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/InnerExpression.cs
 
 ## Public Class - InnerExpression
 

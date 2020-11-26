@@ -3,5 +3,5 @@
 ## Summary
 
 Language: 
-Path: C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis.Tests\VisualBasic\SampleClasses.vb
+Path: /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis.Tests/VisualBasic/SampleClasses.vb
 

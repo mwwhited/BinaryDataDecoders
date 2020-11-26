@@ -26,7 +26,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Yaml\YamlNavigatorFactory.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Yaml/YamlNavigatorFactory.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Xml.XPath;

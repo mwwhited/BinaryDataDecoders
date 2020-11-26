@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\SECURITY_ATTRIBUTES.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/SECURITY_ATTRIBUTES.cs
 
 ## Public Structure - SECURITY_ATTRIBUTES
 

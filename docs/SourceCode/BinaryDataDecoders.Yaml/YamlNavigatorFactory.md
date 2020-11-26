@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Yaml\YamlNavigatorFactory.cs
+* Path: src/BinaryDataDecoders.Yaml/YamlNavigatorFactory.cs
 
 ## Public Static Class - YamlNavigatorFactory
 

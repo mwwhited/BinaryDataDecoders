@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Serial.Cli\SerialNmea0183.cs
+* Path: src/BinaryDataDecoders.Serial.Cli/SerialNmea0183.cs
 
 ## Public Static Class - SerialNmea0183
 

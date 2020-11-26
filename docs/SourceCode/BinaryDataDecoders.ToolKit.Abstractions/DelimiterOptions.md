@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\DelimiterOptions.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/DelimiterOptions.cs
 
 ## Public Enumeration - DelimiterOptions
 

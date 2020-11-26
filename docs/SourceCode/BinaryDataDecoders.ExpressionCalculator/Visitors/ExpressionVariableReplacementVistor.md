@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Visitors\ExpressionVariableReplacementVistor.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Visitors/ExpressionVariableReplacementVistor.cs
 
 ## Public Class - ExpressionVariableReplacementVistor
 

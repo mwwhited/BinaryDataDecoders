@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Evaluators\FloatExpressionEvaluator.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Evaluators/FloatExpressionEvaluator.cs
 
 ## Public Class - FloatExpressionEvaluator
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Apple2.Tests\ApplesoftBASIC\DetokenizerTests.cs
+* Path: src/BinaryDataDecoders.Apple2.Tests/ApplesoftBASIC/DetokenizerTests.cs
 
 ## Public Class - DetokenizerTests
 

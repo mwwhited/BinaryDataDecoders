@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Evaluators\IExpressionEvaluator.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Evaluators/IExpressionEvaluator.cs
 
 ## Public Interface - IExpressionEvaluator
 

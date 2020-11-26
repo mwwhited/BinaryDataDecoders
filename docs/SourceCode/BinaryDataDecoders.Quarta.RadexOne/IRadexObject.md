@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Quarta.RadexOne\IRadexObject.cs
+* Path: src/BinaryDataDecoders.Quarta.RadexOne/IRadexObject.cs
 
 ## Public Interface - IRadexObject
 

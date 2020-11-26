@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\Xml\Linq\ObjectXmlExtensions.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/Xml/Linq/ObjectXmlExtensions.cs
 
 ```CSharp
 〰1:   using System;

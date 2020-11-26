@@ -4,18 +4,18 @@
 
 | Key             | Value                                     |
 | :-------------- | :---------------------------------------- |
-| Generatedon     | `11/24/2020 - 12:02:17 AM`                |
-| Parser          | `MultiReportParser (26x CoberturaParser)` |
-| Assemblies      | `40`                                      |
-| Classes         | `260`                                     |
-| Coveredlines    | `3512`                                    |
-| Uncoveredlines  | `3581`                                    |
-| Coverablelines  | `7093`                                    |
-| Totallines      | `18001`                                   |
-| Linecoverage    | `49.5`                                    |
-| Coveredbranches | `1040`                                    |
-| Totalbranches   | `2813`                                    |
-| Branchcoverage  | `36.9`                                    |
+| Generatedon     | `11/26/2020 - 17:16:17`                   |
+| Parser          | `MultiReportParser (39x CoberturaParser)` |
+| Assemblies      | `50`                                      |
+| Classes         | `316`                                     |
+| Coveredlines    | `3738`                                    |
+| Uncoveredlines  | `4852`                                    |
+| Coverablelines  | `8590`                                    |
+| Totallines      | `21303`                                   |
+| Linecoverage    | `43.5`                                    |
+| Coveredbranches | `1073`                                    |
+| Totalbranches   | `3179`                                    |
+| Branchcoverage  | `33.7`                                    |
 
 ## Coverage
 
@@ -77,14 +77,14 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `3`   |
+| classes         | `5`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `158` |
-| totallines      | `317` |
+| coverablelines  | `241` |
+| totallines      | `499` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
-| totalbranches   | `102` |
+| totalbranches   | `124` |
 
 #### Classes
 
@@ -93,6 +93,8 @@
 | 0          | [Tar.Entry](BinaryDataDecoders.Archives_Entry.md) |
 | 0          | [Tar.IOUtilities](BinaryDataDecoders.Archives_IOUtilities.md) |
 | 0          | [Tar.Utilities](BinaryDataDecoders.Archives_Utilities.md) |
+| 0          | [Zip.LocalFileHeader](BinaryDataDecoders.Archives_LocalFileHeader.md) |
+| 0          | [Zip.ZipFile](BinaryDataDecoders.Archives_ZipFile.md) |
 
 ### Assembly - BinaryDataDecoders.Archives.Tests
 
@@ -257,14 +259,14 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `6`    |
-| coverage        | `39.3` |
+| classes         | `7`    |
+| coverage        | `29.6` |
 | coveredlines    | `104`  |
-| coverablelines  | `264`  |
-| totallines      | `526`  |
-| branchcoverage  | `37.1` |
+| coverablelines  | `351`  |
+| totallines      | `735`  |
+| branchcoverage  | `21.3` |
 | coveredbranches | `26`   |
-| totalbranches   | `70`   |
+| totalbranches   | `122`  |
 
 #### Classes
 
@@ -276,6 +278,7 @@
 | 91.6       | [Enigma.EnigmaTools](BinaryDataDecoders.Cryptography_EnigmaTools.md) |
 | 0          | [Lorenz.LorenzMachine](BinaryDataDecoders.Cryptography_LorenzMachine.md) |
 | 0          | [OneTimeCode](BinaryDataDecoders.Cryptography_.md) |
+| 0          | [PlayFair](BinaryDataDecoders.Cryptography_.md) |
 
 ### Assembly - BinaryDataDecoders.Cryptography.Tests
 
@@ -299,6 +302,58 @@
 | 0          | [](BinaryDataDecoders.Cryptography.Tests_.md) |
 | 100        | [Enigma.EnigmaMachineTests](BinaryDataDecoders.Cryptography.Tests_EnigmaMachineTests.md) |
 | 0          | [Lorenz.LorenzMachineTests](BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests.md) |
+
+### Assembly - BinaryDataDecoders.Drawing
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :---- |
+| classes         | `7`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `458` |
+| totallines      | `736` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `30`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [Barcodes.Code39](BinaryDataDecoders.Drawing_Code39.md) |
+| 0          | [Mending.JpegSegment](BinaryDataDecoders.Drawing_JpegSegment.md) |
+| 0          | [Mending.JpegSegmentReader](BinaryDataDecoders.Drawing_JpegSegmentReader.md) |
+| 0          | [MultiScaleImages.GraphicsEx](BinaryDataDecoders.Drawing_GraphicsEx.md) |
+| 0          | [MultiScaleImages.MultiScaleTileEx](BinaryDataDecoders.Drawing_MultiScaleTileEx.md) |
+| 0          | [MultiScaleImages.ZOrderCurveEx](BinaryDataDecoders.Drawing_ZOrderCurveEx.md) |
+| 0          | [Packers.PngPack](BinaryDataDecoders.Drawing_PngPack.md) |
+
+### Assembly - BinaryDataDecoders.Drawing.Tests
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :---- |
+| classes         | `5`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `72`  |
+| totallines      | `173` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `12`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [](BinaryDataDecoders.Drawing.Tests_.md) |
+| 0          | [BarCodes.Code39Tests](BinaryDataDecoders.Drawing.Tests_Code39Tests.md) |
+| 0          | [MultiScaleImages.MultiScaleTileExTests](BinaryDataDecoders.Drawing.Tests_MultiScaleTileExTests.md) |
+| 0          | [Packers.PngPackTests](BinaryDataDecoders.Drawing.Tests_PngPackTests.md) |
+| 0          | [UnitTest1](BinaryDataDecoders.Drawing.Tests_.md) |
 
 ### Assembly - BinaryDataDecoders.EByteElectronicTechnology
 
@@ -447,12 +502,12 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `15`   |
-| coverage        | `86.4` |
-| coveredlines    | `205`  |
+| coverage        | `87.7` |
+| coveredlines    | `208`  |
 | coverablelines  | `237`  |
 | totallines      | `3811` |
-| branchcoverage  | `47.6` |
-| coveredbranches | `20`   |
+| branchcoverage  | `50`   |
+| coveredbranches | `21`   |
 | totalbranches   | `42`   |
 
 #### Classes
@@ -465,7 +520,7 @@
 | 100        | [Expressions.ExpressionBaseTests](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionBaseTests.md) |
 | 100        | [Expressions.NumberExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_NumberExpressionTests.md) |
 | 84         | [Expressions.VariableExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_VariableExpressionTests.md) |
-| 72         | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
+| 75.2       | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
 | 100        | [Parser.Int16ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int16ExpressionParserTests.md) |
 | 100        | [Parser.Int32ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int32ExpressionParserTests.md) |
 | 100        | [Parser.Int64ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int64ExpressionParserTests.md) |
@@ -545,14 +600,14 @@
 ## Summary
 
 | Key             | Value |
-| :-------------- | :--- |
-| classes         | `3`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `18` |
-| totallines      | `96` |
-| coveredbranches | `0`  |
-| totalbranches   | `0`  |
+| :-------------- | :---- |
+| classes         | `4`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `41`  |
+| totallines      | `139` |
+| coveredbranches | `0`   |
+| totalbranches   | `0`   |
 
 #### Classes
 
@@ -561,6 +616,7 @@
 | 0          | [ageMatchPatternAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [initions.InvalidSegmentationException](BinaryDataDecoders.IO.Abstractions_InvalidSegmentationException.md) |
 | 0          | [ortAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [dAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
 
 ### Assembly - BinaryDataDecoders.IO.Pipelines
 
@@ -615,6 +671,45 @@
 | 0          | [](BinaryDataDecoders.IO.Pipelines.Tests_.md) |
 | 0          | [UnitTest1](BinaryDataDecoders.IO.Pipelines.Tests_.md) |
 
+### Assembly - BinaryDataDecoders.IO.Ports
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :-- |
+| classes         | `0` |
+| coveredlines    | `0` |
+| coverablelines  | `0` |
+| totallines      | `0` |
+| coveredbranches | `0` |
+| totalbranches   | `0` |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+
+### Assembly - BinaryDataDecoders.IO.Ports.Tests
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :--- |
+| classes         | `2`  |
+| coverage        | `0`  |
+| coveredlines    | `0`  |
+| coverablelines  | `2`  |
+| totallines      | `17` |
+| coveredbranches | `0`  |
+| totalbranches   | `0`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [](BinaryDataDecoders.IO.Ports.Tests_.md) |
+| 0          | [UnitTest1](BinaryDataDecoders.IO.Ports.Tests_.md) |
+
 ### Assembly - BinaryDataDecoders.IO.Tests
 
 ## Summary
@@ -636,6 +731,88 @@
 | 0          | [](BinaryDataDecoders.IO.Tests_.md) |
 | 95.2       | [Functions.ChecksumCalculatorTests](BinaryDataDecoders.IO.Tests_ChecksumCalculatorTests.md) |
 | 0          | [UnitTest1](BinaryDataDecoders.IO.Tests_.md) |
+
+### Assembly - BinaryDataDecoders.IO.UsbHids
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :-- |
+| classes         | `0` |
+| coveredlines    | `0` |
+| coverablelines  | `0` |
+| totallines      | `0` |
+| coveredbranches | `0` |
+| totalbranches   | `0` |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+
+### Assembly - BinaryDataDecoders.IO.UsbHids.Tests
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :--- |
+| classes         | `2`  |
+| coverage        | `0`  |
+| coveredlines    | `0`  |
+| coverablelines  | `25` |
+| totallines      | `74` |
+| branchcoverage  | `0`  |
+| coveredbranches | `0`  |
+| totalbranches   | `12` |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [](BinaryDataDecoders.IO.UsbHids.Tests_.md) |
+| 0          | [SampleUsageTests](BinaryDataDecoders.IO.UsbHids.Tests_.md) |
+
+### Assembly - BinaryDataDecoders.Kuando.Busylight
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :--- |
+| classes         | `1`  |
+| coverage        | `0`  |
+| coveredlines    | `0`  |
+| coverablelines  | `18` |
+| totallines      | `48` |
+| branchcoverage  | `0`  |
+| coveredbranches | `0`  |
+| totalbranches   | `10` |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [Class1](BinaryDataDecoders.Kuando.Busylight_.md) |
+
+### Assembly - BinaryDataDecoders.Kuando.Busylight.Tests
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :--- |
+| classes         | `2`  |
+| coverage        | `0`  |
+| coveredlines    | `0`  |
+| coverablelines  | `3`  |
+| totallines      | `19` |
+| coveredbranches | `0`  |
+| totalbranches   | `0`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [](BinaryDataDecoders.Kuando.Busylight.Tests_.md) |
+| 0          | [UnitTest1](BinaryDataDecoders.Kuando.Busylight.Tests_.md) |
 
 ### Assembly - BinaryDataDecoders.Nmea
 
@@ -874,14 +1051,14 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `75`   |
-| coverage        | `35`   |
-| coveredlines    | `633`  |
-| coverablelines  | `1808` |
-| totallines      | `5544` |
-| branchcoverage  | `30.4` |
-| coveredbranches | `268`  |
-| totalbranches   | `880`  |
+| classes         | `99`   |
+| coverage        | `31.2` |
+| coveredlines    | `742`  |
+| coverablelines  | `2374` |
+| totallines      | `6959` |
+| branchcoverage  | `27.1` |
+| coveredbranches | `296`  |
+| totalbranches   | `1092` |
 
 #### Classes
 
@@ -889,21 +1066,28 @@
 | :--------- | :--------------------------------------------------------------- |
 | 31.2       | [BcdEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [BigEndianUShort](BinaryDataDecoders.ToolKit_.md) |
-| 0          | [ByteEx](BinaryDataDecoders.ToolKit_.md) |
+| 93.3       | [ByteEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Calculators.LightCalculator](BinaryDataDecoders.ToolKit_LightCalculator.md) |
-| 0          | [Codecs.Base32Codec](BinaryDataDecoders.ToolKit_Base32Codec.md) |
+| 97.6       | [Codecs.Base32Codec](BinaryDataDecoders.ToolKit_Base32Codec.md) |
 | 0          | [Collections.DoubleLinkedList`1](BinaryDataDecoders.ToolKit_DoubleLinkedList_1.md) |
 | 0          | [Collections.DoubleLinkedListEx](BinaryDataDecoders.ToolKit_DoubleLinkedListEx.md) |
 | 0          | [Collections.EnumerableEx](BinaryDataDecoders.ToolKit_EnumerableEx.md) |
 | 0          | [Collections.LinkedListEx](BinaryDataDecoders.ToolKit_LinkedListEx.md) |
+| 0          | [Collections.ObjectModel.ObservableDictionary`2](BinaryDataDecoders.ToolKit_ObservableDictionary_2.md) |
 | 0          | [Collections.ReversableEnumerator`1](BinaryDataDecoders.ToolKit_ReversableEnumerator_1.md) |
 | 0          | [Collections.ReversibleEnumeratorEx](BinaryDataDecoders.ToolKit_ReversibleEnumeratorEx.md) |
+| 0          | [ComponentModel.ViewModelBase](BinaryDataDecoders.ToolKit_ViewModelBase.md) |
 | 0          | [ConsoleEx](BinaryDataDecoders.ToolKit_.md) |
+| 0          | [Data.SqlTypes.SqlXmlEx](BinaryDataDecoders.ToolKit_SqlXmlEx.md) |
+| 33.3       | [DateTimeEx](BinaryDataDecoders.ToolKit_.md) |
+| 0          | [Input.CommandBase](BinaryDataDecoders.ToolKit_CommandBase.md) |
+| 0          | [Input.DelegateCommand](BinaryDataDecoders.ToolKit_DelegateCommand.md) |
 | 0          | [IO.PathEx](BinaryDataDecoders.ToolKit_PathEx.md) |
 | 0          | [IO.PathNavigator](BinaryDataDecoders.ToolKit_PathNavigator.md) |
 | 0          | [IO.PathNavigatorFactory](BinaryDataDecoders.ToolKit_PathNavigatorFactory.md) |
 | 50         | [IO.StreamEx](BinaryDataDecoders.ToolKit_StreamEx.md) |
 | 38         | [IO.TempFileHandle](BinaryDataDecoders.ToolKit_TempFileHandle.md) |
+| 0          | [Linq.EnumerableEx](BinaryDataDecoders.ToolKit_EnumerableEx.md) |
 | 0          | [MemoryCompare`1](BinaryDataDecoders.ToolKit_.md) |
 | 61.1       | [MemoryEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [NumberEx](BinaryDataDecoders.ToolKit_.md) |
@@ -929,12 +1113,28 @@
 | 100        | [PathSegments.StringPathSegment](BinaryDataDecoders.ToolKit_StringPathSegment.md) |
 | 100        | [PathSegments.WildcardPathSegment](BinaryDataDecoders.ToolKit_WildcardPathSegment.md) |
 | 95.8       | [ReadOnlySpanEx](BinaryDataDecoders.ToolKit_.md) |
+| 0          | [Reflection.ApplicationInformation](BinaryDataDecoders.ToolKit_ApplicationInformation.md) |
 | 76.9       | [Reflection.ReflectionElementNodeBuilder](BinaryDataDecoders.ToolKit_ReflectionElementNodeBuilder.md) |
+| 0          | [SecureStringEx](BinaryDataDecoders.ToolKit_.md) |
+| 0          | [Security.Cryptography.OneTimeCode](BinaryDataDecoders.ToolKit_OneTimeCode.md) |
 | 0          | [Security.SandboxPath](BinaryDataDecoders.ToolKit_SandboxPath.md) |
 | 0          | [StreamEx](BinaryDataDecoders.ToolKit_.md) |
-| 50         | [TypeEx](BinaryDataDecoders.ToolKit_.md) |
+| 0          | [StringEx](BinaryDataDecoders.ToolKit_.md) |
+| 0          | [Threading.AsyncAutoResetEvent](BinaryDataDecoders.ToolKit_AsyncAutoResetEvent.md) |
+| 0          | [Threading.AsyncBarrier](BinaryDataDecoders.ToolKit_AsyncBarrier.md) |
+| 0          | [Threading.AsyncCountdownEvent](BinaryDataDecoders.ToolKit_AsyncCountdownEvent.md) |
+| 0          | [Threading.AsyncLock](BinaryDataDecoders.ToolKit_AsyncLock.md) |
+| 0          | [Threading.AsyncManualResetEvent](BinaryDataDecoders.ToolKit_AsyncManualResetEvent.md) |
+| 0          | [Threading.AsyncReaderWriterLock](BinaryDataDecoders.ToolKit_AsyncReaderWriterLock.md) |
+| 0          | [Threading.AsyncSemaphore](BinaryDataDecoders.ToolKit_AsyncSemaphore.md) |
+| 0          | [Threading.Tasks.TaskEx](BinaryDataDecoders.ToolKit_TaskEx.md) |
+| 53.3       | [TypeEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Xml.Linq.ObjectXmlExtensions](BinaryDataDecoders.ToolKit_ObjectXmlExtensions.md) |
-| 0          | [Xml.Linq.XFragment](BinaryDataDecoders.ToolKit_XFragment.md) |
+| 0          | [Xml.Linq.XAttributeEx](BinaryDataDecoders.ToolKit_XAttributeEx.md) |
+| 66.1       | [Xml.Linq.XFragment](BinaryDataDecoders.ToolKit_XFragment.md) |
+| 100        | [Xml.Linq.XFragmentEx](BinaryDataDecoders.ToolKit_XFragmentEx.md) |
+| 0          | [Xml.Schema.XmlSchemaValidatorEx](BinaryDataDecoders.ToolKit_XmlSchemaValidatorEx.md) |
+| 0          | [Xml.Schema.XmlValidationResult](BinaryDataDecoders.ToolKit_XmlValidationResult.md) |
 | 0          | [Xml.XPath.EnumerableXPathNodeIterator](BinaryDataDecoders.ToolKit_EnumerableXPathNodeIterator.md) |
 | 84.2       | [Xml.XPath.ExtensibleAttributeNode`1](BinaryDataDecoders.ToolKit_ExtensibleAttributeNode_1.md) |
 | 100        | [Xml.XPath.ExtensibleElementNode](BinaryDataDecoders.ToolKit_ExtensibleElementNode.md) |
@@ -958,6 +1158,7 @@
 | 0          | [Xml.Xsl.Extensions.StringExtensions](BinaryDataDecoders.ToolKit_StringExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.XmlExtensions](BinaryDataDecoders.ToolKit_XmlExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.XPath20Functions](BinaryDataDecoders.ToolKit_XPath20Functions.md) |
+| 0          | [Xml.Xsl.XslCompiledTransformEx](BinaryDataDecoders.ToolKit_XslCompiledTransformEx.md) |
 | 0          | [Xml.Xsl.XsltArgumentListExtensions](BinaryDataDecoders.ToolKit_XsltArgumentListExtensions.md) |
 | 0          | [Xml.Xsl.XsltExtensionFactory](BinaryDataDecoders.ToolKit_XsltExtensionFactory.md) |
 | 0          | [Xml.Xsl.XsltFunctionAttribute](BinaryDataDecoders.ToolKit_XsltFunctionAttribute.md) |
@@ -990,21 +1191,24 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `14`   |
-| coverage        | `46`   |
-| coveredlines    | `115`  |
-| coverablelines  | `250`  |
-| totallines      | `1003` |
-| branchcoverage  | `13.6` |
-| coveredbranches | `6`    |
-| totalbranches   | `44`   |
+| classes         | `19`   |
+| coverage        | `62.9` |
+| coveredlines    | `229`  |
+| coverablelines  | `364`  |
+| totallines      | `1247` |
+| branchcoverage  | `20.8` |
+| coveredbranches | `10`   |
+| totalbranches   | `48`   |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [](BinaryDataDecoders.ToolKit.Tests_.md) |
+| 100        | [ByteExTests](BinaryDataDecoders.ToolKit.Tests_.md) |
+| 100        | [Codecs.Base32CodecTests](BinaryDataDecoders.ToolKit.Tests_Base32CodecTests.md) |
 | 0          | [Collections.ReversableEnumeratorTests](BinaryDataDecoders.ToolKit.Tests_ReversableEnumeratorTests.md) |
+| 100        | [DateTimeExTests](BinaryDataDecoders.ToolKit.Tests_.md) |
 | 0          | [IO.PathExTests](BinaryDataDecoders.ToolKit.Tests_PathExTests.md) |
 | 0          | [IO.PathNavigatorFactoryTests](BinaryDataDecoders.ToolKit.Tests_PathNavigatorFactoryTests.md) |
 | 100        | [IO.StreamExTests](BinaryDataDecoders.ToolKit.Tests_StreamExTests.md) |
@@ -1013,10 +1217,55 @@
 | 100        | [ReadOnlySpanExTests](BinaryDataDecoders.ToolKit.Tests_.md) |
 | 100        | [Reflection.ReflectionElementNodeTests](BinaryDataDecoders.ToolKit.Tests_ReflectionElementNodeTests.md) |
 | 0          | [Xml.Linq.ObjectXmlExtensionsTests](BinaryDataDecoders.ToolKit.Tests_ObjectXmlExtensionsTests.md) |
+| 100        | [Xml.Linq.XFragmentExTests](BinaryDataDecoders.ToolKit.Tests_XFragmentExTests.md) |
+| 100        | [Xml.Linq.XFragmentTests](BinaryDataDecoders.ToolKit.Tests_XFragmentTests.md) |
 | 63.1       | [Xml.XPath.MergedXPathNavigatorTests](BinaryDataDecoders.ToolKit.Tests_MergedXPathNavigatorTests.md) |
 | 0          | [Xml.Xsl.Extensions.XPath20FunctionsTests](BinaryDataDecoders.ToolKit.Tests_XPath20FunctionsTests.md) |
 | 0          | [Xml.Xsl.Extensions.XsltExtensionContext](BinaryDataDecoders.ToolKit.Tests_XsltExtensionContext.md) |
 | 0          | [Xml.Xsl.XsltExtensionFactoryTests](BinaryDataDecoders.ToolKit.Tests_XsltExtensionFactoryTests.md) |
+
+### Assembly - BinaryDataDecoders.Velleman.K8055
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :---- |
+| classes         | `2`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `43`  |
+| totallines      | `140` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `12`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [K8055Controller](BinaryDataDecoders.Velleman.K8055_.md) |
+| 0          | [K8055Response](BinaryDataDecoders.Velleman.K8055_.md) |
+
+### Assembly - BinaryDataDecoders.Velleman.K8055.Tests
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :--- |
+| classes         | `2`  |
+| coverage        | `0`  |
+| coveredlines    | `0`  |
+| coverablelines  | `3`  |
+| totallines      | `24` |
+| coveredbranches | `0`  |
+| totalbranches   | `0`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [](BinaryDataDecoders.Velleman.K8055.Tests_.md) |
+| 0          | [K8055ControllerTests](BinaryDataDecoders.Velleman.K8055.Tests_.md) |
 
 ### Assembly - BinaryDataDecoders.Yaml
 
@@ -1050,7 +1299,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `7`  |
-| totallines      | `31` |
+| totallines      | `29` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 

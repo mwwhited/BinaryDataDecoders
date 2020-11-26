@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Html\HtmlTemplateTransform.cs
+* Path: src/BinaryDataDecoders.Templating.Html/HtmlTemplateTransform.cs
 
 ## Public Class - HtmlTemplateTransform
 

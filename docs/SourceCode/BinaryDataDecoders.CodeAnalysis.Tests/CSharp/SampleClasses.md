@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis.Tests\CSharp\SampleClasses.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis.Tests/CSharp/SampleClasses.cs
 
 ## Class - SampleClass_NoVisibility
 

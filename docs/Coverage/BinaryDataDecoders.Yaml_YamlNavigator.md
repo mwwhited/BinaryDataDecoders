@@ -24,7 +24,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Yaml\YamlNavigator.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Yaml/YamlNavigator.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.MetaData;

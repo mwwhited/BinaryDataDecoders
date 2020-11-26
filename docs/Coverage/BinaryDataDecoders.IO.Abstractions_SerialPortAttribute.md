@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.IO.Ports.SerialPortAttribute` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`              |
 | Coveredlines    | `0`                                               |
-| Uncoveredlines  | `4`                                               |
-| Coverablelines  | `4`                                               |
-| Totallines      | `28`                                              |
+| Uncoveredlines  | `13`                                              |
+| Coverablelines  | `13`                                              |
+| Totallines      | `41`                                              |
 | Linecoverage    | `0`                                               |
 | Coveredbranches | `0`                                               |
 | Totalbranches   | `0`                                               |
@@ -18,6 +18,9 @@
 
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
+| 1          | 0     | 100      | `ctor`         |
+| 1          | 0     | 100      | `ctor`         |
+| 1          | 0     | 100      | `ctor`         |
 | 1          | 0     | 100      | `get_BaudRate` |
 | 1          | 0     | 100      | `get_DataBits` |
 | 1          | 0     | 100      | `get_StopBits` |
@@ -25,7 +28,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.IO.Abstractions\Ports\SerialPortAttribute.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Abstractions/Ports/SerialPortAttribute.cs
 
 ```CSharp
 〰1:   using System;
@@ -38,24 +41,37 @@
 〰8:       [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
 〰9:       public class SerialPortAttribute : Attribute
 〰10:      {
-〰11:          /// <summary>
-〰12:          /// Default Baud Rate
-〰13:          /// </summary>
-‼14:          public int BaudRate { get; set; } = 9600;
-〰15:          /// <summary>
-〰16:          /// Default bitwidth
-〰17:          /// </summary>
-‼18:          public int DataBits { get; set; } = 8;
-〰19:          /// <summary>
-〰20:          /// Default stop bits
-〰21:          /// </summary>
-‼22:          public StopBits StopBits { get; set; } = StopBits.One;
-〰23:          /// <summary>
-〰24:          /// Default parity bit
-〰25:          /// </summary>
-‼26:          public Parity Parity { get; set; } = Parity.None;
-〰27:      }
-〰28:  }
+‼11:          public SerialPortAttribute() { }
+‼12:          public SerialPortAttribute(int baudRate)
+〰13:          {
+‼14:              BaudRate = baudRate;
+‼15:          }
+〰16:          public SerialPortAttribute(int baudRate, Parity parity, int dataBits, StopBits stopBits)
+‼17:              :this (baudRate)
+〰18:          {
+‼19:              Parity = parity;
+‼20:              DataBits = dataBits;
+‼21:              StopBits = stopBits;
+‼22:          }
+〰23:  
+〰24:          /// <summary>
+〰25:          /// Default Baud Rate
+〰26:          /// </summary>
+‼27:          public int BaudRate { get; set; } = 9600;
+〰28:          /// <summary>
+〰29:          /// Default bitwidth
+〰30:          /// </summary>
+‼31:          public int DataBits { get; set; } = 8;
+〰32:          /// <summary>
+〰33:          /// Default stop bits
+〰34:          /// </summary>
+‼35:          public StopBits StopBits { get; set; } = StopBits.One;
+〰36:          /// <summary>
+〰37:          /// Default parity bit
+〰38:          /// </summary>
+‼39:          public Parity Parity { get; set; } = Parity.None;
+〰40:      }
+〰41:  }
 ```
 
 ## Links

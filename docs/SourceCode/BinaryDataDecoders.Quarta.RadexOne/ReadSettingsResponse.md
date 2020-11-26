@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Quarta.RadexOne\ReadSettingsResponse.cs
+* Path: src/BinaryDataDecoders.Quarta.RadexOne/ReadSettingsResponse.cs
 
 ## Public Structure - ReadSettingsResponse
 

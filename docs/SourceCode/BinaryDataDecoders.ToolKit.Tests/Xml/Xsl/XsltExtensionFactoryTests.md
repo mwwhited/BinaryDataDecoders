@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\Xml\Xsl\XsltExtensionFactoryTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/XsltExtensionFactoryTests.cs
 
 ## Public Class - XsltExtensionFactoryTests
 

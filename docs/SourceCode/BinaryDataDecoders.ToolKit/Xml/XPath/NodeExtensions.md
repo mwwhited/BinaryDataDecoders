@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\NodeExtensions.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/NodeExtensions.cs
 
 ## Public Static Class - NodeExtensions
 

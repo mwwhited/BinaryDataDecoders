@@ -24,7 +24,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Templating.Html\HtmlTemplateTransform.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Templating.Html/HtmlTemplateTransform.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.Templating.Abstractions;

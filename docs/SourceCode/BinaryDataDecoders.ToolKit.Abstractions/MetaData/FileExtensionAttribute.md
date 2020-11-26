@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\MetaData\FileExtensionAttribute.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/MetaData/FileExtensionAttribute.cs
 
 ## Public Class - FileExtensionAttribute
 

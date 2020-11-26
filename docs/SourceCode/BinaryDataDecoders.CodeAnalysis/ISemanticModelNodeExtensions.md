@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\ISemanticModelNodeExtensions.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/ISemanticModelNodeExtensions.cs
 
 ## Internal Static Class - ISemanticModelNodeExtensions
 

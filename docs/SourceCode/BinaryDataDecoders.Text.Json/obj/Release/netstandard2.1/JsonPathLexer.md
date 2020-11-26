@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\obj\Release\netstandard2.1\JsonPathLexer.cs
+* Path: src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathLexer.cs
 
 ## Public Class - JsonPathLexer
 

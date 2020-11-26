@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Apple2\Text\Apple2Encoding.cs
+* Path: src/BinaryDataDecoders.Apple2/Text/Apple2Encoding.cs
 
 ## Public Class - Apple2Encoding
 

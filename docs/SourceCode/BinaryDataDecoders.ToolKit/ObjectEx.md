@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\ObjectEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/ObjectEx.cs
 
 ## Public Static Class - ObjectEx
 

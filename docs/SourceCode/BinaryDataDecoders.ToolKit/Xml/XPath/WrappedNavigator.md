@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\WrappedNavigator.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/WrappedNavigator.cs
 
 ## Internal Class - WrappedNavigator
 

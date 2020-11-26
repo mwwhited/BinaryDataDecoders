@@ -3,17 +3,17 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\Linq\XFragment.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/Linq/XFragment.cs
 
 ## Public Class - XFragment
 
 ### Members
 
-#### Private ReadOnly Field - _nodes
+#### Private Property - Nodes
 
 ##### Summary
 
- * Type: 
+ * Type: IList < XNode > 
 
 #### Public Constructor - XFragment
 

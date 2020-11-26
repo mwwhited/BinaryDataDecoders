@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleSimpleNodeBase.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleSimpleNodeBase.cs
 
 ## Internal Class - ExtensibleSimpleNodeBase
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\IO\PathNavigator.cs
+* Path: src/BinaryDataDecoders.ToolKit/IO/PathNavigator.cs
 
 ## Public Class - PathNavigator
 

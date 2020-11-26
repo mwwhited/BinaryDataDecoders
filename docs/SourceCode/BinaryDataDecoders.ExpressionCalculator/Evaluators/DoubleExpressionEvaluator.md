@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Evaluators\DoubleExpressionEvaluator.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Evaluators/DoubleExpressionEvaluator.cs
 
 ## Public Class - DoubleExpressionEvaluator
 

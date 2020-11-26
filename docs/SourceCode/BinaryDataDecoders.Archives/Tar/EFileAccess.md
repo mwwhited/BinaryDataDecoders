@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\EFileAccess.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/EFileAccess.cs
 
 ## Public Enumeration - EFileAccess
 

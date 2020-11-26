@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\PathSegments\SetPathSegment.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/PathSegments/SetPathSegment.cs
 
 ```CSharp
 〰1:   using System.Collections.Generic;

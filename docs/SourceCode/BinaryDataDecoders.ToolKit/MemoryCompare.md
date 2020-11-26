@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\MemoryCompare.cs
+* Path: src/BinaryDataDecoders.ToolKit/MemoryCompare.cs
 
 ## Public Class - MemoryCompare
 

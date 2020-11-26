@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Definitions\SegmentExtensionDefinition.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Definitions/SegmentExtensionDefinition.cs
 
 ## Public Class - SegmentExtensionDefinition
 

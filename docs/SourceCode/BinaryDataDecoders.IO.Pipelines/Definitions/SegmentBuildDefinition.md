@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Definitions\SegmentBuildDefinition.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Definitions/SegmentBuildDefinition.cs
 
 ## Internal Class - SegmentBuildDefinition
 
