@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Expressions\NumberExpression.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Expressions/NumberExpression.cs
 
 ## Public Class - NumberExpression
 

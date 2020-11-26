@@ -1,0 +1,2 @@
+﻿# Assembly - BinaryDataDecoders.Drawing
+

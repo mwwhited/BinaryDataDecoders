@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Factories\SegmentPipeFactory.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Factories/SegmentPipeFactory.cs
 
 ## Internal Class - SegmentPipeFactory
 

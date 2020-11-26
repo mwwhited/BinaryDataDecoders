@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Pipelines\SegmentionOptions.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Pipelines/SegmentionOptions.cs
 
 ## Public Enumeration - SegmentionOptions
 

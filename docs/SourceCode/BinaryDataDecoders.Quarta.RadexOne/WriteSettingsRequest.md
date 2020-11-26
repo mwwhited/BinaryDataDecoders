@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Quarta.RadexOne\WriteSettingsRequest.cs
+* Path: src/BinaryDataDecoders.Quarta.RadexOne/WriteSettingsRequest.cs
 
 ## Public Structure - WriteSettingsRequest
 

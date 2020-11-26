@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Ports\StopBits.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Ports/StopBits.cs
 
 ## Public Enumeration - StopBits
 

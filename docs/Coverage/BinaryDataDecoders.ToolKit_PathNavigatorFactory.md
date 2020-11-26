@@ -24,7 +24,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ToolKit\IO\PathNavigatorFactory.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/IO/PathNavigatorFactory.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Xml.XPath;

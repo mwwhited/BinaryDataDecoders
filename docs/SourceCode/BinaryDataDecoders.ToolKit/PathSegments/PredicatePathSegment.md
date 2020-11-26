@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\PredicatePathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/PredicatePathSegment.cs
 
 ## Public Class - PredicatePathSegment
 

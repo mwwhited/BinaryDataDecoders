@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography.Tests\Lorenz\LorenzMachineTests.cs
+* Path: src/BinaryDataDecoders.Cryptography.Tests/Lorenz/LorenzMachineTests.cs
 
 ## Public Class - LorenzMachineTests
 

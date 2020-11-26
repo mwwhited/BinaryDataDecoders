@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography\Enigma\EnigmaReflector.cs
+* Path: src/BinaryDataDecoders.Cryptography/Enigma/EnigmaReflector.cs
 
 ## Public Class - EnigmaReflector
 

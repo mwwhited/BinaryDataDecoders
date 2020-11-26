@@ -3,5 +3,5 @@
 ## Summary
 
 Language: 
-Path: C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.VisualBasic.Samples\obj\Release\netstandard2.1\BinaryDataDecoders.VisualBasic.Samples.AssemblyInfo.vb
+Path: /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.VisualBasic.Samples/obj/Release/netstandard2.1/BinaryDataDecoders.VisualBasic.Samples.AssemblyInfo.vb
 

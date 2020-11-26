@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\RelationBinaryOperationPathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/RelationBinaryOperationPathSegment.cs
 
 ## Public Class - RelationBinaryOperationPathSegment
 

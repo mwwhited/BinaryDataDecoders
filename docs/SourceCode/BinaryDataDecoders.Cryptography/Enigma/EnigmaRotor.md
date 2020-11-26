@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography\Enigma\EnigmaRotor.cs
+* Path: src/BinaryDataDecoders.Cryptography/Enigma/EnigmaRotor.cs
 
 ## Public Class - EnigmaRotor
 

@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.IO.Functions::ChecksumCalculator::Simple16
-  * BinaryDataDecoders.IO, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.IO, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.01
+* Duration: 00:00:00.00
 
 ## Links
 

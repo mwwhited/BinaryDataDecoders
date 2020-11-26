@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Text.Json\JsonNavigator.cs
+* Path: src/BinaryDataDecoders.Text.Json/JsonNavigator.cs
 
 ## Public Class - JsonNavigator
 

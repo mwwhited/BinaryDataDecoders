@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Html\HtmlNavigator.cs
+* Path: src/BinaryDataDecoders.Templating.Html/HtmlNavigator.cs
 
 ## Public Class - HtmlNavigator
 

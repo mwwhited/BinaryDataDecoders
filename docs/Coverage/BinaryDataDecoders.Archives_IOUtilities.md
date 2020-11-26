@@ -27,7 +27,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Archives\Tar\IOUtilities.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Archives/Tar/IOUtilities.cs
 
 ```CSharp
 〰1:   using Microsoft.Win32.SafeHandles;

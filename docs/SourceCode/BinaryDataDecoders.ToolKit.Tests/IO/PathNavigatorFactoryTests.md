@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\IO\PathNavigatorFactoryTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/IO/PathNavigatorFactoryTests.cs
 
 ## Public Class - PathNavigatorFactoryTests
 

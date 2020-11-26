@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Serial.Cli\Program.cs
+* Path: src/BinaryDataDecoders.Serial.Cli/Program.cs
 
 ## Class - Program
 

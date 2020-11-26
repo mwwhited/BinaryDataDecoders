@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Collections\DoubleLinkedList.cs
+* Path: src/BinaryDataDecoders.ToolKit/Collections/DoubleLinkedList.cs
 
 ## Internal Class - DoubleLinkedList
 

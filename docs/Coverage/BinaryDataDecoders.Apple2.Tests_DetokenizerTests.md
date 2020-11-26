@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.Apple2.Tests\ApplesoftBASIC\DetokenizerTests.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Apple2.Tests/ApplesoftBASIC/DetokenizerTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.Apple2.ApplesoftBASIC;

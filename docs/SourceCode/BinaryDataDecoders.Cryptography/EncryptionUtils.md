@@ -3,5 +3,5 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography\EncryptionUtils.cs
+* Path: src/BinaryDataDecoders.Cryptography/EncryptionUtils.cs
 

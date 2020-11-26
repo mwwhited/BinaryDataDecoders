@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\LogicOperationTypes.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/LogicOperationTypes.cs
 
 ## Public Enumeration - LogicOperationTypes
 

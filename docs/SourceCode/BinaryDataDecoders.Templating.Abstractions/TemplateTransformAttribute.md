@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Abstractions\TemplateTransformAttribute.cs
+* Path: src/BinaryDataDecoders.Templating.Abstractions/TemplateTransformAttribute.cs
 
 ## Public Class - TemplateTransformAttribute
 

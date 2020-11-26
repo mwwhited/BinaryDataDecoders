@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Html\IHtmlDocumentVistor.cs
+* Path: src/BinaryDataDecoders.Templating.Html/IHtmlDocumentVistor.cs
 
 ## Public Interface - IHtmlDocumentVistor
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Optimizers\ExpressionOptimizer.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Optimizers/ExpressionOptimizer.cs
 
 ## Public Class - ExpressionOptimizationProvider
 

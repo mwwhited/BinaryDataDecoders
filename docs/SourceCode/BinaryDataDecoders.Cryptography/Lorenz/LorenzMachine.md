@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography\Lorenz\LorenzMachine.cs
+* Path: src/BinaryDataDecoders.Cryptography/Lorenz/LorenzMachine.cs
 
 ## Public Class - LorenzMachine
 

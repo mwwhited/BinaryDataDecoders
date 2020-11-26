@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Templating.Abstractions\ITemplateTransform.cs
+* Path: src/BinaryDataDecoders.Templating.Abstractions/ITemplateTransform.cs
 
 ## Public Interface - ITemplateTransform
 

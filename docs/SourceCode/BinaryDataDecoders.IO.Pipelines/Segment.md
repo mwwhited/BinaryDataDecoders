@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Pipelines\Segment.cs
+* Path: src/BinaryDataDecoders.IO.Pipelines/Segment.cs
 
 ## Public Static Class - Segment
 

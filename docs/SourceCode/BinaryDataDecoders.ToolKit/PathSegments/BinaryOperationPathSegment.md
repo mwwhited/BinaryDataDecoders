@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\BinaryOperationPathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/BinaryOperationPathSegment.cs
 
 ## Public Class - BinaryOperationPathSegment
 

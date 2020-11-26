@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Archives\Tar\WIN32_FIND_DATA.cs
+* Path: src/BinaryDataDecoders.Archives/Tar/WIN32_FIND_DATA.cs
 
 ## Internal Structure - WIN32_FIND_DATA
 

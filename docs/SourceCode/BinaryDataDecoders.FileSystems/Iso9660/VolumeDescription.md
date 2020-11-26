@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.FileSystems\Iso9660\VolumeDescription.cs
+* Path: src/BinaryDataDecoders.FileSystems/Iso9660/VolumeDescription.cs
 
 ## Public Class - VolumeDescription
 

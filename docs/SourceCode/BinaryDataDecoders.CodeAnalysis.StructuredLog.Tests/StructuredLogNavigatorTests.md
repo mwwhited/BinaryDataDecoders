@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests\StructuredLogNavigatorTests.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests/StructuredLogNavigatorTests.cs
 
 ## Public Class - StructuredLogNavigatorTests
 

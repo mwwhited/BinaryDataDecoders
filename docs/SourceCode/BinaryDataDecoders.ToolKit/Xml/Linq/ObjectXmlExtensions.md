@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\Linq\ObjectXmlExtensions.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/Linq/ObjectXmlExtensions.cs
 
 ## Public Static Class - ObjectXmlExtensions
 

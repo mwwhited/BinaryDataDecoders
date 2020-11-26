@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Bytes.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Bytes.cs
 
 ## Public Static Class - Bytes
 

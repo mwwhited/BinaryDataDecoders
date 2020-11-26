@@ -23,7 +23,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis\ISemanticModelNodeExtensions.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis/ISemanticModelNodeExtensions.cs
 
 ```CSharp
 〰1:   using Microsoft.CodeAnalysis;

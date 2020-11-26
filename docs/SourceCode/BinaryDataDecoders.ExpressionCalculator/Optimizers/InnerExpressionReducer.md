@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Optimizers\InnerExpressionReducer.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Optimizers/InnerExpressionReducer.cs
 
 ## Public Class - InnerExpressionReducer
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\NumberEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/NumberEx.cs
 
 ## Public Static Class - NumberEx
 

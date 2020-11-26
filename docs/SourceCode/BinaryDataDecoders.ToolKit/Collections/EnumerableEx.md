@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Collections\EnumerableEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/Collections/EnumerableEx.cs
 
 ## Public Static Class - EnumerableEx
 

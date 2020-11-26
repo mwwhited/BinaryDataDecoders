@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\Xsl\XsltArgumentListExtensions.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/Xsl/XsltArgumentListExtensions.cs
 
 ## Public Static Class - XsltArgumentListExtensions
 

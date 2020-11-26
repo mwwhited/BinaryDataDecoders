@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests\SaintGeorge\SqTestDataExtractor.cs
+* Path: src/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/SaintGeorge/SqTestDataExtractor.cs
 
 ## Public Class - SqTestDataExtractor
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\Xml\XPath\ISimpleNode.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/Xml/XPath/ISimpleNode.cs
 
 ## Public Interface - ISimpleNode
 

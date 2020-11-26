@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Xslt.Cli\Program.cs
+* Path: src/BinaryDataDecoders.Xslt.Cli/Program.cs
 
 ## Class - Program
 

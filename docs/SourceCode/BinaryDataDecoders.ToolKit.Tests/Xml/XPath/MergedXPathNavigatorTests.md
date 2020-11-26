@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\Xml\XPath\MergedXPathNavigatorTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs
 
 ## Public Class - MergedXPathNavigatorTests
 

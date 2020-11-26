@@ -34,7 +34,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.CodeAnalysis.DacFx\DacPacElementNodeBuilder.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis.DacFx/DacPacElementNodeBuilder.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Reflection;

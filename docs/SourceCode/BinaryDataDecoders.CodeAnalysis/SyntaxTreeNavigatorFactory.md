@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.CodeAnalysis\SyntaxTreeNavigatorFactory.cs
+* Path: src/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.cs
 
 ## Public Static Class - SyntaxTreeNavigatorFactory
 

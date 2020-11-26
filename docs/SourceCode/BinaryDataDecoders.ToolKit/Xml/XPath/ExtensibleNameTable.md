@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\Xml\XPath\ExtensibleNameTable.cs
+* Path: src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleNameTable.cs
 
 ## Internal Class - ExtensibleNameTable
 

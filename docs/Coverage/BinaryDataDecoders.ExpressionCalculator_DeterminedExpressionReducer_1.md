@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ExpressionCalculator\Optimizers\DeterminedExpressionReducer.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Optimizers/DeterminedExpressionReducer.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ExpressionCalculator.Expressions;

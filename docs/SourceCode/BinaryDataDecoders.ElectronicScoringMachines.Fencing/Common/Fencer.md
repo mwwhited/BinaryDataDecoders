@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Common\Fencer.cs
+* Path: src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/Fencer.cs
 
 ## Public Structure - Fencer
 

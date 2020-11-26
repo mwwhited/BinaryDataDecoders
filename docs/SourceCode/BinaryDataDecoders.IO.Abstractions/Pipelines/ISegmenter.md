@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Pipelines\ISegmenter.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Pipelines/ISegmenter.cs
 
 ## Public Interface - ISegmenter
 

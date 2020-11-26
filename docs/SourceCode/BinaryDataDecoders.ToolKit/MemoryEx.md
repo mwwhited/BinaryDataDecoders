@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\MemoryEx.cs
+* Path: src/BinaryDataDecoders.ToolKit/MemoryEx.cs
 
 ## Public Static Class - MemoryEx
 

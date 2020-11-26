@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Apple2.Tests\Dos33\DiskImageCommandsTests.cs
+* Path: src/BinaryDataDecoders.Apple2.Tests/Dos33/DiskImageCommandsTests.cs
 
 ## Public Class - DiskImageCommandsTests
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Parser\ExpressionTreeVisitor.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Parser/ExpressionTreeVisitor.cs
 
 ## Public Class - ExpressionTreeVisitor
 

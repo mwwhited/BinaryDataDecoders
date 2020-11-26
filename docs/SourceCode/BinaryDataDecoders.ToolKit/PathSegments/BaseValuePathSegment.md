@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit\PathSegments\BaseValuePathSegment.cs
+* Path: src/BinaryDataDecoders.ToolKit/PathSegments/BaseValuePathSegment.cs
 
 ## Public Class - BaseValuePathSegment
 

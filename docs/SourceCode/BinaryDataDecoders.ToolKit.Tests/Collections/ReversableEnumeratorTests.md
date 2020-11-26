@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Tests\Collections\ReversableEnumeratorTests.cs
+* Path: src/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.cs
 
 ## Public Class - ReversableEnumeratorTests
 

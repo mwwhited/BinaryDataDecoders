@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Optimizers\DeterminedExpressionReducer.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Optimizers/DeterminedExpressionReducer.cs
 
 ## Public Class - DeterminedExpressionReducer
 

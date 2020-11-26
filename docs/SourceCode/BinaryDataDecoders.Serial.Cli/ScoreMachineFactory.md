@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Serial.Cli\ScoreMachineFactory.cs
+* Path: src/BinaryDataDecoders.Serial.Cli/ScoreMachineFactory.cs
 
 ## Public Class - ScoreMachineFactory
 

@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.Cryptography.Enigma::EnigmaMachine::Process
-  * BinaryDataDecoders.Cryptography, Version=0.2.0.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Cryptography, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.08
+* Duration: 00:00:00.02
 
 ## Links
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator.Tests\Parser\ExpressionParserTests.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator.Tests/Parser/ExpressionParserTests.cs
 
 ## Public Class - DecimalExpressionParserTests
 

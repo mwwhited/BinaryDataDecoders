@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ToolKit.Abstractions\IO\ITempFile.cs
+* Path: src/BinaryDataDecoders.ToolKit.Abstractions/IO/ITempFile.cs
 
 ## Public Interface - ITempFile
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator.Tests\Evaluators\ExpressionEvaluatorExtensionsTests.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator.Tests/Evaluators/ExpressionEvaluatorExtensionsTests.cs
 
 ## Public Class - ExpressionEvaluatorExtensionsTests
 

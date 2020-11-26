@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.TestUtilities\Xml\Xsl\Extensions\TrxExtensions.cs
+* Path: src/BinaryDataDecoders.TestUtilities/Xml/Xsl/Extensions/TrxExtensions.cs
 
 ## Public Class - TrxExtensions
 

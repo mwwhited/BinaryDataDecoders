@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.ExpressionCalculator\Optimizers\IdentityExpressionOptimizer.cs
+* Path: src/BinaryDataDecoders.ExpressionCalculator/Optimizers/IdentityExpressionOptimizer.cs
 
 ## Public Class - IdentityExpressionOptimizer
 

@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.Cryptography\OneTimeCode.cs
+* Path: src/BinaryDataDecoders.Cryptography/OneTimeCode.cs
 
 ## Public Class - OneTimeCode
 

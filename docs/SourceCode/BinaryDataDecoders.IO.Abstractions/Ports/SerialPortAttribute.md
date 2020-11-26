@@ -3,7 +3,7 @@
 ## Summary
 
 * Language: C#
-* Path: src\BinaryDataDecoders.IO.Abstractions\Ports\SerialPortAttribute.cs
+* Path: src/BinaryDataDecoders.IO.Abstractions/Ports/SerialPortAttribute.cs
 
 ## Public Class - SerialPortAttribute
 
@@ -27,6 +27,24 @@
  - )
 
 ### Members
+
+#### Public Constructor - SerialPortAttribute
+
+
+#### Public Constructor - SerialPortAttribute
+
+#####  Parameters
+
+ - int baudRate 
+
+#### Public Constructor - SerialPortAttribute
+
+#####  Parameters
+
+ - int baudRate 
+ - Parity parity 
+ - int dataBits 
+ - StopBits stopBits 
 
 #### Public Property - BaudRate
 
