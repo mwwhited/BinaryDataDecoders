@@ -1,119 +1,197 @@
-﻿using BinaryDataDecoders.IO.Messages;
+﻿using BinaryDataDecoders.IO;
+using BinaryDataDecoders.IO.Messages;
 using BinaryDataDecoders.IO.Pipelines;
+using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.Quarta.RadexOne;
 using BinaryDataDecoders.ToolKit;
 using System;
-using System.IO.Ports;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
-
-
-    [SerialPort(9600)]
-    public class RadexOneFactory
-    {
-        private readonly IMessageDecoder<IRadexObject> _decoder = new RadexOneDecoder();
-
-        public ISegmenter GetSegmenter(OnMessageReceived<IRadexObject> received) =>
-              Segment.StartsWith(0x7a)
-                     .AndIsLength(12)
-                     .ExtendedWithLengthAt<ushort>(4, Endianness.Little)
-                     .WithOptions(SegmentionOptions.SkipInvalidSegment)
-                     .ThenAs(_decoder, received);
-    }
-
     public class SerialRadexOne
     {
-        public static void Execute()
+        public Task UserInteractionAsync(IDeviceTransmitter transmitter, CancellationTokenSource cts) => Task.WhenAll(
+                Task.Run(async () =>
+                {
+                    Console.Write("Enter to exit");
+                    await ConsoleEx.ReadLineAsync().ContinueWith(t => cts.Cancel(false));
+                }),
+                Task.Run(async () => //test sender
+                {
+                    uint x = 0;
+                    while (!cts.IsCancellationRequested)
+                    {
+                        x++;
+                        var requestObject = (x % 10) switch
+                        {
+                            1 => (IRadexObject)new ReadSerialNumberRequest(x),
+                            // 2 => new ReadSerialNumberRequest(x),
+
+                            // 3 => new DevicePing(x),
+                            // 0 => new DevicePing(x),
+
+                            // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
+                            // 5 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
+                            // 6 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
+                            // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
+                            7 => new ReadSettingsRequest(x),
+
+                            //8 => new ResetAccumulatedRequest(x),
+
+                            _ => new ReadValuesRequest(x)
+                        };
+                        await transmitter.Transmit(requestObject);
+
+                        if (!cts.IsCancellationRequested)
+                        {
+                            await Task.Delay(1000);
+                        }
+                    }
+                })
+            );
+
+        private System.IO.Ports.SerialPort GetSerialPort(object definition)
         {
-            var factory = new RadexOneFactory();
-            var encoder = new MessageEncoder();
+            var portFactory = new SerialPortFactory();
 
-            var segmenter = factory.GetSegmenter(data =>
-            {
-                Console.WriteLine(data);
-                return Task.FromResult(0);
-            });
-
-            var ports = SerialPort.GetPortNames().OrderBy(s => s);
+            var ports = portFactory.GetPortNames();
             foreach (var port in ports)
                 Console.WriteLine(port);
 
             Console.WriteLine($"Enter Port: (Default { ports.FirstOrDefault()})");
             var portName = Console.ReadLine();
-            var serialPort = new PortProvider().GetRadexOnePort(string.IsNullOrWhiteSpace(portName) ? ports.FirstOrDefault() : portName);
 
-            using (var port = serialPort)
-            using (var cts = new CancellationTokenSource())
+            if (string.IsNullOrWhiteSpace(portName)) portName = ports.FirstOrDefault();
+
+            var serialPort = portFactory.GetSerialPort(portName, definition: definition) ??
+                 throw new NullReferenceException($"Enable to configure \"{portName}\" for \"{definition}\"");
+
+            return serialPort;
+        }
+
+        private Task Follow<TMessage>(
+            Stream stream,
+            ISegmentBuildDefinition segmentDefintion,
+            IMessageDecoder<TMessage> decoder,
+            OnMessageReceived<TMessage> onReceived,
+            OnException onMessageReceivedError,
+            CancellationTokenSource cts
+            ) =>
+            Task.Run(async () =>
+            {
+                while (!cts.IsCancellationRequested)
+                {
+                    try
+                    {
+                        await stream.Follow().With(segmentDefintion.ThenAs(decoder, onReceived)).RunAsync(cts.Token);
+                        cts.Cancel(true);
+                    }
+                    catch (Exception ex)
+                    {
+                        var result = await onMessageReceivedError(stream, ex);
+                        Debug.WriteLine($"{ex.Message} on {stream}: {result}");
+                        switch (result)
+                        {
+                            case ErrorHandling.Ignore:
+                                break;
+
+                            case ErrorHandling.Stop:
+                                cts.Cancel(true);
+                                break;
+
+                            case ErrorHandling.Throw:
+                                throw new IOException(ex.Message, ex);
+                        }
+                    }
+                }
+            });
+
+        public void Execute()
+        {
+            using var cts = new CancellationTokenSource();
+
+            var definition = new RadexOneDefinition();
+
+            OnMessageReceived<IRadexObject> onReceived = data =>
+            {
+                Console.WriteLine(data);
+                return Task.FromResult(0);
+            };
+
+
+            OnException errorHandler = (s, ex) =>
+            {
+                Console.Error.WriteLine(ex.Message);
+                return Task.FromResult(ErrorHandling.Ignore);
+            };
+
+            //  var segmenter = definition.BuildSegmenter();
+
+            var segmentDefintion = definition.SegmentDefinition;
+            var decoder = definition.Decoder;
+            var onMessageReceivedError = errorHandler ?? new OnException((s, ex) => Task.FromResult(ErrorHandling.Throw));
+            var onMessageTransmittedError = errorHandler ?? new OnException((s, ex) => Task.FromResult(ErrorHandling.Throw));
+            var encoder = definition.Encoder;
+            var transmissionQueue = definition.TrasmissionQueue;
+            var minimumTrasmissionDelay = 1000;
+
+            var port = GetSerialPort(definition);
+
+            var uiTasks = UserInteractionAsync(definition, cts);
+            using (port)
             {
                 port.Open();
+                var stream = port.BaseStream;
 
-                Console.Write("Enter to exit");
+                var receiver = Follow(stream, segmentDefintion, decoder, onReceived, onMessageReceivedError,  cts);
 
-                Task.WaitAll(
-                  Task.Run(async () => await Program.ReadLineAsync().ContinueWith(t => cts.Cancel(false))),
-                  Task.Run(async () =>
-                  {
-                      while (!cts.IsCancellationRequested)
-                      {
-                          try
-                          {
-                              await port.BaseStream.Follow().With(segmenter).RunAsync(cts.Token);
-                              cts.Cancel(true);
-                          }
-                          catch (Exception ex)
-                          {
-                              Console.Error.WriteLine(ex.Message);
-                          }
-                      }
-                  }),
-                  Task.Run(async () =>
-                  {
-                      uint x = 0;
-                      while (!cts.IsCancellationRequested)
-                      {
-                          x++;
-                          try
-                          {
-                              var requestObject = (x % 10) switch
-                              {
-                                  1 => (IRadexObject)new ReadSerialNumberRequest(x),
-                                  // 2 => new ReadSerialNumberRequest(x),
+                var deviceTasks = Task.WhenAll(
+                    receiver,
+                    Task.Run(async () =>
+                    {
+                        while (!cts.IsCancellationRequested)
+                        {
+                            while (transmissionQueue.TryTake(out var item))
+                            {
+                                try
+                                {
+                                    var requestBuffer = encoder.Encode(ref item);
+                                    await stream.WriteAsync(requestBuffer, cts.Token);
+                                }
+                                catch (Exception ex)
+                                {
+                                    var result = await onMessageTransmittedError(stream, ex);
+                                    Debug.WriteLine($"{ex.Message} on {stream}: {result}");
+                                    switch (result)
+                                    {
+                                        case ErrorHandling.Ignore:
+                                            break;
 
-                                  // 3 => new DevicePing(x),
-                                  // 0 => new DevicePing(x),
+                                        case ErrorHandling.Stop:
+                                            cts.Cancel(true);
+                                            break;
 
-                                  // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
-                                  // 5 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
-                                  // 6 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
-                                  // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
-                                  7 => new ReadSettingsRequest(x),
+                                        case ErrorHandling.Throw:
+                                            throw new IOException(ex.Message, ex);
+                                    }
+                                }
+                            }
 
-                                  //8 => new ResetAccumulatedRequest(x),
+                            if (!cts.IsCancellationRequested && minimumTrasmissionDelay > 0)
+                            {
+                                await Task.Delay(minimumTrasmissionDelay);
+                            }
+                        }
+                    })
+                );
 
-                                  _ => new ReadValuesRequest(x)
-                              };
-                              var requestBuffer = encoder.Encode(ref requestObject);
-
-                              //7BFF 2000 _600 1800 ____ 4600 __08 _C00 F3F7
-                              await port.BaseStream.WriteAsync(requestBuffer, cts.Token);
-                          }
-                          catch (Exception ex)
-                          {
-                              Console.Error.WriteLine(ex.Message);
-                          }
-                          if (!cts.IsCancellationRequested)
-                          {
-                              await Task.Delay(1000);
-                          }
-                      }
-                  })
-                  );
+                Task.WaitAll(uiTasks, deviceTasks);
             }
         }
     }

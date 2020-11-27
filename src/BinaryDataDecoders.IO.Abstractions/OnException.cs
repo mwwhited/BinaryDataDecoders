@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO
 {
     /// <summary>
     /// Delegate declaration for Pipeline Exceptions
@@ -9,5 +9,5 @@ namespace BinaryDataDecoders.IO.Pipelines
     /// <param name="sender">object that caused the exception</param>
     /// <param name="exception">exception received by noted object</param>
     /// <returns>continuation option</returns>
-    public delegate Task<PipelineErrorHandling> OnPipelineError(object sender, Exception exception);
+    public delegate Task<ErrorHandling> OnException(object sender, Exception exception);
 }

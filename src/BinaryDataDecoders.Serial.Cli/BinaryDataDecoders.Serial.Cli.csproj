@@ -7,6 +7,7 @@
 	  <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   
 	<ItemGroup>
@@ -18,6 +19,7 @@
 		<ProjectReference Include="..\BinaryDataDecoders.ElectronicScoringMachines.Fencing\BinaryDataDecoders.ElectronicScoringMachines.Fencing.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.IO.Pipelines\BinaryDataDecoders.IO.Pipelines.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.IO.Ports\BinaryDataDecoders.IO.Ports.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Quarta.RadexOne.csproj" />

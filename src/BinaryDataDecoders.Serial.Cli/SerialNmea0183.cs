@@ -1,6 +1,7 @@
 ﻿using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.Nmea;
+using BinaryDataDecoders.ToolKit;
 using System;
 using System.Buffers;
 using System.IO.Ports;
@@ -36,7 +37,7 @@ namespace BinaryDataDecoders.Serial.Cli
             Console.Write("Enter to exit");
 
             Task.WaitAll(
-              Task.Run(async () => await Program.ReadLineAsync().ContinueWith(t => cts.Cancel(false))),
+              Task.Run(async () => await ConsoleEx.ReadLineAsync().ContinueWith(t => cts.Cancel(false))),
               Task.Run(async () => await port.BaseStream.Follow().With(segmenter).RunAsync(cts.Token))
               );
         }

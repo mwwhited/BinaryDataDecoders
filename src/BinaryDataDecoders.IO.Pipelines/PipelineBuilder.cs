@@ -56,7 +56,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             return def;
         }
 
-        public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
             if (!(pipeline is PipelineBuildDefinition def))
             {
@@ -69,7 +69,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             def.OnError = onPipelineError;
             return def;
         }
-        public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
             if (!(pipeline is PipelineBuildDefinition def))
             {
@@ -82,7 +82,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             def.OnReaderError = onPipelineError;
             return def;
         }
-        public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
             if (!(pipeline is PipelineBuildDefinition def))
             {

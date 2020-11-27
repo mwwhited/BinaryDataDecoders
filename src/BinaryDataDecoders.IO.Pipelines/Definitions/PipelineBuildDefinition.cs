@@ -9,11 +9,11 @@ namespace BinaryDataDecoders.IO.Pipelines.Definitions
         internal PipelineBuildDefinition(Pipe pipe) => this.Pipe = pipe;
 
         internal Pipe Pipe { get; }
-        internal OnPipelineError? OnError { get; set; }
+        internal OnException? OnError { get; set; }
         internal Task? PipeWriter { get; set; }
-        internal OnPipelineError? OnWriterError { get; set; }
+        internal OnException? OnWriterError { get; set; }
         internal Task? PipeReader { get; set; }
-        internal OnPipelineError? OnReaderError { get; set; }
+        internal OnException? OnReaderError { get; set; }
         internal CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
     }
 }

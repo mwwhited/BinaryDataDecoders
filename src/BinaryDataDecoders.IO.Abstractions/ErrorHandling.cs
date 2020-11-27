@@ -1,6 +1,6 @@
-﻿namespace BinaryDataDecoders.IO.Pipelines
+﻿namespace BinaryDataDecoders.IO
 {
-    public enum PipelineErrorHandling
+    public enum ErrorHandling
     {
         /// <summary>
         /// Ignore exception and continue processing

@@ -40,16 +40,16 @@ namespace BinaryDataDecoders.IO.Pipelines.Factories
                     var errorHandling = await context.onError.Handle(context.owner, ex);
                     switch (errorHandling)
                     {
-                        case PipelineErrorHandling.Ignore:
+                        case ErrorHandling.Ignore:
                             //Note: do nothing
                             break;
 
-                        case PipelineErrorHandling.Stop:
+                        case ErrorHandling.Stop:
                             completed = true;
                             break;
 
                         default:
-                        case PipelineErrorHandling.Throw:
+                        case ErrorHandling.Throw:
                             context.pipeline.Complete(ex);
                             return;
                     }
