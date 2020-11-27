@@ -6,6 +6,7 @@ using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.Quarta.RadexOne;
 using BinaryDataDecoders.ToolKit;
 using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -75,7 +76,7 @@ namespace BinaryDataDecoders.Serial.Cli
             return serialPort;
         }
 
-        private Task Follow<TMessage>(
+        private Task Receiver<TMessage>(
             Stream stream,
             ISegmentBuildDefinition segmentDefintion,
             IMessageDecoder<TMessage> decoder,
@@ -85,6 +86,9 @@ namespace BinaryDataDecoders.Serial.Cli
             ) =>
             Task.Run(async () =>
             {
+                if (onMessageReceivedError == null)
+                    onMessageReceivedError = (s, ex) => Task.FromResult(ErrorHandling.Throw);
+
                 while (!cts.IsCancellationRequested)
                 {
                     try
@@ -112,18 +116,57 @@ namespace BinaryDataDecoders.Serial.Cli
                 }
             });
 
+        private Task Transmitter<TMessage>(
+            Stream stream,
+            IProducerConsumerCollection<TMessage> transmissionQueue,
+            IMessageEncoder encoder,
+            OnException onMessageTransmittedError,
+            CancellationTokenSource cts,
+            int minimumTrasmissionDelay = 1000
+            ) => Task.Run(async () =>
+            {
+                if (onMessageTransmittedError == null)
+                    onMessageTransmittedError = (s, ex) => Task.FromResult(ErrorHandling.Throw);
+
+                while (!cts.IsCancellationRequested)
+                {
+                    while (transmissionQueue.TryTake(out var item))
+                    {
+                        try
+                        {
+                            var requestBuffer = encoder.Encode(ref item);
+                            await stream.WriteAsync(requestBuffer, cts.Token);
+                        }
+                        catch (Exception ex)
+                        {
+                            var result = await onMessageTransmittedError(stream, ex);
+                            Debug.WriteLine($"{ex.Message} on {stream}: {result}");
+                            switch (result)
+                            {
+                                case ErrorHandling.Ignore:
+                                    break;
+
+                                case ErrorHandling.Stop:
+                                    cts.Cancel(true);
+                                    break;
+
+                                case ErrorHandling.Throw:
+                                    throw new IOException(ex.Message, ex);
+                            }
+                        }
+                    }
+
+                    if (!cts.IsCancellationRequested && minimumTrasmissionDelay > 0)
+                    {
+                        await Task.Delay(minimumTrasmissionDelay);
+                    }
+                }
+            });
+
         public void Execute()
         {
             using var cts = new CancellationTokenSource();
-
             var definition = new RadexOneDefinition();
-
-            OnMessageReceived<IRadexObject> onReceived = data =>
-            {
-                Console.WriteLine(data);
-                return Task.FromResult(0);
-            };
-
 
             OnException errorHandler = (s, ex) =>
             {
@@ -131,12 +174,16 @@ namespace BinaryDataDecoders.Serial.Cli
                 return Task.FromResult(ErrorHandling.Ignore);
             };
 
-            //  var segmenter = definition.BuildSegmenter();
-
             var segmentDefintion = definition.SegmentDefinition;
             var decoder = definition.Decoder;
-            var onMessageReceivedError = errorHandler ?? new OnException((s, ex) => Task.FromResult(ErrorHandling.Throw));
-            var onMessageTransmittedError = errorHandler ?? new OnException((s, ex) => Task.FromResult(ErrorHandling.Throw));
+            var onMessageReceivedError = errorHandler;
+            OnMessageReceived<IRadexObject> onReceived = data =>
+            {
+                Console.WriteLine(data);
+                return Task.FromResult(0);
+            };
+
+            var onMessageTransmittedError = errorHandler;
             var encoder = definition.Encoder;
             var transmissionQueue = definition.TrasmissionQueue;
             var minimumTrasmissionDelay = 1000;
@@ -149,47 +196,10 @@ namespace BinaryDataDecoders.Serial.Cli
                 port.Open();
                 var stream = port.BaseStream;
 
-                var receiver = Follow(stream, segmentDefintion, decoder, onReceived, onMessageReceivedError,  cts);
+                var receiver = Receiver(stream, segmentDefintion, decoder, onReceived, onMessageReceivedError, cts);
+                var transmitter = Transmitter(stream, transmissionQueue, encoder, onMessageTransmittedError, cts, minimumTrasmissionDelay);
 
-                var deviceTasks = Task.WhenAll(
-                    receiver,
-                    Task.Run(async () =>
-                    {
-                        while (!cts.IsCancellationRequested)
-                        {
-                            while (transmissionQueue.TryTake(out var item))
-                            {
-                                try
-                                {
-                                    var requestBuffer = encoder.Encode(ref item);
-                                    await stream.WriteAsync(requestBuffer, cts.Token);
-                                }
-                                catch (Exception ex)
-                                {
-                                    var result = await onMessageTransmittedError(stream, ex);
-                                    Debug.WriteLine($"{ex.Message} on {stream}: {result}");
-                                    switch (result)
-                                    {
-                                        case ErrorHandling.Ignore:
-                                            break;
-
-                                        case ErrorHandling.Stop:
-                                            cts.Cancel(true);
-                                            break;
-
-                                        case ErrorHandling.Throw:
-                                            throw new IOException(ex.Message, ex);
-                                    }
-                                }
-                            }
-
-                            if (!cts.IsCancellationRequested && minimumTrasmissionDelay > 0)
-                            {
-                                await Task.Delay(minimumTrasmissionDelay);
-                            }
-                        }
-                    })
-                );
+                var deviceTasks = Task.WhenAll(receiver, transmitter);
 
                 Task.WaitAll(uiTasks, deviceTasks);
             }

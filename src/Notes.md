@@ -12,3 +12,5 @@
 * change github build back to yaml from linux script
 * figure out how to make sql package either conditional on linux or actually build on ubuntu
 * fix nuget version to be back on pre-release
+* add badges to assembly docs
+  * img.shields.io
