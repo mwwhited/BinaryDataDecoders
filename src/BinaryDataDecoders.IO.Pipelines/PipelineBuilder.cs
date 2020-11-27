@@ -10,14 +10,11 @@ namespace BinaryDataDecoders.IO.Pipelines
 {
     public static class PipelineBuilder
     {
-        public static IPipelineBuildDefinition Follow(this Stream stream, int minimumBufferSize = 4096)
-        {
-            return new Pipe().FollowStream(stream, minimumBufferSize);
-        }
-        internal static IPipelineBuildDefinition FollowStream(this Pipe pipe, Stream stream, int minimumBufferSize = 4096)
-        {
-            return new PipelineBuildDefinition(pipe).FollowStream(stream, minimumBufferSize);
-        }
+        public static IPipelineBuildDefinition Follow(this Stream stream, int minimumBufferSize = 4096) =>
+            new Pipe().FollowStream(stream, minimumBufferSize);
+        internal static IPipelineBuildDefinition FollowStream(this Pipe pipe, Stream stream, int minimumBufferSize = 4096) =>
+            new PipelineBuildDefinition(pipe).FollowStream(stream, minimumBufferSize);
+
         internal static IPipelineBuildDefinition FollowStream(this IPipelineBuildDefinition pipeline, Stream stream, int minimumBufferSize = 4096)
         {
             if (!(pipeline is PipelineBuildDefinition def))

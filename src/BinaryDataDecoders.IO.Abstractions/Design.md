@@ -6,6 +6,8 @@ Improved abstractions over System.IO and related functions.
 
 ## Design
 
+### Object Model
+
 ```plantuml
 interface IDeviceBuilder {    
     +SerialPort(string name) : IDeviceBuilder
@@ -100,9 +102,25 @@ class K8055Device {
 }
 IDeviceReceiver <|-- K8055Device
 IDeviceTransmitter <|-- K8055Device
-
-
-
-
-
 ```
+
+### Sequence Diagrams
+
+#### Receiver
+
+```plantuml
+Stream -\ Pipeline : ReadOnlySpan<byte>
+Pipeline -\ Segmenter : Memory<byte>
+Segmenter -\ Decoder : ReadOnlySpan<byte>
+Decoder -\ IDeviceReceiver : struct
+```
+
+#### Transmitter
+
+```plantuml
+IDeviceTransmitter -\ Encoder : struct
+Encoder -\ Pipeline : ReadOnlySpan<byte>
+Pipeline -\ Framer : Memory<byte>
+Framer -\ Stream : ReadOnlySpan<byte>
+```
+

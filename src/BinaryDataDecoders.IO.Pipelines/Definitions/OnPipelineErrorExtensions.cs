@@ -6,10 +6,8 @@ namespace BinaryDataDecoders.IO.Pipelines.Definitions
 {
     internal static class OnPipelineErrorExtensions
     {
-        internal static async Task<PipelineErrorHandling> Handle(this OnPipelineError? handler, object sender, Exception exception)
-        {
-            return await (handler ?? DefaultPipelineError).Invoke(sender, exception);
-        }
+        internal static async Task<PipelineErrorHandling> Handle(this OnPipelineError? handler, object sender, Exception exception) =>
+            await (handler ?? DefaultPipelineError).Invoke(sender, exception);
 
         internal static readonly OnPipelineError DefaultPipelineError = (s, e) =>
         {

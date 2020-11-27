@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
+    [SerialPort(BaudRate = 115200)]
     public class ZStickFactory
     {
         public ISegmenter GetSegmenter(OnSegmentReceived received) =>
@@ -20,7 +21,6 @@ namespace BinaryDataDecoders.Serial.Cli
                      .WithOptions(SegmentionOptions.SkipInvalidSegment)
                      .ThenDo(received);
     }
-    [SerialPort(BaudRate = 115200)]
     public class SerialZStick
     {
         public static void Execute()
@@ -37,9 +37,7 @@ namespace BinaryDataDecoders.Serial.Cli
 
             var segmenter = factory.GetSegmenter(data =>
             {
-                var result = decoder.Decode(data);
-                Console.WriteLine(result);
-
+                Console.WriteLine(data);
                 return Task.FromResult(0);
             });
 

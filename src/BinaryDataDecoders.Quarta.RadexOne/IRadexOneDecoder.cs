@@ -1,17 +1,12 @@
 ﻿using System.Buffers;
+using BinaryDataDecoders.IO.Messages;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
     /// <summary>
     /// used to convert buffered data to correct value type
     /// </summary>
-    public interface IRadexOneDecoder
+    public interface IRadexOneDecoder : IMessageDecoder<IRadexObject>
     {
-        /// <summary>
-        /// used to convert buffered data to correct value type
-        /// </summary>
-        /// <param name="sequence">input data type</param>
-        /// <returns>converted value type</returns>
-        IRadexObject Decode(ReadOnlySequence<byte> sequence);
     }
 }

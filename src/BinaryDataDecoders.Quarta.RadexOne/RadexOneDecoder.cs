@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryDataDecoders.IO.Messages;
+using System;
 using System.Buffers;
 using System.Runtime.InteropServices;
 
@@ -34,5 +35,6 @@ namespace BinaryDataDecoders.Quarta.RadexOne
                 }
             };
         }
+        object IMessageDecoder.Decode(ReadOnlySequence<byte> response) => Decode(response);
     }
 }

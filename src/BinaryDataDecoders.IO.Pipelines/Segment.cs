@@ -1,4 +1,5 @@
-﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
+﻿using BinaryDataDecoders.IO.Messages;
+using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.IO.Pipelines.Segmenters;
 using BinaryDataDecoders.ToolKit;
 using System;
@@ -7,19 +8,13 @@ namespace BinaryDataDecoders.IO.Pipelines
 {
     public static class Segment
     {
-        public static ISegmentBuildDefinition StartsWith(ControlCharacters start)
-        {
-            return StartsWith((byte)start);
-        }
-        public static ISegmentBuildDefinition StartsWith(byte start)
-        {
-            return new SegmentBuildDefinition(start);
-        }
+        public static ISegmentBuildDefinition StartsWith(ControlCharacters start) =>
+            StartsWith((byte)start);
+        public static ISegmentBuildDefinition StartsWith(byte start) =>
+            new SegmentBuildDefinition(start);
+        public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end) =>
+            AndEndsWith(builder, (byte)end);
 
-        public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end)
-        {
-            return AndEndsWith(builder, (byte)end);
-        }
         public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, byte end)
         {
             if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
@@ -80,5 +75,11 @@ namespace BinaryDataDecoders.IO.Pipelines
 
             return built;
         }
+
+        public static ISegmenter ThenAs(this ISegmentBuildDefinition builder, IMessageDecoder decoder, OnMessageReceived onMessageReceived)=>
+            builder.ThenDo(on => onMessageReceived(decoder.Decode(on)));
+
+        public static ISegmenter ThenAs<TMessage>(this ISegmentBuildDefinition builder, IMessageDecoder<TMessage> decoder, OnMessageReceived<TMessage> onMessageReceived) =>
+            builder.ThenDo(on => onMessageReceived(decoder.Decode(on)));
     }
 }

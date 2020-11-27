@@ -1,4 +1,5 @@
-﻿using BinaryDataDecoders.IO.Pipelines;
+﻿using BinaryDataDecoders.IO.Messages;
+using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.Quarta.RadexOne;
 using BinaryDataDecoders.ToolKit;
@@ -13,28 +14,29 @@ namespace BinaryDataDecoders.Serial.Cli
 {
 
 
+    [SerialPort(9600)]
     public class RadexOneFactory
     {
-        public ISegmenter GetSegmenter(OnSegmentReceived received) =>
+        private readonly IMessageDecoder<IRadexObject> _decoder = new RadexOneDecoder();
+
+        public ISegmenter GetSegmenter(OnMessageReceived<IRadexObject> received) =>
               Segment.StartsWith(0x7a)
                      .AndIsLength(12)
                      .ExtendedWithLengthAt<ushort>(4, Endianness.Little)
                      .WithOptions(SegmentionOptions.SkipInvalidSegment)
-                     .ThenDo(received);
+                     .ThenAs(_decoder, received);
     }
-    [SerialPort(BaudRate = 9600)]
+
     public class SerialRadexOne
     {
         public static void Execute()
         {
             var factory = new RadexOneFactory();
-            var decoder = new RadexOneDecoder();
+            var encoder = new MessageEncoder();
 
             var segmenter = factory.GetSegmenter(data =>
             {
-                var result = decoder.Decode(data);
-                Console.WriteLine(result);
-
+                Console.WriteLine(data);
                 return Task.FromResult(0);
             });
 
@@ -78,9 +80,9 @@ namespace BinaryDataDecoders.Serial.Cli
                           x++;
                           try
                           {
-                              IRadexObject requestObject = (x % 10) switch
+                              var requestObject = (x % 10) switch
                               {
-                                  1 => new ReadSerialNumberRequest(x),
+                                  1 => (IRadexObject)new ReadSerialNumberRequest(x),
                                   // 2 => new ReadSerialNumberRequest(x),
 
                                   // 3 => new DevicePing(x),
@@ -96,16 +98,10 @@ namespace BinaryDataDecoders.Serial.Cli
 
                                   _ => new ReadValuesRequest(x)
                               };
-                              var requestBuffer = new byte[Marshal.SizeOf(requestObject)];
-                              IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);
-                              Marshal.StructureToPtr(requestObject, ptr, true);
-                              Marshal.Copy(ptr, requestBuffer, 0, requestBuffer.Length);
-                              Marshal.FreeHGlobal(ptr);
-
-                             // var hex = requestBuffer.ToHexString();
+                              var requestBuffer = encoder.Encode(ref requestObject);
 
                               //7BFF 2000 _600 1800 ____ 4600 __08 _C00 F3F7
-                              await port.BaseStream.WriteAsync(requestBuffer, 0, requestBuffer.Length, cts.Token);
+                              await port.BaseStream.WriteAsync(requestBuffer, cts.Token);
                           }
                           catch (Exception ex)
                           {
