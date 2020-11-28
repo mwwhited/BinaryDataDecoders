@@ -3,4 +3,7 @@
     public interface IDevice
     {
     }
+    public interface IDevice<TMessage> : IDevice
+    {
+    }
 }

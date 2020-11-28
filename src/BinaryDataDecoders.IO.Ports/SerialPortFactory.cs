@@ -6,8 +6,10 @@ using SerialPort = System.IO.Ports.SerialPort;
 
 namespace BinaryDataDecoders.IO.Ports
 {
-    public class SerialPortFactory
+    public class SerialPortFactory : ISerialPortFactory
     {
+        public bool CanGetSerialPort(object? definition) => definition?.GetType()?.GetCustomAttributes<SerialPortAttribute>()?.Any() ?? false;
+
         public SerialPort? GetSerialPort(string? portName, object? definition)
         {
             portName = SerialPort.GetPortNames()

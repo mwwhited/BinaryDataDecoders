@@ -13,49 +13,24 @@ namespace BinaryDataDecoders.Serial.Cli
 {
     public class SerialPortConsole
     {
-        public Task UserInteractionAsync(IDeviceTransmitter<IRadexObject> transmitter, CancellationTokenSource cts) => Task.WhenAll(
-                Task.Run(async () =>
+        public Task UserInteractionAsync<TMessage>(
+            IDeviceTransmitter<TMessage> transmitter,
+            Func<int, TMessage> messageFactory,
+            CancellationTokenSource cts) => Task.Run(async () =>
+            {
+                int x = 0;
+                while (!cts.IsCancellationRequested)
                 {
-                    Console.Write("Enter to exit");
-                    await ConsoleEx.ReadLineAsync().ContinueWith(t => cts.Cancel(false));
-                }),
-                Task.Run(async () => //test sender
-                {
-                    uint x = 0;
-                    while (!cts.IsCancellationRequested)
-                    {
-                        x++;
-                        var requestObject = (x % 10) switch
-                        {
-                            1 => (IRadexObject)new ReadSerialNumberRequest(x),
-                            // 2 => new ReadSerialNumberRequest(x),
-
-                            // 3 => new DevicePing(x),
-                            // 0 => new DevicePing(x),
-
-                            // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
-                            // 5 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
-                            // 6 => new WriteSettingsRequest(x, AlarmSettings.Audio | AlarmSettings.Vibrate, 10),
-                            // 4 => new WriteSettingsRequest(x, AlarmSettings.Audio, 30),
-                            7 => new ReadSettingsRequest(x),
-
-                            //8 => new ResetAccumulatedRequest(x),
-
-                            _ => new ReadValuesRequest(x)
-                        };
-                        await transmitter.Transmit(requestObject);
-
-                        if (!cts.IsCancellationRequested)
-                        {
-                            await Task.Delay(1000);
-                        }
-                    }
-                })
-            );
+                    await transmitter.Transmit(messageFactory(x++));
+                    if (!cts.IsCancellationRequested)
+                        await Task.Delay(1000);
+                }
+            });
 
         private System.IO.Ports.SerialPort GetSerialPort(object definition)
         {
             var portFactory = new SerialPortFactory();
+            //if (!portFactory.CanGetSerialPort(definition)) return null;
 
             var ports = portFactory.GetPortNames();
             foreach (var port in ports)
@@ -72,9 +47,8 @@ namespace BinaryDataDecoders.Serial.Cli
             return serialPort;
         }
 
-        public void Execute()
+        public void Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage> messageFactory = null)
         {
-            var definition = new RadexOneDefinition();
             var port = GetSerialPort(definition);
             using (port)
             {
@@ -82,8 +56,22 @@ namespace BinaryDataDecoders.Serial.Cli
                 var stream = port.BaseStream;
                 var streamDevice = new StreamDevice<IRadexObject>(port.BaseStream, definition);
                 streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
-                var uiTasks = UserInteractionAsync(streamDevice, streamDevice.CancellationTokenSource);
-                Task.WaitAll(uiTasks, streamDevice.Runner);
+                streamDevice.MessageReceivedError += (s, e) => e.ErrorHandling = ErrorHandling.Ignore;
+                streamDevice.MessageTrasmitterError += (s, e) => e.ErrorHandling = ErrorHandling.Ignore;
+
+                Task? uiTasks = null;
+                if (messageFactory != null && streamDevice is IDeviceTransmitter<TMessage> transmitter)
+                    uiTasks = UserInteractionAsync(transmitter, messageFactory, streamDevice.CancellationTokenSource);
+
+                Task.WaitAll(
+                    Task.Run(() =>
+                    {
+                        Console.WriteLine("Enter to exit");
+                        Console.ReadLine();
+                    }),
+                    uiTasks ?? Task.FromResult(0),
+                    streamDevice.Runner
+                );
             }
         }
     }

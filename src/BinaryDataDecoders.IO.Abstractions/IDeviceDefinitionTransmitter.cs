@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.IO
 {
-    public interface IDeviceDefinitionTransmitter<TRequest> : IDeviceDefinition
+    public interface IDeviceDefinitionTransmitter<TMessage> : IDeviceDefinition<TMessage>
     {
-        IMessageEncoder<TRequest> Encoder { get; }
+        IMessageEncoder<TMessage> Encoder { get; }
     }
 }

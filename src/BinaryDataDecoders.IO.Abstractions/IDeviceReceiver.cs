@@ -2,7 +2,7 @@
 
 namespace BinaryDataDecoders.IO
 {
-    public interface IDeviceReceiver<TMessage> : IDevice
+    public interface IDeviceReceiver<TMessage> : IDevice<TMessage>
     {
         event EventHandler<TMessage> MessageReceived;
     }
