@@ -1,4 +1,5 @@
-﻿using BinaryDataDecoders.ToolKit.Collections;
+﻿using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Collections
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void MoveNextMovePreviousTest()
         {
             var set = new object[] { 1, 2, 3, 4, 5 }.GetReversibleEnumerator();

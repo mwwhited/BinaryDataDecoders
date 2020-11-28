@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.Linq
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void AsXElementTest()
         {
             var testData = new

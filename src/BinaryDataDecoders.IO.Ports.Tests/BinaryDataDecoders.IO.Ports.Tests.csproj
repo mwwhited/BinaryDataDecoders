@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.IO.Ports\BinaryDataDecoders.IO.Ports.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -100,7 +100,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.Xsl.Extensions
         //}
 
 
-        //[TestMethod]
+        //[TestMethod, TestCategory(TestCategories.DevLocal)]
         //public void ExtendTypeTest()
         //{
         //    var tb = ExtendType<FakeClass>();
@@ -133,7 +133,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.Xsl.Extensions
         //}
 
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         //[TestCategory(TestCategories.Unit)]
         [TestTarget(typeof(XPath20Functions), Member = nameof(XPath20Functions.max))]
         public void MaxTest()

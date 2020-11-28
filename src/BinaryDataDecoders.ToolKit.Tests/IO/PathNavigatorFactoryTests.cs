@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.IO
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void ToNavigableTest()
         {
             var di = new DirectoryInfo("../../../../");

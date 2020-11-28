@@ -1,10 +1,6 @@
-﻿using BinaryDataDecoders.ToolKit.IO;
+﻿using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.ToolKit.Tests.IO
 {
@@ -13,7 +9,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.IO
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void EnumerateFilesTest()
         {
            var wildcardPath = @"C:\Repos\**\src\**\*.Tests\*\*.cs";

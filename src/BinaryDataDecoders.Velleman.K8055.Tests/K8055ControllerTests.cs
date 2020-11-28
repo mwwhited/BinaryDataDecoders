@@ -1,12 +1,12 @@
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Velleman.K8055.Tests
 {
     [TestClass]
     public class K8055ControllerTests
     {
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void TestMethod1()
         {
              new K8055Controller().Start(new System.Threading.CancellationTokenSource(), 3);

@@ -14,7 +14,7 @@ namespace BinaryDataDecoders.Templating.Html.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public async Task DeeperTest()
         {
             var xsltArgumentList = new XsltArgumentList();
@@ -41,7 +41,7 @@ namespace BinaryDataDecoders.Templating.Html.Tests
             this.TestContext.AddResult(resultStream, "TestResult.html");
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void QueryTest()
         {
             using var styleSheet = this.GetResourceStream("ComplexTemplate.html");
