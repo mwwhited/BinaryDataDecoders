@@ -205,4 +205,19 @@ namespace BinaryDataDecoders.Serial.Cli
             }
         }
     }
+
+    //public class StreamDevice<TMessage>
+    //{
+    //    public StreamDevice()
+    //    {
+    //    }
+
+    //    public void test()
+    //    {
+    //        var q = from r in Received.
+    //                select r;
+    //    }
+
+    //    public IObservable<TMessage> Received { get; } 
+    //}
 }
