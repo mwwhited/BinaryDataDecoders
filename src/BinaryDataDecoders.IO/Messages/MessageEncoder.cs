@@ -3,9 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.IO.Messages
 {
-    public class MessageEncoder : IMessageEncoder
+    public class MessageEncoder<TMessage> : IMessageEncoder<TMessage>
     {
-        public ReadOnlyMemory<byte> Encode<TMessage>(ref TMessage request)
+        public ReadOnlyMemory<byte> Encode(ref TMessage request)
         {
             var requestBuffer = new byte[Marshal.SizeOf(request)];
             IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);

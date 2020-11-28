@@ -2,12 +2,8 @@
 
 namespace BinaryDataDecoders.IO
 {
-    public interface IDeviceTransmitter : IDevice
+    public interface IDeviceTransmitter<TMessage> : IDevice
     {
-        Task<bool> Transmit(object message);
-    }
-    public interface IDeviceTransmitter<TRequest> : IDeviceTransmitter
-    {
-        Task<bool> Transmit(TRequest message);
+        Task<bool> Transmit(TMessage message);
     }
 }

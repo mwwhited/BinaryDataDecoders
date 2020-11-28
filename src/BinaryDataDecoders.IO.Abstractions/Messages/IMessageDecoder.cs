@@ -1,14 +1,9 @@
 ﻿using System.Buffers;
-using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.IO.Messages
 {
-    public interface IMessageDecoder
+    public interface IMessageDecoder<TResponse>
     {
-        object Decode(ReadOnlySequence<byte> response);
-    }
-    public interface IMessageDecoder<TResponse> : IMessageDecoder
-    {
-        TResponse Decode(ReadOnlySequence<byte> response) ;
+        TResponse Decode(ReadOnlySequence<byte> response);
     }
 }

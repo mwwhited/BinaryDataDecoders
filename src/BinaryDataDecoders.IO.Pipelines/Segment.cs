@@ -76,9 +76,6 @@ namespace BinaryDataDecoders.IO.Pipelines
             return built;
         }
 
-        public static ISegmenter ThenAs(this ISegmentBuildDefinition builder, IMessageDecoder decoder, OnMessageReceived onMessageReceived)=>
-            builder.ThenDo(on => onMessageReceived(decoder.Decode(on)));
-
         public static ISegmenter ThenAs<TMessage>(this ISegmentBuildDefinition builder, IMessageDecoder<TMessage> decoder, OnMessageReceived<TMessage> onMessageReceived) =>
             builder.ThenDo(on => onMessageReceived(decoder.Decode(on)));
     }

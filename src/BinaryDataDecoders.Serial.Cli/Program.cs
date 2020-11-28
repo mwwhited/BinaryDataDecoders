@@ -9,7 +9,7 @@ namespace BinaryDataDecoders.Serial.Cli
         {
             // SerialScoreMachine.Execute();
             // SerialNmea0183.Execute();
-            new SerialRadexOne().Execute();
+            new SerialPortConsole().Execute();
         }
     }
 }
