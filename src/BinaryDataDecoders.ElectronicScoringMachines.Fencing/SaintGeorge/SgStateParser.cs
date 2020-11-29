@@ -23,10 +23,10 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
                 // Left 11, Red and yellow
                 // Right 0 none
                 // ST005:011000000
-                // ST005:01100000000300 no priorty
+                // ST005:01100000000300 no priority
                 // Left 11, none
                 // Right 0 none
-                //ST000:00002010000100 (right proproty)
+                //ST000:00002010000100 (right priority)
                 //ST000:00002010000100
                 // Left 11, none
                 // Right 0 red
