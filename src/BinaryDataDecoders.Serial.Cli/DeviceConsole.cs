@@ -1,9 +1,9 @@
 ﻿using BinaryDataDecoders.IO;
 using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
-using BinaryDataDecoders.Quarta.RadexOne;
-using BinaryDataDecoders.ToolKit;
+using BinaryDataDecoders.IO.UsbHids;
 using System;
+using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading;
@@ -11,8 +11,11 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
-    public class SerialPortConsole
+    public class DeviceConsole
     {
+        UsbHidFactory usbHid = new UsbHidFactory();
+        SerialPortFactory serial = new SerialPortFactory();
+
         public Task UserInteractionAsync<TMessage>(
             IDeviceTransmitter<TMessage> transmitter,
             Func<int, TMessage> messageFactory,
@@ -29,10 +32,7 @@ namespace BinaryDataDecoders.Serial.Cli
 
         private System.IO.Ports.SerialPort GetSerialPort(object definition)
         {
-            var portFactory = new SerialPortFactory();
-            //if (!portFactory.CanGetSerialPort(definition)) return null;
-
-            var ports = portFactory.GetPortNames();
+            var ports = serial.GetPortNames();
             foreach (var port in ports)
                 Console.WriteLine(port);
 
@@ -41,20 +41,21 @@ namespace BinaryDataDecoders.Serial.Cli
 
             if (string.IsNullOrWhiteSpace(portName)) portName = ports.FirstOrDefault();
 
-            var serialPort = portFactory.GetSerialPort(portName, definition: definition) ??
+            var serialPort = serial.GetSerialPort(portName, definition: definition) ??
                  throw new NullReferenceException($"Enable to configure \"{portName}\" for \"{definition}\"");
 
             return serialPort;
         }
 
+        private HidSharp.HidDevice GetHidDevice(object definition) =>
+            usbHid.GetHidDevice(definition: definition) ??
+                 throw new NullReferenceException($"Enable to configure \"{definition}\"");
+
         public void Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage> messageFactory = null)
         {
-            var port = GetSerialPort(definition);
-            using (port)
+            Task HandleStream(Stream stream)
             {
-                port.Open();
-                var stream = port.BaseStream;
-                var streamDevice = new StreamDevice<IRadexObject>(port.BaseStream, definition);
+                var streamDevice = new StreamDevice<TMessage>(stream, definition);
                 streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
                 streamDevice.MessageReceivedError += (s, e) => e.ErrorHandling = ErrorHandling.Ignore;
                 streamDevice.MessageTrasmitterError += (s, e) => e.ErrorHandling = ErrorHandling.Ignore;
@@ -63,7 +64,7 @@ namespace BinaryDataDecoders.Serial.Cli
                 if (messageFactory != null && streamDevice is IDeviceTransmitter<TMessage> transmitter)
                     uiTasks = UserInteractionAsync(transmitter, messageFactory, streamDevice.CancellationTokenSource);
 
-                Task.WaitAll(
+                return Task.WhenAll(
                     Task.Run(() =>
                     {
                         Console.WriteLine("Enter to exit");
@@ -72,6 +73,25 @@ namespace BinaryDataDecoders.Serial.Cli
                     uiTasks ?? Task.FromResult(0),
                     streamDevice.Runner
                 );
+            }
+
+            if (usbHid.CanGetHidDevice(definition))
+            {
+                var device = GetHidDevice(definition);
+                if (device.TryOpen(out var stream))
+                    using (stream)
+                    {
+                        HandleStream(stream).Wait();
+                    }
+            }
+            else if (serial.CanGetSerialPort(definition))
+            {
+                using (var port = GetSerialPort(definition))
+                {
+                    port.Open();
+                    var stream = port.BaseStream;
+                    HandleStream(stream).Wait();
+                }
             }
         }
     }

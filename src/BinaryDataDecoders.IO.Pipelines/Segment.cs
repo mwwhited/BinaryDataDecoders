@@ -10,8 +10,8 @@ namespace BinaryDataDecoders.IO.Pipelines
     {
         public static ISegmentBuildDefinition StartsWith(ControlCharacters start) =>
             StartsWith((byte)start);
-        public static ISegmentBuildDefinition StartsWith(byte start) =>
-            new SegmentBuildDefinition(start);
+        public static ISegmentBuildDefinition StartsWith(params byte[] starts) =>
+            new SegmentBuildDefinition(starts);
         public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end) =>
             AndEndsWith(builder, (byte)end);
 
@@ -43,6 +43,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             def.MaxLength = maxLength == 0 ? (long?)null : maxLength;
             return builder;
         }
+
         public static ISegmentBuildDefinition WithOptions(this ISegmentBuildDefinition builder, SegmentionOptions options)
         {
             if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
@@ -59,22 +60,17 @@ namespace BinaryDataDecoders.IO.Pipelines
             return builder;
         }
 
-        public static ISegmenter ThenDo(this ISegmentBuildDefinition builder, OnSegmentReceived onSegmentReceived)
-        {
-            if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
-
-            ISegmenter? built =
-                def.EndsWith.HasValue ? (ISegmenter)new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith.Value, def.MaxLength, def.Options) :
-                def.Length.HasValue ? new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options, def.ExtensionDefinition) :
-                null;
-
-            if (built == null)
+        public static ISegmenter ThenDo(this ISegmentBuildDefinition builder, OnSegmentReceived onSegmentReceived) =>
+            builder switch
             {
-                throw new NotSupportedException("Unable to Build Segmenter");
-            }
-
-            return built;
-        }
+                SegmentBuildDefinition def => def.EndsWith.HasValue switch
+                {
+                    true when def.StartsWith.Length >= 1 => new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith.Value, def.MaxLength, def.Options),
+                    false when def.Length.HasValue => new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options, def.ExtensionDefinition),
+                    _ => throw new NotSupportedException("Unable to Build Segmenter")
+                },
+                _ => throw new NotSupportedException($"{builder.GetType()} is not supported")
+            };
 
         public static ISegmenter ThenAs<TMessage>(this ISegmentBuildDefinition builder, IMessageDecoder<TMessage> decoder, OnMessageReceived<TMessage> onMessageReceived) =>
             builder.ThenDo(on => onMessageReceived(decoder.Decode(on)));

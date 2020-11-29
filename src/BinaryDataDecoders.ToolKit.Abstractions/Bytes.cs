@@ -36,6 +36,10 @@ namespace BinaryDataDecoders.ToolKit
         /// </summary>
         public const byte Dc3 = (byte)ControlCharacters.DeviceControl3;
         /// <summary>
+        /// !
+        /// </summary>
+        public const byte _E = 0x21;
+        /// <summary>
         /// $
         /// </summary>
         public const byte _S = 0x24;

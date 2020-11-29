@@ -1,4 +1,5 @@
 ﻿using System.Buffers;
+using System.Linq;
 
 namespace BinaryDataDecoders.IO.Pipelines.Segmenters
 {
@@ -6,25 +7,25 @@ namespace BinaryDataDecoders.IO.Pipelines.Segmenters
     {
         public BetweenSegmenter(
             OnSegmentReceived onSegmentReceived,
-            byte start,
+            byte[] starts,
             byte end,
             long? maxLength,
             SegmentionOptions options
             )
             : base(onSegmentReceived, options)
         {
-            Start = start;
+            Starts = starts;
             End = end;
             MaxLength = maxLength;
         }
 
-        public byte Start { get; }
+        public byte[] Starts { get; }
         public byte End { get; }
         public long? MaxLength { get; }
 
         protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
         {
-            var startOfSegment = buffer.PositionOf(Start);
+            var startOfSegment = Starts.Select(start => buffer.PositionOf(start)).FirstOrDefault(start => start != null);
             if (startOfSegment != null)
             {
                 var segment = buffer.Slice(startOfSegment.Value);
@@ -36,7 +37,7 @@ namespace BinaryDataDecoders.IO.Pipelines.Segmenters
 
                     if (this.Options.HasFlag(SegmentionOptions.SecondStartInvalid))
                     {
-                        var secondStart = completeSegment.PositionOf(Start);
+                        var secondStart = Starts.Select(start => completeSegment.PositionOf(start)).FirstOrDefault(start => start != null);
                         if (secondStart != null)
                         {
                             // Second start detected
