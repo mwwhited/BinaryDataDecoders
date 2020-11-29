@@ -13,14 +13,22 @@ namespace BinaryDataDecoders.Nmea
             Span<byte> buffer = new byte[response.Length];
             response.CopyTo(buffer);
             var ascii = Encoding.ASCII.GetString(buffer.ToArray().Where(b => b >= 0x20).ToArray());
-            var split = ascii.Split(',');
 
+            var checkSplit = ascii.LastIndexOf('*');
+            var sentence = ascii[1..checkSplit];
+            var checksum = Convert.ToInt32(ascii[(checkSplit + 1)..], 16);
+            var calculatedChecksum = sentence.Aggregate((char)0, (v, c) => (char)(v ^ c), c => (int)c);
+
+            if (checksum != calculatedChecksum)
+                throw new InvalidOperationException("checksum mismatch");
+
+            var split = sentence.Split(',');
             return split[0] switch
             {
-                "$GPGGA" => new GlobalPositioningFixData(data: split),
-                // "$GPGSA" => new GpsDopAndActiveSatellites(data: split),
-                // "$GPGSV" => new SatellitesInView(data: split),
-                //"$GPRMC" => new RecommendedMinimumNavigationInformation(data: split),
+                "GPGGA" => new GlobalPositioningFixData(data: split),
+                "GPGSA" => new GpsDopAndActiveSatellites(data: split),
+                // "GPGSV" => new SatellitesInView(data: split),
+                // "GPRMC" => new RecommendedMinimumNavigationInformation(data: split),
 
                 _ => new StringNemaMessage(ascii)
             };

@@ -1,5 +1,21 @@
-﻿namespace BinaryDataDecoders.Nmea
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace BinaryDataDecoders.Nmea
 {
+    public enum SelectionModes
+    {
+        Manual = 0,
+        Automatic = 1,
+    }
+    public enum FixModes
+    {
+        Unknown = 0,
+        FixNone = 1,
+        Fix2D = 2,
+        Fix3D = 3,
+    }
     public class GpsDopAndActiveSatellites : INema0183Message
     {
         /*
@@ -38,9 +54,37 @@
         4 = BeiDou B1I D1, B1I D2, B2I D1, B2I D12
        
         */
+        public SelectionModes Selection { get; }
+        public FixModes Fix { get; }
+        public IReadOnlyList<string> Satellites { get; }
+        public decimal PDOP { get; }
+        public decimal HDOP { get; }
+        public decimal VDOP { get; }
+
 
         public GpsDopAndActiveSatellites(string[] data)
         {
+            Selection = data[1] switch
+            {
+                "M" => SelectionModes.Manual,
+                "A" => SelectionModes.Automatic,
+                _ => throw new NotSupportedException($"{nameof(Selection)}: {data[1]}")
+            };
+            Fix = int.TryParse(data[2], out var fixMode) ? (FixModes)fixMode : 0;
+            Satellites = data[3..15].ToList().AsReadOnly();
+            PDOP = decimal.TryParse(data[16], out var pdop) ? pdop : 0m;
+            HDOP = decimal.TryParse(data[16], out var hdop) ? hdop : 0m;
+            VDOP = decimal.TryParse(data[16], out var vdop) ? vdop : 0m;
         }
+
+        public override string ToString() => new
+        {
+            Selection,
+            Fix,
+            Satellites = string.Join(';',Satellites),
+            PDOP,
+            HDOP,
+            VDOP,
+        }.ToString();
     }
 }
