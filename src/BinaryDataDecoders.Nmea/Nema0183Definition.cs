@@ -1,11 +1,10 @@
 ﻿using BinaryDataDecoders.IO;
 using BinaryDataDecoders.IO.Messages;
-using BinaryDataDecoders.IO.Pipelines;
-using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.IO.Ports;
+using BinaryDataDecoders.IO.Segmenters;
 using BinaryDataDecoders.IO.UsbHids;
 using System.ComponentModel;
-using static BinaryDataDecoders.ToolKit.Bytes;
+using static BinaryDataDecoders.IO.Bytes;
 
 namespace BinaryDataDecoders.Nmea
 {

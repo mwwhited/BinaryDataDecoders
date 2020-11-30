@@ -1,10 +1,8 @@
 ﻿using BinaryDataDecoders.IO.Messages;
-using BinaryDataDecoders.IO.Pipelines.Definitions;
-using BinaryDataDecoders.IO.Pipelines.Segmenters;
-using BinaryDataDecoders.ToolKit;
+using BinaryDataDecoders.IO.Segmenters;
 using System;
 
-namespace BinaryDataDecoders.IO.Pipelines
+namespace BinaryDataDecoders.IO.Segmenters
 {
     public static class Segment
     {

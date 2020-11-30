@@ -2,8 +2,8 @@
 using BinaryDataDecoders.IO;
 using BinaryDataDecoders.IO.Messages;
 using BinaryDataDecoders.IO.Pipelines;
-using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.IO.Ports;
+using BinaryDataDecoders.IO.Segmenters;
 using System.ComponentModel;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero

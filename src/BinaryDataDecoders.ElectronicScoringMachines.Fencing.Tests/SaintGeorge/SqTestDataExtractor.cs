@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-using static BinaryDataDecoders.ToolKit.Bytes;
+using static BinaryDataDecoders.IO.Bytes;
 using static BinaryDataDecoders.ToolKit.DelimiterOptions;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.SaintGeorge

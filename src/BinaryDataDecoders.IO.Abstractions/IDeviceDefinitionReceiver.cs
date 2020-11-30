@@ -1,5 +1,5 @@
 ﻿using BinaryDataDecoders.IO.Messages;
-using BinaryDataDecoders.IO.Pipelines.Definitions;
+using BinaryDataDecoders.IO.Segmenters;
 
 namespace BinaryDataDecoders.IO
 {

@@ -1,6 +1,7 @@
-﻿using BinaryDataDecoders.IO.Pipelines;
+﻿using BinaryDataDecoders.IO;
+using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
-using BinaryDataDecoders.ToolKit;
+using BinaryDataDecoders.IO.Segmenters;
 using System.IO.Ports;
 
 namespace BinaryDataDecoders.Serial.Cli

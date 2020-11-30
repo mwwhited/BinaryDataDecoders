@@ -1,5 +1,5 @@
 ﻿using BinaryDataDecoders.IO.Messages;
-using BinaryDataDecoders.IO.Pipelines.Definitions;
+using BinaryDataDecoders.IO.Segmenters;
 using System;
 using System.Collections.Concurrent;
 using System.IO;

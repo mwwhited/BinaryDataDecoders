@@ -1,4 +1,4 @@
-﻿namespace BinaryDataDecoders.ToolKit
+﻿namespace BinaryDataDecoders.IO
 {
     /// <summary>
     /// Enumeration based on ASCII control characters  

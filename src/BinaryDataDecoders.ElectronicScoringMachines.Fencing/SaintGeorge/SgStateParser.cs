@@ -2,8 +2,7 @@
 using BinaryDataDecoders.ToolKit;
 using System;
 using System.Linq;
-using System.Text;
-using static BinaryDataDecoders.ToolKit.Bytes;
+using static BinaryDataDecoders.IO.Bytes;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
 {

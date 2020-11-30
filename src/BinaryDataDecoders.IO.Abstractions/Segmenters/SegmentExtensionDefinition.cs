@@ -1,5 +1,4 @@
-﻿using BinaryDataDecoders.ToolKit;
-using System;
+﻿using System;
 
 namespace BinaryDataDecoders.IO.Segmenters
 {

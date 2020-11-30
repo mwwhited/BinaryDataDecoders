@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace BinaryDataDecoders.IO.Segmenters
 {
-    public sealed class BetweenSegmenter : SegmenterBase
+    internal sealed class BetweenSegmenter : SegmenterBase
     {
-        public BetweenSegmenter(
+        internal BetweenSegmenter(
             OnSegmentReceived onSegmentReceived,
             byte[] starts,
             byte end,
@@ -19,9 +19,9 @@ namespace BinaryDataDecoders.IO.Segmenters
             MaxLength = maxLength;
         }
 
-        public byte[] Starts { get; }
-        public byte End { get; }
-        public long? MaxLength { get; }
+        internal byte[] Starts { get; }
+        internal byte End { get; }
+        internal long? MaxLength { get; }
 
         protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
         {
