@@ -57,8 +57,16 @@ namespace BinaryDataDecoders.Serial.Cli
             {
                 var streamDevice = new StreamDevice<TMessage>(stream, definition);
                 streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
-                streamDevice.MessageReceivedError += (s, e) => e.ErrorHandling = ErrorHandling.Ignore;
-                streamDevice.MessageTrasmitterError += (s, e) => e.ErrorHandling = ErrorHandling.Ignore;
+                streamDevice.MessageReceivedError += (s, e) =>
+                {
+                    Console.Error.WriteLine(e.Exception.Message);
+                    e.ErrorHandling = ErrorHandling.Ignore;
+                };
+                streamDevice.MessageTrasmitterError += (s, e) =>
+                {
+                    Console.Error.WriteLine(e.Exception.Message);
+                    e.ErrorHandling = ErrorHandling.Ignore;
+                };
 
                 Task? uiTasks = null;
                 if (messageFactory != null && streamDevice is IDeviceTransmitter<TMessage> transmitter)

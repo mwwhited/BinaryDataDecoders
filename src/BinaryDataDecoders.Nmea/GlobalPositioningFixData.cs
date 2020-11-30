@@ -74,7 +74,7 @@ namespace BinaryDataDecoders.Nmea
             HeightUnits = data.ElementAtOrDefault(12);
         }
 
-        public override string ToString() => new
+        public override string ToString() => $@"GPS Fix:{new
         {
             Fix,
             Latitude,
@@ -88,6 +88,6 @@ namespace BinaryDataDecoders.Nmea
             AltitudeUnits,
             Height,
             HeightUnits,
-        }.ToString();
+        }}";
     }
 }

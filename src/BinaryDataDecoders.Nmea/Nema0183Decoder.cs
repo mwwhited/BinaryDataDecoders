@@ -23,10 +23,10 @@ namespace BinaryDataDecoders.Nmea
                 throw new InvalidOperationException("checksum mismatch");
 
             var split = sentence.Split(',');
-            return split[0] switch
+            return split[0][2..5] switch
             {
-                "GPGGA" => new GlobalPositioningFixData(data: split),
-                "GPGSA" => new GpsDopAndActiveSatellites(data: split),
+                "GGA" => new GlobalPositioningFixData(data: split),
+                "GSA" => new GpsDopAndActiveSatellites(data: split),
                 // "GPGSV" => new SatellitesInView(data: split),
                 // "GPRMC" => new RecommendedMinimumNavigationInformation(data: split),
 

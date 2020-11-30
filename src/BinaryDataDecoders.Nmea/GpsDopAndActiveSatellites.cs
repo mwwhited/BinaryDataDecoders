@@ -77,7 +77,7 @@ namespace BinaryDataDecoders.Nmea
             VDOP = decimal.TryParse(data[16], out var vdop) ? vdop : 0m;
         }
 
-        public override string ToString() => new
+        public override string ToString() => $@"GPS DOP: {new
         {
             Selection,
             Fix,
@@ -85,6 +85,6 @@ namespace BinaryDataDecoders.Nmea
             PDOP,
             HDOP,
             VDOP,
-        }.ToString();
+        }}";
     }
 }
