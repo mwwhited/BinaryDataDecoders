@@ -1,4 +1,4 @@
-﻿namespace BinaryDataDecoders.IO.Pipelines.Definitions
+﻿namespace BinaryDataDecoders.IO.Pipelines
 {
     public interface IPipelineBuildDefinition
     {

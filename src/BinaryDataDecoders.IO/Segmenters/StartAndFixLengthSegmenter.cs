@@ -1,10 +1,9 @@
-﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
-using BinaryDataDecoders.ToolKit;
+﻿using BinaryDataDecoders.ToolKit;
 using System;
 using System.Buffers;
 using System.Linq;
 
-namespace BinaryDataDecoders.IO.Pipelines.Segmenters
+namespace BinaryDataDecoders.IO.Segmenters
 {
     public sealed class StartAndFixLengthSegmenter : SegmenterBase
     {

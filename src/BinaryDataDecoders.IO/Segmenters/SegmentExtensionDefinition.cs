@@ -1,7 +1,7 @@
 ﻿using BinaryDataDecoders.ToolKit;
 using System;
 
-namespace BinaryDataDecoders.IO.Pipelines.Definitions
+namespace BinaryDataDecoders.IO.Segmenters
 {
     public class SegmentExtensionDefinition
     {

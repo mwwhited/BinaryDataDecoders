@@ -1,4 +1,5 @@
-﻿namespace BinaryDataDecoders.IO.Pipelines.Definitions
+﻿
+namespace BinaryDataDecoders.IO.Segmenters
 {
     internal class SegmentBuildDefinition : ISegmentBuildDefinition
     {

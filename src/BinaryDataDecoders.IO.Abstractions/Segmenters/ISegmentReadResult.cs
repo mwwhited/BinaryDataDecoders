@@ -1,6 +1,6 @@
 ﻿using System.Buffers;
 
-namespace BinaryDataDecoders.IO.Pipelines.Segmenters
+namespace BinaryDataDecoders.IO.Segmenters
 {
     public interface ISegmentReadResult
     {

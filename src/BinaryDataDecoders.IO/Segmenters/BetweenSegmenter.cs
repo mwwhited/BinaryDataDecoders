@@ -1,7 +1,7 @@
 ﻿using System.Buffers;
 using System.Linq;
 
-namespace BinaryDataDecoders.IO.Pipelines.Segmenters
+namespace BinaryDataDecoders.IO.Segmenters
 {
     public sealed class BetweenSegmenter : SegmenterBase
     {

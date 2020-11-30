@@ -10,6 +10,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.ToolKit.Abstractions\BinaryDataDecoders.ToolKit.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>

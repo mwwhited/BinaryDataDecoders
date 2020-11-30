@@ -2,7 +2,7 @@
 using System.Buffers;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.IO.Pipelines.Segmenters
+namespace BinaryDataDecoders.IO.Segmenters
 {
     public abstract class SegmenterBase : ISegmenter
     {

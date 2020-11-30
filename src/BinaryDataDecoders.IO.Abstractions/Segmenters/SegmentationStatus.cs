@@ -1,4 +1,5 @@
-﻿namespace BinaryDataDecoders.IO.Pipelines.Segmenters
+﻿
+namespace BinaryDataDecoders.IO.Segmenters
 {
     public enum SegmentationStatus
     {
