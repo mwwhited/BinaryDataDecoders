@@ -8,10 +8,10 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod, TestCategory("DACPAC")]
+        [TestMethod, TestCategory("DACPAC"), TestCategory(TestCategories.DevLocal)]
         public void Test()
         {
-            var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\netstandard2.0\BinaryDataDecoders.SqlServer.Samples.dacpac";
+            var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\BinaryDataDecoders.SqlServer.Samples.dacpac";
             var builder = new DacPacNavigator();
             var nav = builder.ToNavigable(testFile);
             this.TestContext.AddResult(nav);

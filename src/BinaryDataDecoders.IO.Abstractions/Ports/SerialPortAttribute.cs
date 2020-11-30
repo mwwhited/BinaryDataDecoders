@@ -14,7 +14,7 @@ namespace BinaryDataDecoders.IO.Ports
             BaudRate = baudRate;
         }
         public SerialPortAttribute(int baudRate, Parity parity, int dataBits, StopBits stopBits)
-            :this (baudRate)
+            : this(baudRate)
         {
             Parity = parity;
             DataBits = dataBits;

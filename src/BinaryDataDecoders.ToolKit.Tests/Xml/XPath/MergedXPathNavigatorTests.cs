@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.XPath
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void MergeMultiplePathsTest()
         {
             var di1 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\templates").ToNavigable();

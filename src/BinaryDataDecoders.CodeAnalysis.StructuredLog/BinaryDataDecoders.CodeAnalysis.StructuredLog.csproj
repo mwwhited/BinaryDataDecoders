@@ -8,7 +8,7 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="MSBuild.StructuredLogger" />
+		<PackageReference Include="MSBuild.StructuredLogger" Version="2.1.215" />
 	</ItemGroup>
 
 	<ItemGroup>

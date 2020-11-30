@@ -6,7 +6,7 @@
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
 
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    
 	</PropertyGroup>
 
 	<ItemGroup>

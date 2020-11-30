@@ -10,7 +10,7 @@ namespace BinaryDataDecoders.Yaml.Tests
     {
         public TestContext TestContext { get; set; }
 
-        [DataTestMethod]
+        [DataTestMethod, TestCategory(TestCategories.DevLocal)]
         [DataRow("Example.yml")]
         [DataRow("dotnet-core.yml")]
         //[DataRow("codeql-analysis.yml")]

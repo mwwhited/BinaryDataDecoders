@@ -10,7 +10,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="HidSharp" />
+    <PackageReference Include="HidSharp" Version="2.1.0" />
   </ItemGroup>
 
 

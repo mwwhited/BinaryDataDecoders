@@ -1,5 +1,6 @@
 ﻿using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.IO.Pipelines.Factories;
+using BinaryDataDecoders.IO.Segmenters;
 using System;
 using System.IO;
 using System.IO.Pipelines;
@@ -10,14 +11,11 @@ namespace BinaryDataDecoders.IO.Pipelines
 {
     public static class PipelineBuilder
     {
-        public static IPipelineBuildDefinition Follow(this Stream stream, int minimumBufferSize = 4096)
-        {
-            return new Pipe().FollowStream(stream, minimumBufferSize);
-        }
-        internal static IPipelineBuildDefinition FollowStream(this Pipe pipe, Stream stream, int minimumBufferSize = 4096)
-        {
-            return new PipelineBuildDefinition(pipe).FollowStream(stream, minimumBufferSize);
-        }
+        public static IPipelineBuildDefinition Follow(this Stream stream, int minimumBufferSize = 4096) =>
+            new Pipe().FollowStream(stream, minimumBufferSize);
+        internal static IPipelineBuildDefinition FollowStream(this Pipe pipe, Stream stream, int minimumBufferSize = 4096) =>
+            new PipelineBuildDefinition(pipe).FollowStream(stream, minimumBufferSize);
+
         internal static IPipelineBuildDefinition FollowStream(this IPipelineBuildDefinition pipeline, Stream stream, int minimumBufferSize = 4096)
         {
             if (!(pipeline is PipelineBuildDefinition def))
@@ -59,7 +57,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             return def;
         }
 
-        public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
             if (!(pipeline is PipelineBuildDefinition def))
             {
@@ -72,7 +70,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             def.OnError = onPipelineError;
             return def;
         }
-        public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
             if (!(pipeline is PipelineBuildDefinition def))
             {
@@ -85,7 +83,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             def.OnReaderError = onPipelineError;
             return def;
         }
-        public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
+        public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
             if (!(pipeline is PipelineBuildDefinition def))
             {

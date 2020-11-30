@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.Cryptography.Lorenz;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BinaryDataDecoders.Cryptography.Tests.Lorenz
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void Test()
         {
             var lm = new LorenzMachine(LorenzMachine.ZMUG.key, LorenzMachine.ZMUG.start);

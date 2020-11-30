@@ -1,11 +1,12 @@
-﻿using BinaryDataDecoders.ToolKit;
+﻿using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-using static BinaryDataDecoders.ToolKit.Bytes;
+using static BinaryDataDecoders.IO.Bytes;
 using static BinaryDataDecoders.ToolKit.DelimiterOptions;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.SaintGeorge
@@ -15,7 +16,8 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.SaintGeorge
     {
         public TestContext TestContext { get; set; }
         
-        [TestMethod, Ignore]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
+        [Ignore]
         public void TestDataExtractor()
         {
             var path = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\SaintGeorge\outfile.bin";

@@ -9,4 +9,8 @@
 		<RootNamespace>BinaryDataDecoders.IO</RootNamespace>
 	</PropertyGroup>
 
+	<PropertyGroup>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
 </Project>

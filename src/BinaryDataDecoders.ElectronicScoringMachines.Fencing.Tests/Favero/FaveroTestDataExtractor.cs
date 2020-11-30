@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero;
+using BinaryDataDecoders.TestUtilities;
 using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -13,7 +14,8 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod, Ignore]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
+        [Ignore]
         public void TestDataExtractor()
         {
             var path = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\RawData.txt";

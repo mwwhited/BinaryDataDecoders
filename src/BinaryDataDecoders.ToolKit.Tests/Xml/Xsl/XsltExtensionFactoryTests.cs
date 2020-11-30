@@ -1,4 +1,5 @@
-﻿using BinaryDataDecoders.ToolKit.Xml.Xsl;
+﻿using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit.Xml.Xsl;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
@@ -11,7 +12,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.Xsl
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         public void BuildXsltExtensionTest()
         {
             var factory = new XsltExtensionFactory();

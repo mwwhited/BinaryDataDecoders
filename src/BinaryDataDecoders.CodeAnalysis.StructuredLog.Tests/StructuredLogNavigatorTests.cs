@@ -9,7 +9,7 @@ namespace BinaryDataDecoders.CodeAnalysis.Tests.StructuredLog
     {
         public TestContext TestContext { get; set; }
 
-        [TestMethod]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
         //[TestCategory(TestCategories.Unit)]
         [TestTarget(typeof(StructuredLogNavigator), Member = nameof(StructuredLogNavigator.ToNavigable))]
         public void TestXPath()

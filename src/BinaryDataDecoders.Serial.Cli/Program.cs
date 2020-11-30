@@ -1,5 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using BinaryDataDecoders.Nmea;
+using BinaryDataDecoders.Quarta.RadexOne;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
@@ -7,18 +7,23 @@ namespace BinaryDataDecoders.Serial.Cli
     {
         static void Main(string[] args)
         {
-            Span<byte> test = new byte[] { 0x7b, 0xff, 0x20, 0x00, 0x06, 0x00 };
-            var x = test.Slice(0, 2);
-            ushort y = BitConverter.ToUInt16(x);
+            // new SgStateDefinition();
+            // new FaveroDefinition();
 
-            // SerialScoreMachine.Execute();
-            // SerialNmea0183.Execute();
-            SerialRadexOne.Execute();
-        }
+            //var definition = new RadexOneDefinition();
+            //new SerialPortConsole().Execute(definition, x => (x % 10) switch
+            //{
+            //    1 => (IRadexObject)new ReadSerialNumberRequest((uint)x),
+            //    // 2 => new ReadSerialNumberRequest((uint)x),
+            //    // 3 => new DevicePing((uint)x),
+            //    // 4 => new WriteSettingsRequest((uint)x, AlarmSettings.Audio, 30),
+            //    7 => new ReadSettingsRequest((uint)x),
+            //    //8 => new ResetAccumulatedRequest((uint)x),
+            //    _ => new ReadValuesRequest((uint)x)
+            //});
 
-        public static Task<string> ReadLineAsync()
-        {
-            return Task.FromResult(Console.ReadLine());
+            var definition = new Nema0183Definition();
+            new DeviceConsole().Execute(definition);
         }
     }
 }

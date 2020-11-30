@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -12,8 +12,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj"/>
-    <ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj"/>
+    <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

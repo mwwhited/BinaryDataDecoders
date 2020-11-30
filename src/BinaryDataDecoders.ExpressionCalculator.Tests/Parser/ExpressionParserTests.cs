@@ -361,27 +361,5 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
                 goto tryAgain;
             }
         }
-
-        [TestMethod, Ignore]
-        public void TestBuilder()
-        {
-            var formulas = @"XYZ";
-
-            var expressions = from line in formulas.Split(Environment.NewLine)
-                              let expression = line.ParseAsExpression<double>()
-                              where expression != null
-                              let variables = expression.GetDistinctVariableNames()
-                              let replacements = variables.Select((v, i) => (v, new string((char)('A' + i), 1)))
-                              let replaced = expression.ReplaceVariables(replacements)
-                              select replaced; //.Distinct();
-
-            var expressionStrings = expressions.Select(s => s.ToString().Replace(" ", "")).Distinct();
-
-            foreach (var expression in expressionStrings)
-            {
-                this.TestContext.WriteLine($"{expression}");
-                // this.TestContext.WriteLine($@"[DataRow(""{expression}"",DisplayName = ""Check Expressions \""{expression}\"""")]");
-            }
-        }
     }
 }

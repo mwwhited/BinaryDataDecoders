@@ -1,4 +1,5 @@
 using BinaryDataDecoders.IO.Messages;
+using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,8 @@ namespace BinaryDataDecoders.Quarta.RadexOne.Tests
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod, Ignore]
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
+        [Ignore]
         public void DecoderSelector()
         {
             var typeQuery = from type in typeof(IRadexObject).Assembly.GetTypes()

@@ -1,5 +1,4 @@
-﻿using BinaryDataDecoders.IO.Ports;
-using BinaryDataDecoders.IO.UsbHids;
+﻿using BinaryDataDecoders.IO.UsbHids;
 using BinaryDataDecoders.ToolKit;
 using HidSharp;
 using System;
@@ -7,7 +6,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Velleman.K8055
 {

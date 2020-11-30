@@ -5,14 +5,12 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     -->
-    <Copyright>Matthew Whited 2020</Copyright>
+    <Copyright>Out-of-Band Development, LLC 2020</Copyright>
+    <Company>Out-of-Band Development, LLC</Company>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Authors>Matthew Whited</Authors>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
+  
 </Project>
