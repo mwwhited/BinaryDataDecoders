@@ -30,9 +30,9 @@ namespace BinaryDataDecoders.Serial.Cli
                 }
             });
 
-        private System.IO.Ports.SerialPort GetSerialPort(object definition)
+        private IDeviceAdapter GetSerialPort(object definition)
         {
-            var ports = serial.GetPortNames();
+            var ports = serial.GetDeviceNames();
             foreach (var port in ports)
                 Console.WriteLine(port);
 
@@ -41,14 +41,14 @@ namespace BinaryDataDecoders.Serial.Cli
 
             if (string.IsNullOrWhiteSpace(portName)) portName = ports.FirstOrDefault();
 
-            var serialPort = serial.GetSerialPort(portName, definition: definition) ??
+            var serialPort = serial.GetDevice(portName, definition: definition) ??
                  throw new NullReferenceException($"Enable to configure \"{portName}\" for \"{definition}\"");
 
             return serialPort;
         }
 
-        private HidSharp.HidDevice GetHidDevice(object definition) =>
-            usbHid.GetHidDevice(definition: definition) ??
+        private IDeviceAdapter GetHidDevice(object definition) =>
+            usbHid.GetDevice(definition: definition) ??
                  throw new NullReferenceException($"Enable to configure \"{definition}\"");
 
         public void Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage> messageFactory = null)
@@ -83,23 +83,23 @@ namespace BinaryDataDecoders.Serial.Cli
                 );
             }
 
-            if (usbHid.CanGetHidDevice(definition))
+            if (usbHid.CanGetDevice(definition))
             {
                 var device = GetHidDevice(definition);
                 if (device.TryOpen(out var stream))
-                    using (stream)
+                    using (stream ?? throw new ApplicationException())
                     {
                         HandleStream(stream).Wait();
                     }
             }
-            else if (serial.CanGetSerialPort(definition))
+            else if (serial.CanGetDevice(definition))
             {
-                using (var port = GetSerialPort(definition))
-                {
-                    port.Open();
-                    var stream = port.BaseStream;
-                    HandleStream(stream).Wait();
-                }
+                var device = GetSerialPort(definition);
+                if (device.TryOpen(out var stream))
+                    using (stream ?? throw new ApplicationException())
+                    {
+                        HandleStream(stream).Wait();
+                    }
             }
         }
     }

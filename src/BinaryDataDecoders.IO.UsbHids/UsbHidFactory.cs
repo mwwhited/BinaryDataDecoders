@@ -6,16 +6,17 @@ using System.Reflection;
 
 namespace BinaryDataDecoders.IO.UsbHids
 {
-    public class UsbHidFactory : IUsbHidFactory
+    [DeviceTarget(typeof(UsbHidAttribute))]
+    public class UsbHidFactory : IImplictDeviceFactory
     {
-        public bool CanGetHidDevice(object? definition) => definition?.GetType()?.GetCustomAttributes<UsbHidAttribute>()?.Any() ?? false;
+        public bool CanGetDevice(object? definition) => definition?.GetType()?.GetCustomAttributes<UsbHidAttribute>()?.Any() ?? false;
 
-        public HidDevice? GetHidDevice(string devicePath, object? definition) => 
-            GetHidDevices(definition).FirstOrDefault(d=>string.Equals(d.DevicePath, devicePath, StringComparison.OrdinalIgnoreCase));
+        public IDeviceAdapter? GetDevice(string devicePath, object? definition) =>
+            GetDevices(definition).FirstOrDefault(d => string.Equals(d.Path, devicePath, StringComparison.OrdinalIgnoreCase));
 
-        public HidDevice? GetHidDevice(object? definition) => GetHidDevices(definition).FirstOrDefault();
+        public IDeviceAdapter? GetDevice(object? definition) => GetDevices(definition).FirstOrDefault();
 
-        public IEnumerable<HidDevice> GetHidDevices(object? definition)
+        public IEnumerable<IDeviceAdapter> GetDevices(object? definition)
         {
             if (definition == null) yield break;
             var def = definition.GetType();
@@ -29,10 +30,10 @@ namespace BinaryDataDecoders.IO.UsbHids
                           select hids.First();
 
             foreach (var device in devices)
-                yield return device;
+                yield return new UsbHidDeviceAdapter(device);
         }
 
-        public IEnumerable<string> GetHidDevices() =>
+        public IEnumerable<string> GetDeviceNames() =>
             DeviceList.Local
                       .GetAllDevices()
                       .OfType<HidDevice>()

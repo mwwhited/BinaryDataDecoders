@@ -5,10 +5,12 @@ using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.ToolKit;
+using System.ComponentModel;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
 {
     [SerialPort(9600, Parity.None, 8, StopBits.One)]
+    [Description("Saint George")]
     public class SgStateDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
     {
         public ISegmentBuildDefinition SegmentDefintion { get; } =

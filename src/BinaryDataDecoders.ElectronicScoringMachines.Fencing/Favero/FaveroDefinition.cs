@@ -4,10 +4,12 @@ using BinaryDataDecoders.IO.Messages;
 using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Pipelines.Definitions;
 using BinaryDataDecoders.IO.Ports;
+using System.ComponentModel;
 
 namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
 {
     [SerialPort(2400, Parity.None, 8, StopBits.One)]
+    [Description("Favero")]
     public class FaveroDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
     {
         public ISegmentBuildDefinition SegmentDefintion { get; } =

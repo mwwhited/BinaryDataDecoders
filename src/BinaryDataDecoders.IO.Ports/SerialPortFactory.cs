@@ -6,29 +6,33 @@ using SerialPort = System.IO.Ports.SerialPort;
 
 namespace BinaryDataDecoders.IO.Ports
 {
-    public class SerialPortFactory : ISerialPortFactory
-    {
-        public bool CanGetSerialPort(object? definition) => definition?.GetType()?.GetCustomAttributes<SerialPortAttribute>()?.Any() ?? false;
 
-        public SerialPort? GetSerialPort(string? portName, object? definition)
+    [DeviceTarget(typeof(SerialPortAttribute))]
+    public class SerialPortFactory : IDeviceFactory
+    {
+        public bool CanGetDevice(object? definition) => definition?.GetType()?.GetCustomAttributes<SerialPortAttribute>()?.Any() ?? false;
+
+        public IDeviceAdapter? GetDevice(string devicePath, object? definition)
         {
-            portName = SerialPort.GetPortNames()
-                                 .FirstOrDefault(sp => string.Equals(sp, portName, StringComparison.InvariantCultureIgnoreCase));
-            if (string.IsNullOrWhiteSpace(portName)) return null;
+            devicePath = SerialPort.GetPortNames()
+                                   .FirstOrDefault(sp => string.Equals(sp, devicePath, StringComparison.InvariantCultureIgnoreCase));
+            if (string.IsNullOrWhiteSpace(devicePath)) return null;
             if (definition == null) return null;
 
             var def = definition.GetType();
             var config = def.GetCustomAttribute<SerialPortAttribute>();
             if (config == null) return null;
 
-            return new SerialPort(
-                portName: portName,
-                baudRate: config.BaudRate,
-                parity: config.Parity.AsSystem(),
-                dataBits: config.DataBits,
-                stopBits: config.StopBits.AsSystem()
+            return new SerialPortDeviceAdapter(
+                new SerialPort(
+                    portName: devicePath,
+                    baudRate: config.BaudRate,
+                    parity: config.Parity.AsSystem(),
+                    dataBits: config.DataBits,
+                    stopBits: config.StopBits.AsSystem()
+                    )
                 );
         }
-        public IEnumerable<string> GetPortNames() => SerialPort.GetPortNames().OrderBy(s => s);
+        public IEnumerable<string> GetDeviceNames() => SerialPort.GetPortNames().OrderBy(s => s);
     }
 }
