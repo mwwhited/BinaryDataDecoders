@@ -1279,11 +1279,3 @@
 
  - string input 
 
-#### Public Method - TestBuilder
-
-##### Attributes
-
- - TestMethod
- - Ignore
-
-

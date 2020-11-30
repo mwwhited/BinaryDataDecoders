@@ -40,7 +40,7 @@
 〰12:      {
 ‼13:          public TestContext TestContext { get; set; }
 〰14:  
-〰15:          [TestMethod]
+〰15:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰16:          public void AsXElementTest()
 〰17:          {
 ‼18:              var testData = new

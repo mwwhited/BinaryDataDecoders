@@ -24,6 +24,12 @@
 ##### Attributes
 
  - DataTestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
  - DataRow
  - (
  - "Example.yml"

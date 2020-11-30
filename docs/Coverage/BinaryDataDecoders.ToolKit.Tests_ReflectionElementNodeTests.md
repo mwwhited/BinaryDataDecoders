@@ -53,7 +53,7 @@
 〰23:          private ReflectionElementNodeBuilder CreateReflectionElementNode(object testData, bool excludeNamespace = false) =>
 ✔24:              new ReflectionElementNodeBuilder(testData, excludeNamespace);
 〰25:  
-〰26:          [TestMethod]
+〰26:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰27:          [TestCategory(TestCategories.Unit)]
 〰28:          public void ReflectionElementNodeTest()
 〰29:          {

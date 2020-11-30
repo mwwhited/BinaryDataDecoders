@@ -24,6 +24,12 @@
 ##### Attributes
 
  - TestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
 
 
 #### Public Method - QueryTest
@@ -31,5 +37,11 @@
 ##### Attributes
 
  - TestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
 
 

@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                   |
 | Uncoveredlines  | `2`                                                   |
 | Coverablelines  | `2`                                                   |
-| Totallines      | `15`                                                  |
+| Totallines      | `16`                                                  |
 | Linecoverage    | `0`                                                   |
 | Coveredbranches | `0`                                                   |
 | Totalbranches   | `0`                                                   |
@@ -25,21 +25,22 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Kuando.Busylight.Tests/UnitTest1.cs
 
 ```CSharp
-〰1:   using Microsoft.VisualStudio.TestTools.UnitTesting;
-〰2:   using System.Threading.Tasks;
-〰3:   
-〰4:   namespace BinaryDataDecoders.Kuando.Busylight.Tests
-〰5:   {
-〰6:       [TestClass]
-〰7:       public class UnitTest1
-〰8:       {
-〰9:           [TestMethod]
-〰10:          public async Task TestMethod1()
-〰11:          {
-‼12:              await new Class1().Start(new System.Threading.CancellationTokenSource());
-‼13:          }
-〰14:      }
-〰15:  }
+〰1:   using BinaryDataDecoders.TestUtilities;
+〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
+〰3:   using System.Threading.Tasks;
+〰4:   
+〰5:   namespace BinaryDataDecoders.Kuando.Busylight.Tests
+〰6:   {
+〰7:       [TestClass]
+〰8:       public class UnitTest1
+〰9:       {
+〰10:          [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰11:          public async Task TestMethod1()
+〰12:          {
+‼13:              await new Class1().Start(new System.Threading.CancellationTokenSource());
+‼14:          }
+〰15:      }
+〰16:  }
 ```
 
 ## Links

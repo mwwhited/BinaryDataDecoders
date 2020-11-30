@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.Definitions.PipelineBuildDefinition` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                                     |
 | Coveredlines    | `0`                                                                   |
-| Uncoveredlines  | `10`                                                                  |
-| Coverablelines  | `10`                                                                  |
-| Totallines      | `27`                                                                  |
+| Uncoveredlines  | `8`                                                                   |
+| Coverablelines  | `8`                                                                   |
+| Totallines      | `19`                                                                  |
 | Linecoverage    | `0`                                                                   |
 | Coveredbranches | `0`                                                                   |
 | Totalbranches   | `0`                                                                   |
@@ -40,25 +40,17 @@
 〰6:   {
 〰7:       internal class PipelineBuildDefinition : IPipelineBuildDefinition
 〰8:       {
-‼9:           internal PipelineBuildDefinition(Pipe pipe)
-〰10:          {
-‼11:              this.Pipe = pipe;
-‼12:          }
-〰13:  
-‼14:          internal Pipe Pipe { get; }
-〰15:  
-‼16:          internal OnPipelineError? OnError { get; set; }
-〰17:  
-〰18:  
-‼19:          internal Task? PipeWriter { get; set; }
-‼20:          internal OnPipelineError? OnWriterError { get; set; }
-〰21:  
-‼22:          internal Task? PipeReader { get; set; }
-‼23:          internal OnPipelineError? OnReaderError { get; set; }
-〰24:  
-‼25:          internal CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
-〰26:      }
-〰27:  }
+‼9:           internal PipelineBuildDefinition(Pipe pipe) => this.Pipe = pipe;
+〰10:  
+‼11:          internal Pipe Pipe { get; }
+‼12:          internal OnException? OnError { get; set; }
+‼13:          internal Task? PipeWriter { get; set; }
+‼14:          internal OnException? OnWriterError { get; set; }
+‼15:          internal Task? PipeReader { get; set; }
+‼16:          internal OnException? OnReaderError { get; set; }
+‼17:          internal CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
+〰18:      }
+〰19:  }
 ```
 
 ## Links

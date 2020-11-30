@@ -38,7 +38,7 @@
 〰10:      {
 ‼11:          public TestContext TestContext { get; set; }
 〰12:  
-〰13:          [DataTestMethod]
+〰13:          [DataTestMethod, TestCategory(TestCategories.DevLocal)]
 〰14:          [DataRow("Example.yml")]
 〰15:          [DataRow("dotnet-core.yml")]
 〰16:          //[DataRow("codeql-analysis.yml")]

@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.IO.Functions::ChecksumCalculator::Simple16
-  * BinaryDataDecoders.IO, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.IO.Abstractions, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

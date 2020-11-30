@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                     |
 | Uncoveredlines  | `2`                                     |
 | Coverablelines  | `2`                                     |
-| Totallines      | `14`                                    |
+| Totallines      | `15`                                    |
 | Linecoverage    | `0`                                     |
 | Coveredbranches | `0`                                     |
 | Totalbranches   | `0`                                     |
@@ -25,20 +25,21 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.IO.Tests/UnitTest1.cs
 
 ```CSharp
-〰1:   using Microsoft.VisualStudio.TestTools.UnitTesting;
-〰2:   
-〰3:   namespace BinaryDataDecoders.IO.Tests
-〰4:   {
-〰5:       [TestClass]
-〰6:       public class UnitTest1
-〰7:       {
-〰8:           [TestMethod]
-〰9:           public void TestMethod1()
-〰10:          {
-‼11:              Assert.Inconclusive();
-‼12:          }
-〰13:      }
-〰14:  }
+〰1:   using BinaryDataDecoders.TestUtilities;
+〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
+〰3:   
+〰4:   namespace BinaryDataDecoders.IO.Tests
+〰5:   {
+〰6:       [TestClass]
+〰7:       public class UnitTest1
+〰8:       {
+〰9:           [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰10:          public void TestMethod1()
+〰11:          {
+‼12:              Assert.Inconclusive();
+‼13:          }
+〰14:      }
+〰15:  }
 ```
 
 ## Links

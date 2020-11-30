@@ -24,6 +24,12 @@
 ##### Attributes
 
  - TestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
  - TestTarget
  - (
  - typeof

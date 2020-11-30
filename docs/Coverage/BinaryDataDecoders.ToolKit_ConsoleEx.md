@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.ToolKit.ConsoleEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`           |
 | Coveredlines    | `0`                                    |
-| Uncoveredlines  | `42`                                   |
-| Coverablelines  | `42`                                   |
-| Totallines      | `82`                                   |
+| Uncoveredlines  | `43`                                   |
+| Coverablelines  | `43`                                   |
+| Totallines      | `85`                                   |
 | Linecoverage    | `0`                                    |
 | Coveredbranches | `0`                                    |
 | Totalbranches   | `34`                                   |
@@ -17,10 +17,11 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name           |
-| :--------- | :---- | :------- | :------------- |
-| 16         | 0     | 0        | `Prompt`       |
-| 18         | 0     | 0        | `PromptSecure` |
+| Complexity | Lines | Branches | Name            |
+| :--------- | :---- | :------- | :-------------- |
+| 1          | 0     | 100      | `ReadLineAsync` |
+| 16         | 0     | 0        | `Prompt`        |
+| 18         | 0     | 0        | `PromptSecure`  |
 
 ## Files
 
@@ -29,86 +30,89 @@
 ```CSharp
 〰1:   using System;
 〰2:   using System.Collections.Generic;
-〰3:   
-〰4:   namespace BinaryDataDecoders.ToolKit
-〰5:   {
-〰6:       public static class ConsoleEx
-〰7:       {
-〰8:           public static string? Prompt(string? prompt = null, string? defaultValue = null)
-〰9:           {
-‼10:              if (!string.IsNullOrWhiteSpace(prompt))
-‼11:                  Console.Write("{0} ", prompt);
-‼12:              if (!string.IsNullOrWhiteSpace(defaultValue))
-‼13:                  Console.Write("{0}", defaultValue);
-〰14:  
-‼15:              var chars = new List<char>(defaultValue ?? "");
-‼16:              while (true)
-〰17:              {
-‼18:                  var key = Console.ReadKey(true);
-〰19:  
-‼20:                  if (key.Key == ConsoleKey.Escape)
-‼21:                      return null;
-‼22:                  else if (key.Key == ConsoleKey.Enter)
-〰23:                      break;
-‼24:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
-〰25:                  {
-‼26:                      if (chars.Count > 0)
-〰27:                      {
-‼28:                          chars.RemoveAt(chars.Count - 1);
-‼29:                          Console.Write((char)8);
-‼30:                          Console.Write(" ");
-‼31:                          Console.Write((char)8);
-〰32:                      }
-〰33:                  }
-〰34:                  else
-〰35:                  {
-‼36:                      chars.Add(key.KeyChar);
-‼37:                      Console.Write(key.KeyChar);
-〰38:                  }
-〰39:              }
-‼40:              Console.WriteLine();
-‼41:              var result = new string(chars.ToArray());
-‼42:              return result;
-〰43:          }
-〰44:  
-〰45:          public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
-〰46:          {
-‼47:              if (!string.IsNullOrWhiteSpace(prompt))
-‼48:                  Console.Write($"{prompt} ");
-‼49:              if (!string.IsNullOrWhiteSpace(defaultValue))
-‼50:                  Console.Write($"{new string(hideWith, defaultValue.Length)}");
-〰51:  
-‼52:              var chars = new List<char>(defaultValue ?? "");
-‼53:              while (true)
-〰54:              {
-‼55:                  var key = Console.ReadKey(true);
-〰56:  
-‼57:                  if (key.Key == ConsoleKey.Escape)
-‼58:                      return null;
-‼59:                  else if (key.Key == ConsoleKey.Enter)
-〰60:                      break;
-‼61:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
-〰62:                  {
-‼63:                      if (chars.Count > 0)
-〰64:                      {
-‼65:                          chars.RemoveAt(chars.Count - 1);
-‼66:                          Console.Write((char)8);
-‼67:                          Console.Write(" ");
-‼68:                          Console.Write((char)8);
-〰69:                      }
-〰70:                  }
-〰71:                  else
-〰72:                  {
-‼73:                      chars.Add(key.KeyChar);
-‼74:                      Console.Write(hideWith);
-〰75:                  }
-〰76:              }
-‼77:              Console.WriteLine();
-‼78:              var result = new string(chars.ToArray());
-‼79:              return result;
-〰80:          }
-〰81:      }
-〰82:  }
+〰3:   using System.Threading.Tasks;
+〰4:   
+〰5:   namespace BinaryDataDecoders.ToolKit
+〰6:   {
+〰7:       public static class ConsoleEx
+〰8:       {
+‼9:           public static Task<string> ReadLineAsync() => Task.FromResult(Console.ReadLine());
+〰10:  
+〰11:          public static string? Prompt(string? prompt = null, string? defaultValue = null)
+〰12:          {
+‼13:              if (!string.IsNullOrWhiteSpace(prompt))
+‼14:                  Console.Write("{0} ", prompt);
+‼15:              if (!string.IsNullOrWhiteSpace(defaultValue))
+‼16:                  Console.Write("{0}", defaultValue);
+〰17:  
+‼18:              var chars = new List<char>(defaultValue ?? "");
+‼19:              while (true)
+〰20:              {
+‼21:                  var key = Console.ReadKey(true);
+〰22:  
+‼23:                  if (key.Key == ConsoleKey.Escape)
+‼24:                      return null;
+‼25:                  else if (key.Key == ConsoleKey.Enter)
+〰26:                      break;
+‼27:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
+〰28:                  {
+‼29:                      if (chars.Count > 0)
+〰30:                      {
+‼31:                          chars.RemoveAt(chars.Count - 1);
+‼32:                          Console.Write((char)8);
+‼33:                          Console.Write(" ");
+‼34:                          Console.Write((char)8);
+〰35:                      }
+〰36:                  }
+〰37:                  else
+〰38:                  {
+‼39:                      chars.Add(key.KeyChar);
+‼40:                      Console.Write(key.KeyChar);
+〰41:                  }
+〰42:              }
+‼43:              Console.WriteLine();
+‼44:              var result = new string(chars.ToArray());
+‼45:              return result;
+〰46:          }
+〰47:  
+〰48:          public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
+〰49:          {
+‼50:              if (!string.IsNullOrWhiteSpace(prompt))
+‼51:                  Console.Write($"{prompt} ");
+‼52:              if (!string.IsNullOrWhiteSpace(defaultValue))
+‼53:                  Console.Write($"{new string(hideWith, defaultValue.Length)}");
+〰54:  
+‼55:              var chars = new List<char>(defaultValue ?? "");
+‼56:              while (true)
+〰57:              {
+‼58:                  var key = Console.ReadKey(true);
+〰59:  
+‼60:                  if (key.Key == ConsoleKey.Escape)
+‼61:                      return null;
+‼62:                  else if (key.Key == ConsoleKey.Enter)
+〰63:                      break;
+‼64:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
+〰65:                  {
+‼66:                      if (chars.Count > 0)
+〰67:                      {
+‼68:                          chars.RemoveAt(chars.Count - 1);
+‼69:                          Console.Write((char)8);
+‼70:                          Console.Write(" ");
+‼71:                          Console.Write((char)8);
+〰72:                      }
+〰73:                  }
+〰74:                  else
+〰75:                  {
+‼76:                      chars.Add(key.KeyChar);
+‼77:                      Console.Write(hideWith);
+〰78:                  }
+〰79:              }
+‼80:              Console.WriteLine();
+‼81:              var result = new string(chars.ToArray());
+‼82:              return result;
+〰83:          }
+〰84:      }
+〰85:  }
 ```
 
 ## Links

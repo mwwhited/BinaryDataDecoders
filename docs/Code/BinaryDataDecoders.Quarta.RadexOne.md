@@ -52,21 +52,6 @@ base interface for tagging RadexOne objects
 *summary*
 used to convert buffered data to correct value type
 
-### Method - Decode(System.Buffers.ReadOnlySequence{System.Byte})
-
-*summary*
-used to convert buffered data to correct value type
-
-*param*
-input data type
-
-| Key                  | Value                                                        |
-| :------------------- | :----------------------------------------------------------- |
-| name                 | sequence                                                     | 
-
-*returns*
-converted value type
-
 ## Type - BinaryDataDecoders.Quarta.RadexOne.RadexOneDecoder
 
 *summary*

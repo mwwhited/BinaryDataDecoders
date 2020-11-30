@@ -13,19 +13,3 @@
  used to convert buffered data to correct value type
  </summary>
 
-### Members
-
-#### Method - Decode
-
-##### Comments
-
- <summary>
- used to convert buffered data to correct value type
- </summary>
- <paramname="sequence">input data type</param>
- <returns>converted value type</returns>
-
-#####  Parameters
-
- - ReadOnlySequence < byte > sequence 
-

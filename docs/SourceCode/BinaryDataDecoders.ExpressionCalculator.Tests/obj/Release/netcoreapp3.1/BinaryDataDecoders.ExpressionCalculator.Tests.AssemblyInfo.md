@@ -13,7 +13,7 @@
  - .
  - AssemblyCompanyAttribute
  - (
- - "Matthew Whited"
+ - "Out-of-Band Development, LLC"
  - )
  - System
  - .
@@ -29,7 +29,7 @@
  - .
  - AssemblyCopyrightAttribute
  - (
- - "Matthew Whited 2020"
+ - "Out-of-Band Development, LLC 2020"
  - )
  - System
  - .
@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.3.0-rc.4"
+ - "0.3.0-rc.20"
  - )
  - System
  - .

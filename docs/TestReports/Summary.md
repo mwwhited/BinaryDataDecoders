@@ -17,6 +17,8 @@
 
 * [Enigma.EnigmaMachineTests](BinaryDataDecoders.Cryptography.Tests/Enigma.EnigmaMachineTests.md)
   * [ProcessTest_EnigmaI_I_II_III_RefB_ABDEYZ_AAA](BinaryDataDecoders.Cryptography.Tests/Enigma.EnigmaMachineTests.md#ProcessTest_EnigmaI_I_II_III_RefB_ABDEYZ_AAA)
+* [Lorenz.LorenzMachineTests](BinaryDataDecoders.Cryptography.Tests/Lorenz.LorenzMachineTests.md)
+  * [Test](BinaryDataDecoders.Cryptography.Tests/Lorenz.LorenzMachineTests.md#Test)
 ## BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests
 
 * [Favero.FaveroStateParserTests](BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/Favero.FaveroStateParserTests.md)

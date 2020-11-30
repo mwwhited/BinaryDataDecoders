@@ -27,7 +27,7 @@
 
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Pipelines.Definitions;
-〰2:   using BinaryDataDecoders.IO.Pipelines.Segmenters;
+〰2:   using BinaryDataDecoders.IO.Segmenters;
 〰3:   using System;
 〰4:   using System.Threading.Tasks;
 〰5:   
@@ -75,16 +75,16 @@
 ‼47:                      var errorHandling = await context.onError.Handle(context.owner, ex);
 〰48:                      switch (errorHandling)
 〰49:                      {
-〰50:                          case PipelineErrorHandling.Ignore:
+〰50:                          case ErrorHandling.Ignore:
 〰51:                              //Note: do nothing
 〰52:                              break;
 〰53:  
-〰54:                          case PipelineErrorHandling.Stop:
+〰54:                          case ErrorHandling.Stop:
 ‼55:                              completed = true;
 ‼56:                              break;
 〰57:  
 〰58:                          default:
-〰59:                          case PipelineErrorHandling.Throw:
+〰59:                          case ErrorHandling.Throw:
 ‼60:                              context.pipeline.Complete(ex);
 ‼61:                              return;
 〰62:                      }

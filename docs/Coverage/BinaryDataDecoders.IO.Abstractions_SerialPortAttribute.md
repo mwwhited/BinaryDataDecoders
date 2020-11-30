@@ -47,7 +47,7 @@
 ‼14:              BaudRate = baudRate;
 ‼15:          }
 〰16:          public SerialPortAttribute(int baudRate, Parity parity, int dataBits, StopBits stopBits)
-‼17:              :this (baudRate)
+‼17:              : this(baudRate)
 〰18:          {
 ‼19:              Parity = parity;
 ‼20:              DataBits = dataBits;

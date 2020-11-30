@@ -37,7 +37,7 @@
 〰9:       {
 ‼10:          public TestContext TestContext { get; set; }
 〰11:  
-〰12:          [TestMethod]
+〰12:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰13:          //[TestCategory(TestCategories.Unit)]
 〰14:          [TestTarget(typeof(StructuredLogNavigator), Member = nameof(StructuredLogNavigator.ToNavigable))]
 〰15:          public void TestXPath()

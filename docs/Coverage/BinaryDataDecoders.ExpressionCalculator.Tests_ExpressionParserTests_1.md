@@ -7,13 +7,13 @@
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.ExpressionParserTests`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                |
 | Coveredlines    | `67`                                                                           |
-| Uncoveredlines  | `26`                                                                           |
-| Coverablelines  | `93`                                                                           |
-| Totallines      | `387`                                                                          |
-| Linecoverage    | `72`                                                                           |
+| Uncoveredlines  | `14`                                                                           |
+| Coverablelines  | `81`                                                                           |
+| Totallines      | `365`                                                                          |
+| Linecoverage    | `82.7`                                                                         |
 | Coveredbranches | `20`                                                                           |
-| Totalbranches   | `42`                                                                           |
-| Branchcoverage  | `47.6`                                                                         |
+| Totalbranches   | `22`                                                                           |
+| Branchcoverage  | `90.9`                                                                         |
 
 ## Metrics
 
@@ -28,7 +28,6 @@
 | 1          | 57.14 | 100      | `OptimizerTests_WithExceptions`        |
 | 1          | 100   | 100      | `GetDistinctVariablesTests`            |
 | 10         | 80.76 | 80.0     | `VerifyOptimizerForComplexExpressions` |
-| 20         | 0     | 0        | `TestBuilder`                          |
 
 ## Files
 
@@ -398,30 +397,8 @@
 ‼361:                 goto tryAgain;
 〰362:             }
 ✔363:         }
-〰364: 
-〰365:         [TestMethod, Ignore]
-〰366:         public void TestBuilder()
-〰367:         {
-‼368:             var formulas = @"XYZ";
-〰369: 
-‼370:             var expressions = from line in formulas.Split(Environment.NewLine)
-‼371:                               let expression = line.ParseAsExpression<double>()
-‼372:                               where expression != null
-‼373:                               let variables = expression.GetDistinctVariableNames()
-‼374:                               let replacements = variables.Select((v, i) => (v, new string((char)('A' + i), 1)))
-‼375:                               let replaced = expression.ReplaceVariables(replacements)
-‼376:                               select replaced; //.Distinct();
-〰377: 
-‼378:             var expressionStrings = expressions.Select(s => s.ToString().Replace(" ", "")).Distinct();
-〰379: 
-‼380:             foreach (var expression in expressionStrings)
-〰381:             {
-‼382:                 this.TestContext.WriteLine($"{expression}");
-〰383:                 // this.TestContext.WriteLine($@"[DataRow(""{expression}"",DisplayName = ""Check Expressions \""{expression}\"""")]");
-〰384:             }
-‼385:         }
-〰386:     }
-〰387: }
+〰364:     }
+〰365: }
 ```
 
 ## Links

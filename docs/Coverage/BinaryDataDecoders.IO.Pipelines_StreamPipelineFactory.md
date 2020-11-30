@@ -69,16 +69,16 @@
 ‼40:                      var errorHandling = await context.onError.Handle(context.owner, ex);
 〰41:                      switch (errorHandling)
 〰42:                      {
-〰43:                          case PipelineErrorHandling.Ignore:
+〰43:                          case ErrorHandling.Ignore:
 〰44:                              //Note: do nothing
 〰45:                              break;
 〰46:  
-〰47:                          case PipelineErrorHandling.Stop:
+〰47:                          case ErrorHandling.Stop:
 ‼48:                              completed = true;
 ‼49:                              break;
 〰50:  
 〰51:                          default:
-〰52:                          case PipelineErrorHandling.Throw:
+〰52:                          case ErrorHandling.Throw:
 ‼53:                              context.pipeline.Complete(ex);
 ‼54:                              return;
 〰55:                      }

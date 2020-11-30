@@ -42,7 +42,7 @@
 〰13:      {
 ‼14:          public TestContext TestContext { get; set; }
 〰15:  
-〰16:          [TestMethod]
+〰16:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰17:          public void MergeMultiplePathsTest()
 〰18:          {
 ‼19:              var di1 = new DirectoryInfo(@"C:\Repos\mwwhited\BinaryDataDecoders\templates").ToNavigable();
