@@ -83,7 +83,7 @@
     <Message Text="BddXslBinPath: $(BddXslBinPath)" />
 
     <Message Text="Generate Reports: XmlComments to Structured" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; -i &quot;$(RESULTS_PATH)\Binary\*.xml&quot; -o &quot;$(RESULTS_PATH)\Code\*.xml&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
+    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; -i &quot;$(RESULTS_PATH)\Binary\BinaryDataDecoders.*.xml&quot; -o &quot;$(RESULTS_PATH)\Code\*.xml&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
 
     <Message Text="Generate Reports: XmlComments to Markdown" />
     <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToMarkdown.xslt&quot; -i &quot;$(RESULTS_PATH)\Code\*.xml&quot; -o &quot;$(DOCS_PATH)\Code\*.md&quot; -s &quot;$(SANDBOX_PATH)&quot;" />

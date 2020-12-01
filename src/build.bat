@@ -79,7 +79,7 @@ echo "Build Packages"
 
 REM https://github.com/laurenprinn/MSBuildStructuredLog
 dotnet build "%BUILD_PROJECT%" --configuration %Configuration% --no-restore /p:Version=%BUILD_VERSION% /p:DBVersion=%BUILD_VERSION% "/bl:logfile=%BUILD_LOG%"
-dotnet build "%BUILD_PROJECT%" --configuration %Configuration% /t:GenerateRestoreGraphFile "/p:RestoreGraphOutputPath=%REFERENCE_GRAPH%"
+REM dotnet build "%BUILD_PROJECT%" --configuration %Configuration% /t:GenerateRestoreGraphFile "/p:RestoreGraphOutputPath=%REFERENCE_GRAPH%"
 IF %errorlevel% NEQ 0 GOTO error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
