@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                                                         |
 | Uncoveredlines  | `17`                                                                                        |
 | Coverablelines  | `17`                                                                                        |
-| Totallines      | `51`                                                                                        |
+| Totallines      | `53`                                                                                        |
 | Linecoverage    | `0`                                                                                         |
 | Coveredbranches | `0`                                                                                         |
 | Totalbranches   | `12`                                                                                        |
@@ -28,56 +28,58 @@
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero;
-〰2:   using BinaryDataDecoders.ToolKit;
-〰3:   using Microsoft.VisualStudio.TestTools.UnitTesting;
-〰4:   using System;
-〰5:   using System.IO;
-〰6:   using System.Linq;
-〰7:   using static BinaryDataDecoders.ToolKit.DelimiterOptions;
-〰8:   
-〰9:   namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
-〰10:  {
-〰11:      [TestClass]
-〰12:      public class FaveroTestDataExtractor
-〰13:      {
-‼14:          public TestContext TestContext { get; set; }
-〰15:  
-〰16:          [TestMethod, Ignore]
-〰17:          public void TestDataExtractor()
-〰18:          {
-‼19:              var path = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\RawData.txt";
-〰20:  
-‼21:              var chunks = File.ReadAllText(path)
-‼22:                               .Where(c => (c >= '0' && c <= '9') || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f'))
-‼23:                               .AsMemory()
-‼24:                               .BytesFromHexString()
-‼25:                               .Split(0xff, Carry)
-‼26:                               ;
-〰27:  
-〰28:              //var segments = (from c in chunks
-〰29:              //                select c.ToArray().ToHexString(",0x"))
-〰30:              //               .Distinct()
-〰31:              //               .OrderBy(i => i)
-〰32:              //               .Aggregate(new StringBuilder(), (sb, v) => sb.Append("0x").Append(v).AppendLine())
-〰33:              //               .ToString();
-〰34:              // this.TestContext.WriteLine(segments);
-〰35:  
-‼36:              var parser = new FaveroStateParser();
-‼37:              foreach (var c in chunks.Distinct())
-〰38:              {
-〰39:                  try
-〰40:                  {
-‼41:                      var state = parser.Parse(c.Span);
-‼42:                      this.TestContext.WriteLine(state.ToString());
-‼43:                  }
-‼44:                  catch
-〰45:                  {
-‼46:                      this.TestContext.WriteLine($"ERROR Decoding {c.ToArray().ToHexString()}");
-‼47:                  }
-〰48:              }
-‼49:          }
-〰50:      }
-〰51:  }
+〰2:   using BinaryDataDecoders.TestUtilities;
+〰3:   using BinaryDataDecoders.ToolKit;
+〰4:   using Microsoft.VisualStudio.TestTools.UnitTesting;
+〰5:   using System;
+〰6:   using System.IO;
+〰7:   using System.Linq;
+〰8:   using static BinaryDataDecoders.ToolKit.DelimiterOptions;
+〰9:   
+〰10:  namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
+〰11:  {
+〰12:      [TestClass]
+〰13:      public class FaveroTestDataExtractor
+〰14:      {
+‼15:          public TestContext TestContext { get; set; }
+〰16:  
+〰17:          [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰18:          [Ignore]
+〰19:          public void TestDataExtractor()
+〰20:          {
+‼21:              var path = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.ElectronicScoringMachines.Fencing\Favero\RawData.txt";
+〰22:  
+‼23:              var chunks = File.ReadAllText(path)
+‼24:                               .Where(c => (c >= '0' && c <= '9') || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f'))
+‼25:                               .AsMemory()
+‼26:                               .BytesFromHexString()
+‼27:                               .Split(0xff, Carry)
+‼28:                               ;
+〰29:  
+〰30:              //var segments = (from c in chunks
+〰31:              //                select c.ToArray().ToHexString(",0x"))
+〰32:              //               .Distinct()
+〰33:              //               .OrderBy(i => i)
+〰34:              //               .Aggregate(new StringBuilder(), (sb, v) => sb.Append("0x").Append(v).AppendLine())
+〰35:              //               .ToString();
+〰36:              // this.TestContext.WriteLine(segments);
+〰37:  
+‼38:              var parser = new FaveroStateParser();
+‼39:              foreach (var c in chunks.Distinct())
+〰40:              {
+〰41:                  try
+〰42:                  {
+‼43:                      var state = parser.Parse(c.Span);
+‼44:                      this.TestContext.WriteLine(state.ToString());
+‼45:                  }
+‼46:                  catch
+〰47:                  {
+‼48:                      this.TestContext.WriteLine($"ERROR Decoding {c.ToArray().ToHexString()}");
+‼49:                  }
+〰50:              }
+‼51:          }
+〰52:      }
+〰53:  }
 ```
 
 ## Links

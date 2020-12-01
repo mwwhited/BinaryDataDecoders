@@ -39,7 +39,7 @@
 〰11:      {
 ‼12:          public TestContext TestContext { get; set; }
 〰13:  
-〰14:          [TestMethod]
+〰14:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰15:          //[TestCategory(TestCategories.Unit)]
 〰16:          [TestTarget(typeof(SemanticModelNavigatorFactory), Member = nameof(SemanticModelNavigatorFactory.AsNode))]
 〰17:          public void TestXPath()

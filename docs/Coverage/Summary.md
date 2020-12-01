@@ -4,18 +4,18 @@
 
 | Key             | Value                                     |
 | :-------------- | :---------------------------------------- |
-| Generatedon     | `11/26/2020 - 19:11:18`                   |
-| Parser          | `MultiReportParser (37x CoberturaParser)` |
+| Generatedon     | `12/01/2020 - 10:17:05`                   |
+| Parser          | `MultiReportParser (36x CoberturaParser)` |
 | Assemblies      | `50`                                      |
-| Classes         | `316`                                     |
-| Coveredlines    | `3735`                                    |
-| Uncoveredlines  | `4855`                                    |
-| Coverablelines  | `8590`                                    |
-| Totallines      | `21303`                                   |
-| Linecoverage    | `43.4`                                    |
-| Coveredbranches | `1072`                                    |
-| Totalbranches   | `3179`                                    |
-| Branchcoverage  | `33.7`                                    |
+| Classes         | `335`                                     |
+| Coveredlines    | `3837`                                    |
+| Uncoveredlines  | `5058`                                    |
+| Coverablelines  | `8895`                                    |
+| Totallines      | `22079`                                   |
+| Linecoverage    | `43.1`                                    |
+| Coveredbranches | `1089`                                    |
+| Totalbranches   | `3286`                                    |
+| Branchcoverage  | `33.1`                                    |
 
 ## Coverage
 
@@ -106,7 +106,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `18` |
+| totallines      | `19` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 
@@ -260,12 +260,12 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `7`    |
-| coverage        | `29.6` |
-| coveredlines    | `104`  |
+| coverage        | `55.8` |
+| coveredlines    | `196`  |
 | coverablelines  | `351`  |
 | totallines      | `735`  |
-| branchcoverage  | `21.3` |
-| coveredbranches | `26`   |
+| branchcoverage  | `34.4` |
+| coveredbranches | `42`   |
 | totalbranches   | `122`  |
 
 #### Classes
@@ -276,7 +276,7 @@
 | 83.3       | [Enigma.EnigmaReflector](BinaryDataDecoders.Cryptography_EnigmaReflector.md) |
 | 96.8       | [Enigma.EnigmaRotor](BinaryDataDecoders.Cryptography_EnigmaRotor.md) |
 | 91.6       | [Enigma.EnigmaTools](BinaryDataDecoders.Cryptography_EnigmaTools.md) |
-| 0          | [Lorenz.LorenzMachine](BinaryDataDecoders.Cryptography_LorenzMachine.md) |
+| 100        | [Lorenz.LorenzMachine](BinaryDataDecoders.Cryptography_LorenzMachine.md) |
 | 0          | [OneTimeCode](BinaryDataDecoders.Cryptography_.md) |
 | 0          | [PlayFair](BinaryDataDecoders.Cryptography_.md) |
 
@@ -287,10 +287,10 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `3`    |
-| coverage        | `57.1` |
-| coveredlines    | `12`   |
+| coverage        | `90.4` |
+| coveredlines    | `19`   |
 | coverablelines  | `21`   |
-| totallines      | `66`   |
+| totallines      | `67`   |
 | branchcoverage  | `100`  |
 | coveredbranches | `2`    |
 | totalbranches   | `2`    |
@@ -301,7 +301,7 @@
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [](BinaryDataDecoders.Cryptography.Tests_.md) |
 | 100        | [Enigma.EnigmaMachineTests](BinaryDataDecoders.Cryptography.Tests_EnigmaMachineTests.md) |
-| 0          | [Lorenz.LorenzMachineTests](BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests.md) |
+| 87.5       | [Lorenz.LorenzMachineTests](BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests.md) |
 
 ### Assembly - BinaryDataDecoders.Drawing
 
@@ -340,7 +340,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `72`  |
-| totallines      | `173` |
+| totallines      | `174` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `12`  |
@@ -383,7 +383,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `18` |
+| totallines      | `19` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 
@@ -398,16 +398,16 @@
 
 ## Summary
 
-| Key             | Value  |
-| :-------------- | :----- |
-| classes         | `4`    |
-| coverage        | `43.3` |
-| coveredlines    | `59`   |
-| coverablelines  | `136`  |
-| totallines      | `345`  |
-| branchcoverage  | `4.2`  |
-| coveredbranches | `6`    |
-| totalbranches   | `142`  |
+| Key             | Value |
+| :-------------- | :---- |
+| classes         | `8`   |
+| coverage        | `38`  |
+| coveredlines    | `59`  |
+| coverablelines  | `155` |
+| totallines      | `427` |
+| branchcoverage  | `4.2` |
+| coveredbranches | `6`   |
+| totalbranches   | `142` |
 
 #### Classes
 
@@ -415,7 +415,11 @@
 | :--------- | :--------------------------------------------------------------- |
 | 71.4       | [Common.Fencer](BinaryDataDecoders.ElectronicScoringMachines.Fencing_Fencer.md) |
 | 76.9       | [Common.ScoreMachineState](BinaryDataDecoders.ElectronicScoringMachines.Fencing_ScoreMachineState.md) |
+| 0          | [Favero.FaveroDecoder](BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroDecoder.md) |
+| 0          | [Favero.FaveroDefinition](BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroDefinition.md) |
 | 95.1       | [Favero.FaveroStateParser](BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroStateParser.md) |
+| 0          | [SaintGeorge.SgStateDecoder](BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateDecoder.md) |
+| 0          | [SaintGeorge.SgStateDefinition](BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateDefinition.md) |
 | 0          | [SaintGeorge.SgStateParser](BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateParser.md) |
 
 ### Assembly - BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests
@@ -428,7 +432,7 @@
 | coverage        | `38`  |
 | coveredlines    | `19`  |
 | coverablelines  | `50`  |
-| totallines      | `564` |
+| totallines      | `568` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `12`  |
@@ -502,13 +506,13 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `15`   |
-| coverage        | `86.4` |
-| coveredlines    | `205`  |
-| coverablelines  | `237`  |
-| totallines      | `3811` |
-| branchcoverage  | `47.6` |
-| coveredbranches | `20`   |
-| totalbranches   | `42`   |
+| coverage        | `92.4` |
+| coveredlines    | `208`  |
+| coverablelines  | `225`  |
+| totallines      | `3613` |
+| branchcoverage  | `95.4` |
+| coveredbranches | `21`   |
+| totalbranches   | `22`   |
 
 #### Classes
 
@@ -520,7 +524,7 @@
 | 100        | [Expressions.ExpressionBaseTests](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionBaseTests.md) |
 | 100        | [Expressions.NumberExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_NumberExpressionTests.md) |
 | 84         | [Expressions.VariableExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_VariableExpressionTests.md) |
-| 72         | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
+| 86.4       | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
 | 100        | [Parser.Int16ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int16ExpressionParserTests.md) |
 | 100        | [Parser.Int32ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int32ExpressionParserTests.md) |
 | 100        | [Parser.Int64ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int64ExpressionParserTests.md) |
@@ -563,7 +567,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `18` |
+| totallines      | `19` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 
@@ -575,103 +579,6 @@
 | 0          | [UnitTest1](BinaryDataDecoders.FileSystems.Tests_.md) |
 
 ### Assembly - BinaryDataDecoders.IO
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :---- |
-| classes         | `1`   |
-| coverage        | `100` |
-| coveredlines    | `4`   |
-| coverablelines  | `4`   |
-| totallines      | `25`  |
-| branchcoverage  | `100` |
-| coveredbranches | `2`   |
-| totalbranches   | `2`   |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 100        | [Functions.ChecksumCalculator](BinaryDataDecoders.IO_ChecksumCalculator.md) |
-
-### Assembly - BinaryDataDecoders.IO.Abstractions
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :---- |
-| classes         | `4`   |
-| coverage        | `0`   |
-| coveredlines    | `0`   |
-| coverablelines  | `41`  |
-| totallines      | `139` |
-| coveredbranches | `0`   |
-| totalbranches   | `0`   |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 0          | [ageMatchPatternAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
-| 0          | [initions.InvalidSegmentationException](BinaryDataDecoders.IO.Abstractions_InvalidSegmentationException.md) |
-| 0          | [ortAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
-| 0          | [dAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
-
-### Assembly - BinaryDataDecoders.IO.Pipelines
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :---- |
-| classes         | `12`  |
-| coverage        | `0`   |
-| coveredlines    | `0`   |
-| coverablelines  | `257` |
-| totallines      | `654` |
-| branchcoverage  | `0`   |
-| coveredbranches | `0`   |
-| totalbranches   | `142` |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 0          | [Definitions.OnPipelineErrorExtensions](BinaryDataDecoders.IO.Pipelines_OnPipelineErrorExtensions.md) |
-| 0          | [Definitions.PipelineBuildDefinition](BinaryDataDecoders.IO.Pipelines_PipelineBuildDefinition.md) |
-| 0          | [Definitions.SegmentBuildDefinition](BinaryDataDecoders.IO.Pipelines_SegmentBuildDefinition.md) |
-| 0          | [Definitions.SegmentExtensionDefinition](BinaryDataDecoders.IO.Pipelines_SegmentExtensionDefinition.md) |
-| 0          | [Factories.SegmentPipeFactory](BinaryDataDecoders.IO.Pipelines_SegmentPipeFactory.md) |
-| 0          | [Factories.StreamPipelineFactory](BinaryDataDecoders.IO.Pipelines_StreamPipelineFactory.md) |
-| 0          | [PipelineBuilder](BinaryDataDecoders.IO.Pipelines_.md) |
-| 0          | [Segment](BinaryDataDecoders.IO.Pipelines_.md) |
-| 0          | [Segmenters.BetweenSegmenter](BinaryDataDecoders.IO.Pipelines_BetweenSegmenter.md) |
-| 0          | [Segmenters.SegmenterBase](BinaryDataDecoders.IO.Pipelines_SegmenterBase.md) |
-| 0          | [Segmenters.SegmentReadResult](BinaryDataDecoders.IO.Pipelines_SegmentReadResult.md) |
-| 0          | [Segmenters.StartAndFixLengthSegmenter](BinaryDataDecoders.IO.Pipelines_StartAndFixLengthSegmenter.md) |
-
-### Assembly - BinaryDataDecoders.IO.Pipelines.Tests
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :--- |
-| classes         | `2`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `3`  |
-| totallines      | `18` |
-| coveredbranches | `0`  |
-| totalbranches   | `0`  |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 0          | [](BinaryDataDecoders.IO.Pipelines.Tests_.md) |
-| 0          | [UnitTest1](BinaryDataDecoders.IO.Pipelines.Tests_.md) |
-
-### Assembly - BinaryDataDecoders.IO.Ports
 
 ## Summary
 
@@ -689,6 +596,111 @@
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
 
+### Assembly - BinaryDataDecoders.IO.Abstractions
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :---- |
+| classes         | `15`  |
+| coverage        | `2.1` |
+| coveredlines    | `4`   |
+| coverablelines  | `189` |
+| totallines      | `517` |
+| branchcoverage  | `2.7` |
+| coveredbranches | `2`   |
+| totalbranches   | `72`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [entArgs](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [ttribute](BinaryDataDecoders.IO.Abstractions_.md) |
+| 100        | [cksumCalculator](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [ageEncoder`1](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [ageMatchPatternAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [ortAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [tweenSegmenter](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [validSegmentationException](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [gment](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [gmentBuildDefinition](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [gmenterBase](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [gmentExtensionDefinition](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [gmentReadResult](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [artAndFixLengthSegmenter](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [dAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
+
+### Assembly - BinaryDataDecoders.IO.Pipelines
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :---- |
+| classes         | `6`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `217` |
+| totallines      | `453` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `108` |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [Definitions.OnPipelineErrorExtensions](BinaryDataDecoders.IO.Pipelines_OnPipelineErrorExtensions.md) |
+| 0          | [Definitions.PipelineBuildDefinition](BinaryDataDecoders.IO.Pipelines_PipelineBuildDefinition.md) |
+| 0          | [Factories.SegmentPipeFactory](BinaryDataDecoders.IO.Pipelines_SegmentPipeFactory.md) |
+| 0          | [Factories.StreamPipelineFactory](BinaryDataDecoders.IO.Pipelines_StreamPipelineFactory.md) |
+| 0          | [PipelineBuilder](BinaryDataDecoders.IO.Pipelines_.md) |
+| 0          | [StreamDevice`1](BinaryDataDecoders.IO.Pipelines_.md) |
+
+### Assembly - BinaryDataDecoders.IO.Pipelines.Tests
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :--- |
+| classes         | `2`  |
+| coverage        | `0`  |
+| coveredlines    | `0`  |
+| coverablelines  | `3`  |
+| totallines      | `19` |
+| coveredbranches | `0`  |
+| totalbranches   | `0`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [](BinaryDataDecoders.IO.Pipelines.Tests_.md) |
+| 0          | [UnitTest1](BinaryDataDecoders.IO.Pipelines.Tests_.md) |
+
+### Assembly - BinaryDataDecoders.IO.Ports
+
+## Summary
+
+| Key             | Value |
+| :-------------- | :---- |
+| classes         | `3`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `48`  |
+| totallines      | `101` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `25`  |
+
+#### Classes
+
+| coverage   | name                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| 0          | [BridgeExtensions](BinaryDataDecoders.IO.Ports_.md) |
+| 0          | [SerialPortDeviceAdapter](BinaryDataDecoders.IO.Ports_.md) |
+| 0          | [SerialPortFactory](BinaryDataDecoders.IO.Ports_.md) |
+
 ### Assembly - BinaryDataDecoders.IO.Ports.Tests
 
 ## Summary
@@ -699,7 +711,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `2`  |
-| totallines      | `17` |
+| totallines      | `18` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 
@@ -720,7 +732,7 @@
 | coverage        | `83.3` |
 | coveredlines    | `20`   |
 | coverablelines  | `24`   |
-| totallines      | `66`   |
+| totallines      | `67`   |
 | coveredbranches | `0`    |
 | totalbranches   | `0`    |
 
@@ -737,18 +749,22 @@
 ## Summary
 
 | Key             | Value |
-| :-------------- | :-- |
-| classes         | `0` |
-| coveredlines    | `0` |
-| coverablelines  | `0` |
-| totallines      | `0` |
-| coveredbranches | `0` |
-| totalbranches   | `0` |
+| :-------------- | :--- |
+| classes         | `2`  |
+| coverage        | `0`  |
+| coveredlines    | `0`  |
+| coverablelines  | `29` |
+| totallines      | `73` |
+| branchcoverage  | `0`  |
+| coveredbranches | `0`  |
+| totalbranches   | `14` |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
+| 0          | [UsbHidDeviceAdapter](BinaryDataDecoders.IO.UsbHids_.md) |
+| 0          | [UsbHidFactory](BinaryDataDecoders.IO.UsbHids_.md) |
 
 ### Assembly - BinaryDataDecoders.IO.UsbHids.Tests
 
@@ -803,7 +819,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `19` |
+| totallines      | `20` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 
@@ -819,41 +835,47 @@
 ## Summary
 
 | Key             | Value |
-| :-------------- | :--- |
-| classes         | `1`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `1`  |
-| totallines      | `11` |
-| coveredbranches | `0`  |
-| totalbranches   | `0`  |
+| :-------------- | :---- |
+| classes         | `7`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `112` |
+| totallines      | `377` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `52`  |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
-| 0          | [Nmea0183Factory](BinaryDataDecoders.Nmea_.md) |
+| 0          | [GlobalPositioningFixData](BinaryDataDecoders.Nmea_.md) |
+| 0          | [GpsDopAndActiveSatellites](BinaryDataDecoders.Nmea_.md) |
+| 0          | [Nema0183Decoder](BinaryDataDecoders.Nmea_.md) |
+| 0          | [Nema0183Definition](BinaryDataDecoders.Nmea_.md) |
+| 0          | [RecommendedMinimumNavigationInformation](BinaryDataDecoders.Nmea_.md) |
+| 0          | [SatellitesInView](BinaryDataDecoders.Nmea_.md) |
+| 0          | [StringNemaMessage](BinaryDataDecoders.Nmea_.md) |
 
 ### Assembly - BinaryDataDecoders.Nmea.Tests
 
 ## Summary
 
 | Key             | Value |
-| :-------------- | :--- |
-| classes         | `2`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `3`  |
-| totallines      | `18` |
-| coveredbranches | `0`  |
-| totalbranches   | `0`  |
+| :-------------- | :-- |
+| classes         | `1` |
+| coverage        | `0` |
+| coveredlines    | `0` |
+| coverablelines  | `1` |
+| totallines      | `4` |
+| coveredbranches | `0` |
+| totalbranches   | `0` |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [](BinaryDataDecoders.Nmea.Tests_.md) |
-| 0          | [UnitTest1](BinaryDataDecoders.Nmea.Tests_.md) |
 
 ### Assembly - BinaryDataDecoders.Quarta.RadexOne
 
@@ -861,11 +883,11 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `12`  |
+| classes         | `13`  |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `117` |
-| totallines      | `729` |
+| coverablelines  | `124` |
+| totallines      | `753` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `11`  |
@@ -876,6 +898,7 @@
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [DevicePing](BinaryDataDecoders.Quarta.RadexOne_.md) |
 | 0          | [RadexOneDecoder](BinaryDataDecoders.Quarta.RadexOne_.md) |
+| 0          | [RadexOneDefinition](BinaryDataDecoders.Quarta.RadexOne_.md) |
 | 0          | [ReadSerialNumberRequest](BinaryDataDecoders.Quarta.RadexOne_.md) |
 | 0          | [ReadSerialNumberResponse](BinaryDataDecoders.Quarta.RadexOne_.md) |
 | 0          | [ReadSettingsRequest](BinaryDataDecoders.Quarta.RadexOne_.md) |
@@ -897,7 +920,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `116` |
-| totallines      | `169` |
+| totallines      | `171` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `77`  |
@@ -1054,8 +1077,8 @@
 | classes         | `99`   |
 | coverage        | `31.2` |
 | coveredlines    | `742`  |
-| coverablelines  | `2374` |
-| totallines      | `6959` |
+| coverablelines  | `2375` |
+| totallines      | `6962` |
 | branchcoverage  | `27.1` |
 | coveredbranches | `296`  |
 | totalbranches   | `1092` |
@@ -1195,7 +1218,7 @@
 | coverage        | `62.9` |
 | coveredlines    | `229`  |
 | coverablelines  | `364`  |
-| totallines      | `1247` |
+| totallines      | `1245` |
 | branchcoverage  | `20.8` |
 | coveredbranches | `10`   |
 | totalbranches   | `48`   |
@@ -1234,7 +1257,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `43`  |
-| totallines      | `140` |
+| totallines      | `138` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `12`  |

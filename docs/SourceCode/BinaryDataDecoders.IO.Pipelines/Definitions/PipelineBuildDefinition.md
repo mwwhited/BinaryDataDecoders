@@ -25,7 +25,7 @@
 
 ##### Summary
 
- * Type: OnPipelineError ? 
+ * Type: OnException ? 
 
 #### Internal Property - PipeWriter
 
@@ -37,7 +37,7 @@
 
 ##### Summary
 
- * Type: OnPipelineError ? 
+ * Type: OnException ? 
 
 #### Internal Property - PipeReader
 
@@ -49,7 +49,7 @@
 
 ##### Summary
 
- * Type: OnPipelineError ? 
+ * Type: OnException ? 
 
 #### Internal Property - CancellationTokenSource
 

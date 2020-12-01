@@ -36,10 +36,10 @@
 〰8:       {
 ‼9:           public TestContext TestContext { get; set; }
 〰10:  
-〰11:          [TestMethod, TestCategory("DACPAC")]
+〰11:          [TestMethod, TestCategory("DACPAC"), TestCategory(TestCategories.DevLocal)]
 〰12:          public void Test()
 〰13:          {
-‼14:              var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\netstandard2.0\BinaryDataDecoders.SqlServer.Samples.dacpac";
+‼14:              var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\BinaryDataDecoders.SqlServer.Samples.dacpac";
 ‼15:              var builder = new DacPacNavigator();
 ‼16:              var nav = builder.ToNavigable(testFile);
 ‼17:              this.TestContext.AddResult(nav);

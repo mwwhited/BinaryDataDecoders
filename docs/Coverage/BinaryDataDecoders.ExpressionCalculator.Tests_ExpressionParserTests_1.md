@@ -6,14 +6,14 @@
 | :-------------- | :----------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.ExpressionParserTests`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                |
-| Coveredlines    | `67`                                                                           |
-| Uncoveredlines  | `26`                                                                           |
-| Coverablelines  | `93`                                                                           |
-| Totallines      | `387`                                                                          |
-| Linecoverage    | `72`                                                                           |
-| Coveredbranches | `20`                                                                           |
-| Totalbranches   | `42`                                                                           |
-| Branchcoverage  | `47.6`                                                                         |
+| Coveredlines    | `70`                                                                           |
+| Uncoveredlines  | `11`                                                                           |
+| Coverablelines  | `81`                                                                           |
+| Totallines      | `365`                                                                          |
+| Linecoverage    | `86.4`                                                                         |
+| Coveredbranches | `21`                                                                           |
+| Totalbranches   | `22`                                                                           |
+| Branchcoverage  | `95.4`                                                                         |
 
 ## Metrics
 
@@ -27,8 +27,7 @@
 | 8          | 87.50 | 100      | `OptimizerTests`                       |
 | 1          | 57.14 | 100      | `OptimizerTests_WithExceptions`        |
 | 1          | 100   | 100      | `GetDistinctVariablesTests`            |
-| 10         | 80.76 | 80.0     | `VerifyOptimizerForComplexExpressions` |
-| 20         | 0     | 0        | `TestBuilder`                          |
+| 10         | 92.30 | 90.0     | `VerifyOptimizerForComplexExpressions` |
 
 ## Files
 
@@ -389,39 +388,17 @@
 〰352:             {
 ✔353:                 Assert.Inconclusive($"{nse.Message} not supported");
 ‼354:             }
-‼355:             catch (DivideByZeroException)
+✔355:             catch (DivideByZeroException)
 〰356:             {
-‼357:                 if (x++ > 2)
+⚠357:                 if (x++ > 2)
 〰358:                 {
 ‼359:                     throw;
 〰360:                 }
-‼361:                 goto tryAgain;
+✔361:                 goto tryAgain;
 〰362:             }
 ✔363:         }
-〰364: 
-〰365:         [TestMethod, Ignore]
-〰366:         public void TestBuilder()
-〰367:         {
-‼368:             var formulas = @"XYZ";
-〰369: 
-‼370:             var expressions = from line in formulas.Split(Environment.NewLine)
-‼371:                               let expression = line.ParseAsExpression<double>()
-‼372:                               where expression != null
-‼373:                               let variables = expression.GetDistinctVariableNames()
-‼374:                               let replacements = variables.Select((v, i) => (v, new string((char)('A' + i), 1)))
-‼375:                               let replaced = expression.ReplaceVariables(replacements)
-‼376:                               select replaced; //.Distinct();
-〰377: 
-‼378:             var expressionStrings = expressions.Select(s => s.ToString().Replace(" ", "")).Distinct();
-〰379: 
-‼380:             foreach (var expression in expressionStrings)
-〰381:             {
-‼382:                 this.TestContext.WriteLine($"{expression}");
-〰383:                 // this.TestContext.WriteLine($@"[DataRow(""{expression}"",DisplayName = ""Check Expressions \""{expression}\"""")]");
-〰384:             }
-‼385:         }
-〰386:     }
-〰387: }
+〰364:     }
+〰365: }
 ```
 
 ## Links

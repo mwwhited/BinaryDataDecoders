@@ -9,30 +9,6 @@
 
 ### Members
 
-#### Public Method - GetFaveroPort
-
-#####  Parameters
-
- - string portName 
-
-#### Public Method - GetSaintGeorgePort
-
-#####  Parameters
-
- - string portName 
-
-#### Public Method - GetNmea0183Port
-
-#####  Parameters
-
- - string portName 
-
-#### Public Method - GetRadexOnePort
-
-#####  Parameters
-
- - string portName 
-
 #### Public Method - GetZStickPort
 
 #####  Parameters

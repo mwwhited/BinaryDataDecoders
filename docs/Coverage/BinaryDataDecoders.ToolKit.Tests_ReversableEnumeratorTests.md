@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                                      |
 | Uncoveredlines  | `30`                                                                     |
 | Coverablelines  | `30`                                                                     |
-| Totallines      | `61`                                                                     |
+| Totallines      | `62`                                                                     |
 | Linecoverage    | `0`                                                                      |
 | Coveredbranches | `0`                                                                      |
 | Totalbranches   | `24`                                                                     |
@@ -27,67 +27,68 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.cs
 
 ```CSharp
-〰1:   using BinaryDataDecoders.ToolKit.Collections;
-〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
-〰3:   using System.Text;
-〰4:   
-〰5:   namespace BinaryDataDecoders.ToolKit.Tests.Collections
-〰6:   {
-〰7:       [TestClass]
-〰8:       public class ReversableEnumeratorTests
-〰9:       {
-‼10:          public TestContext TestContext { get; set; }
-〰11:  
-〰12:          [TestMethod]
-〰13:          public void MoveNextMovePreviousTest()
-〰14:          {
-‼15:              var set = new object[] { 1, 2, 3, 4, 5 }.GetReversibleEnumerator();
-〰16:  
-‼17:              var sb = new StringBuilder();
-‼18:              sb.AppendLine("MoveNext>");
-‼19:              while (set.MoveNext())
-〰20:              {
-‼21:                  sb.Append(set.Current ?? "!NULL!").Append(";");
-〰22:              }
-‼23:              sb.AppendLine();
-‼24:              sb.AppendLine("MovePrevious>");
-‼25:              while (set.MovePrevious())
-〰26:              {
-‼27:                  sb.Append(set.Current ?? "!NULL!").Append(";");
-〰28:              }
-‼29:              sb.AppendLine();
-‼30:              sb.AppendLine("MoveNext>");
-‼31:              while (set.MoveNext())
-〰32:              {
-‼33:                  sb.Append(set.Current ?? "!NULL!").Append(";");
-〰34:              }
-〰35:  
-‼36:              sb.AppendLine();
-‼37:              sb.AppendLine("Reset>");
-‼38:              set.Reset();
-〰39:  
-‼40:              sb.AppendLine("MoveNext>");
-‼41:              while (set.MoveNext())
-〰42:              {
-‼43:                  sb.Append(set.Current ?? "!NULL!").Append(";");
-〰44:              }
-‼45:              sb.AppendLine();
-‼46:              sb.AppendLine("MovePrevious>");
-‼47:              while (set.MovePrevious())
-〰48:              {
-‼49:                  sb.Append(set.Current ?? "!NULL!").Append(";");
-〰50:              }
-‼51:              sb.AppendLine();
-‼52:              sb.AppendLine("MoveNext>");
-‼53:              while (set.MoveNext())
-〰54:              {
-‼55:                  sb.Append(set.Current ?? "!NULL!").Append(";");
-〰56:              }
-〰57:  
-‼58:              TestContext.WriteLine(sb.ToString());
-‼59:          }
-〰60:      }
-〰61:  }
+〰1:   using BinaryDataDecoders.TestUtilities;
+〰2:   using BinaryDataDecoders.ToolKit.Collections;
+〰3:   using Microsoft.VisualStudio.TestTools.UnitTesting;
+〰4:   using System.Text;
+〰5:   
+〰6:   namespace BinaryDataDecoders.ToolKit.Tests.Collections
+〰7:   {
+〰8:       [TestClass]
+〰9:       public class ReversableEnumeratorTests
+〰10:      {
+‼11:          public TestContext TestContext { get; set; }
+〰12:  
+〰13:          [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰14:          public void MoveNextMovePreviousTest()
+〰15:          {
+‼16:              var set = new object[] { 1, 2, 3, 4, 5 }.GetReversibleEnumerator();
+〰17:  
+‼18:              var sb = new StringBuilder();
+‼19:              sb.AppendLine("MoveNext>");
+‼20:              while (set.MoveNext())
+〰21:              {
+‼22:                  sb.Append(set.Current ?? "!NULL!").Append(";");
+〰23:              }
+‼24:              sb.AppendLine();
+‼25:              sb.AppendLine("MovePrevious>");
+‼26:              while (set.MovePrevious())
+〰27:              {
+‼28:                  sb.Append(set.Current ?? "!NULL!").Append(";");
+〰29:              }
+‼30:              sb.AppendLine();
+‼31:              sb.AppendLine("MoveNext>");
+‼32:              while (set.MoveNext())
+〰33:              {
+‼34:                  sb.Append(set.Current ?? "!NULL!").Append(";");
+〰35:              }
+〰36:  
+‼37:              sb.AppendLine();
+‼38:              sb.AppendLine("Reset>");
+‼39:              set.Reset();
+〰40:  
+‼41:              sb.AppendLine("MoveNext>");
+‼42:              while (set.MoveNext())
+〰43:              {
+‼44:                  sb.Append(set.Current ?? "!NULL!").Append(";");
+〰45:              }
+‼46:              sb.AppendLine();
+‼47:              sb.AppendLine("MovePrevious>");
+‼48:              while (set.MovePrevious())
+〰49:              {
+‼50:                  sb.Append(set.Current ?? "!NULL!").Append(";");
+〰51:              }
+‼52:              sb.AppendLine();
+‼53:              sb.AppendLine("MoveNext>");
+‼54:              while (set.MoveNext())
+〰55:              {
+‼56:                  sb.Append(set.Current ?? "!NULL!").Append(";");
+〰57:              }
+〰58:  
+‼59:              TestContext.WriteLine(sb.ToString());
+‼60:          }
+〰61:      }
+〰62:  }
 ```
 
 ## Links

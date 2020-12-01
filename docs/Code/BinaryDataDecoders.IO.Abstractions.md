@@ -1,5 +1,100 @@
 ﻿# Assembly - BinaryDataDecoders.IO.Abstractions
 
+## Type - BinaryDataDecoders.IO.Bytes
+
+*summary*
+Mappings for bytes from ASCII
+
+### Field - _0
+
+*summary*
+0
+
+### Field - _1
+
+*summary*
+1
+
+### Field - _C
+
+*summary*
+:
+
+### Field - _E
+
+*summary*
+!
+
+### Field - _S
+
+*summary*
+$
+
+### Field - Dc2
+
+*summary*
+Device Control 2
+
+### Field - Dc3
+
+*summary*
+Device Control 3
+
+### Field - Eotr
+
+*summary*
+End Of Transmission
+
+### Field - Eotx
+
+*summary*
+End Of Text
+
+### Field - Lf
+
+*summary*
+Line Feed
+
+### Field - Soh
+
+*summary*
+Start Of Heading
+
+### Field - Sotx
+
+*summary*
+Start Of Text
+
+## Type - BinaryDataDecoders.IO.ControlCharacters
+
+*summary*
+Enumeration based on ASCII control characters
+
+*remarks*
+https://en.wikipedia.org/wiki/ASCII http://www.asciitable.com/
+
+## Type - BinaryDataDecoders.IO.Functions.ChecksumCalculator
+
+*summary*
+This class contains various checksum calculation algorithms
+
+### Method - Simple16(System.ReadOnlySpan{System.UInt16})
+
+*summary*
+I'm not really sure is there is a "proper" name for this algorithm.
+            
+            Difference of all values in Span<ushort>
+
+*param*
+input span to calculate span over.
+
+| Key                  | Value                                                        |
+| :------------------- | :----------------------------------------------------------- |
+| name                 | buffer                                                       | 
+
+*returns*
+checksum value
+
 ## Type - BinaryDataDecoders.IO.Messages.MessageMatchPatternAttribute
 
 *summary*
@@ -32,7 +127,7 @@ prefix pattern to identify decoding patterns
 *summary*
 override check order
 
-## Type - BinaryDataDecoders.IO.Pipelines.OnPipelineError
+## Type - BinaryDataDecoders.IO.OnException
 
 *summary*
 Delegate declaration for Pipeline Exceptions

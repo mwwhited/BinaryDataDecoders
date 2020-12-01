@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.Definitions.OnPipelineErrorExtensions` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                                       |
 | Coveredlines    | `0`                                                                     |
-| Uncoveredlines  | `7`                                                                     |
-| Coverablelines  | `7`                                                                     |
-| Totallines      | `20`                                                                    |
+| Uncoveredlines  | `6`                                                                     |
+| Coverablelines  | `6`                                                                     |
+| Totallines      | `18`                                                                    |
 | Linecoverage    | `0`                                                                     |
 | Coveredbranches | `0`                                                                     |
 | Totalbranches   | `2`                                                                     |
@@ -35,18 +35,16 @@
 〰6:   {
 〰7:       internal static class OnPipelineErrorExtensions
 〰8:       {
-〰9:           internal static async Task<PipelineErrorHandling> Handle(this OnPipelineError? handler, object sender, Exception exception)
-〰10:          {
-‼11:              return await (handler ?? DefaultPipelineError).Invoke(sender, exception);
-‼12:          }
-〰13:  
-‼14:          internal static readonly OnPipelineError DefaultPipelineError = (s, e) =>
-‼15:          {
-‼16:              Debug.WriteLine($"Exception On: {s} => {e.Message}");
-‼17:              return Task.FromResult(PipelineErrorHandling.Throw);
-‼18:          };
-〰19:      }
-〰20:  }
+〰9:           internal static async Task<ErrorHandling> Handle(this OnException? handler, object sender, Exception exception) =>
+‼10:              await (handler ?? DefaultPipelineError).Invoke(sender, exception);
+〰11:  
+‼12:          internal static readonly OnException DefaultPipelineError = (s, e) =>
+‼13:          {
+‼14:              Debug.WriteLine($"Exception On: {s} => {e.Message}");
+‼15:              return Task.FromResult(ErrorHandling.Throw);
+‼16:          };
+〰17:      }
+〰18:  }
 ```
 
 ## Links

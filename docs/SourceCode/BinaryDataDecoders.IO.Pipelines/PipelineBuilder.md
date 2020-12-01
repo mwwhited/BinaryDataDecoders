@@ -51,21 +51,21 @@
 #####  Parameters
 
  - this IPipelineBuildDefinition pipeline 
- - OnPipelineError onPipelineError 
+ - OnException onPipelineError 
 
 #### Public Static Method - OnReaderError
 
 #####  Parameters
 
  - this IPipelineBuildDefinition pipeline 
- - OnPipelineError onPipelineError 
+ - OnException onPipelineError 
 
 #### Public Static Method - OnWriterError
 
 #####  Parameters
 
  - this IPipelineBuildDefinition pipeline 
- - OnPipelineError onPipelineError 
+ - OnException onPipelineError 
 
 #### Public Static Method - RunAsync
 

@@ -15,8 +15,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.02 | `SimpleParserTests`                                  |
-| ✔ Passed             | 00:00:00.02 | `Parse all operators test`                           |
+| ⚠ Inconclusive       | 00:00:00.01 | `SimpleParserTests`                                  |
+| ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |
 | ⚠ Inconclusive       | 00:00:00.00 | `Just decimal value`                                 |
@@ -60,8 +60,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.06 | `OptimizerTests`                                     |
-| ✔ Passed             | 00:00:00.02 | `OptimizerTests ((A),A)`                             |
+| ⚠ Inconclusive       | 00:00:00.03 | `OptimizerTests`                                     |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B*1,B)`                             |
@@ -88,7 +88,7 @@
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (B%-1,0)`                            |
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (-(B),-B)`                           |
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (-(3),-3)`                           |
-| ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (-3,-3)`                             |
+| ⚠ Inconclusive       | 00:00:00.01 | `OptimizerTests (-3,-3)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (--B,B)`                             |
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (---B,-B)`                           |
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (-1*(A*B),-(A * B))`                 |
@@ -160,8 +160,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.07 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.02 | `Check Expressions "A"`                              |
+| ⚠ Inconclusive       | 00:00:00.03 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
@@ -174,7 +174,7 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A/B)-(C+D+E+F)"`                |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A*B)*C)+D"`                    |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A*B)*C)*D)+E"`                |
-| ⚠ Inconclusive       | 00:00:00.01 | `Check Expressions "(((A/B)+(-1*C))*(D*E)*F)+G"`     |
+| ⚠ Inconclusive       | 00:00:00.00 | `Check Expressions "(((A/B)+(-1*C))*(D*E)*F)+G"`     |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B*(C/D))+E"`                  |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*(B/C)+D)"`                    |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A+B"`                            |
@@ -196,7 +196,7 @@
 | ⚠ Inconclusive       | 00:00:00.00 | `Check Expressions "(A*((B+(-1*C))*D+E+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E))))+I*((B+(-1*C))*J+K+(F*G)+H+(A*((((B+(-1*C))*D)+E)+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E)))))+L"` |
 | ⚠ Inconclusive       | 00:00:00.00 | `Check Expressions "(((A+(-1*B))*C)+D)+(B+(-1*A))"`  |
 | ⚠ Inconclusive       | 00:00:00.00 | `Check Expressions "((A*(((B*C)+D)+(E*F)))+(-1*(B*(1+(-1*C))+D)+G))"` |
-| ✔ Passed             | 00:00:00.01 | `Check Expressions "((A+((B*C)+D))*E)+F+((C/G)*H)+I"` |
+| ✔ Passed             | 00:00:00.00 | `Check Expressions "((A+((B*C)+D))*E)+F+((C/G)*H)+I"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A+B)*C+D+(A+B)*E+F"`            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*B"`                            |
 | ⚠ Inconclusive       | 00:00:00.00 | `Check Expressions "((A+((-1*B)*(C/D)))*(E/C))+(-1*F)+G"` |

@@ -24,5 +24,11 @@
 ##### Attributes
 
  - TestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - Unit
+ - )
 
 

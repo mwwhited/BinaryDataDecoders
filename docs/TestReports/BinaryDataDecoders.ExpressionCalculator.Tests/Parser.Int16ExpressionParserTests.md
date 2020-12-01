@@ -15,8 +15,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.01 | `SimpleParserTests`                                  |
-| ✔ Passed             | 00:00:00.01 | `Parse all operators test`                           |
+| ⚠ Inconclusive       | 00:00:00.00 | `SimpleParserTests`                                  |
+| ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |
 | ⚠ Inconclusive       | 00:00:00.00 | `Just decimal value`                                 |

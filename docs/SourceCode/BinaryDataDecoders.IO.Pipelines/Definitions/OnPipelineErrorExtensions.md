@@ -13,7 +13,7 @@
 
 #####  Parameters
 
- - this OnPipelineError ? handler 
+ - this OnException ? handler 
  - object sender 
  - Exception exception 
 
@@ -21,5 +21,5 @@
 
 ##### Summary
 
- * Type: OnPipelineError 
+ * Type: OnException 
 

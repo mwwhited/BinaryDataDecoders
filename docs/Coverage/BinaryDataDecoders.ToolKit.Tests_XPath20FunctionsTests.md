@@ -129,7 +129,7 @@
 〰100:         //}
 〰101: 
 〰102: 
-〰103:         //[TestMethod]
+〰103:         //[TestMethod, TestCategory(TestCategories.DevLocal)]
 〰104:         //public void ExtendTypeTest()
 〰105:         //{
 〰106:         //    var tb = ExtendType<FakeClass>();
@@ -162,7 +162,7 @@
 〰133:         //}
 〰134: 
 〰135: 
-〰136:         [TestMethod]
+〰136:         [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰137:         //[TestCategory(TestCategories.Unit)]
 〰138:         [TestTarget(typeof(XPath20Functions), Member = nameof(XPath20Functions.max))]
 〰139:         public void MaxTest()

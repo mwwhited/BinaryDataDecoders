@@ -9,7 +9,7 @@
 | Coveredlines    | `1`                                                                                |
 | Uncoveredlines  | `0`                                                                                |
 | Coverablelines  | `1`                                                                                |
-| Totallines      | `387`                                                                              |
+| Totallines      | `365`                                                                              |
 | Linecoverage    | `100`                                                                              |
 | Coveredbranches | `0`                                                                                |
 | Totalbranches   | `0`                                                                                |
@@ -388,30 +388,8 @@
 〰361:                 goto tryAgain;
 〰362:             }
 〰363:         }
-〰364: 
-〰365:         [TestMethod, Ignore]
-〰366:         public void TestBuilder()
-〰367:         {
-〰368:             var formulas = @"XYZ";
-〰369: 
-〰370:             var expressions = from line in formulas.Split(Environment.NewLine)
-〰371:                               let expression = line.ParseAsExpression<double>()
-〰372:                               where expression != null
-〰373:                               let variables = expression.GetDistinctVariableNames()
-〰374:                               let replacements = variables.Select((v, i) => (v, new string((char)('A' + i), 1)))
-〰375:                               let replaced = expression.ReplaceVariables(replacements)
-〰376:                               select replaced; //.Distinct();
-〰377: 
-〰378:             var expressionStrings = expressions.Select(s => s.ToString().Replace(" ", "")).Distinct();
-〰379: 
-〰380:             foreach (var expression in expressionStrings)
-〰381:             {
-〰382:                 this.TestContext.WriteLine($"{expression}");
-〰383:                 // this.TestContext.WriteLine($@"[DataRow(""{expression}"",DisplayName = ""Check Expressions \""{expression}\"""")]");
-〰384:             }
-〰385:         }
-〰386:     }
-〰387: }
+〰364:     }
+〰365: }
 ```
 
 ## Links

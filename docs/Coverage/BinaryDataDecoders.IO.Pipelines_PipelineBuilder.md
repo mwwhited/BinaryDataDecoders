@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                               |
 | Uncoveredlines  | `49`                                              |
 | Coverablelines  | `49`                                              |
-| Totallines      | `125`                                             |
+| Totallines      | `123`                                             |
 | Linecoverage    | `0`                                               |
 | Coveredbranches | `0`                                               |
 | Totalbranches   | `30`                                              |
@@ -36,129 +36,127 @@
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Pipelines.Definitions;
 〰2:   using BinaryDataDecoders.IO.Pipelines.Factories;
-〰3:   using System;
-〰4:   using System.IO;
-〰5:   using System.IO.Pipelines;
-〰6:   using System.Threading;
-〰7:   using System.Threading.Tasks;
-〰8:   
-〰9:   namespace BinaryDataDecoders.IO.Pipelines
-〰10:  {
-〰11:      public static class PipelineBuilder
-〰12:      {
-〰13:          public static IPipelineBuildDefinition Follow(this Stream stream, int minimumBufferSize = 4096)
-〰14:          {
-‼15:              return new Pipe().FollowStream(stream, minimumBufferSize);
-〰16:          }
-〰17:          internal static IPipelineBuildDefinition FollowStream(this Pipe pipe, Stream stream, int minimumBufferSize = 4096)
-〰18:          {
-‼19:              return new PipelineBuildDefinition(pipe).FollowStream(stream, minimumBufferSize);
-〰20:          }
-〰21:          internal static IPipelineBuildDefinition FollowStream(this IPipelineBuildDefinition pipeline, Stream stream, int minimumBufferSize = 4096)
-〰22:          {
-‼23:              if (!(pipeline is PipelineBuildDefinition def))
-〰24:              {
-‼25:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
-〰26:              }
-‼27:              else if (def.PipeWriter != null)
-〰28:              {
-‼29:                  throw new NotSupportedException("this pipeline already has a writer");
-〰30:              }
-‼31:              def.PipeWriter = new StreamPipelineFactory().CreateWriter(def, stream, minimumBufferSize);
-‼32:              return def;
-〰33:          }
-〰34:  
-〰35:          public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, ISegmenter segmenter)
-〰36:          {
-‼37:              if (!(pipeline is PipelineBuildDefinition def))
-〰38:              {
-‼39:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
-〰40:              }
-‼41:              else if (def.PipeReader != null)
-〰42:              {
-‼43:                  throw new NotSupportedException("this pipeline already has a reader");
-〰44:              }
-‼45:              def.PipeReader = new SegmentPipeFactory().CreateReader(def, segmenter);
-‼46:              return def;
-〰47:          }
-〰48:          public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, Stream stream)
-〰49:          {
-‼50:              if (!(pipeline is PipelineBuildDefinition def))
-〰51:              {
-‼52:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
-〰53:              }
-‼54:              else if (def.PipeReader != null)
-〰55:              {
-‼56:                  throw new NotSupportedException("this pipeline already has a reader");
-〰57:              }
-‼58:              def.PipeReader = new StreamPipelineFactory().CreateReader(pipeline: def, stream);
-‼59:              return def;
-〰60:          }
-〰61:  
-〰62:          public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
-〰63:          {
-‼64:              if (!(pipeline is PipelineBuildDefinition def))
-〰65:              {
-‼66:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
-〰67:              }
-‼68:              else if (def.PipeReader != null)
-〰69:              {
-‼70:                  throw new NotSupportedException("this pipeline already has a reader");
-〰71:              }
-‼72:              def.OnError = onPipelineError;
-‼73:              return def;
-〰74:          }
-〰75:          public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
-〰76:          {
-‼77:              if (!(pipeline is PipelineBuildDefinition def))
-〰78:              {
-‼79:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
-〰80:              }
-‼81:              else if (def.PipeReader != null)
-〰82:              {
-‼83:                  throw new NotSupportedException("this pipeline already has a reader");
-〰84:              }
-‼85:              def.OnReaderError = onPipelineError;
-‼86:              return def;
-〰87:          }
-〰88:          public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnPipelineError onPipelineError)
-〰89:          {
-‼90:              if (!(pipeline is PipelineBuildDefinition def))
-〰91:              {
-‼92:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
-〰93:              }
-‼94:              else if (def.PipeReader != null)
-〰95:              {
-‼96:                  throw new NotSupportedException("this pipeline already has a reader");
-〰97:              }
-‼98:              def.OnWriterError = onPipelineError;
-‼99:              return def;
-〰100:         }
-〰101: 
-〰102:         public static Task RunAsync(this IPipelineBuildDefinition pipeline, CancellationToken cancellationToken = default)
-〰103:         {
-‼104:             if (!(pipeline is PipelineBuildDefinition def))
-〰105:             {
-‼106:                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
-〰107:             }
-‼108:             else if (def.PipeWriter == null)
-〰109:             {
-‼110:                 throw new NotSupportedException("this pipeline is not configured with a writer");
-〰111:             }
-‼112:             else if (def.PipeReader == null)
-〰113:             {
-‼114:                 throw new NotSupportedException("this pipeline is not configured with a reader");
-〰115:             }
+〰3:   using BinaryDataDecoders.IO.Segmenters;
+〰4:   using System;
+〰5:   using System.IO;
+〰6:   using System.IO.Pipelines;
+〰7:   using System.Threading;
+〰8:   using System.Threading.Tasks;
+〰9:   
+〰10:  namespace BinaryDataDecoders.IO.Pipelines
+〰11:  {
+〰12:      public static class PipelineBuilder
+〰13:      {
+〰14:          public static IPipelineBuildDefinition Follow(this Stream stream, int minimumBufferSize = 4096) =>
+‼15:              new Pipe().FollowStream(stream, minimumBufferSize);
+〰16:          internal static IPipelineBuildDefinition FollowStream(this Pipe pipe, Stream stream, int minimumBufferSize = 4096) =>
+‼17:              new PipelineBuildDefinition(pipe).FollowStream(stream, minimumBufferSize);
+〰18:  
+〰19:          internal static IPipelineBuildDefinition FollowStream(this IPipelineBuildDefinition pipeline, Stream stream, int minimumBufferSize = 4096)
+〰20:          {
+‼21:              if (!(pipeline is PipelineBuildDefinition def))
+〰22:              {
+‼23:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+〰24:              }
+‼25:              else if (def.PipeWriter != null)
+〰26:              {
+‼27:                  throw new NotSupportedException("this pipeline already has a writer");
+〰28:              }
+‼29:              def.PipeWriter = new StreamPipelineFactory().CreateWriter(def, stream, minimumBufferSize);
+‼30:              return def;
+〰31:          }
+〰32:  
+〰33:          public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, ISegmenter segmenter)
+〰34:          {
+‼35:              if (!(pipeline is PipelineBuildDefinition def))
+〰36:              {
+‼37:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+〰38:              }
+‼39:              else if (def.PipeReader != null)
+〰40:              {
+‼41:                  throw new NotSupportedException("this pipeline already has a reader");
+〰42:              }
+‼43:              def.PipeReader = new SegmentPipeFactory().CreateReader(def, segmenter);
+‼44:              return def;
+〰45:          }
+〰46:          public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, Stream stream)
+〰47:          {
+‼48:              if (!(pipeline is PipelineBuildDefinition def))
+〰49:              {
+‼50:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+〰51:              }
+‼52:              else if (def.PipeReader != null)
+〰53:              {
+‼54:                  throw new NotSupportedException("this pipeline already has a reader");
+〰55:              }
+‼56:              def.PipeReader = new StreamPipelineFactory().CreateReader(pipeline: def, stream);
+‼57:              return def;
+〰58:          }
+〰59:  
+〰60:          public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
+〰61:          {
+‼62:              if (!(pipeline is PipelineBuildDefinition def))
+〰63:              {
+‼64:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+〰65:              }
+‼66:              else if (def.PipeReader != null)
+〰67:              {
+‼68:                  throw new NotSupportedException("this pipeline already has a reader");
+〰69:              }
+‼70:              def.OnError = onPipelineError;
+‼71:              return def;
+〰72:          }
+〰73:          public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
+〰74:          {
+‼75:              if (!(pipeline is PipelineBuildDefinition def))
+〰76:              {
+‼77:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+〰78:              }
+‼79:              else if (def.PipeReader != null)
+〰80:              {
+‼81:                  throw new NotSupportedException("this pipeline already has a reader");
+〰82:              }
+‼83:              def.OnReaderError = onPipelineError;
+‼84:              return def;
+〰85:          }
+〰86:          public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
+〰87:          {
+‼88:              if (!(pipeline is PipelineBuildDefinition def))
+〰89:              {
+‼90:                  throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+〰91:              }
+‼92:              else if (def.PipeReader != null)
+〰93:              {
+‼94:                  throw new NotSupportedException("this pipeline already has a reader");
+〰95:              }
+‼96:              def.OnWriterError = onPipelineError;
+‼97:              return def;
+〰98:          }
+〰99:  
+〰100:         public static Task RunAsync(this IPipelineBuildDefinition pipeline, CancellationToken cancellationToken = default)
+〰101:         {
+‼102:             if (!(pipeline is PipelineBuildDefinition def))
+〰103:             {
+‼104:                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
+〰105:             }
+‼106:             else if (def.PipeWriter == null)
+〰107:             {
+‼108:                 throw new NotSupportedException("this pipeline is not configured with a writer");
+〰109:             }
+‼110:             else if (def.PipeReader == null)
+〰111:             {
+‼112:                 throw new NotSupportedException("this pipeline is not configured with a reader");
+〰113:             }
+〰114: 
+‼115:             cancellationToken.Register(() => def.CancellationTokenSource.Cancel());
 〰116: 
-‼117:             cancellationToken.Register(() => def.CancellationTokenSource.Cancel());
-〰118: 
-‼119:             return Task.WhenAll(
-‼120:                 Task.Run(async () => await def.PipeWriter),
-‼121:                 Task.Run(async () => await def.PipeReader)
-‼122:                 );
-〰123:         }
-〰124:     }
-〰125: }
+‼117:             return Task.WhenAll(
+‼118:                 Task.Run(async () => await def.PipeWriter),
+‼119:                 Task.Run(async () => await def.PipeReader)
+‼120:                 );
+〰121:         }
+〰122:     }
+〰123: }
 ```
 
 ## Links

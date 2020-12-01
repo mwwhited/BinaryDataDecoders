@@ -43,7 +43,7 @@
 〰14:      {
 ‼15:          public TestContext TestContext { get; set; }
 〰16:  
-〰17:          [TestMethod]
+〰17:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰18:          public async Task DeeperTest()
 〰19:          {
 ‼20:              var xsltArgumentList = new XsltArgumentList();
@@ -70,7 +70,7 @@
 ‼41:              this.TestContext.AddResult(resultStream, "TestResult.html");
 ‼42:          }
 〰43:  
-〰44:          [TestMethod]
+〰44:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰45:          public void QueryTest()
 〰46:          {
 ‼47:              using var styleSheet = this.GetResourceStream("ComplexTemplate.html");

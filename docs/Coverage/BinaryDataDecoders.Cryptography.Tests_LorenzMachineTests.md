@@ -6,11 +6,11 @@
 | :-------------- | :---------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Cryptography.Tests.Lorenz.LorenzMachineTests` |
 | Assembly        | `BinaryDataDecoders.Cryptography.Tests`                           |
-| Coveredlines    | `0`                                                               |
-| Uncoveredlines  | `8`                                                               |
+| Coveredlines    | `7`                                                               |
+| Uncoveredlines  | `1`                                                               |
 | Coverablelines  | `8`                                                               |
-| Totallines      | `30`                                                              |
-| Linecoverage    | `0`                                                               |
+| Totallines      | `31`                                                              |
+| Linecoverage    | `87.5`                                                            |
 | Coveredbranches | `0`                                                               |
 | Totalbranches   | `0`                                                               |
 
@@ -19,7 +19,7 @@
 | Complexity | Lines | Branches | Name              |
 | :--------- | :---- | :------- | :---------------- |
 | 1          | 0     | 100      | `get_TestContext` |
-| 1          | 0     | 100      | `Test`            |
+| 1          | 100   | 100      | `Test`            |
 
 ## Files
 
@@ -27,35 +27,36 @@
 
 ```CSharp
 〰1:   using BinaryDataDecoders.Cryptography.Lorenz;
-〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
-〰3:   using System;
-〰4:   using System.Collections.Generic;
-〰5:   using System.Text;
-〰6:   
-〰7:   namespace BinaryDataDecoders.Cryptography.Tests.Lorenz
-〰8:   {
-〰9:       [TestClass]
-〰10:      public class LorenzMachineTests
-〰11:      {
-‼12:          public TestContext TestContext { get; set; }
-〰13:  
-〰14:          [TestMethod]
-〰15:          public void Test()
-〰16:          {
-‼17:              var lm = new LorenzMachine(LorenzMachine.ZMUG.key, LorenzMachine.ZMUG.start);
-〰18:  
-‼19:              var mesg = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ012345";
-〰20:  
-‼21:              var result = lm.Encode(mesg);
-〰22:  
-‼23:              Assert.AreEqual("EATAS1DSSQ421X4B5ZHPRXE5XNV4CESS", result);
-〰24:  
-‼25:              var check = lm.Encode(result);
-〰26:  
-‼27:              Assert.AreEqual(mesg, check);
-‼28:          }
-〰29:      }
-〰30:  }
+〰2:   using BinaryDataDecoders.TestUtilities;
+〰3:   using Microsoft.VisualStudio.TestTools.UnitTesting;
+〰4:   using System;
+〰5:   using System.Collections.Generic;
+〰6:   using System.Text;
+〰7:   
+〰8:   namespace BinaryDataDecoders.Cryptography.Tests.Lorenz
+〰9:   {
+〰10:      [TestClass]
+〰11:      public class LorenzMachineTests
+〰12:      {
+‼13:          public TestContext TestContext { get; set; }
+〰14:  
+〰15:          [TestMethod, TestCategory(TestCategories.Unit)]
+〰16:          public void Test()
+〰17:          {
+✔18:              var lm = new LorenzMachine(LorenzMachine.ZMUG.key, LorenzMachine.ZMUG.start);
+〰19:  
+✔20:              var mesg = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ012345";
+〰21:  
+✔22:              var result = lm.Encode(mesg);
+〰23:  
+✔24:              Assert.AreEqual("EATAS1DSSQ421X4B5ZHPRXE5XNV4CESS", result);
+〰25:  
+✔26:              var check = lm.Encode(result);
+〰27:  
+✔28:              Assert.AreEqual(mesg, check);
+✔29:          }
+〰30:      }
+〰31:  }
 ```
 
 ## Links

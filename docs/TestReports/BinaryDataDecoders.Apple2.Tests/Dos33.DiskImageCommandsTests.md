@@ -86,7 +86,7 @@ TestContext Messages:
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.02
+* Duration: 00:00:00.01
 
 #### Standard Out
 

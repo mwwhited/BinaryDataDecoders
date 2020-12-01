@@ -25,15 +25,15 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Velleman.K8055.Tests/K8055ControllerTests.cs
 
 ```CSharp
-〰1:   using Microsoft.VisualStudio.TestTools.UnitTesting;
-〰2:   using System.Threading.Tasks;
+〰1:   using BinaryDataDecoders.TestUtilities;
+〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
 〰3:   
 〰4:   namespace BinaryDataDecoders.Velleman.K8055.Tests
 〰5:   {
 〰6:       [TestClass]
 〰7:       public class K8055ControllerTests
 〰8:       {
-〰9:           [TestMethod]
+〰9:           [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰10:          public void TestMethod1()
 〰11:          {
 ‼12:               new K8055Controller().Start(new System.Threading.CancellationTokenSource(), 3);

@@ -18,6 +18,12 @@
 ##### Attributes
 
  - TestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
  - Ignore
 
 

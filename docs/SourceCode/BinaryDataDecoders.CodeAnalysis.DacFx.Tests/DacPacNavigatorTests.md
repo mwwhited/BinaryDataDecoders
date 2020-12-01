@@ -28,5 +28,11 @@
  - (
  - "DACPAC"
  - )
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
 
 
