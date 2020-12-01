@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.36
+* Duration: 00:00:00.25
 
 ## Links
 

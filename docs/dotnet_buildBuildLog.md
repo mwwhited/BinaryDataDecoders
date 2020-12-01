@@ -1,13 +1,13 @@
 ﻿# Build Log
 
 * ⚠  Cannot convert null literal to non-nullable reference type.
-  * [Security/Cryptography/OneTimeCode.cs](../src/BinaryDataDecoders.ToolKit/Security/Cryptography/OneTimeCode.cs#97) (97/78)
-* ⚠  Cannot convert null literal to non-nullable reference type.
   * [ComponentModel/ViewModelBase.cs](../src/BinaryDataDecoders.ToolKit/ComponentModel/ViewModelBase.cs#30) (30/91)
 * ⚠  Cannot convert null literal to non-nullable reference type.
   * [Input/DelegateCommand.cs](../src/BinaryDataDecoders.ToolKit/Input/DelegateCommand.cs#10) (10/87)
 * ⚠  Cannot convert null literal to non-nullable reference type.
   * [Linq/EnumerableEx.cs](../src/BinaryDataDecoders.ToolKit/Linq/EnumerableEx.cs#11) (11/102)
+* ⚠  Cannot convert null literal to non-nullable reference type.
+  * [Security/Cryptography/OneTimeCode.cs](../src/BinaryDataDecoders.ToolKit/Security/Cryptography/OneTimeCode.cs#97) (97/78)
 * ⚠  Possible null reference argument for parameter 'input' in 'void XsltTransformer.Transform(string template, string inputSource, IXPathNavigable input, string output)'.
   * [Xml/Xsl/XsltTransformer.cs](../src/BinaryDataDecoders.ToolKit/Xml/Xsl/XsltTransformer.cs#68) (68/107)
 * ⚠  Nullability of reference types in return type of 'IXPathNavigable? XsltTransformer.ReadAsXml(string fileName)' doesn't match the target delegate 'Func<string, IXPathNavigable>'.
@@ -42,6 +42,14 @@
   * [ComponentModel/ViewModelBase.cs](../src/BinaryDataDecoders.ToolKit/ComponentModel/ViewModelBase.cs#16) (16/19)
 * ⚠  Non-nullable event 'CanExecuteChanged' is uninitialized. Consider declaring the event as nullable.
   * [Input/CommandBase.cs](../src/BinaryDataDecoders.ToolKit/Input/CommandBase.cs#12) (12/35)
+* ⚠  Converting null literal or possible null value to non-nullable type.
+  * [IO/PathEx.cs](../src/BinaryDataDecoders.ToolKit/IO/PathEx.cs#106) (106/47)
+* ⚠  Non-nullable property 'Exception' is uninitialized. Consider declaring the property as nullable.
+  * [Xml/Schema/XmlValidationResult.cs](../src/BinaryDataDecoders.ToolKit/Xml/Schema/XmlValidationResult.cs#7) (7/35)
+* ⚠  Non-nullable property 'Message' is uninitialized. Consider declaring the property as nullable.
+  * [Xml/Schema/XmlValidationResult.cs](../src/BinaryDataDecoders.ToolKit/Xml/Schema/XmlValidationResult.cs#8) (8/23)
+* ⚠  Possible null reference return.
+  * [Xml/Linq/XFragment.cs](../src/BinaryDataDecoders.ToolKit/Xml/Linq/XFragment.cs#109) (109/24)
 * ⚠  'TimeZone' is obsolete: 'System.TimeZone has been deprecated.  Please investigate the use of System.TimeZoneInfo instead.'
   * [Reflection/ApplicationInformation.cs](../src/BinaryDataDecoders.ToolKit/Reflection/ApplicationInformation.cs#57) (57/32)
 * ⚠  Non-nullable field 'executingAssembly' is uninitialized. Consider declaring the field as nullable.
@@ -54,14 +62,6 @@
   * [Threading/Tasks/TaskEx.cs](../src/BinaryDataDecoders.ToolKit/Threading/Tasks/TaskEx.cs#70) (70/16)
 * ⚠  Possible null reference return.
   * [Threading/Tasks/TaskEx.cs](../src/BinaryDataDecoders.ToolKit/Threading/Tasks/TaskEx.cs#73) (73/20)
-* ⚠  Converting null literal or possible null value to non-nullable type.
-  * [Threading/AsyncAutoResetEvent.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncAutoResetEvent.cs#31) (31/52)
-* ⚠  Non-nullable property 'Exception' is uninitialized. Consider declaring the property as nullable.
-  * [Xml/Schema/XmlValidationResult.cs](../src/BinaryDataDecoders.ToolKit/Xml/Schema/XmlValidationResult.cs#7) (7/35)
-* ⚠  Non-nullable property 'Message' is uninitialized. Consider declaring the property as nullable.
-  * [Xml/Schema/XmlValidationResult.cs](../src/BinaryDataDecoders.ToolKit/Xml/Schema/XmlValidationResult.cs#8) (8/23)
-* ⚠  Converting null literal or possible null value to non-nullable type.
-  * [IO/PathEx.cs](../src/BinaryDataDecoders.ToolKit/IO/PathEx.cs#106) (106/47)
 * ⚠  Cannot convert null literal to non-nullable reference type.
   * [Threading/Tasks/TaskEx.cs](../src/BinaryDataDecoders.ToolKit/Threading/Tasks/TaskEx.cs#100) (100/40)
 * ⚠  Converting null literal or possible null value to non-nullable type.
@@ -71,11 +71,11 @@
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [Threading/AsyncSemaphore.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncSemaphore.cs#40) (40/52)
 * ⚠  Converting null literal or possible null value to non-nullable type.
+  * [Threading/AsyncAutoResetEvent.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncAutoResetEvent.cs#31) (31/52)
+* ⚠  Converting null literal or possible null value to non-nullable type.
   * [Threading/AsyncReaderWriterLock.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncReaderWriterLock.cs#42) (42/53)
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [Threading/AsyncReaderWriterLock.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncReaderWriterLock.cs#80) (80/53)
-* ⚠  Possible null reference return.
-  * [Xml/Linq/XFragment.cs](../src/BinaryDataDecoders.ToolKit/Xml/Linq/XFragment.cs#109) (109/24)
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [SyntaxTreeNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.cs#70) (70/104)
 * ⚠  Converting null literal or possible null value to non-nullable type.
@@ -101,13 +101,13 @@
 * ⚠  The variable 'cMode' is assigned but its value is never used
   * [PlayFair.cs](../src/BinaryDataDecoders.Cryptography/PlayFair.cs#116) (116/18)
 * ⚠  Converting null literal or possible null value to non-nullable type.
+  * [MultiScaleImages/MultiScaleTileEx.cs](../src/BinaryDataDecoders.Drawing/MultiScaleImages/MultiScaleTileEx.cs#226) (226/39)
+* ⚠  Converting null literal or possible null value to non-nullable type.
   * [Mending/JpegSegmentReader.cs](../src/BinaryDataDecoders.Drawing/Mending/JpegSegmentReader.cs#54) (54/41)
 * ⚠  Possible null reference assignment.
   * [Mending/JpegSegmentReader.cs](../src/BinaryDataDecoders.Drawing/Mending/JpegSegmentReader.cs#64) (64/32)
 * ⚠  Non-nullable property 'Data' is uninitialized. Consider declaring the property as nullable.
   * [Mending/JpegSegment.cs](../src/BinaryDataDecoders.Drawing/Mending/JpegSegment.cs#9) (9/23)
-* ⚠  Converting null literal or possible null value to non-nullable type.
-  * [MultiScaleImages/MultiScaleTileEx.cs](../src/BinaryDataDecoders.Drawing/MultiScaleImages/MultiScaleTileEx.cs#226) (226/39)
 * ⚠  Missing XML comment for publicly visible type or member 'Code39'
   * [Barcodes/Code39.cs](../src/BinaryDataDecoders.Drawing/Barcodes/Code39.cs#12) (12/18)
 * ⚠  Missing XML comment for publicly visible type or member 'Code39.EncodeFullAscii(string)'
@@ -437,31 +437,19 @@
 * ⚠  'JsonPathBaseVisitor<Result>' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
   * [obj/Release/netstandard2.1/JsonPathBaseVisitor.cs](../src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathBaseVisitor.cs#35) (35/22)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/PathExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathExTests.cs#10) (10/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/TempFileHandleTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/TempFileHandleTests.cs#11) (11/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/PathNavigatorFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathNavigatorFactoryTests.cs#14) (14/28)
-* ⚠  Possible null reference argument for parameter 'value' in 'TestContext TextContextExtensions.AddResult(TestContext context, object value, string fileName = "")'.
-  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#38) (38/40)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#13) (13/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [Xml/Xsl/XsltExtensionFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/XsltExtensionFactoryTests.cs#13) (13/28)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#13) (13/28)
-* ⚠  Non-nullable field 'mockRepository' is uninitialized. Consider declaring the field as nullable.
-  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#15) (15/32)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [Collections/ReversableEnumeratorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.cs#11) (11/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/StreamExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/StreamExTests.cs#13) (13/28)
-* ⚠  Argument of type '(string, IXPathNavigable)[]' cannot be used for parameter 'navigators' of type 'IEnumerable<(string source, IXPathNavigable? navigator)>' in 'IXPathNavigable XPathExtensions.MergeNavigators(IEnumerable<(string source, IXPathNavigable? navigator)> navigators)' due to differences in the nullability of reference types.
-  * [Xml/XPath/MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#22) (22/26)
 * ⚠  Possible null reference argument for parameter 'nameTable' in 'XsltExtensionContext.XsltExtensionContext(NameTable nameTable)'.
   * [Xml/Xsl/Extensions/XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#163) (163/52)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [Xml/Xsl/Extensions/XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#22) (22/28)
+* ⚠  Argument of type '(string, IXPathNavigable)[]' cannot be used for parameter 'navigators' of type 'IEnumerable<(string source, IXPathNavigable? navigator)>' in 'IXPathNavigable XPathExtensions.MergeNavigators(IEnumerable<(string source, IXPathNavigable? navigator)> navigators)' due to differences in the nullability of reference types.
+  * [Xml/XPath/MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#22) (22/26)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Xml/XPath/MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#14) (14/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO/TempFileHandleTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/TempFileHandleTests.cs#11) (11/28)
 * ⚠  Dereference of a possibly null reference.
   * [Xml/Linq/XFragmentTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/XFragmentTests.cs#23) (23/30)
 * ⚠  Dereference of a possibly null reference.
@@ -471,7 +459,19 @@
 * ⚠  Dereference of a possibly null reference.
   * [Xml/Linq/XFragmentTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/XFragmentTests.cs#40) (40/29)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Xml/XPath/MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#14) (14/28)
+  * [IO/StreamExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/StreamExTests.cs#13) (13/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO/PathNavigatorFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathNavigatorFactoryTests.cs#14) (14/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO/PathExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathExTests.cs#10) (10/28)
+* ⚠  Possible null reference argument for parameter 'value' in 'TestContext TextContextExtensions.AddResult(TestContext context, object value, string fileName = "")'.
+  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#38) (38/40)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#13) (13/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#13) (13/28)
+* ⚠  Non-nullable field 'mockRepository' is uninitialized. Consider declaring the field as nullable.
+  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#15) (15/32)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [MemoryExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/MemoryExTests.cs#13) (13/28)
 * ⚠  Nullability of reference types in value of type '(XName, string Tag)[]' doesn't match target type 'IEnumerable<(XName name, string? value)>'.

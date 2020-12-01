@@ -34,8 +34,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.04 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "A"`                              |
+| ⚠ Inconclusive       | 00:00:00.05 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
@@ -53,7 +53,7 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*(B/C)+D)"`                    |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A+B"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A/B)*(C*D)*E)+F"`              |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "((A+((B*C)+D))*E)+F+(C*G)+H"`    |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "((A+((B*C)+D))*E)+F+(C*G)+H"`    |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A+((B*C)+D))*E+F+(A+((B*C)+D))*G+H"` |
 | ⚠ Inconclusive       | 00:00:00.00 | `Check Expressions "(((((A*B)+C)+((D*E)+F))*G)+H)+(-1*((A+(-1*(A*B)))+C))"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A*B)+C)+((D*B)+E)"`            |
@@ -154,7 +154,7 @@
 | ⚠ Inconclusive       | 00:00:00.00 | `OptimizerTests (-1*(A*B),-(A * B))`                 |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (A!,A!)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A)!,A!)`                           |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests (3!!,720)`                           |
+| ✔ Passed             | 00:00:00.01 | `OptimizerTests (3!!,720)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (2!!!,2)`                            |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!,N!!)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!!,N!!!)`                         |
@@ -184,7 +184,7 @@
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B*-*A)`                    |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions ()`                         |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (b)`                        |
-| ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions (b+1)`                      |
+| ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (b+1)`                      |
 
 ## SimpleParserTests
 
