@@ -1,5 +1,9 @@
 ﻿
 
+https://github.com/mwwhited/EmbeddedBakery/tree/main/src/arduino/LANC
+https://raw.githubusercontent.com/mwwhited/EmbeddedBakery/main/circuits/lanc2rs485/lanc2rs485.png
+
+
 ```csharp
 using System;
 using System.Collections.Generic;
