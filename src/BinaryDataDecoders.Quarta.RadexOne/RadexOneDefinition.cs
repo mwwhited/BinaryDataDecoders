@@ -4,11 +4,13 @@ using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.IO.Segmenters;
 using System.ComponentModel;
+using System.Composition;
 
 namespace BinaryDataDecoders.Quarta.RadexOne
 {
     [SerialPort(9600)]
     [Description("Radex One")]
+    [Export(typeof(IDeviceDefinition))]
     public class RadexOneDefinition : IDeviceDefinitionTransmitter<IRadexObject>, IDeviceDefinitionReceiver<IRadexObject>
     {
         public IMessageEncoder<IRadexObject> Encoder { get; } = new MessageEncoder<IRadexObject>();

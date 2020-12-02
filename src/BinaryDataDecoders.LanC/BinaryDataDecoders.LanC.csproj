@@ -8,4 +8,8 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Composition" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>

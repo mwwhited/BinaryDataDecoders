@@ -36,4 +36,8 @@
     <None Include="Notes\ROOT.CIMV2.Win32_USBController.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Composition" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>
