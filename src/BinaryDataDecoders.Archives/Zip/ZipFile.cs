@@ -27,7 +27,7 @@ namespace BinaryDataDecoders.Archives.Zip
                     byte[] fileContent = new byte[localFileHeader.CompressedSize];
                     Array.Copy(zipFileContents, offset, fileContent, 0, fileContent.Length);
                     File.WriteAllBytes(localFileHeader.FileName, Decompress(fileContent));
-                offset += fileContent.Length;
+                    offset += fileContent.Length;
                 }
 
 
@@ -44,22 +44,18 @@ namespace BinaryDataDecoders.Archives.Zip
                 return null;
 
             using (MemoryStream compressedData = new MemoryStream(input))
+            using (MemoryStream decompressedData = new MemoryStream())
+            using (DeflateStream deflateDecompress = new DeflateStream(compressedData, CompressionMode.Decompress, true))
             {
-                using (MemoryStream decompressedData = new MemoryStream())
+                byte[] buffer = new byte[1024];
+                int bufferLen;
+                do
                 {
-                    using (DeflateStream deflateDecompress = new DeflateStream(compressedData, CompressionMode.Decompress, true))
-                    {
-                        byte[] buffer = new byte[1024];
-                        int bufferLen;
-                        do
-                        {
-                            bufferLen = deflateDecompress.Read(buffer, 0, buffer.Length);
-                            if (bufferLen > 0)
-                                decompressedData.Write(buffer, 0, bufferLen);
-                        } while (bufferLen > 0);
-                    }
-                    return decompressedData.ToArray();
-                }
+                    bufferLen = deflateDecompress.Read(buffer, 0, buffer.Length);
+                    if (bufferLen > 0)
+                        decompressedData.Write(buffer, 0, bufferLen);
+                } while (bufferLen > 0);
+                return decompressedData.ToArray();
             }
         }
 
@@ -69,22 +65,18 @@ namespace BinaryDataDecoders.Archives.Zip
                 return null;
 
             using (MemoryStream rawDataStreamIn = new MemoryStream(input))
+            using (MemoryStream compressedDataStreamOut = new MemoryStream())
+            using (DeflateStream deflateCompress = new DeflateStream(compressedDataStreamOut, CompressionMode.Compress, true))
             {
-                using (MemoryStream compressedDataStreamOut = new MemoryStream())
+                byte[] buffer = new byte[1024];
+                int bufferLen;
+                do
                 {
-                    using (DeflateStream deflateCompress = new DeflateStream(compressedDataStreamOut, CompressionMode.Compress, true))
-                    {
-                        byte[] buffer = new byte[1024];
-                        int bufferLen;
-                        do
-                        {
-                            bufferLen = rawDataStreamIn.Read(buffer, 0, buffer.Length);
-                            if (bufferLen > 0)
-                                deflateCompress.Write(buffer, 0, bufferLen);
-                        } while (bufferLen > 0);
-                    }
-                    return compressedDataStreamOut.ToArray();
-                }
+                    bufferLen = rawDataStreamIn.Read(buffer, 0, buffer.Length);
+                    if (bufferLen > 0)
+                        deflateCompress.Write(buffer, 0, bufferLen);
+                } while (bufferLen > 0);
+                return compressedDataStreamOut.ToArray();
             }
         }
     }

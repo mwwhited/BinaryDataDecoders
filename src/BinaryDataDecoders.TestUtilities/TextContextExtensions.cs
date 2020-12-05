@@ -118,20 +118,15 @@ namespace BinaryDataDecoders.TestUtilities
         //                    from type in assembly.GetTypes()
         //                    select type;
         //    var testType = typeQuery.FirstOrDefault(t => t.FullName == context.FullyQualifiedTestClassName);
-
         //    var testClass = Activator.CreateInstance(testType);
-
         //    var targetName = string.IsNullOrWhiteSpace(target) ? context.TestName : target;
-
         //    if (string.IsNullOrWhiteSpace(target))
         //        target = null;
-
         //    var possibleResources = target != null ? new[] {
         //      $"{testType.Name}_{context.TestName}_{target}" ,
         //      $"{testType.Name}_{context.TestName}_{target}.json",
         //      $"{testType.Name}_{target}" ,
         //      $"{testType.Name}_{target}.json",
-
         //      $"{context.TestName}_{target}",
         //      $"{context.TestName}_{target}.json",
         //      $"{target}",
@@ -143,7 +138,6 @@ namespace BinaryDataDecoders.TestUtilities
         //      $"{context.TestName}",
         //      $"{context.TestName}.json",
         //    }.Where(i => i != null);
-
         //    async Task<string> getValueAsync()
         //    {
         //        foreach (var possible in possibleResources)
@@ -154,12 +148,9 @@ namespace BinaryDataDecoders.TestUtilities
         //        }
         //        return default;
         //    }
-
         //    var content = await getValueAsync();
-
         //    if (string.IsNullOrWhiteSpace(content))
         //        return default;
-
         //    if (typeof(T) == typeof(string))
         //        return (T)(object)content;
         //    else if (typeof(T) == typeof(JToken))
@@ -168,17 +159,12 @@ namespace BinaryDataDecoders.TestUtilities
         //        return (T)(object)JObject.Parse(content);
         //    else if (typeof(T) == typeof(JArray))
         //        return (T)(object)JArray.Parse(content);
-
         //    var services = new ServiceCollection()
         //            .AddToolkitServices()
         //            .BuildServiceProvider();
-
         //    var deserializer = services.GetService<IObjectDeserializer>();
-
         //    var result = await deserializer.DeserializeAsync<T>(content);
         //    return result;
-
-
         //}
     }
 }

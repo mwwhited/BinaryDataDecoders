@@ -1,6 +1,7 @@
 ﻿using BinaryDataDecoders.IO;
 using BinaryDataDecoders.Nmea;
 using BinaryDataDecoders.Quarta.RadexOne;
+using BinaryDataDecoders.Zoom.H4n;
 using System;
 using System.ComponentModel;
 using System.Composition.Hosting;
@@ -24,14 +25,14 @@ namespace BinaryDataDecoders.Serial.Cli
             var container = configuration.CreateContainer();
             var devices = container.GetExports<IDeviceDefinition>().ToList();
 
-            //Console.WriteLine("=== Select Device ===");
-            //foreach (var item in devices.Select((device, index) => (device, index)))
-            //{
-            //    var name = item.device.GetType().GetCustomAttribute<DescriptionAttribute>()?.Description ??
-            //               item.device.GetType().Name;
+            Console.WriteLine("=== Select Device ===");
+            foreach (var item in devices.Select((device, index) => (device, index)))
+            {
+                var name = item.device.GetType().GetCustomAttribute<DescriptionAttribute>()?.Description ??
+                           item.device.GetType().Name;
 
-            //    Console.WriteLine($"\t{item.index + 1}) {name}");
-            //}
+                Console.WriteLine($"\t{item.index + 1}) {name}");
+            }
 
             //IDeviceDefinition definition = null;
             //do
@@ -71,8 +72,13 @@ namespace BinaryDataDecoders.Serial.Cli
             //    _ => new ReadValuesRequest((uint)x)
             //});
 
-            var definition = new Nema0183Definition();
-            new DeviceConsole().Execute(definition);
+            var definition = new H4nDefinition();
+            new DeviceConsole().Execute(definition, id =>
+                id < 100 ? (IH4nMessage)new H4nNullRequest(): new H4nRequest(H4nRequests.Poll)
+                );
+
+            // var definition = new Nema0183Definition();
+            //new DeviceConsole().Execute(definition);
         }
         //IDeviceDefinition
     }
