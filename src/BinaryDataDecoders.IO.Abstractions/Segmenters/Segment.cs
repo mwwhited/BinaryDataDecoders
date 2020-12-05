@@ -1,6 +1,7 @@
 ﻿using BinaryDataDecoders.IO.Messages;
 using BinaryDataDecoders.IO.Segmenters;
 using System;
+using System.Linq;
 
 namespace BinaryDataDecoders.IO.Segmenters
 {
@@ -10,6 +11,15 @@ namespace BinaryDataDecoders.IO.Segmenters
             StartsWith((byte)start);
         public static ISegmentBuildDefinition StartsWith(params byte[] starts) =>
             new SegmentBuildDefinition(starts);
+        public static ISegmentBuildDefinition StartsWithMask(byte mask) =>
+            new SegmentBuildDefinition(
+                Enumerable.Range(0, 255)
+                          .Select(b => (byte)(b & mask))
+                          .Where(b => b != 0x00)
+                          .Distinct()
+                          .ToArray()
+                );
+
         public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end) =>
             AndEndsWith(builder, (byte)end);
 
