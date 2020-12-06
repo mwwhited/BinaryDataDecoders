@@ -50,7 +50,7 @@
 〰22:  	             Left score = 12
 〰23:  	             Time = 2:56
 〰24:  	             The Lamps ON are: Red, Yellow right, Left priorite.
-〰25:  	             Number of Matchs = 2
+〰25:  	             Number of Matches = 2
 〰26:  	             Left yellow penalty lamp = ON.
 〰27:              */
 ✔28:              var frame = new byte[]
@@ -75,7 +75,7 @@
 ✔47:              Assert.AreEqual(false, state.Right.Priority, "Check Right Priority");
 〰48:  
 ✔49:              Assert.AreEqual(new TimeSpan(0, 2, 56), state.Clock, "Check Clock");
-✔50:              Assert.AreEqual(0, state.Match, "Check Match");
+✔50:              Assert.AreEqual(2, state.Match, "Check Match");
 ✔51:          }
 〰52:  
 〰53:      }

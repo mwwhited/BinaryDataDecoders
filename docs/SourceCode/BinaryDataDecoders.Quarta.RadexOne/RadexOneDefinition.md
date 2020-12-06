@@ -17,6 +17,13 @@
  - (
  - "Radex One"
  - )
+ - Export
+ - (
+ - typeof
+ - (
+ - IDeviceDefinition
+ - )
+ - )
 
 ### Members
 

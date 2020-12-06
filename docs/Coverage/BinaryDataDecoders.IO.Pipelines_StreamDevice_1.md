@@ -7,26 +7,28 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.StreamDevice`1` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                |
 | Coveredlines    | `0`                                              |
-| Uncoveredlines  | `97`                                             |
-| Coverablelines  | `97`                                             |
-| Totallines      | `142`                                            |
+| Uncoveredlines  | `125`                                            |
+| Coverablelines  | `125`                                            |
+| Totallines      | `190`                                            |
 | Linecoverage    | `0`                                              |
 | Coveredbranches | `0`                                              |
-| Totalbranches   | `36`                                             |
+| Totalbranches   | `20`                                             |
 | Branchcoverage  | `0`                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                          |
-| :--------- | :---- | :------- | :---------------------------- |
-| 10         | 0     | 0        | `ctor`                        |
-| 1          | 0     | 100      | `get_CancellationTokenSource` |
-| 1          | 0     | 100      | `get_Runner`                  |
-| 1          | 0     | 100      | `Transmit`                    |
-| 2          | 0     | 0        | `OnMessageReceived`           |
-| 8          | 0     | 0        | `Receiver`                    |
-| 16         | 0     | 0        | `Transmitter`                 |
-| 1          | 0     | 100      | `Dispose`                     |
+| Complexity | Lines | Branches | Name                 |
+| :--------- | :---- | :------- | :------------------- |
+| 12         | 0     | 0        | `ctor`               |
+| 1          | 0     | 100      | `get__stream`        |
+| 1          | 0     | 100      | `get_Runner`         |
+| 1          | 0     | 100      | `Transmit`           |
+| 2          | 0     | 0        | `OnMessageReceived`  |
+| 2          | 0     | 0        | `ReportDeviceStatus` |
+| 4          | 0     | 0        | `Initializer`        |
+| 1          | 0     | 100      | `Receiver`           |
+| 1          | 0     | 100      | `Transmitter`        |
+| 1          | 0     | 100      | `Dispose`            |
 
 ## Files
 
@@ -35,146 +37,194 @@
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Messages;
 〰2:   using BinaryDataDecoders.IO.Segmenters;
-〰3:   using System;
-〰4:   using System.Collections.Concurrent;
-〰5:   using System.IO;
-〰6:   using System.Threading;
-〰7:   using System.Threading.Tasks;
-〰8:   
-〰9:   namespace BinaryDataDecoders.IO.Pipelines
-〰10:  {
-〰11:      public class StreamDevice<TMessage> : IStreamDevice<TMessage>
-〰12:      {
-‼13:          private readonly IProducerConsumerCollection<TMessage> _transmissionQueue = new ConcurrentQueue<TMessage>();
-〰14:  
-〰15:          private readonly Stream _stream;
-〰16:          private readonly ISegmentBuildDefinition _segmentDefintion;
-〰17:          private readonly IMessageDecoder<TMessage> _decoder;
-〰18:          private readonly IMessageEncoder<TMessage> _encoder;
-〰19:          private readonly int _minimumTrasmissionDelay;
-〰20:  
-‼21:          public StreamDevice(
-‼22:              Stream stream,
-‼23:              IDeviceDefinition device,
-‼24:              CancellationTokenSource? cancellationTokenSource = default,
-‼25:              int minimumTrasmissionDelay = 1000
-‼26:              )
-〰27:          {
-‼28:              CancellationTokenSource = cancellationTokenSource ?? new CancellationTokenSource();
-〰29:  
-‼30:              _stream = stream;
-‼31:              _minimumTrasmissionDelay = minimumTrasmissionDelay;
-〰32:  
-‼33:              Task? messageReceiver = null;
-‼34:              Task? messageTransmitter = null;
+〰3:   using BinaryDataDecoders.ToolKit.Threading;
+〰4:   using System;
+〰5:   using System.Collections.Concurrent;
+〰6:   using System.IO;
+〰7:   using System.Threading;
+〰8:   using System.Threading.Tasks;
+〰9:   
+〰10:  namespace BinaryDataDecoders.IO.Pipelines
+〰11:  {
+〰12:      public class StreamDevice<TMessage> : IStreamDevice<TMessage>
+〰13:      {
+‼14:          private readonly IProducerConsumerCollection<TMessage> _transmissionQueue = new ConcurrentQueue<TMessage>();
+〰15:  
+‼16:          private Stream _stream => _adapter.Stream;
+〰17:          private readonly IDeviceAdapter _adapter;
+〰18:          private readonly IDeviceDefinition _device;
+〰19:          private readonly ISegmentBuildDefinition _segmentDefintion;
+〰20:          private readonly IMessageDecoder<TMessage> _decoder;
+〰21:          private readonly IMessageEncoder<TMessage> _encoder;
+〰22:          private readonly int _minimumTrasmissionDelay;
+〰23:          private readonly CancellationToken _token;
+〰24:          private readonly CancellationTokenSource _tokenSource;
+〰25:  
+‼26:          public StreamDevice(
+‼27:              IDeviceAdapter adapter,
+‼28:              IDeviceDefinition device,
+‼29:              CancellationToken token = default,
+‼30:              int minimumTrasmissionDelay = 1000 //TODO should this default be overideable from the devicedefinition or it's attributes?
+‼31:              )
+〰32:          {
+‼33:              _tokenSource = CancellationTokenSource.CreateLinkedTokenSource(token);
+‼34:              _token = _tokenSource.Token;
 〰35:  
-‼36:              if (device is IDeviceDefinitionReceiver<TMessage> receiver)
-〰37:              {
-‼38:                  _decoder = receiver.Decoder;
-‼39:                  _segmentDefintion = receiver.SegmentDefintion;
-‼40:                  messageReceiver = Receiver();
-〰41:              }
-‼42:              if (device is IDeviceDefinitionTransmitter<TMessage> transmitter)
-〰43:              {
-‼44:                  _encoder = transmitter.Encoder;
-‼45:                  messageTransmitter = Transmitter();
-〰46:              }
-〰47:  
-〰48:  
-‼49:              Runner = Task.WhenAll(
-‼50:                  messageReceiver ?? Task.FromResult(0),
-‼51:                  messageTransmitter ?? Task.FromResult(0)
-‼52:                  );
-‼53:          }
-〰54:  
-‼55:          public CancellationTokenSource CancellationTokenSource { get; }
-‼56:          public Task Runner { get; }
-〰57:  
-〰58:          public event EventHandler<TMessage> MessageReceived;
-〰59:          public event EventHandler<DeviceErrorEventArgs> MessageReceivedError;
-〰60:          public event EventHandler<DeviceErrorEventArgs> MessageTrasmitterError;
-‼61:          public Task<bool> Transmit(TMessage message) => Task.FromResult(_transmissionQueue.TryAdd(message));
-〰62:  
-〰63:          private Task OnMessageReceived(TMessage message)
-〰64:          {
-‼65:              MessageReceived?.Invoke(this, message);
-‼66:              return Task.FromResult(0);
-〰67:          }
-〰68:  
-‼69:          private Task Receiver() => Task.Run(async () =>
-‼70:          {
-‼71:              while (!CancellationTokenSource.IsCancellationRequested)
-‼72:              {
-‼73:                  try
-‼74:                  {
-‼75:                      await _stream.Follow().With(_segmentDefintion.ThenAs(_decoder, OnMessageReceived)).RunAsync(CancellationTokenSource.Token);
-‼76:                      CancellationTokenSource.Cancel(true);
-‼77:                  }
-‼78:                  catch (Exception ex)
-‼79:                  {
-‼80:                      var eventArg = new DeviceErrorEventArgs(exception: ex, errorHandling: ErrorHandling.Throw);
-‼81:                      MessageReceivedError?.Invoke(_stream, eventArg);
-‼82:                      switch (eventArg.ErrorHandling)
-‼83:                      {
-‼84:                          case ErrorHandling.Ignore:
-‼85:                              break;
-‼86:  
-‼87:                          case ErrorHandling.Stop:
-‼88:                              CancellationTokenSource.Cancel(true);
-‼89:                              break;
-‼90:  
-‼91:                          case ErrorHandling.Throw:
-‼92:                              throw new IOException(ex.Message, ex);
-‼93:                      }
-‼94:                  }
-‼95:              }
-‼96:          });
-〰97:  
-‼98:          private Task Transmitter() => Task.Run(async () =>
-‼99:          {
-‼100:             while (!CancellationTokenSource.IsCancellationRequested)
-‼101:             {
-‼102:                 while (_transmissionQueue.TryTake(out var item))
-‼103:                 {
-‼104:                     try
-‼105:                     {
-‼106:                         var requestBuffer = _encoder.Encode(ref item);
-‼107:                         await _stream.WriteAsync(requestBuffer, CancellationTokenSource.Token);
-‼108:                     }
-‼109:                     catch (Exception ex)
-‼110:                     {
-‼111:                         var eventArg = new DeviceErrorEventArgs(exception: ex, errorHandling: ErrorHandling.Throw);
-‼112:                         MessageTrasmitterError?.Invoke(_stream, eventArg);
-‼113:                         switch (eventArg.ErrorHandling)
-‼114:                         {
-‼115:                             case ErrorHandling.Ignore:
-‼116:                                 break;
-‼117: 
-‼118:                             case ErrorHandling.Stop:
-‼119:                                 CancellationTokenSource.Cancel(true);
-‼120:                                 break;
-‼121: 
-‼122:                             case ErrorHandling.Throw:
-‼123:                                 throw new IOException(ex.Message, ex);
-‼124:                         }
-‼125:                     }
-‼126:                 }
-‼127: 
-‼128:                 if (!CancellationTokenSource.IsCancellationRequested && _minimumTrasmissionDelay > 0)
-‼129:                 {
-‼130:                     await Task.Delay(_minimumTrasmissionDelay);
-‼131:                 }
-‼132:             }
-‼133:         });
-〰134: 
-〰135:         public void Dispose()
-〰136:         {
-‼137:             Runner.Wait();
-‼138:             CancellationTokenSource.Cancel(false);
-‼139:             _stream.Dispose();
-‼140:         }
-〰141:     }
-〰142: }
+‼36:              _adapter = adapter;
+‼37:              _device = device;
+‼38:              _minimumTrasmissionDelay = minimumTrasmissionDelay;
+〰39:  
+‼40:              Task? messageReceiver = null;
+‼41:              Task? messageTransmitter = null;
+‼42:              Task? deviceInitializer = null;
+〰43:  
+‼44:              var mre = new AsyncManualResetEvent();
+‼45:              if (_device is IDeviceDefinitionInitialize)
+〰46:              {
+‼47:                  mre.Reset();
+‼48:                  deviceInitializer = Initializer(mre);
+〰49:              }
+〰50:              else
+〰51:              {
+〰52:                  //Assumed to start in set state but just be sure anyway
+‼53:                  mre.Set();
+〰54:              }
+〰55:  
+‼56:              if (_device is IDeviceDefinitionReceiver<TMessage> receiver)
+〰57:              {
+‼58:                  _decoder = receiver.Decoder;
+‼59:                  _segmentDefintion = receiver.SegmentDefintion;
+‼60:                  messageReceiver = Receiver(mre);
+〰61:              }
+‼62:              if (_device is IDeviceDefinitionTransmitter<TMessage> transmitter)
+〰63:              {
+‼64:                  _encoder = transmitter.Encoder;
+‼65:                  messageTransmitter = Transmitter(mre);
+〰66:              }
+〰67:  
+‼68:              Runner = Task.WhenAll(
+‼69:                  deviceInitializer ?? Task.FromResult(0),
+‼70:                  messageReceiver ?? Task.FromResult(0),
+‼71:                  messageTransmitter ?? Task.FromResult(0)
+‼72:                  );
+‼73:          }
+〰74:  
+‼75:          public Task Runner { get; }
+〰76:  
+〰77:          public event EventHandler<TMessage> MessageReceived;
+〰78:          public event EventHandler<StreamDeviceStatus> DeviceStatus;
+〰79:          public event EventHandler<DeviceErrorEventArgs> MessageReceivedError;
+〰80:          public event EventHandler<DeviceErrorEventArgs> MessageTrasmitterError;
+〰81:  
+‼82:          public Task<bool> Transmit(TMessage message) => Task.FromResult(_transmissionQueue.TryAdd(message));
+〰83:  
+〰84:          private Task OnMessageReceived(TMessage message)
+〰85:          {
+‼86:              MessageReceived?.Invoke(this, message);
+‼87:              return Task.FromResult(0);
+〰88:          }
+〰89:          private Task ReportDeviceStatus(StreamDeviceStatus status)
+〰90:          {
+‼91:              DeviceStatus?.Invoke(this, status);
+‼92:              return Task.FromResult(0);
+〰93:          }
+〰94:  
+〰95:          private async Task Initializer(AsyncManualResetEvent mre)
+〰96:          {
+‼97:              if (!_token.IsCancellationRequested && _device is IDeviceDefinitionInitialize initializer)
+〰98:              {
+‼99:                  await ReportDeviceStatus(StreamDeviceStatus.Initializing);
+‼100:                 await initializer.InitializeAsync(_adapter, _token).ConfigureAwait(false);
+〰101:             }
+‼102:             await ReportDeviceStatus(StreamDeviceStatus.Initialized);
+‼103:             mre.Set();
+‼104:         }
+〰105: 
+‼106:         private Task Receiver(AsyncManualResetEvent mre) => Task.Run(async () =>
+‼107:         {
+‼108:             while (!_token.IsCancellationRequested)
+‼109:             {
+‼110:                 await mre.WaitAsync();
+‼111:                 try
+‼112:                 {
+‼113:                     await ReportDeviceStatus(StreamDeviceStatus.Receiving);
+‼114:                     await _stream.Follow()
+‼115:                                  .With(_segmentDefintion.ThenAs(_decoder, OnMessageReceived))
+‼116:                                  .RunAsync(_token)
+‼117:                                  .ConfigureAwait(false);
+‼118:                     _tokenSource.Cancel(true);
+‼119:                     await ReportDeviceStatus(StreamDeviceStatus.Received);
+‼120:                 }
+‼121:                 catch (Exception ex)
+‼122:                 {
+‼123:                     var eventArg = new DeviceErrorEventArgs(exception: ex, errorHandling: ErrorHandling.Throw);
+‼124:                     MessageReceivedError?.Invoke(_stream, eventArg);
+‼125:                     switch (eventArg.ErrorHandling)
+‼126:                     {
+‼127:                         case ErrorHandling.Ignore:
+‼128:                             break;
+‼129: 
+‼130:                         case ErrorHandling.Stop:
+‼131:                             _tokenSource.Cancel(true);
+‼132:                             break;
+‼133: 
+‼134:                         default:
+‼135:                         case ErrorHandling.Throw:
+‼136:                             throw new IOException(ex.Message, ex);
+‼137:                     }
+‼138:                 }
+‼139:             }
+‼140:         });
+〰141: 
+‼142:         private Task Transmitter(AsyncManualResetEvent mre) => Task.Run(async () =>
+‼143:         {
+‼144:             while (!_token.IsCancellationRequested)
+‼145:             {
+‼146:                 await mre.WaitAsync();
+‼147:                 while (_transmissionQueue.TryTake(out var item))
+‼148:                 {
+‼149:                     try
+‼150:                     {
+‼151:                         await ReportDeviceStatus(StreamDeviceStatus.Transmitting);
+‼152:                         var requestBuffer = _encoder.Encode(ref item);
+‼153:                         await _stream.WriteAsync(requestBuffer, _token)
+‼154:                                      .ConfigureAwait(false);
+‼155:                         await ReportDeviceStatus(StreamDeviceStatus.Transmitted);
+‼156:                     }
+‼157:                     catch (Exception ex)
+‼158:                     {
+‼159:                         var eventArg = new DeviceErrorEventArgs(exception: ex, errorHandling: ErrorHandling.Throw);
+‼160:                         MessageTrasmitterError?.Invoke(_stream, eventArg);
+‼161:                         switch (eventArg.ErrorHandling)
+‼162:                         {
+‼163:                             case ErrorHandling.Ignore:
+‼164:                                 break;
+‼165: 
+‼166:                             case ErrorHandling.Stop:
+‼167:                                 _tokenSource.Cancel(true);
+‼168:                                 break;
+‼169: 
+‼170:                             case ErrorHandling.Throw:
+‼171:                                 throw new IOException(ex.Message, ex);
+‼172:                         }
+‼173:                     }
+‼174:                 }
+‼175: 
+‼176:                 if (!_token.IsCancellationRequested && _minimumTrasmissionDelay > 0)
+‼177:                 {
+‼178:                     await Task.Delay(_minimumTrasmissionDelay);
+‼179:                 }
+‼180:             }
+‼181:         });
+〰182: 
+〰183:         public void Dispose()
+〰184:         {
+‼185:             Runner.GetAwaiter().GetResult();
+‼186:             _tokenSource.Cancel(false);
+‼187:             _stream.Dispose();
+‼188:         }
+〰189:     }
+〰190: }
 ```
 
 ## Links

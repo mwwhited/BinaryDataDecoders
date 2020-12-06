@@ -27,6 +27,13 @@
  - (
  - "Saint George"
  - )
+ - Export
+ - (
+ - typeof
+ - (
+ - IDeviceDefinition
+ - )
+ - )
 
 ### Members
 

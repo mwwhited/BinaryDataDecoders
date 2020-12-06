@@ -15,12 +15,6 @@
 
  * Type: Task 
 
-#### Property - CancellationTokenSource
-
-##### Summary
-
- * Type: CancellationTokenSource 
-
 #### Method - Transmit
 
 #####  Parameters

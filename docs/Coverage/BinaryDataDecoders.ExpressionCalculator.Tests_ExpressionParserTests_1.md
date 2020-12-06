@@ -6,14 +6,14 @@
 | :-------------- | :----------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.ExpressionParserTests`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                |
-| Coveredlines    | `70`                                                                           |
-| Uncoveredlines  | `11`                                                                           |
+| Coveredlines    | `67`                                                                           |
+| Uncoveredlines  | `14`                                                                           |
 | Coverablelines  | `81`                                                                           |
 | Totallines      | `365`                                                                          |
-| Linecoverage    | `86.4`                                                                         |
-| Coveredbranches | `21`                                                                           |
+| Linecoverage    | `82.7`                                                                         |
+| Coveredbranches | `20`                                                                           |
 | Totalbranches   | `22`                                                                           |
-| Branchcoverage  | `95.4`                                                                         |
+| Branchcoverage  | `90.9`                                                                         |
 
 ## Metrics
 
@@ -27,7 +27,7 @@
 | 8          | 87.50 | 100      | `OptimizerTests`                       |
 | 1          | 57.14 | 100      | `OptimizerTests_WithExceptions`        |
 | 1          | 100   | 100      | `GetDistinctVariablesTests`            |
-| 10         | 92.30 | 90.0     | `VerifyOptimizerForComplexExpressions` |
+| 10         | 80.76 | 80.0     | `VerifyOptimizerForComplexExpressions` |
 
 ## Files
 
@@ -388,13 +388,13 @@
 〰352:             {
 ✔353:                 Assert.Inconclusive($"{nse.Message} not supported");
 ‼354:             }
-✔355:             catch (DivideByZeroException)
+‼355:             catch (DivideByZeroException)
 〰356:             {
-⚠357:                 if (x++ > 2)
+‼357:                 if (x++ > 2)
 〰358:                 {
 ‼359:                     throw;
 〰360:                 }
-✔361:                 goto tryAgain;
+‼361:                 goto tryAgain;
 〰362:             }
 ✔363:         }
 〰364:     }

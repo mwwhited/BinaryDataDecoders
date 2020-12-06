@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.IO.Ports.SerialPortFactory` |
 | Assembly        | `BinaryDataDecoders.IO.Ports`                   |
 | Coveredlines    | `0`                                             |
-| Uncoveredlines  | `18`                                            |
-| Coverablelines  | `18`                                            |
-| Totallines      | `38`                                            |
+| Uncoveredlines  | `21`                                            |
+| Coverablelines  | `21`                                            |
+| Totallines      | `41`                                            |
 | Linecoverage    | `0`                                             |
 | Coveredbranches | `0`                                             |
 | Totalbranches   | `12`                                            |
@@ -61,11 +61,14 @@
 ‼31:                      dataBits: config.DataBits,
 ‼32:                      stopBits: config.StopBits.AsSystem()
 ‼33:                      )
-‼34:                  );
-〰35:          }
-‼36:          public IEnumerable<string> GetDeviceNames() => SerialPort.GetPortNames().OrderBy(s => s);
-〰37:      }
-〰38:  }
+‼34:                  {
+‼35:                      ReadTimeout = config.ReadTimeout,
+‼36:                      WriteTimeout = config.WriteTimeout,
+‼37:                  });
+〰38:          }
+‼39:          public IEnumerable<string> GetDeviceNames() => SerialPort.GetPortNames().OrderBy(s => s);
+〰40:      }
+〰41:  }
 ```
 
 ## Links

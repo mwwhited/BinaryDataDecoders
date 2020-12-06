@@ -27,6 +27,13 @@
  - (
  - "Favero"
  - )
+ - Export
+ - (
+ - typeof
+ - (
+ - IDeviceDefinition
+ - )
+ - )
 
 ### Members
 

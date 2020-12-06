@@ -6,11 +6,11 @@
 | :-------------- | :------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.ScoreMachineState` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                          |
-| Coveredlines    | `10`                                                                            |
-| Uncoveredlines  | `3`                                                                             |
-| Coverablelines  | `13`                                                                            |
-| Totallines      | `41`                                                                            |
-| Linecoverage    | `76.9`                                                                          |
+| Coveredlines    | `11`                                                                            |
+| Uncoveredlines  | `7`                                                                             |
+| Coverablelines  | `18`                                                                            |
+| Totallines      | `37`                                                                            |
+| Linecoverage    | `61.1`                                                                          |
 | Coveredbranches | `0`                                                                             |
 | Totalbranches   | `8`                                                                             |
 | Branchcoverage  | `0`                                                                             |
@@ -52,29 +52,25 @@
 ✔16:              Left = left;
 ✔17:              Right = right;
 ✔18:              Clock = clock;
-✔19:          }
-〰20:  
-✔21:          public Fencer Left { get; }
-✔22:          public Fencer Right { get; }
-✔23:          public TimeSpan Clock { get; }
-✔24:          public byte Match { get; }
-〰25:  
-〰26:          public override string ToString()
-〰27:          {
-✔28:              return $"R:{Left} G:{Right} T:{Clock} M:{Match}";
-〰29:          }
-〰30:  
-〰31:          public override bool Equals(object obj)
-〰32:          {
-‼33:              return obj is IScoreMachineState i && Left.Equals(i.Left) && Right.Equals(i.Right) && Clock.Equals(i.Clock) && Match.Equals(i.Match);
-〰34:          }
-〰35:  
-〰36:          public override int GetHashCode()
-〰37:          {
-‼38:              return (Left, Right, Clock).GetHashCode();
-〰39:          }
-〰40:      }
-〰41:  }
+✔19:              Match = match;
+✔20:          }
+〰21:  
+✔22:          public Fencer Left { get; }
+✔23:          public Fencer Right { get; }
+✔24:          public TimeSpan Clock { get; }
+✔25:          public byte Match { get; }
+〰26:  
+✔27:          public override string ToString() => $"R:{Left} G:{Right} T:{Clock} M:{Match}";
+〰28:  
+‼29:          public override bool Equals(object obj) => obj switch
+‼30:          {
+‼31:              IScoreMachineState i => Left.Equals(i.Left) && Right.Equals(i.Right) && Clock.Equals(i.Clock) && Match.Equals(i.Match),
+‼32:              _ => false
+‼33:          };
+〰34:  
+‼35:          public override int GetHashCode() => (Left, Right, Clock).GetHashCode();
+〰36:      }
+〰37:  }
 ```
 
 ## Links

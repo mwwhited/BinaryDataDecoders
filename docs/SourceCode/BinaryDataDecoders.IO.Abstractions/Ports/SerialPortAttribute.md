@@ -106,3 +106,15 @@
    </ summary > 
   Parity 
 
+#### Public Property - ReadTimeout
+
+##### Summary
+
+ * Type: int 
+
+#### Public Property - WriteTimeout
+
+##### Summary
+
+ * Type: int 
+

@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.IO.Ports.SerialPortDeviceAdapter` |
 | Assembly        | `BinaryDataDecoders.IO.Ports`                         |
 | Coveredlines    | `0`                                                   |
-| Uncoveredlines  | `13`                                                  |
-| Coverablelines  | `13`                                                  |
-| Totallines      | `36`                                                  |
+| Uncoveredlines  | `15`                                                  |
+| Coverablelines  | `15`                                                  |
+| Totallines      | `44`                                                  |
 | Linecoverage    | `0`                                                   |
 | Coveredbranches | `0`                                                   |
 | Totalbranches   | `2`                                                   |
@@ -17,12 +17,14 @@
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name       |
-| :--------- | :---- | :------- | :--------- |
-| 1          | 0     | 100      | `ctor`     |
-| 1          | 0     | 100      | `get_Type` |
-| 1          | 0     | 100      | `get_Path` |
-| 2          | 0     | 0        | `TryOpen`  |
+| Complexity | Lines | Branches | Name              |
+| :--------- | :---- | :------- | :---------------- |
+| 1          | 0     | 100      | `ctor`            |
+| 1          | 0     | 100      | `get_Type`        |
+| 1          | 0     | 100      | `get_Path`        |
+| 1          | 0     | 100      | `get_BytesToRead` |
+| 1          | 0     | 100      | `get_Stream`      |
+| 2          | 0     | 0        | `TryOpen`         |
 
 ## Files
 
@@ -34,37 +36,45 @@
 〰3:   
 〰4:   namespace BinaryDataDecoders.IO.Ports
 〰5:   {
-〰6:       public class SerialPortDeviceAdapter : IDeviceAdapter
-〰7:       {
-〰8:           private readonly SerialPort _device;
-〰9:   
-‼10:          public SerialPortDeviceAdapter(SerialPort device) => _device = device;
-〰11:  
-‼12:          public string Type => nameof(SerialPort);
-‼13:          public string Path => _device.PortName;
-〰14:  
-〰15:          public bool TryOpen(out Stream? stream)
-〰16:          {
-‼17:              if (_device.IsOpen)
-〰18:              {
-‼19:                  stream = null;
-‼20:                  return false;
-〰21:              }
+〰6:       //TODO: this should be disposable so it can be cleaned up correctly
+〰7:       public class SerialPortDeviceAdapter : IBufferedDeviceAdapter
+〰8:       {
+〰9:           private readonly SerialPort _device;
+〰10:  
+‼11:          public SerialPortDeviceAdapter(SerialPort device) => _device = device;
+〰12:  
+‼13:          public string Type => nameof(SerialPort);
+‼14:          public string Path => _device.PortName;
+〰15:  
+‼16:          public int BytesToRead => _device.BytesToRead;
+〰17:  
+‼18:          public Stream Stream => _device.BaseStream;
+〰19:  
+〰20:          //public bool IsOpen => _device.IsOpen;
+〰21:          //public void Open() => _device.Open();
 〰22:  
-〰23:              try
-〰24:              {
-‼25:                  _device.Open();
-‼26:                  stream = _device.BaseStream;
-‼27:                  return true;
-〰28:              }
-‼29:              catch (IOException)
-〰30:              {
-‼31:                  stream = null;
-‼32:                  return false;
-〰33:              }
-‼34:          }
-〰35:      }
-〰36:  }
+〰23:          public bool TryOpen(out Stream? stream)
+〰24:          {
+‼25:              if (_device.IsOpen)
+〰26:              {
+‼27:                  stream = _device.BaseStream;
+‼28:                  return true;
+〰29:              }
+〰30:  
+〰31:              try
+〰32:              {
+‼33:                  _device.Open();
+‼34:                  stream = _device.BaseStream;
+‼35:                  return true;
+〰36:              }
+‼37:              catch (IOException)
+〰38:              {
+‼39:                  stream = null;
+‼40:                  return false;
+〰41:              }
+‼42:          }
+〰43:      }
+〰44:  }
 ```
 
 ## Links

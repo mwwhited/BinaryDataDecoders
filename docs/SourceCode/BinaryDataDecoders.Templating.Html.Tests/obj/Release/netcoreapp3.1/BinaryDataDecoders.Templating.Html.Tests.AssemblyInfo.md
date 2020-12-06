@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.3.0-rc.21"
+ - "0.3.0-rc.33"
  - )
  - System
  - .

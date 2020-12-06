@@ -14,13 +14,13 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.00
+* Duration: 00:00:00.02
 
 #### Standard Out
 
 ```
 TestContext Messages:
-R:S>012 L>Touch C>Yellow P>True G:S>006 L>Yellow C>None P>False T:00:02:56 M:0
+R:S>012 L>Touch C>Yellow P>True G:S>006 L>Yellow C>None P>False T:00:02:56 M:2
 ```
 
 ## Links

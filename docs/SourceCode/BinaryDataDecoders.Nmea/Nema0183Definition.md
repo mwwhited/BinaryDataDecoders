@@ -23,6 +23,13 @@
  - (
  - "NEMA 0183"
  - )
+ - Export
+ - (
+ - typeof
+ - (
+ - IDeviceDefinition
+ - )
+ - )
 
 ### Members
 

@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Archives.Zip.ZipFile` |
 | Assembly        | `BinaryDataDecoders.Archives`             |
 | Coveredlines    | `0`                                       |
-| Uncoveredlines  | `45`                                      |
-| Coverablelines  | `45`                                      |
-| Totallines      | `91`                                      |
+| Uncoveredlines  | `43`                                      |
+| Coverablelines  | `43`                                      |
+| Totallines      | `83`                                      |
 | Linecoverage    | `0`                                       |
 | Coveredbranches | `0`                                       |
 | Totalbranches   | `22`                                      |
@@ -57,7 +57,7 @@
 ‼27:                      byte[] fileContent = new byte[localFileHeader.CompressedSize];
 ‼28:                      Array.Copy(zipFileContents, offset, fileContent, 0, fileContent.Length);
 ‼29:                      File.WriteAllBytes(localFileHeader.FileName, Decompress(fileContent));
-‼30:                  offset += fileContent.Length;
+‼30:                      offset += fileContent.Length;
 〰31:                  }
 〰32:  
 〰33:  
@@ -74,51 +74,43 @@
 ‼44:                  return null;
 〰45:  
 ‼46:              using (MemoryStream compressedData = new MemoryStream(input))
-〰47:              {
-‼48:                  using (MemoryStream decompressedData = new MemoryStream())
-〰49:                  {
-‼50:                      using (DeflateStream deflateDecompress = new DeflateStream(compressedData, CompressionMode.Decompress, true))
-〰51:                      {
-‼52:                          byte[] buffer = new byte[1024];
-〰53:                          int bufferLen;
-〰54:                          do
-〰55:                          {
-‼56:                              bufferLen = deflateDecompress.Read(buffer, 0, buffer.Length);
-‼57:                              if (bufferLen > 0)
-‼58:                                  decompressedData.Write(buffer, 0, bufferLen);
-‼59:                          } while (bufferLen > 0);
-‼60:                      }
-‼61:                      return decompressedData.ToArray();
-〰62:                  }
-〰63:              }
-‼64:          }
-〰65:  
-〰66:          public static byte[] Compress(byte[] input)
-〰67:          {
-‼68:              if (input == null || input.Length < 1)
-‼69:                  return null;
-〰70:  
-‼71:              using (MemoryStream rawDataStreamIn = new MemoryStream(input))
-〰72:              {
-‼73:                  using (MemoryStream compressedDataStreamOut = new MemoryStream())
+‼47:              using (MemoryStream decompressedData = new MemoryStream())
+‼48:              using (DeflateStream deflateDecompress = new DeflateStream(compressedData, CompressionMode.Decompress, true))
+〰49:              {
+‼50:                  byte[] buffer = new byte[1024];
+〰51:                  int bufferLen;
+〰52:                  do
+〰53:                  {
+‼54:                      bufferLen = deflateDecompress.Read(buffer, 0, buffer.Length);
+‼55:                      if (bufferLen > 0)
+‼56:                          decompressedData.Write(buffer, 0, bufferLen);
+‼57:                  } while (bufferLen > 0);
+‼58:                  return decompressedData.ToArray();
+〰59:              }
+‼60:          }
+〰61:  
+〰62:          public static byte[] Compress(byte[] input)
+〰63:          {
+‼64:              if (input == null || input.Length < 1)
+‼65:                  return null;
+〰66:  
+‼67:              using (MemoryStream rawDataStreamIn = new MemoryStream(input))
+‼68:              using (MemoryStream compressedDataStreamOut = new MemoryStream())
+‼69:              using (DeflateStream deflateCompress = new DeflateStream(compressedDataStreamOut, CompressionMode.Compress, true))
+〰70:              {
+‼71:                  byte[] buffer = new byte[1024];
+〰72:                  int bufferLen;
+〰73:                  do
 〰74:                  {
-‼75:                      using (DeflateStream deflateCompress = new DeflateStream(compressedDataStreamOut, CompressionMode.Compress, true))
-〰76:                      {
-‼77:                          byte[] buffer = new byte[1024];
-〰78:                          int bufferLen;
-〰79:                          do
-〰80:                          {
-‼81:                              bufferLen = rawDataStreamIn.Read(buffer, 0, buffer.Length);
-‼82:                              if (bufferLen > 0)
-‼83:                                  deflateCompress.Write(buffer, 0, bufferLen);
-‼84:                          } while (bufferLen > 0);
-‼85:                      }
-‼86:                      return compressedDataStreamOut.ToArray();
-〰87:                  }
-〰88:              }
-‼89:          }
-〰90:      }
-〰91:  }
+‼75:                      bufferLen = rawDataStreamIn.Read(buffer, 0, buffer.Length);
+‼76:                      if (bufferLen > 0)
+‼77:                          deflateCompress.Write(buffer, 0, bufferLen);
+‼78:                  } while (bufferLen > 0);
+‼79:                  return compressedDataStreamOut.ToArray();
+〰80:              }
+‼81:          }
+〰82:      }
+〰83:  }
 ```
 
 ## Links
