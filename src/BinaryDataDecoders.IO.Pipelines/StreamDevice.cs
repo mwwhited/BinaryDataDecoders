@@ -144,7 +144,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             while (!_token.IsCancellationRequested)
             {
                 await mre.WaitAsync();
-                while (_transmissionQueue.TryTake(out var item))
+                while (!_token.IsCancellationRequested && _transmissionQueue.TryTake(out var item))
                 {
                     try
                     {
@@ -171,11 +171,11 @@ namespace BinaryDataDecoders.IO.Pipelines
                                 throw new IOException(ex.Message, ex);
                         }
                     }
-                }
 
-                if (!_token.IsCancellationRequested && _minimumTrasmissionDelay > 0)
-                {
-                    await Task.Delay(_minimumTrasmissionDelay);
+                    if (!_token.IsCancellationRequested && _minimumTrasmissionDelay > 0)
+                    {
+                        await Task.Delay(_minimumTrasmissionDelay);
+                    }
                 }
             }
         });
