@@ -27,3 +27,9 @@
 
  - out Stream ? stream 
 
+#### Property - Stream
+
+##### Summary
+
+ * Type: Stream 
+

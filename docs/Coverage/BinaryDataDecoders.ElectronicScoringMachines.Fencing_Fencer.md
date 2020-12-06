@@ -7,10 +7,10 @@
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.Fencer` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`               |
 | Coveredlines    | `10`                                                                 |
-| Uncoveredlines  | `4`                                                                  |
-| Coverablelines  | `14`                                                                 |
-| Totallines      | `46`                                                                 |
-| Linecoverage    | `71.4`                                                               |
+| Uncoveredlines  | `8`                                                                  |
+| Coverablelines  | `18`                                                                 |
+| Totallines      | `31`                                                                 |
+| Linecoverage    | `55.5`                                                               |
 | Coveredbranches | `0`                                                                  |
 | Totalbranches   | `8`                                                                  |
 | Branchcoverage  | `0`                                                                  |
@@ -55,32 +55,17 @@
 ✔18:          public Lights Lights { get; }
 ✔19:          public bool Priority { get; }
 〰20:  
-〰21:          public override string ToString()
-〰22:          {
-✔23:              return $"S>{Score:000} L>{Lights} C>{Cards} P>{Priority}";
-〰24:          }
-〰25:  
-〰26:          public override bool Equals(object obj)
-〰27:          {
-‼28:              return obj is Fencer i && Score == i.Score && Cards == i.Cards && Lights == i.Lights && Priority == i.Priority;
-〰29:          }
-〰30:  
-〰31:          public override int GetHashCode()
-〰32:          {
-‼33:              return (Score, Cards, Lights, Priority).GetHashCode();
-〰34:          }
-〰35:  
-〰36:          public static bool operator ==(Fencer left, Fencer right)
-〰37:          {
-‼38:              return left.Equals(right);
-〰39:          }
-〰40:  
-〰41:          public static bool operator !=(Fencer left, Fencer right)
-〰42:          {
-‼43:              return !(left == right);
-〰44:          }
-〰45:      }
-〰46:  }
+✔21:          public override string ToString() => $"S>{Score:000} L>{Lights} C>{Cards} P>{Priority}";
+‼22:          public override bool Equals(object obj) => obj switch
+‼23:          {
+‼24:              Fencer i => Score == i.Score && Cards == i.Cards && Lights == i.Lights && Priority == i.Priority,
+‼25:              _ => false
+‼26:          };
+‼27:          public override int GetHashCode() => (Score, Cards, Lights, Priority).GetHashCode();
+‼28:          public static bool operator ==(Fencer left, Fencer right) => left.Equals(right);
+‼29:          public static bool operator !=(Fencer left, Fencer right) => !(left == right);
+〰30:      }
+〰31:  }
 ```
 
 ## Links

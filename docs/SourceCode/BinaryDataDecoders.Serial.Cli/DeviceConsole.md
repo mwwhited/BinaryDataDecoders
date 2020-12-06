@@ -9,17 +9,29 @@
 
 ### Members
 
-#### Field - usbHid
+#### Private ReadOnly Field - usbHid
 
 ##### Summary
 
  * Type: UsbHidFactory 
 
-#### Field - serial
+#### Private ReadOnly Field - serial
 
 ##### Summary
 
  * Type: SerialPortFactory 
+
+#### Private ReadOnly Field - _tokenSource
+
+##### Summary
+
+ * Type: CancellationTokenSource 
+
+#### Private Property - _token
+
+##### Summary
+
+ * Type: CancellationToken 
 
 #### Public Method - UserInteractionAsync
 
@@ -27,7 +39,6 @@
 
  - IDeviceTransmitter < TMessage > transmitter 
  - Func < int , TMessage > messageFactory 
- - CancellationTokenSource cts 
 
 #### Private Method - GetSerialPort
 
@@ -41,7 +52,7 @@
 
  - object definition 
 
-#### Public Method - Execute
+#### Public Async Method - Execute
 
 #####  Parameters
 

@@ -15,11 +15,23 @@
 
  * Type: 
 
-#### Private ReadOnly Field - _stream
+#### Private Property - _stream
 
 ##### Summary
 
  * Type: Stream 
+
+#### Private ReadOnly Field - _adapter
+
+##### Summary
+
+ * Type: IDeviceAdapter 
+
+#### Private ReadOnly Field - _device
+
+##### Summary
+
+ * Type: IDeviceDefinition 
 
 #### Private ReadOnly Field - _segmentDefintion
 
@@ -45,20 +57,26 @@
 
  * Type: 
 
-#### Public Constructor - StreamDevice
+#### Private ReadOnly Field - _token
 
-#####  Parameters
+##### Summary
 
- - Stream stream 
- - IDeviceDefinition device 
- - CancellationTokenSource ? cancellationTokenSource = default 
- - int minimumTrasmissionDelay = 1000 
+ * Type: CancellationToken 
 
-#### Public Property - CancellationTokenSource
+#### Private ReadOnly Field - _tokenSource
 
 ##### Summary
 
  * Type: CancellationTokenSource 
+
+#### Public Constructor - StreamDevice
+
+#####  Parameters
+
+ - IDeviceAdapter adapter 
+ - IDeviceDefinition device 
+ - CancellationToken token = default 
+ - int minimumTrasmissionDelay = 1000 
 
 #### Public Property - Runner
 
@@ -78,11 +96,29 @@
 
  - TMessage message 
 
+#### Private Method - ReportDeviceStatus
+
+#####  Parameters
+
+ - StreamDeviceStatus status 
+
+#### Private Async Method - Initializer
+
+#####  Parameters
+
+ - AsyncManualResetEvent mre 
+
 #### Private Method - Receiver
 
+#####  Parameters
+
+ - AsyncManualResetEvent mre 
 
 #### Private Method - Transmitter
 
+#####  Parameters
+
+ - AsyncManualResetEvent mre 
 
 #### Public Method - Dispose
 

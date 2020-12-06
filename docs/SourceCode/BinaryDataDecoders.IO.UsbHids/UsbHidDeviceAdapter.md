@@ -33,6 +33,18 @@
 
  * Type: string 
 
+#### Private Field - _stream
+
+##### Summary
+
+ * Type: Stream 
+
+#### Public Property - Stream
+
+##### Summary
+
+ * Type: Stream 
+
 #### Public Method - TryOpen
 
 #####  Parameters

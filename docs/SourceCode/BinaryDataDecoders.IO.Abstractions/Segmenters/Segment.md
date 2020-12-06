@@ -21,6 +21,12 @@
 
  - params byte [  ] starts 
 
+#### Public Static Method - StartsWithMask
+
+#####  Parameters
+
+ - byte mask 
+
 #### Public Static Method - AndEndsWith
 
 #####  Parameters

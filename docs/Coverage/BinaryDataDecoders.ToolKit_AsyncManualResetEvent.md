@@ -36,7 +36,7 @@
 〰5:   {
 〰6:       public class AsyncManualResetEvent
 〰7:       {
-〰8:           // http://blogs.msdn.com/b/pfxteam/archive/2012/02/11/10266920.aspx
+〰8:           // https://devblogs.microsoft.com/pfxteam/building-async-coordination-primitives-part-1-asyncmanualresetevent/
 ‼9:           private volatile TaskCompletionSource<bool> m_tcs = new TaskCompletionSource<bool>();
 ‼10:          public Task WaitAsync() { return m_tcs.Task; }
 〰11:  

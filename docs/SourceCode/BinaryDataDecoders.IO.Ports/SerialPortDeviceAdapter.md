@@ -33,6 +33,18 @@
 
  * Type: string 
 
+#### Public Property - BytesToRead
+
+##### Summary
+
+ * Type: int 
+
+#### Public Property - Stream
+
+##### Summary
+
+ * Type: Stream 
+
 #### Public Method - TryOpen
 
 #####  Parameters

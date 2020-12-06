@@ -1,13 +1,13 @@
 ﻿# Build Log
 
 * ⚠  Cannot convert null literal to non-nullable reference type.
+  * [Security/Cryptography/OneTimeCode.cs](../src/BinaryDataDecoders.ToolKit/Security/Cryptography/OneTimeCode.cs#97) (97/78)
+* ⚠  Cannot convert null literal to non-nullable reference type.
   * [ComponentModel/ViewModelBase.cs](../src/BinaryDataDecoders.ToolKit/ComponentModel/ViewModelBase.cs#30) (30/91)
 * ⚠  Cannot convert null literal to non-nullable reference type.
   * [Input/DelegateCommand.cs](../src/BinaryDataDecoders.ToolKit/Input/DelegateCommand.cs#10) (10/87)
 * ⚠  Cannot convert null literal to non-nullable reference type.
   * [Linq/EnumerableEx.cs](../src/BinaryDataDecoders.ToolKit/Linq/EnumerableEx.cs#11) (11/102)
-* ⚠  Cannot convert null literal to non-nullable reference type.
-  * [Security/Cryptography/OneTimeCode.cs](../src/BinaryDataDecoders.ToolKit/Security/Cryptography/OneTimeCode.cs#97) (97/78)
 * ⚠  Possible null reference argument for parameter 'input' in 'void XsltTransformer.Transform(string template, string inputSource, IXPathNavigable input, string output)'.
   * [Xml/Xsl/XsltTransformer.cs](../src/BinaryDataDecoders.ToolKit/Xml/Xsl/XsltTransformer.cs#68) (68/107)
 * ⚠  Nullability of reference types in return type of 'IXPathNavigable? XsltTransformer.ReadAsXml(string fileName)' doesn't match the target delegate 'Func<string, IXPathNavigable>'.
@@ -58,6 +58,8 @@
   * [Reflection/ApplicationInformation.cs](../src/BinaryDataDecoders.ToolKit/Reflection/ApplicationInformation.cs#29) (29/26)
 * ⚠  Cannot convert null literal to non-nullable reference type.
   * [Threading/Tasks/TaskEx.cs](../src/BinaryDataDecoders.ToolKit/Threading/Tasks/TaskEx.cs#37) (37/16)
+* ⚠  Converting null literal or possible null value to non-nullable type.
+  * [Threading/AsyncAutoResetEvent.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncAutoResetEvent.cs#31) (31/52)
 * ⚠  Cannot convert null literal to non-nullable reference type.
   * [Threading/Tasks/TaskEx.cs](../src/BinaryDataDecoders.ToolKit/Threading/Tasks/TaskEx.cs#70) (70/16)
 * ⚠  Possible null reference return.
@@ -71,11 +73,17 @@
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [Threading/AsyncSemaphore.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncSemaphore.cs#40) (40/52)
 * ⚠  Converting null literal or possible null value to non-nullable type.
-  * [Threading/AsyncAutoResetEvent.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncAutoResetEvent.cs#31) (31/52)
-* ⚠  Converting null literal or possible null value to non-nullable type.
   * [Threading/AsyncReaderWriterLock.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncReaderWriterLock.cs#42) (42/53)
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [Threading/AsyncReaderWriterLock.cs](../src/BinaryDataDecoders.ToolKit/Threading/AsyncReaderWriterLock.cs#80) (80/53)
+* ⚠  Cannot convert null literal to non-nullable reference type.
+  * [Logging/TestLogger.cs](../src/BinaryDataDecoders.TestUtilities/Logging/TestLogger.cs#15) (15/31)
+* ⚠  Cannot convert null literal to non-nullable reference type.
+  * [Logging/TestLogger.cs](../src/BinaryDataDecoders.TestUtilities/Logging/TestLogger.cs#24) (24/31)
+* ⚠  Possible null reference assignment.
+  * [Configuration/TupleConfiguration.cs](../src/BinaryDataDecoders.TestUtilities/Configuration/TupleConfiguration.cs#49) (49/35)
+* ⚠  Possible null reference argument for parameter 'value' in 'void IDictionary<string, string>.Add(string key, string value)'.
+  * [Configuration/TupleConfiguration.cs](../src/BinaryDataDecoders.TestUtilities/Configuration/TupleConfiguration.cs#53) (53/37)
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [SyntaxTreeNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.cs#70) (70/104)
 * ⚠  Converting null literal or possible null value to non-nullable type.
@@ -100,14 +108,14 @@
   * [SemanticModelNavigatorFactory.cs](../src/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.cs#213) (213/74)
 * ⚠  The variable 'cMode' is assigned but its value is never used
   * [PlayFair.cs](../src/BinaryDataDecoders.Cryptography/PlayFair.cs#116) (116/18)
-* ⚠  Converting null literal or possible null value to non-nullable type.
-  * [MultiScaleImages/MultiScaleTileEx.cs](../src/BinaryDataDecoders.Drawing/MultiScaleImages/MultiScaleTileEx.cs#226) (226/39)
+* ⚠  Non-nullable property 'Data' is uninitialized. Consider declaring the property as nullable.
+  * [Mending/JpegSegment.cs](../src/BinaryDataDecoders.Drawing/Mending/JpegSegment.cs#9) (9/23)
 * ⚠  Converting null literal or possible null value to non-nullable type.
   * [Mending/JpegSegmentReader.cs](../src/BinaryDataDecoders.Drawing/Mending/JpegSegmentReader.cs#54) (54/41)
 * ⚠  Possible null reference assignment.
   * [Mending/JpegSegmentReader.cs](../src/BinaryDataDecoders.Drawing/Mending/JpegSegmentReader.cs#64) (64/32)
-* ⚠  Non-nullable property 'Data' is uninitialized. Consider declaring the property as nullable.
-  * [Mending/JpegSegment.cs](../src/BinaryDataDecoders.Drawing/Mending/JpegSegment.cs#9) (9/23)
+* ⚠  Converting null literal or possible null value to non-nullable type.
+  * [MultiScaleImages/MultiScaleTileEx.cs](../src/BinaryDataDecoders.Drawing/MultiScaleImages/MultiScaleTileEx.cs#226) (226/39)
 * ⚠  Missing XML comment for publicly visible type or member 'Code39'
   * [Barcodes/Code39.cs](../src/BinaryDataDecoders.Drawing/Barcodes/Code39.cs#12) (12/18)
 * ⚠  Missing XML comment for publicly visible type or member 'Code39.EncodeFullAscii(string)'
@@ -191,11 +199,11 @@
 * ⚠  Missing XML comment for publicly visible type or member 'PngPack.Unpack(byte[])'
   * [Packers/PngPack.cs](../src/BinaryDataDecoders.Drawing/Packers/PngPack.cs#33) (33/23)
 * ⚠  'IStreamDevice<TMessage>.MessageReceived' hides inherited member 'IDeviceReceiver<TMessage>.MessageReceived'. Use the new keyword if hiding was intended.
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#12) (12/38)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#10) (10/38)
 * ⚠  'IStreamDevice<TMessage>.Transmit(TMessage)' hides inherited member 'IDeviceTransmitter<TMessage>.Transmit(TMessage)'. Use the new keyword if hiding was intended.
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#16) (16/20)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#15) (15/20)
 * ⚠  Nullable value type may be null.
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#66) (66/117)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#76) (76/117)
 * ⚠  Missing XML comment for publicly visible type or member 'DeviceErrorEventArgs'
   * [DeviceErrorEventArgs.cs](../src/BinaryDataDecoders.IO.Abstractions/DeviceErrorEventArgs.cs#5) (5/18)
 * ⚠  Missing XML comment for publicly visible type or member 'DeviceErrorEventArgs.DeviceErrorEventArgs(Exception, ErrorHandling)'
@@ -216,6 +224,10 @@
   * [Functions/IChecksumCalculator.cs](../src/BinaryDataDecoders.IO.Abstractions/Functions/IChecksumCalculator.cs#5) (5/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IChecksumCalculator.Simple16(ReadOnlySpan<ushort>)'
   * [Functions/IChecksumCalculator.cs](../src/BinaryDataDecoders.IO.Abstractions/Functions/IChecksumCalculator.cs#7) (7/16)
+* ⚠  Missing XML comment for publicly visible type or member 'IBufferedDeviceAdapter'
+  * [IBufferedDeviceAdapter.cs](../src/BinaryDataDecoders.IO.Abstractions/IBufferedDeviceAdapter.cs#3) (3/22)
+* ⚠  Missing XML comment for publicly visible type or member 'IBufferedDeviceAdapter.BytesToRead'
+  * [IBufferedDeviceAdapter.cs](../src/BinaryDataDecoders.IO.Abstractions/IBufferedDeviceAdapter.cs#5) (5/13)
 * ⚠  Missing XML comment for publicly visible type or member 'IDevice'
   * [IDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IDevice.cs#3) (3/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IDevice<TMessage>'
@@ -228,10 +240,16 @@
   * [IDeviceAdapter.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceAdapter.cs#8) (8/16)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceAdapter.TryOpen(out Stream?)'
   * [IDeviceAdapter.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceAdapter.cs#10) (10/14)
+* ⚠  Missing XML comment for publicly visible type or member 'IDeviceAdapter.Stream'
+  * [IDeviceAdapter.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceAdapter.cs#11) (11/16)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinition'
   * [IDeviceDefinition.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinition.cs#3) (3/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinition<TMessage>'
   * [IDeviceDefinition.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinition.cs#6) (6/22)
+* ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinitionInitialize'
+  * [IDeviceDefinitionInitialize.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionInitialize.cs#7) (7/22)
+* ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinitionInitialize.InitializeAsync(IDeviceAdapter, CancellationToken)'
+  * [IDeviceDefinitionInitialize.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionInitialize.cs#9) (9/14)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinitionReceiver<TMessage>'
   * [IDeviceDefinitionReceiver.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionReceiver.cs#6) (6/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinitionReceiver<TMessage>.SegmentDefintion'
@@ -239,9 +257,9 @@
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinitionReceiver<TMessage>.Decoder'
   * [IDeviceDefinitionReceiver.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionReceiver.cs#9) (9/35)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinitionTransmitter<TMessage>'
-  * [IDeviceDefinitionTransmitter.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionTransmitter.cs#6) (6/22)
+  * [IDeviceDefinitionTransmitter.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionTransmitter.cs#5) (5/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceDefinitionTransmitter<TMessage>.Encoder'
-  * [IDeviceDefinitionTransmitter.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionTransmitter.cs#8) (8/35)
+  * [IDeviceDefinitionTransmitter.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionTransmitter.cs#7) (7/35)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceFactory'
   * [IDeviceFactory.cs](../src/BinaryDataDecoders.IO.Abstractions/IDeviceFactory.cs#5) (5/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IDeviceFactory.CanGetDevice(object?)'
@@ -265,19 +283,19 @@
 * ⚠  Missing XML comment for publicly visible type or member 'IImplictDeviceFactory.GetDevices(object?)'
   * [IImplictDeviceFactory.cs](../src/BinaryDataDecoders.IO.Abstractions/IImplictDeviceFactory.cs#8) (8/37)
 * ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>'
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#7) (7/22)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#6) (6/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>.Runner'
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#9) (9/14)
-* ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>.CancellationTokenSource'
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#10) (10/33)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#8) (8/14)
 * ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>.MessageReceived'
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#12) (12/38)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#10) (10/38)
+* ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>.DeviceStatus'
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#11) (11/48)
 * ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>.MessageReceivedError'
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#13) (13/50)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#12) (12/50)
 * ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>.MessageTrasmitterError'
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#14) (14/50)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#13) (13/50)
 * ⚠  Missing XML comment for publicly visible type or member 'IStreamDevice<TMessage>.Transmit(TMessage)'
-  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#16) (16/20)
+  * [IStreamDevice.cs](../src/BinaryDataDecoders.IO.Abstractions/IStreamDevice.cs#15) (15/20)
 * ⚠  Missing XML comment for publicly visible type or member 'IMessageDecoder<TResponse>'
   * [Messages/IMessageDecoder.cs](../src/BinaryDataDecoders.IO.Abstractions/Messages/IMessageDecoder.cs#5) (5/22)
 * ⚠  Missing XML comment for publicly visible type or member 'IMessageDecoder<TResponse>.Decode(ReadOnlySequence<byte>)'
@@ -298,6 +316,10 @@
   * [Ports/SerialPortAttribute.cs](../src/BinaryDataDecoders.IO.Abstractions/Ports/SerialPortAttribute.cs#12) (12/16)
 * ⚠  Missing XML comment for publicly visible type or member 'SerialPortAttribute.SerialPortAttribute(int, Parity, int, StopBits)'
   * [Ports/SerialPortAttribute.cs](../src/BinaryDataDecoders.IO.Abstractions/Ports/SerialPortAttribute.cs#16) (16/16)
+* ⚠  Missing XML comment for publicly visible type or member 'SerialPortAttribute.ReadTimeout'
+  * [Ports/SerialPortAttribute.cs](../src/BinaryDataDecoders.IO.Abstractions/Ports/SerialPortAttribute.cs#41) (41/20)
+* ⚠  Missing XML comment for publicly visible type or member 'SerialPortAttribute.WriteTimeout'
+  * [Ports/SerialPortAttribute.cs](../src/BinaryDataDecoders.IO.Abstractions/Ports/SerialPortAttribute.cs#42) (42/20)
 * ⚠  Missing XML comment for publicly visible type or member 'InvalidSegmentationException'
   * [Segmenters/InvalidSegmentationException.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/InvalidSegmentationException.cs#7) (7/18)
 * ⚠  Missing XML comment for publicly visible type or member 'InvalidSegmentationException.InvalidSegmentationException()'
@@ -321,27 +343,29 @@
 * ⚠  Missing XML comment for publicly visible type or member 'OnSegmentReceived'
   * [Segmenters/OnSegmentReceived.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/OnSegmentReceived.cs#6) (6/26)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#7) (7/25)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#8) (8/25)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.StartsWith(ControlCharacters)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#9) (9/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#10) (10/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.StartsWith(params byte[])'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#11) (11/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#12) (12/47)
+* ⚠  Missing XML comment for publicly visible type or member 'Segment.StartsWithMask(byte)'
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#14) (14/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.AndEndsWith(ISegmentBuildDefinition, ControlCharacters)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#13) (13/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#23) (23/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.AndEndsWith(ISegmentBuildDefinition, byte)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#16) (16/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#26) (26/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.ExtendedWithLengthAt<TOfType>(ISegmentBuildDefinition, long, Endianness)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#24) (24/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#34) (34/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.WithMaxLength(ISegmentBuildDefinition, long)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#37) (37/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#47) (47/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.WithOptions(ISegmentBuildDefinition, SegmentionOptions)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#45) (45/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#55) (55/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.AndIsLength(ISegmentBuildDefinition, long)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#52) (52/47)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#62) (62/47)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.ThenDo(ISegmentBuildDefinition, OnSegmentReceived)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#61) (61/34)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#71) (71/34)
 * ⚠  Missing XML comment for publicly visible type or member 'Segment.ThenAs<TMessage>(ISegmentBuildDefinition, IMessageDecoder<TMessage>, OnMessageReceived<TMessage>)'
-  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#73) (73/34)
+  * [Segmenters/Segment.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/Segment.cs#83) (83/34)
 * ⚠  Missing XML comment for publicly visible type or member 'SegmentationStatus'
   * [Segmenters/SegmentationStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/SegmentationStatus.cs#4) (4/17)
 * ⚠  Missing XML comment for publicly visible type or member 'SegmentationStatus.Complete'
@@ -392,6 +416,22 @@
   * [Segmenters/StartAndFixLengthSegmenter.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/StartAndFixLengthSegmenter.cs#24) (24/44)
 * ⚠  Missing XML comment for publicly visible type or member 'StartAndFixLengthSegmenter.Read(ReadOnlySequence<byte>)'
   * [Segmenters/StartAndFixLengthSegmenter.cs](../src/BinaryDataDecoders.IO.Abstractions/Segmenters/StartAndFixLengthSegmenter.cs#26) (26/89)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#3) (3/17)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus.Unknown'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#5) (5/9)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus.Initializing'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#7) (7/9)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus.Initialized'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#8) (8/9)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus.Transmitting'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#10) (10/9)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus.Transmitted'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#11) (11/9)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus.Receiving'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#13) (13/9)
+* ⚠  Missing XML comment for publicly visible type or member 'StreamDeviceStatus.Received'
+  * [StreamDeviceStatus.cs](../src/BinaryDataDecoders.IO.Abstractions/StreamDeviceStatus.cs#14) (14/9)
 * ⚠  Missing XML comment for publicly visible type or member 'UsbHidAttribute'
   * [UsbHids/UsbHidAttribute.cs](../src/BinaryDataDecoders.IO.Abstractions/UsbHids/UsbHidAttribute.cs#6) (6/18)
 * ⚠  Missing XML comment for publicly visible type or member 'UsbHidAttribute.UsbHidAttribute()'
@@ -407,27 +447,33 @@
 * ⚠  Missing XML comment for publicly visible type or member 'UsbHidAttribute.ProductMask'
   * [UsbHids/UsbHidAttribute.cs](../src/BinaryDataDecoders.IO.Abstractions/UsbHids/UsbHidAttribute.cs#28) (28/23)
 * ⚠  Non-nullable field '_segmentDefintion' is uninitialized. Consider declaring the field as nullable.
-  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#21) (21/16)
+  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#26) (26/16)
 * ⚠  Non-nullable field '_decoder' is uninitialized. Consider declaring the field as nullable.
-  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#21) (21/16)
+  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#26) (26/16)
 * ⚠  Non-nullable field '_encoder' is uninitialized. Consider declaring the field as nullable.
-  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#21) (21/16)
+  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#26) (26/16)
 * ⚠  Non-nullable event 'MessageReceived' is uninitialized. Consider declaring the event as nullable.
-  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#21) (21/16)
+  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#26) (26/16)
+* ⚠  Non-nullable event 'DeviceStatus' is uninitialized. Consider declaring the event as nullable.
+  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#26) (26/16)
 * ⚠  Non-nullable event 'MessageReceivedError' is uninitialized. Consider declaring the event as nullable.
-  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#21) (21/16)
+  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#26) (26/16)
 * ⚠  Non-nullable event 'MessageTrasmitterError' is uninitialized. Consider declaring the event as nullable.
-  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#21) (21/16)
+  * [StreamDevice.cs](../src/BinaryDataDecoders.IO.Pipelines/StreamDevice.cs#26) (26/16)
+* ⚠  Non-nullable field '_stream' is uninitialized. Consider declaring the field as nullable.
+  * [UsbHidDeviceAdapter.cs](../src/BinaryDataDecoders.IO.UsbHids/UsbHidDeviceAdapter.cs#10) (10/16)
 * ⚠  Missing XML comment for publicly visible type or member 'RadexOneDefinition'
-  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#12) (12/18)
+  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#14) (14/18)
 * ⚠  Missing XML comment for publicly visible type or member 'RadexOneDefinition.Encoder'
-  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#14) (14/46)
+  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#16) (16/46)
 * ⚠  Missing XML comment for publicly visible type or member 'RadexOneDefinition.SegmentDefintion'
-  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#16) (16/40)
+  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#18) (18/40)
 * ⚠  Missing XML comment for publicly visible type or member 'RadexOneDefinition.Decoder'
-  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#22) (22/46)
+  * [RadexOneDefinition.cs](../src/BinaryDataDecoders.Quarta.RadexOne/RadexOneDefinition.cs#24) (24/46)
+* ⚠  The variable 'ex' is declared but never used
+  * [H4nDefinition.cs](../src/BinaryDataDecoders.Zoom.H4n/H4nDefinition.cs#70) (70/30)
 * ⚠  Cannot convert null literal to non-nullable reference type.
-  * [DeviceConsole.cs](../src/BinaryDataDecoders.Serial.Cli/DeviceConsole.cs#54) (54/116)
+  * [DeviceConsole.cs](../src/BinaryDataDecoders.Serial.Cli/DeviceConsole.cs#56) (56/122)
 * ⚠  'JsonPathParser' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
   * [obj/Release/netstandard2.1/JsonPathParser.cs](../src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathParser.cs#35) (35/22)
 * ⚠  'JsonPathLexer' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
@@ -437,19 +483,33 @@
 * ⚠  'JsonPathBaseVisitor<Result>' does not need a CLSCompliant attribute because the assembly does not have a CLSCompliant attribute
   * [obj/Release/netstandard2.1/JsonPathBaseVisitor.cs](../src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathBaseVisitor.cs#35) (35/22)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Xml/Xsl/XsltExtensionFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/XsltExtensionFactoryTests.cs#13) (13/28)
+  * [IO/TempFileHandleTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/TempFileHandleTests.cs#11) (11/28)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Collections/ReversableEnumeratorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.cs#11) (11/28)
+  * [IO/PathExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathExTests.cs#10) (10/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO/PathNavigatorFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathNavigatorFactoryTests.cs#14) (14/28)
+* ⚠  Possible null reference argument for parameter 'value' in 'TestContext TextContextExtensions.AddResult(TestContext context, object value, string fileName = "")'.
+  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#38) (38/40)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#13) (13/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [IO/StreamExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/StreamExTests.cs#13) (13/28)
+* ⚠  Argument of type '(string, IXPathNavigable)[]' cannot be used for parameter 'navigators' of type 'IEnumerable<(string source, IXPathNavigable? navigator)>' in 'IXPathNavigable XPathExtensions.MergeNavigators(IEnumerable<(string source, IXPathNavigable? navigator)> navigators)' due to differences in the nullability of reference types.
+  * [Xml/XPath/MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#22) (22/26)
 * ⚠  Possible null reference argument for parameter 'nameTable' in 'XsltExtensionContext.XsltExtensionContext(NameTable nameTable)'.
   * [Xml/Xsl/Extensions/XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#163) (163/52)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [Xml/Xsl/Extensions/XPath20FunctionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/Extensions/XPath20FunctionsTests.cs#22) (22/28)
-* ⚠  Argument of type '(string, IXPathNavigable)[]' cannot be used for parameter 'navigators' of type 'IEnumerable<(string source, IXPathNavigable? navigator)>' in 'IXPathNavigable XPathExtensions.MergeNavigators(IEnumerable<(string source, IXPathNavigable? navigator)> navigators)' due to differences in the nullability of reference types.
-  * [Xml/XPath/MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#22) (22/26)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Collections/ReversableEnumeratorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.cs#11) (11/28)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#13) (13/28)
+* ⚠  Non-nullable field 'mockRepository' is uninitialized. Consider declaring the field as nullable.
+  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#15) (15/32)
+* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
+  * [Xml/Xsl/XsltExtensionFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/XsltExtensionFactoryTests.cs#13) (13/28)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [Xml/XPath/MergedXPathNavigatorTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/XPath/MergedXPathNavigatorTests.cs#14) (14/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/TempFileHandleTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/TempFileHandleTests.cs#11) (11/28)
 * ⚠  Dereference of a possibly null reference.
   * [Xml/Linq/XFragmentTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/XFragmentTests.cs#23) (23/30)
 * ⚠  Dereference of a possibly null reference.
@@ -458,20 +518,6 @@
   * [Xml/Linq/XFragmentTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/XFragmentTests.cs#39) (39/30)
 * ⚠  Dereference of a possibly null reference.
   * [Xml/Linq/XFragmentTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/XFragmentTests.cs#40) (40/29)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/StreamExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/StreamExTests.cs#13) (13/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/PathNavigatorFactoryTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathNavigatorFactoryTests.cs#14) (14/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [IO/PathExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/IO/PathExTests.cs#10) (10/28)
-* ⚠  Possible null reference argument for parameter 'value' in 'TestContext TextContextExtensions.AddResult(TestContext context, object value, string fileName = "")'.
-  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#38) (38/40)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Xml/Linq/ObjectXmlExtensionsTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Xml/Linq/ObjectXmlExtensionsTests.cs#13) (13/28)
-* ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
-  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#13) (13/28)
-* ⚠  Non-nullable field 'mockRepository' is uninitialized. Consider declaring the field as nullable.
-  * [Reflection/ReflectionElementNodeTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs#15) (15/32)
 * ⚠  Non-nullable property 'TestContext' is uninitialized. Consider declaring the property as nullable.
   * [MemoryExTests.cs](../src/BinaryDataDecoders.ToolKit.Tests/MemoryExTests.cs#13) (13/28)
 * ⚠  Nullability of reference types in value of type '(XName, string Tag)[]' doesn't match target type 'IEnumerable<(XName name, string? value)>'.

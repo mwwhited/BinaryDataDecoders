@@ -7,24 +7,26 @@
 | Class           | `BinaryDataDecoders.IO.Ports.SerialPortAttribute` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`              |
 | Coveredlines    | `0`                                               |
-| Uncoveredlines  | `13`                                              |
-| Coverablelines  | `13`                                              |
-| Totallines      | `41`                                              |
+| Uncoveredlines  | `15`                                              |
+| Coverablelines  | `15`                                              |
+| Totallines      | `44`                                              |
 | Linecoverage    | `0`                                               |
 | Coveredbranches | `0`                                               |
 | Totalbranches   | `0`                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name           |
-| :--------- | :---- | :------- | :------------- |
-| 1          | 0     | 100      | `ctor`         |
-| 1          | 0     | 100      | `ctor`         |
-| 1          | 0     | 100      | `ctor`         |
-| 1          | 0     | 100      | `get_BaudRate` |
-| 1          | 0     | 100      | `get_DataBits` |
-| 1          | 0     | 100      | `get_StopBits` |
-| 1          | 0     | 100      | `get_Parity`   |
+| Complexity | Lines | Branches | Name               |
+| :--------- | :---- | :------- | :----------------- |
+| 1          | 0     | 100      | `ctor`             |
+| 1          | 0     | 100      | `ctor`             |
+| 1          | 0     | 100      | `ctor`             |
+| 1          | 0     | 100      | `get_BaudRate`     |
+| 1          | 0     | 100      | `get_DataBits`     |
+| 1          | 0     | 100      | `get_StopBits`     |
+| 1          | 0     | 100      | `get_Parity`       |
+| 1          | 0     | 100      | `get_ReadTimeout`  |
+| 1          | 0     | 100      | `get_WriteTimeout` |
 
 ## Files
 
@@ -70,8 +72,11 @@
 〰37:          /// Default parity bit
 〰38:          /// </summary>
 ‼39:          public Parity Parity { get; set; } = Parity.None;
-〰40:      }
-〰41:  }
+〰40:  
+‼41:          public int ReadTimeout { get; set; } = -1;
+‼42:          public int WriteTimeout { get; set; } = -1;
+〰43:      }
+〰44:  }
 ```
 
 ## Links

@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.01
+* Duration: 00:00:00.00
 
 #### Standard Out
 
@@ -40,7 +40,7 @@ Result: X + Y
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.01
+* Duration: 00:00:00.02
 
 #### Standard Out
 
@@ -66,7 +66,7 @@ Result: 2.1 + 3.4
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.00
+* Duration: 00:00:00.01
 
 #### Standard Out
 

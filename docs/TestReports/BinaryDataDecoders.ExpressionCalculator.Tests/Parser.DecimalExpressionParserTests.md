@@ -15,14 +15,14 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.02 | `SimpleParserTests`                                  |
-| ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
+| ✔ Passed             | 00:00:00.03 | `SimpleParserTests`                                  |
+| ✔ Passed             | 00:00:00.01 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |
 | ✔ Passed             | 00:00:00.00 | `Just decimal value`                                 |
 | ✔ Passed             | 00:00:00.00 | `Simple factorial`                                   |
 | ✔ Passed             | 00:00:00.00 | `Negative factorial`                                 |
-| ✔ Passed             | 00:00:00.01 | `Parse Complex Expression`                           |
+| ✔ Passed             | 00:00:00.00 | `Parse Complex Expression`                           |
 | ✔ Passed             | 00:00:00.00 | `SimpleParserTests (B*--A,B * --A)`                  |
 
 ## OptimizerTests
@@ -40,9 +40,9 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.02 | `OptimizerTests`                                     |
-| ✔ Passed             | 00:00:00.01 | `OptimizerTests ((A),A)`                             |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
+| ✔ Passed             | 00:00:00.03 | `OptimizerTests`                                     |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
+| ✔ Passed             | 00:00:00.01 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B*1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (1*B,B)`                             |
@@ -74,7 +74,7 @@
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (-1*(A*B),-(A * B))`                 |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (A!,A!)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A)!,A!)`                           |
-| ✔ Passed             | 00:00:00.00 | `OptimizerTests (3!!,720)`                           |
+| ✔ Passed             | 00:00:00.01 | `OptimizerTests (3!!,720)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (2!!!,2)`                            |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!,N!!)`                           |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (N!!!,N!!!)`                         |
@@ -94,13 +94,13 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.04 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
+| ✔ Passed             | 00:00:00.09 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.02 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A-B)/A"`                        |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*((B+(-1*C))+((D*(B+(-1*C)))+E)+((F*G)+H))+((D*(B+(-1*C)))+E))"` |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "(A*((B+(-1*C))+((D*(B+(-1*C)))+E)+((F*G)+H))+((D*(B+(-1*C)))+E))"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A+B+((C*D)+E))*F)+G+((D/H)*I)+J"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*(B/C)+D"`                      |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*B+C"`                          |
@@ -149,7 +149,7 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*1)"`                          |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A/B)+(-1*C))*D*E*F)+G"`       |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A*B)+C)+(D*E*F)"`              |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "((A/(1+(-1*(B+C))))*D)+E"`       |
+| ✔ Passed             | 00:00:00.02 | `Check Expressions "((A/(1+(-1*(B+C))))*D)+E"`       |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A-(B*C))*D)+E"`                |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A+(-1*B))/C)*(D*E)*F)+G"`     |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A/B)*((C*D)*E)*F)+G"`          |
@@ -219,8 +219,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.09 | `PoorlyFormedExpressions`                            |
-| ✔ Passed             | 00:00:00.07 | `PoorlyFormedExpressions (-A!)`                      |
+| ✔ Passed             | 00:00:00.11 | `PoorlyFormedExpressions`                            |
+| ✔ Passed             | 00:00:00.09 | `PoorlyFormedExpressions (-A!)`                      |
 | ✔ Passed             | 00:00:00.01 | `PoorlyFormedExpressions (B/*1)`                     |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**)`                      |
 | ✔ Passed             | 00:00:00.00 | `PoorlyFormedExpressions (B**A)`                     |

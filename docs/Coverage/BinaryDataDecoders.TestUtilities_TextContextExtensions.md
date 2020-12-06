@@ -9,7 +9,7 @@
 | Coveredlines    | `20`                                                     |
 | Uncoveredlines  | `23`                                                     |
 | Coverablelines  | `43`                                                     |
-| Totallines      | `184`                                                    |
+| Totallines      | `170`                                                    |
 | Linecoverage    | `46.5`                                                   |
 | Coveredbranches | `16`                                                     |
 | Totalbranches   | `36`                                                     |
@@ -147,70 +147,56 @@
 〰118:         //                    from type in assembly.GetTypes()
 〰119:         //                    select type;
 〰120:         //    var testType = typeQuery.FirstOrDefault(t => t.FullName == context.FullyQualifiedTestClassName);
-〰121: 
-〰122:         //    var testClass = Activator.CreateInstance(testType);
-〰123: 
-〰124:         //    var targetName = string.IsNullOrWhiteSpace(target) ? context.TestName : target;
-〰125: 
-〰126:         //    if (string.IsNullOrWhiteSpace(target))
-〰127:         //        target = null;
-〰128: 
-〰129:         //    var possibleResources = target != null ? new[] {
-〰130:         //      $"{testType.Name}_{context.TestName}_{target}" ,
-〰131:         //      $"{testType.Name}_{context.TestName}_{target}.json",
-〰132:         //      $"{testType.Name}_{target}" ,
-〰133:         //      $"{testType.Name}_{target}.json",
-〰134: 
-〰135:         //      $"{context.TestName}_{target}",
-〰136:         //      $"{context.TestName}_{target}.json",
-〰137:         //      $"{target}",
-〰138:         //      $"{target}.json",
-〰139:         //    } : new[]
-〰140:         //    {
-〰141:         //      $"{testType.Name}_{context.TestName}",
-〰142:         //      $"{testType.Name}_{context.TestName}.json",
-〰143:         //      $"{context.TestName}",
-〰144:         //      $"{context.TestName}.json",
-〰145:         //    }.Where(i => i != null);
-〰146: 
-〰147:         //    async Task<string> getValueAsync()
-〰148:         //    {
-〰149:         //        foreach (var possible in possibleResources)
-〰150:         //        {
-〰151:         //            var result = await testClass.GetResourceAsStringAsync(possible);
-〰152:         //            if (!string.IsNullOrWhiteSpace(result))
-〰153:         //                return result;
-〰154:         //        }
-〰155:         //        return default;
-〰156:         //    }
-〰157: 
-〰158:         //    var content = await getValueAsync();
-〰159: 
-〰160:         //    if (string.IsNullOrWhiteSpace(content))
-〰161:         //        return default;
-〰162: 
-〰163:         //    if (typeof(T) == typeof(string))
-〰164:         //        return (T)(object)content;
-〰165:         //    else if (typeof(T) == typeof(JToken))
-〰166:         //        return (T)(object)JToken.Parse(content);
-〰167:         //    else if (typeof(T) == typeof(JObject))
-〰168:         //        return (T)(object)JObject.Parse(content);
-〰169:         //    else if (typeof(T) == typeof(JArray))
-〰170:         //        return (T)(object)JArray.Parse(content);
-〰171: 
-〰172:         //    var services = new ServiceCollection()
-〰173:         //            .AddToolkitServices()
-〰174:         //            .BuildServiceProvider();
-〰175: 
-〰176:         //    var deserializer = services.GetService<IObjectDeserializer>();
-〰177: 
-〰178:         //    var result = await deserializer.DeserializeAsync<T>(content);
-〰179:         //    return result;
-〰180: 
-〰181: 
-〰182:         //}
-〰183:     }
-〰184: }
+〰121:         //    var testClass = Activator.CreateInstance(testType);
+〰122:         //    var targetName = string.IsNullOrWhiteSpace(target) ? context.TestName : target;
+〰123:         //    if (string.IsNullOrWhiteSpace(target))
+〰124:         //        target = null;
+〰125:         //    var possibleResources = target != null ? new[] {
+〰126:         //      $"{testType.Name}_{context.TestName}_{target}" ,
+〰127:         //      $"{testType.Name}_{context.TestName}_{target}.json",
+〰128:         //      $"{testType.Name}_{target}" ,
+〰129:         //      $"{testType.Name}_{target}.json",
+〰130:         //      $"{context.TestName}_{target}",
+〰131:         //      $"{context.TestName}_{target}.json",
+〰132:         //      $"{target}",
+〰133:         //      $"{target}.json",
+〰134:         //    } : new[]
+〰135:         //    {
+〰136:         //      $"{testType.Name}_{context.TestName}",
+〰137:         //      $"{testType.Name}_{context.TestName}.json",
+〰138:         //      $"{context.TestName}",
+〰139:         //      $"{context.TestName}.json",
+〰140:         //    }.Where(i => i != null);
+〰141:         //    async Task<string> getValueAsync()
+〰142:         //    {
+〰143:         //        foreach (var possible in possibleResources)
+〰144:         //        {
+〰145:         //            var result = await testClass.GetResourceAsStringAsync(possible);
+〰146:         //            if (!string.IsNullOrWhiteSpace(result))
+〰147:         //                return result;
+〰148:         //        }
+〰149:         //        return default;
+〰150:         //    }
+〰151:         //    var content = await getValueAsync();
+〰152:         //    if (string.IsNullOrWhiteSpace(content))
+〰153:         //        return default;
+〰154:         //    if (typeof(T) == typeof(string))
+〰155:         //        return (T)(object)content;
+〰156:         //    else if (typeof(T) == typeof(JToken))
+〰157:         //        return (T)(object)JToken.Parse(content);
+〰158:         //    else if (typeof(T) == typeof(JObject))
+〰159:         //        return (T)(object)JObject.Parse(content);
+〰160:         //    else if (typeof(T) == typeof(JArray))
+〰161:         //        return (T)(object)JArray.Parse(content);
+〰162:         //    var services = new ServiceCollection()
+〰163:         //            .AddToolkitServices()
+〰164:         //            .BuildServiceProvider();
+〰165:         //    var deserializer = services.GetService<IObjectDeserializer>();
+〰166:         //    var result = await deserializer.DeserializeAsync<T>(content);
+〰167:         //    return result;
+〰168:         //}
+〰169:     }
+〰170: }
 ```
 
 ## Links

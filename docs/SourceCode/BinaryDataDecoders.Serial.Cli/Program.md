@@ -9,7 +9,7 @@
 
 ### Members
 
-#### Static Method - Main
+#### Static Async Method - Main
 
 #####  Parameters
 
