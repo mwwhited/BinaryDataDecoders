@@ -21,8 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Cryptogr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Cryptography.Tests", "BinaryDataDecoders.Cryptography.Tests\BinaryDataDecoders.Cryptography.Tests.csproj", "{E42FA50E-05BA-4C78-AF03-D965A3D09F75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Serial.Cli", "BinaryDataDecoders.Serial.Cli\BinaryDataDecoders.Serial.Cli.csproj", "{5EB159DD-6468-4930-B54B-A864DA887EF1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO", "BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj", "{133E7C19-78A9-4665-B69F-ADC70A1BEA30}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.EByteElectronicTechnology", "BinaryDataDecoders.EByteElectronicTechnology\BinaryDataDecoders.EByteElectronicTechnology.csproj", "{897B7D4E-816C-455E-8F29-7C1F510C7CBE}"
@@ -188,7 +186,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Text.Mar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Net.Tests", "BinaryDataDecoders.Net.Tests\BinaryDataDecoders.Net.Tests.csproj", "{DE0BC6B7-150D-4A2F-B471-61433BC62788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Zoom.H4n.Tests", "BinaryDataDecoders.Zoom.H4n.Tests\BinaryDataDecoders.Zoom.H4n.Tests.csproj", "{B83CFFB0-74D8-4FCD-92D3-A4E265FADB87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Zoom.H4n.Tests", "BinaryDataDecoders.Zoom.H4n.Tests\BinaryDataDecoders.Zoom.H4n.Tests.csproj", "{B83CFFB0-74D8-4FCD-92D3-A4E265FADB87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -232,10 +230,6 @@ Global
 		{E42FA50E-05BA-4C78-AF03-D965A3D09F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E42FA50E-05BA-4C78-AF03-D965A3D09F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E42FA50E-05BA-4C78-AF03-D965A3D09F75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5EB159DD-6468-4930-B54B-A864DA887EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EB159DD-6468-4930-B54B-A864DA887EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EB159DD-6468-4930-B54B-A864DA887EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EB159DD-6468-4930-B54B-A864DA887EF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{133E7C19-78A9-4665-B69F-ADC70A1BEA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{133E7C19-78A9-4665-B69F-ADC70A1BEA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{133E7C19-78A9-4665-B69F-ADC70A1BEA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
