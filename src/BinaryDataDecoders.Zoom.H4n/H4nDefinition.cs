@@ -4,6 +4,7 @@ using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.IO.Segmenters;
 using System.ComponentModel;
 using System.Composition;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace BinaryDataDecoders.Zoom.H4n
         IDeviceDefinitionTransmitter<IH4nMessage>,
         IDeviceDefinitionInitialize
     {
+        private readonly int _maxInitCount = 1024;
         public ISegmentBuildDefinition SegmentDefintion { get; } =
             Segment.StartsWithMask((byte)(Record | Peak | Mic | Led1 | Led2))
                    .AndIsLength(1)
@@ -32,16 +34,19 @@ namespace BinaryDataDecoders.Zoom.H4n
         {
             var stream = device.Stream;
             var buffered = device as IBufferedDeviceAdapter;
-            //TODO: should have a max counter and exception if triggered
+            var maxInitCount = _maxInitCount;
             do
             {
                 do
                 {
+                    maxInitCount--;
                     stream.WriteByte(0x00);
                     await stream.FlushAsync(token);
                     await Task.Delay(30);
+
+                    if (maxInitCount < 0) throw new IOException($"Unable to Initialize {nameof(H4nDefinition)}");
                 }
-                while (buffered.BytesToRead < 4);
+                while (!token.IsCancellationRequested && buffered.BytesToRead < 4);
 
                 var buffer = new byte[buffered.BytesToRead];
                 var result = await stream.ReadAsync(buffer, token);
