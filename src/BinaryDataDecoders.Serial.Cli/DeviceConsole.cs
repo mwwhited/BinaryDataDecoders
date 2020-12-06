@@ -55,14 +55,14 @@ namespace BinaryDataDecoders.Serial.Cli
 
         public async Task Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage> messageFactory = null)
         {
-            Task HandleStream(IDeviceAdapter device)
+            async Task HandleStream(IDeviceAdapter device)
             {
                 if (device.TryOpen(out var stream))
                     using (stream ?? throw new ApplicationException())
                     {
-                        var streamDevice = new StreamDevice<TMessage>(stream, device, definition, _token);
+                        var streamDevice = new StreamDevice<TMessage>(device, definition, _token);//stream,
                         streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
-                        streamDevice.DeviceStatus += (s, e) => Console.WriteLine($"Status: {e}");
+                       // streamDevice.DeviceStatus += (s, e) => Console.WriteLine($"Status: {e}");
                         streamDevice.MessageReceivedError += (s, e) =>
                         {
                             Console.Error.WriteLine(e.Exception.Message);
@@ -78,7 +78,7 @@ namespace BinaryDataDecoders.Serial.Cli
                         if (messageFactory != null && streamDevice is IDeviceTransmitter<TMessage> transmitter)
                             uiTasks = UserInteractionAsync(transmitter, messageFactory);
 
-                        return Task.WhenAll(
+                        await Task.WhenAll(
                             Task.Run(() =>
                             {
                                 Console.WriteLine("Enter to exit");

@@ -13,7 +13,7 @@ namespace BinaryDataDecoders.IO.Pipelines
     {
         private readonly IProducerConsumerCollection<TMessage> _transmissionQueue = new ConcurrentQueue<TMessage>();
 
-        private readonly Stream _stream;
+        private Stream _stream => _adapter.Stream;
         private readonly IDeviceAdapter _adapter;
         private readonly IDeviceDefinition _device;
         private readonly ISegmentBuildDefinition _segmentDefintion;
@@ -24,17 +24,15 @@ namespace BinaryDataDecoders.IO.Pipelines
         private readonly CancellationTokenSource _tokenSource;
 
         public StreamDevice(
-            Stream stream,
             IDeviceAdapter adapter,
             IDeviceDefinition device,
             CancellationToken token = default,
             int minimumTrasmissionDelay = 1000 //TODO should this default be overideable from the devicedefinition or it's attributes?
             )
         {
-            _tokenSource =  CancellationTokenSource.CreateLinkedTokenSource(_token);
+            _tokenSource = CancellationTokenSource.CreateLinkedTokenSource(token);
             _token = _tokenSource.Token;
 
-            _stream = stream;
             _adapter = adapter;
             _device = device;
             _minimumTrasmissionDelay = minimumTrasmissionDelay;
@@ -94,7 +92,6 @@ namespace BinaryDataDecoders.IO.Pipelines
             return Task.FromResult(0);
         }
 
-
         private async Task Initializer(AsyncManualResetEvent mre)
         {
             if (!_token.IsCancellationRequested && _device is IDeviceDefinitionInitialize initializer)
@@ -105,6 +102,7 @@ namespace BinaryDataDecoders.IO.Pipelines
             await ReportDeviceStatus(StreamDeviceStatus.Initialized);
             mre.Set();
         }
+
         private Task Receiver(AsyncManualResetEvent mre) => Task.Run(async () =>
         {
             while (!_token.IsCancellationRequested)
@@ -133,6 +131,7 @@ namespace BinaryDataDecoders.IO.Pipelines
                             _tokenSource.Cancel(true);
                             break;
 
+                        default:
                         case ErrorHandling.Throw:
                             throw new IOException(ex.Message, ex);
                     }

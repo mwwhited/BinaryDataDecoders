@@ -3,6 +3,7 @@ using SerialPort = System.IO.Ports.SerialPort;
 
 namespace BinaryDataDecoders.IO.Ports
 {
+    //TODO: this should be disposable so it can be cleaned up correctly
     public class SerialPortDeviceAdapter : IBufferedDeviceAdapter
     {
         private readonly SerialPort _device;

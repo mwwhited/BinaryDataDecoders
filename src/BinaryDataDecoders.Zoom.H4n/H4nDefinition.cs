@@ -36,6 +36,7 @@ namespace BinaryDataDecoders.Zoom.H4n
             try
             {
                 var stream = device.Stream;
+
                 var buffered = device as IBufferedDeviceAdapter;
                 //TODO: this is getting stuck... need to change from stream to IDeviceStream and expose bytes to read.
                 //TODO: should have a max counter and exception if triggered
