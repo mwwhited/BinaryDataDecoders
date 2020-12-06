@@ -18,29 +18,14 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common
         public Lights Lights { get; }
         public bool Priority { get; }
 
-        public override string ToString()
+        public override string ToString() => $"S>{Score:000} L>{Lights} C>{Cards} P>{Priority}";
+        public override bool Equals(object obj) => obj switch
         {
-            return $"S>{Score:000} L>{Lights} C>{Cards} P>{Priority}";
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Fencer i && Score == i.Score && Cards == i.Cards && Lights == i.Lights && Priority == i.Priority;
-        }
-
-        public override int GetHashCode()
-        {
-            return (Score, Cards, Lights, Priority).GetHashCode();
-        }
-
-        public static bool operator ==(Fencer left, Fencer right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(Fencer left, Fencer right)
-        {
-            return !(left == right);
-        }
+            Fencer i => Score == i.Score && Cards == i.Cards && Lights == i.Lights && Priority == i.Priority,
+            _ => false
+        };
+        public override int GetHashCode() => (Score, Cards, Lights, Priority).GetHashCode();
+        public static bool operator ==(Fencer left, Fencer right) => left.Equals(right);
+        public static bool operator !=(Fencer left, Fencer right) => !(left == right);
     }
 }

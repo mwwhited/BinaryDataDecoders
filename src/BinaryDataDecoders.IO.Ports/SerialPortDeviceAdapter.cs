@@ -3,7 +3,8 @@ using SerialPort = System.IO.Ports.SerialPort;
 
 namespace BinaryDataDecoders.IO.Ports
 {
-    public class SerialPortDeviceAdapter : IDeviceAdapter
+    //TODO: this should be disposable so it can be cleaned up correctly
+    public class SerialPortDeviceAdapter : IBufferedDeviceAdapter
     {
         private readonly SerialPort _device;
 
@@ -12,12 +13,19 @@ namespace BinaryDataDecoders.IO.Ports
         public string Type => nameof(SerialPort);
         public string Path => _device.PortName;
 
+        public int BytesToRead => _device.BytesToRead;
+
+        public Stream Stream => _device.BaseStream;
+
+        //public bool IsOpen => _device.IsOpen;
+        //public void Open() => _device.Open();
+
         public bool TryOpen(out Stream? stream)
         {
             if (_device.IsOpen)
             {
-                stream = null;
-                return false;
+                stream = _device.BaseStream;
+                return true;
             }
 
             try

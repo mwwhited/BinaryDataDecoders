@@ -13,19 +13,21 @@ namespace BinaryDataDecoders.Serial.Cli
 {
     public class DeviceConsole
     {
-        UsbHidFactory usbHid = new UsbHidFactory();
-        SerialPortFactory serial = new SerialPortFactory();
+        private readonly UsbHidFactory usbHid = new UsbHidFactory();
+        private readonly SerialPortFactory serial = new SerialPortFactory();
+
+        private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
+        private CancellationToken _token => _tokenSource.Token;
 
         public Task UserInteractionAsync<TMessage>(
             IDeviceTransmitter<TMessage> transmitter,
-            Func<int, TMessage> messageFactory,
-            CancellationTokenSource cts) => Task.Run(async () =>
+            Func<int, TMessage> messageFactory) => Task.Run(async () =>
             {
                 int x = 0;
-                while (!cts.IsCancellationRequested)
+                while (!_token.IsCancellationRequested)
                 {
                     await transmitter.Transmit(messageFactory(x++));
-                    if (!cts.IsCancellationRequested)
+                    if (!_token.IsCancellationRequested)
                         await Task.Delay(1000);
                 }
             });
@@ -51,55 +53,55 @@ namespace BinaryDataDecoders.Serial.Cli
             usbHid.GetDevice(definition: definition) ??
                  throw new NullReferenceException($"Enable to configure \"{definition}\"");
 
-        public void Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage> messageFactory = null)
+        public async Task Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage> messageFactory = null)
         {
-            Task HandleStream(Stream stream)
+            async Task HandleStream(IDeviceAdapter device)
             {
-                var streamDevice = new StreamDevice<TMessage>(stream, definition);
-                streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
-                streamDevice.MessageReceivedError += (s, e) =>
-                {
-                    Console.Error.WriteLine(e.Exception.Message);
-                    e.ErrorHandling = ErrorHandling.Ignore;
-                };
-                streamDevice.MessageTrasmitterError += (s, e) =>
-                {
-                    Console.Error.WriteLine(e.Exception.Message);
-                    e.ErrorHandling = ErrorHandling.Ignore;
-                };
-
-                Task? uiTasks = null;
-                if (messageFactory != null && streamDevice is IDeviceTransmitter<TMessage> transmitter)
-                    uiTasks = UserInteractionAsync(transmitter, messageFactory, streamDevice.CancellationTokenSource);
-
-                return Task.WhenAll(
-                    Task.Run(() =>
+                if (device.TryOpen(out var stream))
+                    using (stream ?? throw new ApplicationException())
                     {
-                        Console.WriteLine("Enter to exit");
-                        Console.ReadLine();
-                    }),
-                    uiTasks ?? Task.FromResult(0),
-                    streamDevice.Runner
-                );
+                        var streamDevice = new StreamDevice<TMessage>(device, definition, _token);//stream,
+                        streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
+                       // streamDevice.DeviceStatus += (s, e) => Console.WriteLine($"Status: {e}");
+                        streamDevice.MessageReceivedError += (s, e) =>
+                        {
+                            Console.Error.WriteLine(e.Exception.Message);
+                            e.ErrorHandling = ErrorHandling.Ignore;
+                        };
+                        streamDevice.MessageTrasmitterError += (s, e) =>
+                        {
+                            Console.Error.WriteLine(e.Exception.Message);
+                            e.ErrorHandling = ErrorHandling.Ignore;
+                        };
+
+                        Task? uiTasks = null;
+                        if (messageFactory != null && streamDevice is IDeviceTransmitter<TMessage> transmitter)
+                            uiTasks = UserInteractionAsync(transmitter, messageFactory);
+
+                        await Task.WhenAll(
+                            Task.Run(() =>
+                            {
+                                Console.WriteLine("Enter to exit");
+                                Console.ReadLine();
+                                _tokenSource.Cancel();
+                                Console.WriteLine("Done!");
+                            }, _tokenSource.Token),
+                            uiTasks ?? Task.FromResult(0),
+                            streamDevice.Runner
+                        );
+                    }
+                throw new ApplicationException($"{device} Not found");
             }
 
             if (usbHid.CanGetDevice(definition))
             {
                 var device = GetHidDevice(definition);
-                if (device.TryOpen(out var stream))
-                    using (stream ?? throw new ApplicationException())
-                    {
-                        HandleStream(stream).Wait();
-                    }
+                await HandleStream(device);
             }
             else if (serial.CanGetDevice(definition))
             {
                 var device = GetSerialPort(definition);
-                if (device.TryOpen(out var stream))
-                    using (stream ?? throw new ApplicationException())
-                    {
-                        HandleStream(stream).Wait();
-                    }
+                await HandleStream(device);
             }
         }
     }

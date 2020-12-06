@@ -11,6 +11,7 @@
   </PropertyGroup>
   
 	<ItemGroup>
+		<PackageReference Include="System.Composition.Hosting" Version="5.0.0" />
 		<PackageReference Include="System.IO.Pipelines" Version="5.0.0" />
 		<PackageReference Include="System.IO.Ports" Version="5.0.0" />
 		<PackageReference Include="System.Reactive.Core" Version="5.0.0" />
@@ -23,9 +24,13 @@
 		<ProjectReference Include="..\BinaryDataDecoders.IO.Ports\BinaryDataDecoders.IO.Ports.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.IO.UsbHids\BinaryDataDecoders.IO.UsbHids.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.IO\BinaryDataDecoders.IO.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Kuando.Busylight\BinaryDataDecoders.Kuando.Busylight.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.LanC\BinaryDataDecoders.LanC.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.Nmea\BinaryDataDecoders.Nmea.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Quarta.RadexOne.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Velleman.K8055\BinaryDataDecoders.Velleman.K8055.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Zoom.H4n\BinaryDataDecoders.Zoom.H4n.csproj" />
 	</ItemGroup>
 
 </Project>

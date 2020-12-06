@@ -12,11 +12,15 @@ namespace BinaryDataDecoders.IO.UsbHids
         public string Type => nameof(HidDevice);
         public string Path => _device.DevicePath;
 
+        private Stream _stream;
+        public Stream Stream => _stream;
+
+        //public void Open() => _device.Open();
         public bool TryOpen(out Stream? stream)
         {
             if (_device.TryOpen(out var s))
             {
-                stream = s;
+                _stream = stream = s;
                 return true;
             }
             else

@@ -5,7 +5,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
 {
     public class AsyncManualResetEvent
     {
-        // http://blogs.msdn.com/b/pfxteam/archive/2012/02/11/10266920.aspx
+        // https://devblogs.microsoft.com/pfxteam/building-async-coordination-primitives-part-1-asyncmanualresetevent/
         private volatile TaskCompletionSource<bool> m_tcs = new TaskCompletionSource<bool>();
         public Task WaitAsync() { return m_tcs.Task; }
 

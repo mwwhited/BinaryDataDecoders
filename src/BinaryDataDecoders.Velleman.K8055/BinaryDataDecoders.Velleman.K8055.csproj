@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="HidSharp" Version="2.1.0" />
+    <PackageReference Include="System.Composition" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>

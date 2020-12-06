@@ -1,5 +1,4 @@
 ﻿using BinaryDataDecoders.IO.Messages;
-using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.IO
 {

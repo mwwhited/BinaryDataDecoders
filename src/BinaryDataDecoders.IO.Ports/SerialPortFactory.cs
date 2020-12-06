@@ -31,7 +31,10 @@ namespace BinaryDataDecoders.IO.Ports
                     dataBits: config.DataBits,
                     stopBits: config.StopBits.AsSystem()
                     )
-                );
+                {
+                    ReadTimeout = config.ReadTimeout,
+                    WriteTimeout = config.WriteTimeout,
+                });
         }
         public IEnumerable<string> GetDeviceNames() => SerialPort.GetPortNames().OrderBy(s => s);
     }
