@@ -188,6 +188,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Net.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Zoom.H4n.Tests", "BinaryDataDecoders.Zoom.H4n.Tests\BinaryDataDecoders.Zoom.H4n.Tests.csproj", "{B83CFFB0-74D8-4FCD-92D3-A4E265FADB87}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Controller.Cli", "BinaryDataDecoders.IO.Controller.Cli\BinaryDataDecoders.IO.Controller.Cli.csproj", "{0DB3A64F-4440-4C24-AB26-C11D160AE246}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -440,6 +442,10 @@ Global
 		{B83CFFB0-74D8-4FCD-92D3-A4E265FADB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B83CFFB0-74D8-4FCD-92D3-A4E265FADB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B83CFFB0-74D8-4FCD-92D3-A4E265FADB87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB3A64F-4440-4C24-AB26-C11D160AE246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB3A64F-4440-4C24-AB26-C11D160AE246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB3A64F-4440-4C24-AB26-C11D160AE246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB3A64F-4440-4C24-AB26-C11D160AE246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -484,6 +490,7 @@ Global
 		{6FD06250-A534-4F90-AC4D-B5BC2083D82B} = {B6086859-E23C-4CC0-8D01-7F023863FAD3}
 		{9DA77566-ACCD-4AB7-A659-1E93EE98E331} = {B6086859-E23C-4CC0-8D01-7F023863FAD3}
 		{B83CFFB0-74D8-4FCD-92D3-A4E265FADB87} = {C03241B8-6842-4873-99F2-85C7FD41A691}
+		{0DB3A64F-4440-4C24-AB26-C11D160AE246} = {B6086859-E23C-4CC0-8D01-7F023863FAD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A0F5E9F-1152-44D6-AAC1-32C474A8585F}

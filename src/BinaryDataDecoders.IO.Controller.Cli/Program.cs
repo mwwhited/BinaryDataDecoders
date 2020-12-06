@@ -1,7 +1,4 @@
-﻿using BinaryDataDecoders.IO;
-using BinaryDataDecoders.Nmea;
-using BinaryDataDecoders.Quarta.RadexOne;
-using BinaryDataDecoders.Zoom.H4n;
+﻿using BinaryDataDecoders.Zoom.H4n;
 using System;
 using System.ComponentModel;
 using System.Composition.Hosting;
@@ -10,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.Serial.Cli
+namespace BinaryDataDecoders.IO.Controller.Cli
 {
     class Program
     {

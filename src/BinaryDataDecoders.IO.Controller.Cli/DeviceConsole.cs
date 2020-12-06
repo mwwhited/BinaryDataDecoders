@@ -1,15 +1,13 @@
-﻿using BinaryDataDecoders.IO;
-using BinaryDataDecoders.IO.Pipelines;
+﻿using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.IO.UsbHids;
 using System;
-using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.Serial.Cli
+namespace BinaryDataDecoders.IO.Controller.Cli
 {
     public class DeviceConsole
     {

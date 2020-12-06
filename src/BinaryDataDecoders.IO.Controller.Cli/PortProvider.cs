@@ -1,6 +1,6 @@
 ﻿using System.IO.Ports;
 
-namespace BinaryDataDecoders.Serial.Cli
+namespace BinaryDataDecoders.IO.Controller.Cli
 {
     public class PortProvider
     {    

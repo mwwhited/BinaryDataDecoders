@@ -1,10 +1,8 @@
-﻿using BinaryDataDecoders.IO;
-using BinaryDataDecoders.IO.Pipelines;
-using BinaryDataDecoders.IO.Ports;
+﻿using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.IO.Segmenters;
 using System.IO.Ports;
 
-namespace BinaryDataDecoders.Serial.Cli
+namespace BinaryDataDecoders.IO.Controller.Cli
 {
     [SerialPort(BaudRate = 115200)]
     public class ZStickFactory
