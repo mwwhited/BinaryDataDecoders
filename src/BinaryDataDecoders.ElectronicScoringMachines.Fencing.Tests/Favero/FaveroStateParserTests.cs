@@ -22,7 +22,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
 	             Left score = 12
 	             Time = 2:56
 	             The Lamps ON are: Red, Yellow right, Left priorite.
-	             Number of Matchs = 2
+	             Number of Matches = 2
 	             Left yellow penalty lamp = ON. 
             */
             var frame = new byte[]
@@ -47,7 +47,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero
             Assert.AreEqual(false, state.Right.Priority, "Check Right Priority");
 
             Assert.AreEqual(new TimeSpan(0, 2, 56), state.Clock, "Check Clock");
-            Assert.AreEqual(0, state.Match, "Check Match");
+            Assert.AreEqual(2, state.Match, "Check Match");
         }
 
     }
