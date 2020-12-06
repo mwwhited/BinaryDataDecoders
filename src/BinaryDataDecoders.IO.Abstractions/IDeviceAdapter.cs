@@ -8,5 +8,7 @@ namespace BinaryDataDecoders.IO
         string Path { get; }
 
         bool TryOpen(out Stream? stream);
+        Stream Stream { get; }
+        //void Open();
     }
 }

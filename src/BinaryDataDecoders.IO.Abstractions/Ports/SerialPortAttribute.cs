@@ -37,5 +37,8 @@ namespace BinaryDataDecoders.IO.Ports
         /// Default parity bit
         /// </summary>
         public Parity Parity { get; set; } = Parity.None;
+
+        public int ReadTimeout { get; set; } = -1;
+        public int WriteTimeout { get; set; } = -1;
     }
 }

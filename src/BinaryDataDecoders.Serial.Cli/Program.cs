@@ -8,12 +8,13 @@ using System.Composition.Hosting;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.Serial.Cli
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var configuration = new ContainerConfiguration();
             //var asm = Path.GetDirectoryName(typeof(Program).Assembly.CodeBase);
@@ -51,8 +52,6 @@ namespace BinaryDataDecoders.Serial.Cli
             //} while (true);
 
 
-
-
             //configuration.WithAssemblies()
 
             //configuration.WithAssemblies()
@@ -73,13 +72,20 @@ namespace BinaryDataDecoders.Serial.Cli
             //});
 
             var definition = new H4nDefinition();
-            new DeviceConsole().Execute(definition, id =>
-                id < 100 ? (IH4nMessage)new H4nNullRequest(): new H4nRequest(H4nRequests.Poll)
-                );
+            await new DeviceConsole().Execute(definition, id => (id % 10) switch
+                {
+                    2 => (IH4nMessage)new H4nRequest(H4nRequests.Channel1),
+                    4 => (IH4nMessage)new H4nRequest(H4nRequests.Channel2),
+                    6 => (IH4nMessage)new H4nRequest(H4nRequests.Channel2),
+                    7 => (IH4nMessage)new H4nRequest(H4nRequests.Mic),
+                    _ => (IH4nMessage)new H4nRequest(H4nRequests.Poll)
+                });
+            //id < 100 ? (IH4nMessage)new H4nNullRequest(): new H4nRequest(H4nRequests.Poll)
 
             // var definition = new Nema0183Definition();
             //new DeviceConsole().Execute(definition);
+
+            Console.WriteLine("done");
         }
-        //IDeviceDefinition
     }
 }
