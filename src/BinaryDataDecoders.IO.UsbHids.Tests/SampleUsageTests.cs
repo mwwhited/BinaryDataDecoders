@@ -28,6 +28,7 @@ namespace BinaryDataDecoders.IO.UsbHids.Tests
         [DataTestMethod, TestCategory(TestCategories.DevLocal)]
         [DataRow(4451, 512, DisplayName = "DeLorme Publishing DeLorme USB Earthmate")]
         [DataRow(0x10cf, 0x5500, 0xfff8, DisplayName = "Velleman K8055")]
+        [DataRow(0xfc02, 0x0101, DisplayName = "Midi Controller")]
         //[DataRow(0x04d8, 0xf848, DisplayName = "BLL Company ApS BLL Lamp")]
         public void ListenToDeviceTests(int vendorId, int productId, int productMask = 0xffff)
         {
