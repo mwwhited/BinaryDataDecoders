@@ -27,6 +27,9 @@
 
  - byte mask 
 
+#### Public Static Method - PassThough
+
+
 #### Public Static Method - AndEndsWith
 
 #####  Parameters

@@ -10,7 +10,7 @@
 ### Comments
 
  <summary>
- Write Settings will allow for the current device configuratin to be updated
+ Write Settings will allow for the current device configuration to be updated
  </summary>
 
 ### Attributes
@@ -33,7 +33,7 @@
 ##### Comments
 
  <summary>
- Write Settings will allow for the current device configuratin to be updated
+ Write Settings will allow for the current device configuration to be updated
  </summary>
  <paramname="packetNumber"></param>
  <paramname="alarmSetting">Flagged byte: 0x01=Vibrate | 0x02=Audio </param>
@@ -89,7 +89,7 @@
 ##### Comments
 
  <summary>
- packetnumber is returned by response and may be used for correlation.
+ packet number is returned by response and may be used for correlation.
  </summary>
 
 ##### Attributes

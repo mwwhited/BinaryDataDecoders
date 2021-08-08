@@ -22,7 +22,7 @@
 
 ### Members
 
-#### Public Field - ReportId
+#### Public Field - Reserved0
 
 ##### Attributes
 
@@ -48,7 +48,7 @@
 
  * Type: DigitalInputs 
 
-#### Public Field - Reserved2
+#### Public Field - ReportId
 
 ##### Attributes
 
@@ -100,19 +100,6 @@
 
  * Type: 
 
-#### Public Field - Reserved6
-
-##### Attributes
-
- - FieldOffset
- - (
- - 6
- - )
-
-##### Summary
-
- * Type: 
-
 #### Public Field - Counter2
 
 ##### Attributes
@@ -120,19 +107,6 @@
  - FieldOffset
  - (
  - 7
- - )
-
-##### Summary
-
- * Type: 
-
-#### Public Field - Reserved8
-
-##### Attributes
-
- - FieldOffset
- - (
- - 8
  - )
 
 ##### Summary

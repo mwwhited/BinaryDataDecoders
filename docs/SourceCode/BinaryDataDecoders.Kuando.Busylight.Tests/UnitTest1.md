@@ -13,6 +13,25 @@
 
 ### Members
 
+#### Public Property - TestContext
+
+##### Summary
+
+ * Type: TestContext 
+
+#### Public Method - BuidlRequestTest
+
+##### Attributes
+
+ - TestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
+
+
 #### Public Async Method - TestMethod1
 
 ##### Attributes
@@ -25,4 +44,10 @@
  - DevLocal
  - )
 
+
+#### Private Method - GenerateCommands
+
+#####  Parameters
+
+ - dynamic [  ] commands 
 

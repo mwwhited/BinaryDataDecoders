@@ -218,7 +218,7 @@ packetnumber is returned by response and may be used for correlation.
 ## Type - BinaryDataDecoders.Quarta.RadexOne.WriteSettingsRequest
 
 *summary*
-Write Settings will allow for the current device configuratin to be updated
+Write Settings will allow for the current device configuration to be updated
 
 ### Field - AlarmSetting
 
@@ -228,7 +228,7 @@ Flagged byte: 0x01=Vibrate | 0x02=Audio
 ### Field - PacketNumber
 
 *summary*
-packetnumber is returned by response and may be used for correlation.
+packet number is returned by response and may be used for correlation.
 
 ### Field - Threshold
 
@@ -238,7 +238,7 @@ packetnumber is returned by response and may be used for correlation.
 ### Method - #ctor(System.UInt32,BinaryDataDecoders.Quarta.RadexOne.AlarmSettings,System.UInt16)
 
 *summary*
-Write Settings will allow for the current device configuratin to be updated
+Write Settings will allow for the current device configuration to be updated
 
 *param*
 
