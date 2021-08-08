@@ -22,4 +22,8 @@
     <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.dsk" />
+  </ItemGroup>
+    
 </Project>

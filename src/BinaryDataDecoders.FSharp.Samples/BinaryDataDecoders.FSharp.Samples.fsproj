@@ -7,10 +7,10 @@
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+  <!--<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugType>portable</DebugType>
-    <!--https://github.com/dotnet/fsharp/issues/7363-->
-  </PropertyGroup>
+    https://github.com/dotnet/fsharp/issues/7363
+  </PropertyGroup>-->
 
 	<ItemGroup>
 		<Compile Include="Library.fs" />
