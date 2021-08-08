@@ -5,13 +5,15 @@
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
-
-    
 	</PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>portable</DebugType>
+    <!--https://github.com/dotnet/fsharp/issues/7363-->
+  </PropertyGroup>
 
 	<ItemGroup>
 		<Compile Include="Library.fs" />
 	</ItemGroup>
-
 
 </Project>

@@ -16,5 +16,4 @@
 	  <ProjectReference Include="..\BinaryDataDecoders.ToolKit.Abstractions\BinaryDataDecoders.ToolKit.Abstractions.csproj" />
 	</ItemGroup>
 
-
 </Project>

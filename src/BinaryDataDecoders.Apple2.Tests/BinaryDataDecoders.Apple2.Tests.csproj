@@ -8,15 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ApplesoftBASIC\GetLinesExpected.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ApplesoftBASIC\GetLinesExpected.txt" />
-    <EmbeddedResource Include="Dos33\1983_dos33c.dsk" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />

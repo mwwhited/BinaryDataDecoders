@@ -5,12 +5,33 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     -->
-    <Copyright>Out-of-Band Development, LLC 2020</Copyright>
+    <Copyright>Out-of-Band Development, LLC 2021</Copyright>
     <Company>Out-of-Band Development, LLC</Company>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Authors>Matthew Whited</Authors>
   </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.txt" />
+    <EmbeddedResource Include="**\*.json" />
+    <EmbeddedResource Include="**\*.html" />
+    <EmbeddedResource Include="**\*.htm" />
+    <EmbeddedResource Include="**\*.csv" />
+    <EmbeddedResource Include="**\*.sql" />
+    <EmbeddedResource Include="**\*.yml" />
+    <EmbeddedResource Include="**\*.xslt" />
+    <EmbeddedResource Include="**\*.jpg" />
+    <EmbeddedResource Include="**\*.png" />
+
+    <EmbeddedResource Remove="obj\**\*.*" />
+    <EmbeddedResource Remove="bin\**\*.*" />
+  </ItemGroup>
   
 </Project>
