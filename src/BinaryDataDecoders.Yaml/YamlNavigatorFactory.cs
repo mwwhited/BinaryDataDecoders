@@ -36,7 +36,7 @@ namespace BinaryDataDecoders.Yaml
 
                   attributeSelector: a => a switch
                   {
-                      _ when !a.Tag.IsEmpty => new[] { ((XName)nameof(a.Tag), (string?)a.Tag.ToString() ), },
+                      _ when !string.IsNullOrWhiteSpace(a.Tag) => new[] { ((XName)nameof(a.Tag), a.Tag ), },
                       _ => null,
                   },
 
