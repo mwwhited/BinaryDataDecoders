@@ -1,22 +1,6 @@
 # BinaryDataDecoders.ExpressionCalculator.Tests.Expressions.ExpressionBaseTests
 
-## ImplicitConvertTest_OverlyComplex
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.01
-
-## ImplicitConvertTest_Number
+## ImplicitConvertTest_Expression
 
 ### Targets
 
@@ -31,6 +15,22 @@
 
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
+
+## ImplicitConvertTest_OverlyComplex
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.02
 
 ## ImplicitConvertTest_MoreOverlyComplex
 
@@ -64,7 +64,7 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## ImplicitConvertTest_Variable
+## ImplicitConvertTest_Number
 
 ### Targets
 
@@ -80,7 +80,7 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## ImplicitConvertTest_Expression
+## ImplicitConvertTest_Variable
 
 ### Targets
 

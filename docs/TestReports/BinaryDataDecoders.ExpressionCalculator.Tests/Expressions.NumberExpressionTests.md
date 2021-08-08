@@ -1,6 +1,6 @@
 # BinaryDataDecoders.ExpressionCalculator.Tests.Expressions.NumberExpressionTests
 
-## Equals_DifferentNumber_Test
+## Equals_DifferentValue_Test
 
 ### Targets
 
@@ -16,7 +16,7 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## Equals_DifferentValue_Test
+## Equals_DifferentNumber_Test
 
 ### Targets
 

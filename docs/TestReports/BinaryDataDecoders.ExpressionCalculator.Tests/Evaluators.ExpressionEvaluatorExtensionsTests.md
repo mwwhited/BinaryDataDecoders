@@ -16,11 +16,11 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## Product_Test
+## Sum_Test
 
 ### Targets
 
-* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Product
+* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sum
   * BinaryDataDecoders.ExpressionCalculator, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
@@ -32,11 +32,11 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## Sum_Test
+## Product_Test
 
 ### Targets
 
-* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sum
+* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Product
   * BinaryDataDecoders.ExpressionCalculator, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
