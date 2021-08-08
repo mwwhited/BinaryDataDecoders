@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 	  <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -7,20 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CSharp\SampleClasses.cs" />
+    <Compile Remove="**\SampleClasses.*" />
+    <EmbeddedResource Include="**\SampleClasses.*" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="SimpleCopy.xslt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="SimpleCopy.xslt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="CSharp\SampleClasses.cs" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
