@@ -1,18 +1,28 @@
-﻿using BinaryDataDecoders.IO;
-using BinaryDataDecoders.IO.Pipelines;
+﻿using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.IO.UsbHids;
 using System;
-using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.Serial.Cli
+namespace BinaryDataDecoders.IO.Controller.Cli
 {
     public class DeviceConsole
     {
+        public DeviceConsole(
+            int minimumTrasmissionDelay = 1000,
+            int testCommandDelay = 1000
+            )
+        {
+            _minimumTrasmissionDelay = minimumTrasmissionDelay;
+            _testCommandDelay = testCommandDelay;
+        }
+
+        private int _minimumTrasmissionDelay;
+        private int _testCommandDelay;
+
         private readonly UsbHidFactory usbHid = new UsbHidFactory();
         private readonly SerialPortFactory serial = new SerialPortFactory();
 
@@ -28,7 +38,7 @@ namespace BinaryDataDecoders.Serial.Cli
                 {
                     await transmitter.Transmit(messageFactory(x++));
                     if (!_token.IsCancellationRequested)
-                        await Task.Delay(1000);
+                        await Task.Delay(_testCommandDelay);
                 }
             });
 
@@ -60,7 +70,7 @@ namespace BinaryDataDecoders.Serial.Cli
                 if (device.TryOpen(out var stream))
                     using (stream ?? throw new ApplicationException())
                     {
-                        var streamDevice = new StreamDevice<TMessage>(device, definition, _token);//stream,
+                        var streamDevice = new StreamDevice<TMessage>(device, definition, _token, _minimumTrasmissionDelay);//stream,
                         streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
                        // streamDevice.DeviceStatus += (s, e) => Console.WriteLine($"Status: {e}");
                         streamDevice.MessageReceivedError += (s, e) =>

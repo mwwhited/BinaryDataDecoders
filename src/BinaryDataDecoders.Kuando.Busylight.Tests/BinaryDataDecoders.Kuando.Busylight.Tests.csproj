@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.Kuando.Busylight\BinaryDataDecoders.Kuando.Busylight.csproj" />
     <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
+    <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
   </ItemGroup>
 
 </Project>

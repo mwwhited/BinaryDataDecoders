@@ -1,5 +1,4 @@
 ﻿using BinaryDataDecoders.IO.Messages;
-using BinaryDataDecoders.IO.Segmenters;
 using System;
 using System.Linq;
 
@@ -19,6 +18,7 @@ namespace BinaryDataDecoders.IO.Segmenters
                           .Distinct()
                           .ToArray()
                 );
+        public static ISegmentBuildDefinition PassThough() => new SegmentBuildDefinition(new byte[0]);
 
         public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end) =>
             AndEndsWith(builder, (byte)end);
@@ -73,7 +73,8 @@ namespace BinaryDataDecoders.IO.Segmenters
             {
                 SegmentBuildDefinition def => def.EndsWith.HasValue switch
                 {
-                    true when def.StartsWith.Length >= 1 => new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith.Value, def.MaxLength, def.Options),
+                    true when def.StartsWith.Length >= 1 => new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith ?? 0, def.MaxLength, def.Options),
+                    false when def.StartsWith.Length == 0 => new PassThroughSegmenter(onSegmentReceived, def.Length ?? 0L, def.Options),
                     false when def.Length.HasValue => new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options, def.ExtensionDefinition),
                     _ => throw new NotSupportedException("Unable to Build Segmenter")
                 },
