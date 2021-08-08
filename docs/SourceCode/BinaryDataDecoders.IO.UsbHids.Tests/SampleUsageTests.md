@@ -65,6 +65,16 @@
  - =
  - "Velleman K8055"
  - )
+ - DataRow
+ - (
+ - 0xfc02
+ - ,
+ - 0x0101
+ - ,
+ - DisplayName
+ - =
+ - "Midi Controller"
+ - )
 
 #####  Parameters
 

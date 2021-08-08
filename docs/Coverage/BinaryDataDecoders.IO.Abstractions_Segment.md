@@ -7,12 +7,12 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.Segment` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`       |
 | Coveredlines    | `0`                                        |
-| Uncoveredlines  | `41`                                       |
-| Coverablelines  | `41`                                       |
-| Totallines      | `86`                                       |
+| Uncoveredlines  | `43`                                       |
+| Coverablelines  | `43`                                       |
+| Totallines      | `87`                                       |
 | Linecoverage    | `0`                                        |
 | Coveredbranches | `0`                                        |
-| Totalbranches   | `30`                                       |
+| Totalbranches   | `32`                                       |
 | Branchcoverage  | `0`                                        |
 
 ## Metrics
@@ -22,13 +22,14 @@
 | 1          | 0     | 100      | `StartsWith`           |
 | 1          | 0     | 100      | `StartsWith`           |
 | 1          | 0     | 100      | `StartsWithMask`       |
+| 1          | 0     | 100      | `PassThough`           |
 | 1          | 0     | 100      | `AndEndsWith`          |
 | 4          | 0     | 0        | `AndEndsWith`          |
 | 4          | 0     | 0        | `ExtendedWithLengthAt` |
 | 6          | 0     | 0        | `WithMaxLength`        |
 | 2          | 0     | 0        | `WithOptions`          |
 | 6          | 0     | 0        | `AndIsLength`          |
-| 8          | 0     | 0        | `ThenDo`               |
+| 10         | 0     | 0        | `ThenDo`               |
 | 1          | 0     | 100      | `ThenAs`               |
 
 ## Files
@@ -37,26 +38,26 @@
 
 ```CSharp
 〰1:   using BinaryDataDecoders.IO.Messages;
-〰2:   using BinaryDataDecoders.IO.Segmenters;
-〰3:   using System;
-〰4:   using System.Linq;
-〰5:   
-〰6:   namespace BinaryDataDecoders.IO.Segmenters
-〰7:   {
-〰8:       public static class Segment
-〰9:       {
-〰10:          public static ISegmentBuildDefinition StartsWith(ControlCharacters start) =>
-‼11:              StartsWith((byte)start);
-〰12:          public static ISegmentBuildDefinition StartsWith(params byte[] starts) =>
-‼13:              new SegmentBuildDefinition(starts);
-〰14:          public static ISegmentBuildDefinition StartsWithMask(byte mask) =>
-‼15:              new SegmentBuildDefinition(
-‼16:                  Enumerable.Range(0, 255)
-‼17:                            .Select(b => (byte)(b & mask))
-‼18:                            .Where(b => b != 0x00)
-‼19:                            .Distinct()
-‼20:                            .ToArray()
-‼21:                  );
+〰2:   using System;
+〰3:   using System.Linq;
+〰4:   
+〰5:   namespace BinaryDataDecoders.IO.Segmenters
+〰6:   {
+〰7:       public static class Segment
+〰8:       {
+〰9:           public static ISegmentBuildDefinition StartsWith(ControlCharacters start) =>
+‼10:              StartsWith((byte)start);
+〰11:          public static ISegmentBuildDefinition StartsWith(params byte[] starts) =>
+‼12:              new SegmentBuildDefinition(starts);
+〰13:          public static ISegmentBuildDefinition StartsWithMask(byte mask) =>
+‼14:              new SegmentBuildDefinition(
+‼15:                  Enumerable.Range(0, 255)
+‼16:                            .Select(b => (byte)(b & mask))
+‼17:                            .Where(b => b != 0x00)
+‼18:                            .Distinct()
+‼19:                            .ToArray()
+‼20:                  );
+‼21:          public static ISegmentBuildDefinition PassThough() => new SegmentBuildDefinition(new byte[0]);
 〰22:  
 〰23:          public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end) =>
 ‼24:              AndEndsWith(builder, (byte)end);
@@ -111,17 +112,18 @@
 ‼73:              {
 ‼74:                  SegmentBuildDefinition def => def.EndsWith.HasValue switch
 ‼75:                  {
-‼76:                      true when def.StartsWith.Length >= 1 => new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith.Value, def.MaxLength, def.Options),
-‼77:                      false when def.Length.HasValue => new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options, def.ExtensionDefinition),
-‼78:                      _ => throw new NotSupportedException("Unable to Build Segmenter")
-‼79:                  },
-‼80:                  _ => throw new NotSupportedException($"{builder.GetType()} is not supported")
-‼81:              };
-〰82:  
-〰83:          public static ISegmenter ThenAs<TMessage>(this ISegmentBuildDefinition builder, IMessageDecoder<TMessage> decoder, OnMessageReceived<TMessage> onMessageReceived) =>
-‼84:              builder.ThenDo(on => onMessageReceived(decoder.Decode(on)));
-〰85:      }
-〰86:  }
+‼76:                      true when def.StartsWith.Length >= 1 => new BetweenSegmenter(onSegmentReceived, def.StartsWith, def.EndsWith ?? 0, def.MaxLength, def.Options),
+‼77:                      false when def.StartsWith.Length == 0 => new PassThroughSegmenter(onSegmentReceived, def.Length ?? 0L, def.Options),
+‼78:                      false when def.Length.HasValue => new StartAndFixLengthSegmenter(onSegmentReceived, def.StartsWith, def.Length.Value, def.Options, def.ExtensionDefinition),
+‼79:                      _ => throw new NotSupportedException("Unable to Build Segmenter")
+‼80:                  },
+‼81:                  _ => throw new NotSupportedException($"{builder.GetType()} is not supported")
+‼82:              };
+〰83:  
+〰84:          public static ISegmenter ThenAs<TMessage>(this ISegmentBuildDefinition builder, IMessageDecoder<TMessage> decoder, OnMessageReceived<TMessage> onMessageReceived) =>
+‼85:              builder.ThenDo(on => onMessageReceived(decoder.Decode(on)));
+〰86:      }
+〰87:  }
 ```
 
 ## Links

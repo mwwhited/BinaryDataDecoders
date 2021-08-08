@@ -27,6 +27,12 @@
 
 ### Members
 
+#### Private ReadOnly Field - _maxInitCount
+
+##### Summary
+
+ * Type: 
+
 #### Public Property - SegmentDefintion
 
 ##### Summary

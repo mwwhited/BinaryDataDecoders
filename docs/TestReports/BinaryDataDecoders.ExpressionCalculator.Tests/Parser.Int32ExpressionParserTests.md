@@ -96,7 +96,7 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.00 | `SimpleParserTests`                                  |
+| ⚠ Inconclusive       | 00:00:00.01 | `SimpleParserTests`                                  |
 | ✔ Passed             | 00:00:00.00 | `Parse all operators test`                           |
 | ✔ Passed             | 00:00:00.00 | `Simple test with variable`                          |
 | ✔ Passed             | 00:00:00.00 | `Just variable`                                      |
@@ -160,8 +160,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ⚠ Inconclusive       | 00:00:00.02 | `VerifyOptimizerForComplexExpressions`               |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "A"`                              |
+| ⚠ Inconclusive       | 00:00:00.04 | `VerifyOptimizerForComplexExpressions`               |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "A"`                              |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*1"`                            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)+C"`                        |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A*B)"`                          |
@@ -170,7 +170,7 @@
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A+B+((C*D)+E))*F)+G+((D/H)*I)+J"` |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*(B/C)+D"`                      |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "A*B+C"`                          |
-| ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A-(B*C))/D)*E)+F"`            |
+| ✔ Passed             | 00:00:00.01 | `Check Expressions "(((A-(B*C))/D)*E)+F"`            |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(A/B)-(C+D+E+F)"`                |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "((A*B)*C)+D"`                    |
 | ✔ Passed             | 00:00:00.00 | `Check Expressions "(((A*B)*C)*D)+E"`                |
