@@ -3,13 +3,13 @@
   "isRoot": true,
   "tools": {
     "dotnet-reportgenerator-globaltool": {
-      "version": "5.1.*",
+      "version": "5.1.9",
       "commands": [
         "reportgenerator"
       ]
     },
     "gitversion.tool": {
-      "version": "5.10.*",
+      "version": "5.10.3",
       "commands": [
         "dotnet-gitversion"
       ]
