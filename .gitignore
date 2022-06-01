@@ -357,3 +357,6 @@ MigrationBackup/
 !docs/**/obj
 !docs/**/[Dd]ebug
 !docs/**/[Rr]elease
+
+# This file is built automatically.
+SetDacVersion.sql

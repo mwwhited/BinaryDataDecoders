@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <!--
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     -->
@@ -11,6 +11,8 @@
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Authors>Matthew Whited</Authors>
+
+	  <!--<NoWarn>CS1591</NoWarn>-->
   </PropertyGroup>
 
   <!--

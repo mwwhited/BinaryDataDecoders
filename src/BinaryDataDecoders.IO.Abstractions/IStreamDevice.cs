@@ -7,11 +7,11 @@ namespace BinaryDataDecoders.IO
     {
         Task Runner { get; }
 
-        event EventHandler<TMessage> MessageReceived;
+        new event EventHandler<TMessage> MessageReceived;
         event EventHandler<StreamDeviceStatus> DeviceStatus;
         event EventHandler<DeviceErrorEventArgs> MessageReceivedError;
         event EventHandler<DeviceErrorEventArgs> MessageTrasmitterError;
 
-        Task<bool> Transmit(TMessage message);
+        new Task<bool> Transmit(TMessage message);
     }
 }

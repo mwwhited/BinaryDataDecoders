@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="MSBuild.StructuredLogger" Version="2.1.507" />
+		<PackageReference Include="MSBuild.StructuredLogger" Version="2.1.669" />
 	</ItemGroup>
 
 	<ItemGroup>

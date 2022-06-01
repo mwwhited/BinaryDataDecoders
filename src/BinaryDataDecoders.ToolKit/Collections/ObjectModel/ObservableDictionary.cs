@@ -13,6 +13,7 @@ namespace BinaryDataDecoders.ToolKit.Collections.ObjectModel
         protected IDictionary<TKey, TValue> Dictionary { get; } = new Dictionary<TKey, TValue>();
 
         #region Constructors
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public ObservableDictionary()
         {
         }
@@ -36,6 +37,8 @@ namespace BinaryDataDecoders.ToolKit.Collections.ObjectModel
         {
             Dictionary = new Dictionary<TKey, TValue>(capacity, comparer);
         }
+
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         #endregion
 
         #region IDictionary<TKey,TValue> Members
