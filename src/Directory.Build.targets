@@ -5,4 +5,175 @@
       <PackagePath/>
     </None>
   </ItemGroup>
+
+	<!--https://docs.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2019-->
+
+	<PropertyGroup Condition="'$(IsPreRelease)'=='true' and '$(PreReleaseOnly)'=='true'">
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(IsPreRelease)'!='true' and '$(PreReleaseOnly)'=='true'">
+		<IsPackable>false</IsPackable>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<Target Name="DeepClean">
+		<Message Text="===== Really cleaning project: $(Configuration) - &quot;$(MSBuildProjectName)&quot;"  Importance="high"/>
+		<RemoveDir Directories="$(BaseIntermediateOutputPath)" ContinueOnError="true" />
+		<MakeDir Directories="$(BaseIntermediateOutputPath)" ContinueOnError="true" />
+		<RemoveDir Directories="$(BaseOutputPath)" ContinueOnError="true" />
+		<MakeDir Directories="$(BaseOutputPath)" ContinueOnError="true" />
+	</Target>
+
+	<!-- Start: this is a patch while a fix is pending approval -->
+	<!--https://github.com/rr-wfm/MSBuild.Sdk.SqlProj/pull/284-->
+	<PropertyGroup Condition="'$(IsDatabaseProject)'=='True'">
+		<NuspecFile></NuspecFile>
+		<PackageType>dacpac</PackageType>
+		<GenerateNuspecDependsOn>$(GenerateNuspecDependsOn);_PackageDatabaseResults</GenerateNuspecDependsOn>
+	</PropertyGroup>
+
+	<Target Name="_PackageDatabaseResults" Condition="'$(IsDatabaseProject)'=='True'" BeforeTargets="_GetPackageFiles">
+		<Message Text="===== _PackageDatabaseResults ===== "  Importance="high"/>
+		<Message Text="===== _PackageDatabaseResults: IncludeAllDacPac===== "  Importance="high" Condition="'$(IncludeAllDacPacs)'!='true'"/>
+
+		<Message Text="===== MSBuildProjectName: $(MSBuildProjectName) ===== "  Importance="high"/>
+		<Message Text="===== AssemblyName: $(AssemblyName) ===== "  Importance="high"/>
+		<Message Text="===== PackageId: $(PackageId) ===== "  Importance="high"/>
+
+		<ItemGroup Label="FilesToCopy" Condition="'$(IncludeAllDacPacs)'!='true'">
+
+			<Content Include="$(OutputPath)$(MSBuildProjectName).dacpac" Pack="true" PackagePath="tools/" Condition="Exists('$(OutputPath)$(MSBuildProjectName).dacpac')" >
+				<PackageCopyToOutput>true</PackageCopyToOutput>
+			</Content>
+			<Content Include="$(OutputPath)$(AssemblyName).dacpac" Pack="true" PackagePath="tools/" Condition="'$(AssemblyName)'!='$(MSBuildProjectName)' and Exists('$(OutputPath)$(AssemblyName).dacpac')" >
+				<PackageCopyToOutput>true</PackageCopyToOutput>
+			</Content>
+			<Content Include="$(OutputPath)$(PackageId).dacpac" Pack="true" PackagePath="tools/" Condition="'$(AssemblyName)'!='$(PackageId)' and Exists('$(OutputPath)$(PackageId).dacpac')" >
+				<PackageCopyToOutput>true</PackageCopyToOutput>
+			</Content>
+
+		</ItemGroup>
+		<ItemGroup Label="FilesToCopy" Condition="'$(IncludeAllDacPacs)'=='true'">
+			<Content Include="$(OutputPath)*.dacpac" Pack="true" PackagePath="tools/">
+				<PackageCopyToOutput>true</PackageCopyToOutput>
+			</Content>
+		</ItemGroup>
+	</Target>
+
+	<!-- End: this is a patch while a fix is pending approval -->
+
+	<Target Name="_DacPrePostVersion" DependsOnTargets="GetVersion" >
+		<Message Text="=== _DacPrePostVersion ===" Importance="high" />
+		<Message Text="=== InformationalVersion: $(InformationalVersion) ===" Importance="high" />
+		<Message Text="=== FileVersion: $(FileVersion) ===" Importance="high" />
+		<Message Text="=== GitVersion_AssemblySemFileVer: $(GitVersion_AssemblySemFileVer) ===" Importance="high" />
+		<Message Text="=== GitVersion_InformationalVersion: $(GitVersion_InformationalVersion) ===" Importance="high" />
+
+		<PropertyGroup>
+			<RunScriptsFromReferences>True</RunScriptsFromReferences>
+			<DatabasePostDeploymentScriptPath>Post-Deployment\Script.PostDeployment.sql</DatabasePostDeploymentScriptPath>
+			<DatabasePreDeploymentScriptPath>Pre-Deployment\Script.PreDeployment.sql</DatabasePreDeploymentScriptPath>
+			<DatabaseVersionScriptPath>Post-Deployment/SetDacVersion.sql</DatabaseVersionScriptPath>
+			<DacVersion>$(GitVersion_AssemblySemFileVer)</DacVersion>
+			<BuildVersion>$(GitVersion_InformationalVersion)</BuildVersion>
+		</PropertyGroup>
+
+		<WriteLinesToFile
+            File="$(DatabaseVersionScriptPath)"
+            Lines=""
+            Overwrite="true"
+            Encoding="Unicode"
+			Condition="!EXISTS('$(DatabaseVersionScriptPath)')"
+		/>
+
+		<ItemGroup Condition="EXISTS('$(DatabasePostDeploymentScriptPath)')">
+			<PostDeploy Include="Post-Deployment\Script.PostDeployment.sql" />
+		</ItemGroup>
+
+		<ItemGroup Condition="EXISTS('$(DatabasePreDeploymentScriptPath)')">
+			<PreDeploy Include="Pre-Deployment\Script.PreDeployment.sql" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="_CleanDacVersion" DependsOnTargets="_DacPrePostVersion"  BeforeTargets="Clean;DeepClean" Condition="'$(IsDatabaseProject)'=='True'"  >
+		<Message Text="=== _CleanDacVersion ===" Importance="high" />
+		<Delete Files="$(DatabaseVersionScriptPath)" Condition="EXISTS('$(DatabaseVersionScriptPath)')" />
+	</Target>
+
+	<Target Name="_WriteDacVersion" DependsOnTargets="_DacPrePostVersion" BeforeTargets="CoreBuild;GetIncludedFiles" Condition="'$(IsDatabaseProject)'=='True'"  >
+		<Message Text="=== _WriteDacVersion ===" Importance="high" />
+		<PropertyGroup>
+			<DatabaseVersionScript>
+				-- Generated by MsBuild Step - DO NOT EDIT
+				PRINT 'Hello from $(AssemblyName): $(FileVersion)';
+
+				DROP PROCEDURE IF EXISTS [#usp_saveextendedproperty];
+				GO
+				CREATE PROCEDURE [#usp_saveextendedproperty]
+				@name sysname,
+				@value sql_variant			= NULL,
+				@level0type	varchar(128)	= NULL,
+				@level0name	sysname			= NULL,
+				@level1type	varchar(128)	= NULL,
+				@level1name	sysname			= NULL,
+				@level2type	varchar(128)	= NULL,
+				@level2name	sysname			= NULL
+				AS
+				BEGIN
+				IF EXISTS (
+				SELECT *
+				FROM fn_listextendedproperty (@name, @level0type,@level0name,@level1type,@level1name,@level2type,@level2name)
+				)
+				BEGIN
+				IF (@value IS NULL)
+				BEGIN
+				EXEC sp_dropextendedproperty @name,@level0type,@level0name,@level1type,@level1name,@level2type,@level2name;
+				END
+				ELSE
+				BEGIN
+				EXEC sp_updateextendedproperty @name,@value,@level0type,@level0name,@level1type,@level1name,@level2type,@level2name;
+				END
+				END
+				ELSE
+				BEGIN
+				EXEC sp_addextendedproperty @name,@value,@level0type,@level0name,@level1type,@level1name,@level2type,@level2name;
+				END
+				END
+				GO
+				EXEC [#usp_saveextendedproperty] N'EntityFramework:FileVersion:$(AssemblyName)', '$(FileVersion)';
+				GO
+				EXEC [#usp_saveextendedproperty] N'EntityFramework:InformationalVersion:$(AssemblyName)', '$(InformationalVersion)';
+				GO
+
+				DROP PROCEDURE IF EXISTS [#usp_saveextendedproperty];
+				GO
+
+
+			</DatabaseVersionScript>
+		</PropertyGroup>
+		<WriteLinesToFile
+            File="$(DatabaseVersionScriptPath)"
+            Lines="$(DatabaseVersionScript)"
+            Overwrite="true"
+            Encoding="Unicode" />
+
+		<PropertyGroup>
+			<DatabasePostDeploymentScriptTemplate>
+				:r .\SetDacVersion.sql
+				--:r .\your-script.sql
+			</DatabasePostDeploymentScriptTemplate>
+		</PropertyGroup>
+		<WriteLinesToFile
+            File="$(DatabasePostDeploymentScriptPath)"
+            Lines="$(DatabasePostDeploymentScriptTemplate)"
+            Overwrite="true"
+            Encoding="Unicode"
+			Condition="!EXISTS('$(DatabasePostDeploymentScriptPath)')"
+		/>
+
+
+	</Target>
+
 </Project>

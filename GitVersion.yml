@@ -5,6 +5,8 @@ increment: Patch
 branches:
   master:
     mode: ContinuousDeployment
+  releaseCandidate:
+    mode: ContinuousDeployment
     tag: rc
   develop:
     mode: ContinuousDeployment
