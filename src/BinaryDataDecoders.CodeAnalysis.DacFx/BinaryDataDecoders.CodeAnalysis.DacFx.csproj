@@ -7,7 +7,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 	<ItemGroup>
-    <PackageReference Include="Microsoft.SqlServer.DacFx" Version="150.4897.1" />
+    <PackageReference Include="Microsoft.SqlServer.DacFx" Version="160.6161.0" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
