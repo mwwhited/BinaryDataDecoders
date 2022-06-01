@@ -11,6 +11,8 @@
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Authors>Matthew Whited</Authors>
+
+	  <!--<NoWarn>CS1591</NoWarn>-->
   </PropertyGroup>
 
   <!--
