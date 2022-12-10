@@ -7,16 +7,6 @@
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <None Remove="SimpleCopy.xslt" />
-	  <None Remove="TestTemplate.html" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="SimpleCopy.xslt" />
-	  <EmbeddedResource Include="TestTemplate.html" />
-	</ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.0.0" />

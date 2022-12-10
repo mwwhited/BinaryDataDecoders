@@ -11,13 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="SimpleCopy.xslt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="SimpleCopy.xslt" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="CSharp\SampleClasses.cs" />
   </ItemGroup>
 

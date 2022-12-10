@@ -22,13 +22,5 @@
     <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
     <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <None Remove="TestData\DSC_4668.JPG" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="TestData\DSC_4668.JPG" />
-  </ItemGroup>
 
 </Project>
