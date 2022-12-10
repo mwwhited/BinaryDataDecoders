@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\BinaryDataDecoders.Quarta.RadexOne\BinaryDataDecoders.Rigol.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Rigol\BinaryDataDecoders.Rigol.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
 	</ItemGroup>
 </Project>
