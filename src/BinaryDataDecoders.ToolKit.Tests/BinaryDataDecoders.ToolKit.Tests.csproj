@@ -3,7 +3,7 @@
 
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
