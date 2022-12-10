@@ -25,6 +25,19 @@ namespace BinaryDataDecoders.IO.UsbHids.Tests
             }
         }
 
+        [TestMethod, TestCategory(TestCategories.DevLocal)]
+        public void ListDevicesAllTests()
+        {
+            var devices = DeviceList.Local
+                                   .GetAllDevices()
+                                   ;
+
+            foreach (var device in devices)
+            {
+                this.TestContext.WriteLine($@"""{device.DevicePath}"" {{{device}}}");
+            }
+        }
+
         [DataTestMethod, TestCategory(TestCategories.DevLocal)]
         [DataRow(4451, 512, DisplayName = "DeLorme Publishing DeLorme USB Earthmate")]
         [DataRow(0x10cf, 0x5500, 0xfff8, DisplayName = "Velleman K8055")]
