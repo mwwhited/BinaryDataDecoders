@@ -100,8 +100,13 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :publish
 echo "Pack Projects"
-dotnet publish "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary"
+
+REM dotnet publish "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary" -f netcoreapp3.1
+REM IF %errorlevel% NEQ 0 GOTO error
+dotnet publish "BinaryDataDecoders.Xslt.Cli" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary" -f netcoreapp3.1
 IF %errorlevel% NEQ 0 GOTO error
+REM dotnet publish "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary60" -f net6.0
+REM IF %errorlevel% NEQ 0 GOTO error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :report

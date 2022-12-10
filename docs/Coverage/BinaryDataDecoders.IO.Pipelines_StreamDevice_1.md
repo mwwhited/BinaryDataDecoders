@@ -181,7 +181,7 @@
 ‼144:             while (!_token.IsCancellationRequested)
 ‼145:             {
 ‼146:                 await mre.WaitAsync();
-‼147:                 while (_transmissionQueue.TryTake(out var item))
+‼147:                 while (!_token.IsCancellationRequested && _transmissionQueue.TryTake(out var item))
 ‼148:                 {
 ‼149:                     try
 ‼150:                     {
@@ -208,11 +208,11 @@
 ‼171:                                 throw new IOException(ex.Message, ex);
 ‼172:                         }
 ‼173:                     }
-‼174:                 }
-‼175: 
-‼176:                 if (!_token.IsCancellationRequested && _minimumTrasmissionDelay > 0)
-‼177:                 {
-‼178:                     await Task.Delay(_minimumTrasmissionDelay);
+‼174: 
+‼175:                     if (!_token.IsCancellationRequested && _minimumTrasmissionDelay > 0)
+‼176:                     {
+‼177:                         await Task.Delay(_minimumTrasmissionDelay);
+‼178:                     }
 ‼179:                 }
 ‼180:             }
 ‼181:         });

@@ -1,5 +1,8 @@
 ﻿namespace BinaryDataDecoders.IO
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ErrorHandling
     {
         /// <summary>

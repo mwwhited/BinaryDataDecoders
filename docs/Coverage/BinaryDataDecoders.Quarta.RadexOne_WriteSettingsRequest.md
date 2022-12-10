@@ -31,7 +31,7 @@
 〰3:   namespace BinaryDataDecoders.Quarta.RadexOne
 〰4:   {
 〰5:       /// <summary>
-〰6:       /// Write Settings will allow for the current device configuratin to be updated
+〰6:       /// Write Settings will allow for the current device configuration to be updated
 〰7:       /// </summary>
 〰8:       [StructLayout(LayoutKind.Explicit, Size = 28)]
 〰9:       public struct WriteSettingsRequest : IRadexObject
@@ -39,7 +39,7 @@
 〰11:          //>: 7BFF 2000 0600 FD05 ____ 60FA 0108 _C00 F2F7
 〰12:  
 〰13:          /// <summary>
-〰14:          /// Write Settings will allow for the current device configuratin to be updated
+〰14:          /// Write Settings will allow for the current device configuration to be updated
 〰15:          /// </summary>
 〰16:          /// <param name="packetNumber"></param>
 〰17:          /// <param name="alarmSetting">Flagged byte: 0x01=Vibrate | 0x02=Audio </param>
@@ -79,7 +79,7 @@
 〰51:          [FieldOffset(4)]
 〰52:          private readonly ushort ExtensionLength;
 〰53:          /// <summary>
-〰54:          /// packetnumber is returned by response and may be used for correlation.
+〰54:          /// packet number is returned by response and may be used for correlation.
 〰55:          /// </summary>
 〰56:          [FieldOffset(6)]
 〰57:          public readonly uint PacketNumber;

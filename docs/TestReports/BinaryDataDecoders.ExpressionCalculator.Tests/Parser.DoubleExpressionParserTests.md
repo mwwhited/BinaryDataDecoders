@@ -35,8 +35,8 @@
 
 | Outcome              | Duration    | Test Name                                            |
 | :------------------- | ----------: | :--------------------------------------------------- |
-| ✔ Passed             | 00:00:00.04 | `OptimizerTests`                                     |
-| ✔ Passed             | 00:00:00.01 | `OptimizerTests ((A),A)`                             |
+| ✔ Passed             | 00:00:00.01 | `OptimizerTests`                                     |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A),A)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests ((A+(B)),A + B)`                     |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B^1,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B*1,B)`                             |
@@ -49,7 +49,7 @@
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (0+B,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B-0,B)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (0-B,-B)`                            |
-| ✔ Passed             | 00:00:00.01 | `OptimizerTests (2+3*4^5%6/7-8,-6)`                  |
+| ✔ Passed             | 00:00:00.00 | `OptimizerTests (2+3*4^5%6/7-8,-6)`                  |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (2+3,5)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B/B,1)`                             |
 | ✔ Passed             | 00:00:00.00 | `OptimizerTests (B%B,0)`                             |

@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                    |
 | Uncoveredlines  | `24`                                                   |
 | Coverablelines  | `24`                                                   |
-| Totallines      | `70`                                                   |
+| Totallines      | `71`                                                   |
 | Linecoverage    | `0`                                                    |
 | Coveredbranches | `0`                                                    |
 | Totalbranches   | `12`                                                   |
@@ -58,46 +58,47 @@
 〰28:          [DataTestMethod, TestCategory(TestCategories.DevLocal)]
 〰29:          [DataRow(4451, 512, DisplayName = "DeLorme Publishing DeLorme USB Earthmate")]
 〰30:          [DataRow(0x10cf, 0x5500, 0xfff8, DisplayName = "Velleman K8055")]
-〰31:          //[DataRow(0x04d8, 0xf848, DisplayName = "BLL Company ApS BLL Lamp")]
-〰32:          public void ListenToDeviceTests(int vendorId, int productId, int productMask = 0xffff)
-〰33:          {
-‼34:              var devices = DeviceList.Local
-‼35:                                     .GetAllDevices()
-‼36:                                     .OfType<HidDevice>();
-‼37:              var selectedDevices = devices.Where(d => d.VendorID == vendorId && (d.ProductID & productMask) == productId);
-〰38:  
-‼39:              foreach (var device in selectedDevices)
-〰40:              {
-‼41:                  this.TestContext.WriteLine(device.ToString());
-〰42:  
-‼43:                  if (device.TryOpen(out var stream))
-〰44:                  {
-‼45:                      if (stream.CanRead)
-〰46:                      {
-〰47:                          try
-〰48:                          {
-‼49:                              stream.ReadTimeout = 1500;
-〰50:  
-‼51:                              for (var rpt = 0; rpt < 5; rpt++)
-〰52:                              {
-‼53:                                  var report = stream.Read();
-‼54:                                  this.TestContext.WriteLine($"\t{rpt}: {report.ToHexString()} = {Encoding.UTF8.GetString(report)}");
-〰55:                              }
-‼56:                          }
-〰57:                          finally
-〰58:                          {
-‼59:                              stream.Dispose();
-‼60:                          }
-〰61:                      }
-〰62:                      else
-〰63:                      {
-‼64:                          this.TestContext.WriteLine($"\t{-1}: Can't read");
-〰65:                      }
-〰66:                  }
-〰67:              }
-‼68:          }
-〰69:      }
-〰70:  }
+〰31:          [DataRow(0xfc02, 0x0101, DisplayName = "Midi Controller")]
+〰32:          //[DataRow(0x04d8, 0xf848, DisplayName = "BLL Company ApS BLL Lamp")]
+〰33:          public void ListenToDeviceTests(int vendorId, int productId, int productMask = 0xffff)
+〰34:          {
+‼35:              var devices = DeviceList.Local
+‼36:                                     .GetAllDevices()
+‼37:                                     .OfType<HidDevice>();
+‼38:              var selectedDevices = devices.Where(d => d.VendorID == vendorId && (d.ProductID & productMask) == productId);
+〰39:  
+‼40:              foreach (var device in selectedDevices)
+〰41:              {
+‼42:                  this.TestContext.WriteLine(device.ToString());
+〰43:  
+‼44:                  if (device.TryOpen(out var stream))
+〰45:                  {
+‼46:                      if (stream.CanRead)
+〰47:                      {
+〰48:                          try
+〰49:                          {
+‼50:                              stream.ReadTimeout = 1500;
+〰51:  
+‼52:                              for (var rpt = 0; rpt < 5; rpt++)
+〰53:                              {
+‼54:                                  var report = stream.Read();
+‼55:                                  this.TestContext.WriteLine($"\t{rpt}: {report.ToHexString()} = {Encoding.UTF8.GetString(report)}");
+〰56:                              }
+‼57:                          }
+〰58:                          finally
+〰59:                          {
+‼60:                              stream.Dispose();
+‼61:                          }
+〰62:                      }
+〰63:                      else
+〰64:                      {
+‼65:                          this.TestContext.WriteLine($"\t{-1}: Can't read");
+〰66:                      }
+〰67:                  }
+〰68:              }
+‼69:          }
+〰70:      }
+〰71:  }
 ```
 
 ## Links

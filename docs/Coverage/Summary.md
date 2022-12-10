@@ -4,18 +4,18 @@
 
 | Key             | Value                                     |
 | :-------------- | :---------------------------------------- |
-| Generatedon     | `12/06/2020 - 05:19:17`                   |
-| Parser          | `MultiReportParser (46x CoberturaParser)` |
-| Assemblies      | `56`                                      |
-| Classes         | `363`                                     |
+| Generatedon     | `08/08/2021 - 15:07:18`                   |
+| Parser          | `MultiReportParser (42x CoberturaParser)` |
+| Assemblies      | `52`                                      |
+| Classes         | `355`                                     |
 | Coveredlines    | `3835`                                    |
-| Uncoveredlines  | `5389`                                    |
-| Coverablelines  | `9224`                                    |
-| Totallines      | `22948`                                   |
-| Linecoverage    | `41.5`                                    |
+| Uncoveredlines  | `5471`                                    |
+| Coverablelines  | `9306`                                    |
+| Totallines      | `22882`                                   |
+| Linecoverage    | `41.2`                                    |
 | Coveredbranches | `1088`                                    |
-| Totalbranches   | `3340`                                    |
-| Branchcoverage  | `32.5`                                    |
+| Totalbranches   | `3388`                                    |
+| Branchcoverage  | `32.1`                                    |
 
 ## Coverage
 
@@ -602,14 +602,14 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `15`  |
-| coverage        | `2`   |
+| classes         | `16`  |
+| coverage        | `1.9` |
 | coveredlines    | `4`   |
-| coverablelines  | `198` |
-| totallines      | `530` |
-| branchcoverage  | `2.7` |
+| coverablelines  | `209` |
+| totallines      | `554` |
+| branchcoverage  | `2.5` |
 | coveredbranches | `2`   |
-| totalbranches   | `72`  |
+| totalbranches   | `78`  |
 
 #### Classes
 
@@ -623,6 +623,7 @@
 | 0          | [ortAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [tweenSegmenter](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [validSegmentationException](BinaryDataDecoders.IO.Abstractions_.md) |
+| 0          | [ssThroughSegmenter](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [gment](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [gmentBuildDefinition](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [gmenterBase](BinaryDataDecoders.IO.Abstractions_.md) |
@@ -776,7 +777,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `25` |
-| totallines      | `74` |
+| totallines      | `75` |
 | branchcoverage  | `0`  |
 | coveredbranches | `0`  |
 | totalbranches   | `12` |
@@ -793,20 +794,21 @@
 ## Summary
 
 | Key             | Value |
-| :-------------- | :--- |
-| classes         | `1`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `18` |
-| totallines      | `48` |
-| branchcoverage  | `0`  |
-| coveredbranches | `0`  |
-| totalbranches   | `10` |
+| :-------------- | :---- |
+| classes         | `2`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `43`  |
+| totallines      | `111` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `10`  |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
+| 0          | [BusylightAudio](BinaryDataDecoders.Kuando.Busylight_.md) |
 | 0          | [Class1](BinaryDataDecoders.Kuando.Busylight_.md) |
 
 ### Assembly - BinaryDataDecoders.Kuando.Busylight.Tests
@@ -814,14 +816,15 @@
 ## Summary
 
 | Key             | Value |
-| :-------------- | :--- |
-| classes         | `2`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `3`  |
-| totallines      | `20` |
-| coveredbranches | `0`  |
-| totalbranches   | `0`  |
+| :-------------- | :---- |
+| classes         | `2`   |
+| coverage        | `0`   |
+| coveredlines    | `0`   |
+| coverablelines  | `113` |
+| totallines      | `172` |
+| branchcoverage  | `0`   |
+| coveredbranches | `0`   |
+| totalbranches   | `56`  |
 
 #### Classes
 
@@ -933,7 +936,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `124` |
-| totallines      | `755` |
+| totallines      | `754` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `11`  |
@@ -1347,49 +1350,6 @@
 | 0          | [Xml.Xsl.Extensions.XsltExtensionContext](BinaryDataDecoders.ToolKit.Tests_XsltExtensionContext.md) |
 | 0          | [Xml.Xsl.XsltExtensionFactoryTests](BinaryDataDecoders.ToolKit.Tests_XsltExtensionFactoryTests.md) |
 
-### Assembly - BinaryDataDecoders.Velleman.K8055
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :---- |
-| classes         | `2`   |
-| coverage        | `0`   |
-| coveredlines    | `0`   |
-| coverablelines  | `43`  |
-| totallines      | `138` |
-| branchcoverage  | `0`   |
-| coveredbranches | `0`   |
-| totalbranches   | `12`  |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 0          | [K8055Controller](BinaryDataDecoders.Velleman.K8055_.md) |
-| 0          | [K8055Response](BinaryDataDecoders.Velleman.K8055_.md) |
-
-### Assembly - BinaryDataDecoders.Velleman.K8055.Tests
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :--- |
-| classes         | `2`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `3`  |
-| totallines      | `24` |
-| coveredbranches | `0`  |
-| totalbranches   | `0`  |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 0          | [](BinaryDataDecoders.Velleman.K8055.Tests_.md) |
-| 0          | [K8055ControllerTests](BinaryDataDecoders.Velleman.K8055.Tests_.md) |
-
 ### Assembly - BinaryDataDecoders.Yaml
 
 ## Summary
@@ -1432,49 +1392,4 @@
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [](BinaryDataDecoders.Yaml.Tests_.md) |
 | 0          | [YamlNavigatorTests](BinaryDataDecoders.Yaml.Tests_.md) |
-
-### Assembly - BinaryDataDecoders.Zoom.H4n
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :---- |
-| classes         | `4`   |
-| coverage        | `0`   |
-| coveredlines    | `0`   |
-| coverablelines  | `16`  |
-| totallines      | `134` |
-| branchcoverage  | `0`   |
-| coveredbranches | `0`   |
-| totalbranches   | `2`   |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 0          | [H4nDecoder](BinaryDataDecoders.Zoom.H4n_.md) |
-| 0          | [H4nDefinition](BinaryDataDecoders.Zoom.H4n_.md) |
-| 0          | [H4nRequest](BinaryDataDecoders.Zoom.H4n_.md) |
-| 0          | [H4nResponse](BinaryDataDecoders.Zoom.H4n_.md) |
-
-### Assembly - BinaryDataDecoders.Zoom.H4n.Tests
-
-## Summary
-
-| Key             | Value |
-| :-------------- | :--- |
-| classes         | `2`  |
-| coverage        | `0`  |
-| coveredlines    | `0`  |
-| coverablelines  | `2`  |
-| totallines      | `17` |
-| coveredbranches | `0`  |
-| totalbranches   | `0`  |
-
-#### Classes
-
-| coverage   | name                                                             |
-| :--------- | :--------------------------------------------------------------- |
-| 0          | [](BinaryDataDecoders.Zoom.H4n.Tests_.md) |
-| 0          | [UnitTest1](BinaryDataDecoders.Zoom.H4n.Tests_.md) |
 

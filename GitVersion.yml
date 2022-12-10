@@ -1,13 +1,11 @@
-#next-version: 0.3.0
-assembly-versioning-scheme: MajorMinorPatchTag
-mode: ContinuousDeployment
-increment: Patch
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatchTag
+mode: Mainline
 branches:
   master:
-    mode: ContinuousDeployment
-    tag: rc
+    regex: main|master
+    is-release-branch: true
   develop:
-    mode: ContinuousDeployment
     tag: dev
 ignore:
   sha: []

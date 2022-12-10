@@ -29,7 +29,7 @@
  - .
  - AssemblyCopyrightAttribute
  - (
- - "Out-of-Band Development, LLC 2020"
+ - "Out-of-Band Development, LLC 2021"
  - )
  - System
  - .
@@ -45,7 +45,7 @@
  - .
  - AssemblyInformationalVersionAttribute
  - (
- - "0.3.0-rc.33"
+ - "0.3.0-rc.51"
  - )
  - System
  - .
@@ -70,5 +70,15 @@
  - AssemblyVersionAttribute
  - (
  - "0.3.0.0"
+ - )
+ - System
+ - .
+ - Reflection
+ - .
+ - AssemblyMetadataAttribute
+ - (
+ - "RepositoryUrl"
+ - ,
+ - "https://github.com/mwwhited/BinaryDataDecoders/"
  - )
 

@@ -21,7 +21,13 @@ jobs:
     - uses: actions/checkout@v2      
       with:
         fetch-depth: 0
-    - name: Setup .NET Core
+
+    - name: Setup .NET Core 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Setup .NET 6.0
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
@@ -59,8 +65,9 @@ jobs:
       run: dotnet test "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore --nologo --collect:"XPlat Code Coverage" -r "$TEST_RESULTS_PATH" --filter "TestCategory=Unit|TestCategory=Simulate" -s "src/.runsettings" /p:CollectCoverage=true /p:CopyLocalLockFileAssemblies=true
     - name: Pack Project
       run: dotnet pack "$BUILD_PROJECT" -c $BUILD_CONFIGURATION --no-build --no-restore -o "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
-    - name: Publish Project
-      run: dotnet publish "$BUILD_PROJECT" -c $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary"
+
+    #- name: Publish BinaryDataDecoders.Xslt.Cli
+    #  run: dotnet publish "BinaryDataDecoders.Xslt.Cli" -c $BUILD_CONFIGURATION  --no-build --no-restore -o "$RESULTS_PATH/Binary" -f netcoreapp3.1
 
     ## Don't publish PR's
     - name: Publish Project to Nuget
@@ -69,37 +76,39 @@ jobs:
       
     - name: Build Coverage Report
       run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
-    - name: Build Reports
-      run: dotnet build "$REPORT_PROJECT" -f netcoreapp3.1 -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src -v n
+    #- name: Build Reports
+    #  run: dotnet build "$REPORT_PROJECT" -f netcoreapp3.1 -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src -v n
+    #- name: Build Reports
+    #  run: dotnet build "$REPORT_PROJECT" -f net6.0 -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src -v n
       
-    ## If not master just attach the docs as an artifact
-    - name: Publish Documents
-      if: github.ref != 'refs/heads/master'
-      uses: actions/upload-artifact@v2
-      with:
-        name: BinaryDataDecoders_Documents
-        path: Publish/docs/  
-    - name: Commit Tag
-      if: github.ref != 'refs/heads/master' && github.event_name != 'pull_request'
-      uses: EndBug/add-and-commit@v5
-      with:
-        add: 'docs'
-        message: '${{env.buildVersion}} (${{env.dacVersion}})'
-        tag: '${{env.buildVersion}}'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ### If not master just attach the docs as an artifact
+    #- name: Publish Documents
+    #  if: github.ref != 'refs/heads/master'
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: BinaryDataDecoders_Documents
+    #    path: Publish/docs/  
+    #- name: Commit Tag
+    #  if: github.ref != 'refs/heads/master' && github.event_name != 'pull_request'
+    #  uses: EndBug/add-and-commit@v5
+    #  with:
+    #    add: 'docs'
+    #    message: '${{env.buildVersion}} (${{env.dacVersion}})'
+    #    tag: '${{env.buildVersion}}'
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-    # If master publish the docs
-    - name: Update Documentation
-      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-      run: rsync -r Publish/docs/ docs
-    - name: Commit Documentation and Tag
-      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-      uses: EndBug/add-and-commit@v5
-      with:
-        add: 'docs'
-        message: '${{env.buildVersion}} (${{env.dacVersion}})'
-        tag: '${{env.buildVersion}}'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ## If master publish the docs
+    #- name: Update Documentation
+    #  if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    #  run: rsync -r Publish/docs/ docs
+    #- name: Commit Documentation and Tag
+    #  if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    #  uses: EndBug/add-and-commit@v5
+    #  with:
+    #    add: 'docs'
+    #    message: '${{env.buildVersion}} (${{env.dacVersion}})'
+    #    tag: '${{env.buildVersion}}'
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
