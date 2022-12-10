@@ -1,18 +1,16 @@
 <Project>
   <PropertyGroup>
     <!--
-    <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     -->
-    <Copyright>Out-of-Band Development, LLC 2021</Copyright>
+    <Copyright>Out-of-Band Development, LLC 2022</Copyright>
     <Company>Out-of-Band Development, LLC</Company>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Authors>Matthew Whited</Authors>
-
-	  <!--<NoWarn>CS1591</NoWarn>-->
   </PropertyGroup>
 
   <!--

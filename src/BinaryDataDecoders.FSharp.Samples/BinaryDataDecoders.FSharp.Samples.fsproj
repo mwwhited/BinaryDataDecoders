@@ -1,19 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+		<TargetFramework>net6.0</TargetFramework>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
-	</PropertyGroup>
 
-  <!--<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugType>portable</DebugType>
-    https://github.com/dotnet/fsharp/issues/7363
-  </PropertyGroup>-->
+    
+	</PropertyGroup>
 
 	<ItemGroup>
 		<Compile Include="Library.fs" />
 	</ItemGroup>
+
 
 </Project>

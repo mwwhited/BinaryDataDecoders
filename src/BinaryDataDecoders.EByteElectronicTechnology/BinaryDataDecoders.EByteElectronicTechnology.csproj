@@ -2,14 +2,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+		<TargetFramework>net6.0</TargetFramework>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="System.Composition" Version="6.0.0" />
+	  <PackageReference Include="System.Composition" Version="7.0.0" />
 	</ItemGroup>
 
 </Project>

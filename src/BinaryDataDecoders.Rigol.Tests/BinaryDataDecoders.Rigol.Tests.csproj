@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -8,18 +7,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.0.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.0.0" />
-    <PackageReference Include="coverlet.collector" Version="3.2.0">
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.0.0" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.0.0" />
+		<PackageReference Include="coverlet.collector" Version="3.2.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\BinaryDataDecoders.EByteElectronicTechnology\BinaryDataDecoders.EByteElectronicTechnology.csproj" />
+		<ProjectReference Include="..\BinaryDataDecoders.Rigol\BinaryDataDecoders.Rigol.csproj" />
 		<ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
 	</ItemGroup>
-
 </Project>

@@ -232,8 +232,8 @@
     <Build Include="Person\XMLSchemaCollections\AdditionalContactInfoSchemaCollection.sql" />
     <Build Include="HumanResources\XMLSchemaCollections\HRResumeSchemaCollection.sql" />
     <Build Include="ExtendedProperties.sql" />
-    <None Include="Scripts\PostDeployment\SetDatabaseVersion.sql" />
-    <None Include="Scripts\PostDeployment\SetDacVersion.sql" />
+    <!--<None Include="Scripts\PostDeployment\SetDatabaseVersion.sql" />-->
+    <!--<None Include="Scripts\PostDeployment\SetDacVersion.sql" />-->
     <Build Include="dbo\User Defined Types\UserDefinedTableType.sql" />
     <Build Include="Service Broker\local___Message_Contract.sql" />
     <Build Include="Service Broker\local___Message_Response.sql" />
