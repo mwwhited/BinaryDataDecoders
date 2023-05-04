@@ -8,11 +8,11 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Nullable>enable</Nullable>
 
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+		<ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 	</PropertyGroup>
 
 	<PropertyGroup>
-	  <NoWarn>1701;1702;CS1591;CS3021</NoWarn>
+		<NoWarn>1701;1702;CS1591;CS3021</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -22,8 +22,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.12.0" />
-    <PackageReference Include="Antlr4BuildTasks" Version="12.2.0" />
+		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.12.0" />
+		<PackageReference Include="Antlr4BuildTasks" Version="12.2.0" />
 	</ItemGroup>
 
 </Project>
