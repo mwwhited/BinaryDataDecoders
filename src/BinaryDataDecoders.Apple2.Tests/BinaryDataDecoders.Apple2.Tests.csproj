@@ -2,14 +2,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="ApplesoftBASIC\GetLinesExpected.txt" />
-  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Dos33\1983_dos33c.dsk" />
