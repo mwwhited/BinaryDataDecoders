@@ -4,18 +4,18 @@ namespace BinaryDataDecoders.ToolKit.Input
 {
     public abstract class CommandBase : ICommand
     {
-        public virtual bool CanExecute(object parameter)
+        public virtual bool CanExecute(object? parameter)
         {
             return true;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
         public virtual void RaiseCanExecuteChanged()
         {
             this.CanExecuteChanged?.Invoke(this, new EventArgs());
         }
 
-        public abstract void Execute(object parameter);
+        public abstract void Execute(object? parameter);
     }
 }

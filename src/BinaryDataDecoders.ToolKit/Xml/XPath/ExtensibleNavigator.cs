@@ -40,9 +40,11 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
 
         public override string LookupPrefix(string namespaceURI)
         {
-            if (_namespacePrefixes == null) return "";
+            if (_namespacePrefixes == null)
+                return "";
 
-            if (string.IsNullOrWhiteSpace(namespaceURI)) return "";
+            if (string.IsNullOrWhiteSpace(namespaceURI))
+                return "";
 
             var uri = namespaceURI.Trim();
             if (!_namespacePrefixes.ContainsKey(uri))
@@ -53,7 +55,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
         }
 
         public override string LookupNamespace(string prefix) =>
-            _namespacePrefixes.FirstOrDefault(v => v.Value == prefix).Key ?? base.LookupNamespace(prefix);
+            _namespacePrefixes.FirstOrDefault(v => v.Value == prefix).Key ?? base.LookupNamespace(prefix) ?? "";
 
         public override string Value => _current.Value ?? "";
         public override bool IsEmptyElement => string.IsNullOrEmpty(Value) && !HasChildren;

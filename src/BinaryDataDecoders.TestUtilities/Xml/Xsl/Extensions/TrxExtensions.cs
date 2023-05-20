@@ -47,8 +47,8 @@ namespace BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions
                     from a in attributes
                     select new XElement(ns + "target",
                         new XAttribute("name", a.Class.Name),
-                        (string.IsNullOrWhiteSpace(a.Class.Namespace) : new XAttribute("namespace", a.Class.Namespace),
-                        (string.IsNullOrWhiteSpace(a.Class.Assembly.FullName) ? null : new XAttribute("assembly", a.Class.Assembly.FullName),
+                        (string.IsNullOrWhiteSpace(a.Class.Namespace) ? null : new XAttribute("namespace", a.Class.Namespace)),
+                        (string.IsNullOrWhiteSpace(a.Class.Assembly.FullName) ? null : new XAttribute("assembly", a.Class.Assembly.FullName)),
                         (string.IsNullOrWhiteSpace(a.Member) ? null : new XAttribute("member", a.Member))
                         )
                     );

@@ -46,7 +46,7 @@ namespace BinaryDataDecoders.ToolKit
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override string ToString() => Value.ToString();
-        public override bool Equals(object obj) => Value.Equals(obj);
+        public override bool Equals(object? obj) => Value.Equals(obj);
         public override int GetHashCode() => Value.GetHashCode();
 
         public static implicit operator ushort(BigEndianUShort input) => input.Value;

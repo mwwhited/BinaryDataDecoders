@@ -48,7 +48,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.XPath
             _ => ""
         };
 
-        public override XmlNameTable? NameTable => _state switch
+        public override XmlNameTable NameTable => _state switch
         {
             WrapperState.Child => _node.Current.NameTable,
             _ => null

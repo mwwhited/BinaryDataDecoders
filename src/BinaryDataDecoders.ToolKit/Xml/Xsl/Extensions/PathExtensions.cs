@@ -37,7 +37,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// Directory information for path, or null if path denotes a root directory or is
         /// null. Returns System.String.Empty if path does not contain directory information.
         /// </returns>
-        public string GetDirectoryName(string file) => Path.GetDirectoryName(file);
+        public string? GetDirectoryName(string file) =>
+            Path.GetDirectoryName(file);
 
         /// <summary>
         /// Returns the file name and extension of the specified path string.
@@ -48,7 +49,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// character of path is a directory or volume separator character, this method returns
         /// System.String.Empty. If path is null, this method returns null.
         /// </returns>
-        public string GetFileName(string file) => Path.GetFileName(file);
+        public string? GetFileName(string file) =>
+            Path.GetFileName(file);
         /// <summary>
         /// Returns the file name of the specified path string without the extension.
         /// </summary>
@@ -57,13 +59,15 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// The string returned by System.IO.Path.GetFileName(System.ReadOnlySpan{System.Char}),
         /// minus the last period (.) and all characters following it.
         /// </returns>
-        public string GetFileNameWithoutExtension(string file) => Path.GetFileNameWithoutExtension(file);
+        public string? GetFileNameWithoutExtension(string file) =>
+            Path.GetFileNameWithoutExtension(file);
         /// <summary>
         /// Returns the extension (including the period ".") of the specified path string.
         /// </summary>
         /// <param name="file">The path string from which to get the extension.</param>
         /// <returns></returns>
-        public string GetExtension(string file) => Path.GetExtension(file);
+        public string? GetExtension(string file) =>
+            Path.GetExtension(file);
 
         /// <summary>
         /// Changes the extension of a path string.
@@ -77,7 +81,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// extension is null, the returned string contains the specified path with its extension
         /// removed. If path has no extension, and extension is not null, the returned path
         /// string contains extension appended to the end of path.</returns>
-        public string ChangeExtension(string file, string extension) => Path.ChangeExtension(file, string.IsNullOrWhiteSpace(extension) ? null : extension);
+        public string? ChangeExtension(string file, string extension) =>
+            Path.ChangeExtension(file, string.IsNullOrWhiteSpace(extension) ? null : extension);
 
         /// <summary>
         /// Returns the names of files (including their paths) that match the specified search
@@ -87,7 +92,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// case-sensitive.</param>
         /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
         /// that match the specified search pattern, or an empty array if no files are found.</returns>
-        public XPathNavigator ListFiles(string path) =>
+        public XPathNavigator? ListFiles(string path) =>
             new XElement(_ns + "files",
                 from f in Directory.GetFiles(SandboxPath.EnsureSafePath(_sandbox, path))
                 select new XElement(_ns + "file", f)
@@ -104,7 +109,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// but it doesn't support regular expressions.</param>
         /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
         /// that match the specified search pattern, or an empty array if no files are found.</returns>
-        public XPathNavigator ListFilesFiltered(string path, string pattern)
+        public XPathNavigator? ListFilesFiltered(string path, string pattern)
         {
             var cleanedPath = SandboxPath.EnsureSafePath(_sandbox, path);
 #if DEBUG && false
