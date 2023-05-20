@@ -38,7 +38,7 @@ namespace BinaryDataDecoders.Drawing.Mending
 
                     var lengthBuffer = new byte[2];
                     ushort segmentLength;
-                    byte[] segmentBuffer;
+                    byte[]? segmentBuffer;
 
                     if (2 == reader.Read(lengthBuffer, 0, 2))
                     {
@@ -55,14 +55,15 @@ namespace BinaryDataDecoders.Drawing.Mending
                         //NOTE: No Data Captured
                     }
 
-                    yield return new JpegSegment
-                    {
-                        Index = x,
-                        Prefix = (byte)prefix,
-                        Type = (byte)segmentType,
-                        Length = segmentLength,
-                        Data = segmentBuffer,
-                    };
+                    if (segmentBuffer != null)
+                        yield return new JpegSegment
+                        {
+                            Index = x,
+                            Prefix = (byte)prefix,
+                            Type = (byte)segmentType,
+                            Length = segmentLength,
+                            Data = segmentBuffer,
+                        };
 
                     x++;
                 }

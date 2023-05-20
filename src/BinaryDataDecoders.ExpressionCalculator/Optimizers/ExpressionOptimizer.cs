@@ -20,7 +20,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
         public ExpressionBase<T> Optimize(ExpressionBase<T> expression)
         {
             var optimized = _optimizations.Aggregate(expression.Clone(), (exp, operation) => operation.Optimize(exp));
-            return optimized.ToString().Equals(expression.ToString()) ? optimized : Optimize(optimized);
+            return string.Equals(optimized?.ToString(), expression.ToString()) ? optimized : Optimize(optimized);
         }
     }
 }

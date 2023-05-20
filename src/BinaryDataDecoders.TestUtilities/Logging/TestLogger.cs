@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.TestUtilities.Logging
 
         public TestLogger(
             TestContext testContext,
-            string category = null
+            string? category = null
             )
         {
             _context = testContext;
@@ -21,7 +21,7 @@ namespace BinaryDataDecoders.TestUtilities.Logging
 
         public TestLogger(
             ITestContextWrapper contextWrapper,
-            string category = null
+            string? category = null
             )
         {
             _context = contextWrapper.Context;
@@ -29,7 +29,7 @@ namespace BinaryDataDecoders.TestUtilities.Logging
         }
 
         public virtual IDisposable BeginScope<TState>(TState state) => new LoggerScope<TState>(state);
-        public virtual bool IsEnabled(LogLevel logLevel) =>true;
+        public virtual bool IsEnabled(LogLevel logLevel) => true;
         public virtual void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
             void WriteMessage(string message)
@@ -63,12 +63,12 @@ namespace BinaryDataDecoders.TestUtilities.Logging
     {
         public TestLogger(
             TestContext testContext
-            ) : base(testContext, typeof(T).FullName)
+            ) : base(testContext, typeof(T).FullName ?? throw new InvalidOperationException($"This shouldn't be possible"))
         {
         }
         public TestLogger(
             ITestContextWrapper contextWrapper
-            ) : base(contextWrapper, typeof(T).FullName)
+            ) : base(contextWrapper, typeof(T).FullName ?? throw new InvalidOperationException($"This shouldn't be possible"))
         {
         }
     }

@@ -47,7 +47,7 @@ namespace BinaryDataDecoders.CodeAnalysis.DacFx
                 yield return (XName.Get("SCRIPT", NAMESPACE), script);
         }
 
-        private IEnumerable<(XName name, string? value)>? AllAttributeSelector(object model)
+        private IEnumerable<(XName name, string? value)> AllAttributeSelector(object model)
         {
             yield return (XName.Get("ref-id", NAMESPACE), model?.GetHashCode().ToString());
         }

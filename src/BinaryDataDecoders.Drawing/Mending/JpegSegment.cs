@@ -2,10 +2,10 @@
 {
     public class JpegSegment
     {
-        public int Index { get; internal set; }
-        public byte Prefix { get; internal set; }
-        public byte Type { get; internal set; }
-        public ushort Length { get; internal set; }
-        public byte[] Data { get; internal set; }
+        public int Index { get; init; }
+        public byte Prefix { get; init; }
+        public byte Type { get; init; }
+        public ushort Length { get; init; }
+        public byte[] Data { get; init; }
     }
 }

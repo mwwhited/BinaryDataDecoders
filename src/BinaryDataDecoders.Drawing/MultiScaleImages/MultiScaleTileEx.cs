@@ -223,7 +223,7 @@ namespace BinaryDataDecoders.Drawing.MultiScaleImages
                 var extractPoint = point.OffSetBy(extractSize);
                 var extractBlock = new Rectangle(extractPoint, extractSize);
 
-                Bitmap subTileImage = null;
+                Bitmap? subTileImage = null;
                 try
                 {
                     subTileImage = new Bitmap(subTileSize.Width, subTileSize.Height);

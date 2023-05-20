@@ -55,10 +55,11 @@ namespace BinaryDataDecoders.ToolKit.Tests.Reflection
             var reflectionElementNode = this.CreateReflectionElementNode(testData, true).Build();
             var nav = reflectionElementNode.ToNavigable().CreateNavigator();
 
-            this.TestContext.AddResult(nav);
+            if (nav != null)
+                this.TestContext.AddResult(nav);
 
             // Assert
-            Assert.IsFalse(string.IsNullOrWhiteSpace(nav.OuterXml));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(nav?.OuterXml));
 
             // Verify
             this.mockRepository.VerifyAll();
