@@ -13,5 +13,9 @@
 		<Compile Include="Library.fs" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Update="FSharp.Core" Version="7.0.300" />
+	</ItemGroup>
+
 
 </Project>
