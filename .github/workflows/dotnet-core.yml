@@ -61,8 +61,8 @@ jobs:
     - name: Pack Project
       run: dotnet pack "$BUILD_PROJECT" --configuration $BUILD_CONFIGURATION --no-build --no-restore --output "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
 
-    #- name: Publish BinaryDataDecoders.Xslt.Cli
-    #  run: dotnet publish "BinaryDataDecoders.Xslt.Cli" --configuration $BUILD_CONFIGURATION  --no-build --no-restore --output "$RESULTS_PATH/Binary" --framework netcoreapp3.1
+    - name: Publish BinaryDataDecoders.Xslt.Cli
+      run: dotnet publish "BinaryDataDecoders.Xslt.Cli" --configuration $BUILD_CONFIGURATION  --no-build --no-restore --output "$RESULTS_PATH/Binary"
 
     ## Don't publish PR's
     - name: Publish Project to Nuget
@@ -71,39 +71,39 @@ jobs:
       
     - name: Build Coverage Report
       run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
-    #- name: Build Reports
-    #  run: dotnet build "$REPORT_PROJECT" --framework netcoreapp3.1 -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src --verbosity normal
-    #- name: Build Reports
-    #  run: dotnet build "$REPORT_PROJECT" --framework net6.0 -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src --verbosity normal
+    - name: Build Reports
+      run: dotnet build "$REPORT_PROJECT" -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src --verbosity normal
       
-    ### If not master just attach the docs as an artifact
-    #- name: Publish Documents
-    #  if: github.ref != 'refs/heads/master'
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: BinaryDataDecoders_Documents
-    #    path: Publish/docs/  
-    #- name: Commit Tag
-    #  if: github.ref != 'refs/heads/master' && github.event_name != 'pull_request'
-    #  uses: EndBug/add-and-commit@v5
-    #  with:
-    #    add: 'docs'
-    #    message: '${{env.buildVersion}} (${{env.dacVersion}})'
-    #    tag: '${{env.buildVersion}}'
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ## If not master just attach the docs as an artifact
+    - name: Publish Documents
+      if: github.ref != 'refs/heads/master'
+      uses: actions/upload-artifact@v2
+      with:
+        name: BinaryDataDecoders_Documents
+        path: Publish/docs/  
+
+    - name: Commit Tag
+      if: github.ref != 'refs/heads/master' && github.event_name != 'pull_request'
+      uses: EndBug/add-and-commit@v5
+      with:
+        add: 'docs'
+        message: '${{env.buildVersion}} (${{env.dacVersion}})'
+        tag: '${{env.buildVersion}}'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-    ## If master publish the docs
-    #- name: Update Documentation
-    #  if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-    #  run: rsync -r Publish/docs/ docs
-    #- name: Commit Documentation and Tag
-    #  if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-    #  uses: EndBug/add-and-commit@v5
-    #  with:
-    #    add: 'docs'
-    #    message: '${{env.buildVersion}} (${{env.dacVersion}})'
-    #    tag: '${{env.buildVersion}}'
-    #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # If master publish the docs
+    - name: Update Documentation
+      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+      run: rsync -r Publish/docs/ docs
+
+    - name: Commit Documentation and Tag
+      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+      uses: EndBug/add-and-commit@v5
+      with:
+        add: 'docs'
+        message: '${{env.buildVersion}} (${{env.dacVersion}})'
+        tag: '${{env.buildVersion}}'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
