@@ -108,7 +108,7 @@
 ✔48:              _ => ""
 ✔49:          };
 〰50:  
-‼51:          public override XmlNameTable? NameTable => _state switch
+‼51:          public override XmlNameTable NameTable => _state switch
 ‼52:          {
 ‼53:              WrapperState.Child => _node.Current.NameTable,
 ‼54:              _ => null

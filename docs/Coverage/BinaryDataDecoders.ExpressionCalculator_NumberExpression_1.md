@@ -51,9 +51,9 @@
 ✔15:          public NumberExpression(T value) => Value = value;
 ✔16:          public override T Evaluate(IDictionary<string, T> variables) => Value;
 ✔17:          public override ExpressionBase<T> Clone() => new NumberExpression<T>(Value);
-✔18:          public override string ToString() => Value.ToString();
+✔18:          public override string? ToString() => Value.ToString();
 〰19:  
-〰20:          public override bool Equals(object obj) =>
+〰20:          public override bool Equals(object? obj) =>
 ✔21:              this == obj ||
 ✔22:              obj is NumberExpression<T> no && Value.Equals(no.Value) ||
 ✔23:              obj is T && Value.Equals(obj);

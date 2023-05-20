@@ -7,12 +7,13 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Xml.Linq.ObjectXmlExtensionsTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                   |
 | Coveredlines    | `0`                                                                  |
-| Uncoveredlines  | `20`                                                                 |
-| Coverablelines  | `20`                                                                 |
+| Uncoveredlines  | `21`                                                                 |
+| Coverablelines  | `21`                                                                 |
 | Totallines      | `41`                                                                 |
 | Linecoverage    | `0`                                                                  |
 | Coveredbranches | `0`                                                                  |
-| Totalbranches   | `0`                                                                  |
+| Totalbranches   | `2`                                                                  |
+| Branchcoverage  | `0`                                                                  |
 | Coveredmethods  | `0`                                                                  |
 | Totalmethods    | `1`                                                                  |
 | Methodcoverage  | `0`                                                                  |
@@ -21,7 +22,7 @@
 
 | Complexity | Lines | Branches | Name             |
 | :--------- | :---- | :------- | :--------------- |
-| 1          | 0     | 100      | `AsXElementTest` |
+| 2          | 0     | 0        | `AsXElementTest` |
 
 ## Files
 
@@ -64,8 +65,8 @@
 ‼34:              };
 〰35:  
 ‼36:              var result = ObjectXmlExtensions.AsXElement(testData);
-〰37:  
-‼38:              this.TestContext.AddResult(result);
+‼37:              if (result != null)
+‼38:                  this.TestContext.AddResult(result);
 ‼39:          }
 〰40:      }
 〰41:  }

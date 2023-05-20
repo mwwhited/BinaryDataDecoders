@@ -26,14 +26,14 @@
 #####  Parameters
 
  - TestContext testContext 
- - string category = null 
+ - string ? category = null 
 
 #### Public Constructor - TestLogger
 
 #####  Parameters
 
  - ITestContextWrapper contextWrapper 
- - string category = null 
+ - string ? category = null 
 
 #### Public Method - BeginScope
 

@@ -37,7 +37,7 @@
 
 ##### Summary
 
- * Type: ISegmentBuildDefinition 
+ * Type: 
 
 #### Private ReadOnly Field - _decoder
 

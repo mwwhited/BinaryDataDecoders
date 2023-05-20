@@ -9,7 +9,7 @@
 | Coveredlines    | `1`                                                   |
 | Uncoveredlines  | `1`                                                   |
 | Coverablelines  | `2`                                                   |
-| Totallines      | `10`                                                  |
+| Totallines      | `12`                                                  |
 | Linecoverage    | `50`                                                  |
 | Coveredbranches | `0`                                                   |
 | Totalbranches   | `0`                                                   |
@@ -35,10 +35,12 @@
 〰4:   {
 〰5:       public static class NodeExtensions
 〰6:       {
-✔7:           public static IXPathNavigable ToNavigable(this INode node, string baseUri = "") => new ExtensibleNavigator(node, baseUri);
-‼8:           public static XPathNavigator ToNavigator(this INode node, string baseUri = "") => node.ToNavigable(baseUri).CreateNavigator();
-〰9:       }
-〰10:  }
+〰7:           public static IXPathNavigable ToNavigable(this INode node, string baseUri = "") =>
+✔8:               new ExtensibleNavigator(node, baseUri);
+〰9:           public static XPathNavigator? ToNavigator(this INode node, string baseUri = "") =>
+‼10:              node.ToNavigable(baseUri).CreateNavigator();
+〰11:      }
+〰12:  }
 ```
 
 ## Links

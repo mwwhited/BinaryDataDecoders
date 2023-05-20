@@ -60,7 +60,7 @@
 ‼27:          }
 〰28:  
 〰29:          public event PropertyChangedEventHandler PropertyChanged;
-〰30:          protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+〰30:          protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
 〰31:          {
 ‼32:              this.DispatchWork(() =>
 ‼33:              {

@@ -7,12 +7,12 @@
 | Class           | `BinaryDataDecoders.TestUtilities.Configuration.TupleConfiguration` |
 | Assembly        | `BinaryDataDecoders.TestUtilities`                                  |
 | Coveredlines    | `0`                                                                 |
-| Uncoveredlines  | `37`                                                                |
-| Coverablelines  | `37`                                                                |
-| Totallines      | `90`                                                                |
+| Uncoveredlines  | `40`                                                                |
+| Coverablelines  | `40`                                                                |
+| Totallines      | `93`                                                                |
 | Linecoverage    | `0`                                                                 |
 | Coveredbranches | `0`                                                                 |
-| Totalbranches   | `9`                                                                 |
+| Totalbranches   | `13`                                                                |
 | Branchcoverage  | `0`                                                                 |
 | Coveredmethods  | `0`                                                                 |
 | Totalmethods    | `11`                                                                |
@@ -25,7 +25,7 @@
 | 3          | 0     | 0        | `ctor`                      |
 | 1          | 0     | 100      | `ctor`                      |
 | 2          | 0     | 0        | `get_Item`                  |
-| 2          | 0     | 0        | `set_Item`                  |
+| 6          | 0     | 0        | `set_Item`                  |
 | 1          | 0     | 100      | `GetReloadToken`            |
 | 2          | 0     | 0        | `GetChildren`               |
 | 1          | 0     | 100      | `GetSection`                |
@@ -87,48 +87,51 @@
 〰46:              {
 ‼47:                  if (_store.ContainsKey(key))
 〰48:                  {
-‼49:                      _store[key] = value;
-〰50:                  }
-〰51:                  else
-〰52:                  {
-‼53:                      _store.Add(key, value);
-〰54:                  }
-‼55:              }
-〰56:          }
-‼57:          public IChangeToken GetReloadToken() => new ChangeToken();
-〰58:  
-〰59:  
-〰60:          public IEnumerable<IConfigurationSection> GetChildren()
-〰61:          {
-‼62:              var values = from k in _store.Keys
-‼63:                           let p = k.Split(new char[] { ':' }, 2)
-‼64:                           group new
-‼65:                           {
-‼66:                               key = p.ElementAtOrDefault(1),
-‼67:                               value = _store[k],
-‼68:                           } by p.ElementAtOrDefault(0);
-〰69:  
-‼70:              foreach (var value in values)
-‼71:                  yield return new TupleConfiguration(
-‼72:                      settings: value.Select(i => (i.key, i.value)),
-‼73:                      key: value.Key,
-‼74:                      path: this.Path
-‼75:                      );
-‼76:          }
-〰77:  
-〰78:          public IConfigurationSection GetSection(string key) =>
-‼79:               GetChildren().FirstOrDefault(i => i.Key == key);
+‼49:                      if (value == null)
+‼50:                          _store.Remove(key);
+〰51:                      else
+‼52:                          _store[key] = value;
+〰53:                  }
+‼54:                  else if (value != null)
+〰55:                  {
+‼56:                      _store.Add(key, value);
+〰57:                  }
+‼58:              }
+〰59:          }
+‼60:          public IChangeToken GetReloadToken() => new ChangeToken();
+〰61:  
+〰62:  
+〰63:          public IEnumerable<IConfigurationSection> GetChildren()
+〰64:          {
+‼65:              var values = from k in _store.Keys
+‼66:                           let p = k.Split(new char[] { ':' }, 2)
+‼67:                           group new
+‼68:                           {
+‼69:                               key = p.ElementAtOrDefault(1),
+‼70:                               value = _store[k],
+‼71:                           } by p.ElementAtOrDefault(0);
+〰72:  
+‼73:              foreach (var value in values)
+‼74:                  yield return new TupleConfiguration(
+‼75:                      settings: value.Select(i => (i.key, i.value)),
+‼76:                      key: value.Key,
+‼77:                      path: this.Path
+‼78:                      );
+‼79:          }
 〰80:  
-〰81:          internal class ChangeToken : IChangeToken, IDisposable
-〰82:          {
-‼83:              public bool HasChanged => false;
-‼84:              public bool ActiveChangeCallbacks => false;
-‼85:              public void Dispose() { }
-‼86:              public IDisposable RegisterChangeCallback(Action<object> callback, object state) => this;
-〰87:          }
-〰88:  
-〰89:      }
-〰90:  }
+〰81:          public IConfigurationSection GetSection(string key) =>
+‼82:               GetChildren().FirstOrDefault(i => i.Key == key);
+〰83:  
+〰84:          internal class ChangeToken : IChangeToken, IDisposable
+〰85:          {
+‼86:              public bool HasChanged => false;
+‼87:              public bool ActiveChangeCallbacks => false;
+‼88:              public void Dispose() { }
+‼89:              public IDisposable RegisterChangeCallback(Action<object> callback, object state) => this;
+〰90:          }
+〰91:  
+〰92:      }
+〰93:  }
 ```
 
 ## Links

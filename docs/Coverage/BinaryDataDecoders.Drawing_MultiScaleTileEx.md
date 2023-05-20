@@ -268,7 +268,7 @@
 ‼223:                 var extractPoint = point.OffSetBy(extractSize);
 ‼224:                 var extractBlock = new Rectangle(extractPoint, extractSize);
 〰225: 
-‼226:                 Bitmap subTileImage = null;
+‼226:                 Bitmap? subTileImage = null;
 〰227:                 try
 〰228:                 {
 ‼229:                     subTileImage = new Bitmap(subTileSize.Width, subTileSize.Height);

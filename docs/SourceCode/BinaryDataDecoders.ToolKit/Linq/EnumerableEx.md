@@ -20,5 +20,5 @@
 #####  Parameters
 
  - this IEnumerable < T > source 
- - Random randomGenerator = null 
+ - Random ? randomGenerator = null 
 

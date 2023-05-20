@@ -81,7 +81,7 @@ hello, world -> olssv, dvysk
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.00
+* Duration: 00:00:00.01
 
 #### Standard Out
 

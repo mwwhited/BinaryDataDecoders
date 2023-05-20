@@ -11,9 +11,9 @@
 | Coverablelines  | `10`                                                                                  |
 | Totallines      | `142`                                                                                 |
 | Linecoverage    | `100`                                                                                 |
-| Coveredbranches | `4`                                                                                   |
-| Totalbranches   | `4`                                                                                   |
-| Branchcoverage  | `100`                                                                                 |
+| Coveredbranches | `5`                                                                                   |
+| Totalbranches   | `6`                                                                                   |
+| Branchcoverage  | `83.3`                                                                                |
 | Coveredmethods  | `2`                                                                                   |
 | Totalmethods    | `2`                                                                                   |
 | Methodcoverage  | `100`                                                                                 |
@@ -23,7 +23,7 @@
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
 | 1          | 100   | 100      | `cctor`    |
-| 4          | 100   | 100      | `Optimize` |
+| 6          | 100   | 83.33    | `Optimize` |
 
 ## Files
 
@@ -52,7 +52,7 @@
 〰20:          public ExpressionBase<T> Optimize(ExpressionBase<T> expression)
 〰21:          {
 ✔22:              var optimized = _optimizations.Aggregate(expression.Clone(), (exp, operation) => operation.Optimize(exp));
-✔23:              return optimized.ToString().Equals(expression.ToString()) ? optimized : Optimize(optimized);
+⚠23:              return string.Equals(optimized?.ToString(), expression.ToString()) ? optimized : Optimize(optimized);
 〰24:          }
 〰25:      }
 〰26:  }

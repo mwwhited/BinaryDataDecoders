@@ -47,7 +47,7 @@
 〰12:  
 〰13:          public TestLogger(
 〰14:              TestContext testContext,
-〰15:              string category = null
+〰15:              string? category = null
 〰16:              )
 〰17:          {
 ‼18:              _context = testContext;
@@ -56,7 +56,7 @@
 〰21:  
 〰22:          public TestLogger(
 〰23:              ITestContextWrapper contextWrapper,
-〰24:              string category = null
+〰24:              string? category = null
 〰25:              )
 〰26:          {
 ‼27:              _context = contextWrapper.Context;
@@ -64,7 +64,7 @@
 ‼29:          }
 〰30:  
 ‼31:          public virtual IDisposable BeginScope<TState>(TState state) => new LoggerScope<TState>(state);
-‼32:          public virtual bool IsEnabled(LogLevel logLevel) =>true;
+‼32:          public virtual bool IsEnabled(LogLevel logLevel) => true;
 〰33:          public virtual void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
 〰34:          {
 〰35:              void WriteMessage(string message)
@@ -98,12 +98,12 @@
 〰63:      {
 〰64:          public TestLogger(
 〰65:              TestContext testContext
-〰66:              ) : base(testContext, typeof(T).FullName)
+〰66:              ) : base(testContext, typeof(T).FullName ?? throw new InvalidOperationException($"This shouldn't be possible"))
 〰67:          {
 〰68:          }
 〰69:          public TestLogger(
 〰70:              ITestContextWrapper contextWrapper
-〰71:              ) : base(contextWrapper, typeof(T).FullName)
+〰71:              ) : base(contextWrapper, typeof(T).FullName ?? throw new InvalidOperationException($"This shouldn't be possible"))
 〰72:          {
 〰73:          }
 〰74:      }

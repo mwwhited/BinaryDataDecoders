@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                            |
 | Uncoveredlines  | `19`                                                           |
 | Coverablelines  | `19`                                                           |
-| Totallines      | `123`                                                          |
+| Totallines      | `128`                                                          |
 | Linecoverage    | `0`                                                            |
 | Coveredbranches | `0`                                                            |
 | Totalbranches   | `4`                                                            |
@@ -75,90 +75,95 @@
 〰37:          /// Directory information for path, or null if path denotes a root directory or is
 〰38:          /// null. Returns System.String.Empty if path does not contain directory information.
 〰39:          /// </returns>
-‼40:          public string GetDirectoryName(string file) => Path.GetDirectoryName(file);
-〰41:  
-〰42:          /// <summary>
-〰43:          /// Returns the file name and extension of the specified path string.
-〰44:          /// </summary>
-〰45:          /// <param name="file">The path string from which to obtain the file name and extension.</param>
-〰46:          /// <returns>
-〰47:          /// The characters after the last directory separator character in path. If the last
-〰48:          /// character of path is a directory or volume separator character, this method returns
-〰49:          /// System.String.Empty. If path is null, this method returns null.
-〰50:          /// </returns>
-‼51:          public string GetFileName(string file) => Path.GetFileName(file);
-〰52:          /// <summary>
-〰53:          /// Returns the file name of the specified path string without the extension.
-〰54:          /// </summary>
-〰55:          /// <param name="file">The path of the file.</param>
-〰56:          /// <returns>
-〰57:          /// The string returned by System.IO.Path.GetFileName(System.ReadOnlySpan{System.Char}),
-〰58:          /// minus the last period (.) and all characters following it.
-〰59:          /// </returns>
-‼60:          public string GetFileNameWithoutExtension(string file) => Path.GetFileNameWithoutExtension(file);
-〰61:          /// <summary>
-〰62:          /// Returns the extension (including the period ".") of the specified path string.
-〰63:          /// </summary>
-〰64:          /// <param name="file">The path string from which to get the extension.</param>
-〰65:          /// <returns></returns>
-‼66:          public string GetExtension(string file) => Path.GetExtension(file);
-〰67:  
-〰68:          /// <summary>
-〰69:          /// Changes the extension of a path string.
-〰70:          /// </summary>
-〰71:          /// <param name="file">The path information to modify. The path cannot contain any of the characters
-〰72:          /// defined in System.IO.Path.GetInvalidPathChars.</param>
-〰73:          /// <param name="extension">The new extension (with or without a leading period). Specify null to remove
-〰74:          /// an existing extension from path.</param>
-〰75:          /// <returns>The modified path information. On Windows-based desktop platforms, if path is
-〰76:          /// null or an empty string (""), the path information is returned unmodified. If
-〰77:          /// extension is null, the returned string contains the specified path with its extension
-〰78:          /// removed. If path has no extension, and extension is not null, the returned path
-〰79:          /// string contains extension appended to the end of path.</returns>
-‼80:          public string ChangeExtension(string file, string extension) => Path.ChangeExtension(file, string.IsNullOrWhiteSpace(extension) ? null : extension);
-〰81:  
-〰82:          /// <summary>
-〰83:          /// Returns the names of files (including their paths) that match the specified search
-〰84:          /// pattern in the specified directory.
-〰85:          /// </summary>
-〰86:          /// <param name="path">The relative or absolute path to the directory to search. This string is not
-〰87:          /// case-sensitive.</param>
-〰88:          /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
-〰89:          /// that match the specified search pattern, or an empty array if no files are found.</returns>
-〰90:          public XPathNavigator ListFiles(string path) =>
-‼91:              new XElement(_ns + "files",
-‼92:                  from f in Directory.GetFiles(SandboxPath.EnsureSafePath(_sandbox, path))
-‼93:                  select new XElement(_ns + "file", f)
-‼94:              ).ToXPathNavigable().CreateNavigator();
-〰95:  
-〰96:          /// <summary>
-〰97:          /// Returns the names of files (including their paths) that match the specified search
-〰98:          /// pattern in the specified directory.
-〰99:          /// </summary>
-〰100:         /// <param name="path">The relative or absolute path to the directory to search. This string is not
-〰101:         /// case-sensitive.</param>
-〰102:         /// <param name="pattern">The search string to match against the names of files in path. This parameter
-〰103:         /// can contain a combination of valid literal path and wildcard (* and ?) characters,
-〰104:         /// but it doesn't support regular expressions.</param>
-〰105:         /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
-〰106:         /// that match the specified search pattern, or an empty array if no files are found.</returns>
-〰107:         public XPathNavigator ListFilesFiltered(string path, string pattern)
-〰108:         {
-‼109:             var cleanedPath = SandboxPath.EnsureSafePath(_sandbox, path);
-〰110: #if DEBUG && false
-〰111:             Console.WriteLine($"==> Path: {path}");
-〰112:             Console.WriteLine($"==> Pattern: {pattern}");
-〰113:             Console.WriteLine($"==> Cleaned: {cleanedPath}");
-〰114: #endif
-‼115:             var files = Directory.Exists(cleanedPath) ? Directory.GetFiles(cleanedPath, pattern) : Enumerable.Empty<string>(); ;
-‼116:             var xml = new XElement(_ns + "files",
-‼117:                   from f in files
-‼118:                   select new XElement(_ns + "file", new XText(f))
-‼119:               );
-‼120:             return xml.ToXPathNavigable().CreateNavigator();
-〰121:         }
-〰122:     }
-〰123: }
+〰40:          public string? GetDirectoryName(string file) =>
+‼41:              Path.GetDirectoryName(file);
+〰42:  
+〰43:          /// <summary>
+〰44:          /// Returns the file name and extension of the specified path string.
+〰45:          /// </summary>
+〰46:          /// <param name="file">The path string from which to obtain the file name and extension.</param>
+〰47:          /// <returns>
+〰48:          /// The characters after the last directory separator character in path. If the last
+〰49:          /// character of path is a directory or volume separator character, this method returns
+〰50:          /// System.String.Empty. If path is null, this method returns null.
+〰51:          /// </returns>
+〰52:          public string? GetFileName(string file) =>
+‼53:              Path.GetFileName(file);
+〰54:          /// <summary>
+〰55:          /// Returns the file name of the specified path string without the extension.
+〰56:          /// </summary>
+〰57:          /// <param name="file">The path of the file.</param>
+〰58:          /// <returns>
+〰59:          /// The string returned by System.IO.Path.GetFileName(System.ReadOnlySpan{System.Char}),
+〰60:          /// minus the last period (.) and all characters following it.
+〰61:          /// </returns>
+〰62:          public string? GetFileNameWithoutExtension(string file) =>
+‼63:              Path.GetFileNameWithoutExtension(file);
+〰64:          /// <summary>
+〰65:          /// Returns the extension (including the period ".") of the specified path string.
+〰66:          /// </summary>
+〰67:          /// <param name="file">The path string from which to get the extension.</param>
+〰68:          /// <returns></returns>
+〰69:          public string? GetExtension(string file) =>
+‼70:              Path.GetExtension(file);
+〰71:  
+〰72:          /// <summary>
+〰73:          /// Changes the extension of a path string.
+〰74:          /// </summary>
+〰75:          /// <param name="file">The path information to modify. The path cannot contain any of the characters
+〰76:          /// defined in System.IO.Path.GetInvalidPathChars.</param>
+〰77:          /// <param name="extension">The new extension (with or without a leading period). Specify null to remove
+〰78:          /// an existing extension from path.</param>
+〰79:          /// <returns>The modified path information. On Windows-based desktop platforms, if path is
+〰80:          /// null or an empty string (""), the path information is returned unmodified. If
+〰81:          /// extension is null, the returned string contains the specified path with its extension
+〰82:          /// removed. If path has no extension, and extension is not null, the returned path
+〰83:          /// string contains extension appended to the end of path.</returns>
+〰84:          public string? ChangeExtension(string file, string extension) =>
+‼85:              Path.ChangeExtension(file, string.IsNullOrWhiteSpace(extension) ? null : extension);
+〰86:  
+〰87:          /// <summary>
+〰88:          /// Returns the names of files (including their paths) that match the specified search
+〰89:          /// pattern in the specified directory.
+〰90:          /// </summary>
+〰91:          /// <param name="path">The relative or absolute path to the directory to search. This string is not
+〰92:          /// case-sensitive.</param>
+〰93:          /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
+〰94:          /// that match the specified search pattern, or an empty array if no files are found.</returns>
+〰95:          public XPathNavigator? ListFiles(string path) =>
+‼96:              new XElement(_ns + "files",
+‼97:                  from f in Directory.GetFiles(SandboxPath.EnsureSafePath(_sandbox, path))
+‼98:                  select new XElement(_ns + "file", f)
+‼99:              ).ToXPathNavigable().CreateNavigator();
+〰100: 
+〰101:         /// <summary>
+〰102:         /// Returns the names of files (including their paths) that match the specified search
+〰103:         /// pattern in the specified directory.
+〰104:         /// </summary>
+〰105:         /// <param name="path">The relative or absolute path to the directory to search. This string is not
+〰106:         /// case-sensitive.</param>
+〰107:         /// <param name="pattern">The search string to match against the names of files in path. This parameter
+〰108:         /// can contain a combination of valid literal path and wildcard (* and ?) characters,
+〰109:         /// but it doesn't support regular expressions.</param>
+〰110:         /// <returns>An XPathNavigator of the full names (including paths) for the files in the specified directory
+〰111:         /// that match the specified search pattern, or an empty array if no files are found.</returns>
+〰112:         public XPathNavigator? ListFilesFiltered(string path, string pattern)
+〰113:         {
+‼114:             var cleanedPath = SandboxPath.EnsureSafePath(_sandbox, path);
+〰115: #if DEBUG && false
+〰116:             Console.WriteLine($"==> Path: {path}");
+〰117:             Console.WriteLine($"==> Pattern: {pattern}");
+〰118:             Console.WriteLine($"==> Cleaned: {cleanedPath}");
+〰119: #endif
+‼120:             var files = Directory.Exists(cleanedPath) ? Directory.GetFiles(cleanedPath, pattern) : Enumerable.Empty<string>(); ;
+‼121:             var xml = new XElement(_ns + "files",
+‼122:                   from f in files
+‼123:                   select new XElement(_ns + "file", new XText(f))
+‼124:               );
+‼125:             return xml.ToXPathNavigable().CreateNavigator();
+〰126:         }
+〰127:     }
+〰128: }
 ```
 
 ## Links

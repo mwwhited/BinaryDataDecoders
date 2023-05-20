@@ -15,3 +15,16 @@
 
  - this string text 
 
+#### Public Static Method - AsMd5
+
+#####  Parameters
+
+ - this string text 
+
+#### Public Static Method - AsHash
+
+#####  Parameters
+
+ - this string text 
+ - HashAlgorithm hashAlgorithm 
+

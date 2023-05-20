@@ -7,12 +7,12 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Schema.XmlSchemaValidatorEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
 | Coveredlines    | `0`                                                          |
-| Uncoveredlines  | `67`                                                         |
-| Coverablelines  | `67`                                                         |
-| Totallines      | `133`                                                        |
+| Uncoveredlines  | `77`                                                         |
+| Coverablelines  | `77`                                                         |
+| Totallines      | `144`                                                        |
 | Linecoverage    | `0`                                                          |
 | Coveredbranches | `0`                                                          |
-| Totalbranches   | `28`                                                         |
+| Totalbranches   | `36`                                                         |
 | Branchcoverage  | `0`                                                          |
 | Coveredmethods  | `0`                                                          |
 | Totalmethods    | `13`                                                         |
@@ -29,8 +29,8 @@
 | 4          | 0     | 0        | `ctor`        |
 | 4          | 0     | 0        | `ctor`        |
 | 4          | 0     | 0        | `ctor`        |
-| 2          | 0     | 0        | `ctor`        |
-| 2          | 0     | 0        | `ctor`        |
+| 6          | 0     | 0        | `ctor`        |
+| 6          | 0     | 0        | `ctor`        |
 | 2          | 0     | 0        | `IsValid`     |
 | 2          | 0     | 0        | `GetErrors`   |
 | 2          | 0     | 0        | `GetWarnings` |
@@ -43,137 +43,148 @@
 ```CSharp
 〰1:   using System.Collections.Generic;
 〰2:   using System.Linq;
-〰3:   using System.Xml;
-〰4:   using System.Xml.Linq;
-〰5:   using System.Xml.Schema;
-〰6:   
-〰7:   namespace BinaryDataDecoders.ToolKit.Xml.Schema
-〰8:   {
-〰9:       public class XmlSchemaValidatorEx
-〰10:      {
-〰11:          public XmlSchemaSet XmlSchemaSet { get; private set; }
-〰12:  
-〰13:          public XmlSchemaValidatorEx()
-〰14:          {
-‼15:              this.XmlSchemaSet = new XmlSchemaSet();
-‼16:          }
-〰17:  
-〰18:          public XmlSchemaValidatorEx(string targetNamespace, string xsdUri)
-‼19:              : this()
-〰20:          {
-‼21:              this.XmlSchemaSet.Add(targetNamespace ?? "", xsdUri);
-‼22:          }
-〰23:          public XmlSchemaValidatorEx(string targetNamespace, XmlReader xmlreader)
-‼24:              : this()
-〰25:          {
-‼26:              this.XmlSchemaSet.Add(targetNamespace ?? "", xmlreader);
-‼27:          }
-〰28:          public XmlSchemaValidatorEx(string targetNamespace, XNode xsd)
-‼29:              : this(targetNamespace ?? "", xsd.CreateReader())
-〰30:          {
-‼31:          }
-〰32:          public XmlSchemaValidatorEx(IEnumerable<KeyValuePair<string, string>> xsdUris)
-‼33:              : this()
-〰34:          {
-‼35:              foreach (var xsdUri in xsdUris.Where(v => v.Value != null))
-〰36:              {
-‼37:                  this.XmlSchemaSet.Add(xsdUri.Key ?? "", xsdUri.Value);
-〰38:              }
-‼39:          }
-〰40:          public XmlSchemaValidatorEx(IEnumerable<KeyValuePair<string, XmlReader>> xsdReaders)
-‼41:              : this()
-〰42:          {
-‼43:              foreach (var xsdUri in xsdReaders.Where(v => v.Value != null))
-〰44:              {
-‼45:                  this.XmlSchemaSet.Add(xsdUri.Key ?? "", xsdUri.Value);
-〰46:              }
-‼47:          }
-〰48:          public XmlSchemaValidatorEx(IEnumerable<KeyValuePair<string, XNode>> xsds)
-‼49:              : this()
-〰50:          {
-‼51:              foreach (var xsdUri in xsds.Where(v => v.Value != null))
-〰52:              {
-‼53:                  this.XmlSchemaSet.Add(xsdUri.Key ?? "", xsdUri.Value.CreateReader());
-〰54:              }
-‼55:          }
-〰56:  
-〰57:          public XmlSchemaValidatorEx(IEnumerable<string> xsdUris)
-‼58:              : this()
-〰59:          {
-‼60:              foreach (var xsdUri in xsdUris)
-〰61:              {
-‼62:                  var xDocument = XDocument.Load(xsdUri);
-‼63:                  var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
-〰64:  
-‼65:                  var targetNamespace = (string)(xDocument.Element(xsdNs + "schema").Attribute("targetNamespace"));
-〰66:  
-‼67:                  this.XmlSchemaSet.Add(targetNamespace, xsdUri);
-〰68:              }
-‼69:          }
-〰70:          public XmlSchemaValidatorEx(IEnumerable<XContainer> xsdContainers)
-‼71:              : this()
-〰72:          {
-‼73:              foreach (var xsdContainer in xsdContainers)
-〰74:              {
-‼75:                  var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
-〰76:  
-‼77:                  var targetNamespace = (string)(xsdContainer.Element(xsdNs + "schema").Attribute("targetNamespace"));
-〰78:  
-‼79:                  this.XmlSchemaSet.Add(targetNamespace, xsdContainer.CreateReader());
-〰80:              }
-‼81:          }
+〰3:   using System.Reflection.Metadata;
+〰4:   using System.Xml;
+〰5:   using System.Xml.Linq;
+〰6:   using System.Xml.Schema;
+〰7:   
+〰8:   namespace BinaryDataDecoders.ToolKit.Xml.Schema
+〰9:   {
+〰10:      public class XmlSchemaValidatorEx
+〰11:      {
+〰12:          public XmlSchemaSet XmlSchemaSet { get; private set; }
+〰13:  
+〰14:          public XmlSchemaValidatorEx()
+〰15:          {
+‼16:              this.XmlSchemaSet = new XmlSchemaSet();
+‼17:          }
+〰18:  
+〰19:          public XmlSchemaValidatorEx(string targetNamespace, string xsdUri)
+‼20:              : this()
+〰21:          {
+‼22:              this.XmlSchemaSet.Add(targetNamespace ?? "", xsdUri);
+‼23:          }
+〰24:          public XmlSchemaValidatorEx(string targetNamespace, XmlReader xmlreader)
+‼25:              : this()
+〰26:          {
+‼27:              this.XmlSchemaSet.Add(targetNamespace ?? "", xmlreader);
+‼28:          }
+〰29:          public XmlSchemaValidatorEx(string targetNamespace, XNode xsd)
+‼30:              : this(targetNamespace ?? "", xsd.CreateReader())
+〰31:          {
+‼32:          }
+〰33:          public XmlSchemaValidatorEx(IEnumerable<KeyValuePair<string, string>> xsdUris)
+‼34:              : this()
+〰35:          {
+‼36:              foreach (var xsdUri in xsdUris.Where(v => v.Value != null))
+〰37:              {
+‼38:                  this.XmlSchemaSet.Add(xsdUri.Key ?? "", xsdUri.Value);
+〰39:              }
+‼40:          }
+〰41:          public XmlSchemaValidatorEx(IEnumerable<KeyValuePair<string, XmlReader>> xsdReaders)
+‼42:              : this()
+〰43:          {
+‼44:              foreach (var xsdUri in xsdReaders.Where(v => v.Value != null))
+〰45:              {
+‼46:                  this.XmlSchemaSet.Add(xsdUri.Key ?? "", xsdUri.Value);
+〰47:              }
+‼48:          }
+〰49:          public XmlSchemaValidatorEx(IEnumerable<KeyValuePair<string, XNode>> xsds)
+‼50:              : this()
+〰51:          {
+‼52:              foreach (var xsdUri in xsds.Where(v => v.Value != null))
+〰53:              {
+‼54:                  this.XmlSchemaSet.Add(xsdUri.Key ?? "", xsdUri.Value.CreateReader());
+〰55:              }
+‼56:          }
+〰57:  
+〰58:          public XmlSchemaValidatorEx(IEnumerable<string> xsdUris)
+‼59:              : this()
+〰60:          {
+‼61:              foreach (var xsdUri in xsdUris)
+〰62:              {
+‼63:                  var xDocument = XDocument.Load(xsdUri);
+‼64:                  var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
+〰65:  
+‼66:                  var targetNamespace = xDocument.Element(xsdNs + "schema").Attribute("targetNamespace") switch
+‼67:                  {
+‼68:                      null => null,
+‼69:                      XAttribute attribute => (string)attribute
+‼70:                  };
+〰71:  
+‼72:                  if (targetNamespace != null)
+‼73:                      this.XmlSchemaSet.Add(targetNamespace, xsdUri);
+〰74:              }
+‼75:          }
+〰76:          public XmlSchemaValidatorEx(IEnumerable<XContainer> xsdContainers)
+‼77:              : this()
+〰78:          {
+‼79:              foreach (var xsdContainer in xsdContainers)
+〰80:              {
+‼81:                  var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
 〰82:  
-〰83:          public bool IsValid(XDocument xDocument)
-〰84:          {
-‼85:              var result = true;
-‼86:              xDocument.Validate(this.XmlSchemaSet, (sender, e) =>
-‼87:              {
-‼88:                  if (e.Severity == XmlSeverityType.Error)
-‼89:                      result = false;
-‼90:              }, false);
-〰91:  
-‼92:              return result;
-〰93:          }
-〰94:  
-〰95:          public IEnumerable<string> GetErrors(XDocument xDocument)
-〰96:          {
-‼97:              var result = new List<string>();
-‼98:              xDocument.Validate(this.XmlSchemaSet, (sender, e) =>
-‼99:              {
-‼100:                 if (e.Severity == XmlSeverityType.Error)
-‼101:                     result.Add(e.Message);
-‼102:             }, false);
-〰103: 
-‼104:             return result.AsReadOnly();
-〰105:         }
-〰106:         public IEnumerable<string> GetWarnings(XDocument xDocument)
+‼83:                  var targetNamespace = xsdContainer.Element(xsdNs + "schema").Attribute("targetNamespace") switch
+‼84:                  {
+‼85:                      null => null,
+‼86:                      XAttribute attribute => (string)attribute
+‼87:                  };
+〰88:  
+‼89:                  if (targetNamespace != null)
+‼90:                      this.XmlSchemaSet.Add(targetNamespace, xsdContainer.CreateReader());
+〰91:              }
+‼92:          }
+〰93:  
+〰94:          public bool IsValid(XDocument xDocument)
+〰95:          {
+‼96:              var result = true;
+‼97:              xDocument.Validate(this.XmlSchemaSet, (sender, e) =>
+‼98:              {
+‼99:                  if (e.Severity == XmlSeverityType.Error)
+‼100:                     result = false;
+‼101:             }, false);
+〰102: 
+‼103:             return result;
+〰104:         }
+〰105: 
+〰106:         public IEnumerable<string> GetErrors(XDocument xDocument)
 〰107:         {
 ‼108:             var result = new List<string>();
 ‼109:             xDocument.Validate(this.XmlSchemaSet, (sender, e) =>
 ‼110:             {
-‼111:                 if (e.Severity == XmlSeverityType.Warning)
+‼111:                 if (e.Severity == XmlSeverityType.Error)
 ‼112:                     result.Add(e.Message);
 ‼113:             }, false);
 〰114: 
 ‼115:             return result.AsReadOnly();
 〰116:         }
-〰117:         public IEnumerable<XmlValidationResult> GetResults(XDocument xDocument)
+〰117:         public IEnumerable<string> GetWarnings(XDocument xDocument)
 〰118:         {
-‼119:             var result = new List<XmlValidationResult>();
+‼119:             var result = new List<string>();
 ‼120:             xDocument.Validate(this.XmlSchemaSet, (sender, e) =>
 ‼121:             {
-‼122:                 result.Add(new XmlValidationResult
-‼123:                 {
-‼124:                     Exception = e.Exception,
-‼125:                     Message = e.Message,
-‼126:                     Severity = e.Severity,
-‼127:                 });
-‼128:             }, false);
-〰129: 
-‼130:             return result.AsReadOnly();
-〰131:         }
-〰132:     }
-〰133: }
+‼122:                 if (e.Severity == XmlSeverityType.Warning)
+‼123:                     result.Add(e.Message);
+‼124:             }, false);
+〰125: 
+‼126:             return result.AsReadOnly();
+〰127:         }
+〰128:         public IEnumerable<XmlValidationResult> GetResults(XDocument xDocument)
+〰129:         {
+‼130:             var result = new List<XmlValidationResult>();
+‼131:             xDocument.Validate(this.XmlSchemaSet, (sender, e) =>
+‼132:             {
+‼133:                 result.Add(new XmlValidationResult
+‼134:                 {
+‼135:                     Exception = e.Exception,
+‼136:                     Message = e.Message,
+‼137:                     Severity = e.Severity,
+‼138:                 });
+‼139:             }, false);
+〰140: 
+‼141:             return result.AsReadOnly();
+〰142:         }
+〰143:     }
+〰144: }
 ```
 
 ## Links

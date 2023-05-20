@@ -6,14 +6,14 @@
 | :-------------- | :------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.TestUtilities.TextContextExtensions` |
 | Assembly        | `BinaryDataDecoders.TestUtilities`                       |
-| Coveredlines    | `21`                                                     |
-| Uncoveredlines  | `22`                                                     |
-| Coverablelines  | `43`                                                     |
-| Totallines      | `170`                                                    |
+| Coveredlines    | `22`                                                     |
+| Uncoveredlines  | `23`                                                     |
+| Coverablelines  | `45`                                                     |
+| Totallines      | `172`                                                    |
 | Linecoverage    | `48.8`                                                   |
-| Coveredbranches | `16`                                                     |
-| Totalbranches   | `36`                                                     |
-| Branchcoverage  | `44.4`                                                   |
+| Coveredbranches | `18`                                                     |
+| Totalbranches   | `38`                                                     |
+| Branchcoverage  | `47.3`                                                   |
 | Coveredmethods  | `2`                                                      |
 | Totalmethods    | `2`                                                      |
 | Methodcoverage  | `100`                                                    |
@@ -22,8 +22,8 @@
 
 | Complexity | Lines | Branches | Name            |
 | :--------- | :---- | :------- | :-------------- |
-| 34         | 41.66 | 44.11    | `AddResult`     |
-| 2          | 85.71 | 50.0     | `AddResultFile` |
+| 34         | 42.10 | 44.11    | `AddResult`     |
+| 4          | 85.71 | 75.00    | `AddResultFile` |
 
 ## Files
 
@@ -57,149 +57,151 @@
 〰25:          /// <returns>test context for chaining</returns>
 〰26:          public static TestContext AddResult(this TestContext context, object value, string fileName = "")
 〰27:          {
-⚠28:              if (value == null) return context;
-〰29:              // if (value is IXPathNavigable nav && !(value is XPathNodeIterator)) return AddResult(context, nav.CreateNavigator(), fileName);
-✔30:              if (value is INode node) return AddResult(context, new ExtensibleNavigator(node, fileName), fileName);
-〰31:  
-✔32:              if (string.IsNullOrWhiteSpace(fileName))
-〰33:              {
-⚠34:                  var ext = value switch
-✔35:                  {
-‼36:                      byte[] _ => ".bin",
-‼37:                      Stream _ => ".dat",
-‼38:                      string _ => ".txt",
-‼39:                      XContainer _ => ".xml",
-✔40:                      IXPathNavigable _ => ".xml",
-‼41:                      XPathNodeIterator _ => ".xml",
-‼42:                      _ => ".data"
-✔43:                  };
-✔44:                  fileName = $"{value.GetType().Name}_{DateTime.Now.Ticks}{ext}".Replace('`', '_').Replace(':', '_').Replace('<', '_').Replace('>', '_');
-〰45:              }
-〰46:  
-⚠47:              if (value is byte[] data)
-〰48:              {
-‼49:                  AddResultFile(context, fileName, data);
-〰50:              }
-⚠51:              else if (value is Stream stream)
-〰52:              {
-‼53:                  using var ms = new MemoryStream();
-‼54:                  if (stream.CanSeek)
-‼55:                      stream.Position = 0;
-‼56:                  stream.CopyTo(ms);
-‼57:                  AddResultFile(context, fileName, ms.ToArray());
-〰58:              }
-⚠59:              else if (value is string content)
-〰60:              {
-‼61:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(content));
-〰62:              }
-⚠63:              else if (value is XContainer xcontainer)
-〰64:              {
-‼65:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xcontainer.ToString()));
-〰66:              }
-⚠67:              else if (value is IXPathNavigable xPathNavigator)
-〰68:              {
-✔69:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xPathNavigator.CreateNavigator().OuterXml));
-〰70:              }
-‼71:              else if (value is XPathNodeIterator xPathNodeIterator)
-〰72:              {
-‼73:                  var fragment = xPathNodeIterator.Cast<XPathNavigator>().Aggregate(new StringBuilder(), (sb, x) => sb.AppendLine(x.OuterXml));
-‼74:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(fragment.ToString()));
-〰75:              }
-‼76:              else if (value != null)
-〰77:              {
-‼78:                  var json = JsonConvert.SerializeObject(value, JsonFormatting.Indented);
-‼79:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(json));
-〰80:              }
-〰81:              else
-〰82:              {
-‼83:                  context.WriteLine("No result");
-〰84:              }
-✔85:              return context;
-〰86:          }
-〰87:          /// <summary>
-〰88:          /// Write out binary content to test results folder and link to test results
-〰89:          /// </summary>
-〰90:          /// <param name="context">Related TestContext</param>
-〰91:          /// <param name="fileName">file name for result</param>
-〰92:          /// <param name="content">binary content for file</param>
-〰93:          /// <returns>test context for chaining</returns>
-〰94:          public static TestContext AddResultFile(this TestContext context, string fileName, byte[] content)
-〰95:          {
-✔96:              var outFile = Path.Combine(context.TestRunResultsDirectory, fileName);
-✔97:              var dir = Path.GetDirectoryName(outFile);
-⚠98:              if (!Directory.Exists(dir))
-‼99:                  Directory.CreateDirectory(dir);
-✔100:             File.WriteAllBytes(outFile, content);
-✔101:             context.AddResultFile(outFile);
-✔102:             return context;
-〰103:         }
-〰104: 
-〰105:         //public static Stream GetTestDataAsync<T>(this TestContext context, string target )
-〰106:         //{
-〰107:         //    var typeQuery = from assembly in AppDomain.CurrentDomain.GetAssemblies()
-〰108:         //                    from type in assembly.GetTypes()
-〰109:         //                    where type.FullName == context.FullyQualifiedTestClassName
-〰110:         //                    select type;
-〰111:         //    var testType = typeQuery.First();
-〰112:         //    var testClass = Activator.CreateInstance(typeQuery.First());
-〰113:         //}
-〰114: 
-〰115:         //public static async Task<T> GetTestDataAsync<T>(this TestContext context, string target = null)
-〰116:         //{
-〰117:         //    var typeQuery = from assembly in AppDomain.CurrentDomain.GetAssemblies()
-〰118:         //                    from type in assembly.GetTypes()
-〰119:         //                    select type;
-〰120:         //    var testType = typeQuery.FirstOrDefault(t => t.FullName == context.FullyQualifiedTestClassName);
-〰121:         //    var testClass = Activator.CreateInstance(testType);
-〰122:         //    var targetName = string.IsNullOrWhiteSpace(target) ? context.TestName : target;
-〰123:         //    if (string.IsNullOrWhiteSpace(target))
-〰124:         //        target = null;
-〰125:         //    var possibleResources = target != null ? new[] {
-〰126:         //      $"{testType.Name}_{context.TestName}_{target}" ,
-〰127:         //      $"{testType.Name}_{context.TestName}_{target}.json",
-〰128:         //      $"{testType.Name}_{target}" ,
-〰129:         //      $"{testType.Name}_{target}.json",
-〰130:         //      $"{context.TestName}_{target}",
-〰131:         //      $"{context.TestName}_{target}.json",
-〰132:         //      $"{target}",
-〰133:         //      $"{target}.json",
-〰134:         //    } : new[]
-〰135:         //    {
-〰136:         //      $"{testType.Name}_{context.TestName}",
-〰137:         //      $"{testType.Name}_{context.TestName}.json",
-〰138:         //      $"{context.TestName}",
-〰139:         //      $"{context.TestName}.json",
-〰140:         //    }.Where(i => i != null);
-〰141:         //    async Task<string> getValueAsync()
-〰142:         //    {
-〰143:         //        foreach (var possible in possibleResources)
-〰144:         //        {
-〰145:         //            var result = await testClass.GetResourceAsStringAsync(possible);
-〰146:         //            if (!string.IsNullOrWhiteSpace(result))
-〰147:         //                return result;
-〰148:         //        }
-〰149:         //        return default;
-〰150:         //    }
-〰151:         //    var content = await getValueAsync();
-〰152:         //    if (string.IsNullOrWhiteSpace(content))
-〰153:         //        return default;
-〰154:         //    if (typeof(T) == typeof(string))
-〰155:         //        return (T)(object)content;
-〰156:         //    else if (typeof(T) == typeof(JToken))
-〰157:         //        return (T)(object)JToken.Parse(content);
-〰158:         //    else if (typeof(T) == typeof(JObject))
-〰159:         //        return (T)(object)JObject.Parse(content);
-〰160:         //    else if (typeof(T) == typeof(JArray))
-〰161:         //        return (T)(object)JArray.Parse(content);
-〰162:         //    var services = new ServiceCollection()
-〰163:         //            .AddToolkitServices()
-〰164:         //            .BuildServiceProvider();
-〰165:         //    var deserializer = services.GetService<IObjectDeserializer>();
-〰166:         //    var result = await deserializer.DeserializeAsync<T>(content);
-〰167:         //    return result;
-〰168:         //}
-〰169:     }
-〰170: }
+⚠28:              if (value == null)
+‼29:                  return context;
+〰30:              // if (value is IXPathNavigable nav && !(value is XPathNodeIterator)) return AddResult(context, nav.CreateNavigator(), fileName);
+✔31:              if (value is INode node)
+✔32:                  return AddResult(context, new ExtensibleNavigator(node, fileName), fileName);
+〰33:  
+✔34:              if (string.IsNullOrWhiteSpace(fileName))
+〰35:              {
+⚠36:                  var ext = value switch
+✔37:                  {
+‼38:                      byte[] _ => ".bin",
+‼39:                      Stream _ => ".dat",
+‼40:                      string _ => ".txt",
+‼41:                      XContainer _ => ".xml",
+✔42:                      IXPathNavigable _ => ".xml",
+‼43:                      XPathNodeIterator _ => ".xml",
+‼44:                      _ => ".data"
+✔45:                  };
+✔46:                  fileName = $"{value.GetType().Name}_{DateTime.Now.Ticks}{ext}".Replace('`', '_').Replace(':', '_').Replace('<', '_').Replace('>', '_');
+〰47:              }
+〰48:  
+⚠49:              if (value is byte[] data)
+〰50:              {
+‼51:                  AddResultFile(context, fileName, data);
+〰52:              }
+⚠53:              else if (value is Stream stream)
+〰54:              {
+‼55:                  using var ms = new MemoryStream();
+‼56:                  if (stream.CanSeek)
+‼57:                      stream.Position = 0;
+‼58:                  stream.CopyTo(ms);
+‼59:                  AddResultFile(context, fileName, ms.ToArray());
+〰60:              }
+⚠61:              else if (value is string content)
+〰62:              {
+‼63:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(content));
+〰64:              }
+⚠65:              else if (value is XContainer xcontainer)
+〰66:              {
+‼67:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xcontainer.ToString()));
+〰68:              }
+⚠69:              else if (value is IXPathNavigable xPathNavigator)
+〰70:              {
+✔71:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(xPathNavigator.CreateNavigator().OuterXml));
+〰72:              }
+‼73:              else if (value is XPathNodeIterator xPathNodeIterator)
+〰74:              {
+‼75:                  var fragment = xPathNodeIterator.Cast<XPathNavigator>().Aggregate(new StringBuilder(), (sb, x) => sb.AppendLine(x.OuterXml));
+‼76:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(fragment.ToString()));
+〰77:              }
+‼78:              else if (value != null)
+〰79:              {
+‼80:                  var json = JsonConvert.SerializeObject(value, JsonFormatting.Indented);
+‼81:                  AddResultFile(context, fileName, Encoding.UTF8.GetBytes(json));
+〰82:              }
+〰83:              else
+〰84:              {
+‼85:                  context.WriteLine("No result");
+〰86:              }
+✔87:              return context;
+〰88:          }
+〰89:          /// <summary>
+〰90:          /// Write out binary content to test results folder and link to test results
+〰91:          /// </summary>
+〰92:          /// <param name="context">Related TestContext</param>
+〰93:          /// <param name="fileName">file name for result</param>
+〰94:          /// <param name="content">binary content for file</param>
+〰95:          /// <returns>test context for chaining</returns>
+〰96:          public static TestContext AddResultFile(this TestContext context, string fileName, byte[] content)
+〰97:          {
+✔98:              var outFile = Path.Combine(context.TestRunResultsDirectory, fileName);
+✔99:              var dir = Path.GetDirectoryName(outFile);
+⚠100:             if (!string.IsNullOrWhiteSpace(dir) && !Directory.Exists(dir))
+‼101:                 Directory.CreateDirectory(dir);
+✔102:             File.WriteAllBytes(outFile, content);
+✔103:             context.AddResultFile(outFile);
+✔104:             return context;
+〰105:         }
+〰106: 
+〰107:         //public static Stream GetTestDataAsync<T>(this TestContext context, string target )
+〰108:         //{
+〰109:         //    var typeQuery = from assembly in AppDomain.CurrentDomain.GetAssemblies()
+〰110:         //                    from type in assembly.GetTypes()
+〰111:         //                    where type.FullName == context.FullyQualifiedTestClassName
+〰112:         //                    select type;
+〰113:         //    var testType = typeQuery.First();
+〰114:         //    var testClass = Activator.CreateInstance(typeQuery.First());
+〰115:         //}
+〰116: 
+〰117:         //public static async Task<T> GetTestDataAsync<T>(this TestContext context, string target = null)
+〰118:         //{
+〰119:         //    var typeQuery = from assembly in AppDomain.CurrentDomain.GetAssemblies()
+〰120:         //                    from type in assembly.GetTypes()
+〰121:         //                    select type;
+〰122:         //    var testType = typeQuery.FirstOrDefault(t => t.FullName == context.FullyQualifiedTestClassName);
+〰123:         //    var testClass = Activator.CreateInstance(testType);
+〰124:         //    var targetName = string.IsNullOrWhiteSpace(target) ? context.TestName : target;
+〰125:         //    if (string.IsNullOrWhiteSpace(target))
+〰126:         //        target = null;
+〰127:         //    var possibleResources = target != null ? new[] {
+〰128:         //      $"{testType.Name}_{context.TestName}_{target}" ,
+〰129:         //      $"{testType.Name}_{context.TestName}_{target}.json",
+〰130:         //      $"{testType.Name}_{target}" ,
+〰131:         //      $"{testType.Name}_{target}.json",
+〰132:         //      $"{context.TestName}_{target}",
+〰133:         //      $"{context.TestName}_{target}.json",
+〰134:         //      $"{target}",
+〰135:         //      $"{target}.json",
+〰136:         //    } : new[]
+〰137:         //    {
+〰138:         //      $"{testType.Name}_{context.TestName}",
+〰139:         //      $"{testType.Name}_{context.TestName}.json",
+〰140:         //      $"{context.TestName}",
+〰141:         //      $"{context.TestName}.json",
+〰142:         //    }.Where(i => i != null);
+〰143:         //    async Task<string> getValueAsync()
+〰144:         //    {
+〰145:         //        foreach (var possible in possibleResources)
+〰146:         //        {
+〰147:         //            var result = await testClass.GetResourceAsStringAsync(possible);
+〰148:         //            if (!string.IsNullOrWhiteSpace(result))
+〰149:         //                return result;
+〰150:         //        }
+〰151:         //        return default;
+〰152:         //    }
+〰153:         //    var content = await getValueAsync();
+〰154:         //    if (string.IsNullOrWhiteSpace(content))
+〰155:         //        return default;
+〰156:         //    if (typeof(T) == typeof(string))
+〰157:         //        return (T)(object)content;
+〰158:         //    else if (typeof(T) == typeof(JToken))
+〰159:         //        return (T)(object)JToken.Parse(content);
+〰160:         //    else if (typeof(T) == typeof(JObject))
+〰161:         //        return (T)(object)JObject.Parse(content);
+〰162:         //    else if (typeof(T) == typeof(JArray))
+〰163:         //        return (T)(object)JArray.Parse(content);
+〰164:         //    var services = new ServiceCollection()
+〰165:         //            .AddToolkitServices()
+〰166:         //            .BuildServiceProvider();
+〰167:         //    var deserializer = services.GetService<IObjectDeserializer>();
+〰168:         //    var result = await deserializer.DeserializeAsync<T>(content);
+〰169:         //    return result;
+〰170:         //}
+〰171:     }
+〰172: }
 ```
 
 ## Links

@@ -7,12 +7,12 @@
 | Class           | `BinaryDataDecoders.Drawing.Mending.JpegSegmentReader` |
 | Assembly        | `BinaryDataDecoders.Drawing`                           |
 | Coveredlines    | `0`                                                    |
-| Uncoveredlines  | `33`                                                   |
-| Coverablelines  | `33`                                                   |
-| Totallines      | `72`                                                   |
+| Uncoveredlines  | `34`                                                   |
+| Coverablelines  | `34`                                                   |
+| Totallines      | `73`                                                   |
 | Linecoverage    | `0`                                                    |
 | Coveredbranches | `0`                                                    |
-| Totalbranches   | `12`                                                   |
+| Totalbranches   | `14`                                                   |
 | Branchcoverage  | `0`                                                    |
 | Coveredmethods  | `0`                                                    |
 | Totalmethods    | `2`                                                    |
@@ -23,7 +23,7 @@
 | Complexity | Lines | Branches | Name          |
 | :--------- | :---- | :------- | :------------ |
 | 4          | 0     | 0        | `Entry`       |
-| 8          | 0     | 0        | `GetSegments` |
+| 10         | 0     | 0        | `GetSegments` |
 
 ## Files
 
@@ -70,7 +70,7 @@
 〰38:  
 ‼39:                      var lengthBuffer = new byte[2];
 〰40:                      ushort segmentLength;
-〰41:                      byte[] segmentBuffer;
+〰41:                      byte[]? segmentBuffer;
 〰42:  
 ‼43:                      if (2 == reader.Read(lengthBuffer, 0, 2))
 〰44:                      {
@@ -87,21 +87,22 @@
 〰55:                          //NOTE: No Data Captured
 〰56:                      }
 〰57:  
-‼58:                      yield return new JpegSegment
-‼59:                      {
-‼60:                          Index = x,
-‼61:                          Prefix = (byte)prefix,
-‼62:                          Type = (byte)segmentType,
-‼63:                          Length = segmentLength,
-‼64:                          Data = segmentBuffer,
-‼65:                      };
-〰66:  
-‼67:                      x++;
-〰68:                  }
-‼69:              }
-‼70:          }
-〰71:      }
-〰72:  }
+‼58:                      if (segmentBuffer != null)
+‼59:                          yield return new JpegSegment
+‼60:                          {
+‼61:                              Index = x,
+‼62:                              Prefix = (byte)prefix,
+‼63:                              Type = (byte)segmentType,
+‼64:                              Length = segmentLength,
+‼65:                              Data = segmentBuffer,
+‼66:                          };
+〰67:  
+‼68:                      x++;
+〰69:                  }
+‼70:              }
+‼71:          }
+〰72:      }
+〰73:  }
 ```
 
 ## Links

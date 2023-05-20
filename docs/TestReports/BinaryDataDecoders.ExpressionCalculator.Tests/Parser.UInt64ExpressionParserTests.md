@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -23,9 +23,9 @@ TestContext Messages:
 Input: (A+B)*C+D+(A+B)*E+F
 As Parsed: (A + B) * C + D + (A + B) * E + F
 As Optimized: (A + B) * C + D + (A + B) * E + F
-Variables: (A, 18446744073709551284), (B, 1642), (C, 9470), (D, 18446744073709543781), (E, 8595), (F, 18446744073709543272)
-Parsed Result: 23648971
-Optimized Result: 23648971
+Variables: (A, 18446744073709550135), (B, 18446744073709551508), (C, 5783), (D, 18446744073709549304), (E, 3801), (F, 5260)
+Parsed Result: 18446744073694325588
+Optimized Result: 18446744073694325588
 ```
 
 ## Just variable
@@ -33,7 +33,7 @@ Optimized Result: 23648971
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -57,7 +57,7 @@ As Parsed: Abc1
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -81,7 +81,7 @@ As Parsed: (((A + (-1 * B)) / C) * ((D * E) * F) * G) + H
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -99,9 +99,9 @@ TestContext Messages:
 Input: ((A+((B*C)+D))*E)+F+(C*G)+H
 As Parsed: ((A + ((B * C) + D)) * E) + F + (C * G) + H
 As Optimized: (A + ((B * C) + D)) * E + F + C * G + H
-Variables: (A, 42), (B, 18446744073709544054), (C, 9878), (D, 18446744073709550573), (E, 4883), (F, 18446744073709549745), (G, 18446744073709545204), (H, 4228)
-Parsed Result: 18446743708893748366
-Optimized Result: 18446743708893748366
+Variables: (A, 18446744073709542151), (B, 1028), (C, 18446744073709547796), (D, 8247), (E, 6791), (F, 18446744073709547117), (G, 18446744073709550032), (H, 4257)
+Parsed Result: 18446744047039345456
+Optimized Result: 18446744047039345456
 ```
 
 ## GetDistinctVariablesTests (A+B+C,A, B, C)
@@ -109,7 +109,7 @@ Optimized Result: 18446743708893748366
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::GetDistinctVariableNames
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -134,7 +134,7 @@ Variables: A, B, C
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -158,7 +158,7 @@ As Parsed: (A * (1 + (-1 * B)) + C) * D + E
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -183,7 +183,7 @@ As Optimized: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -207,7 +207,7 @@ As Parsed: 2 + 3 * 4 ^ 5 % 6 / 7 - 8
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -231,7 +231,7 @@ As Parsed: -1 * B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -256,7 +256,7 @@ As Optimized: A + B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -274,9 +274,9 @@ TestContext Messages:
 Input: (A*B*C)+D
 As Parsed: (A * B * C) + D
 As Optimized: A * B * C + D
-Variables: (A, 7243), (B, 18446744073709545532), (C, 18446744073709551591), (D, 5154)
-Parsed Result: 1101665454
-Optimized Result: 1101665454
+Variables: (A, 3635), (B, 1822), (C, 18446744073709549783), (D, 18446744073709549622)
+Parsed Result: 18446744061569645612
+Optimized Result: 18446744061569645612
 ```
 
 ## Check Expressions "(A+B)*C+D"
@@ -284,7 +284,7 @@ Optimized Result: 1101665454
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -302,9 +302,9 @@ TestContext Messages:
 Input: (A+B)*C+D
 As Parsed: (A + B) * C + D
 As Optimized: (A + B) * C + D
-Variables: (A, 18446744073709545851), (B, 18446744073709549658), (C, 7381), (D, 2000)
-Parsed Result: 18446744073652550153
-Optimized Result: 18446744073652550153
+Variables: (A, 18446744073709542700), (B, 18446744073709545960), (C, 2624), (D, 8574)
+Parsed Result: 18446744073671323262
+Optimized Result: 18446744073671323262
 ```
 
 ## OptimizerTests (B^0,1)
@@ -312,7 +312,7 @@ Optimized Result: 18446744073652550153
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -337,7 +337,7 @@ As Optimized: 1
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -355,9 +355,9 @@ TestContext Messages:
 Input: A!
 As Parsed: A!
 As Optimized: A!
-Variables: (A, 9)
-Parsed Result: 362880
-Optimized Result: 362880
+Variables: (A, 1)
+Parsed Result: 1
+Optimized Result: 1
 ```
 
 ## Check Expressions "(A*((B+(-1*C))*D+E+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E))))+I*((B+(-1*C))*J+K+(F*G)+H+(A*((((B+(-1*C))*D)+E)+(F*G)+H))+(-1*(B+(-1*C)+(-1*((B+(-1*C))*D+E)))))+L"
@@ -365,7 +365,7 @@ Optimized Result: 362880
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -389,7 +389,7 @@ As Parsed: (A * ((B + (-1 * C)) * D + E + (F * G) + H)) + (-1 * (B + (-1 * C) + 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -407,9 +407,9 @@ TestContext Messages:
 Input: (A+((B*C)+D))*E+F+(A+((B*C)+D))*G+H
 As Parsed: (A + ((B * C) + D)) * E + F + (A + ((B * C) + D)) * G + H
 As Optimized: (A + ((B * C) + D)) * E + F + (A + ((B * C) + D)) * G + H
-Variables: (A, 18446744073709544248), (B, 18446744073709546688), (C, 18446744073709549028), (D, 18446744073709544740), (E, 18446744073709544115), (F, 18446744073709550790), (G, 332), (H, 18446744073709549981)
-Parsed Result: 18446743982380647175
-Optimized Result: 18446743982380647175
+Variables: (A, 7848), (B, 18446744073709545764), (C, 18446744073709544159), (D, 18446744073709546596), (E, 18446744073709546892), (F, 18446744073709546603), (G, 18446744073709545109), (H, 18446744073709545181)
+Parsed Result: 18446743583575312816
+Optimized Result: 18446743583575312816
 ```
 
 ## Check Expressions "((A*B)+C)+(D*E*F)"
@@ -417,7 +417,7 @@ Optimized Result: 18446743982380647175
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -435,9 +435,9 @@ TestContext Messages:
 Input: ((A*B)+C)+(D*E*F)
 As Parsed: ((A * B) + C) + (D * E * F)
 As Optimized: A * B + C + D * E * F
-Variables: (A, 8447), (B, 18446744073709546735), (C, 18446744073709549814), (D, 5769), (E, 8106), (F, 2983)
-Parsed Result: 139454330653
-Optimized Result: 139454330653
+Variables: (A, 4354), (B, 18446744073709542851), (C, 18446744073709546878), (D, 18446744073709547871), (E, 18446744073709547461), (F, 3842)
+Parsed Result: 59745177402
+Optimized Result: 59745177402
 ```
 
 ## Simple factorial
@@ -445,7 +445,7 @@ Optimized Result: 139454330653
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -469,7 +469,7 @@ As Parsed: A!
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -487,9 +487,9 @@ TestContext Messages:
 Input: A*B+C
 As Parsed: A * B + C
 As Optimized: A * B + C
-Variables: (A, 18446744073709541780), (B, 3576), (C, 18446744073709546939)
-Parsed Result: 18446744073674373403
-Optimized Result: 18446744073674373403
+Variables: (A, 8429), (B, 18446744073709544467), (C, 18446744073709549037)
+Parsed Result: 18446744073649290116
+Optimized Result: 18446744073649290116
 ```
 
 ## OptimizerTests (0+B,B)
@@ -497,7 +497,7 @@ Optimized Result: 18446744073674373403
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -522,7 +522,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -540,9 +540,9 @@ TestContext Messages:
 Input: ((((A/B)*C)+D)*((E*F)*G))+H
 As Parsed: ((((A / B) * C) + D) * ((E * F) * G)) + H
 As Optimized: (((A / B) * C) + D) * E * F * G + H
-Variables: (A, 18446744073709550342), (B, 843), (C, 8768), (D, 18446744073709548806), (E, 7474), (F, 18446744073709547624), (G, 7311), (H, 18446744073709542744)
-Parsed Result: 14119361653673107832
-Optimized Result: 14119361653673107832
+Variables: (A, 18446744073709551254), (B, 18446744073709551063), (C, 18446744073709549479), (D, 2589), (E, 5305), (F, 18446744073709550766), (G, 18446744073709546795), (H, 18446744073709541803)
+Parsed Result: 9826070591187
+Optimized Result: 9826070591187
 ```
 
 ## Check Expressions "(A*1)"
@@ -550,7 +550,7 @@ Optimized Result: 14119361653673107832
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -568,9 +568,9 @@ TestContext Messages:
 Input: (A*1)
 As Parsed: (A * 1)
 As Optimized: A
-Variables: (A, 5103)
-Parsed Result: 5103
-Optimized Result: 5103
+Variables: (A, 18446744073709551153)
+Parsed Result: 18446744073709551153
+Optimized Result: 18446744073709551153
 ```
 
 ## OptimizerTests (0*B,0)
@@ -578,7 +578,7 @@ Optimized Result: 5103
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -603,7 +603,7 @@ As Optimized: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -621,9 +621,9 @@ TestContext Messages:
 Input: ((A-B)*C)+D
 As Parsed: ((A - B) * C) + D
 As Optimized: (A - B) * C + D
-Variables: (A, 5847), (B, 1898), (C, 18446744073709546924), (D, 6276)
-Parsed Result: 18446744073691029184
-Optimized Result: 18446744073691029184
+Variables: (A, 9662), (B, 18446744073709545101), (C, 18446744073709551156), (D, 18446744073709545018)
+Parsed Result: 18446744073702103598
+Optimized Result: 18446744073702103598
 ```
 
 ## OptimizerTests_WithExceptions (B%0)
@@ -631,7 +631,7 @@ Optimized Result: 18446744073691029184
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -655,7 +655,7 @@ As Parsed: B % 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -673,9 +673,9 @@ TestContext Messages:
 Input: A*1
 As Parsed: A * 1
 As Optimized: A
-Variables: (A, 18446744073709546155)
-Parsed Result: 18446744073709546155
-Optimized Result: 18446744073709546155
+Variables: (A, 18446744073709542400)
+Parsed Result: 18446744073709542400
+Optimized Result: 18446744073709542400
 ```
 
 ## PoorlyFormedExpressions (B*-*A)
@@ -683,7 +683,7 @@ Optimized Result: 18446744073709546155
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -714,7 +714,7 @@ line 1:3 no viable alternative at input '*'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -745,7 +745,7 @@ line 1:2 no viable alternative at input '*'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -763,9 +763,9 @@ TestContext Messages:
 Input: ((A+B+((C*D)+E))*F)+G+((D/H)*I)+J
 As Parsed: ((A + B + ((C * D) + E)) * F) + G + ((D / H) * I) + J
 As Optimized: (A + B + ((C * D) + E)) * F + G + D / H * I + J
-Variables: (A, 6869), (B, 3004), (C, 6350), (D, 1303), (E, 2763), (F, 8675), (G, 4107), (H, 8268), (I, 18446744073709542547), (J, 18446744073709542912)
-Parsed Result: 71886996453
-Optimized Result: 71886996453
+Variables: (A, 18446744073709551124), (B, 3056), (C, 1958), (D, 18446744073709546253), (E, 18446744073709549527), (F, 6356), (G, 5486), (H, 4941), (I, 8286), (J, 9856)
+Parsed Result: 12488232867192315938
+Optimized Result: 12488232867192315938
 ```
 
 ## Check Expressions "((A/B)*((C*D)*E)*F)+G"
@@ -773,7 +773,7 @@ Optimized Result: 71886996453
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -791,9 +791,9 @@ TestContext Messages:
 Input: ((A/B)*((C*D)*E)*F)+G
 As Parsed: ((A / B) * ((C * D) * E) * F) + G
 As Optimized: A / B * C * D * E * F + G
-Variables: (A, 4893), (B, 7657), (C, 8081), (D, 5263), (E, 18446744073709551196), (F, 1419), (G, 18446744073709543159)
-Parsed Result: 18446744073709543159
-Optimized Result: 18446744073709543159
+Variables: (A, 1984), (B, 3880), (C, 1041), (D, 469), (E, 18446744073709550645), (F, 1168), (G, 18446744073709543053)
+Parsed Result: 18446744073709543053
+Optimized Result: 18446744073709543053
 ```
 
 ## OptimizerTests (0-B,-B)
@@ -801,7 +801,7 @@ Optimized Result: 18446744073709543159
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -826,7 +826,7 @@ As Optimized: -B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -851,7 +851,7 @@ As Optimized: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -875,7 +875,7 @@ As Parsed: ((A / (1 + (-1 * (B + C)))) * D) + E
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -899,7 +899,7 @@ As Parsed: A + B + 1
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -930,7 +930,7 @@ line 1:0 no viable alternative at input '<EOF>'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -948,9 +948,9 @@ TestContext Messages:
 Input: (A*B)
 As Parsed: (A * B)
 As Optimized: A * B
-Variables: (A, 2559), (B, 18446744073709547272)
-Parsed Result: 18446744073698435320
-Optimized Result: 18446744073698435320
+Variables: (A, 18446744073709548327), (B, 18446744073709545739)
+Parsed Result: 19329453
+Optimized Result: 19329453
 ```
 
 ## Check Expressions "(A*((B+(-1*C))+((D*E)+F))+G)+(H*((B+(-1*C))+((D*E)+F)+(A*((B+(-1*C))+((D*E)+F))+G))+I)"
@@ -958,7 +958,7 @@ Optimized Result: 18446744073698435320
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -982,7 +982,7 @@ As Parsed: (A * ((B + (-1 * C)) + ((D * E) + F)) + G) + (H * ((B + (-1 * C)) + (
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1007,7 +1007,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1038,7 +1038,7 @@ line 1:2 no viable alternative at input '+'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1062,7 +1062,7 @@ As Parsed: (A * ((((B + (-1 * C)) * D) + E) + ((F * ((G * H) + I)) + J)) + K) + 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1087,7 +1087,7 @@ As Optimized: N!!!
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1112,7 +1112,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1130,9 +1130,9 @@ TestContext Messages:
 Input: A+B
 As Parsed: A + B
 As Optimized: A + B
-Variables: (A, 9401), (B, 2293)
-Parsed Result: 11694
-Optimized Result: 11694
+Variables: (A, 5926), (B, 18446744073709547684)
+Parsed Result: 1994
+Optimized Result: 1994
 ```
 
 ## OptimizerTests (B-0,B)
@@ -1140,7 +1140,7 @@ Optimized Result: 11694
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1165,7 +1165,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1183,9 +1183,9 @@ TestContext Messages:
 Input: A*B
 As Parsed: A * B
 As Optimized: A * B
-Variables: (A, 6924), (B, 18446744073709544905)
-Parsed Result: 18446744073663084652
-Optimized Result: 18446744073663084652
+Variables: (A, 4993), (B, 9811)
+Parsed Result: 48986323
+Optimized Result: 48986323
 ```
 
 ## PoorlyFormedExpressions (B***A)
@@ -1193,7 +1193,7 @@ Optimized Result: 18446744073663084652
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1224,7 +1224,7 @@ line 1:2 no viable alternative at input '*'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1248,7 +1248,7 @@ As Parsed: -(3)
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1279,7 +1279,7 @@ line 1:2 no viable alternative at input '*'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1303,7 +1303,7 @@ As Parsed: B * -1
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1327,7 +1327,7 @@ As Parsed: B * --A
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1345,7 +1345,7 @@ TestContext Messages:
 Input: (A/(A+B))
 As Parsed: (A / (A + B))
 As Optimized: A / (A + B)
-Variables: (A, 8180), (B, 5616)
+Variables: (A, 9692), (B, 8755)
 Parsed Result: 0
 Optimized Result: 0
 ```
@@ -1355,7 +1355,7 @@ Optimized Result: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1373,9 +1373,9 @@ TestContext Messages:
 Input: (((A/B)*C*D)*E*F)+G
 As Parsed: (((A / B) * C * D) * E * F) + G
 As Optimized: A / B * C * D * E * F + G
-Variables: (A, 1472), (B, 1192), (C, 7543), (D, 3276), (E, 2961), (F, 18446744073709545361), (G, 2396)
-Parsed Result: 18446286402364228272
-Optimized Result: 18446286402364228272
+Variables: (A, 8089), (B, 18446744073709543363), (C, 664), (D, 18446744073709548465), (E, 18446744073709541621), (F, 9931), (G, 18446744073709551136)
+Parsed Result: 18446744073709551136
+Optimized Result: 18446744073709551136
 ```
 
 ## OptimizerTests_WithExceptions (B/0)
@@ -1383,7 +1383,7 @@ Optimized Result: 18446286402364228272
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1407,7 +1407,7 @@ As Parsed: B / 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1431,7 +1431,7 @@ As Parsed: -1 * (A * B)
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1449,9 +1449,9 @@ TestContext Messages:
 Input: ((A/(1-B))*C)+D
 As Parsed: ((A / (1 - B)) * C) + D
 As Optimized: A / (1 - B) * C + D
-Variables: (A, 18446744073709549576), (B, 6127), (C, 7716), (D, 18446744073709547637)
-Parsed Result: 3737
-Optimized Result: 3737
+Variables: (A, 4460), (B, 18446744073709544957), (C, 612), (D, 18446744073709549826)
+Parsed Result: 18446744073709549826
+Optimized Result: 18446744073709549826
 ```
 
 ## Check Expressions "(A*B*(C/D))+E"
@@ -1459,7 +1459,7 @@ Optimized Result: 3737
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1477,9 +1477,9 @@ TestContext Messages:
 Input: (A*B*(C/D))+E
 As Parsed: (A * B * (C / D)) + E
 As Optimized: A * B * C / D + E
-Variables: (A, 18446744073709542976), (B, 18446744073709551003), (C, 538), (D, 8696), (E, 7410)
-Parsed Result: 7410
-Optimized Result: 7410
+Variables: (A, 18446744073709550743), (B, 2137), (C, 3995), (D, 18446744073709548999), (E, 7800)
+Parsed Result: 7800
+Optimized Result: 7800
 ```
 
 ## OptimizerTests (A!,A!)
@@ -1487,7 +1487,7 @@ Optimized Result: 7410
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1512,7 +1512,7 @@ As Optimized: A!
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1537,7 +1537,7 @@ As Optimized: -B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1562,7 +1562,7 @@ As Optimized: 1
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1587,7 +1587,7 @@ As Optimized: A
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1612,7 +1612,7 @@ As Optimized: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1630,9 +1630,9 @@ TestContext Messages:
 Input: ((A/B)*((C*D)*E))+F
 As Parsed: ((A / B) * ((C * D) * E)) + F
 As Optimized: A / B * C * D * E + F
-Variables: (A, 18446744073709542387), (B, 18446744073709547185), (C, 4006), (D, 18446744073709547474), (E, 7923), (F, 18446744073709548174)
-Parsed Result: 18446744073709548174
-Optimized Result: 18446744073709548174
+Variables: (A, 1309), (B, 18446744073709545034), (C, 18446744073709547495), (D, 18446744073709549777), (E, 5271), (F, 832)
+Parsed Result: 832
+Optimized Result: 832
 ```
 
 ## Check Expressions "(((A/B)*C*D)*E)+F"
@@ -1640,7 +1640,7 @@ Optimized Result: 18446744073709548174
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1658,9 +1658,9 @@ TestContext Messages:
 Input: (((A/B)*C*D)*E)+F
 As Parsed: (((A / B) * C * D) * E) + F
 As Optimized: A / B * C * D * E + F
-Variables: (A, 18446744073709548378), (B, 6558), (C, 18446744073709550062), (D, 8513), (E, 18446744073709544481), (F, 18446744073709544236)
-Parsed Result: 18092323506222953414
-Optimized Result: 18092323506222953414
+Variables: (A, 18446744073709543405), (B, 8894), (C, 6502), (D, 18446744073709549604), (E, 18446744073709547729), (F, 18446744073709543620)
+Parsed Result: 2065769780254859924
+Optimized Result: 2065769780254859924
 ```
 
 ## Check Expressions "(((A/B)*((C*D)*E)*F)*G)+H"
@@ -1668,7 +1668,7 @@ Optimized Result: 18092323506222953414
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1686,9 +1686,9 @@ TestContext Messages:
 Input: (((A/B)*((C*D)*E)*F)*G)+H
 As Parsed: (((A / B) * ((C * D) * E) * F) * G) + H
 As Optimized: A / B * C * D * E * F * G + H
-Variables: (A, 18446744073709543885), (B, 18446744073709543658), (C, 8621), (D, 8390), (E, 8556), (F, 4558), (G, 9639), (H, 18446744073709549438)
-Parsed Result: 8742471803171575886
-Optimized Result: 8742471803171575886
+Variables: (A, 9929), (B, 8479), (C, 18446744073709546250), (D, 18446744073709545360), (E, 18446744073709546442), (F, 18446744073709547165), (G, 2522), (H, 8583)
+Parsed Result: 1949739136756606471
+Optimized Result: 1949739136756606471
 ```
 
 ## Check Expressions "((A*B)+((A*C)-A)*D)+E"
@@ -1696,7 +1696,7 @@ Optimized Result: 8742471803171575886
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1714,9 +1714,9 @@ TestContext Messages:
 Input: ((A*B)+((A*C)-A)*D)+E
 As Parsed: ((A * B) + ((A * C) - A) * D) + E
 As Optimized: A * B + ((A * C) - A) * D + E
-Variables: (A, 6616), (B, 6292), (C, 4212), (D, 18446744073709550111), (E, 18446744073709547643)
-Parsed Result: 18446744031821911635
-Optimized Result: 18446744031821911635
+Variables: (A, 18446744073709542400), (B, 412), (C, 4220), (D, 2043), (E, 18446744073709549354)
+Parsed Result: 18446743994269205290
+Optimized Result: 18446743994269205290
 ```
 
 ## Check Expressions "(((A*B)+C)*D)+E"
@@ -1724,7 +1724,7 @@ Optimized Result: 18446744031821911635
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1742,9 +1742,9 @@ TestContext Messages:
 Input: (((A*B)+C)*D)+E
 As Parsed: (((A * B) + C) * D) + E
 As Optimized: ((A * B) + C) * D + E
-Variables: (A, 8310), (B, 18446744073709548500), (C, 18446744073709544027), (D, 18446744073709544670), (E, 18446744073709548452)
-Parsed Result: 179912156190
-Optimized Result: 179912156190
+Variables: (A, 4884), (B, 4183), (C, 5020), (D, 18446744073709547535), (E, 18446744073709544121)
+Parsed Result: 18446743990315157969
+Optimized Result: 18446743990315157969
 ```
 
 ## Check Expressions "(((A/B)*(((C*D)*E)*F))+(C*D*G))+H"
@@ -1752,7 +1752,7 @@ Optimized Result: 179912156190
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1770,9 +1770,9 @@ TestContext Messages:
 Input: (((A/B)*(((C*D)*E)*F))+(C*D*G))+H
 As Parsed: (((A / B) * (((C * D) * E) * F)) + (C * D * G)) + H
 As Optimized: A / B * C * D * E * F + C * D * G + H
-Variables: (A, 18446744073709546699), (B, 18446744073709543954), (C, 18446744073709544970), (D, 18446744073709549991), (E, 4052), (F, 8854), (G, 238), (H, 7066)
-Parsed Result: 387458807645566
-Optimized Result: 387458807645566
+Variables: (A, 6755), (B, 18446744073709545636), (C, 18446744073709545092), (D, 9803), (E, 18446744073709550468), (F, 2730), (G, 9870), (H, 18446744073709545841)
+Parsed Result: 18446743442475946201
+Optimized Result: 18446743442475946201
 ```
 
 ## Check Expressions "(A*B)+C"
@@ -1780,7 +1780,7 @@ Optimized Result: 387458807645566
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1798,9 +1798,9 @@ TestContext Messages:
 Input: (A*B)+C
 As Parsed: (A * B) + C
 As Optimized: A * B + C
-Variables: (A, 2628), (B, 1112), (C, 18446744073709542904)
-Parsed Result: 2913624
-Optimized Result: 2913624
+Variables: (A, 18446744073709549403), (B, 2185), (C, 18446744073709548338)
+Parsed Result: 18446744073704712933
+Optimized Result: 18446744073704712933
 ```
 
 ## Check Expressions "((A/B)*C)+D"
@@ -1808,7 +1808,7 @@ Optimized Result: 2913624
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1826,9 +1826,9 @@ TestContext Messages:
 Input: ((A/B)*C)+D
 As Parsed: ((A / B) * C) + D
 As Optimized: A / B * C + D
-Variables: (A, 5531), (B, 3096), (C, 9744), (D, 18446744073709541953)
-Parsed Result: 81
-Optimized Result: 81
+Variables: (A, 5942), (B, 18446744073709551208), (C, 9274), (D, 18446744073709543082)
+Parsed Result: 18446744073709543082
+Optimized Result: 18446744073709543082
 ```
 
 ## Parse Complex Expression
@@ -1836,7 +1836,7 @@ Optimized Result: 81
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1852,7 +1852,7 @@ Optimized Result: 81
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1883,7 +1883,7 @@ line 1:2 no viable alternative at input '*'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1907,7 +1907,7 @@ As Parsed: (A * (((B * C) + D) + ((E * F) + G)) + H) + (-1 * (B + (-1 * ((B * C)
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1932,7 +1932,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1950,9 +1950,9 @@ TestContext Messages:
 Input: (A-B)/A
 As Parsed: (A - B) / A
 As Optimized: (A - B) / A
-Variables: (A, 1799), (B, 18446744073709543287)
-Parsed Result: 5
-Optimized Result: 5
+Variables: (A, 1383), (B, 18446744073709546827)
+Parsed Result: 4
+Optimized Result: 4
 ```
 
 ## Check Expressions "((A/B)*C*D*E)+F"
@@ -1960,7 +1960,7 @@ Optimized Result: 5
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -1978,9 +1978,9 @@ TestContext Messages:
 Input: ((A/B)*C*D*E)+F
 As Parsed: ((A / B) * C * D * E) + F
 As Optimized: A / B * C * D * E + F
-Variables: (A, 7428), (B, 18446744073709543921), (C, 1294), (D, 18446744073709545638), (E, 18446744073709549402), (F, 4237)
-Parsed Result: 4237
-Optimized Result: 4237
+Variables: (A, 18446744073709543063), (B, 1983), (C, 7053), (D, 9326), (E, 18446744073709546294), (F, 18446744073709542220)
+Parsed Result: 2204680734488903116
+Optimized Result: 2204680734488903116
 ```
 
 ## Check Expressions "(A*((B+(-1*C))+((D*(B+(-1*C)))+E)+((F*G)+H))+((D*(B+(-1*C)))+E))"
@@ -1988,7 +1988,7 @@ Optimized Result: 4237
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2012,7 +2012,7 @@ As Parsed: (A * ((B + (-1 * C)) + ((D * (B + (-1 * C))) + E) + ((F * G) + H)) + 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2036,7 +2036,7 @@ As Parsed: (((((A * B) + C) + ((D * E) + F)) * G) + H) + (-1 * ((A + (-1 * (A * 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2061,7 +2061,7 @@ As Optimized: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2086,7 +2086,7 @@ As Optimized: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2104,9 +2104,9 @@ TestContext Messages:
 Input: ((A*B)+C)+((D*B)+E)
 As Parsed: ((A * B) + C) + ((D * B) + E)
 As Optimized: A * B + C + D * B + E
-Variables: (A, 18446744073709544641), (B, 18446744073709547995), (C, 18446744073709549204), (D, 18446744073709549183), (E, 792)
-Parsed Result: 34064748
-Optimized Result: 34064748
+Variables: (A, 18446744073709548989), (B, 18446744073709542088), (C, 6089), (D, 352), (E, 18446744073709544466)
+Parsed Result: 21675139
+Optimized Result: 21675139
 ```
 
 ## OptimizerTests (3!!,720)
@@ -2114,7 +2114,7 @@ Optimized Result: 34064748
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2123,7 +2123,7 @@ Optimized Result: 34064748
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.01
+* Duration: 00:00:00.00
 
 #### Standard Out
 
@@ -2139,7 +2139,7 @@ As Optimized: 720
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2163,7 +2163,7 @@ As Parsed: ((A * (((B * C) + D) + (E * F))) + (-1 * (B * (1 + (-1 * C)) + D) + G
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2187,7 +2187,7 @@ As Parsed: (A * (((B * C) + D) + ((E * ((F * G) + H)) + I)) + J) + (-1 * (B + (-
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2212,7 +2212,7 @@ As Optimized: -B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2230,9 +2230,9 @@ TestContext Messages:
 Input: (((A-(B*C))/(1-D))*E)+F
 As Parsed: (((A - (B * C)) / (1 - D)) * E) + F
 As Optimized: (A - (B * C)) / (1 - D) * E + F
-Variables: (A, 18446744073709549644), (B, 7830), (C, 18446744073709547851), (D, 993), (E, 18446744073709544984), (F, 9084)
-Parsed Result: 9084
-Optimized Result: 9084
+Variables: (A, 3139), (B, 18446744073709545510), (C, 5857), (D, 3181), (E, 4771), (F, 18446744073709546419)
+Parsed Result: 18446744073709546419
+Optimized Result: 18446744073709546419
 ```
 
 ## Check Expressions "(A/B)-(C+D+E+F)"
@@ -2240,7 +2240,7 @@ Optimized Result: 9084
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2258,9 +2258,9 @@ TestContext Messages:
 Input: (A/B)-(C+D+E+F)
 As Parsed: (A / B) - (C + D + E + F)
 As Optimized: A / B - C + D + E + F
-Variables: (A, 18446744073709544195), (B, 18446744073709550622), (C, 18446744073709546618), (D, 910), (E, 1661), (F, 18446744073709545560)
-Parsed Result: 8483
-Optimized Result: 8483
+Variables: (A, 5634), (B, 18446744073709550558), (C, 6005), (D, 6332), (E, 6759), (F, 9102)
+Parsed Result: 18446744073709523418
+Optimized Result: 18446744073709523418
 ```
 
 ## Check Expressions "((A+((B*C)+D))*E)+F+((C/G)*H)+I"
@@ -2268,7 +2268,7 @@ Optimized Result: 8483
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2286,9 +2286,9 @@ TestContext Messages:
 Input: ((A+((B*C)+D))*E)+F+((C/G)*H)+I
 As Parsed: ((A + ((B * C) + D)) * E) + F + ((C / G) * H) + I
 As Optimized: (A + ((B * C) + D)) * E + F + C / G * H + I
-Variables: (A, 18446744073709547725), (B, 18446744073709548829), (C, 18446744073709547310), (D, 18446744073709551524), (E, 18446744073709548726), (F, 18446744073709549419), (G, 4800), (H, 18446744073709542885), (I, 3772)
-Parsed Result: 3339629257006981215
-Optimized Result: 3339629257006981215
+Variables: (A, 597), (B, 1526), (C, 18446744073709549890), (D, 18446744073709545864), (E, 8454), (F, 18446744073709546275), (G, 18446744073709544345), (H, 988), (I, 18446744073709548532)
+Parsed Result: 18446744051399176105
+Optimized Result: 18446744051399176105
 ```
 
 ## Check Expressions "((A-(B*C))*D)+E"
@@ -2296,7 +2296,7 @@ Optimized Result: 3339629257006981215
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2314,9 +2314,9 @@ TestContext Messages:
 Input: ((A-(B*C))*D)+E
 As Parsed: ((A - (B * C)) * D) + E
 As Optimized: (A - (B * C)) * D + E
-Variables: (A, 18446744073709544889), (B, 8905), (C, 4050), (D, 9801), (E, 18446744073709543179)
-Parsed Result: 18446743720168096602
-Optimized Result: 18446743720168096602
+Variables: (A, 18446744073709544283), (B, 18446744073709546184), (C, 18446744073709542539), (D, 7219), (E, 2858)
+Parsed Result: 18446743717714697731
+Optimized Result: 18446743717714697731
 ```
 
 ## Check Expressions "A*(B/C)+D"
@@ -2324,7 +2324,7 @@ Optimized Result: 18446743720168096602
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2342,9 +2342,9 @@ TestContext Messages:
 Input: A*(B/C)+D
 As Parsed: A * (B / C) + D
 As Optimized: A * B / C + D
-Variables: (A, 18446744073709544597), (B, 5084), (C, 18446744073709548298), (D, 18446744073709547470)
-Parsed Result: 18446744073709547470
-Optimized Result: 18446744073709547470
+Variables: (A, 4830), (B, 8830), (C, 18446744073709546649), (D, 18446744073709542060)
+Parsed Result: 18446744073709542060
+Optimized Result: 18446744073709542060
 ```
 
 ## OptimizerTests (0/B,0)
@@ -2352,7 +2352,7 @@ Optimized Result: 18446744073709547470
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2377,7 +2377,7 @@ As Optimized: 0
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2401,7 +2401,7 @@ As Parsed: B % -1
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2425,7 +2425,7 @@ As Parsed: (((A + (-1 * B)) * C) + D) + (B + (-1 * A))
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2450,7 +2450,7 @@ As Optimized: N!!
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2474,7 +2474,7 @@ As Parsed: (A * (((B * C) + D) + ((E * F) + G))) + (-1 * (B + (-1 * ((B * C) + D
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2499,7 +2499,7 @@ Antlr4.Runtime.Misc.ParseCanceledException
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2517,9 +2517,9 @@ TestContext Messages:
 Input: ((A*B)*C)+D
 As Parsed: ((A * B) * C) + D
 As Optimized: A * B * C + D
-Variables: (A, 7841), (B, 18446744073709549501), (C, 8275), (D, 18446744073709544583)
-Parsed Result: 18446743936479302958
-Optimized Result: 18446743936479302958
+Variables: (A, 18446744073709545091), (B, 18446744073709545685), (C, 18446744073709542246), (D, 18446744073709542688)
+Parsed Result: 18446743711092650938
+Optimized Result: 18446743711092650938
 ```
 
 ## Check Expressions "((A*B)+C)+(-1*A)"
@@ -2527,7 +2527,7 @@ Optimized Result: 18446743936479302958
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2551,7 +2551,7 @@ As Parsed: ((A * B) + C) + (-1 * A)
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2569,9 +2569,9 @@ TestContext Messages:
 Input: A
 As Parsed: A
 As Optimized: A
-Variables: (A, 4527)
-Parsed Result: 4527
-Optimized Result: 4527
+Variables: (A, 18446744073709549131)
+Parsed Result: 18446744073709549131
+Optimized Result: 18446744073709549131
 ```
 
 ## Check Expressions "((A/B)*(((C*D)*E)*F))+G"
@@ -2579,7 +2579,7 @@ Optimized Result: 4527
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2597,9 +2597,9 @@ TestContext Messages:
 Input: ((A/B)*(((C*D)*E)*F))+G
 As Parsed: ((A / B) * (((C * D) * E) * F)) + G
 As Optimized: A / B * C * D * E * F + G
-Variables: (A, 18446744073709542812), (B, 18446744073709548803), (C, 18446744073709551310), (D, 18446744073709543398), (E, 7190), (F, 18446744073709546823), (G, 18446744073709546317)
-Parsed Result: 18446744073709546317
-Optimized Result: 18446744073709546317
+Variables: (A, 8652), (B, 18446744073709547930), (C, 18446744073709548817), (D, 18446744073709543970), (E, 9383), (F, 7178), (G, 18446744073709547876)
+Parsed Result: 18446744073709547876
+Optimized Result: 18446744073709547876
 ```
 
 ## Check Expressions "(((A/B)+(-1*C))*D*E*F)+G"
@@ -2607,7 +2607,7 @@ Optimized Result: 18446744073709546317
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2631,7 +2631,7 @@ As Parsed: (((A / B) + (-1 * C)) * D * E * F) + G
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2656,7 +2656,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2681,7 +2681,7 @@ As Optimized: 2
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2705,7 +2705,7 @@ As Parsed: B / -1
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2737,7 +2737,7 @@ line 1:1 no viable alternative at input '+'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2761,7 +2761,7 @@ As Parsed: (((A + (-1 * B)) + ((C * D) + E)) * F) + G + (D * H) + I
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2786,7 +2786,7 @@ As Optimized: 5
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2804,9 +2804,9 @@ TestContext Messages:
 Input: (((A-(B*C))/D)*E)+F
 As Parsed: (((A - (B * C)) / D) * E) + F
 As Optimized: (A - (B * C)) / D * E + F
-Variables: (A, 3667), (B, 930), (C, 18446744073709541967), (D, 9711), (E, 2143), (F, 7259)
-Parsed Result: 1987391
-Optimized Result: 1987391
+Variables: (A, 18446744073709547233), (B, 9938), (C, 9980), (D, 9439), (E, 18446744073709545789), (F, 1987)
+Parsed Result: 7058972305839273623
+Optimized Result: 7058972305839273623
 ```
 
 ## OptimizerTests (--B,B)
@@ -2814,7 +2814,7 @@ Optimized Result: 1987391
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2839,7 +2839,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2871,7 +2871,7 @@ line 1:1 no viable alternative at input '<EOF>'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2887,7 +2887,7 @@ line 1:1 no viable alternative at input '<EOF>'
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2905,9 +2905,9 @@ TestContext Messages:
 Input: ((((A*B)+C)/D)*E)+F
 As Parsed: ((((A * B) + C) / D) * E) + F
 As Optimized: ((A * B) + C) / D * E + F
-Variables: (A, 18446744073709549599), (B, 18446744073709548386), (C, 9331), (D, 18446744073709551570), (E, 2780), (F, 1852)
-Parsed Result: 1852
-Optimized Result: 1852
+Variables: (A, 18446744073709547773), (B, 18446744073709550695), (C, 6840), (D, 18446744073709547115), (E, 4670), (F, 18446744073709548133)
+Parsed Result: 18446744073709548133
+Optimized Result: 18446744073709548133
 ```
 
 ## Check Expressions "(((A+(-1*B))/C)*(D*E)*F)+G"
@@ -2915,7 +2915,7 @@ Optimized Result: 1852
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2939,7 +2939,7 @@ As Parsed: (((A + (-1 * B)) / C) * (D * E) * F) + G
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2964,7 +2964,7 @@ As Optimized: 18446744073709551610
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -2988,7 +2988,7 @@ As Parsed: (((A / B) + (-1 * C)) * (D * E) * F) + G
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3013,7 +3013,7 @@ As Optimized: A!
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3037,7 +3037,7 @@ As Parsed: -3
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3061,7 +3061,7 @@ As Parsed: ((A + ((-1 * B) * (C / D))) * (E / C)) + (-1 * F) + G
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3077,7 +3077,7 @@ As Parsed: ((A + ((-1 * B) * (C / D))) * (E / C)) + (-1 * F) + G
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3102,7 +3102,7 @@ As Optimized: B
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3126,7 +3126,7 @@ As Parsed: (((A / B) + (-1 * C)) * ((D * E) * F) * G) + H
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3144,9 +3144,9 @@ TestContext Messages:
 Input: (A*(B+((C*D)+E))+F)+(G*(B+((C*D)+E)+(A*(B+((C*D)+E))+F))+H)
 As Parsed: (A * (B + ((C * D) + E)) + F) + (G * (B + ((C * D) + E) + (A * (B + ((C * D) + E)) + F)) + H)
 As Optimized: A * (B + ((C * D) + E)) + F + G * (B + ((C * D) + E) + (A * (B + ((C * D) + E)) + F)) + H
-Variables: (A, 18446744073709545614), (B, 18446744073709547880), (C, 18446744073709542103), (D, 1725), (E, 18446744073709543975), (F, 5377), (G, 7780), (H, 6668)
-Parsed Result: 766772737589269
-Optimized Result: 766772737589269
+Variables: (A, 1468), (B, 18446744073709550953), (C, 3155), (D, 3869), (E, 18446744073709543786), (F, 18446744073709546741), (G, 8068), (H, 18446744073709543587)
+Parsed Result: 144589640314316
+Optimized Result: 144589640314316
 ```
 
 ## Negative factorial
@@ -3154,7 +3154,7 @@ Optimized Result: 766772737589269
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Parser::ExpressionParser`1::Parse
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3178,7 +3178,7 @@ As Parsed: -(A!)
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3202,7 +3202,7 @@ As Parsed: ((A + (-1 * B)) + ((C * D) + E)) * F + G + ((A + (-1 * B)) + ((C * D)
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3226,7 +3226,7 @@ As Parsed: ((A * (B + (-1 * C))) + D) + ((E * (B + (-1 * C))) + F)
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3244,9 +3244,9 @@ TestContext Messages:
 Input: ((A/B)*(C*D)*E)+F
 As Parsed: ((A / B) * (C * D) * E) + F
 As Optimized: A / B * C * D * E + F
-Variables: (A, 18446744073709542208), (B, 18446744073709544516), (C, 18446744073709550797), (D, 8664), (E, 2792), (F, 18446744073709550723)
-Parsed Result: 18446744073709550723
-Optimized Result: 18446744073709550723
+Variables: (A, 18446744073709545525), (B, 18446744073709545906), (C, 18446744073709550164), (D, 18446744073709546467), (E, 8810), (F, 18446744073709545613)
+Parsed Result: 18446744073709545613
+Optimized Result: 18446744073709545613
 ```
 
 ## Check Expressions "(((A*B)*C)*D)+E"
@@ -3254,7 +3254,7 @@ Optimized Result: 18446744073709550723
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3272,9 +3272,9 @@ TestContext Messages:
 Input: (((A*B)*C)*D)+E
 As Parsed: (((A * B) * C) * D) + E
 As Optimized: A * B * C * D + E
-Variables: (A, 7569), (B, 4672), (C, 18446744073709546415), (D, 18446744073709547916), (E, 8728)
-Parsed Result: 680502801090328
-Optimized Result: 680502801090328
+Variables: (A, 8388), (B, 7508), (C, 8271), (D, 18446744073709544588), (E, 18446744073709549509)
+Parsed Result: 18443083303577700357
+Optimized Result: 18443083303577700357
 ```
 
 ## Check Expressions "(A*(B/C)+D)"
@@ -3282,7 +3282,7 @@ Optimized Result: 680502801090328
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Optimize
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -3300,9 +3300,9 @@ TestContext Messages:
 Input: (A*(B/C)+D)
 As Parsed: (A * (B / C) + D)
 As Optimized: A * B / C + D
-Variables: (A, 18446744073709546014), (B, 18446744073709542679), (C, 1109), (D, 1111)
-Parsed Result: 17498624675872411419
-Optimized Result: 17498624675872411419
+Variables: (A, 5962), (B, 6669), (C, 8956), (D, 9749)
+Parsed Result: 9749
+Optimized Result: 9749
 ```
 
 ## Links

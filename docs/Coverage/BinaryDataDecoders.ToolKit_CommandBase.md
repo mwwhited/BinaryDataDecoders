@@ -36,19 +36,19 @@
 〰4:   {
 〰5:       public abstract class CommandBase : ICommand
 〰6:       {
-〰7:           public virtual bool CanExecute(object parameter)
+〰7:           public virtual bool CanExecute(object? parameter)
 〰8:           {
 ‼9:               return true;
 〰10:          }
 〰11:  
-〰12:          public event EventHandler CanExecuteChanged;
+〰12:          public event EventHandler? CanExecuteChanged;
 〰13:  
 〰14:          public virtual void RaiseCanExecuteChanged()
 〰15:          {
 ‼16:              this.CanExecuteChanged?.Invoke(this, new EventArgs());
 ‼17:          }
 〰18:  
-〰19:          public abstract void Execute(object parameter);
+〰19:          public abstract void Execute(object? parameter);
 〰20:      }
 〰21:  }
 ```

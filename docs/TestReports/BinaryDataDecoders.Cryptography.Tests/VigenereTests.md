@@ -81,7 +81,7 @@ Dscwr, Nzuhr -> Hello, World
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.00
+* Duration: 00:00:00.02
 
 #### Standard Out
 

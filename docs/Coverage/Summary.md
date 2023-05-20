@@ -4,21 +4,21 @@
 
 | Key             | Value                         |
 | :-------------- | :---------------------------- |
-| Generatedon     | `05/20/2023 - 21:32:43`       |
-| Parser          | `MultiReport (44x Cobertura)` |
+| Generatedon     | `05/20/2023 - 22:41:17`       |
+| Parser          | `MultiReport (49x Cobertura)` |
 | Assemblies      | `54`                          |
-| Classes         | `370`                         |
-| Coveredlines    | `3724`                        |
-| Uncoveredlines  | `5465`                        |
-| Coverablelines  | `9189`                        |
-| Totallines      | `23679`                       |
-| Linecoverage    | `40.5`                        |
-| Coveredbranches | `1143`                        |
-| Totalbranches   | `3554`                        |
-| Branchcoverage  | `32.1`                        |
+| Classes         | `369`                         |
+| Coveredlines    | `3727`                        |
+| Uncoveredlines  | `5446`                        |
+| Coverablelines  | `9173`                        |
+| Totallines      | `23617`                       |
+| Linecoverage    | `40.6`                        |
+| Coveredbranches | `1149`                        |
+| Totalbranches   | `3580`                        |
+| Branchcoverage  | `32`                          |
 | Coveredmethods  | `667`                         |
-| Totalmethods    | `1539`                        |
-| Methodcoverage  | `43.3`                        |
+| Totalmethods    | `1533`                        |
+| Methodcoverage  | `43.5`                        |
 
 ## Coverage
 
@@ -292,17 +292,17 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `9`    |
-| coverage        | `58.4` |
+| classes         | `8`    |
+| coverage        | `66.4` |
 | coveredlines    | `222`  |
-| coverablelines  | `380`  |
-| totallines      | `826`  |
-| branchcoverage  | `43.8` |
+| coverablelines  | `334`  |
+| totallines      | `724`  |
+| branchcoverage  | `47.9` |
 | coveredbranches | `71`   |
-| totalbranches   | `162`  |
+| totalbranches   | `148`  |
 | coveredmethods  | `25`   |
-| totalmethods    | `39`   |
-| methodcoverage  | `64.1` |
+| totalmethods    | `31`   |
+| methodcoverage  | `80.6` |
 
 #### Classes
 
@@ -314,7 +314,6 @@
 | 100        | [Enigma.EnigmaRotor](BinaryDataDecoders.Cryptography_EnigmaRotor.md) |
 | 91.6       | [Enigma.EnigmaTools](BinaryDataDecoders.Cryptography_EnigmaTools.md) |
 | 100        | [Lorenz.LorenzMachine](BinaryDataDecoders.Cryptography_LorenzMachine.md) |
-| 0          | [OneTimeCode](BinaryDataDecoders.Cryptography_.md) |
 | 0          | [PlayFair](BinaryDataDecoders.Cryptography_.md) |
 | 78.5       | [Vigenere](BinaryDataDecoders.Cryptography_.md) |
 
@@ -355,11 +354,11 @@
 | classes         | `6`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `451` |
-| totallines      | `725` |
+| coverablelines  | `452` |
+| totallines      | `726` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
-| totalbranches   | `30`  |
+| totalbranches   | `32`  |
 | coveredmethods  | `0`   |
 | totalmethods    | `29`  |
 | methodcoverage  | `0`   |
@@ -516,9 +515,9 @@
 | coveredlines    | `878`  |
 | coverablelines  | `1028` |
 | totallines      | `2284` |
-| branchcoverage  | `82.6` |
-| coveredbranches | `390`  |
-| totalbranches   | `472`  |
+| branchcoverage  | `82.4` |
+| coveredbranches | `391`  |
+| totalbranches   | `474`  |
 | coveredmethods  | `237`  |
 | totalmethods    | `302`  |
 | methodcoverage  | `78.4` |
@@ -768,8 +767,8 @@
 | classes         | `3`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `53`  |
-| totallines      | `112` |
+| coverablelines  | `56`  |
+| totallines      | `115` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `25`  |
@@ -844,10 +843,10 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `30` |
-| totallines      | `77` |
+| totallines      | `78` |
 | branchcoverage  | `0`  |
 | coveredbranches | `0`  |
-| totalbranches   | `14` |
+| totalbranches   | `16` |
 | coveredmethods  | `0`  |
 | totalmethods    | `10` |
 | methodcoverage  | `0`  |
@@ -1229,12 +1228,12 @@
 | :-------------- | :----- |
 | classes         | `8`    |
 | coverage        | `16.5` |
-| coveredlines    | `22`   |
-| coverablelines  | `133`  |
-| totallines      | `530`  |
-| branchcoverage  | `19.7` |
-| coveredbranches | `16`   |
-| totalbranches   | `81`   |
+| coveredlines    | `23`   |
+| coverablelines  | `139`  |
+| totallines      | `536`  |
+| branchcoverage  | `18.9` |
+| coveredbranches | `18`   |
+| totalbranches   | `95`   |
 | coveredmethods  | `3`    |
 | totalmethods    | `25`   |
 | methodcoverage  | `12`   |
@@ -1370,16 +1369,16 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `104`  |
-| coverage        | `31.1` |
-| coveredlines    | `771`  |
-| coverablelines  | `2475` |
-| totallines      | `7354` |
-| branchcoverage  | `27.9` |
+| coverage        | `30.9` |
+| coveredlines    | `772`  |
+| coverablelines  | `2493` |
+| totallines      | `7382` |
+| branchcoverage  | `27.6` |
 | coveredbranches | `332`  |
-| totalbranches   | `1186` |
+| totalbranches   | `1200` |
 | coveredmethods  | `168`  |
-| totalmethods    | `514`  |
-| methodcoverage  | `32.6` |
+| totalmethods    | `516`  |
+| methodcoverage  | `32.5` |
 
 #### Classes
 
@@ -1467,7 +1466,7 @@
 | 87         | [Xml.XPath.ExtensibleElementNode`1](BinaryDataDecoders.ToolKit_ExtensibleElementNode_1.md) |
 | 0          | [Xml.XPath.ExtensibleNamespaceNode`1](BinaryDataDecoders.ToolKit_ExtensibleNamespaceNode_1.md) |
 | 40         | [Xml.XPath.ExtensibleNameTable](BinaryDataDecoders.ToolKit_ExtensibleNameTable.md) |
-| 77.3       | [Xml.XPath.ExtensibleNavigator](BinaryDataDecoders.ToolKit_ExtensibleNavigator.md) |
+| 76.6       | [Xml.XPath.ExtensibleNavigator](BinaryDataDecoders.ToolKit_ExtensibleNavigator.md) |
 | 37.5       | [Xml.XPath.ExtensibleRootNode`1](BinaryDataDecoders.ToolKit_ExtensibleRootNode_1.md) |
 | 0          | [Xml.XPath.ExtensibleSignificantWhitespaceNode`1](BinaryDataDecoders.ToolKit_ExtensibleSignificantWhitespaceNode_1.md) |
 | 75         | [Xml.XPath.ExtensibleSimpleNodeBase`1](BinaryDataDecoders.ToolKit_ExtensibleSimpleNodeBase_1.md) |
@@ -1477,7 +1476,7 @@
 | 32.9       | [Xml.XPath.WrappedNavigator](BinaryDataDecoders.ToolKit_WrappedNavigator.md) |
 | 85         | [Xml.XPath.WrappedNode](BinaryDataDecoders.ToolKit_WrappedNode.md) |
 | 89.7       | [Xml.XPath.XPathExpressionBuilder](BinaryDataDecoders.ToolKit_XPathExpressionBuilder.md) |
-| 17.3       | [Xml.XPath.XPathExtensions](BinaryDataDecoders.ToolKit_XPathExtensions.md) |
+| 15.3       | [Xml.XPath.XPathExtensions](BinaryDataDecoders.ToolKit_XPathExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.EnvironmentExtensions](BinaryDataDecoders.ToolKit_EnvironmentExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.FileExtensions](BinaryDataDecoders.ToolKit_FileExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.PathExtensions](BinaryDataDecoders.ToolKit_PathExtensions.md) |
@@ -1521,13 +1520,13 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `21`   |
-| coverage        | `65`   |
-| coveredlines    | `236`  |
-| coverablelines  | `363`  |
-| totallines      | `1341` |
-| branchcoverage  | `20.8` |
-| coveredbranches | `10`   |
-| totalbranches   | `48`   |
+| coverage        | `64.9` |
+| coveredlines    | `237`  |
+| coverablelines  | `365`  |
+| totallines      | `1342` |
+| branchcoverage  | `24`   |
+| coveredbranches | `13`   |
+| totalbranches   | `54`   |
 | coveredmethods  | `31`   |
 | totalmethods    | `50`   |
 | methodcoverage  | `62`   |

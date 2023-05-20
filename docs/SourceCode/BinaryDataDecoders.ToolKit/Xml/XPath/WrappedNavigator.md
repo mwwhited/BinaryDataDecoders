@@ -64,7 +64,7 @@
 
 ##### Summary
 
- * Type: XmlNameTable ? 
+ * Type: XmlNameTable 
 
 #### Public Property - NodeType
 

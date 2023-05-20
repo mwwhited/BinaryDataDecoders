@@ -37,7 +37,7 @@
 
 ##### Summary
 
- * Type: Stream 
+ * Type: 
 
 #### Public Property - Stream
 

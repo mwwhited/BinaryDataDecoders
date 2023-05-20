@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                                   |
 | Uncoveredlines  | `8`                                                                   |
 | Coverablelines  | `8`                                                                   |
-| Totallines      | `46`                                                                  |
+| Totallines      | `47`                                                                  |
 | Linecoverage    | `0`                                                                   |
 | Coveredbranches | `0`                                                                   |
 | Totalbranches   | `2`                                                                   |
@@ -61,22 +61,23 @@
 〰28:          /// </summary>
 〰29:          /// <param name="variableName">The name of the environment variable.</param>
 〰30:          /// <returns>The value of the environment variable specified by variable, or null if the environment variable is not found.</returns>
-‼31:          public string GetValue(string variableName) => Environment.GetEnvironmentVariable(variableName) ?? "";
-〰32:  
-〰33:          /// <summary>
-〰34:          /// Retrieves all environment variable names and their values from the current process.
-〰35:          /// </summary>
-〰36:          /// <returns>XML element with an attribute for each current environment variable</returns>
-〰37:          public XPathNavigator GetValues()
-〰38:          {
-‼39:              var xml = new XElement(_ns + "variables",
-‼40:                   from k in Environment.GetEnvironmentVariables().Keys.Cast<string>()
-‼41:                   select new XAttribute(XmlConvert.EncodeLocalName(k), GetValue(k))
-‼42:                   );
-‼43:              return xml.ToXPathNavigable().CreateNavigator();
-〰44:          }
-〰45:      }
-〰46:  }
+〰31:          public string GetValue(string variableName) =>
+‼32:              Environment.GetEnvironmentVariable(variableName) ?? "";
+〰33:  
+〰34:          /// <summary>
+〰35:          /// Retrieves all environment variable names and their values from the current process.
+〰36:          /// </summary>
+〰37:          /// <returns>XML element with an attribute for each current environment variable</returns>
+〰38:          public XPathNavigator? GetValues()
+〰39:          {
+‼40:              var xml = new XElement(_ns + "variables",
+‼41:                   from k in Environment.GetEnvironmentVariables().Keys.Cast<string>()
+‼42:                   select new XAttribute(XmlConvert.EncodeLocalName(k), GetValue(k))
+‼43:                   );
+‼44:              return xml.ToXPathNavigable().CreateNavigator();
+〰45:          }
+〰46:      }
+〰47:  }
 ```
 
 ## Links

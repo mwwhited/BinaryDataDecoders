@@ -6,13 +6,14 @@
 | :-------------- | :----------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Reflection.ReflectionElementNodeTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                       |
-| Coveredlines    | `29`                                                                     |
+| Coveredlines    | `30`                                                                     |
 | Uncoveredlines  | `0`                                                                      |
-| Coverablelines  | `29`                                                                     |
-| Totallines      | `67`                                                                     |
+| Coverablelines  | `30`                                                                     |
+| Totallines      | `68`                                                                     |
 | Linecoverage    | `100`                                                                    |
-| Coveredbranches | `0`                                                                      |
-| Totalbranches   | `0`                                                                      |
+| Coveredbranches | `3`                                                                      |
+| Totalbranches   | `4`                                                                      |
+| Branchcoverage  | `75`                                                                     |
 | Coveredmethods  | `3`                                                                      |
 | Totalmethods    | `3`                                                                      |
 | Methodcoverage  | `100`                                                                    |
@@ -23,7 +24,7 @@
 | :--------- | :---- | :------- | :---------------------------- |
 | 1          | 100   | 100      | `TestInitialize`              |
 | 1          | 100   | 100      | `CreateReflectionElementNode` |
-| 1          | 100   | 100      | `ReflectionElementNodeTest`   |
+| 4          | 100   | 75.00    | `ReflectionElementNodeTest`   |
 
 ## Files
 
@@ -87,16 +88,17 @@
 ✔55:              var reflectionElementNode = this.CreateReflectionElementNode(testData, true).Build();
 ✔56:              var nav = reflectionElementNode.ToNavigable().CreateNavigator();
 〰57:  
-✔58:              this.TestContext.AddResult(nav);
-〰59:  
-〰60:              // Assert
-✔61:              Assert.IsFalse(string.IsNullOrWhiteSpace(nav.OuterXml));
-〰62:  
-〰63:              // Verify
-✔64:              this.mockRepository.VerifyAll();
-✔65:          }
-〰66:      }
-〰67:  }
+✔58:              if (nav != null)
+✔59:                  this.TestContext.AddResult(nav);
+〰60:  
+〰61:              // Assert
+⚠62:              Assert.IsFalse(string.IsNullOrWhiteSpace(nav?.OuterXml));
+〰63:  
+〰64:              // Verify
+✔65:              this.mockRepository.VerifyAll();
+✔66:          }
+〰67:      }
+〰68:  }
 ```
 
 ## Links

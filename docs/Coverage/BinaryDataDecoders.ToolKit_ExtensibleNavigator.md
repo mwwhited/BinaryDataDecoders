@@ -6,14 +6,14 @@
 | :-------------- | :--------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNavigator` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
-| Coveredlines    | `58`                                                       |
-| Uncoveredlines  | `17`                                                       |
-| Coverablelines  | `75`                                                       |
-| Totallines      | `165`                                                      |
-| Linecoverage    | `77.3`                                                     |
+| Coveredlines    | `59`                                                       |
+| Uncoveredlines  | `18`                                                       |
+| Coverablelines  | `77`                                                       |
+| Totallines      | `167`                                                      |
+| Linecoverage    | `76.6`                                                     |
 | Coveredbranches | `36`                                                       |
-| Totalbranches   | `56`                                                       |
-| Branchcoverage  | `64.2`                                                     |
+| Totalbranches   | `58`                                                       |
+| Branchcoverage  | `62`                                                       |
 | Coveredmethods  | `20`                                                       |
 | Totalmethods    | `25`                                                       |
 | Methodcoverage  | `80`                                                       |
@@ -29,8 +29,8 @@
 | 2          | 80.0  | 50.0     | `get_NamespaceURI`     |
 | 1          | 100   | 100      | `get_NodeType`         |
 | 1          | 100   | 100      | `get_Prefix`           |
-| 6          | 100   | 83.33    | `LookupPrefix`         |
-| 2          | 0     | 0        | `LookupNamespace`      |
+| 6          | 87.50 | 83.33    | `LookupPrefix`         |
+| 4          | 0     | 0        | `LookupNamespace`      |
 | 2          | 100   | 100      | `get_Value`            |
 | 2          | 100   | 50.0     | `get_IsEmptyElement`   |
 | 2          | 0     | 0        | `get_HasAttributes`    |
@@ -95,129 +95,131 @@
 〰40:  
 〰41:          public override string LookupPrefix(string namespaceURI)
 〰42:          {
-⚠43:              if (_namespacePrefixes == null) return "";
-〰44:  
-✔45:              if (string.IsNullOrWhiteSpace(namespaceURI)) return "";
-〰46:  
-✔47:              var uri = namespaceURI.Trim();
-✔48:              if (!_namespacePrefixes.ContainsKey(uri))
-〰49:              {
-✔50:                  _namespacePrefixes.Add(uri, $"n{_namespacePrefixes.Count + 1}");
-〰51:              }
-✔52:              return _namespacePrefixes[uri];
-〰53:          }
-〰54:  
-〰55:          public override string LookupNamespace(string prefix) =>
-‼56:              _namespacePrefixes.FirstOrDefault(v => v.Value == prefix).Key ?? base.LookupNamespace(prefix);
-〰57:  
-✔58:          public override string Value => _current.Value ?? "";
-⚠59:          public override bool IsEmptyElement => string.IsNullOrEmpty(Value) && !HasChildren;
-〰60:  
-‼61:          public override bool HasAttributes => _current is IElementNode node && node.FirstAttribute != null;
-⚠62:          public override bool HasChildren => _current is IElementNode node && node.FirstChild != null;
-〰63:  
-〰64:          public override string BaseURI { get; }
-〰65:          public override XmlNameTable NameTable { get; }
-✔66:          public override XPathNavigator Clone() => new ExtensibleNavigator(_current, BaseURI, NameTable, _namespacePrefixes);
-〰67:  
-‼68:          public override bool MoveToId(string id) => false;
+⚠43:              if (_namespacePrefixes == null)
+‼44:                  return "";
+〰45:  
+✔46:              if (string.IsNullOrWhiteSpace(namespaceURI))
+✔47:                  return "";
+〰48:  
+✔49:              var uri = namespaceURI.Trim();
+✔50:              if (!_namespacePrefixes.ContainsKey(uri))
+〰51:              {
+✔52:                  _namespacePrefixes.Add(uri, $"n{_namespacePrefixes.Count + 1}");
+〰53:              }
+✔54:              return _namespacePrefixes[uri];
+〰55:          }
+〰56:  
+〰57:          public override string LookupNamespace(string prefix) =>
+‼58:              _namespacePrefixes.FirstOrDefault(v => v.Value == prefix).Key ?? base.LookupNamespace(prefix) ?? "";
+〰59:  
+✔60:          public override string Value => _current.Value ?? "";
+⚠61:          public override bool IsEmptyElement => string.IsNullOrEmpty(Value) && !HasChildren;
+〰62:  
+‼63:          public override bool HasAttributes => _current is IElementNode node && node.FirstAttribute != null;
+⚠64:          public override bool HasChildren => _current is IElementNode node && node.FirstChild != null;
+〰65:  
+〰66:          public override string BaseURI { get; }
+〰67:          public override XmlNameTable NameTable { get; }
+✔68:          public override XPathNavigator Clone() => new ExtensibleNavigator(_current, BaseURI, NameTable, _namespacePrefixes);
 〰69:  
-〰70:          public override bool IsSamePosition(XPathNavigator other) =>
-⚠71:              other switch
-✔72:              {
-✔73:                  ExtensibleNavigator openXPath => openXPath._current.Equals(this._current),
-‼74:                  _ => false
-✔75:              };
-〰76:  
-〰77:          public override bool MoveTo(XPathNavigator other)
-〰78:          {
-⚠79:              if (other is ExtensibleNavigator openXPath && openXPath._current != null)
-〰80:              {
-✔81:                  _current = openXPath._current;
-✔82:                  return true;
-〰83:              }
-‼84:              return false;
-〰85:          }
-〰86:  
-〰87:          public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope)
-〰88:          {
-⚠89:              if (_current is IElementNode current && current.FirstNamespace != null)
-〰90:              {
-‼91:                  _current = current.FirstNamespace;
-‼92:                  return true;
-〰93:              }
-✔94:              return false;
-〰95:          }
-〰96:  
-〰97:          public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope)
-〰98:          {
-‼99:              if (_current is INamespaceNode current && current.Next != null)
-〰100:             {
-‼101:                 _current = current.Next;
-‼102:                 return true;
-〰103:             }
-‼104:             return false;
-〰105:         }
-〰106: 
-〰107:         public override bool MoveToFirstAttribute()
-〰108:         {
-⚠109:             if (_current is IElementNode current && current.FirstAttribute != null)
-〰110:             {
-✔111:                 _current = current.FirstAttribute;
-✔112:                 return true;
-〰113:             }
-‼114:             return false;
-〰115:         }
-〰116: 
-〰117:         public override bool MoveToNextAttribute()
-〰118:         {
-✔119:             if (_current is IAttributeNode current && current.Next != null)
-〰120:             {
-✔121:                 _current = current.Next;
-✔122:                 return true;
-〰123:             }
-✔124:             return false;
-〰125:         }
-〰126: 
-〰127:         public override bool MoveToParent()
-〰128:         {
-✔129:             if (_current.Parent != null)//&& !(_current.Parent is IRootNode)
-〰130:             {
-✔131:                 _current = _current.Parent;
-✔132:                 return true;
-〰133:             }
-✔134:             return false;
-〰135:         }
-〰136: 
-〰137:         public override bool MoveToFirstChild()
-〰138:         {
-✔139:             if (_current is IElementNode current && current.FirstChild != null)
-〰140:             {
-✔141:                 _current = current.FirstChild;
-✔142:                 return true;
-〰143:             }
-✔144:             return false;
-〰145:         }
-〰146:         public override bool MoveToNext()
-〰147:         {
-✔148:             if (_current.Next != null)
-〰149:             {
-✔150:                 _current = _current.Next;
-✔151:                 return true;
-〰152:             }
-✔153:             return false;
-〰154:         }
-〰155:         public override bool MoveToPrevious()
-〰156:         {
-‼157:             if (_current.Previous != null)
-〰158:             {
-‼159:                 _current = _current.Previous;
-‼160:                 return true;
-〰161:             }
-‼162:             return false;
-〰163:         }
-〰164:     }
-〰165: }
+‼70:          public override bool MoveToId(string id) => false;
+〰71:  
+〰72:          public override bool IsSamePosition(XPathNavigator other) =>
+⚠73:              other switch
+✔74:              {
+✔75:                  ExtensibleNavigator openXPath => openXPath._current.Equals(this._current),
+‼76:                  _ => false
+✔77:              };
+〰78:  
+〰79:          public override bool MoveTo(XPathNavigator other)
+〰80:          {
+⚠81:              if (other is ExtensibleNavigator openXPath && openXPath._current != null)
+〰82:              {
+✔83:                  _current = openXPath._current;
+✔84:                  return true;
+〰85:              }
+‼86:              return false;
+〰87:          }
+〰88:  
+〰89:          public override bool MoveToFirstNamespace(XPathNamespaceScope namespaceScope)
+〰90:          {
+⚠91:              if (_current is IElementNode current && current.FirstNamespace != null)
+〰92:              {
+‼93:                  _current = current.FirstNamespace;
+‼94:                  return true;
+〰95:              }
+✔96:              return false;
+〰97:          }
+〰98:  
+〰99:          public override bool MoveToNextNamespace(XPathNamespaceScope namespaceScope)
+〰100:         {
+‼101:             if (_current is INamespaceNode current && current.Next != null)
+〰102:             {
+‼103:                 _current = current.Next;
+‼104:                 return true;
+〰105:             }
+‼106:             return false;
+〰107:         }
+〰108: 
+〰109:         public override bool MoveToFirstAttribute()
+〰110:         {
+⚠111:             if (_current is IElementNode current && current.FirstAttribute != null)
+〰112:             {
+✔113:                 _current = current.FirstAttribute;
+✔114:                 return true;
+〰115:             }
+‼116:             return false;
+〰117:         }
+〰118: 
+〰119:         public override bool MoveToNextAttribute()
+〰120:         {
+✔121:             if (_current is IAttributeNode current && current.Next != null)
+〰122:             {
+✔123:                 _current = current.Next;
+✔124:                 return true;
+〰125:             }
+✔126:             return false;
+〰127:         }
+〰128: 
+〰129:         public override bool MoveToParent()
+〰130:         {
+✔131:             if (_current.Parent != null)//&& !(_current.Parent is IRootNode)
+〰132:             {
+✔133:                 _current = _current.Parent;
+✔134:                 return true;
+〰135:             }
+✔136:             return false;
+〰137:         }
+〰138: 
+〰139:         public override bool MoveToFirstChild()
+〰140:         {
+✔141:             if (_current is IElementNode current && current.FirstChild != null)
+〰142:             {
+✔143:                 _current = current.FirstChild;
+✔144:                 return true;
+〰145:             }
+✔146:             return false;
+〰147:         }
+〰148:         public override bool MoveToNext()
+〰149:         {
+✔150:             if (_current.Next != null)
+〰151:             {
+✔152:                 _current = _current.Next;
+✔153:                 return true;
+〰154:             }
+✔155:             return false;
+〰156:         }
+〰157:         public override bool MoveToPrevious()
+〰158:         {
+‼159:             if (_current.Previous != null)
+〰160:             {
+‼161:                 _current = _current.Previous;
+‼162:                 return true;
+〰163:             }
+‼164:             return false;
+〰165:         }
+〰166:     }
+〰167: }
 ```
 
 ## Links

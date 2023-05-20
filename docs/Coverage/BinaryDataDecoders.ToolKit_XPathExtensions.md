@@ -7,10 +7,10 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.XPathExtensions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                           |
 | Coveredlines    | `4`                                                    |
-| Uncoveredlines  | `19`                                                   |
-| Coverablelines  | `23`                                                   |
-| Totallines      | `70`                                                   |
-| Linecoverage    | `17.3`                                                 |
+| Uncoveredlines  | `22`                                                   |
+| Coverablelines  | `26`                                                   |
+| Totallines      | `74`                                                   |
+| Linecoverage    | `15.3`                                                 |
 | Coveredbranches | `1`                                                    |
 | Totalbranches   | `18`                                                   |
 | Branchcoverage  | `5.5`                                                  |
@@ -55,55 +55,59 @@
 〰19:          public static IXPathNavigable MergeWith(this (string source, IXPathNavigable? navigator) navigator, params (string source, IXPathNavigable? navigator)[] navigators) =>
 ✔20:               navigator.MergeWith(navigators.AsEnumerable());
 〰21:          public static IXPathNavigable MergeWith(this (string source, IXPathNavigable? navigator) navigator, IEnumerable<(string source, IXPathNavigable? navigator)> navigators) =>
-✔22:              new[] { ( navigator) }.Concat(navigators).MergeNavigators();
+✔22:              new[] { (navigator) }.Concat(navigators).MergeNavigators();
 〰23:  
 〰24:          public static IEnumerable<XPathNavigator> AsNavigatorSet(this XPathNodeIterator iterator) =>
-‼25:              iterator.OfType<IXPathNavigable>().Select(node => node.CreateNavigator());
-〰26:  
-〰27:          public static IEnumerable<XPathNavigator> AsNodeSet(this object item)
-〰28:          {
-‼29:              if (item is IEnumerable items)
-〰30:              {
-‼31:                  var enumerable = items.GetEnumerator();
-‼32:                  while (enumerable.MoveNext())
-〰33:                  {
-‼34:                      var current = enumerable.Current;
-〰35:  
-〰36:                      switch (current)
-〰37:                      {
-〰38:                          case IXPathNavigable nav:
-‼39:                              yield return nav.CreateNavigator();
-‼40:                              break;
-〰41:  
-〰42:                          case IEnumerable<XPathNavigator> navs:
-‼43:                              foreach (var nav in navs)
-〰44:                              {
-‼45:                                  yield return nav.CreateNavigator();
-〰46:                              }
-‼47:                              break;
-〰48:  
-〰49:                          case XPathNodeIterator iterator:
-‼50:                              while (iterator.MoveNext())
-〰51:                              {
-‼52:                                  yield return iterator.Current.CreateNavigator();
-〰53:                              }
-‼54:                              break;
-〰55:  
-〰56:                          default:
-‼57:                              var text = new XText($"{current}");
-‼58:                              yield return text.ToXPathNavigable().CreateNavigator();
-〰59:                              break;
-〰60:                      }
-〰61:                  }
-‼62:              }
-〰63:              else
-〰64:              {
-‼65:                  foreach (var child in AsNodeSet(new[] { item }))
-‼66:                      yield return child;
-〰67:              }
-‼68:          }
-〰69:      }
-〰70:  }
+‼25:              iterator.OfType<IXPathNavigable>()
+‼26:                      .Select(node => node.CreateNavigator())
+‼27:                      .Where(node => node != null)
+‼28:                      .OfType<XPathNavigator>()
+〰29:                      ;
+〰30:  
+〰31:          public static IEnumerable<XPathNavigator> AsNodeSet(this object item)
+〰32:          {
+‼33:              if (item is IEnumerable items)
+〰34:              {
+‼35:                  var enumerable = items.GetEnumerator();
+‼36:                  while (enumerable.MoveNext())
+〰37:                  {
+‼38:                      var current = enumerable.Current;
+〰39:  
+〰40:                      switch (current)
+〰41:                      {
+〰42:                          case IXPathNavigable nav:
+‼43:                              yield return nav.CreateNavigator();
+‼44:                              break;
+〰45:  
+〰46:                          case IEnumerable<XPathNavigator> navs:
+‼47:                              foreach (var nav in navs)
+〰48:                              {
+‼49:                                  yield return nav.CreateNavigator();
+〰50:                              }
+‼51:                              break;
+〰52:  
+〰53:                          case XPathNodeIterator iterator:
+‼54:                              while (iterator.MoveNext())
+〰55:                              {
+‼56:                                  yield return iterator.Current.CreateNavigator();
+〰57:                              }
+‼58:                              break;
+〰59:  
+〰60:                          default:
+‼61:                              var text = new XText($"{current}");
+‼62:                              yield return text.ToXPathNavigable().CreateNavigator();
+〰63:                              break;
+〰64:                      }
+〰65:                  }
+‼66:              }
+〰67:              else
+〰68:              {
+‼69:                  foreach (var child in AsNodeSet(new[] { item }))
+‼70:                      yield return child;
+〰71:              }
+‼72:          }
+〰73:      }
+〰74:  }
 ```
 
 ## Links

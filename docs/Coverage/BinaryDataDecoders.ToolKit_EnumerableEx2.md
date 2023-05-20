@@ -40,7 +40,7 @@
 〰8:       {
 ‼9:           private static Random RandomGenerator { get; } = new Random();
 〰10:  
-〰11:          public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random randomGenerator = null)
+〰11:          public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random? randomGenerator = null)
 〰12:          {
 ‼13:              if (randomGenerator == null)
 ‼14:                  randomGenerator = EnumerableEx.RandomGenerator;

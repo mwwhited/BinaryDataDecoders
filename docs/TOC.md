@@ -285,7 +285,6 @@
       * [PlayFair](./SourceCode/BinaryDataDecoders.Cryptography/PlayFair.md)
       * [Vigenere](./SourceCode/BinaryDataDecoders.Cryptography/Vigenere.md)
       * [Caesar](./SourceCode/BinaryDataDecoders.Cryptography/Caesar.md)
-      * [OneTimeCode](./SourceCode/BinaryDataDecoders.Cryptography/OneTimeCode.md)
       * [EncryptionUtils](./SourceCode/BinaryDataDecoders.Cryptography/EncryptionUtils.md)
     * BinaryDataDecoders.Velleman.K8055
       * [K8055Definition](./SourceCode/BinaryDataDecoders.Velleman.K8055/K8055Definition.md)
@@ -712,7 +711,6 @@
     * [BinaryDataDecoders.Text.Markdown_PlantUmlRenderer](./Coverage/BinaryDataDecoders.Text.Markdown_PlantUmlRenderer.md)
     * [BinaryDataDecoders.Apple2_TrackSector](./Coverage/BinaryDataDecoders.Apple2_TrackSector.md)
     * [BinaryDataDecoders.ToolKit_ShuffleExtensions](./Coverage/BinaryDataDecoders.ToolKit_ShuffleExtensions.md)
-    * [BinaryDataDecoders.Cryptography_OneTimeCode](./Coverage/BinaryDataDecoders.Cryptography_OneTimeCode.md)
     * [BinaryDataDecoders.ToolKit_NumberEx](./Coverage/BinaryDataDecoders.ToolKit_NumberEx.md)
     * [BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests](./Coverage/BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests.md)
     * [BinaryDataDecoders.IO.UsbHids.Tests_SampleUsageTests](./Coverage/BinaryDataDecoders.IO.UsbHids.Tests_SampleUsageTests.md)

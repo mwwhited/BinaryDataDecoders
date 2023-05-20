@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                    |
 | Uncoveredlines  | `43`                                   |
 | Coverablelines  | `43`                                   |
-| Totallines      | `85`                                   |
+| Totallines      | `86`                                   |
 | Linecoverage    | `0`                                    |
 | Coveredbranches | `0`                                    |
 | Totalbranches   | `34`                                   |
@@ -39,83 +39,84 @@
 〰6:   {
 〰7:       public static class ConsoleEx
 〰8:       {
-‼9:           public static Task<string> ReadLineAsync() => Task.FromResult(Console.ReadLine());
-〰10:  
-〰11:          public static string? Prompt(string? prompt = null, string? defaultValue = null)
-〰12:          {
-‼13:              if (!string.IsNullOrWhiteSpace(prompt))
-‼14:                  Console.Write("{0} ", prompt);
-‼15:              if (!string.IsNullOrWhiteSpace(defaultValue))
-‼16:                  Console.Write("{0}", defaultValue);
-〰17:  
-‼18:              var chars = new List<char>(defaultValue ?? "");
-‼19:              while (true)
-〰20:              {
-‼21:                  var key = Console.ReadKey(true);
-〰22:  
-‼23:                  if (key.Key == ConsoleKey.Escape)
-‼24:                      return null;
-‼25:                  else if (key.Key == ConsoleKey.Enter)
-〰26:                      break;
-‼27:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
-〰28:                  {
-‼29:                      if (chars.Count > 0)
-〰30:                      {
-‼31:                          chars.RemoveAt(chars.Count - 1);
-‼32:                          Console.Write((char)8);
-‼33:                          Console.Write(" ");
-‼34:                          Console.Write((char)8);
-〰35:                      }
-〰36:                  }
-〰37:                  else
-〰38:                  {
-‼39:                      chars.Add(key.KeyChar);
-‼40:                      Console.Write(key.KeyChar);
-〰41:                  }
-〰42:              }
-‼43:              Console.WriteLine();
-‼44:              var result = new string(chars.ToArray());
-‼45:              return result;
-〰46:          }
-〰47:  
-〰48:          public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
-〰49:          {
-‼50:              if (!string.IsNullOrWhiteSpace(prompt))
-‼51:                  Console.Write($"{prompt} ");
-‼52:              if (!string.IsNullOrWhiteSpace(defaultValue))
-‼53:                  Console.Write($"{new string(hideWith, defaultValue.Length)}");
-〰54:  
-‼55:              var chars = new List<char>(defaultValue ?? "");
-‼56:              while (true)
-〰57:              {
-‼58:                  var key = Console.ReadKey(true);
-〰59:  
-‼60:                  if (key.Key == ConsoleKey.Escape)
-‼61:                      return null;
-‼62:                  else if (key.Key == ConsoleKey.Enter)
-〰63:                      break;
-‼64:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
-〰65:                  {
-‼66:                      if (chars.Count > 0)
-〰67:                      {
-‼68:                          chars.RemoveAt(chars.Count - 1);
-‼69:                          Console.Write((char)8);
-‼70:                          Console.Write(" ");
-‼71:                          Console.Write((char)8);
-〰72:                      }
-〰73:                  }
-〰74:                  else
-〰75:                  {
-‼76:                      chars.Add(key.KeyChar);
-‼77:                      Console.Write(hideWith);
-〰78:                  }
-〰79:              }
-‼80:              Console.WriteLine();
-‼81:              var result = new string(chars.ToArray());
-‼82:              return result;
-〰83:          }
-〰84:      }
-〰85:  }
+〰9:           public static Task<string?> ReadLineAsync() =>
+‼10:              Task.FromResult(Console.ReadLine());
+〰11:  
+〰12:          public static string? Prompt(string? prompt = null, string? defaultValue = null)
+〰13:          {
+‼14:              if (!string.IsNullOrWhiteSpace(prompt))
+‼15:                  Console.Write("{0} ", prompt);
+‼16:              if (!string.IsNullOrWhiteSpace(defaultValue))
+‼17:                  Console.Write("{0}", defaultValue);
+〰18:  
+‼19:              var chars = new List<char>(defaultValue ?? "");
+‼20:              while (true)
+〰21:              {
+‼22:                  var key = Console.ReadKey(true);
+〰23:  
+‼24:                  if (key.Key == ConsoleKey.Escape)
+‼25:                      return null;
+‼26:                  else if (key.Key == ConsoleKey.Enter)
+〰27:                      break;
+‼28:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
+〰29:                  {
+‼30:                      if (chars.Count > 0)
+〰31:                      {
+‼32:                          chars.RemoveAt(chars.Count - 1);
+‼33:                          Console.Write((char)8);
+‼34:                          Console.Write(" ");
+‼35:                          Console.Write((char)8);
+〰36:                      }
+〰37:                  }
+〰38:                  else
+〰39:                  {
+‼40:                      chars.Add(key.KeyChar);
+‼41:                      Console.Write(key.KeyChar);
+〰42:                  }
+〰43:              }
+‼44:              Console.WriteLine();
+‼45:              var result = new string(chars.ToArray());
+‼46:              return result;
+〰47:          }
+〰48:  
+〰49:          public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
+〰50:          {
+‼51:              if (!string.IsNullOrWhiteSpace(prompt))
+‼52:                  Console.Write($"{prompt} ");
+‼53:              if (!string.IsNullOrWhiteSpace(defaultValue))
+‼54:                  Console.Write($"{new string(hideWith, defaultValue.Length)}");
+〰55:  
+‼56:              var chars = new List<char>(defaultValue ?? "");
+‼57:              while (true)
+〰58:              {
+‼59:                  var key = Console.ReadKey(true);
+〰60:  
+‼61:                  if (key.Key == ConsoleKey.Escape)
+‼62:                      return null;
+‼63:                  else if (key.Key == ConsoleKey.Enter)
+〰64:                      break;
+‼65:                  else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
+〰66:                  {
+‼67:                      if (chars.Count > 0)
+〰68:                      {
+‼69:                          chars.RemoveAt(chars.Count - 1);
+‼70:                          Console.Write((char)8);
+‼71:                          Console.Write(" ");
+‼72:                          Console.Write((char)8);
+〰73:                      }
+〰74:                  }
+〰75:                  else
+〰76:                  {
+‼77:                      chars.Add(key.KeyChar);
+‼78:                      Console.Write(hideWith);
+〰79:                  }
+〰80:              }
+‼81:              Console.WriteLine();
+‼82:              var result = new string(chars.ToArray());
+‼83:              return result;
+〰84:          }
+〰85:      }
+〰86:  }
 ```
 
 ## Links

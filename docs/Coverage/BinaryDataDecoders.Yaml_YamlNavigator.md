@@ -49,19 +49,19 @@
 〰17:      [MediaType("application/x-yaml")]
 〰18:      public class YamlNavigator : IToXPathNavigable
 〰19:      {
-〰20:          public IXPathNavigable ToNavigable(string filePath)
+〰20:          public IXPathNavigable? ToNavigable(string filePath)
 〰21:          {
 ‼22:              using var input = new StreamReader(filePath);
 ‼23:              return ToNavigable(input);
 ‼24:          }
 〰25:  
-〰26:          public IXPathNavigable ToNavigable(Stream stream)
+〰26:          public IXPathNavigable? ToNavigable(Stream stream)
 〰27:          {
 ‼28:              using var input = new StreamReader(stream);
 ‼29:              return ToNavigable(input);
 ‼30:          }
 〰31:  
-〰32:          private IXPathNavigable ToNavigable(StreamReader reader)
+〰32:          private IXPathNavigable? ToNavigable(StreamReader reader)
 〰33:          {
 ‼34:              var yaml = new YamlStream();
 ‼35:              yaml.Load(reader);

@@ -40,7 +40,7 @@
 〰7:           private readonly Predicate<object> _canExecute;
 〰8:           private readonly Action<object> _execute;
 〰9:   
-‼10:          public DelegateCommand(Action<object> execute, Predicate<object> canExecute = null)
+‼10:          public DelegateCommand(Action<object> execute, Predicate<object>? canExecute = null)
 〰11:          {
 ‼12:              _execute = execute;
 ‼13:              _canExecute = canExecute;

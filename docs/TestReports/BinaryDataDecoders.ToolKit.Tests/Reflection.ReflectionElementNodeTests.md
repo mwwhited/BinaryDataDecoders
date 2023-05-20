@@ -4,13 +4,13 @@
 
 ### Categories
 
-* DevLocal
 * Unit
+* DevLocal
 
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.03
+* Duration: 00:00:00.02
 
 ## Links
 

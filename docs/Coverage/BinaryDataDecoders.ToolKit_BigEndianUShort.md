@@ -85,7 +85,7 @@
 〰46:  
 〰47:  #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 ‼48:          public override string ToString() => Value.ToString();
-‼49:          public override bool Equals(object obj) => Value.Equals(obj);
+‼49:          public override bool Equals(object? obj) => Value.Equals(obj);
 ‼50:          public override int GetHashCode() => Value.GetHashCode();
 〰51:  
 ‼52:          public static implicit operator ushort(BigEndianUShort input) => input.Value;

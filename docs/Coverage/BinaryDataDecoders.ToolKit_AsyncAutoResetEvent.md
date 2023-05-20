@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncAutoResetEvent` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `20`                                                       |
-| Coverablelines  | `20`                                                       |
-| Totallines      | `43`                                                       |
+| Uncoveredlines  | `19`                                                       |
+| Coverablelines  | `19`                                                       |
+| Totallines      | `42`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `8`                                                        |
@@ -39,7 +39,7 @@
 〰5:   {
 〰6:       public class AsyncAutoResetEvent
 〰7:       {
-〰8:       //http://blogs.msdn.com/b/pfxteam/archive/2012/02/11/10266923.aspx
+〰8:           //http://blogs.msdn.com/b/pfxteam/archive/2012/02/11/10266923.aspx
 ‼9:           private readonly static Task s_completed = Task.FromResult(true);
 ‼10:          private readonly Queue<TaskCompletionSource<bool>> m_waits = new Queue<TaskCompletionSource<bool>>();
 〰11:          private bool m_signaled;
@@ -62,7 +62,7 @@
 ‼28:          }
 〰29:          public void Set()
 〰30:          {
-‼31:              TaskCompletionSource<bool> toRelease = null;
+‼31:              TaskCompletionSource<bool>? toRelease = null;
 ‼32:              lock (m_waits)
 〰33:              {
 ‼34:                  if (m_waits.Count > 0)
@@ -70,11 +70,10 @@
 ‼36:                  else if (!m_signaled)
 ‼37:                      m_signaled = true;
 ‼38:              }
-‼39:              if (toRelease != null)
-‼40:                  toRelease.SetResult(true);
-‼41:          }
-〰42:      }
-〰43:  }
+‼39:              toRelease?.SetResult(true);
+‼40:          }
+〰41:      }
+〰42:  }
 ```
 
 ## Links

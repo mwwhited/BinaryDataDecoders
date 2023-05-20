@@ -26,7 +26,7 @@
 #####  Parameters
 
  - Action < object > execute 
- - Predicate < object > canExecute = null 
+ - Predicate < object > ? canExecute = null 
 
 #### Public Method - CanExecute
 

@@ -90,7 +90,7 @@
 ‼47:                  yield return (XName.Get("SCRIPT", NAMESPACE), script);
 ‼48:          }
 〰49:  
-〰50:          private IEnumerable<(XName name, string? value)>? AllAttributeSelector(object model)
+〰50:          private IEnumerable<(XName name, string? value)> AllAttributeSelector(object model)
 〰51:          {
 ‼52:              yield return (XName.Get("ref-id", NAMESPACE), model?.GetHashCode().ToString());
 ‼53:          }

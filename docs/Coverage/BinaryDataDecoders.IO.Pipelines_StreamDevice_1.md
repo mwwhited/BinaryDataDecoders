@@ -55,9 +55,9 @@
 ‼16:          private Stream _stream => _adapter.Stream;
 〰17:          private readonly IDeviceAdapter _adapter;
 〰18:          private readonly IDeviceDefinition _device;
-〰19:          private readonly ISegmentBuildDefinition _segmentDefintion;
-〰20:          private readonly IMessageDecoder<TMessage> _decoder;
-〰21:          private readonly IMessageEncoder<TMessage> _encoder;
+〰19:          private readonly ISegmentBuildDefinition? _segmentDefintion;
+〰20:          private readonly IMessageDecoder<TMessage>? _decoder;
+〰21:          private readonly IMessageEncoder<TMessage>? _encoder;
 〰22:          private readonly int _minimumTrasmissionDelay;
 〰23:          private readonly CancellationToken _token;
 〰24:          private readonly CancellationTokenSource _tokenSource;

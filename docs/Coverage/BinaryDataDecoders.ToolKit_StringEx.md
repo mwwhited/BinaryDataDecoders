@@ -7,15 +7,15 @@
 | Class           | `BinaryDataDecoders.ToolKit.StringEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`          |
 | Coveredlines    | `0`                                   |
-| Uncoveredlines  | `8`                                   |
-| Coverablelines  | `8`                                   |
-| Totallines      | `23`                                  |
+| Uncoveredlines  | `16`                                  |
+| Coverablelines  | `16`                                  |
+| Totallines      | `36`                                  |
 | Linecoverage    | `0`                                   |
 | Coveredbranches | `0`                                   |
-| Totalbranches   | `2`                                   |
+| Totalbranches   | `6`                                   |
 | Branchcoverage  | `0`                                   |
 | Coveredmethods  | `0`                                   |
-| Totalmethods    | `1`                                   |
+| Totalmethods    | `3`                                   |
 | Methodcoverage  | `0`                                   |
 
 ## Metrics
@@ -23,6 +23,8 @@
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
 | 2          | 0     | 0        | `AsSha256` |
+| 2          | 0     | 0        | `AsMd5`    |
+| 2          | 0     | 0        | `AsHash`   |
 
 ## Files
 
@@ -42,16 +44,29 @@
 ‼11:              if (string.IsNullOrWhiteSpace(text))
 ‼12:                  return null;
 〰13:  
-‼14:              var buffer = Encoding.UTF8.GetBytes(text);
-‼15:              using (var hashstring = new SHA256Managed())
-〰16:              {
-‼17:                  var hash = hashstring.ComputeHash(buffer);
-‼18:                  var result = hash.Aggregate(new StringBuilder(), (sb, v) => sb.AppendFormat("{0:x2}", v));
-‼19:                  return result.ToString();
-〰20:              }
-‼21:          }
-〰22:      }
-〰23:  }
+‼14:              using var hashstring = SHA256.Create();
+‼15:              return text.AsHash(hashstring);
+‼16:          }
+〰17:          public static string? AsMd5(this string text)
+〰18:          {
+‼19:              if (string.IsNullOrWhiteSpace(text))
+‼20:                  return null;
+〰21:  
+‼22:              using var hashstring = MD5.Create();
+‼23:              return text.AsHash(hashstring);
+‼24:          }
+〰25:          public static string? AsHash(this string text, HashAlgorithm hashAlgorithm)
+〰26:          {
+‼27:              if (string.IsNullOrWhiteSpace(text))
+‼28:                  return null;
+〰29:  
+‼30:              var buffer = Encoding.UTF8.GetBytes(text);
+‼31:              var hash = hashAlgorithm.ComputeHash(buffer);
+‼32:              var result = hash.Aggregate(new StringBuilder(), (sb, v) => sb.AppendFormat("{0:x2}", v));
+‼33:              return result.ToString();
+〰34:          }
+〰35:      }
+〰36:  }
 ```
 
 ## Links

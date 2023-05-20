@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncReaderWriterLock` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
 | Coveredlines    | `0`                                                          |
-| Uncoveredlines  | `53`                                                         |
-| Coverablelines  | `53`                                                         |
-| Totallines      | `126`                                                        |
+| Uncoveredlines  | `52`                                                         |
+| Coverablelines  | `52`                                                         |
+| Totallines      | `125`                                                        |
 | Linecoverage    | `0`                                                          |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `22`                                                         |
@@ -43,7 +43,7 @@
 〰6:   {
 〰7:       public class AsyncReaderWriterLock
 〰8:       {
-〰9:       // http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10267069.aspx
+〰9:           // http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10267069.aspx
 〰10:          private readonly Task<Releaser> m_readerReleaser;
 〰11:          private readonly Task<Releaser> m_writerReleaser;
 〰12:  
@@ -76,91 +76,90 @@
 ‼39:          }
 〰40:          private void ReaderRelease()
 〰41:          {
-‼42:              TaskCompletionSource<Releaser> toWake = null;
-〰43:  
-〰44:  
-‼45:              lock (m_waitingWriters)
-〰46:              {
-‼47:                  --m_status;
-‼48:                  if (m_status == 0 && m_waitingWriters.Count > 0)
-〰49:                  {
-‼50:                      m_status = -1;
-‼51:                      toWake = m_waitingWriters.Dequeue();
-〰52:                  }
-‼53:              }
-〰54:  
-‼55:              if (toWake != null)
-‼56:                  toWake.SetResult(new Releaser(this, true));
-‼57:          }
-〰58:  
-〰59:  
-〰60:          public Task<Releaser> WriterLockAsync()
-〰61:          {
-‼62:              lock (m_waitingWriters)
-〰63:              {
-‼64:                  if (m_status == 0)
-〰65:                  {
-‼66:                      m_status = -1;
-‼67:                      return m_writerReleaser;
-〰68:                  }
-〰69:                  else
-〰70:                  {
-‼71:                      var waiter = new TaskCompletionSource<Releaser>();
-‼72:                      m_waitingWriters.Enqueue(waiter);
-‼73:                      return waiter.Task;
-〰74:                  }
-〰75:              }
-‼76:          }
-〰77:  
-〰78:          private void WriterRelease()
-〰79:          {
-‼80:              TaskCompletionSource<Releaser> toWake = null;
-‼81:              bool toWakeIsWriter = false;
-〰82:  
-‼83:              lock (m_waitingWriters)
-〰84:              {
-‼85:                  if (m_waitingWriters.Count > 0)
-〰86:                  {
-‼87:                      toWake = m_waitingWriters.Dequeue();
-‼88:                      toWakeIsWriter = true;
-〰89:                  }
-‼90:                  else if (m_readersWaiting > 0)
-〰91:                  {
-‼92:                      toWake = m_waitingReader;
-‼93:                      m_status = m_readersWaiting;
-‼94:                      m_readersWaiting = 0;
-‼95:                      m_waitingReader = new TaskCompletionSource<Releaser>();
-〰96:                  }
-‼97:                  else m_status = 0;
-‼98:              }
-〰99:  
-‼100:             if (toWake != null)
-‼101:                 toWake.SetResult(new Releaser(this, toWakeIsWriter));
-‼102:         }
-〰103: 
-〰104: 
-〰105:         public struct Releaser : IDisposable
-〰106:         {
-〰107:             private readonly AsyncReaderWriterLock m_toRelease;
-〰108:             private readonly bool m_writer;
-〰109: 
-〰110:             internal Releaser(AsyncReaderWriterLock toRelease, bool writer)
-〰111:             {
-‼112:                 m_toRelease = toRelease;
-‼113:                 m_writer = writer;
-‼114:             }
-〰115: 
-〰116:             public void Dispose()
-〰117:             {
-‼118:                 if (m_toRelease != null)
-〰119:                 {
-‼120:                     if (m_writer) m_toRelease.WriterRelease();
-‼121:                     else m_toRelease.ReaderRelease();
-〰122:                 }
-‼123:             }
-〰124:         }
-〰125:     }
-〰126: }
+‼42:              TaskCompletionSource<Releaser>? toWake = null;
+‼43:              lock (m_waitingWriters)
+〰44:              {
+‼45:                  --m_status;
+‼46:                  if (m_status == 0 && m_waitingWriters.Count > 0)
+〰47:                  {
+‼48:                      m_status = -1;
+‼49:                      toWake = m_waitingWriters.Dequeue();
+〰50:                  }
+‼51:              }
+〰52:  
+‼53:              toWake?.SetResult(new Releaser(this, true));
+‼54:          }
+〰55:  
+〰56:  
+〰57:          public Task<Releaser> WriterLockAsync()
+〰58:          {
+‼59:              lock (m_waitingWriters)
+〰60:              {
+‼61:                  if (m_status == 0)
+〰62:                  {
+‼63:                      m_status = -1;
+‼64:                      return m_writerReleaser;
+〰65:                  }
+〰66:                  else
+〰67:                  {
+‼68:                      var waiter = new TaskCompletionSource<Releaser>();
+‼69:                      m_waitingWriters.Enqueue(waiter);
+‼70:                      return waiter.Task;
+〰71:                  }
+〰72:              }
+‼73:          }
+〰74:  
+〰75:          private void WriterRelease()
+〰76:          {
+‼77:              TaskCompletionSource<Releaser>? toWake = null;
+‼78:              bool toWakeIsWriter = false;
+〰79:  
+‼80:              lock (m_waitingWriters)
+〰81:              {
+‼82:                  if (m_waitingWriters.Count > 0)
+〰83:                  {
+‼84:                      toWake = m_waitingWriters.Dequeue();
+‼85:                      toWakeIsWriter = true;
+〰86:                  }
+‼87:                  else if (m_readersWaiting > 0)
+〰88:                  {
+‼89:                      toWake = m_waitingReader;
+‼90:                      m_status = m_readersWaiting;
+‼91:                      m_readersWaiting = 0;
+‼92:                      m_waitingReader = new TaskCompletionSource<Releaser>();
+〰93:                  }
+〰94:                  else
+‼95:                      m_status = 0;
+‼96:              }
+〰97:  
+‼98:              toWake?.SetResult(new Releaser(this, toWakeIsWriter));
+‼99:          }
+〰100: 
+〰101: 
+〰102:         public struct Releaser : IDisposable
+〰103:         {
+〰104:             private readonly AsyncReaderWriterLock m_toRelease;
+〰105:             private readonly bool m_writer;
+〰106: 
+〰107:             internal Releaser(AsyncReaderWriterLock toRelease, bool writer)
+〰108:             {
+‼109:                 m_toRelease = toRelease;
+‼110:                 m_writer = writer;
+‼111:             }
+〰112: 
+〰113:             public void Dispose()
+〰114:             {
+‼115:                 if (m_toRelease != null)
+〰116:                 {
+‼117:                     if (m_writer)
+‼118:                         m_toRelease.WriterRelease();
+〰119:                     else
+‼120:                         m_toRelease.ReaderRelease();
+〰121:                 }
+‼122:             }
+〰123:         }
+〰124:     }
+〰125: }
 ```
 
 ## Links

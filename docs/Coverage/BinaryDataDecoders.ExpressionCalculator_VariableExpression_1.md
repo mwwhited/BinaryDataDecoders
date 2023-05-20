@@ -56,7 +56,7 @@
 ✔21:          public override T Evaluate(IDictionary<string, T> variables) => variables[Name];
 ✔22:          public override string ToString() => Name;
 〰23:  
-〰24:          public override bool Equals(object obj) =>
+〰24:          public override bool Equals(object? obj) =>
 ✔25:              this == obj ||
 ✔26:              obj is VariableExpression<T> vari && Name.Equals(vari.Name) ||
 ✔27:              obj is string && Name.Equals(obj);

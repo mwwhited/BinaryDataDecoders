@@ -76,5 +76,5 @@
 #####  Parameters
 
  - IDeviceDefinition < TMessage > definition 
- - Func < int , TMessage > messageFactory = null 
+ - Func < int , TMessage > ? messageFactory = null 
 

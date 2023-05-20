@@ -41,10 +41,10 @@
 〰10:      [FileExtension(".dacpac")]
 〰11:      public class DacPacNavigator : IToXPathNavigable
 〰12:      {
-〰13:          public IXPathNavigable ToNavigable(string filePath) =>
+〰13:          public IXPathNavigable? ToNavigable(string filePath) =>
 ‼14:              new DacPacElementNodeBuilder(new TSqlModel(filePath)).Build().ToNavigable();
 〰15:  
-〰16:          public IXPathNavigable ToNavigable(Stream stream)
+〰16:          public IXPathNavigable? ToNavigable(Stream stream)
 〰17:          {
 ‼18:              using var temp = stream.AsTempFile();
 ‼19:              return ToNavigable(temp.FilePath);
