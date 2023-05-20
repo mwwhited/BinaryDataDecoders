@@ -1,6 +1,7 @@
 ﻿using BinaryDataDecoders.ToolKit.IO;
 using CommandLine;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace BinaryDataDecoders.Xslt.Cli
@@ -16,10 +17,17 @@ namespace BinaryDataDecoders.Xslt.Cli
                       .WithParsed(o =>
                       {
                           new SandboxedTransformer(
-                              (string.IsNullOrWhiteSpace(o.Sandbox) ?
+                              sandbox: (string.IsNullOrWhiteSpace(o.Sandbox) ?
                                 Path.GetDirectoryName(o.Output) :
                                 o.Sandbox) ?? throw new ArgumentNullException(nameof(o.Sandbox)))
-                            .TransformAll(PathEx.FixUpPath( o.Template), PathEx.FixUpPath(o.Input), o.InputType, PathEx.FixUpPath(o.Output), o.Merge);
+                            .TransformAll(
+                              template: PathEx.FixUpPath( o.Template), 
+                              input: PathEx.FixUpPath(o.Input),
+                              exclude: PathEx.FixUpPath(o.Exclude),
+                              inputType: o.InputType, 
+                              output: PathEx.FixUpPath(o.Output),
+                              merge: o.Merge
+                              );
                       });
             }
             catch (Exception ex)

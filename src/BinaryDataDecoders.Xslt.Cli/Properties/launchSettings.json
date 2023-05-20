@@ -2,79 +2,79 @@
   "profiles": {
     "Xslt.Cli (TestResults)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" --input \"$(SolutionDir)..\\Publish\\TestResults\\*.trx\" --output \"$(SolutionDir)..\\Publish\\docs\\TestReports\\Summary.md\" --sandbox \"$(SolutionDir)..\" --merge "
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\TestResultsToMarkdown.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\TestResults\\*.trx\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\TestReports\\Summary.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--merge "
     },
     "Xslt.Cli (TestResults to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" --input \"$(SolutionDir)..\\Publish\\TestResults\\*.trx\" --output \"$(SolutionDir)..\\Publish\\TestResults\\Summary.xml\" --sandbox \"$(SolutionDir)..\" --merge "
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\TestResults\\*.trx\" \r\n--output \"$(SolutionDir)..\\Publish\\TestResults\\Summary.xml\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--merge "
     },
     "Xslt.Cli (Coverage Summary)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" --input \"$(SolutionDir)..\\Publish\\Results\\Coverage\\Summary.xml\" --output \"$(SolutionDir)..\\Publish\\docs\\Coverage\\index.md\" --sandbox \"$(SolutionDir)..\""
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\Results\\Coverage\\Summary.xml\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\Coverage\\index.md\" \r\n--sandbox \"$(SolutionDir)..\""
     },
     "Xslt.Cli (Coverage)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" --input \"$(SolutionDir)..\\Publish\\Results\\Coverage\\*.xml\" --output \"$(SolutionDir)..\\Publish\\docs\\Coverage\\*.md\" --sandbox \"$(SolutionDir)..\""
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CoverageToMarkdown.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\Results\\Coverage\\*.xml\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\Coverage\\*.md\" \r\n--sandbox \"$(SolutionDir)..\""
     },
     "Xslt.Cli (XmlComments to Structured)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToStructuredXml.xslt\" --input \"$(SolutionDir)..\\Publish\\Results\\Binary\\*.xml\" --output \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" --sandbox \"$(SolutionDir)..\""
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToStructuredXml.xslt\"\r\n--input \"$(SolutionDir)..\\Publish\\Results\\Binary\\*.xml\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" \r\n--sandbox \"$(SolutionDir)..\""
     },
     "Xslt.Cli (XmlComments to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToMarkdown.xslt\" --input \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" --output \"$(SolutionDir)..\\Publish\\docs\\Code\\*.md\" --sandbox \"$(SolutionDir)..\""
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToMarkdown.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\Code\\*.md\" \r\n--sandbox \"$(SolutionDir)..\""
     },
     "Xslt.Cli (CSharp Special)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" --input \"$(SolutionDir)BinaryDataDecoders.CodeAnalysis.Tests\\CSharp\\SampleClasses.cs\" --output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" --sandbox \"$(SolutionDir)..\" --input-type CSharp"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" \r\n--input \"$(SolutionDir)BinaryDataDecoders.Apple2\\**\\*.cs\" \r\n--exclude \"$(SolutionDir)BinaryDataDecoders.Apple2\\**\\obj\\**\\*.*\"\r\n--output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type CSharp"
     },
     "Xslt.Cli (CSharp Xml Special)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" --input \"$(SolutionDir)BinaryDataDecoders.CodeAnalysis.Tests\\CSharp\\SampleClasses.cs\" --output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.xml\" --sandbox \"$(SolutionDir)..\" --input-type CSharp"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" \r\n--input \"$(SolutionDir)BinaryDataDecoders.CodeAnalysis.Tests\\CSharp\\SampleClasses.cs\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.xml\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type CSharp"
     },
     "Xslt.Cli (CSharp to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" --input \"$(SolutionDir)**\\*.cs\" --output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" --sandbox \"$(SolutionDir)..\" --input-type CSharp"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\CSharpToMarkdown.xslt\" \r\n--input \"$(SolutionDir)**\\*.cs\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type CSharp"
     },
     "Xslt.Cli (CSharp to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" --input \"$(SolutionDir)**\\*.cs\" --output \"$(SolutionDir)..\\Publish\\Results\\SourceCode\\*.xml\" --sandbox \"$(SolutionDir)..\" --input-type CSharp"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" \r\n--input \"$(SolutionDir)**\\*.cs\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\SourceCode\\*.xml\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type CSharp"
     },
     "Xslt.Cli (VB to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\VbToMarkdown.xslt\" --input \"$(SolutionDir)**\\*.vb\" --output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" --sandbox \"$(SolutionDir)..\" --input-type VB"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\VbToMarkdown.xslt\" \r\n--input \"$(SolutionDir)**\\*.vb\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\SourceCode\\*.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type VB"
     },
     "Xslt.Cli (VB to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" --input \"$(SolutionDir)**\\*.vb\" --output \"$(SolutionDir)..\\Publish\\Results\\SourceCode\\*.xml\" --sandbox \"$(SolutionDir)..\" --input-type VB"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" \r\n--input \"$(SolutionDir)**\\*.vb\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\SourceCode\\*.xml\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type VB"
     },
     "Xslt.Cli (Path to XML)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" --input \"$(SolutionDir)..\\Publish\\docs\" --output \"$(SolutionDir)..\\Publish\\Results\\Path.xml\" --sandbox \"$(SolutionDir)..\" --input-type Path"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\docs\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\Path.xml\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type Path"
     },
     "Xslt.Cli (Path to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\PathToMarkdown.xslt\" --input \"$(SolutionDir)..\\Publish\\docs\" --output \"$(SolutionDir)..\\Publish\\docs\\TOC.md\" --sandbox \"$(SolutionDir)..\" --input-type Path"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\PathToMarkdown.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\docs\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\TOC.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type Path"
     },
     "Xslt.Cli (BuildLog to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\BuildLogToMarkdown.xslt\" --input \"$(SolutionDir)..\\Publish\\dotnet_build.binlog\" --output \"$(SolutionDir)..\\Publish\\docs\\BuildLog.md\" --sandbox \"$(SolutionDir)..\" --input-type MSBuildStructuredLog"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\BuildLogToMarkdown.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\dotnet_build.binlog\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\BuildLog.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type MSBuildStructuredLog"
     },
     "Xslt.Cli (Merge Projects to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" --input \"$(SolutionDir)..\\**\\*.*proj\" --output \"$(SolutionDir)..\\Publish\\Results\\Merged_Projects.xml\" --sandbox \"$(SolutionDir)..\" --merge "
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" \r\n--input \"$(SolutionDir)..\\**\\*.*proj\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\Merged_Projects.xml\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--merge "
     },
     "Xslt.Cli (Merge Projects to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\MergedProjectsToMarkdown.xslt\" --input \"$(SolutionDir)..\\**\\*.*proj\" --output \"$(SolutionDir)..\\Publish\\Results\\Merged_Projects.md\" --sandbox \"$(SolutionDir)..\" --merge "
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\MergedProjectsToMarkdown.xslt\" \r\n--input \"$(SolutionDir)..\\**\\*.*proj\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\Merged_Projects.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--merge "
     },
     "Xslt.Cli (DacPac to Xml)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" --input \"$(SolutionDir)**\\bin\\**\\*.dacpac\" --output \"$(SolutionDir)..\\Publish\\Results\\Database\\*.xml\" --sandbox \"$(SolutionDir)..\" --input-type DacPac"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\ToXml.xslt\" \r\n--input \"$(SolutionDir)**\\bin\\**\\*.dacpac\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\Database\\*.xml\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type DacPac"
     },
     "Xslt.Cli (DacPac to Markdown)": {
       "commandName": "Project",
-      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\DacPacToMarkdown.xslt\" --input \"$(SolutionDir)**\\bin\\**\\*.dacpac\" --output \"$(SolutionDir)..\\Publish\\docs\\Database\\*.md\" --sandbox \"$(SolutionDir)..\" --input-type DacPac"
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\DacPacToMarkdown.xslt\" \r\n--input \"$(SolutionDir)**\\bin\\**\\*.dacpac\" \r\n--output \"$(SolutionDir)..\\Publish\\docs\\Database\\*.md\" \r\n--sandbox \"$(SolutionDir)..\" \r\n--input-type DacPac"
     },
     "WSL 2": {
       "commandName": "WSL2",
@@ -82,7 +82,7 @@
     },
     "Imported": {
       "commandName": "Project",
-      "commandLineArgs": " \"C:\\Repos\\mwwhited\\BinaryDataDecoders\\src\\Xslt.Cli\\bin\\Release\\net7.0\\Xslt.Cli.dll\" --template \"C:\\Repos\\mwwhited\\BinaryDataDecoders\\src\\..\\templates\\reports\\XmlCommentsToStructuredXml.xslt\" --input \"C:\\Repos\\mwwhited\\BinaryDataDecoders\\src\\..\\Publish\\Results\\Binary\\BinaryDataDecoders.*.xml\" --output \"C:\\Repos\\mwwhited\\BinaryDataDecoders\\src\\..\\Publish\\Results\\Code\\*.xml\" --sandbox \"C:\\Repos\\mwwhited\\BinaryDataDecoders\\src\\..\""
+      "commandLineArgs": "--template \"$(SolutionDir)..\\templates\\reports\\XmlCommentsToStructuredXml.xslt\" \r\n--input \"$(SolutionDir)..\\Publish\\Results\\Binary\\BinaryDataDecoders.*.xml\" \r\n--output \"$(SolutionDir)..\\Publish\\Results\\Code\\*.xml\" \r\n--sandbox \"C:\\Repos\\mwwhited\\BinaryDataDecoders\\src\\..\""
     }
   }
 }

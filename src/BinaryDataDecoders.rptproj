@@ -95,10 +95,10 @@
     <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\XmlCommentsToMarkdown.xslt&quot; --input &quot;$(RESULTS_PATH)\Code\*.xml&quot; --output &quot;$(DOCS_PATH)\Code\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot;" />
 
     <Message Text="Generate Reports: CSharp to Markdown" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CSharpToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.cs&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type CSharp" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CSharpToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.cs&quot; --exclude &quot;$(BUILD_PATH)\**\obj\**\*.cs&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type CSharp" />
 
     <Message Text="Generate Reports: VB to Markdown" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\VbToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.vb&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type VB" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\VbToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.vb&quot; --exclude &quot;$(BUILD_PATH)\**\obj\**\*.vb&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type VB" />
 
     <Message Text="Generate Reports: Build Log to Markdown" />
     <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\BuildLogToMarkdown.xslt&quot; --input &quot;$(BUILD_LOG)&quot; --output &quot;$(DOCS_PATH)\BuildLog.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type MSBuildStructuredLog" />

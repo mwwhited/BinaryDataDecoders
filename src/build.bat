@@ -124,9 +124,9 @@ IF %errorlevel% NEQ 0 GOTO error
 IF "%NO_XML_TRANSFORM%"=="1" GOTO skip_xml_out
 :transform_xml
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
-%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%BUILD_PATH%\**\*.cs" --output "%RESULTS_PATH%\SourceCode\*.xml" --sandbox "%SANDBOX_PATH%" --input-type CSharp
+%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%BUILD_PATH%\**\*.cs" --exclude "%BUILD_PATH%\**\obj\**\*.*" --output "%RESULTS_PATH%\SourceCode\*.xml" --sandbox "%SANDBOX_PATH%" --input-type CSharp
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
-%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%BUILD_PATH%\**\*.vb" --output "%RESULTS_PATH%\SourceCode\*.xml" --sandbox "%SANDBOX_PATH%" --input-type VB
+%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%BUILD_PATH%\**\*.vb" --exclude "%BUILD_PATH%\**\obj\**\*.*" --output "%RESULTS_PATH%\SourceCode\*.xml" --sandbox "%SANDBOX_PATH%" --input-type VB
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to XML) <<<"
 %XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%DOCS_PATH%" --output "%RESULTS_PATH%\Path.xml" --sandbox "%SANDBOX_PATH%" --input-type Path
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Build Log to XML) <<<"
