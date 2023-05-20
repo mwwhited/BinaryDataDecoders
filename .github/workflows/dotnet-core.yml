@@ -34,6 +34,7 @@ jobs:
         DOCS_PATH=$OUTPUT_PATH/docs
         RESULTS_PATH=$OUTPUT_PATH/Results     
         BUILD_PROJECT=src/BinaryDataDecoders.slnproj
+        BUILD_XSLT_PROJECT=src/BinaryDataDecoders.Xslt.Cli.csproj
         REPORT_PROJECT=src/BinaryDataDecoders.rptproj
         BUILD_CONFIGURATION=Release
         dotnet tool restore
@@ -45,6 +46,7 @@ jobs:
         echo "dacVersion=$dacVersion" >> $GITHUB_ENV
         echo "BUILD_PROJECT=$BUILD_PROJECT" >> $GITHUB_ENV
         echo "REPORT_PROJECT=$REPORT_PROJECT" >> $GITHUB_ENV
+        echo "BUILD_XSLT_PROJECT=BUILD_XSLT_PROJECT" >> $GITHUB_ENV
         echo "BUILD_CONFIGURATION=$BUILD_CONFIGURATION" >> $GITHUB_ENV
         echo "OUTPUT_PATH=$OUTPUT_PATH" >> $GITHUB_ENV  
         echo "SANDBOX_PATH=$SANDBOX_PATH" >> $GITHUB_ENV 
@@ -62,7 +64,7 @@ jobs:
       run: dotnet pack "$BUILD_PROJECT" --configuration $BUILD_CONFIGURATION --no-build --no-restore --output "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
 
     - name: Publish BinaryDataDecoders.Xslt.Cli
-      run: dotnet publish "BinaryDataDecoders.Xslt.Cli" --configuration $BUILD_CONFIGURATION  --no-build --no-restore --output "$RESULTS_PATH/Binary"
+      run: dotnet publish "$BUILD_XSLT_PROJECT" --configuration $BUILD_CONFIGURATION  --no-build --no-restore --output "$RESULTS_PATH/Binary"
 
     ## Don't publish PR's
     - name: Publish Project to Nuget
