@@ -158,7 +158,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             var inputFullPath = Path.GetFullPath(input);
             var inputDir = PathEx.GetBasePath(input);
             var excludeFiles = PathEx.EnumerateFiles(excludeInputSource);
-            var inputFiles = PathEx.EnumerateFiles(input).Except(excludeFiles);
+            var inputFiles = PathEx.EnumerateFiles(input).Select(Path.GetFullPath).Except(excludeFiles.Select(Path.GetFullPath));
 
             var outputFullPath = Path.GetFullPath(output);
             var outputDir = Path.GetDirectoryName(outputFullPath);
