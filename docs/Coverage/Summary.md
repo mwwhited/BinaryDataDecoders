@@ -4,21 +4,21 @@
 
 | Key             | Value                         |
 | :-------------- | :---------------------------- |
-| Generatedon     | `05/20/2023 - 20:07:09`       |
+| Generatedon     | `05/20/2023 - 21:32:43`       |
 | Parser          | `MultiReport (44x Cobertura)` |
 | Assemblies      | `54`                          |
-| Classes         | `354`                         |
-| Coveredlines    | `3544`                        |
-| Uncoveredlines  | `5324`                        |
-| Coverablelines  | `8868`                        |
-| Totallines      | `22897`                       |
-| Linecoverage    | `39.9`                        |
-| Coveredbranches | `1079`                        |
-| Totalbranches   | `3400`                        |
-| Branchcoverage  | `31.7`                        |
-| Coveredmethods  | `638`                         |
-| Totalmethods    | `1488`                        |
-| Methodcoverage  | `42.8`                        |
+| Classes         | `370`                         |
+| Coveredlines    | `3724`                        |
+| Uncoveredlines  | `5465`                        |
+| Coverablelines  | `9189`                        |
+| Totallines      | `23679`                       |
+| Linecoverage    | `40.5`                        |
+| Coveredbranches | `1143`                        |
+| Totalbranches   | `3554`                        |
+| Branchcoverage  | `32.1`                        |
+| Coveredmethods  | `667`                         |
+| Totalmethods    | `1539`                        |
+| Methodcoverage  | `43.3`                        |
 
 ## Coverage
 
@@ -292,22 +292,23 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `7`    |
-| coverage        | `54.7` |
-| coveredlines    | `184`  |
-| coverablelines  | `336`  |
-| totallines      | `735`  |
-| branchcoverage  | `34.4` |
-| coveredbranches | `42`   |
-| totalbranches   | `122`  |
-| coveredmethods  | `15`   |
-| totalmethods    | `29`   |
-| methodcoverage  | `51.7` |
+| classes         | `9`    |
+| coverage        | `58.4` |
+| coveredlines    | `222`  |
+| coverablelines  | `380`  |
+| totallines      | `826`  |
+| branchcoverage  | `43.8` |
+| coveredbranches | `71`   |
+| totalbranches   | `162`  |
+| coveredmethods  | `25`   |
+| totalmethods    | `39`   |
+| methodcoverage  | `64.1` |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
+| 90         | [Caesar](BinaryDataDecoders.Cryptography_.md) |
 | 72.3       | [Enigma.EnigmaMachine](BinaryDataDecoders.Cryptography_EnigmaMachine.md) |
 | 100        | [Enigma.EnigmaReflector](BinaryDataDecoders.Cryptography_EnigmaReflector.md) |
 | 100        | [Enigma.EnigmaRotor](BinaryDataDecoders.Cryptography_EnigmaRotor.md) |
@@ -315,6 +316,7 @@
 | 100        | [Lorenz.LorenzMachine](BinaryDataDecoders.Cryptography_LorenzMachine.md) |
 | 0          | [OneTimeCode](BinaryDataDecoders.Cryptography_.md) |
 | 0          | [PlayFair](BinaryDataDecoders.Cryptography_.md) |
+| 78.5       | [Vigenere](BinaryDataDecoders.Cryptography_.md) |
 
 ### Assembly - BinaryDataDecoders.Cryptography.Tests
 
@@ -322,25 +324,27 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `3`    |
-| coverage        | `95`   |
-| coveredlines    | `19`   |
-| coverablelines  | `20`   |
-| totallines      | `67`   |
+| classes         | `5`    |
+| coverage        | `97.2` |
+| coveredlines    | `35`   |
+| coverablelines  | `36`   |
+| totallines      | `141`  |
 | branchcoverage  | `100`  |
 | coveredbranches | `2`    |
 | totalbranches   | `2`    |
-| coveredmethods  | `2`    |
-| totalmethods    | `3`    |
-| methodcoverage  | `66.6` |
+| coveredmethods  | `6`    |
+| totalmethods    | `7`    |
+| methodcoverage  | `85.7` |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [](BinaryDataDecoders.Cryptography.Tests_.md) |
+| 100        | [CaesarTests](BinaryDataDecoders.Cryptography.Tests_.md) |
 | 100        | [Enigma.EnigmaMachineTests](BinaryDataDecoders.Cryptography.Tests_EnigmaMachineTests.md) |
 | 100        | [Lorenz.LorenzMachineTests](BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests.md) |
+| 100        | [VigenereTests](BinaryDataDecoders.Cryptography.Tests_.md) |
 
 ### Assembly - BinaryDataDecoders.Drawing
 
@@ -936,16 +940,16 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `5`   |
+| classes         | `11`  |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `64`  |
-| totallines      | `173` |
+| coverablelines  | `186` |
+| totallines      | `477` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
-| totalbranches   | `8`   |
+| totalbranches   | `72`  |
 | coveredmethods  | `0`   |
-| totalmethods    | `12`  |
+| totalmethods    | `32`  |
 | methodcoverage  | `0`   |
 
 #### Classes
@@ -957,6 +961,12 @@
 | 0          | [InvalidMacAddressException](BinaryDataDecoders.Net_.md) |
 | 0          | [MacAddressEx](BinaryDataDecoders.Net_.md) |
 | 0          | [Protocols.WakeOnLan](BinaryDataDecoders.Net_WakeOnLan.md) |
+| 0          | [Services.ChargenServer](BinaryDataDecoders.Net_ChargenServer.md) |
+| 0          | [Services.DaytimeServer](BinaryDataDecoders.Net_DaytimeServer.md) |
+| 0          | [Services.DiscardServer](BinaryDataDecoders.Net_DiscardServer.md) |
+| 0          | [Services.EchoServer](BinaryDataDecoders.Net_EchoServer.md) |
+| 0          | [Services.TimeServer](BinaryDataDecoders.Net_TimeServer.md) |
+| 0          | [Sockets.ServerBase](BinaryDataDecoders.Net_ServerBase.md) |
 
 ### Assembly - BinaryDataDecoders.Net.Tests
 
@@ -1359,17 +1369,17 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `100`  |
-| coverage        | `27.9` |
-| coveredlines    | `655`  |
-| coverablelines  | `2346` |
-| totallines      | `7133` |
-| branchcoverage  | `26.1` |
-| coveredbranches | `297`  |
-| totalbranches   | `1136` |
-| coveredmethods  | `157`  |
-| totalmethods    | `501`  |
-| methodcoverage  | `31.3` |
+| classes         | `104`  |
+| coverage        | `31.1` |
+| coveredlines    | `771`  |
+| coverablelines  | `2475` |
+| totallines      | `7354` |
+| branchcoverage  | `27.9` |
+| coveredbranches | `332`  |
+| totalbranches   | `1186` |
+| coveredmethods  | `168`  |
+| totalmethods    | `514`  |
+| methodcoverage  | `32.6` |
 
 #### Classes
 
@@ -1380,6 +1390,9 @@
 | 93.3       | [ByteEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Calculators.LightCalculator](BinaryDataDecoders.ToolKit_LightCalculator.md) |
 | 97.6       | [Codecs.Base32Codec](BinaryDataDecoders.ToolKit_Base32Codec.md) |
+| 97.9       | [Codecs.MorseCode](BinaryDataDecoders.ToolKit_MorseCode.md) |
+| 89.2       | [Codecs.RomanExtensions](BinaryDataDecoders.ToolKit_RomanExtensions.md) |
+| 100        | [Codecs.RomanNumeral](BinaryDataDecoders.ToolKit_RomanNumeral.md) |
 | 0          | [Collections.DoubleLinkedList`1](BinaryDataDecoders.ToolKit_DoubleLinkedList_1.md) |
 | 0          | [Collections.DoubleLinkedListEx](BinaryDataDecoders.ToolKit_DoubleLinkedListEx.md) |
 | 0          | [Collections.EnumerableEx](BinaryDataDecoders.ToolKit_EnumerableEx.md) |
@@ -1400,6 +1413,7 @@
 | 50         | [IO.StreamEx](BinaryDataDecoders.ToolKit_StreamEx.md) |
 | 36.8       | [IO.TempFileHandle](BinaryDataDecoders.ToolKit_TempFileHandle.md) |
 | 0          | [Linq.EnumerableEx](BinaryDataDecoders.ToolKit_EnumerableEx.md) |
+| 0          | [Linq.ShuffleExtensions](BinaryDataDecoders.ToolKit_ShuffleExtensions.md) |
 | 0          | [Linq.TupleExtensions](BinaryDataDecoders.ToolKit_TupleExtensions.md) |
 | 0          | [MemoryCompare`1](BinaryDataDecoders.ToolKit_.md) |
 | 61.1       | [MemoryEx](BinaryDataDecoders.ToolKit_.md) |
@@ -1506,17 +1520,17 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `19`   |
-| coverage        | `64`   |
-| coveredlines    | `226`  |
-| coverablelines  | `353`  |
-| totallines      | `1249` |
+| classes         | `21`   |
+| coverage        | `65`   |
+| coveredlines    | `236`  |
+| coverablelines  | `363`  |
+| totallines      | `1341` |
 | branchcoverage  | `20.8` |
 | coveredbranches | `10`   |
 | totalbranches   | `48`   |
-| coveredmethods  | `27`   |
-| totalmethods    | `46`   |
-| methodcoverage  | `58.6` |
+| coveredmethods  | `31`   |
+| totalmethods    | `50`   |
+| methodcoverage  | `62`   |
 
 #### Classes
 
@@ -1525,6 +1539,8 @@
 | 0          | [](BinaryDataDecoders.ToolKit.Tests_.md) |
 | 100        | [ByteExTests](BinaryDataDecoders.ToolKit.Tests_.md) |
 | 100        | [Codecs.Base32CodecTests](BinaryDataDecoders.ToolKit.Tests_Base32CodecTests.md) |
+| 100        | [Codecs.MorseCodeTests](BinaryDataDecoders.ToolKit.Tests_MorseCodeTests.md) |
+| 100        | [Codecs.RomanNumeralTests](BinaryDataDecoders.ToolKit.Tests_RomanNumeralTests.md) |
 | 0          | [Collections.ReversableEnumeratorTests](BinaryDataDecoders.ToolKit.Tests_ReversableEnumeratorTests.md) |
 | 100        | [DateTimeExTests](BinaryDataDecoders.ToolKit.Tests_.md) |
 | 0          | [IO.PathExTests](BinaryDataDecoders.ToolKit.Tests_PathExTests.md) |

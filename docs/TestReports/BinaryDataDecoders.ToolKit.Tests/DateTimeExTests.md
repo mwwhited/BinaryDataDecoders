@@ -1,6 +1,6 @@
 # BinaryDataDecoders.ToolKit.Tests.DateTimeExTests
 
-## UnixTimeStampToLocalDateTimeTest
+## LocalDateTimeToUnixTimeStampTest
 
 ### Categories
 
@@ -11,7 +11,7 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## LocalDateTimeToUnixTimeStampTest
+## UnixTimeStampToLocalDateTimeTest
 
 ### Categories
 

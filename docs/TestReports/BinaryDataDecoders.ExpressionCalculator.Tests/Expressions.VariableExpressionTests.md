@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::VariableExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -21,7 +21,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::VariableExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -37,7 +37,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::VariableExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -53,7 +53,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::VariableExpression`1::
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -69,7 +69,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::VariableExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -85,7 +85,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::VariableExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -101,7 +101,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::VariableExpression`1::
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

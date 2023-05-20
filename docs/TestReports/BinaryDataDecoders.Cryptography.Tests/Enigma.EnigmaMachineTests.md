@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.Cryptography.Enigma::EnigmaMachine::Process
-  * BinaryDataDecoders.Cryptography, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Cryptography, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

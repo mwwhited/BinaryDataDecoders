@@ -150,6 +150,8 @@
       * [IDeviceDefinitionInitialize](./SourceCode/BinaryDataDecoders.IO.Abstractions/IDeviceDefinitionInitialize.md)
       * [IDeviceReceiver](./SourceCode/BinaryDataDecoders.IO.Abstractions/IDeviceReceiver.md)
       * [IStreamDevice](./SourceCode/BinaryDataDecoders.IO.Abstractions/IStreamDevice.md)
+    * BinaryDataDecoders.Net.ServiceHost.Cli
+      * [Program](./SourceCode/BinaryDataDecoders.Net.ServiceHost.Cli/Program.md)
     * BinaryDataDecoders.CodeAnalysis.DacFx
       * [DacPacElementNodeBuilder](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx/DacPacElementNodeBuilder.md)
       * [DacPacNavigator](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx/DacPacNavigator.md)
@@ -235,6 +237,8 @@
         * [ReflectionElementNodeTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.md)
       * Codecs
         * [Base32CodecTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Codecs/Base32CodecTests.md)
+        * [MorseCodeTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Codecs/MorseCodeTests.md)
+        * [RomanNumeralTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Codecs/RomanNumeralTests.md)
       * Collections
         * [ReversableEnumeratorTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Collections/ReversableEnumeratorTests.md)
       * Xml
@@ -279,6 +283,8 @@
         * [EnigmaTools](./SourceCode/BinaryDataDecoders.Cryptography/Enigma/EnigmaTools.md)
         * [EnigmaRotor](./SourceCode/BinaryDataDecoders.Cryptography/Enigma/EnigmaRotor.md)
       * [PlayFair](./SourceCode/BinaryDataDecoders.Cryptography/PlayFair.md)
+      * [Vigenere](./SourceCode/BinaryDataDecoders.Cryptography/Vigenere.md)
+      * [Caesar](./SourceCode/BinaryDataDecoders.Cryptography/Caesar.md)
       * [OneTimeCode](./SourceCode/BinaryDataDecoders.Cryptography/OneTimeCode.md)
       * [EncryptionUtils](./SourceCode/BinaryDataDecoders.Cryptography/EncryptionUtils.md)
     * BinaryDataDecoders.Velleman.K8055
@@ -388,8 +394,17 @@
       * [StringNemaMessage](./SourceCode/BinaryDataDecoders.Nmea/StringNemaMessage.md)
       * [RecommendedMinimumNavigationInformation](./SourceCode/BinaryDataDecoders.Nmea/RecommendedMinimumNavigationInformation.md)
     * BinaryDataDecoders.Net
+      * Services
+        * [EchoServer](./SourceCode/BinaryDataDecoders.Net/Services/EchoServer.md)
+        * [ChargenServer](./SourceCode/BinaryDataDecoders.Net/Services/ChargenServer.md)
+        * [TimeServer](./SourceCode/BinaryDataDecoders.Net/Services/TimeServer.md)
+        * [DiscardServer](./SourceCode/BinaryDataDecoders.Net/Services/DiscardServer.md)
+        * [DaytimeServer](./SourceCode/BinaryDataDecoders.Net/Services/DaytimeServer.md)
       * Protocols
         * [WakeOnLan](./SourceCode/BinaryDataDecoders.Net/Protocols/WakeOnLan.md)
+      * Sockets
+        * [ServerBase](./SourceCode/BinaryDataDecoders.Net/Sockets/ServerBase.md)
+        * [IServerBase](./SourceCode/BinaryDataDecoders.Net/Sockets/IServerBase.md)
       * [ConvertEx](./SourceCode/BinaryDataDecoders.Net/ConvertEx.md)
       * [InvalidMacAddressException](./SourceCode/BinaryDataDecoders.Net/InvalidMacAddressException.md)
       * [MacAddressEx](./SourceCode/BinaryDataDecoders.Net/MacAddressEx.md)
@@ -451,6 +466,8 @@
         * [LorenzMachineTests](./SourceCode/BinaryDataDecoders.Cryptography.Tests/Lorenz/LorenzMachineTests.md)
       * Enigma
         * [EnigmaMachineTests](./SourceCode/BinaryDataDecoders.Cryptography.Tests/Enigma/EnigmaMachineTests.md)
+      * [CaesarTests](./SourceCode/BinaryDataDecoders.Cryptography.Tests/CaesarTests.md)
+      * [VigenereTests](./SourceCode/BinaryDataDecoders.Cryptography.Tests/VigenereTests.md)
     * BinaryDataDecoders.Templating.Abstractions
       * [IInstanceFactory](./SourceCode/BinaryDataDecoders.Templating.Abstractions/IInstanceFactory.md)
       * [IPathResolver](./SourceCode/BinaryDataDecoders.Templating.Abstractions/IPathResolver.md)
@@ -476,6 +493,7 @@
       * ComponentModel
         * [ViewModelBase](./SourceCode/BinaryDataDecoders.ToolKit/ComponentModel/ViewModelBase.md)
       * Linq
+        * [ShuffleExtensions](./SourceCode/BinaryDataDecoders.ToolKit/Linq/ShuffleExtensions.md)
         * [TupleExtensions](./SourceCode/BinaryDataDecoders.ToolKit/Linq/TupleExtensions.md)
         * [EnumerableEx](./SourceCode/BinaryDataDecoders.ToolKit/Linq/EnumerableEx.md)
       * Data
@@ -519,7 +537,10 @@
         * [RelationalOperationTypePathSegment](./SourceCode/BinaryDataDecoders.ToolKit/PathSegments/RelationalOperationTypePathSegment.md)
         * [LogicOperationTypePathSegment](./SourceCode/BinaryDataDecoders.ToolKit/PathSegments/LogicOperationTypePathSegment.md)
       * Codecs
+        * [RomanNumeral](./SourceCode/BinaryDataDecoders.ToolKit/Codecs/RomanNumeral.md)
         * [Base32Codec](./SourceCode/BinaryDataDecoders.ToolKit/Codecs/Base32Codec.md)
+        * [MorseCode](./SourceCode/BinaryDataDecoders.ToolKit/Codecs/MorseCode.md)
+        * [RomanExtensions](./SourceCode/BinaryDataDecoders.ToolKit/Codecs/RomanExtensions.md)
       * Calculators
         * [LightCalculator](./SourceCode/BinaryDataDecoders.ToolKit/Calculators/LightCalculator.md)
       * Threading
@@ -623,6 +644,7 @@
     * [BinaryDataDecoders.Apple2_FileEntry](./Coverage/BinaryDataDecoders.Apple2_FileEntry.md)
     * [BinaryDataDecoders.Nmea_GpsDopAndActiveSatellites](./Coverage/BinaryDataDecoders.Nmea_GpsDopAndActiveSatellites.md)
     * [BinaryDataDecoders.ToolKit_EnumerableEx2](./Coverage/BinaryDataDecoders.ToolKit_EnumerableEx2.md)
+    * [BinaryDataDecoders.Net_DiscardServer](./Coverage/BinaryDataDecoders.Net_DiscardServer.md)
     * [BinaryDataDecoders.Apple2_VolumeTableOfContents](./Coverage/BinaryDataDecoders.Apple2_VolumeTableOfContents.md)
     * [BinaryDataDecoders.ToolKit_TempFileHandle](./Coverage/BinaryDataDecoders.ToolKit_TempFileHandle.md)
     * [BinaryDataDecoders.ToolKit_PathExistsPathSegment](./Coverage/BinaryDataDecoders.ToolKit_PathExistsPathSegment.md)
@@ -645,6 +667,7 @@
     * [BinaryDataDecoders.ExpressionCalculator.Tests_Int16ExpressionParserTests](./Coverage/BinaryDataDecoders.ExpressionCalculator.Tests_Int16ExpressionParserTests.md)
     * [BinaryDataDecoders.IO.Pipelines_StreamPipelineFactory](./Coverage/BinaryDataDecoders.IO.Pipelines_StreamPipelineFactory.md)
     * [BinaryDataDecoders.ToolKit_SqlXmlEx](./Coverage/BinaryDataDecoders.ToolKit_SqlXmlEx.md)
+    * [BinaryDataDecoders.Cryptography_Vigenere](./Coverage/BinaryDataDecoders.Cryptography_Vigenere.md)
     * [BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroDefinition](./Coverage/BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroDefinition.md)
     * [BinaryDataDecoders.ToolKit_XFragment](./Coverage/BinaryDataDecoders.ToolKit_XFragment.md)
     * [BinaryDataDecoders.IO.Tests_AutoGeneratedProgram](./Coverage/BinaryDataDecoders.IO.Tests_AutoGeneratedProgram.md)
@@ -656,6 +679,7 @@
     * [BinaryDataDecoders.Quarta.RadexOne_ReadSerialNumberRequest](./Coverage/BinaryDataDecoders.Quarta.RadexOne_ReadSerialNumberRequest.md)
     * [BinaryDataDecoders.IO.Abstractions_SegmentExtensionDefinition](./Coverage/BinaryDataDecoders.IO.Abstractions_SegmentExtensionDefinition.md)
     * [BinaryDataDecoders.ToolKit_WrappedNode](./Coverage/BinaryDataDecoders.ToolKit_WrappedNode.md)
+    * [BinaryDataDecoders.ToolKit_MorseCode](./Coverage/BinaryDataDecoders.ToolKit_MorseCode.md)
     * [BinaryDataDecoders.ToolKit_RangePathSegment](./Coverage/BinaryDataDecoders.ToolKit_RangePathSegment.md)
     * [BinaryDataDecoders.Archives_LocalFileHeader](./Coverage/BinaryDataDecoders.Archives_LocalFileHeader.md)
     * [BinaryDataDecoders.Drawing_ZOrderCurveEx](./Coverage/BinaryDataDecoders.Drawing_ZOrderCurveEx.md)
@@ -666,6 +690,7 @@
     * [BinaryDataDecoders.Archives.Tests_AutoGeneratedProgram](./Coverage/BinaryDataDecoders.Archives.Tests_AutoGeneratedProgram.md)
     * [BinaryDataDecoders.Yaml.Tests_AutoGeneratedProgram](./Coverage/BinaryDataDecoders.Yaml.Tests_AutoGeneratedProgram.md)
     * [BinaryDataDecoders.Text.Json_JsonPathBaseVisitor_1](./Coverage/BinaryDataDecoders.Text.Json_JsonPathBaseVisitor_1.md)
+    * [BinaryDataDecoders.ToolKit_RomanNumeral](./Coverage/BinaryDataDecoders.ToolKit_RomanNumeral.md)
     * [BinaryDataDecoders.Cryptography_EnigmaReflector](./Coverage/BinaryDataDecoders.Cryptography_EnigmaReflector.md)
     * [BinaryDataDecoders.ToolKit_DelegateCommand](./Coverage/BinaryDataDecoders.ToolKit_DelegateCommand.md)
     * [BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests_AutoGeneratedProgram](./Coverage/BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests_AutoGeneratedProgram.md)
@@ -686,6 +711,7 @@
     * [BinaryDataDecoders.ExpressionCalculator.Tests_Int64ExpressionParserTests](./Coverage/BinaryDataDecoders.ExpressionCalculator.Tests_Int64ExpressionParserTests.md)
     * [BinaryDataDecoders.Text.Markdown_PlantUmlRenderer](./Coverage/BinaryDataDecoders.Text.Markdown_PlantUmlRenderer.md)
     * [BinaryDataDecoders.Apple2_TrackSector](./Coverage/BinaryDataDecoders.Apple2_TrackSector.md)
+    * [BinaryDataDecoders.ToolKit_ShuffleExtensions](./Coverage/BinaryDataDecoders.ToolKit_ShuffleExtensions.md)
     * [BinaryDataDecoders.Cryptography_OneTimeCode](./Coverage/BinaryDataDecoders.Cryptography_OneTimeCode.md)
     * [BinaryDataDecoders.ToolKit_NumberEx](./Coverage/BinaryDataDecoders.ToolKit_NumberEx.md)
     * [BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests](./Coverage/BinaryDataDecoders.Cryptography.Tests_LorenzMachineTests.md)
@@ -716,6 +742,7 @@
     * [BinaryDataDecoders.ExpressionCalculator_ExpressionTreeBaseVisitor_1](./Coverage/BinaryDataDecoders.ExpressionCalculator_ExpressionTreeBaseVisitor_1.md)
     * [BinaryDataDecoders.ToolKit_ExtensibleNavigator](./Coverage/BinaryDataDecoders.ToolKit_ExtensibleNavigator.md)
     * [BinaryDataDecoders.Cryptography_EnigmaMachine](./Coverage/BinaryDataDecoders.Cryptography_EnigmaMachine.md)
+    * [BinaryDataDecoders.Cryptography.Tests_VigenereTests](./Coverage/BinaryDataDecoders.Cryptography.Tests_VigenereTests.md)
     * [BinaryDataDecoders.CodeAnalysis_SemanticModelNavigatorFactory](./Coverage/BinaryDataDecoders.CodeAnalysis_SemanticModelNavigatorFactory.md)
     * [BinaryDataDecoders.Drawing_PngPack](./Coverage/BinaryDataDecoders.Drawing_PngPack.md)
     * [BinaryDataDecoders.ExpressionCalculator_Int8ExpressionEvaluator](./Coverage/BinaryDataDecoders.ExpressionCalculator_Int8ExpressionEvaluator.md)
@@ -752,6 +779,7 @@
     * [BinaryDataDecoders.Text.Markdown_PlantUmlBlockParser](./Coverage/BinaryDataDecoders.Text.Markdown_PlantUmlBlockParser.md)
     * [BinaryDataDecoders.Yaml_YamlNavigator](./Coverage/BinaryDataDecoders.Yaml_YamlNavigator.md)
     * [BinaryDataDecoders.ToolKit_StreamEx2](./Coverage/BinaryDataDecoders.ToolKit_StreamEx2.md)
+    * [BinaryDataDecoders.ToolKit.Tests_RomanNumeralTests](./Coverage/BinaryDataDecoders.ToolKit.Tests_RomanNumeralTests.md)
     * [BinaryDataDecoders.ElectronicScoringMachines.Fencing_ScoreMachineState](./Coverage/BinaryDataDecoders.ElectronicScoringMachines.Fencing_ScoreMachineState.md)
     * [BinaryDataDecoders.ToolKit_XPath20Functions](./Coverage/BinaryDataDecoders.ToolKit_XPath20Functions.md)
     * [BinaryDataDecoders.Text.Markdown_PlantUmlBlock](./Coverage/BinaryDataDecoders.Text.Markdown_PlantUmlBlock.md)
@@ -771,6 +799,7 @@
     * [BinaryDataDecoders.ToolKit.Tests_ObjectXmlExtensionsTests](./Coverage/BinaryDataDecoders.ToolKit.Tests_ObjectXmlExtensionsTests.md)
     * [BinaryDataDecoders.ToolKit_TaskEx](./Coverage/BinaryDataDecoders.ToolKit_TaskEx.md)
     * [BinaryDataDecoders.ToolKit_PathEx](./Coverage/BinaryDataDecoders.ToolKit_PathEx.md)
+    * [BinaryDataDecoders.Net_DaytimeServer](./Coverage/BinaryDataDecoders.Net_DaytimeServer.md)
     * [BinaryDataDecoders.Text.Json_JsonPathVisitor](./Coverage/BinaryDataDecoders.Text.Json_JsonPathVisitor.md)
     * [BinaryDataDecoders.Drawing.Tests_Code39Tests](./Coverage/BinaryDataDecoders.Drawing.Tests_Code39Tests.md)
     * [BinaryDataDecoders.TestUtilities_TestLogger_1](./Coverage/BinaryDataDecoders.TestUtilities_TestLogger_1.md)
@@ -806,6 +835,7 @@
     * [BinaryDataDecoders.ToolKit_FunctionPathSegment](./Coverage/BinaryDataDecoders.ToolKit_FunctionPathSegment.md)
     * [BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateDefinition](./Coverage/BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateDefinition.md)
     * [BinaryDataDecoders.ToolKit_BinaryPathSegment](./Coverage/BinaryDataDecoders.ToolKit_BinaryPathSegment.md)
+    * [BinaryDataDecoders.Cryptography_Caesar](./Coverage/BinaryDataDecoders.Cryptography_Caesar.md)
     * [BinaryDataDecoders.Apple2_DiskImageCommands](./Coverage/BinaryDataDecoders.Apple2_DiskImageCommands.md)
     * [BinaryDataDecoders.ToolKit_MemoryEx](./Coverage/BinaryDataDecoders.ToolKit_MemoryEx.md)
     * [BinaryDataDecoders.ExpressionCalculator.Tests_Int32ExpressionParserTests](./Coverage/BinaryDataDecoders.ExpressionCalculator.Tests_Int32ExpressionParserTests.md)
@@ -821,6 +851,7 @@
     * [BinaryDataDecoders.ToolKit_EnvironmentExtensions](./Coverage/BinaryDataDecoders.ToolKit_EnvironmentExtensions.md)
     * [BinaryDataDecoders.ExpressionCalculator.Tests_Int8ExpressionParserTests](./Coverage/BinaryDataDecoders.ExpressionCalculator.Tests_Int8ExpressionParserTests.md)
     * [BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1](./Coverage/BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md)
+    * [BinaryDataDecoders.ToolKit_RomanExtensions](./Coverage/BinaryDataDecoders.ToolKit_RomanExtensions.md)
     * [BinaryDataDecoders.ToolKit_ExtensibleElementNode_1](./Coverage/BinaryDataDecoders.ToolKit_ExtensibleElementNode_1.md)
     * [BinaryDataDecoders.Net_InvalidHexadecimalStringException](./Coverage/BinaryDataDecoders.Net_InvalidHexadecimalStringException.md)
     * [BinaryDataDecoders.ExpressionCalculator.Tests_UInt64ExpressionParserTests](./Coverage/BinaryDataDecoders.ExpressionCalculator.Tests_UInt64ExpressionParserTests.md)
@@ -833,6 +864,7 @@
     * [BinaryDataDecoders.ToolKit_StringExtensions](./Coverage/BinaryDataDecoders.ToolKit_StringExtensions.md)
     * [BinaryDataDecoders.TestUtilities_LoggerScope_1](./Coverage/BinaryDataDecoders.TestUtilities_LoggerScope_1.md)
     * [BinaryDataDecoders.ExpressionCalculator.Tests_UInt32ExpressionParserTests](./Coverage/BinaryDataDecoders.ExpressionCalculator.Tests_UInt32ExpressionParserTests.md)
+    * [BinaryDataDecoders.Net_ServerBase](./Coverage/BinaryDataDecoders.Net_ServerBase.md)
     * [BinaryDataDecoders.ExpressionCalculator_UInt16ExpressionEvaluator](./Coverage/BinaryDataDecoders.ExpressionCalculator_UInt16ExpressionEvaluator.md)
     * [BinaryDataDecoders.CodeAnalysis_ISemanticModelNodeExtensions](./Coverage/BinaryDataDecoders.CodeAnalysis_ISemanticModelNodeExtensions.md)
     * [BinaryDataDecoders.Drawing_MultiScaleTileEx](./Coverage/BinaryDataDecoders.Drawing_MultiScaleTileEx.md)
@@ -840,6 +872,7 @@
     * [BinaryDataDecoders.ToolKit_OneTimeCode](./Coverage/BinaryDataDecoders.ToolKit_OneTimeCode.md)
     * [BinaryDataDecoders.FileSystems_DirectoryRecord](./Coverage/BinaryDataDecoders.FileSystems_DirectoryRecord.md)
     * [BinaryDataDecoders.ToolKit_AsyncLock](./Coverage/BinaryDataDecoders.ToolKit_AsyncLock.md)
+    * [BinaryDataDecoders.Cryptography.Tests_CaesarTests](./Coverage/BinaryDataDecoders.Cryptography.Tests_CaesarTests.md)
     * [BinaryDataDecoders.Templating.Html_HtmlTemplateTransform](./Coverage/BinaryDataDecoders.Templating.Html_HtmlTemplateTransform.md)
     * [BinaryDataDecoders.ToolKit_DoubleLinkedList_1](./Coverage/BinaryDataDecoders.ToolKit_DoubleLinkedList_1.md)
     * [BinaryDataDecoders.Apple2_Apple2Encoding](./Coverage/BinaryDataDecoders.Apple2_Apple2Encoding.md)
@@ -916,6 +949,7 @@
     * [BinaryDataDecoders.CodeAnalysis.DacFx.Tests_AutoGeneratedProgram](./Coverage/BinaryDataDecoders.CodeAnalysis.DacFx.Tests_AutoGeneratedProgram.md)
     * [BinaryDataDecoders.Apple2.Tests_DiskImageCommandsTests](./Coverage/BinaryDataDecoders.Apple2.Tests_DiskImageCommandsTests.md)
     * [BinaryDataDecoders.ToolKit.Tests_ByteExTests](./Coverage/BinaryDataDecoders.ToolKit.Tests_ByteExTests.md)
+    * [BinaryDataDecoders.Net_EchoServer](./Coverage/BinaryDataDecoders.Net_EchoServer.md)
     * [BinaryDataDecoders.IO.Ports_BridgeExtensions](./Coverage/BinaryDataDecoders.IO.Ports_BridgeExtensions.md)
     * [BinaryDataDecoders.TestUtilities_TrxExtensions](./Coverage/BinaryDataDecoders.TestUtilities_TrxExtensions.md)
     * [BinaryDataDecoders.ToolKit_BigEndianUShort](./Coverage/BinaryDataDecoders.ToolKit_BigEndianUShort.md)
@@ -950,13 +984,16 @@
     * [BinaryDataDecoders.ToolKit.Tests_ReversableEnumeratorTests](./Coverage/BinaryDataDecoders.ToolKit.Tests_ReversableEnumeratorTests.md)
     * [BinaryDataDecoders.ToolKit_AsyncManualResetEvent](./Coverage/BinaryDataDecoders.ToolKit_AsyncManualResetEvent.md)
     * [BinaryDataDecoders.ToolKit.Tests_XsltExtensionContext](./Coverage/BinaryDataDecoders.ToolKit.Tests_XsltExtensionContext.md)
+    * [BinaryDataDecoders.Net_TimeServer](./Coverage/BinaryDataDecoders.Net_TimeServer.md)
     * [BinaryDataDecoders.CodeAnalysis.DacFx_DacPacElementNodeBuilder](./Coverage/BinaryDataDecoders.CodeAnalysis.DacFx_DacPacElementNodeBuilder.md)
+    * [BinaryDataDecoders.Net_ChargenServer](./Coverage/BinaryDataDecoders.Net_ChargenServer.md)
     * [BinaryDataDecoders.IO.Abstractions_StartAndFixLengthSegmenter](./Coverage/BinaryDataDecoders.IO.Abstractions_StartAndFixLengthSegmenter.md)
     * [BinaryDataDecoders.ExpressionCalculator_ShiftCommutativeVariablesRight_1](./Coverage/BinaryDataDecoders.ExpressionCalculator_ShiftCommutativeVariablesRight_1.md)
     * [BinaryDataDecoders.ToolKit_XAttributeEx](./Coverage/BinaryDataDecoders.ToolKit_XAttributeEx.md)
     * [BinaryDataDecoders.Cryptography.Tests_AutoGeneratedProgram](./Coverage/BinaryDataDecoders.Cryptography.Tests_AutoGeneratedProgram.md)
     * [BinaryDataDecoders.ExpressionCalculator_ExpressionBaseExtensions](./Coverage/BinaryDataDecoders.ExpressionCalculator_ExpressionBaseExtensions.md)
     * [BinaryDataDecoders.IO.Abstractions_MessageMatchPatternAttribute](./Coverage/BinaryDataDecoders.IO.Abstractions_MessageMatchPatternAttribute.md)
+    * [BinaryDataDecoders.ToolKit.Tests_MorseCodeTests](./Coverage/BinaryDataDecoders.ToolKit.Tests_MorseCodeTests.md)
     * [BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateDecoder](./Coverage/BinaryDataDecoders.ElectronicScoringMachines.Fencing_SgStateDecoder.md)
     * [BinaryDataDecoders.TestUtilities_TextContextExtensions](./Coverage/BinaryDataDecoders.TestUtilities_TextContextExtensions.md)
     * [BinaryDataDecoders.ToolKit_ReflectionElementNodeBuilder](./Coverage/BinaryDataDecoders.ToolKit_ReflectionElementNodeBuilder.md)
@@ -983,6 +1020,7 @@
       * [Parser.DecimalExpressionParserTests](./TestReports/BinaryDataDecoders.ExpressionCalculator.Tests/Parser.DecimalExpressionParserTests.md)
       * [Parser.FloatExpressionParserTests](./TestReports/BinaryDataDecoders.ExpressionCalculator.Tests/Parser.FloatExpressionParserTests.md)
     * BinaryDataDecoders.ToolKit.Tests
+      * [Codecs.RomanNumeralTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/Codecs.RomanNumeralTests.md)
       * [MemoryExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/MemoryExTests.md)
       * [Xml.Linq.XFragmentTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/Xml.Linq.XFragmentTests.md)
       * [IO.TempFileHandleTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/IO.TempFileHandleTests.md)
@@ -992,6 +1030,7 @@
       * [ReadOnlySpanExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/ReadOnlySpanExTests.md)
       * [Reflection.ReflectionElementNodeTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/Reflection.ReflectionElementNodeTests.md)
       * [ByteExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/ByteExTests.md)
+      * [Codecs.MorseCodeTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/Codecs.MorseCodeTests.md)
       * [Xml.XPath.MergedXPathNavigatorTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/Xml.XPath.MergedXPathNavigatorTests.md)
       * [IO.StreamExTests](./TestReports/BinaryDataDecoders.ToolKit.Tests/IO.StreamExTests.md)
     * BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests
@@ -1006,7 +1045,9 @@
       * [ApplesoftBASIC.DetokenizerTests](./TestReports/BinaryDataDecoders.Apple2.Tests/ApplesoftBASIC.DetokenizerTests.md)
     * BinaryDataDecoders.Cryptography.Tests
       * [Enigma.EnigmaMachineTests](./TestReports/BinaryDataDecoders.Cryptography.Tests/Enigma.EnigmaMachineTests.md)
+      * [CaesarTests](./TestReports/BinaryDataDecoders.Cryptography.Tests/CaesarTests.md)
       * [Lorenz.LorenzMachineTests](./TestReports/BinaryDataDecoders.Cryptography.Tests/Lorenz.LorenzMachineTests.md)
+      * [VigenereTests](./TestReports/BinaryDataDecoders.Cryptography.Tests/VigenereTests.md)
     * BinaryDataDecoders.CodeAnalysis.Tests
       * [CSharp.CSharpNavigatorTests](./TestReports/BinaryDataDecoders.CodeAnalysis.Tests/CSharp.CSharpNavigatorTests.md)
     * [Summary](./TestReports/Summary.md)

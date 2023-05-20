@@ -5,23 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## SplitTest_Carry
-
-### Targets
-
-* BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -37,7 +21,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -53,7 +37,23 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.01
+
+## SplitTest_Carry
+
+### Targets
+
+* BinaryDataDecoders.ToolKit::MemoryEx::Split
+  * BinaryDataDecoders.ToolKit, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

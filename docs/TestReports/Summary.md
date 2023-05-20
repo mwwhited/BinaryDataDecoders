@@ -15,10 +15,16 @@
   * [TestXPath](BinaryDataDecoders.CodeAnalysis.Tests/CSharp.CSharpNavigatorTests.md#TestXPath)
 ## BinaryDataDecoders.Cryptography.Tests
 
+* [CaesarTests](BinaryDataDecoders.Cryptography.Tests/CaesarTests.md)
+  * [DecodeTest](BinaryDataDecoders.Cryptography.Tests/CaesarTests.md#DecodeTest)
+  * [EncodeTest](BinaryDataDecoders.Cryptography.Tests/CaesarTests.md#EncodeTest)
 * [Enigma.EnigmaMachineTests](BinaryDataDecoders.Cryptography.Tests/Enigma.EnigmaMachineTests.md)
   * [ProcessTest_EnigmaI_I_II_III_RefB_ABDEYZ_AAA](BinaryDataDecoders.Cryptography.Tests/Enigma.EnigmaMachineTests.md#ProcessTest_EnigmaI_I_II_III_RefB_ABDEYZ_AAA)
 * [Lorenz.LorenzMachineTests](BinaryDataDecoders.Cryptography.Tests/Lorenz.LorenzMachineTests.md)
   * [Test](BinaryDataDecoders.Cryptography.Tests/Lorenz.LorenzMachineTests.md#Test)
+* [VigenereTests](BinaryDataDecoders.Cryptography.Tests/VigenereTests.md)
+  * [DecodeTest](BinaryDataDecoders.Cryptography.Tests/VigenereTests.md#DecodeTest)
+  * [EncodeTest](BinaryDataDecoders.Cryptography.Tests/VigenereTests.md#EncodeTest)
 ## BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests
 
 * [Favero.FaveroStateParserTests](BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/Favero.FaveroStateParserTests.md)
@@ -151,6 +157,12 @@
 * [Codecs.Base32CodecTests](BinaryDataDecoders.ToolKit.Tests/Codecs.Base32CodecTests.md)
   * [DecodeTest](BinaryDataDecoders.ToolKit.Tests/Codecs.Base32CodecTests.md#DecodeTest)
   * [EncodeTest](BinaryDataDecoders.ToolKit.Tests/Codecs.Base32CodecTests.md#EncodeTest)
+* [Codecs.MorseCodeTests](BinaryDataDecoders.ToolKit.Tests/Codecs.MorseCodeTests.md)
+  * [DecodeTest](BinaryDataDecoders.ToolKit.Tests/Codecs.MorseCodeTests.md#DecodeTest)
+  * [EncodeTest](BinaryDataDecoders.ToolKit.Tests/Codecs.MorseCodeTests.md#EncodeTest)
+* [Codecs.RomanNumeralTests](BinaryDataDecoders.ToolKit.Tests/Codecs.RomanNumeralTests.md)
+  * [Convert_ToNumberTest](BinaryDataDecoders.ToolKit.Tests/Codecs.RomanNumeralTests.md#Convert_ToNumberTest)
+  * [Convert_ToRomanNumeralTest](BinaryDataDecoders.ToolKit.Tests/Codecs.RomanNumeralTests.md#Convert_ToRomanNumeralTest)
 * [DateTimeExTests](BinaryDataDecoders.ToolKit.Tests/DateTimeExTests.md)
   * [LocalDateTimeToUnixTimeStampTest](BinaryDataDecoders.ToolKit.Tests/DateTimeExTests.md#LocalDateTimeToUnixTimeStampTest)
   * [UnixTimeStampToLocalDateTimeTest](BinaryDataDecoders.ToolKit.Tests/DateTimeExTests.md#UnixTimeStampToLocalDateTimeTest)

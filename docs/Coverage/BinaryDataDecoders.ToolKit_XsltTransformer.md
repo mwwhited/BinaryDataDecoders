@@ -12,7 +12,7 @@
 | Totallines      | `271`                                                |
 | Linecoverage    | `0`                                                  |
 | Coveredbranches | `0`                                                  |
-| Totalbranches   | `16`                                                 |
+| Totalbranches   | `20`                                                 |
 | Branchcoverage  | `0`                                                  |
 | Coveredmethods  | `0`                                                  |
 | Totalmethods    | `7`                                                  |
@@ -27,7 +27,7 @@
 | 1          | 0     | 100      | `Transform`      |
 | 4          | 0     | 0        | `Transform`      |
 | 1          | 0     | 100      | `TransformAll`   |
-| 6          | 0     | 0        | `TransformAll`   |
+| 10         | 0     | 0        | `TransformAll`   |
 | 2          | 0     | 0        | `TransformMerge` |
 
 ## Files
@@ -195,7 +195,7 @@
 ‼158:             var inputFullPath = Path.GetFullPath(input);
 ‼159:             var inputDir = PathEx.GetBasePath(input);
 ‼160:             var excludeFiles = PathEx.EnumerateFiles(excludeInputSource);
-‼161:             var inputFiles = PathEx.EnumerateFiles(input).Except(excludeFiles);
+‼161:             var inputFiles = PathEx.EnumerateFiles(input).Select(Path.GetFullPath).Except(excludeFiles.Select(Path.GetFullPath));
 〰162: 
 ‼163:             var outputFullPath = Path.GetFullPath(output);
 ‼164:             var outputDir = Path.GetDirectoryName(outputFullPath);
