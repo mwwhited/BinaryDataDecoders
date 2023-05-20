@@ -6,21 +6,23 @@
 | :-------------- | :---------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleRootNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                |
-| Coveredlines    | `5`                                                         |
+| Coveredlines    | `3`                                                         |
 | Uncoveredlines  | `5`                                                         |
-| Coverablelines  | `10`                                                        |
+| Coverablelines  | `8`                                                         |
 | Totallines      | `27`                                                        |
-| Linecoverage    | `50`                                                        |
+| Linecoverage    | `37.5`                                                      |
 | Coveredbranches | `2`                                                         |
 | Totalbranches   | `4`                                                         |
 | Branchcoverage  | `50`                                                        |
+| Coveredmethods  | `3`                                                         |
+| Totalmethods    | `8`                                                         |
+| Methodcoverage  | `37.5`                                                      |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                 |
 | :--------- | :---- | :------- | :------------------- |
 | 1          | 100   | 100      | `ctor`               |
-| 1          | 100   | 100      | `get_FirstChild`     |
 | 4          | 100   | 50.0     | `get_Name`           |
 | 1          | 100   | 100      | `get_Parent`         |
 | 1          | 0     | 100      | `get_Value`          |
@@ -28,7 +30,6 @@
 | 1          | 0     | 100      | `get_Previous`       |
 | 1          | 0     | 100      | `get_FirstAttribute` |
 | 1          | 0     | 100      | `get_FirstNamespace` |
-| 1          | 100   | 100      | `get_NodeType`       |
 
 ## Files
 
@@ -46,7 +47,7 @@
 〰9:       {
 ✔10:          public ExtensibleRootNode(INode child) => FirstChild = child;
 〰11:  
-✔12:          public INode? FirstChild { get; }
+〰12:          public INode? FirstChild { get; }
 〰13:  
 ⚠14:          public XName Name => FirstChild?.Name ?? "root";
 〰15:  
@@ -59,7 +60,7 @@
 ‼22:          public IAttributeNode? FirstAttribute => null;
 ‼23:          public INamespaceNode? FirstNamespace => null;
 〰24:  
-✔25:          public XPathNodeType NodeType { get; } = XPathNodeType.Root;
+〰25:          public XPathNodeType NodeType { get; } = XPathNodeType.Root;
 〰26:      }
 〰27:  }
 ```

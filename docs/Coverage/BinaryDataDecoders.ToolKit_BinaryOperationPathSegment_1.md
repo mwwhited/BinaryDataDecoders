@@ -6,21 +6,23 @@
 | :-------------- | :--------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.BinaryOperationPathSegment`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                           |
-| Coveredlines    | `5`                                                                    |
+| Coveredlines    | `4`                                                                    |
 | Uncoveredlines  | `0`                                                                    |
-| Coverablelines  | `5`                                                                    |
+| Coverablelines  | `4`                                                                    |
 | Totallines      | `18`                                                                   |
 | Linecoverage    | `100`                                                                  |
 | Coveredbranches | `0`                                                                    |
 | Totalbranches   | `0`                                                                    |
+| Coveredmethods  | `2`                                                                    |
+| Totalmethods    | `2`                                                                    |
+| Methodcoverage  | `100`                                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name           |
-| :--------- | :---- | :------- | :------------- |
-| 1          | 100   | 100      | `get_Operator` |
-| 1          | 100   | 100      | `ctor`         |
-| 1          | 100   | 100      | `ToString`     |
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
 
 ## Files
 
@@ -31,7 +33,7 @@
 〰2:   {
 〰3:       public abstract class BinaryOperationPathSegment<T> : BinaryPathSegment
 〰4:       {
-✔5:           public IPathSegment<T> Operator { get; }
+〰5:           public IPathSegment<T> Operator { get; }
 〰6:   
 〰7:           protected BinaryOperationPathSegment(
 〰8:               IPathSegment left,

@@ -6,14 +6,17 @@
 | :-------------- | :------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.WrappedNavigator` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                            |
-| Coveredlines    | `59`                                                    |
-| Uncoveredlines  | `123`                                                   |
+| Coveredlines    | `60`                                                    |
+| Uncoveredlines  | `122`                                                   |
 | Coverablelines  | `182`                                                   |
 | Totallines      | `283`                                                   |
-| Linecoverage    | `32.4`                                                  |
+| Linecoverage    | `32.9`                                                  |
 | Coveredbranches | `27`                                                    |
 | Totalbranches   | `104`                                                   |
 | Branchcoverage  | `25.9`                                                  |
+| Coveredmethods  | `12`                                                    |
+| Totalmethods    | `30`                                                    |
+| Methodcoverage  | `40`                                                    |
 
 ## Metrics
 
@@ -42,7 +45,7 @@
 | 2          | 0     | 0        | `MoveToId`                 |
 | 2          | 0     | 0        | `MoveToNextAttribute`      |
 | 2          | 80.0  | 50.0     | `MoveToFirstChild`         |
-| 10         | 84.61 | 70.0     | `MoveToFirstChildInternal` |
+| 10         | 92.30 | 70.0     | `MoveToFirstChildInternal` |
 | 2          | 100   | 100      | `MoveToNext`               |
 | 8          | 66.66 | 37.50    | `MoveToNextInternal`       |
 | 2          | 0     | 0        | `MoveToPrevious`           |
@@ -227,7 +230,7 @@
 〰170:                 case WrapperState.NodeAttribute:
 〰171:                 case WrapperState.Top:
 ✔172:                     _state = WrapperState.Node;
-‼173:                     if (_node.First == null) return false;
+⚠173:                     if (_node.First == null) return false;
 ✔174:                     _node = _node.First;
 ✔175:                     return true;
 〰176: 

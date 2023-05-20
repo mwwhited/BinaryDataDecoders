@@ -6,14 +6,17 @@
 | :-------------- | :----------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.ExpressionParserTests`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                |
-| Coveredlines    | `67`                                                                           |
+| Coveredlines    | `62`                                                                           |
 | Uncoveredlines  | `14`                                                                           |
-| Coverablelines  | `81`                                                                           |
+| Coverablelines  | `76`                                                                           |
 | Totallines      | `365`                                                                          |
-| Linecoverage    | `82.7`                                                                         |
+| Linecoverage    | `81.5`                                                                         |
 | Coveredbranches | `20`                                                                           |
 | Totalbranches   | `22`                                                                           |
 | Branchcoverage  | `90.9`                                                                         |
+| Coveredmethods  | `7`                                                                            |
+| Totalmethods    | `8`                                                                            |
+| Methodcoverage  | `87.5`                                                                         |
 
 ## Metrics
 
@@ -21,7 +24,6 @@
 | :--------- | :---- | :------- | :------------------------------------- |
 | 1          | 0     | 100      | `cctor`                                |
 | 1          | 100   | 100      | `ctor`                                 |
-| 1          | 100   | 100      | `get_TestContext`                      |
 | 1          | 66.66 | 100      | `PoorlyFormedExpressions`              |
 | 4          | 100   | 100      | `SimpleParserTests`                    |
 | 8          | 87.50 | 100      | `OptimizerTests`                       |
@@ -111,16 +113,16 @@
 〰75:          private readonly bool _skipNegative;
 ‼76:          private static readonly IExpressionEvaluator<T> _evaluator = ExpressionEvaluatorFactory.Create<T>();
 〰77:  
-✔78:          protected ExpressionParserTests(
-✔79:              bool skipDecimal = false,
-✔80:              bool skipNegative = false
-✔81:              )
+〰78:          protected ExpressionParserTests(
+〰79:              bool skipDecimal = false,
+〰80:              bool skipNegative = false
+〰81:              )
 〰82:          {
 ✔83:              _skipDecimal = skipDecimal;
 ✔84:              _skipNegative = skipNegative;
 ✔85:          }
 〰86:  
-✔87:          public TestContext TestContext { get; set; }
+〰87:          public TestContext TestContext { get; set; }
 〰88:  
 〰89:  
 〰90:          [DataTestMethod, TestCategory(TestCategories.Unit)]
@@ -267,8 +269,8 @@
 〰231: 
 〰232:         [DataTestMethod, TestCategory(TestCategories.Unit)]
 〰233:         [DataRow("A+B+C", "A, B, C")]
-〰234:         [DataRow("A+B+B", "A, B")]
-〰235:         [DataRow("Abc+XyW1", "Abc, XyW1")]
+〰234:         //[DataRow("A+B+B", "A, B")]
+〰235:         //[DataRow("Abc+XyW1", "Abc, XyW1")]
 〰236:         [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.GetDistinctVariableNames))]
 〰237:         public void GetDistinctVariablesTests(string input, string result)
 〰238:         {

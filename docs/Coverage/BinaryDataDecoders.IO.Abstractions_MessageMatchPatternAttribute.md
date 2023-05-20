@@ -7,21 +7,21 @@
 | Class           | `BinaryDataDecoders.IO.Messages.MessageMatchPatternAttribute` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                          |
 | Coveredlines    | `0`                                                           |
-| Uncoveredlines  | `6`                                                           |
-| Coverablelines  | `6`                                                           |
+| Uncoveredlines  | `2`                                                           |
+| Coverablelines  | `2`                                                           |
 | Totallines      | `43`                                                          |
 | Linecoverage    | `0`                                                           |
 | Coveredbranches | `0`                                                           |
 | Totalbranches   | `0`                                                           |
+| Coveredmethods  | `0`                                                           |
+| Totalmethods    | `1`                                                           |
+| Methodcoverage  | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name           |
-| :--------- | :---- | :------- | :------------- |
-| 1          | 0     | 100      | `ctor`         |
-| 1          | 0     | 100      | `get_Pattern`  |
-| 1          | 0     | 100      | `get_Mask`     |
-| 1          | 0     | 100      | `get_Priority` |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -51,23 +51,23 @@
 〰21:          /// </param>
 ‼22:          public MessageMatchPatternAttribute(string pattern)
 〰23:          {
-‼24:              Pattern = pattern;
+〰24:              Pattern = pattern;
 ‼25:          }
 〰26:  
 〰27:          /// <summary>
 〰28:          /// prefix pattern to identify decoding patterns
 〰29:          /// </summary>
-‼30:          public string Pattern { get; }
+〰30:          public string Pattern { get; }
 〰31:  
 〰32:          /// <summary>
 〰33:          /// prefix pattern to identify decoding patterns
 〰34:          /// </summary>
-‼35:          public string? Mask { get; set; }
+〰35:          public string? Mask { get; set; }
 〰36:  
 〰37:          /// <summary>
 〰38:          /// override check order
 〰39:          /// </summary>
-‼40:          public int Priority { get; set; }
+〰40:          public int Priority { get; set; }
 〰41:  
 〰42:      }
 〰43:  }

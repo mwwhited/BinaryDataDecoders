@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncSemaphore` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                          |
 | Coveredlines    | `0`                                                   |
-| Uncoveredlines  | `23`                                                  |
-| Coverablelines  | `23`                                                  |
+| Uncoveredlines  | `22`                                                  |
+| Coverablelines  | `22`                                                  |
 | Totallines      | `52`                                                  |
 | Linecoverage    | `0`                                                   |
 | Coveredbranches | `0`                                                   |
 | Totalbranches   | `8`                                                   |
 | Branchcoverage  | `0`                                                   |
+| Coveredmethods  | `0`                                                   |
+| Totalmethods    | `4`                                                   |
+| Methodcoverage  | `0`                                                   |
 
 ## Metrics
 
@@ -42,7 +45,7 @@
 ‼11:          private readonly Queue<TaskCompletionSource<bool>> m_waiters = new Queue<TaskCompletionSource<bool>>();
 〰12:          private int m_currentCount;
 〰13:  
-‼14:          public AsyncSemaphore(int initialCount)
+〰14:          public AsyncSemaphore(int initialCount)
 〰15:          {
 ‼16:              if (initialCount < 0) throw new ArgumentOutOfRangeException("initialCount");
 ‼17:              m_currentCount = initialCount;

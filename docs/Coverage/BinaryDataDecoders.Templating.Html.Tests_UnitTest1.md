@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.Templating.Html.Tests.UnitTest1` |
 | Assembly        | `BinaryDataDecoders.Templating.Html.Tests`           |
 | Coveredlines    | `0`                                                  |
-| Uncoveredlines  | `27`                                                 |
-| Coverablelines  | `27`                                                 |
+| Uncoveredlines  | `26`                                                 |
+| Coverablelines  | `26`                                                 |
 | Totallines      | `59`                                                 |
 | Linecoverage    | `0`                                                  |
 | Coveredbranches | `0`                                                  |
 | Totalbranches   | `0`                                                  |
+| Coveredmethods  | `0`                                                  |
+| Totalmethods    | `2`                                                  |
+| Methodcoverage  | `0`                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 0     | 100      | `DeeperTest`      |
-| 1          | 0     | 100      | `QueryTest`       |
+| Complexity | Lines | Branches | Name         |
+| :--------- | :---- | :------- | :----------- |
+| 1          | 0     | 100      | `DeeperTest` |
+| 1          | 0     | 100      | `QueryTest`  |
 
 ## Files
 
@@ -41,7 +43,7 @@
 〰12:      [TestClass]
 〰13:      public class UnitTest1
 〰14:      {
-‼15:          public TestContext TestContext { get; set; }
+〰15:          public TestContext TestContext { get; set; }
 〰16:  
 〰17:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰18:          public async Task DeeperTest()

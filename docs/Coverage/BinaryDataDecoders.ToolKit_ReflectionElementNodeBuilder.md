@@ -6,32 +6,32 @@
 | :-------------- | :------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Reflection.ReflectionElementNodeBuilder` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                         |
-| Coveredlines    | `70`                                                                 |
-| Uncoveredlines  | `21`                                                                 |
-| Coverablelines  | `91`                                                                 |
+| Coveredlines    | `64`                                                                 |
+| Uncoveredlines  | `20`                                                                 |
+| Coverablelines  | `84`                                                                 |
 | Totallines      | `131`                                                                |
-| Linecoverage    | `76.9`                                                               |
+| Linecoverage    | `76.1`                                                               |
 | Coveredbranches | `46`                                                                 |
 | Totalbranches   | `74`                                                                 |
 | Branchcoverage  | `62.1`                                                               |
+| Coveredmethods  | `9`                                                                  |
+| Totalmethods    | `10`                                                                 |
+| Methodcoverage  | `90`                                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                     |
-| :--------- | :---- | :------- | :----------------------- |
-| 1          | 100   | 100      | `get_ExcludeNamespace`   |
-| 1          | 100   | 100      | `get_ExcludeTypeDetails` |
-| 1          | 100   | 100      | `get_Seed`               |
-| 1          | 100   | 100      | `ctor`                   |
-| 1          | 88.88 | 100      | `Build`                  |
-| 1          | 0     | 100      | `PreserveWhitespace`     |
-| 1          | 100   | 100      | `NamespacesSelector`     |
-| 12         | 90.0  | 66.66    | `ChildSelector`          |
-| 8          | 70.0  | 62.50    | `AllowNavigate`          |
-| 1          | 50.0  | 100      | `SafeRead`               |
-| 20         | 90.0  | 50.0     | `AttributeSelector`      |
-| 20         | 58.82 | 65.00    | `ValueSelector`          |
-| 14         | 63.63 | 71.42    | `IsValue`                |
+| Complexity | Lines | Branches | Name                 |
+| :--------- | :---- | :------- | :------------------- |
+| 1          | 100   | 100      | `ctor`               |
+| 1          | 88.88 | 100      | `Build`              |
+| 1          | 0     | 100      | `PreserveWhitespace` |
+| 1          | 100   | 100      | `NamespacesSelector` |
+| 12         | 90.0  | 66.66    | `ChildSelector`      |
+| 8          | 80.0  | 62.50    | `AllowNavigate`      |
+| 1          | 50.0  | 100      | `SafeRead`           |
+| 20         | 90.0  | 50.0     | `AttributeSelector`  |
+| 20         | 58.82 | 65.00    | `ValueSelector`      |
+| 14         | 63.63 | 71.42    | `IsValue`            |
 
 ## Files
 
@@ -52,15 +52,15 @@
 〰12:  {
 〰13:      public class ReflectionElementNodeBuilder
 〰14:      {
-✔15:          protected bool ExcludeNamespace { get; }
-✔16:          protected bool ExcludeTypeDetails { get; }
-✔17:          protected object Seed { get; }
+〰15:          protected bool ExcludeNamespace { get; }
+〰16:          protected bool ExcludeTypeDetails { get; }
+〰17:          protected object Seed { get; }
 〰18:  
-✔19:          public ReflectionElementNodeBuilder(object seed, bool excludeNamespace = false, bool excludeTypeDetails = false)
+〰19:          public ReflectionElementNodeBuilder(object seed, bool excludeNamespace = false, bool excludeTypeDetails = false)
 〰20:          {
-✔21:              Seed = seed;
-✔22:              ExcludeNamespace = excludeNamespace;
-✔23:              ExcludeTypeDetails = excludeTypeDetails;
+〰21:              Seed = seed;
+〰22:              ExcludeNamespace = excludeNamespace;
+〰23:              ExcludeTypeDetails = excludeTypeDetails;
 ✔24:          }
 〰25:  
 〰26:          public INode Build() =>
@@ -96,7 +96,7 @@
 ‼56:                  Type _ => false,
 ✔57:                  _ => property.GetIndexParameters() switch
 ✔58:                  {
-‼59:                      ParameterInfo[] indexes when indexes.Length > 0 => false,
+⚠59:                      ParameterInfo[] indexes when indexes.Length > 0 => false,
 ✔60:                      _ => true,
 ✔61:                  }
 ✔62:              };

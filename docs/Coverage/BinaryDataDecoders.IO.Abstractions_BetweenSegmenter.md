@@ -7,23 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.BetweenSegmenter` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `24`                                                |
-| Coverablelines  | `24`                                                |
+| Uncoveredlines  | `18`                                                |
+| Coverablelines  | `18`                                                |
 | Totallines      | `61`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `12`                                                |
 | Branchcoverage  | `0`                                                 |
+| Coveredmethods  | `0`                                                 |
+| Totalmethods    | `2`                                                 |
+| Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name            |
-| :--------- | :---- | :------- | :-------------- |
-| 1          | 0     | 100      | `ctor`          |
-| 1          | 0     | 100      | `get_Starts`    |
-| 1          | 0     | 100      | `get_End`       |
-| 1          | 0     | 100      | `get_MaxLength` |
-| 12         | 0     | 0        | `Read`          |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 12         | 0     | 0        | `Read`  |
 
 ## Files
 
@@ -46,14 +46,14 @@
 〰14:              )
 ‼15:              : base(onSegmentReceived, options)
 〰16:          {
-‼17:              Starts = starts;
-‼18:              End = end;
-‼19:              MaxLength = maxLength;
+〰17:              Starts = starts;
+〰18:              End = end;
+〰19:              MaxLength = maxLength;
 ‼20:          }
 〰21:  
-‼22:          internal byte[] Starts { get; }
-‼23:          internal byte End { get; }
-‼24:          internal long? MaxLength { get; }
+〰22:          internal byte[] Starts { get; }
+〰23:          internal byte End { get; }
+〰24:          internal long? MaxLength { get; }
 〰25:  
 〰26:          protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
 〰27:          {

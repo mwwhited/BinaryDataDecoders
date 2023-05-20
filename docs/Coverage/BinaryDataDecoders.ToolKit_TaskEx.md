@@ -7,27 +7,29 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.Tasks.TaskEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                        |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `70`                                                |
-| Coverablelines  | `70`                                                |
+| Uncoveredlines  | `69`                                                |
+| Coverablelines  | `69`                                                |
 | Totallines      | `136`                                               |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `8`                                                 |
 | Branchcoverage  | `0`                                                 |
+| Coveredmethods  | `0`                                                 |
+| Totalmethods    | `8`                                                 |
+| Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                 |
-| :--------- | :---- | :------- | :------------------- |
-| 1          | 0     | 100      | `RunSync`            |
-| 1          | 0     | 100      | `RunSync`            |
-| 1          | 0     | 100      | `get_InnerException` |
-| 1          | 0     | 100      | `ctor`               |
-| 1          | 0     | 100      | `Send`               |
-| 1          | 0     | 100      | `Post`               |
-| 1          | 0     | 100      | `EndMessageLoop`     |
-| 8          | 0     | 0        | `BeginMessageLoop`   |
-| 1          | 0     | 100      | `CreateCopy`         |
+| Complexity | Lines | Branches | Name               |
+| :--------- | :---- | :------- | :----------------- |
+| 1          | 0     | 100      | `RunSync`          |
+| 1          | 0     | 100      | `RunSync`          |
+| 1          | 0     | 100      | `ctor`             |
+| 1          | 0     | 100      | `Send`             |
+| 1          | 0     | 100      | `Post`             |
+| 1          | 0     | 100      | `EndMessageLoop`   |
+| 8          | 0     | 0        | `BeginMessageLoop` |
+| 1          | 0     | 100      | `CreateCopy`       |
 
 ## Files
 
@@ -112,7 +114,7 @@
 〰76:          private class ExclusiveSynchronizationContext : SynchronizationContext
 〰77:          {
 〰78:              private bool done;
-‼79:              public Exception InnerException { get; set; }
+〰79:              public Exception InnerException { get; set; }
 ‼80:              readonly AutoResetEvent workItemsWaiting = new AutoResetEvent(false);
 ‼81:              readonly Queue<Tuple<SendOrPostCallback, object>> items =
 ‼82:                  new Queue<Tuple<SendOrPostCallback, object>>();

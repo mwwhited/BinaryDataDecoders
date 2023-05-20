@@ -7,18 +7,20 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.IO.PathNavigatorFactoryTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                              |
 | Coveredlines    | `0`                                                             |
-| Uncoveredlines  | `5`                                                             |
-| Coverablelines  | `5`                                                             |
+| Uncoveredlines  | `4`                                                             |
+| Coverablelines  | `4`                                                             |
 | Totallines      | `24`                                                            |
 | Linecoverage    | `0`                                                             |
 | Coveredbranches | `0`                                                             |
 | Totalbranches   | `0`                                                             |
+| Coveredmethods  | `0`                                                             |
+| Totalmethods    | `1`                                                             |
+| Methodcoverage  | `0`                                                             |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name              |
 | :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
 | 1          | 0     | 100      | `ToNavigableTest` |
 
 ## Files
@@ -39,7 +41,7 @@
 〰11:      [TestClass]
 〰12:      public class PathNavigatorFactoryTests
 〰13:      {
-‼14:          public TestContext TestContext { get; set; }
+〰14:          public TestContext TestContext { get; set; }
 〰15:  
 〰16:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰17:          public void ToNavigableTest()

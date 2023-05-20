@@ -11,9 +11,12 @@
 | Coverablelines  | `54`                                  |
 | Totallines      | `126`                                 |
 | Linecoverage    | `61.1`                                |
-| Coveredbranches | `17`                                  |
-| Totalbranches   | `34`                                  |
+| Coveredbranches | `18`                                  |
+| Totalbranches   | `36`                                  |
 | Branchcoverage  | `50`                                  |
+| Coveredmethods  | `5`                                   |
+| Totalmethods    | `9`                                   |
+| Methodcoverage  | `55.5`                                |
 
 ## Metrics
 
@@ -27,7 +30,7 @@
 | 4          | 100   | 100      | `Split`              |
 | 4          | 80.0  | 75.00    | `SplitWithExclude`   |
 | 4          | 80.0  | 75.00    | `SplitWithReturn`    |
-| 8          | 83.33 | 87.50    | `SplitWithCarry`     |
+| 10         | 83.33 | 80.0     | `SplitWithCarry`     |
 
 ## Files
 
@@ -140,7 +143,7 @@
 ✔104:             var pointer = 0;
 ⚠105:             while (memory.Length > pointer)
 〰106:             {
-✔107:                 var bump = delimiter.Equals(memory.Span[pointer]);
+⚠107:                 var bump = delimiter.Equals(memory.Span[pointer]);
 ✔108:                 var segmentPointer = bump ? pointer + 1 : pointer;
 ✔109:                 var segment = memory.Span.Slice(segmentPointer);
 ✔110:                 var next = segment.IndexOf(delimiter) + (bump ? 1 : 0);

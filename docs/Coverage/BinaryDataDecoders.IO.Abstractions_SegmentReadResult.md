@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.SegmentReadResult` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                 |
 | Coveredlines    | `0`                                                  |
-| Uncoveredlines  | `6`                                                  |
-| Coverablelines  | `6`                                                  |
+| Uncoveredlines  | `1`                                                  |
+| Coverablelines  | `1`                                                  |
 | Totallines      | `16`                                                 |
 | Linecoverage    | `0`                                                  |
 | Coveredbranches | `0`                                                  |
 | Totalbranches   | `0`                                                  |
+| Coveredmethods  | `0`                                                  |
+| Totalmethods    | `1`                                                  |
+| Methodcoverage  | `0`                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                |
-| :--------- | :---- | :------- | :------------------ |
-| 1          | 0     | 100      | `ctor`              |
-| 1          | 0     | 100      | `get_Status`        |
-| 1          | 0     | 100      | `get_RemainingData` |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -33,14 +34,14 @@
 〰4:   {
 〰5:       internal class SegmentReadResult : ISegmentReadResult
 〰6:       {
-‼7:           public SegmentReadResult(SegmentationStatus Status, ReadOnlySequence<byte> remainingData)
+〰7:           public SegmentReadResult(SegmentationStatus Status, ReadOnlySequence<byte> remainingData)
 〰8:           {
-‼9:               this.Status = Status;
-‼10:              this.RemainingData = remainingData;
+〰9:               this.Status = Status;
+〰10:              this.RemainingData = remainingData;
 ‼11:          }
 〰12:  
-‼13:          public SegmentationStatus Status { get; }
-‼14:          public ReadOnlySequence<byte> RemainingData { get; }
+〰13:          public SegmentationStatus Status { get; }
+〰14:          public ReadOnlySequence<byte> RemainingData { get; }
 〰15:      }
 〰16:  }
 ```

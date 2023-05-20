@@ -6,20 +6,22 @@
 | :-------------- | :------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.CodeAnalysis.Tests.CSharp.CSharpNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis.Tests`                             |
-| Coveredlines    | `20`                                                                |
+| Coveredlines    | `19`                                                                |
 | Uncoveredlines  | `0`                                                                 |
-| Coverablelines  | `20`                                                                |
+| Coverablelines  | `19`                                                                |
 | Totallines      | `45`                                                                |
 | Linecoverage    | `100`                                                               |
 | Coveredbranches | `0`                                                                 |
 | Totalbranches   | `0`                                                                 |
+| Coveredmethods  | `1`                                                                 |
+| Totalmethods    | `1`                                                                 |
+| Methodcoverage  | `100`                                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 100   | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `TestXPath`       |
+| Complexity | Lines | Branches | Name        |
+| :--------- | :---- | :------- | :---------- |
+| 1          | 100   | 100      | `TestXPath` |
 
 ## Files
 
@@ -39,7 +41,7 @@
 〰11:      [TestClass]
 〰12:      public class CSharpNavigatorTests
 〰13:      {
-✔14:          public TestContext TestContext { get; set; }
+〰14:          public TestContext TestContext { get; set; }
 〰15:  
 〰16:          [TestMethod]
 〰17:          [TestCategory(TestCategories.Unit)]

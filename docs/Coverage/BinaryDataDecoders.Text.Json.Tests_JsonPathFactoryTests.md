@@ -6,22 +6,24 @@
 | :-------------- | :------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.Text.Json.Tests.JsonPath.Parser.JsonPathFactoryTests` |
 | Assembly        | `BinaryDataDecoders.Text.Json.Tests`                                      |
-| Coveredlines    | `20`                                                                      |
+| Coveredlines    | `19`                                                                      |
 | Uncoveredlines  | `2`                                                                       |
-| Coverablelines  | `22`                                                                      |
+| Coverablelines  | `21`                                                                      |
 | Totallines      | `133`                                                                     |
-| Linecoverage    | `90.9`                                                                    |
+| Linecoverage    | `90.4`                                                                    |
 | Coveredbranches | `4`                                                                       |
 | Totalbranches   | `8`                                                                       |
 | Branchcoverage  | `50`                                                                      |
+| Coveredmethods  | `2`                                                                       |
+| Totalmethods    | `2`                                                                       |
+| Methodcoverage  | `100`                                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 100   | 100      | `get_TestContext` |
-| 4          | 90.0  | 50.0     | `ParserTest`      |
-| 4          | 90.90 | 50.0     | `ToXPathTest`     |
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 4          | 90.0  | 50.0     | `ParserTest`  |
+| 4          | 90.90 | 50.0     | `ToXPathTest` |
 
 ## Files
 
@@ -40,7 +42,7 @@
 〰10:      [TestClass]
 〰11:      public class JsonPathFactoryTests
 〰12:      {
-✔13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          [DataTestMethod, TestCategory(TestCategories.Unit)]
 〰16:          [DataRow("$.options", ":/options")]

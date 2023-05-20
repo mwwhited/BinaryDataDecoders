@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.IO.PathExTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                |
 | Coveredlines    | `0`                                               |
-| Uncoveredlines  | `5`                                               |
-| Coverablelines  | `5`                                               |
+| Uncoveredlines  | `4`                                               |
+| Coverablelines  | `4`                                               |
 | Totallines      | `24`                                              |
 | Linecoverage    | `0`                                               |
 | Coveredbranches | `0`                                               |
 | Totalbranches   | `2`                                               |
 | Branchcoverage  | `0`                                               |
+| Coveredmethods  | `0`                                               |
+| Totalmethods    | `1`                                               |
+| Methodcoverage  | `0`                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                 |
 | :--------- | :---- | :------- | :------------------- |
-| 1          | 0     | 100      | `get_TestContext`    |
 | 2          | 0     | 0        | `EnumerateFilesTest` |
 
 ## Files
@@ -36,7 +38,7 @@
 〰7:       [TestClass]
 〰8:       public class PathExTests
 〰9:       {
-‼10:          public TestContext TestContext { get; set; }
+〰10:          public TestContext TestContext { get; set; }
 〰11:  
 〰12:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰13:          public void EnumerateFilesTest()

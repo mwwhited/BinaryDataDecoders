@@ -6,27 +6,27 @@
 | :-------------- | :------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperatorExpression`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                        |
-| Coveredlines    | `27`                                                                             |
+| Coveredlines    | `24`                                                                             |
 | Uncoveredlines  | `1`                                                                              |
-| Coverablelines  | `28`                                                                             |
+| Coverablelines  | `25`                                                                             |
 | Totallines      | `47`                                                                             |
-| Linecoverage    | `96.4`                                                                           |
+| Linecoverage    | `96`                                                                             |
 | Coveredbranches | `6`                                                                              |
 | Totalbranches   | `7`                                                                              |
 | Branchcoverage  | `85.7`                                                                           |
+| Coveredmethods  | `5`                                                                              |
+| Totalmethods    | `5`                                                                              |
+| Methodcoverage  | `100`                                                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name           |
-| :--------- | :---- | :------- | :------------- |
-| 1          | 100   | 100      | `cctor`        |
-| 1          | 100   | 100      | `ctor`         |
-| 1          | 100   | 100      | `get_Left`     |
-| 1          | 100   | 100      | `get_Operator` |
-| 1          | 100   | 100      | `get_Right`    |
-| 1          | 100   | 100      | `Clone`        |
-| 7          | 92.30 | 85.71    | `Evaluate`     |
-| 1          | 100   | 100      | `ToString`     |
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `cctor`    |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `Clone`    |
+| 7          | 92.30 | 85.71    | `Evaluate` |
+| 1          | 100   | 100      | `ToString` |
 
 ## Files
 
@@ -56,9 +56,9 @@
 ✔21:              Right = right;
 ✔22:          }
 〰23:  
-✔24:          public ExpressionBase<T> Left { get; }
-✔25:          public BinaryOperators Operator { get; }
-✔26:          public ExpressionBase<T> Right { get; }
+〰24:          public ExpressionBase<T> Left { get; }
+〰25:          public BinaryOperators Operator { get; }
+〰26:          public ExpressionBase<T> Right { get; }
 〰27:  
 ✔28:          public override ExpressionBase<T> Clone() => new BinaryOperatorExpression<T>(Left.Clone(), Operator, Right.Clone());
 〰29:  

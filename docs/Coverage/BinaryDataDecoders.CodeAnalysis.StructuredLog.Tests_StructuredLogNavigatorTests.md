@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.CodeAnalysis.Tests.StructuredLog.StructuredLogNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests`                             |
 | Coveredlines    | `0`                                                                               |
-| Uncoveredlines  | `6`                                                                               |
-| Coverablelines  | `6`                                                                               |
+| Uncoveredlines  | `5`                                                                               |
+| Coverablelines  | `5`                                                                               |
 | Totallines      | `23`                                                                              |
 | Linecoverage    | `0`                                                                               |
 | Coveredbranches | `0`                                                                               |
 | Totalbranches   | `0`                                                                               |
+| Coveredmethods  | `0`                                                                               |
+| Totalmethods    | `1`                                                                               |
+| Methodcoverage  | `0`                                                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 0     | 100      | `TestXPath`       |
+| Complexity | Lines | Branches | Name        |
+| :--------- | :---- | :------- | :---------- |
+| 1          | 0     | 100      | `TestXPath` |
 
 ## Files
 
@@ -35,7 +37,7 @@
 〰7:       [TestClass]
 〰8:       public class StructuredLogNavigatorTests
 〰9:       {
-‼10:          public TestContext TestContext { get; set; }
+〰10:          public TestContext TestContext { get; set; }
 〰11:  
 〰12:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰13:          //[TestCategory(TestCategories.Unit)]

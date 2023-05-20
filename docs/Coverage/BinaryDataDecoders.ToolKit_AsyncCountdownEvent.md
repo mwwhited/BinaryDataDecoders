@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncCountdownEvent` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `16`                                                       |
-| Coverablelines  | `16`                                                       |
+| Uncoveredlines  | `15`                                                       |
+| Coverablelines  | `15`                                                       |
 | Totallines      | `39`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `8`                                                        |
 | Branchcoverage  | `0`                                                        |
+| Coveredmethods  | `0`                                                        |
+| Totalmethods    | `4`                                                        |
+| Methodcoverage  | `0`                                                        |
 
 ## Metrics
 
@@ -41,7 +44,7 @@
 ‼10:          private readonly AsyncManualResetEvent m_amre = new AsyncManualResetEvent();
 〰11:          private int m_count;
 〰12:  
-‼13:          public AsyncCountdownEvent(int initialCount)
+〰13:          public AsyncCountdownEvent(int initialCount)
 〰14:          {
 ‼15:              if (initialCount <= 0) throw new ArgumentOutOfRangeException("initialCount");
 ‼16:              m_count = initialCount;

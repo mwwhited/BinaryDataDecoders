@@ -6,19 +6,21 @@
 | :-------------- | :-------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Tests.IO.StreamExTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                  |
-| Coveredlines    | `12`                                                |
+| Coveredlines    | `11`                                                |
 | Uncoveredlines  | `0`                                                 |
-| Coverablelines  | `12`                                                |
+| Coverablelines  | `11`                                                |
 | Totallines      | `32`                                                |
 | Linecoverage    | `100`                                               |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `0`                                                 |
+| Coveredmethods  | `1`                                                 |
+| Totalmethods    | `1`                                                 |
+| Methodcoverage  | `100`                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                  |
 | :--------- | :---- | :------- | :-------------------- |
-| 1          | 100   | 100      | `get_TestContext`     |
 | 1          | 100   | 100      | `AsTempFileAsyncTest` |
 
 ## Files
@@ -38,7 +40,7 @@
 〰10:      [TestClass]
 〰11:      public class StreamExTests
 〰12:      {
-✔13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰16:          public async Task AsTempFileAsyncTest()

@@ -1,28 +1,6 @@
 # BinaryDataDecoders.ToolKit.Tests.Xml.Linq.XFragmentTests
 
-## Convert_XNodeToXFragment
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## Convert_StringToXFragment
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## Parse_StringToXFragment
+## ToString_XFragment
 
 ### Categories
 
@@ -44,7 +22,7 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## ToString_XFragment
+## Convert_XFragmentToString
 
 ### Categories
 
@@ -55,7 +33,29 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## Convert_XFragmentToString
+## Convert_StringToXFragment
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+## Convert_XNodeToXFragment
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+## Parse_StringToXFragment
 
 ### Categories
 

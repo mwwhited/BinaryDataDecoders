@@ -6,19 +6,21 @@
 | :-------------- | :------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.Text.Json.Tests.JsonNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.Text.Json.Tests`                    |
-| Coveredlines    | `19`                                                    |
+| Coveredlines    | `18`                                                    |
 | Uncoveredlines  | `0`                                                     |
-| Coverablelines  | `19`                                                    |
+| Coverablelines  | `18`                                                    |
 | Totallines      | `49`                                                    |
 | Linecoverage    | `100`                                                   |
 | Coveredbranches | `0`                                                     |
 | Totalbranches   | `0`                                                     |
+| Coveredmethods  | `1`                                                     |
+| Totalmethods    | `1`                                                     |
+| Methodcoverage  | `100`                                                   |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                |
 | :--------- | :---- | :------- | :------------------ |
-| 1          | 100   | 100      | `get_TestContext`   |
 | 1          | 100   | 100      | `JsonNavigatorTest` |
 
 ## Files
@@ -35,7 +37,7 @@
 〰7:       [TestClass]
 〰8:       public class JsonNavigatorTests
 〰9:       {
-✔10:          public TestContext TestContext { get; set; }
+〰10:          public TestContext TestContext { get; set; }
 〰11:  
 〰12:          [TestMethod]
 〰13:          [TestCategory(TestCategories.Unit)]

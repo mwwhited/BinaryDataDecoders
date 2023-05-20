@@ -6,19 +6,21 @@
 | :-------------- | :----------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Reflection.ReflectionElementNodeTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                       |
-| Coveredlines    | `30`                                                                     |
+| Coveredlines    | `29`                                                                     |
 | Uncoveredlines  | `0`                                                                      |
-| Coverablelines  | `30`                                                                     |
+| Coverablelines  | `29`                                                                     |
 | Totallines      | `67`                                                                     |
 | Linecoverage    | `100`                                                                    |
 | Coveredbranches | `0`                                                                      |
 | Totalbranches   | `0`                                                                      |
+| Coveredmethods  | `3`                                                                      |
+| Totalmethods    | `3`                                                                      |
+| Methodcoverage  | `100`                                                                    |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                          |
 | :--------- | :---- | :------- | :---------------------------- |
-| 1          | 100   | 100      | `get_TestContext`             |
 | 1          | 100   | 100      | `TestInitialize`              |
 | 1          | 100   | 100      | `CreateReflectionElementNode` |
 | 1          | 100   | 100      | `ReflectionElementNodeTest`   |
@@ -40,7 +42,7 @@
 〰10:      [TestClass]
 〰11:      public class ReflectionElementNodeTests
 〰12:      {
-✔13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          private MockRepository mockRepository;
 〰16:  

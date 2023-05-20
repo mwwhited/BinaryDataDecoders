@@ -7,21 +7,22 @@
 | Class           | `BinaryDataDecoders.Drawing.Barcodes.Code39` |
 | Assembly        | `BinaryDataDecoders.Drawing`                 |
 | Coveredlines    | `0`                                          |
-| Uncoveredlines  | `212`                                        |
-| Coverablelines  | `212`                                        |
+| Uncoveredlines  | `210`                                        |
+| Coverablelines  | `210`                                        |
 | Totallines      | `249`                                        |
 | Linecoverage    | `0`                                          |
 | Coveredbranches | `0`                                          |
 | Totalbranches   | `12`                                         |
 | Branchcoverage  | `0`                                          |
+| Coveredmethods  | `0`                                          |
+| Totalmethods    | `3`                                          |
+| Methodcoverage  | `0`                                          |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name              |
 | :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_Standard`    |
 | 1          | 0     | 100      | `ctor`            |
-| 1          | 0     | 100      | `get_FullAscii`   |
 | 6          | 0     | 0        | `EncodeFullAscii` |
 | 6          | 0     | 0        | `EncodeStandard`  |
 
@@ -46,7 +47,7 @@
 〰14:          // http://en.wikipedia.org/wiki/Code_39
 〰15:  
 〰16:          private Dictionary<char, byte[]> Standard
-‼17:          { get; }
+〰17:          { get; }
 ‼18:          = new Dictionary<char, byte[]>
 ‼19:          {
 ‼20:              ['A'] = new[] { (byte)0x8A, (byte)0xE8 },
@@ -96,7 +97,7 @@
 ‼64:          };
 〰65:  
 〰66:          private Dictionary<char, string> FullAscii
-‼67:          { get; }
+〰67:          { get; }
 ‼68:          = new Dictionary<char, string>()
 ‼69:          {
 ‼70:              [(char)0] = "%U", // NUL

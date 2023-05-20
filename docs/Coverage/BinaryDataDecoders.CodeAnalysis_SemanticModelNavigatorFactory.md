@@ -12,15 +12,18 @@
 | Totallines      | `230`                                                           |
 | Linecoverage    | `0`                                                             |
 | Coveredbranches | `0`                                                             |
-| Totalbranches   | `98`                                                            |
+| Totalbranches   | `94`                                                            |
 | Branchcoverage  | `0`                                                             |
+| Coveredmethods  | `0`                                                             |
+| Totalmethods    | `6`                                                             |
+| Methodcoverage  | `0`                                                             |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                  |
 | :--------- | :---- | :------- | :-------------------- |
 | 1          | 0     | 100      | `ToNavigable`         |
-| 60         | 0     | 0        | `AsNode`              |
+| 56         | 0     | 0        | `AsNode`              |
 | 8          | 0     | 0        | `GetSymbolAttributes` |
 | 2          | 0     | 0        | `AddSymbols`          |
 | 8          | 0     | 0        | `BuildChildren`       |

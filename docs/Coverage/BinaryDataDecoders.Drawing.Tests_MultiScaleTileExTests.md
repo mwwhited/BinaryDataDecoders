@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.Drawing.Tests.MultiScaleImages.MultiScaleTileExTests` |
 | Assembly        | `BinaryDataDecoders.Drawing.Tests`                                        |
 | Coveredlines    | `0`                                                                       |
-| Uncoveredlines  | `16`                                                                      |
-| Coverablelines  | `16`                                                                      |
+| Uncoveredlines  | `15`                                                                      |
+| Coverablelines  | `15`                                                                      |
 | Totallines      | `42`                                                                      |
 | Linecoverage    | `0`                                                                       |
 | Coveredbranches | `0`                                                                       |
 | Totalbranches   | `6`                                                                       |
 | Branchcoverage  | `0`                                                                       |
+| Coveredmethods  | `0`                                                                       |
+| Totalmethods    | `1`                                                                       |
+| Methodcoverage  | `0`                                                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 6          | 0     | 0        | `TestTileCreate`  |
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 6          | 0     | 0        | `TestTileCreate` |
 
 ## Files
 
@@ -38,7 +40,7 @@
 〰9:       [TestClass]
 〰10:      public class MultiScaleTileExTests
 〰11:      {
-‼12:          public TestContext TestContext { get; set; }
+〰12:          public TestContext TestContext { get; set; }
 〰13:  
 〰14:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰15:          public void TestTileCreate()

@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.TestUtilities.Logging.TestLogger` |
 | Assembly        | `BinaryDataDecoders.TestUtilities`                    |
 | Coveredlines    | `0`                                                   |
-| Uncoveredlines  | `25`                                                  |
-| Coverablelines  | `25`                                                  |
+| Uncoveredlines  | `17`                                                  |
+| Coverablelines  | `17`                                                  |
 | Totallines      | `75`                                                  |
 | Linecoverage    | `0`                                                   |
 | Coveredbranches | `0`                                                   |
 | Totalbranches   | `10`                                                  |
 | Branchcoverage  | `0`                                                   |
+| Coveredmethods  | `0`                                                   |
+| Totalmethods    | `5`                                                   |
+| Methodcoverage  | `0`                                                   |
 
 ## Metrics
 
@@ -42,19 +45,19 @@
 〰10:          protected readonly TestContext _context;
 〰11:          protected readonly string? _category;
 〰12:  
-‼13:          public TestLogger(
-‼14:              TestContext testContext,
-‼15:              string category = null
-‼16:              )
+〰13:          public TestLogger(
+〰14:              TestContext testContext,
+〰15:              string category = null
+〰16:              )
 〰17:          {
 ‼18:              _context = testContext;
 ‼19:              _category = string.IsNullOrWhiteSpace(category) ? null : category;
 ‼20:          }
 〰21:  
-‼22:          public TestLogger(
-‼23:              ITestContextWrapper contextWrapper,
-‼24:              string category = null
-‼25:              )
+〰22:          public TestLogger(
+〰23:              ITestContextWrapper contextWrapper,
+〰24:              string category = null
+〰25:              )
 〰26:          {
 ‼27:              _context = contextWrapper.Context;
 ‼28:              _category = string.IsNullOrWhiteSpace(category) ? null : category;

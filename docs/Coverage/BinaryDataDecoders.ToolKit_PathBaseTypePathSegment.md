@@ -14,6 +14,9 @@
 | Coveredbranches | `3`                                                               |
 | Totalbranches   | `4`                                                               |
 | Branchcoverage  | `75`                                                              |
+| Coveredmethods  | `2`                                                               |
+| Totalmethods    | `2`                                                               |
+| Methodcoverage  | `100`                                                             |
 
 ## Metrics
 

@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncLock` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                     |
 | Coveredlines    | `0`                                              |
-| Uncoveredlines  | `14`                                             |
-| Coverablelines  | `14`                                             |
+| Uncoveredlines  | `13`                                             |
+| Coverablelines  | `13`                                             |
 | Totallines      | `42`                                             |
 | Linecoverage    | `0`                                              |
 | Coveredbranches | `0`                                              |
 | Totalbranches   | `4`                                              |
 | Branchcoverage  | `0`                                              |
+| Coveredmethods  | `0`                                              |
+| Totalmethods    | `4`                                              |
+| Methodcoverage  | `0`                                              |
 
 ## Metrics
 
@@ -41,7 +44,7 @@
 〰10:          private readonly AsyncSemaphore m_semaphore;
 〰11:          private readonly Task<Releaser> m_releaser;
 〰12:  
-‼13:          public AsyncLock()
+〰13:          public AsyncLock()
 〰14:          {
 ‼15:              m_semaphore = new AsyncSemaphore(1);
 ‼16:              m_releaser = Task.FromResult(new Releaser(this));

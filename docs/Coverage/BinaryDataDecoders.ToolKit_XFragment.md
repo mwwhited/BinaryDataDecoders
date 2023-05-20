@@ -7,24 +7,26 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Linq.XFragment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                    |
 | Coveredlines    | `43`                                            |
-| Uncoveredlines  | `22`                                            |
-| Coverablelines  | `65`                                            |
-| Totallines      | `133`                                           |
-| Linecoverage    | `66.1`                                          |
+| Uncoveredlines  | `21`                                            |
+| Coverablelines  | `64`                                            |
+| Totallines      | `136`                                           |
+| Linecoverage    | `67.1`                                          |
 | Coveredbranches | `14`                                            |
 | Totalbranches   | `20`                                            |
 | Branchcoverage  | `70`                                            |
+| Coveredmethods  | `14`                                            |
+| Totalmethods    | `28`                                            |
+| Methodcoverage  | `50`                                            |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                                        |
 | :--------- | :---- | :------- | :------------------------------------------ |
-| 1          | 100   | 100      | `get_Nodes`                                 |
-| 4          | 75.00 | 75.00    | `ctor`                                      |
+| 4          | 100   | 75.00    | `ctor`                                      |
 | 2          | 100   | 50.0     | `ctor`                                      |
 | 1          | 100   | 100      | `ctor`                                      |
 | 1          | 0     | 100      | `ctor`                                      |
-| 4          | 91.66 | 75.00    | `Parser`                                    |
+| 4          | 92.30 | 75.00    | `Parser`                                    |
 | 4          | 83.33 | 75.00    | `Parser`                                    |
 | 1          | 100   | 100      | `ToString`                                  |
 | 1          | 0     | 100      | `CreateReader`                              |
@@ -67,126 +69,129 @@
 〰11:  
 〰12:      public class XFragment : IList<XNode>
 〰13:      {
-✔14:          private IList<XNode> Nodes { get; } = new List<XNode>();
-〰15:  
-✔16:          public XFragment(IEnumerable<XNode> nodes)
-〰17:          {
-‼18:              foreach (var node in nodes ?? Enumerable.Empty<XNode>().Where(n => n != null))
-✔19:                  this.Nodes.Add(node);
-✔20:          }
-〰21:  
-〰22:          public XFragment(XNode node, params XNode[] nodes)
-⚠23:              : this(new[] { node }.Concat(nodes ?? Enumerable.Empty<XNode>()))
-〰24:          {
-✔25:          }
-〰26:  
-〰27:          public XFragment(string xml)
-✔28:              : this(XFragment.Parser(xml).ToArray())
-〰29:          {
-✔30:          }
-〰31:          public XFragment(XmlReader xmlReader)
-‼32:              : this(XFragment.Parser(xmlReader).ToArray())
-〰33:          {
-‼34:          }
-〰35:  
-〰36:          private static IEnumerable<XNode> Parser(string xml)
-〰37:          {
-⚠38:              if (string.IsNullOrWhiteSpace(xml))
-‼39:                  yield break;
-〰40:  
-✔41:              var settings = new XmlReaderSettings
-✔42:              {
-✔43:                  ConformanceLevel = ConformanceLevel.Fragment,
-✔44:                  IgnoreWhitespace = true
-✔45:              };
-〰46:  
-✔47:              using (var stringReader = new StringReader(xml))
-✔48:              using (var xmlReader = XmlReader.Create(stringReader, settings))
-✔49:                  foreach (var node in Parser(xmlReader))
-✔50:                      yield return node;
-✔51:          }
-〰52:  
-〰53:          private static IEnumerable<XNode> Parser(XmlReader xmlReader)
-〰54:          {
-⚠55:              if (xmlReader == null)
-‼56:                  yield break;
-〰57:  
-✔58:              xmlReader.MoveToContent();
-✔59:              while (xmlReader.ReadState != ReadState.EndOfFile)
-✔60:                  yield return XNode.ReadFrom(xmlReader);
-✔61:          }
-〰62:  
-✔63:          public override string ToString() => (string)this;
-〰64:          public XmlReader CreateReader() =>
-‼65:              XmlReader.Create(new StringReader(this), new XmlReaderSettings
-‼66:              {
-‼67:                  ConformanceLevel = ConformanceLevel.Fragment,
-‼68:              });
-〰69:  
-✔70:          public static XFragment Parse(string xml) => new XFragment(xml);
-‼71:          public static XFragment Parse(XmlReader xmlReader) => new XFragment(xmlReader);
+〰14:          // https://github.com/OutOfBandDevelopment/Samples/blob/master/HandyClasses/XFragment.cs
+〰15:          private IList<XNode> Nodes { get; } = new List<XNode>();
+〰16:  
+〰17:          public XFragment(IEnumerable<XNode> nodes)
+〰18:          {
+⚠19:              foreach (var node in (nodes ?? Enumerable.Empty<XNode>()).Where(n => n != null))
+✔20:                  this.Nodes.Add(node);
+✔21:          }
+〰22:  
+〰23:          public XFragment(XNode node, params XNode[] nodes)
+⚠24:              : this(new[] { node }.Concat(nodes ?? Enumerable.Empty<XNode>()))
+〰25:          {
+✔26:          }
+〰27:  
+〰28:          public XFragment(string? xml)
+✔29:              : this(Parser(xml).ToArray())
+〰30:          {
+✔31:          }
+〰32:          public XFragment(XmlReader xmlReader)
+‼33:              : this(Parser(xmlReader).ToArray())
+〰34:          {
+‼35:          }
+〰36:  
+〰37:          private static IEnumerable<XNode> Parser(string? xml)
+〰38:          {
+⚠39:              if (string.IsNullOrWhiteSpace(xml))
+‼40:                  yield break;
+〰41:  
+✔42:              var settings = new XmlReaderSettings
+✔43:              {
+✔44:                  ConformanceLevel = ConformanceLevel.Fragment,
+✔45:                  IgnoreWhitespace = true
+✔46:              };
+〰47:  
+✔48:              using (var stringReader = new StringReader(xml))
+✔49:              using (var xmlReader = XmlReader.Create(stringReader, settings))
+〰50:              {
+✔51:                  foreach (var node in XFragment.Parser(xmlReader))
+✔52:                      yield return node;
+✔53:              }
+✔54:          }
+〰55:  
+〰56:          private static IEnumerable<XNode> Parser(XmlReader xmlReader)
+〰57:          {
+⚠58:              if (xmlReader == null)
+‼59:                  yield break;
+〰60:  
+✔61:              xmlReader.MoveToContent();
+✔62:              while (xmlReader.ReadState != ReadState.EndOfFile)
+✔63:                  yield return XNode.ReadFrom(xmlReader);
+✔64:          }
+〰65:  
+✔66:          public override string ToString() => this;
+〰67:  
+‼68:          public XmlReader CreateReader() => XmlReader.Create(new StringReader(this), new XmlReaderSettings
+‼69:          {
+‼70:              ConformanceLevel = ConformanceLevel.Fragment,
+‼71:          });
 〰72:  
-〰73:          #region IEnumerable
-〰74:  
-〰75:          public IEnumerator<XNode> GetEnumerator() =>
-⚠76:              (this.Nodes ?? Enumerable.Empty<XNode>()).Where(n => n != null).GetEnumerator();
+✔73:          public static XFragment Parse(string xml) => new XFragment(xml);
+‼74:          public static XFragment Parse(XmlReader xmlReader) => new XFragment(xmlReader);
+〰75:  
+〰76:          #region IEnumerable
 〰77:  
-‼78:          IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
-〰79:  
-〰80:          #endregion
-〰81:  
-〰82:          #region IList
-〰83:  
-✔84:          public int Count => this.Nodes.Count;
-‼85:          public bool IsReadOnly => this.Nodes.IsReadOnly;
-〰86:          public XNode this[int index]
-〰87:          {
-✔88:              get => this.Nodes[index];
-‼89:              set => this.Nodes[index] = value;
-〰90:          }
-〰91:  
-‼92:          public int IndexOf(XNode item) => this.Nodes.IndexOf(item);
-‼93:          public void Insert(int index, XNode item) => this.Nodes.Insert(index, item);
-‼94:          public void RemoveAt(int index) => this.Nodes.RemoveAt(index);
-‼95:          public void Add(XNode item) => this.Nodes.Add(item);
-‼96:          public void Clear() => this.Nodes.Clear();
-‼97:          public bool Contains(XNode item) => this.Nodes.Contains(item);
-‼98:          public void CopyTo(XNode[] array, int arrayIndex) => this.Nodes.CopyTo(array, arrayIndex);
-‼99:          public bool Remove(XNode item) => this.Nodes.Remove(item);
-〰100: 
-〰101:         #endregion
-〰102: 
-〰103:         #region Conversions
-〰104: 
-✔105:         public static implicit operator XFragment(string xml) => new XFragment(xml);
-〰106:         public static implicit operator string(XFragment fragment)
-〰107:         {
-⚠108:             if (fragment == null)
-‼109:                 return null;
-〰110: 
-✔111:             var settings = new XmlWriterSettings
-✔112:             {
-✔113:                 OmitXmlDeclaration = true,
-✔114:                 ConformanceLevel = ConformanceLevel.Fragment,
-✔115:             };
-✔116:             var sb = new StringBuilder();
-✔117:             using (var xmlwriter = XmlWriter.Create(sb, settings))
-✔118:                 foreach (var node in fragment)
-〰119:                 {
-✔120:                     node.WriteTo(xmlwriter);
-〰121:                     //var reader = node.CreateReader();
-〰122:                     //    xmlwriter.WriteNode(reader, false);
-〰123:                 }
-〰124: 
-✔125:             return sb.ToString();
-〰126:         }
-〰127: 
-✔128:         public static implicit operator XFragment(XNode[] nodes) => new XFragment(nodes);
-✔129:         public static implicit operator XFragment(XNode node) => new XFragment(node);
-〰130: 
-〰131:         #endregion
-〰132:     }
-〰133: }
+⚠78:          public IEnumerator<XNode> GetEnumerator() => (Nodes ?? Enumerable.Empty<XNode>()).Where(n => n != null).GetEnumerator();
+‼79:          IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+〰80:  
+〰81:          #endregion
+〰82:  
+〰83:          #region IList
+〰84:  
+✔85:          public int Count => Nodes.Count;
+‼86:          public bool IsReadOnly => Nodes.IsReadOnly;
+〰87:          public XNode this[int index]
+〰88:          {
+✔89:              get => Nodes[index];
+‼90:              set => Nodes[index] = value;
+〰91:          }
+〰92:  
+‼93:          public int IndexOf(XNode item) => Nodes.IndexOf(item);
+‼94:          public void Insert(int index, XNode item) => Nodes.Insert(index, item);
+‼95:          public void RemoveAt(int index) => Nodes.RemoveAt(index);
+‼96:          public void Add(XNode item) => Nodes.Add(item);
+‼97:          public void Clear() => Nodes.Clear();
+‼98:          public bool Contains(XNode item) => Nodes.Contains(item);
+‼99:          public void CopyTo(XNode[] array, int arrayIndex) => Nodes.CopyTo(array, arrayIndex);
+‼100:         public bool Remove(XNode item) => Nodes.Remove(item);
+〰101: 
+〰102:         #endregion
+〰103: 
+〰104:         #region Conversions
+〰105: 
+✔106:         public static implicit operator XFragment(string? xml) => new XFragment(xml);
+〰107: 
+〰108:         public static implicit operator string?(XFragment fragment)
+〰109:         {
+⚠110:             if (fragment == null)
+‼111:                 return null;
+〰112: 
+✔113:             var settings = new XmlWriterSettings
+✔114:             {
+✔115:                 OmitXmlDeclaration = true,
+✔116:                 ConformanceLevel = ConformanceLevel.Fragment,
+✔117:             };
+✔118:             var sb = new StringBuilder();
+✔119:             using (var xmlwriter = XmlWriter.Create(sb, settings))
+〰120:             {
+✔121:                 foreach (var node in fragment)
+〰122:                 {
+✔123:                     xmlwriter.WriteNode(node.CreateReader(), false);
+〰124:                 }
+〰125:             }
+〰126: 
+✔127:             return sb.ToString();
+〰128:         }
+〰129: 
+✔130:         public static implicit operator XFragment(XNode[] nodes) => new XFragment(nodes);
+〰131: 
+✔132:         public static implicit operator XFragment(XNode node) => new XFragment(node);
+〰133: 
+〰134:         #endregion
+〰135:     }
+〰136: }
 ```
 
 ## Links

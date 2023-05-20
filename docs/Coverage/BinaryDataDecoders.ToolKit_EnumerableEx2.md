@@ -14,13 +14,16 @@
 | Coveredbranches | `0`                                            |
 | Totalbranches   | `4`                                            |
 | Branchcoverage  | `0`                                            |
+| Coveredmethods  | `0`                                            |
+| Totalmethods    | `2`                                            |
+| Methodcoverage  | `0`                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                  |
-| :--------- | :---- | :------- | :-------------------- |
-| 1          | 0     | 100      | `get_RandomGenerator` |
-| 4          | 0     | 0        | `Shuffle`             |
+| Complexity | Lines | Branches | Name      |
+| :--------- | :---- | :------- | :-------- |
+| 1          | 0     | 100      | `cctor`   |
+| 4          | 0     | 0        | `Shuffle` |
 
 ## Files
 

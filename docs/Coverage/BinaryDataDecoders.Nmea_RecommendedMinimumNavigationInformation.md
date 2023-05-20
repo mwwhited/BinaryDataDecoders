@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.Nmea.RecommendedMinimumNavigationInformation` |
 | Assembly        | `BinaryDataDecoders.Nmea`                                         |
 | Coveredlines    | `0`                                                               |
-| Uncoveredlines  | `11`                                                              |
-| Coverablelines  | `11`                                                              |
+| Uncoveredlines  | `9`                                                               |
+| Coverablelines  | `9`                                                               |
 | Totallines      | `56`                                                              |
 | Linecoverage    | `0`                                                               |
 | Coveredbranches | `0`                                                               |
 | Totalbranches   | `10`                                                              |
 | Branchcoverage  | `0`                                                               |
+| Coveredmethods  | `0`                                                               |
+| Totalmethods    | `1`                                                               |
+| Methodcoverage  | `0`                                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name      |
-| :--------- | :---- | :------- | :-------- |
-| 1          | 0     | 100      | `get_Fix` |
-| 10         | 0     | 0        | `ctor`    |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 10         | 0     | 0        | `ctor`  |
 
 ## Files
 
@@ -64,8 +66,8 @@
 〰35:  $GPRMC,090035.000,V,3957.088,N,08259.335,W,0.0,0.0,220600,0.0,E*6F
 〰36:  $GPRMC,090034.000,V,3957.088,N,08259.335,W,0.0,0.0,220600,0.0,E*6E
 〰37:          */
-‼38:          public TimeSpan Fix { get; }
-‼39:          public RecommendedMinimumNavigationInformation(string[] data)
+〰38:          public TimeSpan Fix { get; }
+〰39:          public RecommendedMinimumNavigationInformation(string[] data)
 〰40:          {
 ‼41:              var fixTime = data.ElementAtOrDefault(1) ?? "0000000000";
 ‼42:              Fix = new TimeSpan(

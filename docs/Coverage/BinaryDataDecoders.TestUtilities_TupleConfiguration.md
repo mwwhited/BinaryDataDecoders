@@ -7,22 +7,22 @@
 | Class           | `BinaryDataDecoders.TestUtilities.Configuration.TupleConfiguration` |
 | Assembly        | `BinaryDataDecoders.TestUtilities`                                  |
 | Coveredlines    | `0`                                                                 |
-| Uncoveredlines  | `42`                                                                |
-| Coverablelines  | `42`                                                                |
+| Uncoveredlines  | `37`                                                                |
+| Coverablelines  | `37`                                                                |
 | Totallines      | `90`                                                                |
 | Linecoverage    | `0`                                                                 |
 | Coveredbranches | `0`                                                                 |
-| Totalbranches   | `10`                                                                |
+| Totalbranches   | `9`                                                                 |
 | Branchcoverage  | `0`                                                                 |
+| Coveredmethods  | `0`                                                                 |
+| Totalmethods    | `11`                                                                |
+| Methodcoverage  | `0`                                                                 |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                        |
 | :--------- | :---- | :------- | :-------------------------- |
-| 4          | 0     | 0        | `ctor`                      |
-| 1          | 0     | 100      | `get_Key`                   |
-| 1          | 0     | 100      | `get_Path`                  |
-| 1          | 0     | 100      | `get_Value`                 |
+| 3          | 0     | 0        | `ctor`                      |
 | 1          | 0     | 100      | `ctor`                      |
 | 2          | 0     | 0        | `get_Item`                  |
 | 2          | 0     | 0        | `set_Item`                  |
@@ -51,16 +51,16 @@
 〰10:      {
 ‼11:          private readonly IDictionary<string, string> _store = new Dictionary<string, string>();
 〰12:  
-‼13:          public string? Key { get; }
-‼14:          public string? Path { get; }
-‼15:          public string? Value { get; set; }
+〰13:          public string? Key { get; }
+〰14:          public string? Path { get; }
+〰15:          public string? Value { get; set; }
 〰16:  
 〰17:          public TupleConfiguration(params (string key, string value)[] settings)
 ‼18:              : this(settings.AsEnumerable())
 〰19:          {
 ‼20:          }
 〰21:  
-‼22:          public TupleConfiguration(IEnumerable<(string key, string value)> settings, string? key = null, string? path = null)
+〰22:          public TupleConfiguration(IEnumerable<(string key, string value)> settings, string? key = null, string? path = null)
 〰23:          {
 ‼24:              if (settings.Count() == 1)
 〰25:              {
@@ -71,7 +71,7 @@
 〰30:              }
 〰31:              else
 〰32:              {
-‼33:                  Key = key;
+〰33:                  Key = key;
 ‼34:                  Path = string.Join(":", new[] { path, key }.Where(i => !string.IsNullOrWhiteSpace(i)));
 〰35:              }
 ‼36:              foreach (var setting in settings)

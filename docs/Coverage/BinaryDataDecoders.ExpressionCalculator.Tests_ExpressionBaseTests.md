@@ -13,6 +13,9 @@
 | Linecoverage    | `100`                                                                           |
 | Coveredbranches | `0`                                                                             |
 | Totalbranches   | `0`                                                                             |
+| Coveredmethods  | `6`                                                                             |
+| Totalmethods    | `6`                                                                             |
+| Methodcoverage  | `100`                                                                           |
 
 ## Metrics
 

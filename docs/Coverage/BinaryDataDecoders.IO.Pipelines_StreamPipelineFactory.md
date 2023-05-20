@@ -12,14 +12,17 @@
 | Totallines      | `75`                                                              |
 | Linecoverage    | `0`                                                               |
 | Coveredbranches | `0`                                                               |
-| Totalbranches   | `18`                                                              |
+| Totalbranches   | `12`                                                              |
 | Branchcoverage  | `0`                                                               |
+| Coveredmethods  | `0`                                                               |
+| Totalmethods    | `2`                                                               |
+| Methodcoverage  | `0`                                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
-| 18         | 0     | 0        | `CreateWriter` |
+| 12         | 0     | 0        | `CreateWriter` |
 | 1          | 0     | 100      | `CreateReader` |
 
 ## Files

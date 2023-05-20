@@ -6,22 +6,23 @@
 | :-------------- | :---------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.BinaryPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                |
-| Coveredlines    | `10`                                                        |
+| Coveredlines    | `2`                                                         |
 | Uncoveredlines  | `0`                                                         |
-| Coverablelines  | `10`                                                        |
+| Coverablelines  | `2`                                                         |
 | Totallines      | `19`                                                        |
 | Linecoverage    | `100`                                                       |
 | Coveredbranches | `0`                                                         |
 | Totalbranches   | `0`                                                         |
+| Coveredmethods  | `2`                                                         |
+| Totalmethods    | `2`                                                         |
+| Methodcoverage  | `100`                                                       |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name        |
-| :--------- | :---- | :------- | :---------- |
-| 1          | 100   | 100      | `get_Left`  |
-| 1          | 100   | 100      | `get_Right` |
-| 1          | 100   | 100      | `ctor`      |
-| 1          | 100   | 100      | `ToString`  |
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `ToString` |
 
 ## Files
 
@@ -32,16 +33,16 @@
 〰2:   {
 〰3:       public class BinaryPathSegment : IPathSegment
 〰4:       {
-✔5:           public IPathSegment Left { get; }
-✔6:           public IPathSegment Right { get; }
+〰5:           public IPathSegment Left { get; }
+〰6:           public IPathSegment Right { get; }
 〰7:   
-✔8:           public BinaryPathSegment(
-✔9:               IPathSegment left,
-✔10:              IPathSegment right
-✔11:              )
+〰8:           public BinaryPathSegment(
+〰9:               IPathSegment left,
+〰10:              IPathSegment right
+〰11:              )
 〰12:          {
-✔13:              Left = left;
-✔14:              Right = right;
+〰13:              Left = left;
+〰14:              Right = right;
 ✔15:          }
 〰16:  
 ✔17:          public override string ToString() => $"{Left}/{Right}";

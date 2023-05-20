@@ -6,24 +6,23 @@
 | :-------------- | :------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.Fencer` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`               |
-| Coveredlines    | `10`                                                                 |
+| Coveredlines    | `2`                                                                  |
 | Uncoveredlines  | `8`                                                                  |
-| Coverablelines  | `18`                                                                 |
+| Coverablelines  | `10`                                                                 |
 | Totallines      | `31`                                                                 |
-| Linecoverage    | `55.5`                                                               |
+| Linecoverage    | `20`                                                                 |
 | Coveredbranches | `0`                                                                  |
 | Totalbranches   | `8`                                                                  |
 | Branchcoverage  | `0`                                                                  |
+| Coveredmethods  | `2`                                                                  |
+| Totalmethods    | `6`                                                                  |
+| Methodcoverage  | `33.3`                                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name            |
 | :--------- | :---- | :------- | :-------------- |
 | 1          | 100   | 100      | `ctor`          |
-| 1          | 100   | 100      | `get_Score`     |
-| 1          | 100   | 100      | `get_Cards`     |
-| 1          | 100   | 100      | `get_Lights`    |
-| 1          | 100   | 100      | `get_Priority`  |
 | 1          | 100   | 100      | `ToString`      |
 | 8          | 0     | 0        | `Equals`        |
 | 1          | 0     | 100      | `GetHashCode`   |
@@ -44,16 +43,16 @@
 〰7:       {
 〰8:           public Fencer(byte score, Cards cards, Lights lights, bool priority)
 〰9:           {
-✔10:              Score = score;
-✔11:              Cards = cards;
-✔12:              Lights = lights;
-✔13:              Priority = priority;
+〰10:              Score = score;
+〰11:              Cards = cards;
+〰12:              Lights = lights;
+〰13:              Priority = priority;
 ✔14:          }
 〰15:  
-✔16:          public byte Score { get; }
-✔17:          public Cards Cards { get; }
-✔18:          public Lights Lights { get; }
-✔19:          public bool Priority { get; }
+〰16:          public byte Score { get; }
+〰17:          public Cards Cards { get; }
+〰18:          public Lights Lights { get; }
+〰19:          public bool Priority { get; }
 〰20:  
 ✔21:          public override string ToString() => $"S>{Score:000} L>{Lights} C>{Cards} P>{Priority}";
 ‼22:          public override bool Equals(object obj) => obj switch

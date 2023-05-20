@@ -6,14 +6,17 @@
 | :-------------- | :--------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleNavigator` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
-| Coveredlines    | `59`                                                       |
-| Uncoveredlines  | `18`                                                       |
-| Coverablelines  | `77`                                                       |
+| Coveredlines    | `58`                                                       |
+| Uncoveredlines  | `17`                                                       |
+| Coverablelines  | `75`                                                       |
 | Totallines      | `165`                                                      |
-| Linecoverage    | `76.6`                                                     |
+| Linecoverage    | `77.3`                                                     |
 | Coveredbranches | `36`                                                       |
 | Totalbranches   | `56`                                                       |
 | Branchcoverage  | `64.2`                                                     |
+| Coveredmethods  | `20`                                                       |
+| Totalmethods    | `25`                                                       |
+| Methodcoverage  | `80`                                                       |
 
 ## Metrics
 
@@ -26,14 +29,12 @@
 | 2          | 80.0  | 50.0     | `get_NamespaceURI`     |
 | 1          | 100   | 100      | `get_NodeType`         |
 | 1          | 100   | 100      | `get_Prefix`           |
-| 6          | 83.33 | 83.33    | `LookupPrefix`         |
+| 6          | 100   | 83.33    | `LookupPrefix`         |
 | 2          | 0     | 0        | `LookupNamespace`      |
 | 2          | 100   | 100      | `get_Value`            |
 | 2          | 100   | 50.0     | `get_IsEmptyElement`   |
 | 2          | 0     | 0        | `get_HasAttributes`    |
 | 2          | 100   | 50.0     | `get_HasChildren`      |
-| 1          | 100   | 100      | `get_BaseURI`          |
-| 1          | 100   | 100      | `get_NameTable`        |
 | 1          | 100   | 100      | `Clone`                |
 | 1          | 0     | 100      | `MoveToId`             |
 | 2          | 80.0  | 50.0     | `IsSamePosition`       |
@@ -94,7 +95,7 @@
 〰40:  
 〰41:          public override string LookupPrefix(string namespaceURI)
 〰42:          {
-‼43:              if (_namespacePrefixes == null) return "";
+⚠43:              if (_namespacePrefixes == null) return "";
 〰44:  
 ✔45:              if (string.IsNullOrWhiteSpace(namespaceURI)) return "";
 〰46:  
@@ -115,8 +116,8 @@
 ‼61:          public override bool HasAttributes => _current is IElementNode node && node.FirstAttribute != null;
 ⚠62:          public override bool HasChildren => _current is IElementNode node && node.FirstChild != null;
 〰63:  
-✔64:          public override string BaseURI { get; }
-✔65:          public override XmlNameTable NameTable { get; }
+〰64:          public override string BaseURI { get; }
+〰65:          public override XmlNameTable NameTable { get; }
 ✔66:          public override XPathNavigator Clone() => new ExtensibleNavigator(_current, BaseURI, NameTable, _namespacePrefixes);
 〰67:  
 ‼68:          public override bool MoveToId(string id) => false;

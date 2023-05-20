@@ -6,14 +6,17 @@
 | :-------------- | :----------------------------- |
 | Class           | `JsonPathParser`               |
 | Assembly        | `BinaryDataDecoders.Text.Json` |
-| Coveredlines    | `541`                          |
-| Uncoveredlines  | `125`                          |
-| Coverablelines  | `666`                          |
-| Totallines      | `1167`                         |
-| Linecoverage    | `81.2`                         |
+| Coveredlines    | `525`                          |
+| Uncoveredlines  | `127`                          |
+| Coverablelines  | `652`                          |
+| Totallines      | `1169`                         |
+| Linecoverage    | `80.5`                         |
 | Coveredbranches | `83`                           |
 | Totalbranches   | `111`                          |
 | Branchcoverage  | `74.7`                         |
+| Coveredmethods  | `85`                           |
+| Totalmethods    | `117`                          |
+| Methodcoverage  | `72.6`                         |
 
 ## Metrics
 
@@ -31,14 +34,14 @@
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 1          | 64.28 | 100      | `start`               |
+| 1          | 68.75 | 100      | `start`               |
 | 1          | 100   | 100      | `pathBase`            |
 | 1          | 100   | 100      | `sequence`            |
 | 1          | 100   | 100      | `function`            |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 4          | 72.72 | 75.00    | `path`                |
+| 4          | 76.00 | 75.00    | `path`                |
 | 1          | 100   | 100      | `ROOT`                |
 | 1          | 100   | 100      | `RELATIVE`            |
 | 1          | 100   | 100      | `ctor`                |
@@ -50,7 +53,7 @@
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 2          | 70.58 | 100      | `sequence`            |
+| 2          | 73.68 | 100      | `sequence`            |
 | 1          | 100   | 100      | `WILDCARD`            |
 | 1          | 100   | 100      | `identity`            |
 | 1          | 100   | 100      | `bracket`             |
@@ -61,7 +64,7 @@
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 17         | 83.78 | 82.35    | `sequenceItem`        |
+| 17         | 86.36 | 82.35    | `sequenceItem`        |
 | 1          | 100   | 100      | `WILDCARD`            |
 | 1          | 100   | 100      | `NUMBER`              |
 | 1          | 0     | 100      | `NUMBER`              |
@@ -72,25 +75,25 @@
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 10         | 91.07 | 90.0     | `bracket`             |
+| 10         | 89.33 | 90.0     | `bracket`             |
 | 1          | 100   | 100      | `query`               |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 1          | 70.58 | 100      | `filter`              |
+| 1          | 77.27 | 100      | `filter`              |
 | 1          | 0     | 100      | `NUMBER`              |
 | 1          | 0     | 100      | `NUMBER`              |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 6          | 82.75 | 100      | `range`               |
+| 6          | 85.29 | 100      | `range`               |
 | 1          | 100   | 100      | `path`                |
 | 1          | 100   | 100      | `string`              |
 | 1          | 100   | 100      | `NUMBER`              |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 6          | 75.00 | 83.33    | `operand`             |
+| 6          | 77.77 | 83.33    | `operand`             |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 1          | 100   | 100      | `ctor`                |
@@ -109,50 +112,50 @@
 | 1          | 100   | 100      | `ctor`                |
 | 2          | 66.66 | 50.0     | `Accept`              |
 | 1          | 0     | 100      | `query`               |
-| 14         | 87.75 | 92.85    | `query`               |
+| 14         | 90.90 | 92.85    | `query`               |
 | 1          | 100   | 100      | `IDENTITY`            |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 1          | 61.53 | 100      | `identity`            |
+| 1          | 64.28 | 100      | `identity`            |
 | 1          | 100   | 100      | `QUOTED_STRING`       |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 1          | 61.53 | 100      | `string`              |
+| 1          | 64.28 | 100      | `string`              |
 | 1          | 100   | 100      | `identity`            |
 | 1          | 100   | 100      | `functionParameter`   |
 | 1          | 0     | 100      | `functionParameter`   |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 6          | 84.37 | 100      | `function`            |
+| 6          | 87.50 | 100      | `function`            |
 | 1          | 100   | 100      | `operand`             |
 | 1          | 100   | 100      | `pathBase`            |
 | 1          | 100   | 100      | `DECIMAL`             |
 | 1          | 100   | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_RuleIndex`       |
 | 2          | 66.66 | 50.0     | `Accept`              |
-| 4          | 77.27 | 100      | `functionParameter`   |
+| 4          | 80.0  | 100      | `functionParameter`   |
 | 2          | 0     | 0        | `Sempred`             |
 | 2          | 0     | 0        | `query_sempred`       |
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json/obj/Release/netstandard2.1/JsonPathParser.cs
+## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json/obj/Release/net7.0/JsonPathParser.cs
 
 ```CSharp
 〰1:   //------------------------------------------------------------------------------
 〰2:   // <auto-generated>
 〰3:   //     This code was generated by a tool.
-〰4:   //     ANTLR Version: 4.8
+〰4:   //     ANTLR Version: 4.12.0
 〰5:   //
 〰6:   //     Changes to this file may cause incorrect behavior and will be lost if
 〰7:   //     the code is regenerated.
 〰8:   // </auto-generated>
 〰9:   //------------------------------------------------------------------------------
 〰10:  
-〰11:  // Generated from /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPath.g4 by ANTLR 4.8
+〰11:  // Generated from /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPath.g4 by ANTLR 4.12.0
 〰12:  
 〰13:  // Unreachable code detected
 〰14:  #pragma warning disable 0162
@@ -174,7 +177,7 @@
 〰30:  using Antlr4.Runtime.Tree;
 〰31:  using DFA = Antlr4.Runtime.Dfa.DFA;
 〰32:  
-〰33:  [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.8")]
+〰33:  [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.12.0")]
 〰34:  [System.CLSCompliant(false)]
 〰35:  public partial class JsonPathParser : Parser {
 〰36:  	protected static DFA[] decisionToDFA;
@@ -216,7 +219,7 @@
 〰72:  
 ‼73:  	public override string[] RuleNames { get { return ruleNames; } }
 〰74:  
-‼75:  	public override string SerializedAtn { get { return new string(_serializedATN); } }
+‼75:  	public override int[] SerializedAtn { get { return _serializedATN; } }
 〰76:  
 〰77:  	static JsonPathParser() {
 ✔78:  		decisionToDFA = new DFA[_ATN.NumberOfDecisions];
@@ -234,1081 +237,1083 @@
 ✔90:  	}
 〰91:  
 〰92:  	public partial class StartContext : ParserRuleContext {
-〰93:  		public PathContext path() {
+〰93:  		[System.Diagnostics.DebuggerNonUserCode] public PathContext path() {
 ✔94:  			return GetRuleContext<PathContext>(0);
 〰95:  		}
-‼96:  		public ITerminalNode Eof() { return GetToken(JsonPathParser.Eof, 0); }
+‼96:  		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Eof() { return GetToken(JsonPathParser.Eof, 0); }
 〰97:  		public StartContext(ParserRuleContext parent, int invokingState)
 ✔98:  			: base(parent, invokingState)
 〰99:  		{
 ✔100: 		}
 ‼101: 		public override int RuleIndex { get { return RULE_start; } }
-〰102: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔103: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠104: 			if (typedVisitor != null) return typedVisitor.VisitStart(this);
-‼105: 			else return visitor.VisitChildren(this);
-〰106: 		}
-〰107: 	}
-〰108: 
-〰109: 	[RuleVersion(0)]
-〰110: 	public StartContext start() {
-✔111: 		StartContext _localctx = new StartContext(Context, State);
-✔112: 		EnterRule(_localctx, 0, RULE_start);
-〰113: 		try {
-✔114: 			EnterOuterAlt(_localctx, 1);
-〰115: 			{
-✔116: 			State = 28; path();
-✔117: 			State = 29; Match(Eof);
-〰118: 			}
-✔119: 		}
-‼120: 		catch (RecognitionException re) {
-‼121: 			_localctx.exception = re;
-‼122: 			ErrorHandler.ReportError(this, re);
-‼123: 			ErrorHandler.Recover(this, re);
-‼124: 		}
-〰125: 		finally {
-✔126: 			ExitRule();
-✔127: 		}
-✔128: 		return _localctx;
-〰129: 	}
-〰130: 
-〰131: 	public partial class PathContext : ParserRuleContext {
-〰132: 		public PathBaseContext pathBase() {
-✔133: 			return GetRuleContext<PathBaseContext>(0);
-〰134: 		}
-〰135: 		public SequenceContext sequence() {
-✔136: 			return GetRuleContext<SequenceContext>(0);
+〰102: 		[System.Diagnostics.DebuggerNonUserCode]
+〰103: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔104: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠105: 			if (typedVisitor != null) return typedVisitor.VisitStart(this);
+‼106: 			else return visitor.VisitChildren(this);
+〰107: 		}
+〰108: 	}
+〰109: 
+〰110: 	[RuleVersion(0)]
+〰111: 	public StartContext start() {
+✔112: 		StartContext _localctx = new StartContext(Context, State);
+✔113: 		EnterRule(_localctx, 0, RULE_start);
+〰114: 		try {
+✔115: 			EnterOuterAlt(_localctx, 1);
+〰116: 			{
+✔117: 			State = 28;
+✔118: 			path();
+✔119: 			State = 29;
+✔120: 			Match(Eof);
+〰121: 			}
+✔122: 		}
+‼123: 		catch (RecognitionException re) {
+‼124: 			_localctx.exception = re;
+‼125: 			ErrorHandler.ReportError(this, re);
+‼126: 			ErrorHandler.Recover(this, re);
+‼127: 		}
+〰128: 		finally {
+✔129: 			ExitRule();
+✔130: 		}
+✔131: 		return _localctx;
+〰132: 	}
+〰133: 
+〰134: 	public partial class PathContext : ParserRuleContext {
+〰135: 		[System.Diagnostics.DebuggerNonUserCode] public PathBaseContext pathBase() {
+✔136: 			return GetRuleContext<PathBaseContext>(0);
 〰137: 		}
-〰138: 		public FunctionContext function() {
-✔139: 			return GetRuleContext<FunctionContext>(0);
+〰138: 		[System.Diagnostics.DebuggerNonUserCode] public SequenceContext sequence() {
+✔139: 			return GetRuleContext<SequenceContext>(0);
 〰140: 		}
-〰141: 		public PathContext(ParserRuleContext parent, int invokingState)
-✔142: 			: base(parent, invokingState)
-〰143: 		{
-✔144: 		}
-‼145: 		public override int RuleIndex { get { return RULE_path; } }
-〰146: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔147: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠148: 			if (typedVisitor != null) return typedVisitor.VisitPath(this);
-‼149: 			else return visitor.VisitChildren(this);
-〰150: 		}
-〰151: 	}
-〰152: 
-〰153: 	[RuleVersion(0)]
-〰154: 	public PathContext path() {
-✔155: 		PathContext _localctx = new PathContext(Context, State);
-✔156: 		EnterRule(_localctx, 2, RULE_path);
-〰157: 		try {
-✔158: 			State = 35;
-✔159: 			ErrorHandler.Sync(this);
-⚠160: 			switch (TokenStream.LA(1)) {
-〰161: 			case RELATIVE:
-〰162: 			case ROOT:
-✔163: 				EnterOuterAlt(_localctx, 1);
-〰164: 				{
-✔165: 				State = 31; pathBase();
-✔166: 				State = 32; sequence();
-〰167: 				}
-✔168: 				break;
-〰169: 			case IDENTITY:
-✔170: 				EnterOuterAlt(_localctx, 2);
-〰171: 				{
-✔172: 				State = 34; function();
+〰141: 		[System.Diagnostics.DebuggerNonUserCode] public FunctionContext function() {
+✔142: 			return GetRuleContext<FunctionContext>(0);
+〰143: 		}
+〰144: 		public PathContext(ParserRuleContext parent, int invokingState)
+✔145: 			: base(parent, invokingState)
+〰146: 		{
+✔147: 		}
+‼148: 		public override int RuleIndex { get { return RULE_path; } }
+〰149: 		[System.Diagnostics.DebuggerNonUserCode]
+〰150: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔151: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠152: 			if (typedVisitor != null) return typedVisitor.VisitPath(this);
+‼153: 			else return visitor.VisitChildren(this);
+〰154: 		}
+〰155: 	}
+〰156: 
+〰157: 	[RuleVersion(0)]
+〰158: 	public PathContext path() {
+✔159: 		PathContext _localctx = new PathContext(Context, State);
+✔160: 		EnterRule(_localctx, 2, RULE_path);
+〰161: 		try {
+✔162: 			State = 35;
+✔163: 			ErrorHandler.Sync(this);
+⚠164: 			switch (TokenStream.LA(1)) {
+〰165: 			case RELATIVE:
+〰166: 			case ROOT:
+✔167: 				EnterOuterAlt(_localctx, 1);
+〰168: 				{
+✔169: 				State = 31;
+✔170: 				pathBase();
+✔171: 				State = 32;
+✔172: 				sequence();
 〰173: 				}
 ✔174: 				break;
-〰175: 			default:
-‼176: 				throw new NoViableAltException(this);
-〰177: 			}
-✔178: 		}
-‼179: 		catch (RecognitionException re) {
-‼180: 			_localctx.exception = re;
-‼181: 			ErrorHandler.ReportError(this, re);
-‼182: 			ErrorHandler.Recover(this, re);
-‼183: 		}
-〰184: 		finally {
-✔185: 			ExitRule();
-✔186: 		}
-✔187: 		return _localctx;
-〰188: 	}
-〰189: 
-〰190: 	public partial class PathBaseContext : ParserRuleContext {
-✔191: 		public ITerminalNode ROOT() { return GetToken(JsonPathParser.ROOT, 0); }
-✔192: 		public ITerminalNode RELATIVE() { return GetToken(JsonPathParser.RELATIVE, 0); }
-〰193: 		public PathBaseContext(ParserRuleContext parent, int invokingState)
-✔194: 			: base(parent, invokingState)
-〰195: 		{
-✔196: 		}
-‼197: 		public override int RuleIndex { get { return RULE_pathBase; } }
-〰198: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔199: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠200: 			if (typedVisitor != null) return typedVisitor.VisitPathBase(this);
-‼201: 			else return visitor.VisitChildren(this);
-〰202: 		}
-〰203: 	}
-〰204: 
-〰205: 	[RuleVersion(0)]
-〰206: 	public PathBaseContext pathBase() {
-✔207: 		PathBaseContext _localctx = new PathBaseContext(Context, State);
-✔208: 		EnterRule(_localctx, 4, RULE_pathBase);
-〰209: 		int _la;
-〰210: 		try {
-✔211: 			EnterOuterAlt(_localctx, 1);
-〰212: 			{
-✔213: 			State = 37;
-✔214: 			_la = TokenStream.LA(1);
-⚠215: 			if ( !(_la==RELATIVE || _la==ROOT) ) {
-‼216: 			ErrorHandler.RecoverInline(this);
-〰217: 			}
-〰218: 			else {
-✔219: 				ErrorHandler.ReportMatch(this);
-✔220: 			    Consume();
-〰221: 			}
-〰222: 			}
-✔223: 		}
-‼224: 		catch (RecognitionException re) {
-‼225: 			_localctx.exception = re;
-‼226: 			ErrorHandler.ReportError(this, re);
-‼227: 			ErrorHandler.Recover(this, re);
-‼228: 		}
-〰229: 		finally {
-✔230: 			ExitRule();
+〰175: 			case IDENTITY:
+✔176: 				EnterOuterAlt(_localctx, 2);
+〰177: 				{
+✔178: 				State = 34;
+✔179: 				function();
+〰180: 				}
+✔181: 				break;
+〰182: 			default:
+‼183: 				throw new NoViableAltException(this);
+〰184: 			}
+✔185: 		}
+‼186: 		catch (RecognitionException re) {
+‼187: 			_localctx.exception = re;
+‼188: 			ErrorHandler.ReportError(this, re);
+‼189: 			ErrorHandler.Recover(this, re);
+‼190: 		}
+〰191: 		finally {
+✔192: 			ExitRule();
+✔193: 		}
+✔194: 		return _localctx;
+〰195: 	}
+〰196: 
+〰197: 	public partial class PathBaseContext : ParserRuleContext {
+✔198: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ROOT() { return GetToken(JsonPathParser.ROOT, 0); }
+✔199: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RELATIVE() { return GetToken(JsonPathParser.RELATIVE, 0); }
+〰200: 		public PathBaseContext(ParserRuleContext parent, int invokingState)
+✔201: 			: base(parent, invokingState)
+〰202: 		{
+✔203: 		}
+‼204: 		public override int RuleIndex { get { return RULE_pathBase; } }
+〰205: 		[System.Diagnostics.DebuggerNonUserCode]
+〰206: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔207: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠208: 			if (typedVisitor != null) return typedVisitor.VisitPathBase(this);
+‼209: 			else return visitor.VisitChildren(this);
+〰210: 		}
+〰211: 	}
+〰212: 
+〰213: 	[RuleVersion(0)]
+〰214: 	public PathBaseContext pathBase() {
+✔215: 		PathBaseContext _localctx = new PathBaseContext(Context, State);
+✔216: 		EnterRule(_localctx, 4, RULE_pathBase);
+〰217: 		int _la;
+〰218: 		try {
+✔219: 			EnterOuterAlt(_localctx, 1);
+〰220: 			{
+✔221: 			State = 37;
+✔222: 			_la = TokenStream.LA(1);
+⚠223: 			if ( !(_la==RELATIVE || _la==ROOT) ) {
+‼224: 			ErrorHandler.RecoverInline(this);
+〰225: 			}
+〰226: 			else {
+✔227: 				ErrorHandler.ReportMatch(this);
+✔228: 			    Consume();
+〰229: 			}
+〰230: 			}
 ✔231: 		}
-✔232: 		return _localctx;
-〰233: 	}
-〰234: 
-〰235: 	public partial class SequenceContext : ParserRuleContext {
-〰236: 		public SequenceItemContext sequenceItem() {
-✔237: 			return GetRuleContext<SequenceItemContext>(0);
-〰238: 		}
-〰239: 		public SequenceContext sequence() {
-✔240: 			return GetRuleContext<SequenceContext>(0);
-〰241: 		}
-〰242: 		public SequenceContext(ParserRuleContext parent, int invokingState)
-✔243: 			: base(parent, invokingState)
-〰244: 		{
-✔245: 		}
-‼246: 		public override int RuleIndex { get { return RULE_sequence; } }
-〰247: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔248: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠249: 			if (typedVisitor != null) return typedVisitor.VisitSequence(this);
-‼250: 			else return visitor.VisitChildren(this);
-〰251: 		}
-〰252: 	}
-〰253: 
-〰254: 	[RuleVersion(0)]
-〰255: 	public SequenceContext sequence() {
-✔256: 		SequenceContext _localctx = new SequenceContext(Context, State);
-✔257: 		EnterRule(_localctx, 6, RULE_sequence);
-〰258: 		try {
-✔259: 			EnterOuterAlt(_localctx, 1);
-〰260: 			{
-✔261: 			State = 39; sequenceItem();
-✔262: 			State = 41;
-✔263: 			ErrorHandler.Sync(this);
-✔264: 			switch ( Interpreter.AdaptivePredict(TokenStream,1,Context) ) {
-〰265: 			case 1:
-〰266: 				{
-✔267: 				State = 40; sequence();
-〰268: 				}
-〰269: 				break;
-〰270: 			}
-〰271: 			}
-✔272: 		}
-‼273: 		catch (RecognitionException re) {
-‼274: 			_localctx.exception = re;
-‼275: 			ErrorHandler.ReportError(this, re);
-‼276: 			ErrorHandler.Recover(this, re);
-‼277: 		}
-〰278: 		finally {
-✔279: 			ExitRule();
-✔280: 		}
-✔281: 		return _localctx;
-〰282: 	}
-〰283: 
-〰284: 	public partial class SequenceItemContext : ParserRuleContext {
-✔285: 		public ITerminalNode WILDCARD() { return GetToken(JsonPathParser.WILDCARD, 0); }
-〰286: 		public IdentityContext identity() {
-✔287: 			return GetRuleContext<IdentityContext>(0);
-〰288: 		}
-〰289: 		public BracketContext bracket() {
-✔290: 			return GetRuleContext<BracketContext>(0);
-〰291: 		}
-〰292: 		public FilterContext filter() {
-✔293: 			return GetRuleContext<FilterContext>(0);
-〰294: 		}
-〰295: 		public FunctionContext function() {
-✔296: 			return GetRuleContext<FunctionContext>(0);
-〰297: 		}
-‼298: 		public ITerminalNode PATH_SEPERATOR() { return GetToken(JsonPathParser.PATH_SEPERATOR, 0); }
-✔299: 		public ITerminalNode DESCENDANTS() { return GetToken(JsonPathParser.DESCENDANTS, 0); }
-〰300: 		public SequenceItemContext(ParserRuleContext parent, int invokingState)
-✔301: 			: base(parent, invokingState)
-〰302: 		{
-✔303: 		}
-‼304: 		public override int RuleIndex { get { return RULE_sequenceItem; } }
-〰305: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔306: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠307: 			if (typedVisitor != null) return typedVisitor.VisitSequenceItem(this);
-‼308: 			else return visitor.VisitChildren(this);
-〰309: 		}
-〰310: 	}
-〰311: 
-〰312: 	[RuleVersion(0)]
-〰313: 	public SequenceItemContext sequenceItem() {
-✔314: 		SequenceItemContext _localctx = new SequenceItemContext(Context, State);
-✔315: 		EnterRule(_localctx, 8, RULE_sequenceItem);
-〰316: 		int _la;
-〰317: 		try {
-✔318: 			State = 54;
-✔319: 			ErrorHandler.Sync(this);
-⚠320: 			switch (TokenStream.LA(1)) {
-〰321: 			case T__0:
-〰322: 			case PATH_SEPERATOR:
-〰323: 			case WILDCARD:
-〰324: 			case IDENTITY:
-✔325: 				EnterOuterAlt(_localctx, 1);
-〰326: 				{
-✔327: 				State = 44;
-✔328: 				ErrorHandler.Sync(this);
-✔329: 				_la = TokenStream.LA(1);
-✔330: 				if (_la==PATH_SEPERATOR) {
-〰331: 					{
-✔332: 					State = 43; Match(PATH_SEPERATOR);
-〰333: 					}
-〰334: 				}
-〰335: 
-✔336: 				State = 51;
-✔337: 				ErrorHandler.Sync(this);
-✔338: 				switch ( Interpreter.AdaptivePredict(TokenStream,3,Context) ) {
-〰339: 				case 1:
-〰340: 					{
-✔341: 					State = 46; Match(WILDCARD);
-〰342: 					}
-✔343: 					break;
-〰344: 				case 2:
-〰345: 					{
-✔346: 					State = 47; identity();
-〰347: 					}
-✔348: 					break;
-〰349: 				case 3:
-〰350: 					{
-✔351: 					State = 48; bracket();
-〰352: 					}
-✔353: 					break;
-〰354: 				case 4:
-〰355: 					{
-✔356: 					State = 49; filter();
-〰357: 					}
-✔358: 					break;
-〰359: 				case 5:
-〰360: 					{
-✔361: 					State = 50; function();
+‼232: 		catch (RecognitionException re) {
+‼233: 			_localctx.exception = re;
+‼234: 			ErrorHandler.ReportError(this, re);
+‼235: 			ErrorHandler.Recover(this, re);
+‼236: 		}
+〰237: 		finally {
+✔238: 			ExitRule();
+✔239: 		}
+✔240: 		return _localctx;
+〰241: 	}
+〰242: 
+〰243: 	public partial class SequenceContext : ParserRuleContext {
+〰244: 		[System.Diagnostics.DebuggerNonUserCode] public SequenceItemContext sequenceItem() {
+✔245: 			return GetRuleContext<SequenceItemContext>(0);
+〰246: 		}
+〰247: 		[System.Diagnostics.DebuggerNonUserCode] public SequenceContext sequence() {
+✔248: 			return GetRuleContext<SequenceContext>(0);
+〰249: 		}
+〰250: 		public SequenceContext(ParserRuleContext parent, int invokingState)
+✔251: 			: base(parent, invokingState)
+〰252: 		{
+✔253: 		}
+‼254: 		public override int RuleIndex { get { return RULE_sequence; } }
+〰255: 		[System.Diagnostics.DebuggerNonUserCode]
+〰256: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔257: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠258: 			if (typedVisitor != null) return typedVisitor.VisitSequence(this);
+‼259: 			else return visitor.VisitChildren(this);
+〰260: 		}
+〰261: 	}
+〰262: 
+〰263: 	[RuleVersion(0)]
+〰264: 	public SequenceContext sequence() {
+✔265: 		SequenceContext _localctx = new SequenceContext(Context, State);
+✔266: 		EnterRule(_localctx, 6, RULE_sequence);
+〰267: 		try {
+✔268: 			EnterOuterAlt(_localctx, 1);
+〰269: 			{
+✔270: 			State = 39;
+✔271: 			sequenceItem();
+✔272: 			State = 41;
+✔273: 			ErrorHandler.Sync(this);
+✔274: 			switch ( Interpreter.AdaptivePredict(TokenStream,1,Context) ) {
+〰275: 			case 1:
+〰276: 				{
+✔277: 				State = 40;
+✔278: 				sequence();
+〰279: 				}
+〰280: 				break;
+〰281: 			}
+〰282: 			}
+✔283: 		}
+‼284: 		catch (RecognitionException re) {
+‼285: 			_localctx.exception = re;
+‼286: 			ErrorHandler.ReportError(this, re);
+‼287: 			ErrorHandler.Recover(this, re);
+‼288: 		}
+〰289: 		finally {
+✔290: 			ExitRule();
+✔291: 		}
+✔292: 		return _localctx;
+〰293: 	}
+〰294: 
+〰295: 	public partial class SequenceItemContext : ParserRuleContext {
+✔296: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode WILDCARD() { return GetToken(JsonPathParser.WILDCARD, 0); }
+〰297: 		[System.Diagnostics.DebuggerNonUserCode] public IdentityContext identity() {
+✔298: 			return GetRuleContext<IdentityContext>(0);
+〰299: 		}
+〰300: 		[System.Diagnostics.DebuggerNonUserCode] public BracketContext bracket() {
+✔301: 			return GetRuleContext<BracketContext>(0);
+〰302: 		}
+〰303: 		[System.Diagnostics.DebuggerNonUserCode] public FilterContext filter() {
+✔304: 			return GetRuleContext<FilterContext>(0);
+〰305: 		}
+〰306: 		[System.Diagnostics.DebuggerNonUserCode] public FunctionContext function() {
+✔307: 			return GetRuleContext<FunctionContext>(0);
+〰308: 		}
+‼309: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode PATH_SEPERATOR() { return GetToken(JsonPathParser.PATH_SEPERATOR, 0); }
+✔310: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DESCENDANTS() { return GetToken(JsonPathParser.DESCENDANTS, 0); }
+〰311: 		public SequenceItemContext(ParserRuleContext parent, int invokingState)
+✔312: 			: base(parent, invokingState)
+〰313: 		{
+✔314: 		}
+‼315: 		public override int RuleIndex { get { return RULE_sequenceItem; } }
+〰316: 		[System.Diagnostics.DebuggerNonUserCode]
+〰317: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔318: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠319: 			if (typedVisitor != null) return typedVisitor.VisitSequenceItem(this);
+‼320: 			else return visitor.VisitChildren(this);
+〰321: 		}
+〰322: 	}
+〰323: 
+〰324: 	[RuleVersion(0)]
+〰325: 	public SequenceItemContext sequenceItem() {
+✔326: 		SequenceItemContext _localctx = new SequenceItemContext(Context, State);
+✔327: 		EnterRule(_localctx, 8, RULE_sequenceItem);
+〰328: 		int _la;
+〰329: 		try {
+✔330: 			State = 54;
+✔331: 			ErrorHandler.Sync(this);
+⚠332: 			switch (TokenStream.LA(1)) {
+〰333: 			case T__0:
+〰334: 			case PATH_SEPERATOR:
+〰335: 			case WILDCARD:
+〰336: 			case IDENTITY:
+✔337: 				EnterOuterAlt(_localctx, 1);
+〰338: 				{
+✔339: 				State = 44;
+✔340: 				ErrorHandler.Sync(this);
+✔341: 				_la = TokenStream.LA(1);
+✔342: 				if (_la==PATH_SEPERATOR) {
+〰343: 					{
+✔344: 					State = 43;
+✔345: 					Match(PATH_SEPERATOR);
+〰346: 					}
+〰347: 				}
+〰348: 
+✔349: 				State = 51;
+✔350: 				ErrorHandler.Sync(this);
+✔351: 				switch ( Interpreter.AdaptivePredict(TokenStream,3,Context) ) {
+〰352: 				case 1:
+〰353: 					{
+✔354: 					State = 46;
+✔355: 					Match(WILDCARD);
+〰356: 					}
+✔357: 					break;
+〰358: 				case 2:
+〰359: 					{
+✔360: 					State = 47;
+✔361: 					identity();
 〰362: 					}
 ✔363: 					break;
-〰364: 				}
-〰365: 				}
-〰366: 				break;
-〰367: 			case DESCENDANTS:
-✔368: 				EnterOuterAlt(_localctx, 2);
-〰369: 				{
-✔370: 				State = 53; Match(DESCENDANTS);
-〰371: 				}
-✔372: 				break;
-〰373: 			default:
-‼374: 				throw new NoViableAltException(this);
-〰375: 			}
-✔376: 		}
-‼377: 		catch (RecognitionException re) {
-‼378: 			_localctx.exception = re;
-‼379: 			ErrorHandler.ReportError(this, re);
-‼380: 			ErrorHandler.Recover(this, re);
-‼381: 		}
-〰382: 		finally {
-✔383: 			ExitRule();
-✔384: 		}
-✔385: 		return _localctx;
-〰386: 	}
-〰387: 
-〰388: 	public partial class BracketContext : ParserRuleContext {
-✔389: 		public ITerminalNode WILDCARD() { return GetToken(JsonPathParser.WILDCARD, 0); }
-✔390: 		public ITerminalNode[] NUMBER() { return GetTokens(JsonPathParser.NUMBER); }
-〰391: 		public ITerminalNode NUMBER(int i) {
-‼392: 			return GetToken(JsonPathParser.NUMBER, i);
-〰393: 		}
-〰394: 		public StringContext[] @string() {
-✔395: 			return GetRuleContexts<StringContext>();
-〰396: 		}
-〰397: 		public StringContext @string(int i) {
-‼398: 			return GetRuleContext<StringContext>(i);
-〰399: 		}
-〰400: 		public RangeContext range() {
-✔401: 			return GetRuleContext<RangeContext>(0);
-〰402: 		}
-〰403: 		public FunctionContext function() {
-✔404: 			return GetRuleContext<FunctionContext>(0);
-〰405: 		}
-〰406: 		public BracketContext(ParserRuleContext parent, int invokingState)
-✔407: 			: base(parent, invokingState)
-〰408: 		{
-✔409: 		}
-‼410: 		public override int RuleIndex { get { return RULE_bracket; } }
-〰411: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔412: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠413: 			if (typedVisitor != null) return typedVisitor.VisitBracket(this);
-‼414: 			else return visitor.VisitChildren(this);
+〰364: 				case 3:
+〰365: 					{
+✔366: 					State = 48;
+✔367: 					bracket();
+〰368: 					}
+✔369: 					break;
+〰370: 				case 4:
+〰371: 					{
+✔372: 					State = 49;
+✔373: 					filter();
+〰374: 					}
+✔375: 					break;
+〰376: 				case 5:
+〰377: 					{
+✔378: 					State = 50;
+✔379: 					function();
+〰380: 					}
+✔381: 					break;
+〰382: 				}
+〰383: 				}
+〰384: 				break;
+〰385: 			case DESCENDANTS:
+✔386: 				EnterOuterAlt(_localctx, 2);
+〰387: 				{
+✔388: 				State = 53;
+✔389: 				Match(DESCENDANTS);
+〰390: 				}
+✔391: 				break;
+〰392: 			default:
+‼393: 				throw new NoViableAltException(this);
+〰394: 			}
+✔395: 		}
+‼396: 		catch (RecognitionException re) {
+‼397: 			_localctx.exception = re;
+‼398: 			ErrorHandler.ReportError(this, re);
+‼399: 			ErrorHandler.Recover(this, re);
+‼400: 		}
+〰401: 		finally {
+✔402: 			ExitRule();
+✔403: 		}
+✔404: 		return _localctx;
+〰405: 	}
+〰406: 
+〰407: 	public partial class BracketContext : ParserRuleContext {
+✔408: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode WILDCARD() { return GetToken(JsonPathParser.WILDCARD, 0); }
+✔409: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] NUMBER() { return GetTokens(JsonPathParser.NUMBER); }
+〰410: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NUMBER(int i) {
+‼411: 			return GetToken(JsonPathParser.NUMBER, i);
+〰412: 		}
+〰413: 		[System.Diagnostics.DebuggerNonUserCode] public StringContext[] @string() {
+✔414: 			return GetRuleContexts<StringContext>();
 〰415: 		}
-〰416: 	}
-〰417: 
-〰418: 	[RuleVersion(0)]
-〰419: 	public BracketContext bracket() {
-✔420: 		BracketContext _localctx = new BracketContext(Context, State);
-✔421: 		EnterRule(_localctx, 10, RULE_bracket);
-〰422: 		int _la;
-〰423: 		try {
-✔424: 			State = 88;
-✔425: 			ErrorHandler.Sync(this);
-⚠426: 			switch ( Interpreter.AdaptivePredict(TokenStream,7,Context) ) {
-〰427: 			case 1:
-✔428: 				EnterOuterAlt(_localctx, 1);
-〰429: 				{
-✔430: 				State = 56; Match(T__0);
-✔431: 				State = 57; Match(WILDCARD);
-✔432: 				State = 58; Match(T__1);
-〰433: 				}
-✔434: 				break;
-〰435: 			case 2:
-✔436: 				EnterOuterAlt(_localctx, 2);
-〰437: 				{
-✔438: 				State = 59; Match(T__0);
-✔439: 				State = 60; Match(NUMBER);
-✔440: 				State = 65;
-✔441: 				ErrorHandler.Sync(this);
-✔442: 				_la = TokenStream.LA(1);
-✔443: 				while (_la==T__2) {
-〰444: 					{
-〰445: 					{
-✔446: 					State = 61; Match(T__2);
-✔447: 					State = 62; Match(NUMBER);
-〰448: 					}
-〰449: 					}
-✔450: 					State = 67;
-✔451: 					ErrorHandler.Sync(this);
-✔452: 					_la = TokenStream.LA(1);
-〰453: 				}
-✔454: 				State = 68; Match(T__1);
-〰455: 				}
-✔456: 				break;
-〰457: 			case 3:
-✔458: 				EnterOuterAlt(_localctx, 3);
-〰459: 				{
-✔460: 				State = 69; Match(T__0);
-✔461: 				State = 70; @string();
-✔462: 				State = 75;
-✔463: 				ErrorHandler.Sync(this);
-✔464: 				_la = TokenStream.LA(1);
-✔465: 				while (_la==T__2) {
-〰466: 					{
-〰467: 					{
-✔468: 					State = 71; Match(T__2);
-✔469: 					State = 72; @string();
-〰470: 					}
-〰471: 					}
-✔472: 					State = 77;
-✔473: 					ErrorHandler.Sync(this);
-✔474: 					_la = TokenStream.LA(1);
-〰475: 				}
-✔476: 				State = 78; Match(T__1);
-〰477: 				}
-✔478: 				break;
-〰479: 			case 4:
-✔480: 				EnterOuterAlt(_localctx, 4);
-〰481: 				{
-✔482: 				State = 80; Match(T__0);
-✔483: 				State = 81; range();
-✔484: 				State = 82; Match(T__1);
-〰485: 				}
-✔486: 				break;
-〰487: 			case 5:
-‼488: 				EnterOuterAlt(_localctx, 5);
-〰489: 				{
-‼490: 				State = 84; Match(T__0);
-‼491: 				State = 85; function();
-‼492: 				State = 86; Match(T__1);
-〰493: 				}
-〰494: 				break;
-〰495: 			}
-✔496: 		}
-✔497: 		catch (RecognitionException re) {
-✔498: 			_localctx.exception = re;
-✔499: 			ErrorHandler.ReportError(this, re);
-✔500: 			ErrorHandler.Recover(this, re);
-‼501: 		}
-〰502: 		finally {
-✔503: 			ExitRule();
-✔504: 		}
-✔505: 		return _localctx;
-〰506: 	}
-〰507: 
-〰508: 	public partial class FilterContext : ParserRuleContext {
-〰509: 		public QueryContext query() {
-✔510: 			return GetRuleContext<QueryContext>(0);
-〰511: 		}
-〰512: 		public FilterContext(ParserRuleContext parent, int invokingState)
-✔513: 			: base(parent, invokingState)
-〰514: 		{
-✔515: 		}
-‼516: 		public override int RuleIndex { get { return RULE_filter; } }
-〰517: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔518: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠519: 			if (typedVisitor != null) return typedVisitor.VisitFilter(this);
-‼520: 			else return visitor.VisitChildren(this);
-〰521: 		}
-〰522: 	}
-〰523: 
-〰524: 	[RuleVersion(0)]
-〰525: 	public FilterContext filter() {
-✔526: 		FilterContext _localctx = new FilterContext(Context, State);
-✔527: 		EnterRule(_localctx, 12, RULE_filter);
-〰528: 		try {
-✔529: 			EnterOuterAlt(_localctx, 1);
-〰530: 			{
-✔531: 			State = 90; Match(T__0);
-✔532: 			State = 91; Match(T__3);
-✔533: 			State = 92; query(0);
-✔534: 			State = 93; Match(T__4);
-✔535: 			State = 94; Match(T__1);
-〰536: 			}
-✔537: 		}
-‼538: 		catch (RecognitionException re) {
-‼539: 			_localctx.exception = re;
-‼540: 			ErrorHandler.ReportError(this, re);
-‼541: 			ErrorHandler.Recover(this, re);
-‼542: 		}
-〰543: 		finally {
-✔544: 			ExitRule();
-✔545: 		}
-✔546: 		return _localctx;
-〰547: 	}
-〰548: 
-〰549: 	public partial class RangeContext : ParserRuleContext {
-〰550: 		public IToken rangeStart;
-〰551: 		public IToken rangeEnd;
-〰552: 		public IToken rangeStep;
-‼553: 		public ITerminalNode[] NUMBER() { return GetTokens(JsonPathParser.NUMBER); }
-〰554: 		public ITerminalNode NUMBER(int i) {
-‼555: 			return GetToken(JsonPathParser.NUMBER, i);
-〰556: 		}
-〰557: 		public RangeContext(ParserRuleContext parent, int invokingState)
-✔558: 			: base(parent, invokingState)
-〰559: 		{
-✔560: 		}
-‼561: 		public override int RuleIndex { get { return RULE_range; } }
-〰562: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔563: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠564: 			if (typedVisitor != null) return typedVisitor.VisitRange(this);
-‼565: 			else return visitor.VisitChildren(this);
-〰566: 		}
-〰567: 	}
-〰568: 
-〰569: 	[RuleVersion(0)]
-〰570: 	public RangeContext range() {
-✔571: 		RangeContext _localctx = new RangeContext(Context, State);
-✔572: 		EnterRule(_localctx, 14, RULE_range);
-〰573: 		int _la;
-〰574: 		try {
-✔575: 			EnterOuterAlt(_localctx, 1);
-〰576: 			{
-✔577: 			State = 97;
-✔578: 			ErrorHandler.Sync(this);
-✔579: 			_la = TokenStream.LA(1);
-✔580: 			if (_la==NUMBER) {
-〰581: 				{
-✔582: 				State = 96; _localctx.rangeStart = Match(NUMBER);
-〰583: 				}
-〰584: 			}
-〰585: 
-✔586: 			State = 99; Match(T__5);
-✔587: 			State = 101;
-✔588: 			ErrorHandler.Sync(this);
-✔589: 			_la = TokenStream.LA(1);
-✔590: 			if (_la==NUMBER) {
-〰591: 				{
-✔592: 				State = 100; _localctx.rangeEnd = Match(NUMBER);
-〰593: 				}
-〰594: 			}
-〰595: 
-✔596: 			State = 105;
-✔597: 			ErrorHandler.Sync(this);
-✔598: 			_la = TokenStream.LA(1);
-✔599: 			if (_la==T__5) {
-〰600: 				{
-✔601: 				State = 103; Match(T__5);
-✔602: 				State = 104; _localctx.rangeStep = Match(NUMBER);
-〰603: 				}
-〰604: 			}
-〰605: 
-〰606: 			}
-✔607: 		}
-‼608: 		catch (RecognitionException re) {
-‼609: 			_localctx.exception = re;
-‼610: 			ErrorHandler.ReportError(this, re);
-‼611: 			ErrorHandler.Recover(this, re);
-‼612: 		}
-〰613: 		finally {
-✔614: 			ExitRule();
-✔615: 		}
-✔616: 		return _localctx;
-〰617: 	}
-〰618: 
-〰619: 	public partial class OperandContext : ParserRuleContext {
-〰620: 		public PathContext path() {
-✔621: 			return GetRuleContext<PathContext>(0);
-〰622: 		}
-〰623: 		public StringContext @string() {
-✔624: 			return GetRuleContext<StringContext>(0);
-〰625: 		}
-✔626: 		public ITerminalNode NUMBER() { return GetToken(JsonPathParser.NUMBER, 0); }
-〰627: 		public OperandContext(ParserRuleContext parent, int invokingState)
-✔628: 			: base(parent, invokingState)
-〰629: 		{
-✔630: 		}
-‼631: 		public override int RuleIndex { get { return RULE_operand; } }
-〰632: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔633: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠634: 			if (typedVisitor != null) return typedVisitor.VisitOperand(this);
-‼635: 			else return visitor.VisitChildren(this);
-〰636: 		}
-〰637: 	}
-〰638: 
-〰639: 	[RuleVersion(0)]
-〰640: 	public OperandContext operand() {
-✔641: 		OperandContext _localctx = new OperandContext(Context, State);
-✔642: 		EnterRule(_localctx, 16, RULE_operand);
-〰643: 		try {
-✔644: 			State = 110;
-✔645: 			ErrorHandler.Sync(this);
-⚠646: 			switch (TokenStream.LA(1)) {
-〰647: 			case RELATIVE:
-〰648: 			case ROOT:
-〰649: 			case IDENTITY:
-✔650: 				EnterOuterAlt(_localctx, 1);
-〰651: 				{
-✔652: 				State = 107; path();
-〰653: 				}
-✔654: 				break;
-〰655: 			case QUOTED_STRING:
-✔656: 				EnterOuterAlt(_localctx, 2);
-〰657: 				{
-✔658: 				State = 108; @string();
-〰659: 				}
-✔660: 				break;
-〰661: 			case NUMBER:
-✔662: 				EnterOuterAlt(_localctx, 3);
-〰663: 				{
-✔664: 				State = 109; Match(NUMBER);
-〰665: 				}
-✔666: 				break;
-〰667: 			default:
-‼668: 				throw new NoViableAltException(this);
-〰669: 			}
-✔670: 		}
-‼671: 		catch (RecognitionException re) {
-‼672: 			_localctx.exception = re;
-‼673: 			ErrorHandler.ReportError(this, re);
-‼674: 			ErrorHandler.Recover(this, re);
-‼675: 		}
-〰676: 		finally {
-✔677: 			ExitRule();
-✔678: 		}
-✔679: 		return _localctx;
-〰680: 	}
-〰681: 
-〰682: 	public partial class QueryContext : ParserRuleContext {
-〰683: 		public QueryContext(ParserRuleContext parent, int invokingState)
-✔684: 			: base(parent, invokingState)
-〰685: 		{
-✔686: 		}
-‼687: 		public override int RuleIndex { get { return RULE_query; } }
-〰688: 
-✔689: 		public QueryContext() { }
-〰690: 		public virtual void CopyFrom(QueryContext context) {
-✔691: 			base.CopyFrom(context);
-✔692: 		}
-〰693: 	}
-〰694: 	public partial class QueryLogicalContext : QueryContext {
-〰695: 		public QueryContext relationLeft;
-〰696: 		public QueryContext relationRight;
-✔697: 		public ITerminalNode LOGICAL() { return GetToken(JsonPathParser.LOGICAL, 0); }
-〰698: 		public QueryContext[] query() {
-‼699: 			return GetRuleContexts<QueryContext>();
-〰700: 		}
-〰701: 		public QueryContext query(int i) {
-‼702: 			return GetRuleContext<QueryContext>(i);
-〰703: 		}
-✔704: 		public QueryLogicalContext(QueryContext context) { CopyFrom(context); }
-〰705: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔706: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠707: 			if (typedVisitor != null) return typedVisitor.VisitQueryLogical(this);
-‼708: 			else return visitor.VisitChildren(this);
-〰709: 		}
-〰710: 	}
-〰711: 	public partial class QueryRelationalContext : QueryContext {
-〰712: 		public OperandContext relationLeft;
-〰713: 		public OperandContext relationRight;
-✔714: 		public ITerminalNode RELATIONAL() { return GetToken(JsonPathParser.RELATIONAL, 0); }
-〰715: 		public OperandContext[] operand() {
-‼716: 			return GetRuleContexts<OperandContext>();
-〰717: 		}
-〰718: 		public OperandContext operand(int i) {
-‼719: 			return GetRuleContext<OperandContext>(i);
-〰720: 		}
-✔721: 		public QueryRelationalContext(QueryContext context) { CopyFrom(context); }
-〰722: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔723: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠724: 			if (typedVisitor != null) return typedVisitor.VisitQueryRelational(this);
-‼725: 			else return visitor.VisitChildren(this);
-〰726: 		}
-〰727: 	}
-〰728: 	public partial class QueryPathContext : QueryContext {
-〰729: 		public PathContext path() {
-✔730: 			return GetRuleContext<PathContext>(0);
-〰731: 		}
-✔732: 		public QueryPathContext(QueryContext context) { CopyFrom(context); }
-〰733: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔734: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠735: 			if (typedVisitor != null) return typedVisitor.VisitQueryPath(this);
-‼736: 			else return visitor.VisitChildren(this);
-〰737: 		}
-〰738: 	}
-〰739: 
-〰740: 	[RuleVersion(0)]
-〰741: 	public QueryContext query() {
-‼742: 		return query(0);
-〰743: 	}
-〰744: 
-〰745: 	private QueryContext query(int _p) {
-✔746: 		ParserRuleContext _parentctx = Context;
-✔747: 		int _parentState = State;
-✔748: 		QueryContext _localctx = new QueryContext(Context, _parentState);
-✔749: 		QueryContext _prevctx = _localctx;
-✔750: 		int _startState = 18;
-✔751: 		EnterRecursionRule(_localctx, 18, RULE_query, _p);
-〰752: 		try {
-〰753: 			int _alt;
-✔754: 			EnterOuterAlt(_localctx, 1);
-〰755: 			{
-✔756: 			State = 118;
-✔757: 			ErrorHandler.Sync(this);
-✔758: 			switch ( Interpreter.AdaptivePredict(TokenStream,12,Context) ) {
-〰759: 			case 1:
-〰760: 				{
-✔761: 				_localctx = new QueryPathContext(_localctx);
-✔762: 				Context = _localctx;
-✔763: 				_prevctx = _localctx;
-〰764: 
-✔765: 				State = 113; path();
-〰766: 				}
-✔767: 				break;
-〰768: 			case 2:
-〰769: 				{
-✔770: 				_localctx = new QueryRelationalContext(_localctx);
-✔771: 				Context = _localctx;
-✔772: 				_prevctx = _localctx;
-✔773: 				State = 114; ((QueryRelationalContext)_localctx).relationLeft = operand();
-✔774: 				State = 115; Match(RELATIONAL);
-✔775: 				State = 116; ((QueryRelationalContext)_localctx).relationRight = operand();
-〰776: 				}
-〰777: 				break;
-〰778: 			}
-✔779: 			Context.Stop = TokenStream.LT(-1);
-✔780: 			State = 125;
-✔781: 			ErrorHandler.Sync(this);
-✔782: 			_alt = Interpreter.AdaptivePredict(TokenStream,13,Context);
-✔783: 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-✔784: 				if ( _alt==1 ) {
-✔785: 					if ( ParseListeners!=null )
-✔786: 						TriggerExitRuleEvent();
-✔787: 					_prevctx = _localctx;
-〰788: 					{
-〰789: 					{
-✔790: 					_localctx = new QueryLogicalContext(new QueryContext(_parentctx, _parentState));
-✔791: 					((QueryLogicalContext)_localctx).relationLeft = _prevctx;
-✔792: 					PushNewRecursionContext(_localctx, _startState, RULE_query);
-✔793: 					State = 120;
-‼794: 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
-✔795: 					State = 121; Match(LOGICAL);
-✔796: 					State = 122; ((QueryLogicalContext)_localctx).relationRight = query(2);
-〰797: 					}
-〰798: 					}
-〰799: 				}
-✔800: 				State = 127;
-✔801: 				ErrorHandler.Sync(this);
-✔802: 				_alt = Interpreter.AdaptivePredict(TokenStream,13,Context);
-〰803: 			}
-〰804: 			}
-✔805: 		}
-‼806: 		catch (RecognitionException re) {
-‼807: 			_localctx.exception = re;
-‼808: 			ErrorHandler.ReportError(this, re);
-‼809: 			ErrorHandler.Recover(this, re);
-‼810: 		}
-〰811: 		finally {
-✔812: 			UnrollRecursionContexts(_parentctx);
-✔813: 		}
-✔814: 		return _localctx;
-〰815: 	}
-〰816: 
-〰817: 	public partial class IdentityContext : ParserRuleContext {
-✔818: 		public ITerminalNode IDENTITY() { return GetToken(JsonPathParser.IDENTITY, 0); }
-〰819: 		public IdentityContext(ParserRuleContext parent, int invokingState)
-✔820: 			: base(parent, invokingState)
-〰821: 		{
-✔822: 		}
-‼823: 		public override int RuleIndex { get { return RULE_identity; } }
-〰824: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔825: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠826: 			if (typedVisitor != null) return typedVisitor.VisitIdentity(this);
-‼827: 			else return visitor.VisitChildren(this);
-〰828: 		}
-〰829: 	}
-〰830: 
-〰831: 	[RuleVersion(0)]
-〰832: 	public IdentityContext identity() {
-✔833: 		IdentityContext _localctx = new IdentityContext(Context, State);
-✔834: 		EnterRule(_localctx, 20, RULE_identity);
-〰835: 		try {
-✔836: 			EnterOuterAlt(_localctx, 1);
-〰837: 			{
-✔838: 			State = 128; Match(IDENTITY);
-〰839: 			}
-✔840: 		}
-‼841: 		catch (RecognitionException re) {
-‼842: 			_localctx.exception = re;
-‼843: 			ErrorHandler.ReportError(this, re);
-‼844: 			ErrorHandler.Recover(this, re);
-‼845: 		}
-〰846: 		finally {
-✔847: 			ExitRule();
-✔848: 		}
-✔849: 		return _localctx;
-〰850: 	}
-〰851: 
-〰852: 	public partial class StringContext : ParserRuleContext {
-✔853: 		public ITerminalNode QUOTED_STRING() { return GetToken(JsonPathParser.QUOTED_STRING, 0); }
-〰854: 		public StringContext(ParserRuleContext parent, int invokingState)
-✔855: 			: base(parent, invokingState)
-〰856: 		{
-✔857: 		}
-‼858: 		public override int RuleIndex { get { return RULE_string; } }
-〰859: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔860: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠861: 			if (typedVisitor != null) return typedVisitor.VisitString(this);
-‼862: 			else return visitor.VisitChildren(this);
-〰863: 		}
-〰864: 	}
-〰865: 
-〰866: 	[RuleVersion(0)]
-〰867: 	public StringContext @string() {
-✔868: 		StringContext _localctx = new StringContext(Context, State);
-✔869: 		EnterRule(_localctx, 22, RULE_string);
-〰870: 		try {
-✔871: 			EnterOuterAlt(_localctx, 1);
-〰872: 			{
-✔873: 			State = 130; Match(QUOTED_STRING);
-〰874: 			}
-✔875: 		}
-‼876: 		catch (RecognitionException re) {
-‼877: 			_localctx.exception = re;
-‼878: 			ErrorHandler.ReportError(this, re);
-‼879: 			ErrorHandler.Recover(this, re);
-‼880: 		}
-〰881: 		finally {
-✔882: 			ExitRule();
-✔883: 		}
-✔884: 		return _localctx;
-〰885: 	}
-〰886: 
-〰887: 	public partial class FunctionContext : ParserRuleContext {
-〰888: 		public IdentityContext identity() {
-✔889: 			return GetRuleContext<IdentityContext>(0);
-〰890: 		}
-〰891: 		public FunctionParameterContext[] functionParameter() {
-✔892: 			return GetRuleContexts<FunctionParameterContext>();
+〰416: 		[System.Diagnostics.DebuggerNonUserCode] public StringContext @string(int i) {
+‼417: 			return GetRuleContext<StringContext>(i);
+〰418: 		}
+〰419: 		[System.Diagnostics.DebuggerNonUserCode] public RangeContext range() {
+✔420: 			return GetRuleContext<RangeContext>(0);
+〰421: 		}
+〰422: 		[System.Diagnostics.DebuggerNonUserCode] public FunctionContext function() {
+✔423: 			return GetRuleContext<FunctionContext>(0);
+〰424: 		}
+〰425: 		public BracketContext(ParserRuleContext parent, int invokingState)
+✔426: 			: base(parent, invokingState)
+〰427: 		{
+✔428: 		}
+‼429: 		public override int RuleIndex { get { return RULE_bracket; } }
+〰430: 		[System.Diagnostics.DebuggerNonUserCode]
+〰431: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔432: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠433: 			if (typedVisitor != null) return typedVisitor.VisitBracket(this);
+‼434: 			else return visitor.VisitChildren(this);
+〰435: 		}
+〰436: 	}
+〰437: 
+〰438: 	[RuleVersion(0)]
+〰439: 	public BracketContext bracket() {
+✔440: 		BracketContext _localctx = new BracketContext(Context, State);
+✔441: 		EnterRule(_localctx, 10, RULE_bracket);
+〰442: 		int _la;
+〰443: 		try {
+✔444: 			State = 88;
+✔445: 			ErrorHandler.Sync(this);
+⚠446: 			switch ( Interpreter.AdaptivePredict(TokenStream,7,Context) ) {
+〰447: 			case 1:
+✔448: 				EnterOuterAlt(_localctx, 1);
+〰449: 				{
+✔450: 				State = 56;
+✔451: 				Match(T__0);
+✔452: 				State = 57;
+✔453: 				Match(WILDCARD);
+✔454: 				State = 58;
+✔455: 				Match(T__1);
+〰456: 				}
+✔457: 				break;
+〰458: 			case 2:
+✔459: 				EnterOuterAlt(_localctx, 2);
+〰460: 				{
+✔461: 				State = 59;
+✔462: 				Match(T__0);
+✔463: 				State = 60;
+✔464: 				Match(NUMBER);
+✔465: 				State = 65;
+✔466: 				ErrorHandler.Sync(this);
+✔467: 				_la = TokenStream.LA(1);
+✔468: 				while (_la==T__2) {
+〰469: 					{
+〰470: 					{
+✔471: 					State = 61;
+✔472: 					Match(T__2);
+✔473: 					State = 62;
+✔474: 					Match(NUMBER);
+〰475: 					}
+〰476: 					}
+✔477: 					State = 67;
+✔478: 					ErrorHandler.Sync(this);
+✔479: 					_la = TokenStream.LA(1);
+〰480: 				}
+✔481: 				State = 68;
+✔482: 				Match(T__1);
+〰483: 				}
+✔484: 				break;
+〰485: 			case 3:
+✔486: 				EnterOuterAlt(_localctx, 3);
+〰487: 				{
+✔488: 				State = 69;
+✔489: 				Match(T__0);
+✔490: 				State = 70;
+✔491: 				@string();
+✔492: 				State = 75;
+✔493: 				ErrorHandler.Sync(this);
+✔494: 				_la = TokenStream.LA(1);
+✔495: 				while (_la==T__2) {
+〰496: 					{
+〰497: 					{
+✔498: 					State = 71;
+✔499: 					Match(T__2);
+✔500: 					State = 72;
+✔501: 					@string();
+〰502: 					}
+〰503: 					}
+✔504: 					State = 77;
+✔505: 					ErrorHandler.Sync(this);
+✔506: 					_la = TokenStream.LA(1);
+〰507: 				}
+✔508: 				State = 78;
+✔509: 				Match(T__1);
+〰510: 				}
+✔511: 				break;
+〰512: 			case 4:
+✔513: 				EnterOuterAlt(_localctx, 4);
+〰514: 				{
+✔515: 				State = 80;
+✔516: 				Match(T__0);
+✔517: 				State = 81;
+✔518: 				range();
+✔519: 				State = 82;
+✔520: 				Match(T__1);
+〰521: 				}
+✔522: 				break;
+〰523: 			case 5:
+‼524: 				EnterOuterAlt(_localctx, 5);
+〰525: 				{
+‼526: 				State = 84;
+‼527: 				Match(T__0);
+‼528: 				State = 85;
+‼529: 				function();
+‼530: 				State = 86;
+‼531: 				Match(T__1);
+〰532: 				}
+〰533: 				break;
+〰534: 			}
+✔535: 		}
+✔536: 		catch (RecognitionException re) {
+✔537: 			_localctx.exception = re;
+✔538: 			ErrorHandler.ReportError(this, re);
+✔539: 			ErrorHandler.Recover(this, re);
+‼540: 		}
+〰541: 		finally {
+✔542: 			ExitRule();
+✔543: 		}
+✔544: 		return _localctx;
+〰545: 	}
+〰546: 
+〰547: 	public partial class FilterContext : ParserRuleContext {
+〰548: 		[System.Diagnostics.DebuggerNonUserCode] public QueryContext query() {
+✔549: 			return GetRuleContext<QueryContext>(0);
+〰550: 		}
+〰551: 		public FilterContext(ParserRuleContext parent, int invokingState)
+✔552: 			: base(parent, invokingState)
+〰553: 		{
+✔554: 		}
+‼555: 		public override int RuleIndex { get { return RULE_filter; } }
+〰556: 		[System.Diagnostics.DebuggerNonUserCode]
+〰557: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔558: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠559: 			if (typedVisitor != null) return typedVisitor.VisitFilter(this);
+‼560: 			else return visitor.VisitChildren(this);
+〰561: 		}
+〰562: 	}
+〰563: 
+〰564: 	[RuleVersion(0)]
+〰565: 	public FilterContext filter() {
+✔566: 		FilterContext _localctx = new FilterContext(Context, State);
+✔567: 		EnterRule(_localctx, 12, RULE_filter);
+〰568: 		try {
+✔569: 			EnterOuterAlt(_localctx, 1);
+〰570: 			{
+✔571: 			State = 90;
+✔572: 			Match(T__0);
+✔573: 			State = 91;
+✔574: 			Match(T__3);
+✔575: 			State = 92;
+✔576: 			query(0);
+✔577: 			State = 93;
+✔578: 			Match(T__4);
+✔579: 			State = 94;
+✔580: 			Match(T__1);
+〰581: 			}
+✔582: 		}
+‼583: 		catch (RecognitionException re) {
+‼584: 			_localctx.exception = re;
+‼585: 			ErrorHandler.ReportError(this, re);
+‼586: 			ErrorHandler.Recover(this, re);
+‼587: 		}
+〰588: 		finally {
+✔589: 			ExitRule();
+✔590: 		}
+✔591: 		return _localctx;
+〰592: 	}
+〰593: 
+〰594: 	public partial class RangeContext : ParserRuleContext {
+〰595: 		public IToken rangeStart;
+〰596: 		public IToken rangeEnd;
+〰597: 		public IToken rangeStep;
+‼598: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] NUMBER() { return GetTokens(JsonPathParser.NUMBER); }
+〰599: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NUMBER(int i) {
+‼600: 			return GetToken(JsonPathParser.NUMBER, i);
+〰601: 		}
+〰602: 		public RangeContext(ParserRuleContext parent, int invokingState)
+✔603: 			: base(parent, invokingState)
+〰604: 		{
+✔605: 		}
+‼606: 		public override int RuleIndex { get { return RULE_range; } }
+〰607: 		[System.Diagnostics.DebuggerNonUserCode]
+〰608: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔609: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠610: 			if (typedVisitor != null) return typedVisitor.VisitRange(this);
+‼611: 			else return visitor.VisitChildren(this);
+〰612: 		}
+〰613: 	}
+〰614: 
+〰615: 	[RuleVersion(0)]
+〰616: 	public RangeContext range() {
+✔617: 		RangeContext _localctx = new RangeContext(Context, State);
+✔618: 		EnterRule(_localctx, 14, RULE_range);
+〰619: 		int _la;
+〰620: 		try {
+✔621: 			EnterOuterAlt(_localctx, 1);
+〰622: 			{
+✔623: 			State = 97;
+✔624: 			ErrorHandler.Sync(this);
+✔625: 			_la = TokenStream.LA(1);
+✔626: 			if (_la==NUMBER) {
+〰627: 				{
+✔628: 				State = 96;
+✔629: 				_localctx.rangeStart = Match(NUMBER);
+〰630: 				}
+〰631: 			}
+〰632: 
+✔633: 			State = 99;
+✔634: 			Match(T__5);
+✔635: 			State = 101;
+✔636: 			ErrorHandler.Sync(this);
+✔637: 			_la = TokenStream.LA(1);
+✔638: 			if (_la==NUMBER) {
+〰639: 				{
+✔640: 				State = 100;
+✔641: 				_localctx.rangeEnd = Match(NUMBER);
+〰642: 				}
+〰643: 			}
+〰644: 
+✔645: 			State = 105;
+✔646: 			ErrorHandler.Sync(this);
+✔647: 			_la = TokenStream.LA(1);
+✔648: 			if (_la==T__5) {
+〰649: 				{
+✔650: 				State = 103;
+✔651: 				Match(T__5);
+✔652: 				State = 104;
+✔653: 				_localctx.rangeStep = Match(NUMBER);
+〰654: 				}
+〰655: 			}
+〰656: 
+〰657: 			}
+✔658: 		}
+‼659: 		catch (RecognitionException re) {
+‼660: 			_localctx.exception = re;
+‼661: 			ErrorHandler.ReportError(this, re);
+‼662: 			ErrorHandler.Recover(this, re);
+‼663: 		}
+〰664: 		finally {
+✔665: 			ExitRule();
+✔666: 		}
+✔667: 		return _localctx;
+〰668: 	}
+〰669: 
+〰670: 	public partial class OperandContext : ParserRuleContext {
+〰671: 		[System.Diagnostics.DebuggerNonUserCode] public PathContext path() {
+✔672: 			return GetRuleContext<PathContext>(0);
+〰673: 		}
+〰674: 		[System.Diagnostics.DebuggerNonUserCode] public StringContext @string() {
+✔675: 			return GetRuleContext<StringContext>(0);
+〰676: 		}
+✔677: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NUMBER() { return GetToken(JsonPathParser.NUMBER, 0); }
+〰678: 		public OperandContext(ParserRuleContext parent, int invokingState)
+✔679: 			: base(parent, invokingState)
+〰680: 		{
+✔681: 		}
+‼682: 		public override int RuleIndex { get { return RULE_operand; } }
+〰683: 		[System.Diagnostics.DebuggerNonUserCode]
+〰684: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔685: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠686: 			if (typedVisitor != null) return typedVisitor.VisitOperand(this);
+‼687: 			else return visitor.VisitChildren(this);
+〰688: 		}
+〰689: 	}
+〰690: 
+〰691: 	[RuleVersion(0)]
+〰692: 	public OperandContext operand() {
+✔693: 		OperandContext _localctx = new OperandContext(Context, State);
+✔694: 		EnterRule(_localctx, 16, RULE_operand);
+〰695: 		try {
+✔696: 			State = 110;
+✔697: 			ErrorHandler.Sync(this);
+⚠698: 			switch (TokenStream.LA(1)) {
+〰699: 			case RELATIVE:
+〰700: 			case ROOT:
+〰701: 			case IDENTITY:
+✔702: 				EnterOuterAlt(_localctx, 1);
+〰703: 				{
+✔704: 				State = 107;
+✔705: 				path();
+〰706: 				}
+✔707: 				break;
+〰708: 			case QUOTED_STRING:
+✔709: 				EnterOuterAlt(_localctx, 2);
+〰710: 				{
+✔711: 				State = 108;
+✔712: 				@string();
+〰713: 				}
+✔714: 				break;
+〰715: 			case NUMBER:
+✔716: 				EnterOuterAlt(_localctx, 3);
+〰717: 				{
+✔718: 				State = 109;
+✔719: 				Match(NUMBER);
+〰720: 				}
+✔721: 				break;
+〰722: 			default:
+‼723: 				throw new NoViableAltException(this);
+〰724: 			}
+✔725: 		}
+‼726: 		catch (RecognitionException re) {
+‼727: 			_localctx.exception = re;
+‼728: 			ErrorHandler.ReportError(this, re);
+‼729: 			ErrorHandler.Recover(this, re);
+‼730: 		}
+〰731: 		finally {
+✔732: 			ExitRule();
+✔733: 		}
+✔734: 		return _localctx;
+〰735: 	}
+〰736: 
+〰737: 	public partial class QueryContext : ParserRuleContext {
+〰738: 		public QueryContext(ParserRuleContext parent, int invokingState)
+✔739: 			: base(parent, invokingState)
+〰740: 		{
+✔741: 		}
+‼742: 		public override int RuleIndex { get { return RULE_query; } }
+〰743: 
+✔744: 		public QueryContext() { }
+〰745: 		public virtual void CopyFrom(QueryContext context) {
+✔746: 			base.CopyFrom(context);
+✔747: 		}
+〰748: 	}
+〰749: 	public partial class QueryLogicalContext : QueryContext {
+〰750: 		public QueryContext relationLeft;
+〰751: 		public QueryContext relationRight;
+✔752: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LOGICAL() { return GetToken(JsonPathParser.LOGICAL, 0); }
+〰753: 		[System.Diagnostics.DebuggerNonUserCode] public QueryContext[] query() {
+‼754: 			return GetRuleContexts<QueryContext>();
+〰755: 		}
+〰756: 		[System.Diagnostics.DebuggerNonUserCode] public QueryContext query(int i) {
+‼757: 			return GetRuleContext<QueryContext>(i);
+〰758: 		}
+✔759: 		public QueryLogicalContext(QueryContext context) { CopyFrom(context); }
+〰760: 		[System.Diagnostics.DebuggerNonUserCode]
+〰761: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔762: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠763: 			if (typedVisitor != null) return typedVisitor.VisitQueryLogical(this);
+‼764: 			else return visitor.VisitChildren(this);
+〰765: 		}
+〰766: 	}
+〰767: 	public partial class QueryRelationalContext : QueryContext {
+〰768: 		public OperandContext relationLeft;
+〰769: 		public OperandContext relationRight;
+✔770: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode RELATIONAL() { return GetToken(JsonPathParser.RELATIONAL, 0); }
+〰771: 		[System.Diagnostics.DebuggerNonUserCode] public OperandContext[] operand() {
+‼772: 			return GetRuleContexts<OperandContext>();
+〰773: 		}
+〰774: 		[System.Diagnostics.DebuggerNonUserCode] public OperandContext operand(int i) {
+‼775: 			return GetRuleContext<OperandContext>(i);
+〰776: 		}
+✔777: 		public QueryRelationalContext(QueryContext context) { CopyFrom(context); }
+〰778: 		[System.Diagnostics.DebuggerNonUserCode]
+〰779: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔780: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠781: 			if (typedVisitor != null) return typedVisitor.VisitQueryRelational(this);
+‼782: 			else return visitor.VisitChildren(this);
+〰783: 		}
+〰784: 	}
+〰785: 	public partial class QueryPathContext : QueryContext {
+〰786: 		[System.Diagnostics.DebuggerNonUserCode] public PathContext path() {
+✔787: 			return GetRuleContext<PathContext>(0);
+〰788: 		}
+✔789: 		public QueryPathContext(QueryContext context) { CopyFrom(context); }
+〰790: 		[System.Diagnostics.DebuggerNonUserCode]
+〰791: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔792: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠793: 			if (typedVisitor != null) return typedVisitor.VisitQueryPath(this);
+‼794: 			else return visitor.VisitChildren(this);
+〰795: 		}
+〰796: 	}
+〰797: 
+〰798: 	[RuleVersion(0)]
+〰799: 	public QueryContext query() {
+‼800: 		return query(0);
+〰801: 	}
+〰802: 
+〰803: 	private QueryContext query(int _p) {
+✔804: 		ParserRuleContext _parentctx = Context;
+✔805: 		int _parentState = State;
+✔806: 		QueryContext _localctx = new QueryContext(Context, _parentState);
+✔807: 		QueryContext _prevctx = _localctx;
+✔808: 		int _startState = 18;
+✔809: 		EnterRecursionRule(_localctx, 18, RULE_query, _p);
+〰810: 		try {
+〰811: 			int _alt;
+✔812: 			EnterOuterAlt(_localctx, 1);
+〰813: 			{
+✔814: 			State = 118;
+✔815: 			ErrorHandler.Sync(this);
+✔816: 			switch ( Interpreter.AdaptivePredict(TokenStream,12,Context) ) {
+〰817: 			case 1:
+〰818: 				{
+✔819: 				_localctx = new QueryPathContext(_localctx);
+✔820: 				Context = _localctx;
+✔821: 				_prevctx = _localctx;
+〰822: 
+✔823: 				State = 113;
+✔824: 				path();
+〰825: 				}
+✔826: 				break;
+〰827: 			case 2:
+〰828: 				{
+✔829: 				_localctx = new QueryRelationalContext(_localctx);
+✔830: 				Context = _localctx;
+✔831: 				_prevctx = _localctx;
+✔832: 				State = 114;
+✔833: 				((QueryRelationalContext)_localctx).relationLeft = operand();
+✔834: 				State = 115;
+✔835: 				Match(RELATIONAL);
+✔836: 				State = 116;
+✔837: 				((QueryRelationalContext)_localctx).relationRight = operand();
+〰838: 				}
+〰839: 				break;
+〰840: 			}
+✔841: 			Context.Stop = TokenStream.LT(-1);
+✔842: 			State = 125;
+✔843: 			ErrorHandler.Sync(this);
+✔844: 			_alt = Interpreter.AdaptivePredict(TokenStream,13,Context);
+✔845: 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
+✔846: 				if ( _alt==1 ) {
+✔847: 					if ( ParseListeners!=null )
+✔848: 						TriggerExitRuleEvent();
+✔849: 					_prevctx = _localctx;
+〰850: 					{
+〰851: 					{
+✔852: 					_localctx = new QueryLogicalContext(new QueryContext(_parentctx, _parentState));
+✔853: 					((QueryLogicalContext)_localctx).relationLeft = _prevctx;
+✔854: 					PushNewRecursionContext(_localctx, _startState, RULE_query);
+✔855: 					State = 120;
+⚠856: 					if (!(Precpred(Context, 1))) throw new FailedPredicateException(this, "Precpred(Context, 1)");
+✔857: 					State = 121;
+✔858: 					Match(LOGICAL);
+✔859: 					State = 122;
+✔860: 					((QueryLogicalContext)_localctx).relationRight = query(2);
+〰861: 					}
+〰862: 					}
+〰863: 				}
+✔864: 				State = 127;
+✔865: 				ErrorHandler.Sync(this);
+✔866: 				_alt = Interpreter.AdaptivePredict(TokenStream,13,Context);
+〰867: 			}
+〰868: 			}
+✔869: 		}
+‼870: 		catch (RecognitionException re) {
+‼871: 			_localctx.exception = re;
+‼872: 			ErrorHandler.ReportError(this, re);
+‼873: 			ErrorHandler.Recover(this, re);
+‼874: 		}
+〰875: 		finally {
+✔876: 			UnrollRecursionContexts(_parentctx);
+✔877: 		}
+✔878: 		return _localctx;
+〰879: 	}
+〰880: 
+〰881: 	public partial class IdentityContext : ParserRuleContext {
+✔882: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IDENTITY() { return GetToken(JsonPathParser.IDENTITY, 0); }
+〰883: 		public IdentityContext(ParserRuleContext parent, int invokingState)
+✔884: 			: base(parent, invokingState)
+〰885: 		{
+✔886: 		}
+‼887: 		public override int RuleIndex { get { return RULE_identity; } }
+〰888: 		[System.Diagnostics.DebuggerNonUserCode]
+〰889: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔890: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠891: 			if (typedVisitor != null) return typedVisitor.VisitIdentity(this);
+‼892: 			else return visitor.VisitChildren(this);
 〰893: 		}
-〰894: 		public FunctionParameterContext functionParameter(int i) {
-‼895: 			return GetRuleContext<FunctionParameterContext>(i);
-〰896: 		}
-〰897: 		public FunctionContext(ParserRuleContext parent, int invokingState)
-✔898: 			: base(parent, invokingState)
-〰899: 		{
-✔900: 		}
-‼901: 		public override int RuleIndex { get { return RULE_function; } }
-〰902: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔903: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠904: 			if (typedVisitor != null) return typedVisitor.VisitFunction(this);
-‼905: 			else return visitor.VisitChildren(this);
-〰906: 		}
-〰907: 	}
-〰908: 
-〰909: 	[RuleVersion(0)]
-〰910: 	public FunctionContext function() {
-✔911: 		FunctionContext _localctx = new FunctionContext(Context, State);
-✔912: 		EnterRule(_localctx, 24, RULE_function);
-〰913: 		int _la;
-〰914: 		try {
-✔915: 			State = 147;
-✔916: 			ErrorHandler.Sync(this);
-✔917: 			switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
-〰918: 			case 1:
-✔919: 				EnterOuterAlt(_localctx, 1);
-〰920: 				{
-✔921: 				State = 132; identity();
-✔922: 				State = 133; Match(T__6);
-〰923: 				}
-✔924: 				break;
-〰925: 			case 2:
-✔926: 				EnterOuterAlt(_localctx, 2);
-〰927: 				{
-✔928: 				State = 135; identity();
-✔929: 				State = 136; Match(T__7);
-✔930: 				State = 137; functionParameter();
-✔931: 				State = 142;
-✔932: 				ErrorHandler.Sync(this);
-✔933: 				_la = TokenStream.LA(1);
-✔934: 				while (_la==T__2) {
-〰935: 					{
-〰936: 					{
-✔937: 					State = 138; Match(T__2);
-✔938: 					State = 139; functionParameter();
-〰939: 					}
-〰940: 					}
-✔941: 					State = 144;
-✔942: 					ErrorHandler.Sync(this);
-✔943: 					_la = TokenStream.LA(1);
-〰944: 				}
-✔945: 				State = 145; Match(T__4);
-〰946: 				}
-〰947: 				break;
-〰948: 			}
-✔949: 		}
-‼950: 		catch (RecognitionException re) {
-‼951: 			_localctx.exception = re;
-‼952: 			ErrorHandler.ReportError(this, re);
-‼953: 			ErrorHandler.Recover(this, re);
-‼954: 		}
-〰955: 		finally {
-✔956: 			ExitRule();
-✔957: 		}
-✔958: 		return _localctx;
-〰959: 	}
-〰960: 
-〰961: 	public partial class FunctionParameterContext : ParserRuleContext {
-〰962: 		public OperandContext operand() {
-✔963: 			return GetRuleContext<OperandContext>(0);
+〰894: 	}
+〰895: 
+〰896: 	[RuleVersion(0)]
+〰897: 	public IdentityContext identity() {
+✔898: 		IdentityContext _localctx = new IdentityContext(Context, State);
+✔899: 		EnterRule(_localctx, 20, RULE_identity);
+〰900: 		try {
+✔901: 			EnterOuterAlt(_localctx, 1);
+〰902: 			{
+✔903: 			State = 128;
+✔904: 			Match(IDENTITY);
+〰905: 			}
+✔906: 		}
+‼907: 		catch (RecognitionException re) {
+‼908: 			_localctx.exception = re;
+‼909: 			ErrorHandler.ReportError(this, re);
+‼910: 			ErrorHandler.Recover(this, re);
+‼911: 		}
+〰912: 		finally {
+✔913: 			ExitRule();
+✔914: 		}
+✔915: 		return _localctx;
+〰916: 	}
+〰917: 
+〰918: 	public partial class StringContext : ParserRuleContext {
+✔919: 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode QUOTED_STRING() { return GetToken(JsonPathParser.QUOTED_STRING, 0); }
+〰920: 		public StringContext(ParserRuleContext parent, int invokingState)
+✔921: 			: base(parent, invokingState)
+〰922: 		{
+✔923: 		}
+‼924: 		public override int RuleIndex { get { return RULE_string; } }
+〰925: 		[System.Diagnostics.DebuggerNonUserCode]
+〰926: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔927: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠928: 			if (typedVisitor != null) return typedVisitor.VisitString(this);
+‼929: 			else return visitor.VisitChildren(this);
+〰930: 		}
+〰931: 	}
+〰932: 
+〰933: 	[RuleVersion(0)]
+〰934: 	public StringContext @string() {
+✔935: 		StringContext _localctx = new StringContext(Context, State);
+✔936: 		EnterRule(_localctx, 22, RULE_string);
+〰937: 		try {
+✔938: 			EnterOuterAlt(_localctx, 1);
+〰939: 			{
+✔940: 			State = 130;
+✔941: 			Match(QUOTED_STRING);
+〰942: 			}
+✔943: 		}
+‼944: 		catch (RecognitionException re) {
+‼945: 			_localctx.exception = re;
+‼946: 			ErrorHandler.ReportError(this, re);
+‼947: 			ErrorHandler.Recover(this, re);
+‼948: 		}
+〰949: 		finally {
+✔950: 			ExitRule();
+✔951: 		}
+✔952: 		return _localctx;
+〰953: 	}
+〰954: 
+〰955: 	public partial class FunctionContext : ParserRuleContext {
+〰956: 		[System.Diagnostics.DebuggerNonUserCode] public IdentityContext identity() {
+✔957: 			return GetRuleContext<IdentityContext>(0);
+〰958: 		}
+〰959: 		[System.Diagnostics.DebuggerNonUserCode] public FunctionParameterContext[] functionParameter() {
+✔960: 			return GetRuleContexts<FunctionParameterContext>();
+〰961: 		}
+〰962: 		[System.Diagnostics.DebuggerNonUserCode] public FunctionParameterContext functionParameter(int i) {
+‼963: 			return GetRuleContext<FunctionParameterContext>(i);
 〰964: 		}
-〰965: 		public PathBaseContext pathBase() {
-✔966: 			return GetRuleContext<PathBaseContext>(0);
-〰967: 		}
-✔968: 		public ITerminalNode DECIMAL() { return GetToken(JsonPathParser.DECIMAL, 0); }
-〰969: 		public FunctionParameterContext(ParserRuleContext parent, int invokingState)
-✔970: 			: base(parent, invokingState)
-〰971: 		{
-✔972: 		}
-‼973: 		public override int RuleIndex { get { return RULE_functionParameter; } }
-〰974: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-✔975: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
-⚠976: 			if (typedVisitor != null) return typedVisitor.VisitFunctionParameter(this);
-‼977: 			else return visitor.VisitChildren(this);
-〰978: 		}
-〰979: 	}
-〰980: 
-〰981: 	[RuleVersion(0)]
-〰982: 	public FunctionParameterContext functionParameter() {
-✔983: 		FunctionParameterContext _localctx = new FunctionParameterContext(Context, State);
-✔984: 		EnterRule(_localctx, 26, RULE_functionParameter);
-〰985: 		try {
-✔986: 			State = 152;
-✔987: 			ErrorHandler.Sync(this);
-✔988: 			switch ( Interpreter.AdaptivePredict(TokenStream,16,Context) ) {
-〰989: 			case 1:
-✔990: 				EnterOuterAlt(_localctx, 1);
-〰991: 				{
-✔992: 				State = 149; operand();
-〰993: 				}
-✔994: 				break;
-〰995: 			case 2:
-✔996: 				EnterOuterAlt(_localctx, 2);
-〰997: 				{
-✔998: 				State = 150; pathBase();
-〰999: 				}
-✔1000:				break;
-〰1001:			case 3:
-✔1002:				EnterOuterAlt(_localctx, 3);
-〰1003:				{
-✔1004:				State = 151; Match(DECIMAL);
-〰1005:				}
-〰1006:				break;
-〰1007:			}
-✔1008:		}
-‼1009:		catch (RecognitionException re) {
-‼1010:			_localctx.exception = re;
-‼1011:			ErrorHandler.ReportError(this, re);
-‼1012:			ErrorHandler.Recover(this, re);
-‼1013:		}
-〰1014:		finally {
-✔1015:			ExitRule();
-✔1016:		}
-✔1017:		return _localctx;
-〰1018:	}
-〰1019:
-〰1020:	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
-〰1021:		switch (ruleIndex) {
-‼1022:		case 9: return query_sempred((QueryContext)_localctx, predIndex);
-〰1023:		}
-‼1024:		return true;
-〰1025:	}
-〰1026:	private bool query_sempred(QueryContext _localctx, int predIndex) {
-〰1027:		switch (predIndex) {
-‼1028:		case 0: return Precpred(Context, 1);
-〰1029:		}
-‼1030:		return true;
-〰1031:	}
-〰1032:
-✔1033:	private static char[] _serializedATN = {
-✔1034:		'\x3', '\x608B', '\xA72A', '\x8133', '\xB9ED', '\x417C', '\x3BE7', '\x7786',
-✔1035:		'\x5964', '\x3', '\x16', '\x9D', '\x4', '\x2', '\t', '\x2', '\x4', '\x3',
-✔1036:		'\t', '\x3', '\x4', '\x4', '\t', '\x4', '\x4', '\x5', '\t', '\x5', '\x4',
-✔1037:		'\x6', '\t', '\x6', '\x4', '\a', '\t', '\a', '\x4', '\b', '\t', '\b',
-✔1038:		'\x4', '\t', '\t', '\t', '\x4', '\n', '\t', '\n', '\x4', '\v', '\t', '\v',
-✔1039:		'\x4', '\f', '\t', '\f', '\x4', '\r', '\t', '\r', '\x4', '\xE', '\t',
-✔1040:		'\xE', '\x4', '\xF', '\t', '\xF', '\x3', '\x2', '\x3', '\x2', '\x3', '\x2',
-✔1041:		'\x3', '\x3', '\x3', '\x3', '\x3', '\x3', '\x3', '\x3', '\x5', '\x3',
-✔1042:		'&', '\n', '\x3', '\x3', '\x4', '\x3', '\x4', '\x3', '\x5', '\x3', '\x5',
-✔1043:		'\x5', '\x5', ',', '\n', '\x5', '\x3', '\x6', '\x5', '\x6', '/', '\n',
-✔1044:		'\x6', '\x3', '\x6', '\x3', '\x6', '\x3', '\x6', '\x3', '\x6', '\x3',
-✔1045:		'\x6', '\x5', '\x6', '\x36', '\n', '\x6', '\x3', '\x6', '\x5', '\x6',
-✔1046:		'\x39', '\n', '\x6', '\x3', '\a', '\x3', '\a', '\x3', '\a', '\x3', '\a',
-✔1047:		'\x3', '\a', '\x3', '\a', '\x3', '\a', '\a', '\a', '\x42', '\n', '\a',
-✔1048:		'\f', '\a', '\xE', '\a', '\x45', '\v', '\a', '\x3', '\a', '\x3', '\a',
-✔1049:		'\x3', '\a', '\x3', '\a', '\x3', '\a', '\a', '\a', 'L', '\n', '\a', '\f',
-✔1050:		'\a', '\xE', '\a', 'O', '\v', '\a', '\x3', '\a', '\x3', '\a', '\x3', '\a',
-✔1051:		'\x3', '\a', '\x3', '\a', '\x3', '\a', '\x3', '\a', '\x3', '\a', '\x3',
-✔1052:		'\a', '\x3', '\a', '\x5', '\a', '[', '\n', '\a', '\x3', '\b', '\x3', '\b',
-✔1053:		'\x3', '\b', '\x3', '\b', '\x3', '\b', '\x3', '\b', '\x3', '\t', '\x5',
-✔1054:		'\t', '\x64', '\n', '\t', '\x3', '\t', '\x3', '\t', '\x5', '\t', 'h',
-✔1055:		'\n', '\t', '\x3', '\t', '\x3', '\t', '\x5', '\t', 'l', '\n', '\t', '\x3',
-✔1056:		'\n', '\x3', '\n', '\x3', '\n', '\x5', '\n', 'q', '\n', '\n', '\x3', '\v',
-✔1057:		'\x3', '\v', '\x3', '\v', '\x3', '\v', '\x3', '\v', '\x3', '\v', '\x5',
-✔1058:		'\v', 'y', '\n', '\v', '\x3', '\v', '\x3', '\v', '\x3', '\v', '\a', '\v',
-✔1059:		'~', '\n', '\v', '\f', '\v', '\xE', '\v', '\x81', '\v', '\v', '\x3', '\f',
-✔1060:		'\x3', '\f', '\x3', '\r', '\x3', '\r', '\x3', '\xE', '\x3', '\xE', '\x3',
-✔1061:		'\xE', '\x3', '\xE', '\x3', '\xE', '\x3', '\xE', '\x3', '\xE', '\x3',
-✔1062:		'\xE', '\a', '\xE', '\x8F', '\n', '\xE', '\f', '\xE', '\xE', '\xE', '\x92',
-✔1063:		'\v', '\xE', '\x3', '\xE', '\x3', '\xE', '\x5', '\xE', '\x96', '\n', '\xE',
-✔1064:		'\x3', '\xF', '\x3', '\xF', '\x3', '\xF', '\x5', '\xF', '\x9B', '\n',
-✔1065:		'\xF', '\x3', '\xF', '\x2', '\x3', '\x14', '\x10', '\x2', '\x4', '\x6',
-✔1066:		'\b', '\n', '\f', '\xE', '\x10', '\x12', '\x14', '\x16', '\x18', '\x1A',
-✔1067:		'\x1C', '\x2', '\x3', '\x3', '\x2', '\x11', '\x12', '\x2', '\xA7', '\x2',
-✔1068:		'\x1E', '\x3', '\x2', '\x2', '\x2', '\x4', '%', '\x3', '\x2', '\x2', '\x2',
-✔1069:		'\x6', '\'', '\x3', '\x2', '\x2', '\x2', '\b', ')', '\x3', '\x2', '\x2',
-✔1070:		'\x2', '\n', '\x38', '\x3', '\x2', '\x2', '\x2', '\f', 'Z', '\x3', '\x2',
-✔1071:		'\x2', '\x2', '\xE', '\\', '\x3', '\x2', '\x2', '\x2', '\x10', '\x63',
-✔1072:		'\x3', '\x2', '\x2', '\x2', '\x12', 'p', '\x3', '\x2', '\x2', '\x2', '\x14',
-✔1073:		'x', '\x3', '\x2', '\x2', '\x2', '\x16', '\x82', '\x3', '\x2', '\x2',
-✔1074:		'\x2', '\x18', '\x84', '\x3', '\x2', '\x2', '\x2', '\x1A', '\x95', '\x3',
-✔1075:		'\x2', '\x2', '\x2', '\x1C', '\x9A', '\x3', '\x2', '\x2', '\x2', '\x1E',
-✔1076:		'\x1F', '\x5', '\x4', '\x3', '\x2', '\x1F', ' ', '\a', '\x2', '\x2', '\x3',
-✔1077:		' ', '\x3', '\x3', '\x2', '\x2', '\x2', '!', '\"', '\x5', '\x6', '\x4',
-✔1078:		'\x2', '\"', '#', '\x5', '\b', '\x5', '\x2', '#', '&', '\x3', '\x2', '\x2',
-✔1079:		'\x2', '$', '&', '\x5', '\x1A', '\xE', '\x2', '%', '!', '\x3', '\x2',
-✔1080:		'\x2', '\x2', '%', '$', '\x3', '\x2', '\x2', '\x2', '&', '\x5', '\x3',
-✔1081:		'\x2', '\x2', '\x2', '\'', '(', '\t', '\x2', '\x2', '\x2', '(', '\a',
-✔1082:		'\x3', '\x2', '\x2', '\x2', ')', '+', '\x5', '\n', '\x6', '\x2', '*',
-✔1083:		',', '\x5', '\b', '\x5', '\x2', '+', '*', '\x3', '\x2', '\x2', '\x2',
-✔1084:		'+', ',', '\x3', '\x2', '\x2', '\x2', ',', '\t', '\x3', '\x2', '\x2',
-✔1085:		'\x2', '-', '/', '\a', '\xE', '\x2', '\x2', '.', '-', '\x3', '\x2', '\x2',
-✔1086:		'\x2', '.', '/', '\x3', '\x2', '\x2', '\x2', '/', '\x35', '\x3', '\x2',
-✔1087:		'\x2', '\x2', '\x30', '\x36', '\a', '\xF', '\x2', '\x2', '\x31', '\x36',
-✔1088:		'\x5', '\x16', '\f', '\x2', '\x32', '\x36', '\x5', '\f', '\a', '\x2',
-✔1089:		'\x33', '\x36', '\x5', '\xE', '\b', '\x2', '\x34', '\x36', '\x5', '\x1A',
-✔1090:		'\xE', '\x2', '\x35', '\x30', '\x3', '\x2', '\x2', '\x2', '\x35', '\x31',
-✔1091:		'\x3', '\x2', '\x2', '\x2', '\x35', '\x32', '\x3', '\x2', '\x2', '\x2',
-✔1092:		'\x35', '\x33', '\x3', '\x2', '\x2', '\x2', '\x35', '\x34', '\x3', '\x2',
-✔1093:		'\x2', '\x2', '\x36', '\x39', '\x3', '\x2', '\x2', '\x2', '\x37', '\x39',
-✔1094:		'\a', '\x10', '\x2', '\x2', '\x38', '.', '\x3', '\x2', '\x2', '\x2', '\x38',
-✔1095:		'\x37', '\x3', '\x2', '\x2', '\x2', '\x39', '\v', '\x3', '\x2', '\x2',
-✔1096:		'\x2', ':', ';', '\a', '\x3', '\x2', '\x2', ';', '<', '\a', '\xF', '\x2',
-✔1097:		'\x2', '<', '[', '\a', '\x4', '\x2', '\x2', '=', '>', '\a', '\x3', '\x2',
-✔1098:		'\x2', '>', '\x43', '\a', '\x14', '\x2', '\x2', '?', '@', '\a', '\x5',
-✔1099:		'\x2', '\x2', '@', '\x42', '\a', '\x14', '\x2', '\x2', '\x41', '?', '\x3',
-✔1100:		'\x2', '\x2', '\x2', '\x42', '\x45', '\x3', '\x2', '\x2', '\x2', '\x43',
-✔1101:		'\x41', '\x3', '\x2', '\x2', '\x2', '\x43', '\x44', '\x3', '\x2', '\x2',
-✔1102:		'\x2', '\x44', '\x46', '\x3', '\x2', '\x2', '\x2', '\x45', '\x43', '\x3',
-✔1103:		'\x2', '\x2', '\x2', '\x46', '[', '\a', '\x4', '\x2', '\x2', 'G', 'H',
-✔1104:		'\a', '\x3', '\x2', '\x2', 'H', 'M', '\x5', '\x18', '\r', '\x2', 'I',
-✔1105:		'J', '\a', '\x5', '\x2', '\x2', 'J', 'L', '\x5', '\x18', '\r', '\x2',
-✔1106:		'K', 'I', '\x3', '\x2', '\x2', '\x2', 'L', 'O', '\x3', '\x2', '\x2', '\x2',
-✔1107:		'M', 'K', '\x3', '\x2', '\x2', '\x2', 'M', 'N', '\x3', '\x2', '\x2', '\x2',
-✔1108:		'N', 'P', '\x3', '\x2', '\x2', '\x2', 'O', 'M', '\x3', '\x2', '\x2', '\x2',
-✔1109:		'P', 'Q', '\a', '\x4', '\x2', '\x2', 'Q', '[', '\x3', '\x2', '\x2', '\x2',
-✔1110:		'R', 'S', '\a', '\x3', '\x2', '\x2', 'S', 'T', '\x5', '\x10', '\t', '\x2',
-✔1111:		'T', 'U', '\a', '\x4', '\x2', '\x2', 'U', '[', '\x3', '\x2', '\x2', '\x2',
-✔1112:		'V', 'W', '\a', '\x3', '\x2', '\x2', 'W', 'X', '\x5', '\x1A', '\xE', '\x2',
-✔1113:		'X', 'Y', '\a', '\x4', '\x2', '\x2', 'Y', '[', '\x3', '\x2', '\x2', '\x2',
-✔1114:		'Z', ':', '\x3', '\x2', '\x2', '\x2', 'Z', '=', '\x3', '\x2', '\x2', '\x2',
-✔1115:		'Z', 'G', '\x3', '\x2', '\x2', '\x2', 'Z', 'R', '\x3', '\x2', '\x2', '\x2',
-✔1116:		'Z', 'V', '\x3', '\x2', '\x2', '\x2', '[', '\r', '\x3', '\x2', '\x2',
-✔1117:		'\x2', '\\', ']', '\a', '\x3', '\x2', '\x2', ']', '^', '\a', '\x6', '\x2',
-✔1118:		'\x2', '^', '_', '\x5', '\x14', '\v', '\x2', '_', '`', '\a', '\a', '\x2',
-✔1119:		'\x2', '`', '\x61', '\a', '\x4', '\x2', '\x2', '\x61', '\xF', '\x3', '\x2',
-✔1120:		'\x2', '\x2', '\x62', '\x64', '\a', '\x14', '\x2', '\x2', '\x63', '\x62',
-✔1121:		'\x3', '\x2', '\x2', '\x2', '\x63', '\x64', '\x3', '\x2', '\x2', '\x2',
-✔1122:		'\x64', '\x65', '\x3', '\x2', '\x2', '\x2', '\x65', 'g', '\a', '\b', '\x2',
-✔1123:		'\x2', '\x66', 'h', '\a', '\x14', '\x2', '\x2', 'g', '\x66', '\x3', '\x2',
-✔1124:		'\x2', '\x2', 'g', 'h', '\x3', '\x2', '\x2', '\x2', 'h', 'k', '\x3', '\x2',
-✔1125:		'\x2', '\x2', 'i', 'j', '\a', '\b', '\x2', '\x2', 'j', 'l', '\a', '\x14',
-✔1126:		'\x2', '\x2', 'k', 'i', '\x3', '\x2', '\x2', '\x2', 'k', 'l', '\x3', '\x2',
-✔1127:		'\x2', '\x2', 'l', '\x11', '\x3', '\x2', '\x2', '\x2', 'm', 'q', '\x5',
-✔1128:		'\x4', '\x3', '\x2', 'n', 'q', '\x5', '\x18', '\r', '\x2', 'o', 'q', '\a',
-✔1129:		'\x14', '\x2', '\x2', 'p', 'm', '\x3', '\x2', '\x2', '\x2', 'p', 'n',
-✔1130:		'\x3', '\x2', '\x2', '\x2', 'p', 'o', '\x3', '\x2', '\x2', '\x2', 'q',
-✔1131:		'\x13', '\x3', '\x2', '\x2', '\x2', 'r', 's', '\b', '\v', '\x1', '\x2',
-✔1132:		's', 'y', '\x5', '\x4', '\x3', '\x2', 't', 'u', '\x5', '\x12', '\n', '\x2',
-✔1133:		'u', 'v', '\a', '\r', '\x2', '\x2', 'v', 'w', '\x5', '\x12', '\n', '\x2',
-✔1134:		'w', 'y', '\x3', '\x2', '\x2', '\x2', 'x', 'r', '\x3', '\x2', '\x2', '\x2',
-✔1135:		'x', 't', '\x3', '\x2', '\x2', '\x2', 'y', '\x7F', '\x3', '\x2', '\x2',
-✔1136:		'\x2', 'z', '{', '\f', '\x3', '\x2', '\x2', '{', '|', '\a', '\f', '\x2',
-✔1137:		'\x2', '|', '~', '\x5', '\x14', '\v', '\x4', '}', 'z', '\x3', '\x2', '\x2',
-✔1138:		'\x2', '~', '\x81', '\x3', '\x2', '\x2', '\x2', '\x7F', '}', '\x3', '\x2',
-✔1139:		'\x2', '\x2', '\x7F', '\x80', '\x3', '\x2', '\x2', '\x2', '\x80', '\x15',
-✔1140:		'\x3', '\x2', '\x2', '\x2', '\x81', '\x7F', '\x3', '\x2', '\x2', '\x2',
-✔1141:		'\x82', '\x83', '\a', '\x13', '\x2', '\x2', '\x83', '\x17', '\x3', '\x2',
-✔1142:		'\x2', '\x2', '\x84', '\x85', '\a', '\v', '\x2', '\x2', '\x85', '\x19',
-✔1143:		'\x3', '\x2', '\x2', '\x2', '\x86', '\x87', '\x5', '\x16', '\f', '\x2',
-✔1144:		'\x87', '\x88', '\a', '\t', '\x2', '\x2', '\x88', '\x96', '\x3', '\x2',
-✔1145:		'\x2', '\x2', '\x89', '\x8A', '\x5', '\x16', '\f', '\x2', '\x8A', '\x8B',
-✔1146:		'\a', '\n', '\x2', '\x2', '\x8B', '\x90', '\x5', '\x1C', '\xF', '\x2',
-✔1147:		'\x8C', '\x8D', '\a', '\x5', '\x2', '\x2', '\x8D', '\x8F', '\x5', '\x1C',
-✔1148:		'\xF', '\x2', '\x8E', '\x8C', '\x3', '\x2', '\x2', '\x2', '\x8F', '\x92',
-✔1149:		'\x3', '\x2', '\x2', '\x2', '\x90', '\x8E', '\x3', '\x2', '\x2', '\x2',
-✔1150:		'\x90', '\x91', '\x3', '\x2', '\x2', '\x2', '\x91', '\x93', '\x3', '\x2',
-✔1151:		'\x2', '\x2', '\x92', '\x90', '\x3', '\x2', '\x2', '\x2', '\x93', '\x94',
-✔1152:		'\a', '\a', '\x2', '\x2', '\x94', '\x96', '\x3', '\x2', '\x2', '\x2',
-✔1153:		'\x95', '\x86', '\x3', '\x2', '\x2', '\x2', '\x95', '\x89', '\x3', '\x2',
-✔1154:		'\x2', '\x2', '\x96', '\x1B', '\x3', '\x2', '\x2', '\x2', '\x97', '\x9B',
-✔1155:		'\x5', '\x12', '\n', '\x2', '\x98', '\x9B', '\x5', '\x6', '\x4', '\x2',
-✔1156:		'\x99', '\x9B', '\a', '\x15', '\x2', '\x2', '\x9A', '\x97', '\x3', '\x2',
-✔1157:		'\x2', '\x2', '\x9A', '\x98', '\x3', '\x2', '\x2', '\x2', '\x9A', '\x99',
-✔1158:		'\x3', '\x2', '\x2', '\x2', '\x9B', '\x1D', '\x3', '\x2', '\x2', '\x2',
-✔1159:		'\x13', '%', '+', '.', '\x35', '\x38', '\x43', 'M', 'Z', '\x63', 'g',
-✔1160:		'k', 'p', 'x', '\x7F', '\x90', '\x95', '\x9A',
-✔1161:	};
-〰1162:
-✔1163:	public static readonly ATN _ATN =
-✔1164:		new ATNDeserializer().Deserialize(_serializedATN);
-〰1165:
-〰1166:
-〰1167:}
+〰965: 		public FunctionContext(ParserRuleContext parent, int invokingState)
+✔966: 			: base(parent, invokingState)
+〰967: 		{
+✔968: 		}
+‼969: 		public override int RuleIndex { get { return RULE_function; } }
+〰970: 		[System.Diagnostics.DebuggerNonUserCode]
+〰971: 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔972: 			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠973: 			if (typedVisitor != null) return typedVisitor.VisitFunction(this);
+‼974: 			else return visitor.VisitChildren(this);
+〰975: 		}
+〰976: 	}
+〰977: 
+〰978: 	[RuleVersion(0)]
+〰979: 	public FunctionContext function() {
+✔980: 		FunctionContext _localctx = new FunctionContext(Context, State);
+✔981: 		EnterRule(_localctx, 24, RULE_function);
+〰982: 		int _la;
+〰983: 		try {
+✔984: 			State = 147;
+✔985: 			ErrorHandler.Sync(this);
+✔986: 			switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
+〰987: 			case 1:
+✔988: 				EnterOuterAlt(_localctx, 1);
+〰989: 				{
+✔990: 				State = 132;
+✔991: 				identity();
+✔992: 				State = 133;
+✔993: 				Match(T__6);
+〰994: 				}
+✔995: 				break;
+〰996: 			case 2:
+✔997: 				EnterOuterAlt(_localctx, 2);
+〰998: 				{
+✔999: 				State = 135;
+✔1000:				identity();
+✔1001:				State = 136;
+✔1002:				Match(T__7);
+✔1003:				State = 137;
+✔1004:				functionParameter();
+✔1005:				State = 142;
+✔1006:				ErrorHandler.Sync(this);
+✔1007:				_la = TokenStream.LA(1);
+✔1008:				while (_la==T__2) {
+〰1009:					{
+〰1010:					{
+✔1011:					State = 138;
+✔1012:					Match(T__2);
+✔1013:					State = 139;
+✔1014:					functionParameter();
+〰1015:					}
+〰1016:					}
+✔1017:					State = 144;
+✔1018:					ErrorHandler.Sync(this);
+✔1019:					_la = TokenStream.LA(1);
+〰1020:				}
+✔1021:				State = 145;
+✔1022:				Match(T__4);
+〰1023:				}
+〰1024:				break;
+〰1025:			}
+✔1026:		}
+‼1027:		catch (RecognitionException re) {
+‼1028:			_localctx.exception = re;
+‼1029:			ErrorHandler.ReportError(this, re);
+‼1030:			ErrorHandler.Recover(this, re);
+‼1031:		}
+〰1032:		finally {
+✔1033:			ExitRule();
+✔1034:		}
+✔1035:		return _localctx;
+〰1036:	}
+〰1037:
+〰1038:	public partial class FunctionParameterContext : ParserRuleContext {
+〰1039:		[System.Diagnostics.DebuggerNonUserCode] public OperandContext operand() {
+✔1040:			return GetRuleContext<OperandContext>(0);
+〰1041:		}
+〰1042:		[System.Diagnostics.DebuggerNonUserCode] public PathBaseContext pathBase() {
+✔1043:			return GetRuleContext<PathBaseContext>(0);
+〰1044:		}
+✔1045:		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DECIMAL() { return GetToken(JsonPathParser.DECIMAL, 0); }
+〰1046:		public FunctionParameterContext(ParserRuleContext parent, int invokingState)
+✔1047:			: base(parent, invokingState)
+〰1048:		{
+✔1049:		}
+‼1050:		public override int RuleIndex { get { return RULE_functionParameter; } }
+〰1051:		[System.Diagnostics.DebuggerNonUserCode]
+〰1052:		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+✔1053:			IJsonPathVisitor<TResult> typedVisitor = visitor as IJsonPathVisitor<TResult>;
+⚠1054:			if (typedVisitor != null) return typedVisitor.VisitFunctionParameter(this);
+‼1055:			else return visitor.VisitChildren(this);
+〰1056:		}
+〰1057:	}
+〰1058:
+〰1059:	[RuleVersion(0)]
+〰1060:	public FunctionParameterContext functionParameter() {
+✔1061:		FunctionParameterContext _localctx = new FunctionParameterContext(Context, State);
+✔1062:		EnterRule(_localctx, 26, RULE_functionParameter);
+〰1063:		try {
+✔1064:			State = 152;
+✔1065:			ErrorHandler.Sync(this);
+✔1066:			switch ( Interpreter.AdaptivePredict(TokenStream,16,Context) ) {
+〰1067:			case 1:
+✔1068:				EnterOuterAlt(_localctx, 1);
+〰1069:				{
+✔1070:				State = 149;
+✔1071:				operand();
+〰1072:				}
+✔1073:				break;
+〰1074:			case 2:
+✔1075:				EnterOuterAlt(_localctx, 2);
+〰1076:				{
+✔1077:				State = 150;
+✔1078:				pathBase();
+〰1079:				}
+✔1080:				break;
+〰1081:			case 3:
+✔1082:				EnterOuterAlt(_localctx, 3);
+〰1083:				{
+✔1084:				State = 151;
+✔1085:				Match(DECIMAL);
+〰1086:				}
+〰1087:				break;
+〰1088:			}
+✔1089:		}
+‼1090:		catch (RecognitionException re) {
+‼1091:			_localctx.exception = re;
+‼1092:			ErrorHandler.ReportError(this, re);
+‼1093:			ErrorHandler.Recover(this, re);
+‼1094:		}
+〰1095:		finally {
+✔1096:			ExitRule();
+✔1097:		}
+✔1098:		return _localctx;
+〰1099:	}
+〰1100:
+〰1101:	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
+〰1102:		switch (ruleIndex) {
+‼1103:		case 9: return query_sempred((QueryContext)_localctx, predIndex);
+〰1104:		}
+‼1105:		return true;
+〰1106:	}
+〰1107:	private bool query_sempred(QueryContext _localctx, int predIndex) {
+〰1108:		switch (predIndex) {
+‼1109:		case 0: return Precpred(Context, 1);
+〰1110:		}
+‼1111:		return true;
+〰1112:	}
+〰1113:
+✔1114:	private static int[] _serializedATN = {
+✔1115:		4,1,20,155,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+✔1116:		7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,1,0,1,0,1,
+✔1117:		0,1,1,1,1,1,1,1,1,3,1,36,8,1,1,2,1,2,1,3,1,3,3,3,42,8,3,1,4,3,4,45,8,4,
+✔1118:		1,4,1,4,1,4,1,4,1,4,3,4,52,8,4,1,4,3,4,55,8,4,1,5,1,5,1,5,1,5,1,5,1,5,
+✔1119:		1,5,5,5,64,8,5,10,5,12,5,67,9,5,1,5,1,5,1,5,1,5,1,5,5,5,74,8,5,10,5,12,
+✔1120:		5,77,9,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,3,5,89,8,5,1,6,1,6,1,
+✔1121:		6,1,6,1,6,1,6,1,7,3,7,98,8,7,1,7,1,7,3,7,102,8,7,1,7,1,7,3,7,106,8,7,1,
+✔1122:		8,1,8,1,8,3,8,111,8,8,1,9,1,9,1,9,1,9,1,9,1,9,3,9,119,8,9,1,9,1,9,1,9,
+✔1123:		5,9,124,8,9,10,9,12,9,127,9,9,1,10,1,10,1,11,1,11,1,12,1,12,1,12,1,12,
+✔1124:		1,12,1,12,1,12,1,12,5,12,141,8,12,10,12,12,12,144,9,12,1,12,1,12,3,12,
+✔1125:		148,8,12,1,13,1,13,1,13,3,13,153,8,13,1,13,0,1,18,14,0,2,4,6,8,10,12,14,
+✔1126:		16,18,20,22,24,26,0,1,1,0,15,16,165,0,28,1,0,0,0,2,35,1,0,0,0,4,37,1,0,
+✔1127:		0,0,6,39,1,0,0,0,8,54,1,0,0,0,10,88,1,0,0,0,12,90,1,0,0,0,14,97,1,0,0,
+✔1128:		0,16,110,1,0,0,0,18,118,1,0,0,0,20,128,1,0,0,0,22,130,1,0,0,0,24,147,1,
+✔1129:		0,0,0,26,152,1,0,0,0,28,29,3,2,1,0,29,30,5,0,0,1,30,1,1,0,0,0,31,32,3,
+✔1130:		4,2,0,32,33,3,6,3,0,33,36,1,0,0,0,34,36,3,24,12,0,35,31,1,0,0,0,35,34,
+✔1131:		1,0,0,0,36,3,1,0,0,0,37,38,7,0,0,0,38,5,1,0,0,0,39,41,3,8,4,0,40,42,3,
+✔1132:		6,3,0,41,40,1,0,0,0,41,42,1,0,0,0,42,7,1,0,0,0,43,45,5,12,0,0,44,43,1,
+✔1133:		0,0,0,44,45,1,0,0,0,45,51,1,0,0,0,46,52,5,13,0,0,47,52,3,20,10,0,48,52,
+✔1134:		3,10,5,0,49,52,3,12,6,0,50,52,3,24,12,0,51,46,1,0,0,0,51,47,1,0,0,0,51,
+✔1135:		48,1,0,0,0,51,49,1,0,0,0,51,50,1,0,0,0,52,55,1,0,0,0,53,55,5,14,0,0,54,
+✔1136:		44,1,0,0,0,54,53,1,0,0,0,55,9,1,0,0,0,56,57,5,1,0,0,57,58,5,13,0,0,58,
+✔1137:		89,5,2,0,0,59,60,5,1,0,0,60,65,5,18,0,0,61,62,5,3,0,0,62,64,5,18,0,0,63,
+✔1138:		61,1,0,0,0,64,67,1,0,0,0,65,63,1,0,0,0,65,66,1,0,0,0,66,68,1,0,0,0,67,
+✔1139:		65,1,0,0,0,68,89,5,2,0,0,69,70,5,1,0,0,70,75,3,22,11,0,71,72,5,3,0,0,72,
+✔1140:		74,3,22,11,0,73,71,1,0,0,0,74,77,1,0,0,0,75,73,1,0,0,0,75,76,1,0,0,0,76,
+✔1141:		78,1,0,0,0,77,75,1,0,0,0,78,79,5,2,0,0,79,89,1,0,0,0,80,81,5,1,0,0,81,
+✔1142:		82,3,14,7,0,82,83,5,2,0,0,83,89,1,0,0,0,84,85,5,1,0,0,85,86,3,24,12,0,
+✔1143:		86,87,5,2,0,0,87,89,1,0,0,0,88,56,1,0,0,0,88,59,1,0,0,0,88,69,1,0,0,0,
+✔1144:		88,80,1,0,0,0,88,84,1,0,0,0,89,11,1,0,0,0,90,91,5,1,0,0,91,92,5,4,0,0,
+✔1145:		92,93,3,18,9,0,93,94,5,5,0,0,94,95,5,2,0,0,95,13,1,0,0,0,96,98,5,18,0,
+✔1146:		0,97,96,1,0,0,0,97,98,1,0,0,0,98,99,1,0,0,0,99,101,5,6,0,0,100,102,5,18,
+✔1147:		0,0,101,100,1,0,0,0,101,102,1,0,0,0,102,105,1,0,0,0,103,104,5,6,0,0,104,
+✔1148:		106,5,18,0,0,105,103,1,0,0,0,105,106,1,0,0,0,106,15,1,0,0,0,107,111,3,
+✔1149:		2,1,0,108,111,3,22,11,0,109,111,5,18,0,0,110,107,1,0,0,0,110,108,1,0,0,
+✔1150:		0,110,109,1,0,0,0,111,17,1,0,0,0,112,113,6,9,-1,0,113,119,3,2,1,0,114,
+✔1151:		115,3,16,8,0,115,116,5,11,0,0,116,117,3,16,8,0,117,119,1,0,0,0,118,112,
+✔1152:		1,0,0,0,118,114,1,0,0,0,119,125,1,0,0,0,120,121,10,1,0,0,121,122,5,10,
+✔1153:		0,0,122,124,3,18,9,2,123,120,1,0,0,0,124,127,1,0,0,0,125,123,1,0,0,0,125,
+✔1154:		126,1,0,0,0,126,19,1,0,0,0,127,125,1,0,0,0,128,129,5,17,0,0,129,21,1,0,
+✔1155:		0,0,130,131,5,9,0,0,131,23,1,0,0,0,132,133,3,20,10,0,133,134,5,7,0,0,134,
+✔1156:		148,1,0,0,0,135,136,3,20,10,0,136,137,5,8,0,0,137,142,3,26,13,0,138,139,
+✔1157:		5,3,0,0,139,141,3,26,13,0,140,138,1,0,0,0,141,144,1,0,0,0,142,140,1,0,
+✔1158:		0,0,142,143,1,0,0,0,143,145,1,0,0,0,144,142,1,0,0,0,145,146,5,5,0,0,146,
+✔1159:		148,1,0,0,0,147,132,1,0,0,0,147,135,1,0,0,0,148,25,1,0,0,0,149,153,3,16,
+✔1160:		8,0,150,153,3,4,2,0,151,153,5,19,0,0,152,149,1,0,0,0,152,150,1,0,0,0,152,
+✔1161:		151,1,0,0,0,153,27,1,0,0,0,17,35,41,44,51,54,65,75,88,97,101,105,110,118,
+✔1162:		125,142,147,152
+✔1163:	};
+〰1164:
+✔1165:	public static readonly ATN _ATN =
+✔1166:		new ATNDeserializer().Deserialize(_serializedATN);
+〰1167:
+〰1168:
+〰1169:}
 ```
 
 ## Links

@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.EnvironmentExtensions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                          |
 | Coveredlines    | `0`                                                                   |
-| Uncoveredlines  | `9`                                                                   |
-| Coverablelines  | `9`                                                                   |
+| Uncoveredlines  | `8`                                                                   |
+| Coverablelines  | `8`                                                                   |
 | Totallines      | `46`                                                                  |
 | Linecoverage    | `0`                                                                   |
 | Coveredbranches | `0`                                                                   |
 | Totalbranches   | `2`                                                                   |
 | Branchcoverage  | `0`                                                                   |
+| Coveredmethods  | `0`                                                                   |
+| Totalmethods    | `3`                                                                   |
+| Methodcoverage  | `0`                                                                   |
 
 ## Metrics
 
@@ -47,7 +50,7 @@
 〰17:          private readonly XNamespace _ns;
 〰18:  
 〰19:  #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-‼20:          public EnvironmentExtensions()
+〰20:          public EnvironmentExtensions()
 〰21:  #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 〰22:          {
 ‼23:              _ns = this.GetXmlNamespace() + XmlNamespaces.OutputSuffix;

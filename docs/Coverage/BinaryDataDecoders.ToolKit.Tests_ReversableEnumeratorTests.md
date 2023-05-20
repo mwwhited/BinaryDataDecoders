@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Collections.ReversableEnumeratorTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                       |
 | Coveredlines    | `0`                                                                      |
-| Uncoveredlines  | `30`                                                                     |
-| Coverablelines  | `30`                                                                     |
+| Uncoveredlines  | `29`                                                                     |
+| Coverablelines  | `29`                                                                     |
 | Totallines      | `62`                                                                     |
 | Linecoverage    | `0`                                                                      |
 | Coveredbranches | `0`                                                                      |
 | Totalbranches   | `24`                                                                     |
 | Branchcoverage  | `0`                                                                      |
+| Coveredmethods  | `0`                                                                      |
+| Totalmethods    | `1`                                                                      |
+| Methodcoverage  | `0`                                                                      |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                       |
 | :--------- | :---- | :------- | :------------------------- |
-| 1          | 0     | 100      | `get_TestContext`          |
 | 24         | 0     | 0        | `MoveNextMovePreviousTest` |
 
 ## Files
@@ -37,7 +39,7 @@
 〰8:       [TestClass]
 〰9:       public class ReversableEnumeratorTests
 〰10:      {
-‼11:          public TestContext TestContext { get; set; }
+〰11:          public TestContext TestContext { get; set; }
 〰12:  
 〰13:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰14:          public void MoveNextMovePreviousTest()

@@ -6,14 +6,17 @@
 | :-------------- | :------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperatorExpression`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                       |
-| Coveredlines    | `26`                                                                            |
+| Coveredlines    | `24`                                                                            |
 | Uncoveredlines  | `1`                                                                             |
-| Coverablelines  | `27`                                                                            |
+| Coverablelines  | `25`                                                                            |
 | Totallines      | `50`                                                                            |
-| Linecoverage    | `96.2`                                                                          |
+| Linecoverage    | `96`                                                                            |
 | Coveredbranches | `7`                                                                             |
 | Totalbranches   | `8`                                                                             |
 | Branchcoverage  | `87.5`                                                                          |
+| Coveredmethods  | `7`                                                                             |
+| Totalmethods    | `7`                                                                             |
+| Methodcoverage  | `100`                                                                           |
 
 ## Metrics
 
@@ -21,8 +24,6 @@
 | :--------- | :---- | :------- | :------------------- |
 | 1          | 100   | 100      | `cctor`              |
 | 1          | 100   | 100      | `ctor`               |
-| 1          | 100   | 100      | `get_Operator`       |
-| 1          | 100   | 100      | `get_Operand`        |
 | 1          | 100   | 100      | `Clone`              |
 | 4          | 85.71 | 75.00    | `Evaluate`           |
 | 2          | 100   | 100      | `get_OperandString`  |
@@ -55,8 +56,8 @@
 ✔19:              Operand = operand;
 ✔20:          }
 〰21:  
-✔22:          public UnaryOperators Operator { get; }
-✔23:          public ExpressionBase<T> Operand { get; }
+〰22:          public UnaryOperators Operator { get; }
+〰23:          public ExpressionBase<T> Operand { get; }
 〰24:  
 ✔25:          public override ExpressionBase<T> Clone() => new UnaryOperatorExpression<T>(Operator, Operand.Clone());
 〰26:  

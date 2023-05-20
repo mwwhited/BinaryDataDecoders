@@ -6,20 +6,22 @@
 | :-------------- | :---------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Apple2.Tests.ApplesoftBASIC.DetokenizerTests` |
 | Assembly        | `BinaryDataDecoders.Apple2.Tests`                                 |
-| Coveredlines    | `19`                                                              |
+| Coveredlines    | `18`                                                              |
 | Uncoveredlines  | `0`                                                               |
-| Coverablelines  | `19`                                                              |
+| Coverablelines  | `18`                                                              |
 | Totallines      | `51`                                                              |
 | Linecoverage    | `100`                                                             |
 | Coveredbranches | `0`                                                               |
 | Totalbranches   | `0`                                                               |
+| Coveredmethods  | `1`                                                               |
+| Totalmethods    | `1`                                                               |
+| Methodcoverage  | `100`                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 100   | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `GetLinesTest`    |
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 100   | 100      | `GetLinesTest` |
 
 ## Files
 
@@ -38,7 +40,7 @@
 〰10:      [TestClass]
 〰11:      public class DetokenizerTests
 〰12:      {
-✔13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰16:          [TestTarget(typeof(Detokenizer), Member = nameof(Detokenizer.GetLines))]

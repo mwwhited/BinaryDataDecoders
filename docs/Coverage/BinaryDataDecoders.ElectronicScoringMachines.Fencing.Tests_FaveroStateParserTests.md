@@ -6,20 +6,22 @@
 | :-------------- | :----------------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero.FaveroStateParserTests` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests`                               |
-| Coveredlines    | `19`                                                                                       |
+| Coveredlines    | `18`                                                                                       |
 | Uncoveredlines  | `0`                                                                                        |
-| Coverablelines  | `19`                                                                                       |
+| Coverablelines  | `18`                                                                                       |
 | Totallines      | `472`                                                                                      |
 | Linecoverage    | `100`                                                                                      |
 | Coveredbranches | `0`                                                                                        |
 | Totalbranches   | `0`                                                                                        |
+| Coveredmethods  | `1`                                                                                        |
+| Totalmethods    | `1`                                                                                        |
+| Methodcoverage  | `100`                                                                                      |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 100   | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `DecodeTest`      |
+| Complexity | Lines | Branches | Name         |
+| :--------- | :---- | :------- | :----------- |
+| 1          | 100   | 100      | `DecodeTest` |
 
 ## Files
 
@@ -37,7 +39,7 @@
 〰9:       [TestClass]
 〰10:      public class FaveroStateParserTests
 〰11:      {
-✔12:          public TestContext TestContext { get; set; }
+〰12:          public TestContext TestContext { get; set; }
 〰13:  
 〰14:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰15:          [TestTarget(typeof(FaveroStateParser), Member = nameof(FaveroStateParser.Parse))]

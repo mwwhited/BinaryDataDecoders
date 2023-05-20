@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.CodeAnalysis.Tests.CSharp.CSharpSementicNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis.Tests`                                     |
 | Coveredlines    | `0`                                                                         |
-| Uncoveredlines  | `24`                                                                        |
-| Coverablelines  | `24`                                                                        |
+| Uncoveredlines  | `23`                                                                        |
+| Coverablelines  | `23`                                                                        |
 | Totallines      | `49`                                                                        |
 | Linecoverage    | `0`                                                                         |
 | Coveredbranches | `0`                                                                         |
 | Totalbranches   | `0`                                                                         |
+| Coveredmethods  | `0`                                                                         |
+| Totalmethods    | `1`                                                                         |
+| Methodcoverage  | `0`                                                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 0     | 100      | `TestXPath`       |
+| Complexity | Lines | Branches | Name        |
+| :--------- | :---- | :------- | :---------- |
+| 1          | 0     | 100      | `TestXPath` |
 
 ## Files
 
@@ -37,7 +39,7 @@
 〰9:       [TestClass]
 〰10:      public class CSharpSementicNavigatorTests
 〰11:      {
-‼12:          public TestContext TestContext { get; set; }
+〰12:          public TestContext TestContext { get; set; }
 〰13:  
 〰14:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰15:          //[TestCategory(TestCategories.Unit)]

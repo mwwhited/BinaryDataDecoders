@@ -6,14 +6,17 @@
 | :-------------- | :----------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Cryptography.Lorenz.LorenzMachine` |
 | Assembly        | `BinaryDataDecoders.Cryptography`                      |
-| Coveredlines    | `92`                                                   |
+| Coveredlines    | `91`                                                   |
 | Uncoveredlines  | `0`                                                    |
-| Coverablelines  | `92`                                                   |
+| Coverablelines  | `91`                                                   |
 | Totallines      | `183`                                                  |
 | Linecoverage    | `100`                                                  |
 | Coveredbranches | `16`                                                   |
 | Totalbranches   | `16`                                                   |
 | Branchcoverage  | `100`                                                  |
+| Coveredmethods  | `3`                                                    |
+| Totalmethods    | `3`                                                    |
+| Methodcoverage  | `100`                                                  |
 
 ## Metrics
 
@@ -67,7 +70,7 @@
 ✔37:              33, 22, 28, 15, 19,
 ✔38:          });
 〰39:  
-✔40:          public LorenzMachine(byte[] keySet, int[] startPosition)
+〰40:          public LorenzMachine(byte[] keySet, int[] startPosition)
 〰41:          {
 ✔42:              _keySet = keySet;
 ✔43:              _positions = startPosition;

@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.Text.Markdown.PlantUmlRenderer` |
 | Assembly        | `BinaryDataDecoders.Text.Markdown`                  |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `45`                                                |
-| Coverablelines  | `45`                                                |
+| Uncoveredlines  | `44`                                                |
+| Coverablelines  | `44`                                                |
 | Totallines      | `94`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `12`                                                |
 | Branchcoverage  | `0`                                                 |
+| Coveredmethods  | `0`                                                 |
+| Totalmethods    | `4`                                                 |
+| Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
@@ -45,7 +48,7 @@
 〰14:          private readonly MarkdownPipeline _pipeline;
 〰15:          private readonly IPlantUmlRenderer _render;
 〰16:  
-‼17:          public PlantUmlRenderer(MarkdownPipeline pipeline)
+〰17:          public PlantUmlRenderer(MarkdownPipeline pipeline)
 〰18:          {
 ‼19:              var renderFactory = new PlantUml.Net.RendererFactory();
 ‼20:              _render = renderFactory.CreateRenderer(new PlantUml.Net.PlantUmlSettings

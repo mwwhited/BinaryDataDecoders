@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.IO.Tests.Functions.ChecksumCalculatorTests` |
 | Assembly        | `BinaryDataDecoders.IO.Tests`                                   |
 | Coveredlines    | `20`                                                            |
-| Uncoveredlines  | `1`                                                             |
-| Coverablelines  | `21`                                                            |
+| Uncoveredlines  | `0`                                                             |
+| Coverablelines  | `20`                                                            |
 | Totallines      | `48`                                                            |
-| Linecoverage    | `95.2`                                                          |
+| Linecoverage    | `100`                                                           |
 | Coveredbranches | `0`                                                             |
 | Totalbranches   | `0`                                                             |
+| Coveredmethods  | `1`                                                             |
+| Totalmethods    | `1`                                                             |
+| Methodcoverage  | `100`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `Simple16Test`    |
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 100   | 100      | `Simple16Test` |
 
 ## Files
 
@@ -37,7 +39,7 @@
 〰9:       [TestClass]
 〰10:      public class ChecksumCalculatorTests
 〰11:      {
-‼12:          public TestContext TestContext { get; set; }
+〰12:          public TestContext TestContext { get; set; }
 〰13:  
 〰14:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰15:          [TestTarget(typeof(ChecksumCalculator), Member = nameof(ChecksumCalculator.Simple16))]

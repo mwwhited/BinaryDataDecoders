@@ -6,14 +6,17 @@
 | :-------------- | :------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                   |
-| Coveredlines    | `114`                                                          |
-| Uncoveredlines  | `16`                                                           |
-| Coverablelines  | `130`                                                          |
+| Coveredlines    | `101`                                                          |
+| Uncoveredlines  | `15`                                                           |
+| Coverablelines  | `116`                                                          |
 | Totallines      | `196`                                                          |
-| Linecoverage    | `87.6`                                                         |
+| Linecoverage    | `87`                                                           |
 | Coveredbranches | `41`                                                           |
 | Totalbranches   | `54`                                                           |
 | Branchcoverage  | `75.9`                                                         |
+| Coveredmethods  | `6`                                                            |
+| Totalmethods    | `8`                                                            |
+| Methodcoverage  | `75`                                                           |
 
 ## Metrics
 
@@ -24,12 +27,7 @@
 | 1          | 100   | 100      | `get_FirstChild`                                           |
 | 1          | 100   | 100      | `get_FirstAttribute`                                       |
 | 1          | 100   | 100      | `get_FirstNamespace`                                       |
-| 1          | 100   | 100      | `get_Next`                                                 |
-| 1          | 0     | 100      | `get_Previous`                                             |
-| 1          | 100   | 100      | `get_Parent`                                               |
-| 1          | 100   | 100      | `get_Name`                                                 |
 | 2          | 100   | 50.0     | `get_Value`                                                |
-| 1          | 100   | 100      | `get_NodeType`                                             |
 | 1          | 100   | 100      | `BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Next`     |
 | 1          | 0     | 100      | `BinaryDataDecodersToolKitXmlXPathISimpleNodeset_Previous` |
 
@@ -92,16 +90,16 @@
 〰52:          {
 ‼53:          }
 〰54:  
-✔55:          protected ExtensibleElementNode(
-✔56:              INode? parent,
-✔57:              XName name,
-✔58:              T item,
-✔59:              Func<T, string?>? valueSelector,
-✔60:              Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector,
-✔61:              Func<T, IEnumerable<(XName name, T child)>?>? childSelector,
-✔62:              Func<T, IEnumerable<XName>?>? namespacesSelector,
-✔63:              Predicate<T>? preserveWhitespace = null
-✔64:              )
+〰55:          protected ExtensibleElementNode(
+〰56:              INode? parent,
+〰57:              XName name,
+〰58:              T item,
+〰59:              Func<T, string?>? valueSelector,
+〰60:              Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector,
+〰61:              Func<T, IEnumerable<(XName name, T child)>?>? childSelector,
+〰62:              Func<T, IEnumerable<XName>?>? namespacesSelector,
+〰63:              Predicate<T>? preserveWhitespace = null
+〰64:              )
 〰65:          {
 ✔66:              Parent = parent ?? new ExtensibleRootNode<T>(this);
 ✔67:              Name = name;
@@ -221,11 +219,11 @@
 ✔181:         public IAttributeNode? FirstAttribute => _attributes.Value;
 ✔182:         public INamespaceNode? FirstNamespace => _namespaces.Value;
 〰183: 
-✔184:         public INode? Next { get; private set; }
-‼185:         public INode? Previous { get; private set; }
+〰184:         public INode? Next { get; private set; }
+〰185:         public INode? Previous { get; private set; }
 〰186: 
-✔187:         public INode? Parent { get; }
-✔188:         public XName Name { get; }
+〰187:         public INode? Parent { get; }
+〰188:         public XName Name { get; }
 ⚠189:         public string? Value => _value.Value?.Value;
 〰190: 
 ✔191:         public XPathNodeType NodeType { get; } = XPathNodeType.Element;

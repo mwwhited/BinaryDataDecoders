@@ -7,23 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.StartAndFixLengthSegmenter` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                          |
 | Coveredlines    | `0`                                                           |
-| Uncoveredlines  | `33`                                                          |
-| Coverablelines  | `33`                                                          |
+| Uncoveredlines  | `27`                                                          |
+| Coverablelines  | `27`                                                          |
 | Totallines      | `81`                                                          |
 | Linecoverage    | `0`                                                           |
 | Coveredbranches | `0`                                                           |
 | Totalbranches   | `18`                                                          |
 | Branchcoverage  | `0`                                                           |
+| Coveredmethods  | `0`                                                           |
+| Totalmethods    | `2`                                                           |
+| Methodcoverage  | `0`                                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                      |
-| :--------- | :---- | :------- | :------------------------ |
-| 1          | 0     | 100      | `ctor`                    |
-| 1          | 0     | 100      | `get_Starts`              |
-| 1          | 0     | 100      | `get_FixedLength`         |
-| 1          | 0     | 100      | `get_ExtensionDefinition` |
-| 18         | 0     | 0        | `Read`                    |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 18         | 0     | 0        | `Read`  |
 
 ## Files
 
@@ -46,14 +46,14 @@
 〰14:              SegmentExtensionDefinition? extensionDefinition = null)
 ‼15:              : base(onSegmentReceived, options)
 〰16:          {
-‼17:              Starts = starts;
-‼18:              FixedLength = fixedLength;
-‼19:              ExtensionDefinition = extensionDefinition;
+〰17:              Starts = starts;
+〰18:              FixedLength = fixedLength;
+〰19:              ExtensionDefinition = extensionDefinition;
 ‼20:          }
 〰21:  
-‼22:          public byte[] Starts { get; }
-‼23:          public long FixedLength { get; }
-‼24:          public SegmentExtensionDefinition? ExtensionDefinition { get; }
+〰22:          public byte[] Starts { get; }
+〰23:          public long FixedLength { get; }
+〰24:          public SegmentExtensionDefinition? ExtensionDefinition { get; }
 〰25:  
 〰26:          protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
 〰27:          {

@@ -7,21 +7,23 @@
 | Class           | `BinaryDataDecoders.Net.InvalidHexadecimalStringException` |
 | Assembly        | `BinaryDataDecoders.Net`                                   |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `7`                                                        |
-| Coverablelines  | `7`                                                        |
+| Uncoveredlines  | `6`                                                        |
+| Coverablelines  | `6`                                                        |
 | Totallines      | `23`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `2`                                                        |
 | Branchcoverage  | `0`                                                        |
+| Coveredmethods  | `0`                                                        |
+| Totalmethods    | `2`                                                        |
+| Methodcoverage  | `0`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_Hexadecimal` |
-| 1          | 0     | 100      | `ctor`            |
-| 2          | 0     | 0        | `Check`           |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 2          | 0     | 0        | `Check` |
 
 ## Files
 
@@ -35,7 +37,7 @@
 〰5:   {
 〰6:       public class InvalidHexadecimalStringException : Exception
 〰7:       {
-‼8:           public string Hexadecimal { get; private set; }
+〰8:           public string Hexadecimal { get; private set; }
 〰9:   
 〰10:          public InvalidHexadecimalStringException(string hexString)
 ‼11:              : base(string.Format("\"{0}\" is not a valid Hexadecimal Number", hexString))

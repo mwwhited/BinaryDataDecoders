@@ -6,23 +6,25 @@
 | :-------------- | :---------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.InnerExpression`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                               |
-| Coveredlines    | `5`                                                                     |
+| Coveredlines    | `4`                                                                     |
 | Uncoveredlines  | `0`                                                                     |
-| Coverablelines  | `5`                                                                     |
+| Coverablelines  | `4`                                                                     |
 | Totallines      | `16`                                                                    |
 | Linecoverage    | `100`                                                                   |
 | Coveredbranches | `0`                                                                     |
 | Totalbranches   | `0`                                                                     |
+| Coveredmethods  | `4`                                                                     |
+| Totalmethods    | `4`                                                                     |
+| Methodcoverage  | `100`                                                                   |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name             |
-| :--------- | :---- | :------- | :--------------- |
-| 1          | 100   | 100      | `get_Expression` |
-| 1          | 100   | 100      | `ctor`           |
-| 1          | 100   | 100      | `Clone`          |
-| 1          | 100   | 100      | `Evaluate`       |
-| 1          | 100   | 100      | `ToString`       |
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `ctor`     |
+| 1          | 100   | 100      | `Clone`    |
+| 1          | 100   | 100      | `Evaluate` |
+| 1          | 100   | 100      | `ToString` |
 
 ## Files
 
@@ -37,7 +39,7 @@
 〰6:       public sealed class InnerExpression<T> : ExpressionBase<T>
 〰7:           where T : struct, IComparable<T>, IEquatable<T>
 〰8:       {
-✔9:           public ExpressionBase<T> Expression { get; }
+〰9:           public ExpressionBase<T> Expression { get; }
 〰10:  
 ✔11:          public InnerExpression(ExpressionBase<T> expression) => Expression = expression;
 ✔12:          public override ExpressionBase<T> Clone() => new InnerExpression<T>(Expression.Clone());

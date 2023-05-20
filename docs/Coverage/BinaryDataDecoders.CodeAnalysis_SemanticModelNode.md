@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.CodeAnalysis.SemanticModelNode` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis`                   |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `6`                                                 |
-| Coverablelines  | `6`                                                 |
+| Uncoveredlines  | `1`                                                 |
+| Coverablelines  | `1`                                                 |
 | Totallines      | `15`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `0`                                                 |
+| Coveredmethods  | `0`                                                 |
+| Totalmethods    | `1`                                                 |
+| Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name           |
-| :--------- | :---- | :------- | :------------- |
-| 1          | 0     | 100      | `ctor`         |
-| 1          | 0     | 100      | `get_Semantic` |
-| 1          | 0     | 100      | `get_Node`     |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -33,13 +34,13 @@
 〰4:   {
 〰5:       internal sealed class SemanticModelNode : ISemanticModelNode
 〰6:       {
-‼7:           public SemanticModelNode(SemanticModel semantic, object node)
+〰7:           public SemanticModelNode(SemanticModel semantic, object node)
 〰8:           {
-‼9:               Semantic = semantic;
-‼10:              Node = node;
+〰9:               Semantic = semantic;
+〰10:              Node = node;
 ‼11:          }
-‼12:          public SemanticModel Semantic { get; }
-‼13:          public object Node { get; }
+〰12:          public SemanticModel Semantic { get; }
+〰13:          public object Node { get; }
 〰14:      }
 〰15:  }
 ```

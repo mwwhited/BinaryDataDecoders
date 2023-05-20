@@ -32,6 +32,19 @@
  - )
 
 
+#### Public Method - ListDevicesAllTests
+
+##### Attributes
+
+ - TestMethod
+ - TestCategory
+ - (
+ - TestCategories
+ - .
+ - DevLocal
+ - )
+
+
 #### Public Method - ListenToDeviceTests
 
 ##### Attributes

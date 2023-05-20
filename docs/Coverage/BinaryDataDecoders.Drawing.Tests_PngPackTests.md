@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.Drawing.Tests.Packers.PngPackTests` |
 | Assembly        | `BinaryDataDecoders.Drawing.Tests`                      |
 | Coveredlines    | `0`                                                     |
-| Uncoveredlines  | `10`                                                    |
-| Coverablelines  | `10`                                                    |
+| Uncoveredlines  | `9`                                                     |
+| Coverablelines  | `9`                                                     |
 | Totallines      | `34`                                                    |
 | Linecoverage    | `0`                                                     |
 | Coveredbranches | `0`                                                     |
 | Totalbranches   | `0`                                                     |
+| Coveredmethods  | `0`                                                     |
+| Totalmethods    | `1`                                                     |
+| Methodcoverage  | `0`                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 0     | 100      | `PngPackTest`     |
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `PngPackTest` |
 
 ## Files
 
@@ -41,7 +43,7 @@
 〰13:      [TestClass]
 〰14:      public class PngPackTests
 〰15:      {
-‼16:          public TestContext TestContext { get; set; }
+〰16:          public TestContext TestContext { get; set; }
 〰17:  
 〰18:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰19:          public void PngPackTest()

@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.MemoryExTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`               |
 | Coveredlines    | `46`                                             |
-| Uncoveredlines  | `1`                                              |
-| Coverablelines  | `47`                                             |
+| Uncoveredlines  | `0`                                              |
+| Coverablelines  | `46`                                             |
 | Totallines      | `98`                                             |
-| Linecoverage    | `97.8`                                           |
+| Linecoverage    | `100`                                            |
 | Coveredbranches | `4`                                              |
 | Totalbranches   | `4`                                              |
 | Branchcoverage  | `100`                                            |
+| Coveredmethods  | `7`                                              |
+| Totalmethods    | `7`                                              |
+| Methodcoverage  | `100`                                            |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                 |
 | :--------- | :---- | :------- | :------------------- |
-| 1          | 0     | 100      | `get_TestContext`    |
 | 1          | 100   | 100      | `SplitTest_Exclude`  |
 | 1          | 100   | 100      | `SplitTest_Carry`    |
 | 1          | 100   | 100      | `SplitTest_Return`   |
@@ -45,7 +47,7 @@
 〰10:      [TestClass]
 〰11:      public class MemoryExTests
 〰12:      {
-‼13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰16:          [TestTarget(typeof(MemoryEx), Member = nameof(MemoryEx.Split))]

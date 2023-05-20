@@ -7,18 +7,20 @@
 | Class           | `BinaryDataDecoders.Yaml.Tests.YamlNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.Yaml.Tests`                    |
 | Coveredlines    | `0`                                                |
-| Uncoveredlines  | `6`                                                |
-| Coverablelines  | `6`                                                |
+| Uncoveredlines  | `5`                                                |
+| Coverablelines  | `5`                                                |
 | Totallines      | `25`                                               |
 | Linecoverage    | `0`                                                |
 | Coveredbranches | `0`                                                |
 | Totalbranches   | `0`                                                |
+| Coveredmethods  | `0`                                                |
+| Totalmethods    | `1`                                                |
+| Methodcoverage  | `0`                                                |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name              |
 | :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
 | 1          | 0     | 100      | `ToNavigableTest` |
 
 ## Files
@@ -36,7 +38,7 @@
 〰8:       [TestClass]
 〰9:       public class YamlNavigatorTests
 〰10:      {
-‼11:          public TestContext TestContext { get; set; }
+〰11:          public TestContext TestContext { get; set; }
 〰12:  
 〰13:          [DataTestMethod, TestCategory(TestCategories.DevLocal)]
 〰14:          [DataRow("Example.yml")]

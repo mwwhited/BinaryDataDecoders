@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.Favero.FaveroTestDataExtractor` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests`                                |
 | Coveredlines    | `0`                                                                                         |
-| Uncoveredlines  | `17`                                                                                        |
-| Coverablelines  | `17`                                                                                        |
+| Uncoveredlines  | `16`                                                                                        |
+| Coverablelines  | `16`                                                                                        |
 | Totallines      | `53`                                                                                        |
 | Linecoverage    | `0`                                                                                         |
 | Coveredbranches | `0`                                                                                         |
 | Totalbranches   | `12`                                                                                        |
 | Branchcoverage  | `0`                                                                                         |
+| Coveredmethods  | `0`                                                                                         |
+| Totalmethods    | `1`                                                                                         |
+| Methodcoverage  | `0`                                                                                         |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                |
 | :--------- | :---- | :------- | :------------------ |
-| 1          | 0     | 100      | `get_TestContext`   |
 | 12         | 0     | 0        | `TestDataExtractor` |
 
 ## Files
@@ -41,7 +43,7 @@
 〰12:      [TestClass]
 〰13:      public class FaveroTestDataExtractor
 〰14:      {
-‼15:          public TestContext TestContext { get; set; }
+〰15:          public TestContext TestContext { get; set; }
 〰16:  
 〰17:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰18:          [Ignore]

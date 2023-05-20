@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.IO.Pipelines.StreamDevice`1` |
 | Assembly        | `BinaryDataDecoders.IO.Pipelines`                |
 | Coveredlines    | `0`                                              |
-| Uncoveredlines  | `125`                                            |
-| Coverablelines  | `125`                                            |
+| Uncoveredlines  | `118`                                            |
+| Coverablelines  | `118`                                            |
 | Totallines      | `190`                                            |
 | Linecoverage    | `0`                                              |
 | Coveredbranches | `0`                                              |
 | Totalbranches   | `20`                                             |
 | Branchcoverage  | `0`                                              |
+| Coveredmethods  | `0`                                              |
+| Totalmethods    | `9`                                              |
+| Methodcoverage  | `0`                                              |
 
 ## Metrics
 
@@ -21,7 +24,6 @@
 | :--------- | :---- | :------- | :------------------- |
 | 12         | 0     | 0        | `ctor`               |
 | 1          | 0     | 100      | `get__stream`        |
-| 1          | 0     | 100      | `get_Runner`         |
 | 1          | 0     | 100      | `Transmit`           |
 | 2          | 0     | 0        | `OnMessageReceived`  |
 | 2          | 0     | 0        | `ReportDeviceStatus` |
@@ -60,12 +62,12 @@
 〰23:          private readonly CancellationToken _token;
 〰24:          private readonly CancellationTokenSource _tokenSource;
 〰25:  
-‼26:          public StreamDevice(
-‼27:              IDeviceAdapter adapter,
-‼28:              IDeviceDefinition device,
-‼29:              CancellationToken token = default,
-‼30:              int minimumTrasmissionDelay = 1000 //TODO should this default be overideable from the devicedefinition or it's attributes?
-‼31:              )
+〰26:          public StreamDevice(
+〰27:              IDeviceAdapter adapter,
+〰28:              IDeviceDefinition device,
+〰29:              CancellationToken token = default,
+〰30:              int minimumTrasmissionDelay = 1000 //TODO should this default be overideable from the devicedefinition or it's attributes?
+〰31:              )
 〰32:          {
 ‼33:              _tokenSource = CancellationTokenSource.CreateLinkedTokenSource(token);
 ‼34:              _token = _tokenSource.Token;
@@ -109,7 +111,7 @@
 ‼72:                  );
 ‼73:          }
 〰74:  
-‼75:          public Task Runner { get; }
+〰75:          public Task Runner { get; }
 〰76:  
 〰77:          public event EventHandler<TMessage> MessageReceived;
 〰78:          public event EventHandler<StreamDeviceStatus> DeviceStatus;

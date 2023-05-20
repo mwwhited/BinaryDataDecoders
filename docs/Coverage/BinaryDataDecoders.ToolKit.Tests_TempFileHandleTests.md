@@ -6,19 +6,21 @@
 | :-------------- | :-------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Tests.IO.TempFileHandleTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                        |
-| Coveredlines    | `9`                                                       |
+| Coveredlines    | `8`                                                       |
 | Uncoveredlines  | `0`                                                       |
-| Coverablelines  | `9`                                                       |
+| Coverablelines  | `8`                                                       |
 | Totallines      | `26`                                                      |
 | Linecoverage    | `100`                                                     |
 | Coveredbranches | `0`                                                       |
 | Totalbranches   | `0`                                                       |
+| Coveredmethods  | `1`                                                       |
+| Totalmethods    | `1`                                                       |
+| Methodcoverage  | `100`                                                     |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                       |
 | :--------- | :---- | :------- | :------------------------- |
-| 1          | 100   | 100      | `get_TestContext`          |
 | 1          | 100   | 100      | `CreateTempFileHandleTest` |
 
 ## Files
@@ -36,7 +38,7 @@
 〰8:       [TestClass]
 〰9:       public class TempFileHandleTests
 〰10:      {
-✔11:          public TestContext TestContext { get; set; }
+〰11:          public TestContext TestContext { get; set; }
 〰12:  
 〰13:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰14:          public void CreateTempFileHandleTest()

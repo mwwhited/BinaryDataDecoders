@@ -7,12 +7,15 @@
 | Class           | `BinaryDataDecoders.Templating.Html.HtmlTemplateTransform` |
 | Assembly        | `BinaryDataDecoders.Templating.Html`                       |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `39`                                                       |
-| Coverablelines  | `39`                                                       |
+| Uncoveredlines  | `35`                                                       |
+| Coverablelines  | `35`                                                       |
 | Totallines      | `67`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `0`                                                        |
+| Coveredmethods  | `0`                                                        |
+| Totalmethods    | `3`                                                        |
+| Methodcoverage  | `0`                                                        |
 
 ## Metrics
 
@@ -41,10 +44,10 @@
 〰12:          private readonly IInstanceFactory _instanceFactory;
 〰13:          private readonly IHtmlDocumentVistor _htmlVisitor;
 〰14:  
-‼15:          public HtmlTemplateTransform(
-‼16:              IInstanceFactory instanceFactory,
-‼17:              IHtmlDocumentVistor htmlVisitor
-‼18:              )
+〰15:          public HtmlTemplateTransform(
+〰16:              IInstanceFactory instanceFactory,
+〰17:              IHtmlDocumentVistor htmlVisitor
+〰18:              )
 〰19:          {
 ‼20:              _instanceFactory = instanceFactory;
 ‼21:              _htmlVisitor = htmlVisitor;

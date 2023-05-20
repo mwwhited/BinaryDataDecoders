@@ -7,12 +7,15 @@
 | Class           | `BinaryDataDecoders.Nmea.SatellitesInView` |
 | Assembly        | `BinaryDataDecoders.Nmea`                  |
 | Coveredlines    | `0`                                        |
-| Uncoveredlines  | `2`                                        |
-| Coverablelines  | `2`                                        |
+| Uncoveredlines  | `1`                                        |
+| Coverablelines  | `1`                                        |
 | Totallines      | `73`                                       |
 | Linecoverage    | `0`                                        |
 | Coveredbranches | `0`                                        |
 | Totalbranches   | `0`                                        |
+| Coveredmethods  | `0`                                        |
+| Totalmethods    | `1`                                        |
+| Methodcoverage  | `0`                                        |
 
 ## Metrics
 
@@ -93,7 +96,7 @@
 〰66:                *75          the checksum data, always begins with *
 〰67:  
 〰68:          */
-‼69:          public SatellitesInView(string[] data)
+〰69:          public SatellitesInView(string[] data)
 〰70:          {
 ‼71:          }
 〰72:      }

@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.Cryptography.Tests.Lorenz.LorenzMachineTests` |
 | Assembly        | `BinaryDataDecoders.Cryptography.Tests`                           |
 | Coveredlines    | `7`                                                               |
-| Uncoveredlines  | `1`                                                               |
-| Coverablelines  | `8`                                                               |
+| Uncoveredlines  | `0`                                                               |
+| Coverablelines  | `7`                                                               |
 | Totallines      | `31`                                                              |
-| Linecoverage    | `87.5`                                                            |
+| Linecoverage    | `100`                                                             |
 | Coveredbranches | `0`                                                               |
 | Totalbranches   | `0`                                                               |
+| Coveredmethods  | `1`                                                               |
+| Totalmethods    | `1`                                                               |
+| Methodcoverage  | `100`                                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `Test`            |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `Test`  |
 
 ## Files
 
@@ -38,7 +40,7 @@
 〰10:      [TestClass]
 〰11:      public class LorenzMachineTests
 〰12:      {
-‼13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰16:          public void Test()

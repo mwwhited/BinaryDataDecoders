@@ -7,34 +7,25 @@
 | Class           | `BinaryDataDecoders.FileSystems.Iso9660.DirectoryRecord` |
 | Assembly        | `BinaryDataDecoders.FileSystems`                         |
 | Coveredlines    | `0`                                                      |
-| Uncoveredlines  | `106`                                                    |
-| Coverablelines  | `106`                                                    |
+| Uncoveredlines  | `90`                                                     |
+| Coverablelines  | `90`                                                     |
 | Totallines      | `260`                                                    |
 | Linecoverage    | `0`                                                      |
 | Coveredbranches | `0`                                                      |
 | Totalbranches   | `32`                                                     |
 | Branchcoverage  | `0`                                                      |
+| Coveredmethods  | `0`                                                      |
+| Totalmethods    | `11`                                                     |
+| Methodcoverage  | `0`                                                      |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                                        |
 | :--------- | :---- | :------- | :------------------------------------------ |
 | 10         | 0     | 0        | `ctor`                                      |
-| 1          | 0     | 100      | `get_BytesInRecord`                         |
-| 1          | 0     | 100      | `get_SectorsInExtended`                     |
-| 1          | 0     | 100      | `get_FirstSector`                           |
-| 1          | 0     | 100      | `get_Size`                                  |
-| 1          | 0     | 100      | `get_DateTime`                              |
-| 1          | 0     | 100      | `get_DirectoryType`                         |
-| 1          | 0     | 100      | `get_FileUnitSize`                          |
-| 1          | 0     | 100      | `get_InterlaveGapSize`                      |
-| 1          | 0     | 100      | `get_VolumeSequenceNumber`                  |
-| 1          | 0     | 100      | `get_IdentifierLength`                      |
-| 1          | 0     | 100      | `get_Identifier`                            |
 | 1          | 0     | 100      | `ToString`                                  |
 | 6          | 0     | 0        | `GetChildren`                               |
 | 1          | 0     | 100      | `GetBuffer`                                 |
-| 1          | 0     | 100      | `get_Parent`                                |
 | 4          | 0     | 0        | `get_Root`                                  |
 | 1          | 0     | 100      | `get_IsDirectory`                           |
 | 6          | 0     | 0        | `get_Children`                              |
@@ -59,10 +50,10 @@
 〰9:   {
 〰10:      public class DirectoryRecord : IEnumerable<DirectoryRecord>
 〰11:      {
-‼12:          internal DirectoryRecord(byte[] buffer,
-‼13:                                   int offset,
-‼14:                                   Stream file,
-‼15:                                   DirectoryRecord parent)
+〰12:          internal DirectoryRecord(byte[] buffer,
+〰13:                                   int offset,
+〰14:                                   Stream file,
+〰15:                                   DirectoryRecord parent)
 〰16:          {
 ‼17:              if (file != null)
 ‼18:                  disc = file;
@@ -148,19 +139,19 @@
 〰98:          // length
 〰99:          // in bytes  contents
 〰100:         // --------  ---------------------------------------------------------
-‼101:         public byte BytesInRecord { get; protected set; }
+〰101:         public byte BytesInRecord { get; protected set; }
 〰102:         //    1      R, the number of bytes in the record (which must be even)
-‼103:         public byte SectorsInExtended { get; protected set; }
+〰103:         public byte SectorsInExtended { get; protected set; }
 〰104:         //    1      0 [number of sectors in extended attribute record]
-‼105:         public uint FirstSector { get; protected set; }
+〰105:         public uint FirstSector { get; protected set; }
 〰106:         //    8      number of the first sector of file data or directory
 〰107:         //             (zero for an empty file), as a both endian double word
-‼108:         public uint Size { get; protected set; }
+〰108:         public uint Size { get; protected set; }
 〰109:         //    8      number of bytes of file data or length of directory,
 〰110:         //             excluding the extended attribute record,
 〰111:         //             as a both endian double word
 〰112: 
-‼113:         public DateTime DateTime { get; protected set; }
+〰113:         public DateTime DateTime { get; protected set; }
 〰114:         //    1      number of years since 1900
 〰115:         //    1      month, where 1=January, 2=February, etc.
 〰116:         //    1      day of month, in the range from 1 to 31
@@ -173,7 +164,7 @@
 〰123:         //             zones east of Greenwich, and negative for time zones
 〰124:         //             west of Greenwich (DOS ignores this field)
 〰125: 
-‼126:         public DirectoryType DirectoryType { get; protected set; }
+〰126:         public DirectoryType DirectoryType { get; protected set; }
 〰127:         //    1      flags, with bits as follows:
 〰128:         //             bit     value
 〰129:         //             ------  ------------------------------------------
@@ -185,16 +176,16 @@
 〰135:         //             5       0
 〰136:         //             6       0
 〰137:         //             7 (MS)  0 [1 if not the final record for the file]
-‼138:         public byte FileUnitSize { get; protected set; }
+〰138:         public byte FileUnitSize { get; protected set; }
 〰139:         //    1      0 [file unit size for an interleaved file]
-‼140:         public byte InterlaveGapSize { get; protected set; }
+〰140:         public byte InterlaveGapSize { get; protected set; }
 〰141:         //    1      0 [interleave gap size for an interleaved file]
-‼142:         public ushort VolumeSequenceNumber { get; protected set; }
+〰142:         public ushort VolumeSequenceNumber { get; protected set; }
 〰143:         //    4      1, as a both endian word [volume sequence number]
-‼144:         public byte IdentifierLength { get; protected set; }
+〰144:         public byte IdentifierLength { get; protected set; }
 〰145:         //    1      N, the identifier length
 〰146: 
-‼147:         public string Identifier { get; protected set; }
+〰147:         public string Identifier { get; protected set; }
 〰148:         //    N      identifier
 〰149:         //    P      padding byte: if N is even, P = 1 and this field contains
 〰150:         //             a zero; if N is odd, P = 0 and this field is omitted
@@ -245,7 +236,7 @@
 〰195: 
 〰196:         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
 〰197:         private readonly Stream disc;
-‼198:         public DirectoryRecord Parent { get; protected set; }
+〰198:         public DirectoryRecord Parent { get; protected set; }
 〰199: 
 〰200:         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
 〰201:         private DirectoryRecord _root;

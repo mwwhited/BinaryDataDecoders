@@ -7,22 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.SegmenterBase` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`             |
 | Coveredlines    | `0`                                              |
-| Uncoveredlines  | `21`                                             |
-| Coverablelines  | `21`                                             |
+| Uncoveredlines  | `13`                                             |
+| Coverablelines  | `13`                                             |
 | Totallines      | `50`                                             |
 | Linecoverage    | `0`                                              |
 | Coveredbranches | `0`                                              |
 | Totalbranches   | `10`                                             |
 | Branchcoverage  | `0`                                              |
+| Coveredmethods  | `0`                                              |
+| Totalmethods    | `2`                                              |
+| Methodcoverage  | `0`                                              |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                    |
-| :--------- | :---- | :------- | :---------------------- |
-| 1          | 0     | 100      | `ctor`                  |
-| 1          | 0     | 100      | `get_OnSegmentReceived` |
-| 1          | 0     | 100      | `get_Options`           |
-| 10         | 0     | 0        | `TryReadAsync`          |
+| Complexity | Lines | Branches | Name           |
+| :--------- | :---- | :------- | :------------- |
+| 1          | 0     | 100      | `ctor`         |
+| 10         | 0     | 0        | `TryReadAsync` |
 
 ## Files
 
@@ -37,17 +38,17 @@
 〰6:   {
 〰7:       public abstract class SegmenterBase : ISegmenter
 〰8:       {
-‼9:           protected SegmenterBase(
-‼10:              OnSegmentReceived onSegmentReceived,
-‼11:              SegmentionOptions options
-‼12:              )
+〰9:           protected SegmenterBase(
+〰10:              OnSegmentReceived onSegmentReceived,
+〰11:              SegmentionOptions options
+〰12:              )
 〰13:          {
-‼14:              OnSegmentReceived = onSegmentReceived;
-‼15:              Options = options;
+〰14:              OnSegmentReceived = onSegmentReceived;
+〰15:              Options = options;
 ‼16:          }
 〰17:  
-‼18:          private OnSegmentReceived OnSegmentReceived { get; }
-‼19:          public SegmentionOptions Options { get; }
+〰18:          private OnSegmentReceived OnSegmentReceived { get; }
+〰19:          public SegmentionOptions Options { get; }
 〰20:  
 〰21:          public async ValueTask<ISegmentReadResult> TryReadAsync(ReadOnlySequence<byte> buffer)
 〰22:          {

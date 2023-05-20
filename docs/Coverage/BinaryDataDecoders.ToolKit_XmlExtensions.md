@@ -7,12 +7,15 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.XmlExtensions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                  |
 | Coveredlines    | `0`                                                           |
-| Uncoveredlines  | `5`                                                           |
-| Coverablelines  | `5`                                                           |
+| Uncoveredlines  | `4`                                                           |
+| Coverablelines  | `4`                                                           |
 | Totallines      | `28`                                                          |
 | Linecoverage    | `0`                                                           |
 | Coveredbranches | `0`                                                           |
 | Totalbranches   | `0`                                                           |
+| Coveredmethods  | `0`                                                           |
+| Totalmethods    | `3`                                                           |
+| Methodcoverage  | `0`                                                           |
 
 ## Metrics
 
@@ -45,7 +48,7 @@
 〰16:          /// <summary>
 〰17:          /// Create instance of XmlExtensions
 〰18:          /// </summary>
-‼19:          public XmlExtensions()
+〰19:          public XmlExtensions()
 〰20:          {
 ‼21:              _ns = this.GetXmlNamespace() + XmlNamespaces.OutputSuffix;
 ‼22:          }

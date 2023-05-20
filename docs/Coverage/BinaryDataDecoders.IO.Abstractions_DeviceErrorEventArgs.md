@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.IO.DeviceErrorEventArgs` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`         |
 | Coveredlines    | `0`                                          |
-| Uncoveredlines  | `6`                                          |
-| Coverablelines  | `6`                                          |
+| Uncoveredlines  | `3`                                          |
+| Coverablelines  | `3`                                          |
 | Totallines      | `17`                                         |
 | Linecoverage    | `0`                                          |
 | Coveredbranches | `0`                                          |
 | Totalbranches   | `0`                                          |
+| Coveredmethods  | `0`                                          |
+| Totalmethods    | `1`                                          |
+| Methodcoverage  | `0`                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                |
-| :--------- | :---- | :------- | :------------------ |
-| 1          | 0     | 100      | `ctor`              |
-| 1          | 0     | 100      | `get_Exception`     |
-| 1          | 0     | 100      | `get_ErrorHandling` |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -35,12 +36,12 @@
 〰6:       {
 ‼7:           public DeviceErrorEventArgs(Exception exception, ErrorHandling errorHandling)
 〰8:           {
-‼9:               Exception = exception;
+〰9:               Exception = exception;
 ‼10:              ErrorHandling = errorHandling;
 ‼11:          }
 〰12:  
-‼13:          public Exception Exception { get; }
-‼14:          public ErrorHandling ErrorHandling { get; set; }
+〰13:          public Exception Exception { get; }
+〰14:          public ErrorHandling ErrorHandling { get; set; }
 〰15:      }
 〰16:  
 〰17:  }

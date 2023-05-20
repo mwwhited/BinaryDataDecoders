@@ -6,14 +6,17 @@
 | :-------------- | :------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.XPathExpressionBuilder` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                  |
-| Coveredlines    | `86`                                                          |
-| Uncoveredlines  | `12`                                                          |
+| Coveredlines    | `88`                                                          |
+| Uncoveredlines  | `10`                                                          |
 | Coverablelines  | `98`                                                          |
 | Totallines      | `127`                                                         |
-| Linecoverage    | `87.7`                                                        |
+| Linecoverage    | `89.7`                                                        |
 | Coveredbranches | `68`                                                          |
 | Totalbranches   | `83`                                                          |
 | Branchcoverage  | `81.9`                                                        |
+| Coveredmethods  | `21`                                                          |
+| Totalmethods    | `21`                                                          |
+| Methodcoverage  | `100`                                                         |
 
 ## Metrics
 
@@ -31,7 +34,7 @@
 | 4          | 83.33 | 75.00    | `Visit`                |
 | 2          | 100   | 50.0     | `Visit`                |
 | 2          | 100   | 100      | `Visit`                |
-| 12         | 69.23 | 66.66    | `Visit`                |
+| 12         | 84.61 | 66.66    | `Visit`                |
 | 1          | 100   | 100      | `Visit`                |
 | 4          | 85.71 | 75.00    | `Visit`                |
 | 6          | 100   | 100      | `Visit`                |
@@ -115,11 +118,11 @@
 ⚠67:              Visit(segment.Left, segment) switch
 ✔68:              {
 ‼69:                  null => Visit(segment.Right, segment),
-‼70:                  string left when string.IsNullOrWhiteSpace(left) => Visit(segment.Right, segment),
+⚠70:                  string left when string.IsNullOrWhiteSpace(left) => Visit(segment.Right, segment),
 ✔71:                  string left => Visit(segment.Right, segment) switch
 ✔72:                  {
 ‼73:                      null => left,
-‼74:                      string right when string.IsNullOrWhiteSpace(right) => left,
+⚠74:                      string right when string.IsNullOrWhiteSpace(right) => left,
 ✔75:                      string right when new[] { '[', '/' }.Contains(right[0]) => left + right,
 ✔76:                      string right when new[] { ':', '/' }.Contains(left[^1]) => left + right,
 ✔77:                      string right => left + '/' + right

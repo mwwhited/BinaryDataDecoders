@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.ToolKit.ComponentModel.ViewModelBase` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                              |
 | Coveredlines    | `0`                                                       |
-| Uncoveredlines  | `13`                                                      |
-| Coverablelines  | `13`                                                      |
+| Uncoveredlines  | `10`                                                      |
+| Coverablelines  | `10`                                                      |
 | Totallines      | `38`                                                      |
 | Linecoverage    | `0`                                                       |
 | Coveredbranches | `0`                                                       |
 | Totalbranches   | `4`                                                       |
 | Branchcoverage  | `0`                                                       |
+| Coveredmethods  | `0`                                                       |
+| Totalmethods    | `3`                                                       |
+| Methodcoverage  | `0`                                                       |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                |
 | :--------- | :---- | :------- | :------------------ |
 | 1          | 0     | 100      | `ctor`              |
-| 1          | 0     | 100      | `get_Dispatched`    |
 | 2          | 0     | 0        | `DispatchWork`      |
 | 2          | 0     | 0        | `OnPropertyChanged` |
 
@@ -44,11 +46,11 @@
 〰13:  	        * https://msdn.microsoft.com/en-us/library/system.windows.weakeventmanager.aspx
 〰14:  	        * http://www.jonathanantoine.com/2011/09/19/wpf-4-5-part-2-improved-weakeventmanager/
 〰15:  	    */
-‼16:          protected ViewModelBase(Action<Action> dispatched)
+〰16:          protected ViewModelBase(Action<Action> dispatched)
 〰17:          {
-‼18:              this.Dispatched = dispatched;
+〰18:              this.Dispatched = dispatched;
 ‼19:          }
-‼20:          public Action<Action> Dispatched { get; }
+〰20:          public Action<Action> Dispatched { get; }
 〰21:          public void DispatchWork(Action work)
 〰22:          {
 ‼23:              if (this.Dispatched == null)

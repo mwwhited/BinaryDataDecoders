@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Xml.Xsl.XsltExtensionFactoryTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                   |
 | Coveredlines    | `0`                                                                  |
-| Uncoveredlines  | `26`                                                                 |
-| Coverablelines  | `26`                                                                 |
+| Uncoveredlines  | `25`                                                                 |
+| Coverablelines  | `25`                                                                 |
 | Totallines      | `81`                                                                 |
 | Linecoverage    | `0`                                                                  |
 | Coveredbranches | `0`                                                                  |
 | Totalbranches   | `10`                                                                 |
 | Branchcoverage  | `0`                                                                  |
+| Coveredmethods  | `0`                                                                  |
+| Totalmethods    | `6`                                                                  |
+| Methodcoverage  | `0`                                                                  |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                     |
 | :--------- | :---- | :------- | :----------------------- |
-| 1          | 0     | 100      | `get_TestContext`        |
 | 10         | 0     | 0        | `BuildXsltExtensionTest` |
 | 1          | 0     | 100      | `DoWork3`                |
 | 1          | 0     | 100      | `DoWork`                 |
@@ -44,7 +46,7 @@
 〰10:      [TestClass]
 〰11:      public class XsltExtensionFactoryTests
 〰12:      {
-‼13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰16:          public void BuildXsltExtensionTest()

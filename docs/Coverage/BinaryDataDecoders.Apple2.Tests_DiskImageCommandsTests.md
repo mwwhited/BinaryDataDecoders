@@ -6,20 +6,22 @@
 | :-------------- | :------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Apple2.Tests.Dos33.DiskImageCommandsTests` |
 | Assembly        | `BinaryDataDecoders.Apple2.Tests`                              |
-| Coveredlines    | `83`                                                           |
+| Coveredlines    | `82`                                                           |
 | Uncoveredlines  | `0`                                                            |
-| Coverablelines  | `83`                                                           |
+| Coverablelines  | `82`                                                           |
 | Totallines      | `180`                                                          |
 | Linecoverage    | `100`                                                          |
 | Coveredbranches | `8`                                                            |
 | Totalbranches   | `8`                                                            |
 | Branchcoverage  | `100`                                                          |
+| Coveredmethods  | `4`                                                            |
+| Totalmethods    | `4`                                                            |
+| Methodcoverage  | `100`                                                          |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                                 |
 | :--------- | :---- | :------- | :----------------------------------- |
-| 1          | 100   | 100      | `get_TestContext`                    |
 | 1          | 100   | 100      | `GetVolumeTableOfContentsTest`       |
 | 4          | 100   | 100      | `GetCatalogsTest`                    |
 | 4          | 100   | 100      | `GetTrackSectorListForFileEntryTest` |
@@ -43,7 +45,7 @@
 〰11:      [TestClass]
 〰12:      public class DiskImageCommandsTests
 〰13:      {
-✔14:          public TestContext TestContext { get; set; }
+〰14:          public TestContext TestContext { get; set; }
 〰15:  
 〰16:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰17:          [TestTarget(typeof(DiskImageCommands), Member = nameof(DiskImageCommands.GetCatalogs))]

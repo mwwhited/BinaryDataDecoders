@@ -6,14 +6,17 @@
 | :-------------- | :------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathVisitor` |
 | Assembly        | `BinaryDataDecoders.Text.Json`                                 |
-| Coveredlines    | `114`                                                          |
-| Uncoveredlines  | `10`                                                           |
+| Coveredlines    | `115`                                                          |
+| Uncoveredlines  | `9`                                                            |
 | Coverablelines  | `124`                                                          |
 | Totallines      | `160`                                                          |
-| Linecoverage    | `91.9`                                                         |
-| Coveredbranches | `105`                                                          |
-| Totalbranches   | `138`                                                          |
-| Branchcoverage  | `76`                                                           |
+| Linecoverage    | `92.7`                                                         |
+| Coveredbranches | `95`                                                           |
+| Totalbranches   | `128`                                                          |
+| Branchcoverage  | `74.2`                                                         |
+| Coveredmethods  | `26`                                                           |
+| Totalmethods    | `26`                                                           |
+| Methodcoverage  | `100`                                                          |
 
 ## Metrics
 
@@ -40,7 +43,7 @@
 | 6          | 60.0  | 50.0     | `Visit`                  |
 | 6          | 100   | 33.33    | `VisitTerminal`          |
 | 2          | 100   | 100      | `Visit`                  |
-| 64         | 85.18 | 89.06    | `Visit`                  |
+| 54         | 88.88 | 87.03    | `Visit`                  |
 | 1          | 100   | 100      | `Visit`                  |
 | 1          | 100   | 100      | `Visit`                  |
 | 1          | 100   | 100      | `Visit`                  |
@@ -189,7 +192,7 @@
 ✔136:                 "&&" => new LogicOperationTypePathSegment(LogicOperationTypes.And),
 ‼137:                 "||" => new LogicOperationTypePathSegment(LogicOperationTypes.Or),
 ✔138: 
-‼139:                 _ when value.Length == 0 => new StringPathSegment(""),
+⚠139:                 _ when value.Length == 0 => new StringPathSegment(""),
 ✔140:                 _ when value[0] == '\'' => new QuotedStringPathSegment(value.Trim('\'')),
 ✔141:                 _ when int.TryParse(value, out var number) => new NumericPathSegment(number),
 ✔142:                 _ when decimal.TryParse(value, out var number) => new DecimalPathSegment(number),

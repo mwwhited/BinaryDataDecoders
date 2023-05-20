@@ -7,23 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.UsbHids.UsbHidAttribute` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`            |
 | Coveredlines    | `0`                                             |
-| Uncoveredlines  | `14`                                            |
-| Coverablelines  | `14`                                            |
+| Uncoveredlines  | `11`                                            |
+| Coverablelines  | `11`                                            |
 | Totallines      | `30`                                            |
 | Linecoverage    | `0`                                             |
 | Coveredbranches | `0`                                             |
 | Totalbranches   | `0`                                             |
+| Coveredmethods  | `0`                                             |
+| Totalmethods    | `3`                                             |
+| Methodcoverage  | `0`                                             |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `ctor`            |
-| 1          | 0     | 100      | `ctor`            |
-| 1          | 0     | 100      | `ctor`            |
-| 1          | 0     | 100      | `get_VendorId`    |
-| 1          | 0     | 100      | `get_ProductId`   |
-| 1          | 0     | 100      | `get_ProductMask` |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -55,9 +55,9 @@
 ‼23:              ProductMask = productMask;
 ‼24:          }
 〰25:  
-‼26:          public ushort VendorId { get; set; }
-‼27:          public ushort ProductId { get; set; }
-‼28:          public ushort ProductMask { get; set; } = 0xffff;
+〰26:          public ushort VendorId { get; set; }
+〰27:          public ushort ProductId { get; set; }
+〰28:          public ushort ProductMask { get; set; } = 0xffff;
 〰29:      }
 〰30:  }
 ```

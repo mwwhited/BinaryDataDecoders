@@ -6,14 +6,17 @@
 | :-------------- | :-------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Apple2.Dos33.DiskImageCommands` |
 | Assembly        | `BinaryDataDecoders.Apple2`                         |
-| Coveredlines    | `59`                                                |
-| Uncoveredlines  | `4`                                                 |
+| Coveredlines    | `60`                                                |
+| Uncoveredlines  | `3`                                                 |
 | Coverablelines  | `63`                                                |
 | Totallines      | `143`                                               |
-| Linecoverage    | `93.6`                                              |
+| Linecoverage    | `95.2`                                              |
 | Coveredbranches | `11`                                                |
 | Totalbranches   | `14`                                                |
 | Branchcoverage  | `78.5`                                              |
+| Coveredmethods  | `4`                                                 |
+| Totalmethods    | `4`                                                 |
+| Methodcoverage  | `100`                                               |
 
 ## Metrics
 
@@ -22,7 +25,7 @@
 | 1          | 100   | 100      | `GetVolumeTableOfContents`       |
 | 4          | 100   | 100      | `GetCatalogs`                    |
 | 4          | 82.35 | 50.0     | `GetTrackSectorListForFileEntry` |
-| 6          | 94.44 | 83.33    | `GetDataFileEntry`               |
+| 6          | 100   | 83.33    | `GetDataFileEntry`               |
 
 ## Files
 
@@ -155,7 +158,7 @@
 〰124: 
 ✔125:             for (int i = 0; i < ts.Length; i++)
 〰126:             {
-‼127:                 if (ts[i].trackSectorList.SectorOffset != 0) throw new NotSupportedException();
+⚠127:                 if (ts[i].trackSectorList.SectorOffset != 0) throw new NotSupportedException();
 〰128: 
 ✔129:                 var track = ts[i].trackSector.Track;
 ✔130:                 var sector = ts[i].trackSector.Sector;

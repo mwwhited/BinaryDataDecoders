@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncBarrier` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                        |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `13`                                                |
-| Coverablelines  | `13`                                                |
+| Uncoveredlines  | `12`                                                |
+| Coverablelines  | `12`                                                |
 | Totallines      | `36`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `4`                                                 |
 | Branchcoverage  | `0`                                                 |
+| Coveredmethods  | `0`                                                 |
+| Totalmethods    | `2`                                                 |
+| Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
@@ -41,7 +44,7 @@
 〰12:          private int m_remainingParticipants;
 〰13:          private ConcurrentStack<TaskCompletionSource<bool>> m_waiters;
 〰14:  
-‼15:          public AsyncBarrier(int participantCount)
+〰15:          public AsyncBarrier(int participantCount)
 〰16:          {
 ‼17:              if (participantCount <= 0) throw new ArgumentOutOfRangeException("participantCount");
 ‼18:              m_remainingParticipants = m_participantCount = participantCount;

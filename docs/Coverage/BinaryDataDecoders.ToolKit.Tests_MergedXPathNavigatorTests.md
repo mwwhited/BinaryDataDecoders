@@ -7,18 +7,20 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Xml.XPath.MergedXPathNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                     |
 | Coveredlines    | `12`                                                                   |
-| Uncoveredlines  | `7`                                                                    |
-| Coverablelines  | `19`                                                                   |
+| Uncoveredlines  | `6`                                                                    |
+| Coverablelines  | `18`                                                                   |
 | Totallines      | `46`                                                                   |
-| Linecoverage    | `63.1`                                                                 |
+| Linecoverage    | `66.6`                                                                 |
 | Coveredbranches | `0`                                                                    |
 | Totalbranches   | `0`                                                                    |
+| Coveredmethods  | `1`                                                                    |
+| Totalmethods    | `2`                                                                    |
+| Methodcoverage  | `50`                                                                   |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                     |
 | :--------- | :---- | :------- | :----------------------- |
-| 1          | 0     | 100      | `get_TestContext`        |
 | 1          | 0     | 100      | `MergeMultiplePathsTest` |
 | 1          | 100   | 100      | `MergeMultipleTest`      |
 
@@ -40,7 +42,7 @@
 〰11:      [TestClass]
 〰12:      public class MergedXPathNavigatorTests
 〰13:      {
-‼14:          public TestContext TestContext { get; set; }
+〰14:          public TestContext TestContext { get; set; }
 〰15:  
 〰16:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰17:          public void MergeMultiplePathsTest()

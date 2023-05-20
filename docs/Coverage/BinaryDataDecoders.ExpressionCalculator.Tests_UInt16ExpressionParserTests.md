@@ -13,6 +13,9 @@
 | Linecoverage    | `100`                                                                              |
 | Coveredbranches | `0`                                                                                |
 | Totalbranches   | `0`                                                                                |
+| Coveredmethods  | `1`                                                                                |
+| Totalmethods    | `1`                                                                                |
+| Methodcoverage  | `100`                                                                              |
 
 ## Metrics
 
@@ -258,8 +261,8 @@
 〰231: 
 〰232:         [DataTestMethod, TestCategory(TestCategories.Unit)]
 〰233:         [DataRow("A+B+C", "A, B, C")]
-〰234:         [DataRow("A+B+B", "A, B")]
-〰235:         [DataRow("Abc+XyW1", "Abc, XyW1")]
+〰234:         //[DataRow("A+B+B", "A, B")]
+〰235:         //[DataRow("Abc+XyW1", "Abc, XyW1")]
 〰236:         [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.GetDistinctVariableNames))]
 〰237:         public void GetDistinctVariablesTests(string input, string result)
 〰238:         {

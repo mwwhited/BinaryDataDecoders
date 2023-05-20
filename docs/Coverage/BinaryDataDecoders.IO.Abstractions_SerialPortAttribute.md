@@ -7,26 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.Ports.SerialPortAttribute` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`              |
 | Coveredlines    | `0`                                               |
-| Uncoveredlines  | `15`                                              |
-| Coverablelines  | `15`                                              |
+| Uncoveredlines  | `9`                                               |
+| Coverablelines  | `9`                                               |
 | Totallines      | `44`                                              |
 | Linecoverage    | `0`                                               |
 | Coveredbranches | `0`                                               |
 | Totalbranches   | `0`                                               |
+| Coveredmethods  | `0`                                               |
+| Totalmethods    | `3`                                               |
+| Methodcoverage  | `0`                                               |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name               |
-| :--------- | :---- | :------- | :----------------- |
-| 1          | 0     | 100      | `ctor`             |
-| 1          | 0     | 100      | `ctor`             |
-| 1          | 0     | 100      | `ctor`             |
-| 1          | 0     | 100      | `get_BaudRate`     |
-| 1          | 0     | 100      | `get_DataBits`     |
-| 1          | 0     | 100      | `get_StopBits`     |
-| 1          | 0     | 100      | `get_Parity`       |
-| 1          | 0     | 100      | `get_ReadTimeout`  |
-| 1          | 0     | 100      | `get_WriteTimeout` |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -59,22 +56,22 @@
 〰24:          /// <summary>
 〰25:          /// Default Baud Rate
 〰26:          /// </summary>
-‼27:          public int BaudRate { get; set; } = 9600;
+〰27:          public int BaudRate { get; set; } = 9600;
 〰28:          /// <summary>
 〰29:          /// Default bitwidth
 〰30:          /// </summary>
-‼31:          public int DataBits { get; set; } = 8;
+〰31:          public int DataBits { get; set; } = 8;
 〰32:          /// <summary>
 〰33:          /// Default stop bits
 〰34:          /// </summary>
-‼35:          public StopBits StopBits { get; set; } = StopBits.One;
+〰35:          public StopBits StopBits { get; set; } = StopBits.One;
 〰36:          /// <summary>
 〰37:          /// Default parity bit
 〰38:          /// </summary>
-‼39:          public Parity Parity { get; set; } = Parity.None;
+〰39:          public Parity Parity { get; set; } = Parity.None;
 〰40:  
-‼41:          public int ReadTimeout { get; set; } = -1;
-‼42:          public int WriteTimeout { get; set; } = -1;
+〰41:          public int ReadTimeout { get; set; } = -1;
+〰42:          public int WriteTimeout { get; set; } = -1;
 〰43:      }
 〰44:  }
 ```

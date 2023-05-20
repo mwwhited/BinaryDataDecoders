@@ -7,43 +7,23 @@
 | Class           | `BinaryDataDecoders.FileSystems.Iso9660.VolumeDescription` |
 | Assembly        | `BinaryDataDecoders.FileSystems`                           |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `68`                                                       |
-| Coverablelines  | `68`                                                       |
+| Uncoveredlines  | `44`                                                       |
+| Coverablelines  | `44`                                                       |
 | Totallines      | `150`                                                      |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `4`                                                        |
 | Branchcoverage  | `0`                                                        |
+| Coveredmethods  | `0`                                                        |
+| Totalmethods    | `5`                                                        |
+| Methodcoverage  | `0`                                                        |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                                        |
 | :--------- | :---- | :------- | :------------------------------------------ |
 | 1          | 0     | 100      | `ctor`                                      |
-| 1          | 0     | 100      | `get_DescriptorSet`                         |
-| 1          | 0     | 100      | `get_SystemIdentifier`                      |
-| 1          | 0     | 100      | `get_VolumeIdentifier`                      |
-| 1          | 0     | 100      | `get_SectorCount`                           |
-| 1          | 0     | 100      | `get_VolumeSetSize`                         |
-| 1          | 0     | 100      | `get_VolumeSequenceNumber`                  |
-| 1          | 0     | 100      | `get_SectorSize`                            |
-| 1          | 0     | 100      | `get_PathTableLength`                       |
-| 1          | 0     | 100      | `get_FirstSectorFirst`                      |
-| 1          | 0     | 100      | `get_FirstSectorSecond`                     |
-| 1          | 0     | 100      | `get_DirectoryRecord`                       |
-| 1          | 0     | 100      | `get_VolumeSetIdentifier`                   |
-| 1          | 0     | 100      | `get_PublisherIdentifier`                   |
-| 1          | 0     | 100      | `get_DataPreparerIdentifier`                |
-| 1          | 0     | 100      | `get_ApplicationIdentifier`                 |
-| 1          | 0     | 100      | `get_CopyRightFileIdentifier`               |
-| 1          | 0     | 100      | `get_AbstractFileIdentifier`                |
-| 1          | 0     | 100      | `get_BibliographyFileIdentifier`            |
-| 1          | 0     | 100      | `get_VolumeCreation`                        |
-| 1          | 0     | 100      | `get_VolumeModification`                    |
-| 1          | 0     | 100      | `get_VolumeExpires`                         |
-| 1          | 0     | 100      | `get_VolumeEffective`                       |
 | 1          | 0     | 100      | `Create`                                    |
-| 1          | 0     | 100      | `get_BaseStream`                            |
 | 2          | 0     | 0        | `GetEnumerator`                             |
 | 1          | 0     | 100      | `SystemCollectionsIEnumerableGetEnumerator` |
 | 2          | 0     | 0        | `Dispose`                                   |
@@ -63,7 +43,7 @@
 〰8:   {
 〰9:       public class VolumeDescription : IEnumerable<DirectoryRecord>, IDisposable
 〰10:      {
-‼11:          private VolumeDescription(byte[] buffer, Encoding encoding, Stream reader)
+〰11:          private VolumeDescription(byte[] buffer, Encoding encoding, Stream reader)
 〰12:          {
 〰13:              //  1      1
 ‼14:              var offset = 1;
@@ -139,28 +119,28 @@
 〰84:              //653      zeros
 ‼85:          }
 〰86:  
-‼87:          public string DescriptorSet { get; protected set; }
-‼88:          public string SystemIdentifier { get; protected set; }
-‼89:          public string VolumeIdentifier { get; protected set; }
-‼90:          public uint SectorCount { get; protected set; }
-‼91:          public ushort VolumeSetSize { get; protected set; }
-‼92:          public ushort VolumeSequenceNumber { get; protected set; }
-‼93:          public ushort SectorSize { get; protected set; }
-‼94:          public uint PathTableLength { get; protected set; }
-‼95:          public uint FirstSectorFirst { get; protected set; }
-‼96:          public uint FirstSectorSecond { get; protected set; }
-‼97:          public DirectoryRecord DirectoryRecord { get; protected set; }
-‼98:          public string VolumeSetIdentifier { get; protected set; }
-‼99:          public string PublisherIdentifier { get; protected set; }
-‼100:         public string DataPreparerIdentifier { get; protected set; }
-‼101:         public string ApplicationIdentifier { get; protected set; }
-‼102:         public string CopyRightFileIdentifier { get; protected set; }
-‼103:         public string AbstractFileIdentifier { get; protected set; }
-‼104:         public string BibliographyFileIdentifier { get; protected set; }
-‼105:         public DateTime VolumeCreation { get; protected set; }
-‼106:         public DateTime VolumeModification { get; protected set; }
-‼107:         public DateTime VolumeExpires { get; protected set; }
-‼108:         public DateTime VolumeEffective { get; protected set; }
+〰87:          public string DescriptorSet { get; protected set; }
+〰88:          public string SystemIdentifier { get; protected set; }
+〰89:          public string VolumeIdentifier { get; protected set; }
+〰90:          public uint SectorCount { get; protected set; }
+〰91:          public ushort VolumeSetSize { get; protected set; }
+〰92:          public ushort VolumeSequenceNumber { get; protected set; }
+〰93:          public ushort SectorSize { get; protected set; }
+〰94:          public uint PathTableLength { get; protected set; }
+〰95:          public uint FirstSectorFirst { get; protected set; }
+〰96:          public uint FirstSectorSecond { get; protected set; }
+〰97:          public DirectoryRecord DirectoryRecord { get; protected set; }
+〰98:          public string VolumeSetIdentifier { get; protected set; }
+〰99:          public string PublisherIdentifier { get; protected set; }
+〰100:         public string DataPreparerIdentifier { get; protected set; }
+〰101:         public string ApplicationIdentifier { get; protected set; }
+〰102:         public string CopyRightFileIdentifier { get; protected set; }
+〰103:         public string AbstractFileIdentifier { get; protected set; }
+〰104:         public string BibliographyFileIdentifier { get; protected set; }
+〰105:         public DateTime VolumeCreation { get; protected set; }
+〰106:         public DateTime VolumeModification { get; protected set; }
+〰107:         public DateTime VolumeExpires { get; protected set; }
+〰108:         public DateTime VolumeEffective { get; protected set; }
 〰109: 
 〰110:         public static VolumeDescription Create(Stream stream)
 〰111:         {
@@ -175,7 +155,7 @@
 ‼120:             }
 ‼121:             return new VolumeDescription(sector, Encoding.ASCII, stream);
 〰122:         }
-‼123:         protected Stream BaseStream { get; set; }
+〰123:         protected Stream BaseStream { get; set; }
 〰124: 
 〰125:         #region IEnumerable<DirectoryRecord> Members
 〰126: 

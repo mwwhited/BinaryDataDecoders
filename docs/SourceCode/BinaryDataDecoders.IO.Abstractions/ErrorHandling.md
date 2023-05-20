@@ -10,6 +10,6 @@
 ### Comments
 
  <summary>
- Ignore exception and continue processing
+ 
  </summary>
 

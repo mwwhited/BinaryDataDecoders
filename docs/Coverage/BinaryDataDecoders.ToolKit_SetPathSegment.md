@@ -6,19 +6,21 @@
 | :-------------- | :------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.SetPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                             |
-| Coveredlines    | `8`                                                      |
+| Coveredlines    | `3`                                                      |
 | Uncoveredlines  | `0`                                                      |
-| Coverablelines  | `8`                                                      |
+| Coverablelines  | `3`                                                      |
 | Totallines      | `21`                                                     |
 | Linecoverage    | `100`                                                    |
 | Coveredbranches | `0`                                                      |
 | Totalbranches   | `0`                                                      |
+| Coveredmethods  | `3`                                                      |
+| Totalmethods    | `3`                                                      |
+| Methodcoverage  | `100`                                                    |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `get_Set`  |
 | 1          | 100   | 100      | `ctor`     |
 | 1          | 100   | 100      | `ToString` |
 | 1          | 100   | 100      | `cctor`    |
@@ -35,13 +37,13 @@
 〰5:   {
 〰6:       public class SetPathSegment : IPathSegment
 〰7:       {
-✔8:           public IEnumerable<IPathSegment> Set { get; }
+〰8:           public IEnumerable<IPathSegment> Set { get; }
 〰9:   
-✔10:          public SetPathSegment(
-✔11:              IEnumerable<IPathSegment> set
-✔12:              )
+〰10:          public SetPathSegment(
+〰11:              IEnumerable<IPathSegment> set
+〰12:              )
 〰13:          {
-✔14:              Set = set;
+〰14:              Set = set;
 ✔15:          }
 〰16:  
 ✔17:          public override string ToString() => string.Join(",", Set);

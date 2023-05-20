@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.Drawing.Tests.BarCodes.Code39Tests` |
 | Assembly        | `BinaryDataDecoders.Drawing.Tests`                      |
 | Coveredlines    | `0`                                                     |
-| Uncoveredlines  | `44`                                                    |
-| Coverablelines  | `44`                                                    |
+| Uncoveredlines  | `43`                                                    |
+| Coverablelines  | `43`                                                    |
 | Totallines      | `80`                                                    |
 | Linecoverage    | `0`                                                     |
 | Coveredbranches | `0`                                                     |
 | Totalbranches   | `6`                                                     |
 | Branchcoverage  | `0`                                                     |
+| Coveredmethods  | `0`                                                     |
+| Totalmethods    | `1`                                                     |
+| Methodcoverage  | `0`                                                     |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 6          | 0     | 0        | `Test`            |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 6          | 0     | 0        | `Test`  |
 
 ## Files
 
@@ -43,7 +45,7 @@
 〰14:      [TestClass]
 〰15:      public class Code39Tests
 〰16:      {
-‼17:          public TestContext TestContext { get; set; }
+〰17:          public TestContext TestContext { get; set; }
 〰18:  
 〰19:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰20:          public void Test()

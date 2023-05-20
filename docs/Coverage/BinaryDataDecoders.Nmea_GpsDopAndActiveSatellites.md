@@ -7,26 +7,23 @@
 | Class           | `BinaryDataDecoders.Nmea.GpsDopAndActiveSatellites` |
 | Assembly        | `BinaryDataDecoders.Nmea`                           |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `28`                                                |
-| Coverablelines  | `28`                                                |
+| Uncoveredlines  | `21`                                                |
+| Coverablelines  | `21`                                                |
 | Totallines      | `90`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `12`                                                |
 | Branchcoverage  | `0`                                                 |
+| Coveredmethods  | `0`                                                 |
+| Totalmethods    | `2`                                                 |
+| Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name             |
-| :--------- | :---- | :------- | :--------------- |
-| 1          | 0     | 100      | `get_Selection`  |
-| 1          | 0     | 100      | `get_Fix`        |
-| 1          | 0     | 100      | `get_Satellites` |
-| 1          | 0     | 100      | `get_PDOP`       |
-| 1          | 0     | 100      | `get_HDOP`       |
-| 1          | 0     | 100      | `get_VDOP`       |
-| 12         | 0     | 0        | `ctor`           |
-| 1          | 0     | 100      | `ToString`       |
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 12         | 0     | 0        | `ctor`     |
+| 1          | 0     | 100      | `ToString` |
 
 ## Files
 
@@ -89,15 +86,15 @@
 〰54:          4 = BeiDou B1I D1, B1I D2, B2I D1, B2I D12
 〰55:  
 〰56:          */
-‼57:          public SelectionModes Selection { get; }
-‼58:          public FixModes Fix { get; }
-‼59:          public IReadOnlyList<string> Satellites { get; }
-‼60:          public decimal PDOP { get; }
-‼61:          public decimal HDOP { get; }
-‼62:          public decimal VDOP { get; }
+〰57:          public SelectionModes Selection { get; }
+〰58:          public FixModes Fix { get; }
+〰59:          public IReadOnlyList<string> Satellites { get; }
+〰60:          public decimal PDOP { get; }
+〰61:          public decimal HDOP { get; }
+〰62:          public decimal VDOP { get; }
 〰63:  
 〰64:  
-‼65:          public GpsDopAndActiveSatellites(string[] data)
+〰65:          public GpsDopAndActiveSatellites(string[] data)
 〰66:          {
 ‼67:              Selection = data[1] switch
 ‼68:              {

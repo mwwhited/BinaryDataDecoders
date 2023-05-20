@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.XsltFunctionAttribute` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `3`                                                        |
-| Coverablelines  | `3`                                                        |
+| Uncoveredlines  | `1`                                                        |
+| Coverablelines  | `1`                                                        |
 | Totallines      | `14`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `0`                                                        |
+| Coveredmethods  | `0`                                                        |
+| Totalmethods    | `1`                                                        |
+| Methodcoverage  | `0`                                                        |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                   |
-| :--------- | :---- | :------- | :--------------------- |
-| 1          | 0     | 100      | `get_Name`             |
-| 1          | 0     | 100      | `get_HideOriginalName` |
-| 1          | 0     | 100      | `ctor`                 |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -34,9 +35,9 @@
 〰5:       [AttributeUsage(AttributeTargets.Method)]
 〰6:       public class XsltFunctionAttribute : Attribute
 〰7:       {
-‼8:           public string Name { get; }
+〰8:           public string Name { get; }
 〰9:   
-‼10:          public bool HideOriginalName { get; set; }
+〰10:          public bool HideOriginalName { get; set; }
 〰11:  
 ‼12:          public XsltFunctionAttribute(string name) => Name = name;
 〰13:      }

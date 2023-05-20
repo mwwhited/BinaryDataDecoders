@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions.PathExtensions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                   |
 | Coveredlines    | `0`                                                            |
-| Uncoveredlines  | `20`                                                           |
-| Coverablelines  | `20`                                                           |
+| Uncoveredlines  | `19`                                                           |
+| Coverablelines  | `19`                                                           |
 | Totallines      | `123`                                                          |
 | Linecoverage    | `0`                                                            |
 | Coveredbranches | `0`                                                            |
 | Totalbranches   | `4`                                                            |
 | Branchcoverage  | `0`                                                            |
+| Coveredmethods  | `0`                                                            |
+| Totalmethods    | `8`                                                            |
+| Methodcoverage  | `0`                                                            |
 
 ## Metrics
 
@@ -56,7 +59,7 @@
 〰21:          ///
 〰22:          /// </summary>
 〰23:          /// <param name="sandbox">base path used to sand-box requests</param>
-‼24:          public PathExtensions(string sandbox)
+〰24:          public PathExtensions(string sandbox)
 〰25:          {
 ‼26:              _sandbox = sandbox;
 ‼27:              _ns = this.GetXmlNamespace() + XmlNamespaces.OutputSuffix;

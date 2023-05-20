@@ -6,20 +6,23 @@
 | :-------------- | :------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero.FaveroStateParser` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                          |
-| Coveredlines    | `39`                                                                            |
-| Uncoveredlines  | `2`                                                                             |
+| Coveredlines    | `40`                                                                            |
+| Uncoveredlines  | `1`                                                                             |
 | Coverablelines  | `41`                                                                            |
 | Totallines      | `108`                                                                           |
-| Linecoverage    | `95.1`                                                                          |
+| Linecoverage    | `97.5`                                                                          |
 | Coveredbranches | `6`                                                                             |
 | Totalbranches   | `10`                                                                            |
 | Branchcoverage  | `60`                                                                            |
+| Coveredmethods  | `1`                                                                             |
+| Totalmethods    | `1`                                                                             |
+| Methodcoverage  | `100`                                                                           |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
-| 6          | 92.59 | 50.0     | `Parse` |
+| 6          | 96.29 | 50.0     | `Parse` |
 
 ## Files
 
@@ -36,7 +39,7 @@
 〰8:       {
 〰9:           public IScoreMachineState Parse(ReadOnlySpan<byte> frame)
 〰10:          {
-‼11:              if (frame == null || frame.Length == 0) return null;
+⚠11:              if (frame == null || frame.Length == 0) return null;
 〰12:  
 〰13:              //  1° byte: FFh  = Start string
 〰14:              // The FFh value identifies the beginning of the string.

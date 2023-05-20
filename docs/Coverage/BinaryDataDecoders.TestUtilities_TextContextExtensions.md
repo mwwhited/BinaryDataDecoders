@@ -6,20 +6,23 @@
 | :-------------- | :------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.TestUtilities.TextContextExtensions` |
 | Assembly        | `BinaryDataDecoders.TestUtilities`                       |
-| Coveredlines    | `20`                                                     |
-| Uncoveredlines  | `23`                                                     |
+| Coveredlines    | `21`                                                     |
+| Uncoveredlines  | `22`                                                     |
 | Coverablelines  | `43`                                                     |
 | Totallines      | `170`                                                    |
-| Linecoverage    | `46.5`                                                   |
+| Linecoverage    | `48.8`                                                   |
 | Coveredbranches | `16`                                                     |
 | Totalbranches   | `36`                                                     |
 | Branchcoverage  | `44.4`                                                   |
+| Coveredmethods  | `2`                                                      |
+| Totalmethods    | `2`                                                      |
+| Methodcoverage  | `100`                                                    |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name            |
 | :--------- | :---- | :------- | :-------------- |
-| 34         | 38.88 | 44.11    | `AddResult`     |
+| 34         | 41.66 | 44.11    | `AddResult`     |
 | 2          | 85.71 | 50.0     | `AddResultFile` |
 
 ## Files
@@ -54,7 +57,7 @@
 〰25:          /// <returns>test context for chaining</returns>
 〰26:          public static TestContext AddResult(this TestContext context, object value, string fileName = "")
 〰27:          {
-‼28:              if (value == null) return context;
+⚠28:              if (value == null) return context;
 〰29:              // if (value is IXPathNavigable nav && !(value is XPathNodeIterator)) return AddResult(context, nav.CreateNavigator(), fileName);
 ✔30:              if (value is INode node) return AddResult(context, new ExtensibleNavigator(node, fileName), fileName);
 〰31:  

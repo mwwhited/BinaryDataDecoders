@@ -6,25 +6,22 @@
 | :-------------- | :--------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaRotor` |
 | Assembly        | `BinaryDataDecoders.Cryptography`                    |
-| Coveredlines    | `31`                                                 |
-| Uncoveredlines  | `1`                                                  |
-| Coverablelines  | `32`                                                 |
+| Coveredlines    | `27`                                                 |
+| Uncoveredlines  | `0`                                                  |
+| Coverablelines  | `27`                                                 |
 | Totallines      | `41`                                                 |
-| Linecoverage    | `96.8`                                               |
+| Linecoverage    | `100`                                                |
 | Coveredbranches | `0`                                                  |
 | Totalbranches   | `0`                                                  |
+| Coveredmethods  | `1`                                                  |
+| Totalmethods    | `1`                                                  |
+| Methodcoverage  | `100`                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name             |
-| :--------- | :---- | :------- | :--------------- |
-| 1          | 100   | 100      | `get_Rotors`     |
-| 1          | 100   | 100      | `cctor`          |
-| 1          | 0     | 100      | `get_Introduced` |
-| 1          | 100   | 100      | `get_Number`     |
-| 1          | 100   | 100      | `get_RotateOn`   |
-| 1          | 100   | 100      | `get_Series`     |
-| 1          | 100   | 100      | `get_Wiring`     |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 100   | 100      | `cctor` |
 
 ## Files
 
@@ -65,11 +62,11 @@
 ✔32:              // new EnigmaRotor {Number="ETW", Series="Enigma I",Wiring="ABCDEFGHIJKLMNOPQRSTUVWXYZ",Introduced="",RotateOn=new char[]{}},
 ✔33:          };
 〰34:  
-‼35:          public string Introduced { get; private set; }
-✔36:          public string Number { get; private set; }
-✔37:          public char[] RotateOn { get; private set; }
-✔38:          public string Series { get; private set; }
-✔39:          public string Wiring { get; private set; }
+〰35:          public string Introduced { get; private set; }
+〰36:          public string Number { get; private set; }
+〰37:          public char[] RotateOn { get; private set; }
+〰38:          public string Series { get; private set; }
+〰39:          public string Wiring { get; private set; }
 〰40:      }
 〰41:  }
 ```

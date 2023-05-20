@@ -6,20 +6,23 @@
 | :-------------- | :----------------------------------------------------- |
 | Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaMachine` |
 | Assembly        | `BinaryDataDecoders.Cryptography`                      |
-| Coveredlines    | `52`                                                   |
+| Coveredlines    | `47`                                                   |
 | Uncoveredlines  | `18`                                                   |
-| Coverablelines  | `70`                                                   |
+| Coverablelines  | `65`                                                   |
 | Totallines      | `143`                                                  |
-| Linecoverage    | `74.2`                                                 |
+| Linecoverage    | `72.3`                                                 |
 | Coveredbranches | `21`                                                   |
 | Totalbranches   | `32`                                                   |
 | Branchcoverage  | `65.6`                                                 |
+| Coveredmethods  | `6`                                                    |
+| Totalmethods    | `10`                                                   |
+| Methodcoverage  | `60`                                                   |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name               |
 | :--------- | :---- | :------- | :----------------- |
-| 8          | 85.71 | 50.0     | `ctor`             |
+| 8          | 77.77 | 50.0     | `ctor`             |
 | 1          | 100   | 100      | `get_Position`     |
 | 2          | 100   | 100      | `set_Position`     |
 | 1          | 0     | 100      | `get_RingSettings` |
@@ -51,11 +54,11 @@
 〰14:          private int[] ringSettings;
 〰15:          private readonly EnigmaRotor[] rotors;
 〰16:          private EnigmaReflector reflector;
-✔17:          public EnigmaMachine(EnigmaRotor[] rotors,
-✔18:                               EnigmaReflector reflector,
-✔19:                               //string start = null,
-✔20:                               string ringSettings = null,
-✔21:                               string plugBoard = null)
+〰17:          public EnigmaMachine(EnigmaRotor[] rotors,
+〰18:                               EnigmaReflector reflector,
+〰19:                               //string start = null,
+〰20:                               string ringSettings = null,
+〰21:                               string plugBoard = null)
 〰22:          {
 ⚠23:              if (rotors == null || rotors.Length < 3 || rotors.Length > 5)
 ‼24:                  throw new InvalidOperationException("Invalid Rotor Set");

@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero.FaveroDefinition` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                         |
 | Coveredlines    | `0`                                                                            |
-| Uncoveredlines  | `5`                                                                            |
-| Coverablelines  | `5`                                                                            |
+| Uncoveredlines  | `3`                                                                            |
+| Coverablelines  | `3`                                                                            |
 | Totallines      | `23`                                                                           |
 | Linecoverage    | `0`                                                                            |
 | Coveredbranches | `0`                                                                            |
 | Totalbranches   | `0`                                                                            |
+| Coveredmethods  | `0`                                                                            |
+| Totalmethods    | `1`                                                                            |
+| Methodcoverage  | `0`                                                                            |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                   |
-| :--------- | :---- | :------- | :--------------------- |
-| 1          | 0     | 100      | `get_SegmentDefintion` |
-| 1          | 0     | 100      | `ctor`                 |
-| 1          | 0     | 100      | `get_Decoder`          |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
@@ -42,12 +43,12 @@
 〰13:      [Export(typeof(IDeviceDefinition))]
 〰14:      public class FaveroDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
 〰15:      {
-‼16:          public ISegmentBuildDefinition SegmentDefintion { get; } =
+〰16:          public ISegmentBuildDefinition SegmentDefintion { get; } =
 ‼17:              Segment.StartsWith(0xff)
 ‼18:                     .AndIsLength(10)
 ‼19:                     .WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid);
 〰20:  
-‼21:          public IMessageDecoder<IScoreMachineState> Decoder { get; } = new FaveroDecoder();
+〰21:          public IMessageDecoder<IScoreMachineState> Decoder { get; } = new FaveroDecoder();
 〰22:      }
 〰23:  }
 ```

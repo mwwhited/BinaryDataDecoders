@@ -7,32 +7,34 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Schema.XmlSchemaValidatorEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
 | Coveredlines    | `0`                                                          |
-| Uncoveredlines  | `69`                                                         |
-| Coverablelines  | `69`                                                         |
+| Uncoveredlines  | `67`                                                         |
+| Coverablelines  | `67`                                                         |
 | Totallines      | `133`                                                        |
 | Linecoverage    | `0`                                                          |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `28`                                                         |
 | Branchcoverage  | `0`                                                          |
+| Coveredmethods  | `0`                                                          |
+| Totalmethods    | `13`                                                         |
+| Methodcoverage  | `0`                                                          |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name               |
-| :--------- | :---- | :------- | :----------------- |
-| 1          | 0     | 100      | `get_XmlSchemaSet` |
-| 1          | 0     | 100      | `ctor`             |
-| 2          | 0     | 0        | `ctor`             |
-| 2          | 0     | 0        | `ctor`             |
-| 2          | 0     | 0        | `ctor`             |
-| 4          | 0     | 0        | `ctor`             |
-| 4          | 0     | 0        | `ctor`             |
-| 4          | 0     | 0        | `ctor`             |
-| 2          | 0     | 0        | `ctor`             |
-| 2          | 0     | 0        | `ctor`             |
-| 2          | 0     | 0        | `IsValid`          |
-| 2          | 0     | 0        | `GetErrors`        |
-| 2          | 0     | 0        | `GetWarnings`      |
-| 1          | 0     | 100      | `GetResults`       |
+| Complexity | Lines | Branches | Name          |
+| :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ctor`        |
+| 2          | 0     | 0        | `ctor`        |
+| 2          | 0     | 0        | `ctor`        |
+| 2          | 0     | 0        | `ctor`        |
+| 4          | 0     | 0        | `ctor`        |
+| 4          | 0     | 0        | `ctor`        |
+| 4          | 0     | 0        | `ctor`        |
+| 2          | 0     | 0        | `ctor`        |
+| 2          | 0     | 0        | `ctor`        |
+| 2          | 0     | 0        | `IsValid`     |
+| 2          | 0     | 0        | `GetErrors`   |
+| 2          | 0     | 0        | `GetWarnings` |
+| 1          | 0     | 100      | `GetResults`  |
 
 ## Files
 
@@ -49,9 +51,9 @@
 〰8:   {
 〰9:       public class XmlSchemaValidatorEx
 〰10:      {
-‼11:          public XmlSchemaSet XmlSchemaSet { get; private set; }
+〰11:          public XmlSchemaSet XmlSchemaSet { get; private set; }
 〰12:  
-‼13:          public XmlSchemaValidatorEx()
+〰13:          public XmlSchemaValidatorEx()
 〰14:          {
 ‼15:              this.XmlSchemaSet = new XmlSchemaSet();
 ‼16:          }

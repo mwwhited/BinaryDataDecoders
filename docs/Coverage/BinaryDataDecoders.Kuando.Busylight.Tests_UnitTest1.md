@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.Kuando.Busylight.Tests.UnitTest1` |
 | Assembly        | `BinaryDataDecoders.Kuando.Busylight.Tests`           |
 | Coveredlines    | `0`                                                   |
-| Uncoveredlines  | `112`                                                 |
-| Coverablelines  | `112`                                                 |
+| Uncoveredlines  | `111`                                                 |
+| Coverablelines  | `111`                                                 |
 | Totallines      | `168`                                                 |
 | Linecoverage    | `0`                                                   |
 | Coveredbranches | `0`                                                   |
 | Totalbranches   | `56`                                                  |
 | Branchcoverage  | `0`                                                   |
+| Coveredmethods  | `0`                                                   |
+| Totalmethods    | `3`                                                   |
+| Methodcoverage  | `0`                                                   |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name               |
 | :--------- | :---- | :------- | :----------------- |
-| 1          | 0     | 100      | `get_TestContext`  |
 | 2          | 0     | 0        | `BuidlRequestTest` |
 | 1          | 0     | 100      | `TestMethod1`      |
 | 54         | 0     | 0        | `GenerateCommands` |
@@ -42,7 +44,7 @@
 〰11:      [TestClass]
 〰12:      public class UnitTest1
 〰13:      {
-‼14:          public TestContext TestContext { get; set; }
+〰14:          public TestContext TestContext { get; set; }
 〰15:  
 〰16:  
 〰17:          [TestMethod, TestCategory(TestCategories.DevLocal)]

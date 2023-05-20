@@ -6,14 +6,17 @@
 | :-------------- | :------------------------------------------------------------------------------ |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.ScoreMachineState` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`                          |
-| Coveredlines    | `11`                                                                            |
+| Coveredlines    | `2`                                                                             |
 | Uncoveredlines  | `7`                                                                             |
-| Coverablelines  | `18`                                                                            |
+| Coverablelines  | `9`                                                                             |
 | Totallines      | `37`                                                                            |
-| Linecoverage    | `61.1`                                                                          |
+| Linecoverage    | `22.2`                                                                          |
 | Coveredbranches | `0`                                                                             |
 | Totalbranches   | `8`                                                                             |
 | Branchcoverage  | `0`                                                                             |
+| Coveredmethods  | `2`                                                                             |
+| Totalmethods    | `5`                                                                             |
+| Methodcoverage  | `40`                                                                            |
 
 ## Metrics
 
@@ -21,10 +24,6 @@
 | :--------- | :---- | :------- | :------------ |
 | 1          | 0     | 100      | `cctor`       |
 | 1          | 100   | 100      | `ctor`        |
-| 1          | 100   | 100      | `get_Left`    |
-| 1          | 100   | 100      | `get_Right`   |
-| 1          | 100   | 100      | `get_Clock`   |
-| 1          | 100   | 100      | `get_Match`   |
 | 1          | 100   | 100      | `ToString`    |
 | 8          | 0     | 0        | `Equals`      |
 | 1          | 0     | 100      | `GetHashCode` |
@@ -47,18 +46,18 @@
 〰11:          /// <param name="left">Left</param>
 〰12:          /// <param name="right">Right</param>
 〰13:          /// <param name="clock"></param>
-✔14:          public ScoreMachineState(Fencer left, Fencer right, TimeSpan clock, byte match)
+〰14:          public ScoreMachineState(Fencer left, Fencer right, TimeSpan clock, byte match)
 〰15:          {
-✔16:              Left = left;
-✔17:              Right = right;
-✔18:              Clock = clock;
-✔19:              Match = match;
+〰16:              Left = left;
+〰17:              Right = right;
+〰18:              Clock = clock;
+〰19:              Match = match;
 ✔20:          }
 〰21:  
-✔22:          public Fencer Left { get; }
-✔23:          public Fencer Right { get; }
-✔24:          public TimeSpan Clock { get; }
-✔25:          public byte Match { get; }
+〰22:          public Fencer Left { get; }
+〰23:          public Fencer Right { get; }
+〰24:          public TimeSpan Clock { get; }
+〰25:          public byte Match { get; }
 〰26:  
 ✔27:          public override string ToString() => $"R:{Left} G:{Right} T:{Clock} M:{Match}";
 〰28:  

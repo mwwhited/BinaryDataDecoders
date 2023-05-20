@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.XsltTransformer` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                         |
 | Coveredlines    | `0`                                                  |
-| Uncoveredlines  | `142`                                                |
-| Coverablelines  | `142`                                                |
+| Uncoveredlines  | `141`                                                |
+| Coverablelines  | `141`                                                |
 | Totallines      | `265`                                                |
 | Linecoverage    | `0`                                                  |
 | Coveredbranches | `0`                                                  |
 | Totalbranches   | `16`                                                 |
 | Branchcoverage  | `0`                                                  |
+| Coveredmethods  | `0`                                                  |
+| Totalmethods    | `7`                                                  |
+| Methodcoverage  | `0`                                                  |
 
 ## Metrics
 
@@ -61,7 +64,7 @@
 〰27:          /// create instance of XsltTransformer
 〰28:          /// </summary>
 〰29:          /// <param name="extensions">optional extensions for XSLT Transform</param>
-‼30:          public XsltTransformer(string sandbox, params object[] extensions)
+〰30:          public XsltTransformer(string sandbox, params object[] extensions)
 〰31:          {
 ‼32:              _sandbox = sandbox;
 ‼33:              _extensions = extensions;
@@ -197,7 +200,7 @@
 ‼163:             var outputPattern = Path.GetFileName(outputFullPath).Split('*').LastOrDefault() ?? "";
 〰164: 
 ‼165:             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
-‼166:             if (!inputFiles.Any()) throw new FileNotFoundException($"input");
+‼166:             if (!inputFiles.Any()) throw new FileNotFoundException($"File Not Found Exception: input");
 〰167: 
 ‼168:             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
 〰169: 

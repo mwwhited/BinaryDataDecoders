@@ -6,13 +6,16 @@
 | :-------------- | :---------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleSimpleNodeBase`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                      |
-| Coveredlines    | `16`                                                              |
-| Uncoveredlines  | `6`                                                               |
-| Coverablelines  | `22`                                                              |
+| Coveredlines    | `6`                                                               |
+| Uncoveredlines  | `2`                                                               |
+| Coverablelines  | `8`                                                               |
 | Totallines      | `38`                                                              |
-| Linecoverage    | `72.7`                                                            |
+| Linecoverage    | `75`                                                              |
 | Coveredbranches | `0`                                                               |
 | Totalbranches   | `0`                                                               |
+| Coveredmethods  | `1`                                                               |
+| Totalmethods    | `3`                                                               |
+| Methodcoverage  | `33.3`                                                            |
 
 ## Metrics
 
@@ -21,13 +24,6 @@
 | 1          | 100   | 100      | `ctor`               |
 | 1          | 0     | 100      | `get_FirstAttribute` |
 | 1          | 0     | 100      | `get_FirstNamespace` |
-| 1          | 0     | 100      | `get_Name`           |
-| 1          | 100   | 100      | `get_Parent`         |
-| 1          | 100   | 100      | `get_Value`          |
-| 1          | 100   | 100      | `get_NodeType`       |
-| 1          | 0     | 100      | `get_FirstChild`     |
-| 1          | 0     | 100      | `get_Next`           |
-| 1          | 0     | 100      | `get_Previous`       |
 
 ## Files
 
@@ -44,13 +40,13 @@
 〰8:       {
 〰9:           protected readonly T _item;
 〰10:  
-✔11:          protected ExtensibleSimpleNodeBase(
-✔12:               INode parent,
-✔13:               XName name,
-✔14:               T item,
-✔15:               string value,
-✔16:               XPathNodeType xPathNodeType
-✔17:              )
+〰11:          protected ExtensibleSimpleNodeBase(
+〰12:               INode parent,
+〰13:               XName name,
+〰14:               T item,
+〰15:               string value,
+〰16:               XPathNodeType xPathNodeType
+〰17:              )
 〰18:          {
 ✔19:              Parent = parent;
 ✔20:              Name = name;
@@ -62,14 +58,14 @@
 ‼26:          public IAttributeNode? FirstAttribute => null;
 ‼27:          public INamespaceNode? FirstNamespace => null;
 〰28:  
-‼29:          public XName Name { get; }
-✔30:          public INode? Parent { get; }
-✔31:          public string? Value { get; }
-✔32:          public XPathNodeType NodeType { get; }
+〰29:          public XName Name { get; }
+〰30:          public INode? Parent { get; }
+〰31:          public string? Value { get; }
+〰32:          public XPathNodeType NodeType { get; }
 〰33:  
-‼34:          public INode? FirstChild { get; protected set; }
-‼35:          public INode? Next { get; set; }
-‼36:          public INode? Previous { get; set; }
+〰34:          public INode? FirstChild { get; protected set; }
+〰35:          public INode? Next { get; set; }
+〰36:          public INode? Previous { get; set; }
 〰37:      }
 〰38:  }
 ```

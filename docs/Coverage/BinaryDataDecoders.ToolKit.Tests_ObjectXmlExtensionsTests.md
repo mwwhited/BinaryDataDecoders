@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Xml.Linq.ObjectXmlExtensionsTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                   |
 | Coveredlines    | `0`                                                                  |
-| Uncoveredlines  | `21`                                                                 |
-| Coverablelines  | `21`                                                                 |
+| Uncoveredlines  | `20`                                                                 |
+| Coverablelines  | `20`                                                                 |
 | Totallines      | `41`                                                                 |
 | Linecoverage    | `0`                                                                  |
 | Coveredbranches | `0`                                                                  |
 | Totalbranches   | `0`                                                                  |
+| Coveredmethods  | `0`                                                                  |
+| Totalmethods    | `1`                                                                  |
+| Methodcoverage  | `0`                                                                  |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 0     | 100      | `AsXElementTest`  |
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 1          | 0     | 100      | `AsXElementTest` |
 
 ## Files
 
@@ -38,7 +40,7 @@
 〰10:      [TestClass]
 〰11:      public class ObjectXmlExtensionsTests
 〰12:      {
-‼13:          public TestContext TestContext { get; set; }
+〰13:          public TestContext TestContext { get; set; }
 〰14:  
 〰15:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰16:          public void AsXElementTest()

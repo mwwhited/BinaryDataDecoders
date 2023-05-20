@@ -7,22 +7,24 @@
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators.ExpressionEvaluatorExtensionsTests` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                               |
 | Coveredlines    | `19`                                                                                          |
-| Uncoveredlines  | `1`                                                                                           |
-| Coverablelines  | `20`                                                                                          |
+| Uncoveredlines  | `0`                                                                                           |
+| Coverablelines  | `19`                                                                                          |
 | Totallines      | `51`                                                                                          |
-| Linecoverage    | `95`                                                                                          |
+| Linecoverage    | `100`                                                                                         |
 | Coveredbranches | `0`                                                                                           |
 | Totalbranches   | `0`                                                                                           |
+| Coveredmethods  | `4`                                                                                           |
+| Totalmethods    | `4`                                                                                           |
+| Methodcoverage  | `100`                                                                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 100   | 100      | `Sequence_Test`   |
-| 1          | 100   | 100      | `Product_Test`    |
-| 1          | 100   | 100      | `Sum_Test`        |
-| 1          | 100   | 100      | `Factorial_Test`  |
+| Complexity | Lines | Branches | Name             |
+| :--------- | :---- | :------- | :--------------- |
+| 1          | 100   | 100      | `Sequence_Test`  |
+| 1          | 100   | 100      | `Product_Test`   |
+| 1          | 100   | 100      | `Sum_Test`       |
+| 1          | 100   | 100      | `Factorial_Test` |
 
 ## Files
 
@@ -38,7 +40,7 @@
 〰7:       [TestClass]
 〰8:       public class ExpressionEvaluatorExtensionsTests
 〰9:       {
-‼10:          public TestContext TestContext { get; set; }
+〰10:          public TestContext TestContext { get; set; }
 〰11:  
 〰12:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰13:          [TestTarget(typeof(ExpressionEvaluatorExtensions), Member = nameof(ExpressionEvaluatorExtensions.Sequence))]

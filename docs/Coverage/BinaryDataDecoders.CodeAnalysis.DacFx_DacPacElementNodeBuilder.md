@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.CodeAnalysis.DacFx.DacPacElementNodeBuilder` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis.DacFx`                          |
 | Coveredlines    | `0`                                                              |
-| Uncoveredlines  | `63`                                                             |
-| Coverablelines  | `63`                                                             |
+| Uncoveredlines  | `65`                                                             |
+| Coverablelines  | `65`                                                             |
 | Totallines      | `128`                                                            |
 | Linecoverage    | `0`                                                              |
 | Coveredbranches | `0`                                                              |
-| Totalbranches   | `52`                                                             |
+| Totalbranches   | `50`                                                             |
 | Branchcoverage  | `0`                                                              |
+| Coveredmethods  | `0`                                                              |
+| Totalmethods    | `13`                                                             |
+| Methodcoverage  | `0`                                                              |
 
 ## Metrics
 
@@ -21,6 +24,7 @@
 | :--------- | :---- | :------- | :--------------------- |
 | 1          | 0     | 100      | `ctor`                 |
 | 10         | 0     | 0        | `ChildSelector`        |
+| 2          | 0     | 0        | `ChildSelector`        |
 | 6          | 0     | 0        | `ChildSelector`        |
 | 2          | 0     | 0        | `AllAttributeSelector` |
 | 12         | 0     | 0        | `AttributeSelector`    |
@@ -71,9 +75,9 @@
 ‼32:              foreach (var i in model.GetObjects(DacQueryScopes.Default | DacQueryScopes.SameDatabase).Where(i => i.Name.Parts.Count == 1))
 〰33:              {
 〰34:                  // Debug.WriteLine(i.ObjectType.Name + "\t" + i.Name);
-〰35:                  yield return (XName.Get(i.ObjectType.Name, NAMESPACE), i);
+‼35:                  yield return (XName.Get(i.ObjectType.Name, NAMESPACE), i);
 〰36:              }
-〰37:          }
+‼37:          }
 〰38:          private IEnumerable<(XName name, object child)>? ChildSelector(TSqlObject model)
 〰39:          {
 ‼40:              foreach (var i in model.GetChildren())

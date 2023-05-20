@@ -32,7 +32,7 @@
 
 #####  Parameters
 
- - string xml 
+ - string ? xml 
 
 #### Public Constructor - XFragment
 
@@ -44,7 +44,7 @@
 
 #####  Parameters
 
- - string xml 
+ - string ? xml 
 
 #### Private Static Method - Parser
 

@@ -7,12 +7,15 @@
 | Class           | `BinaryDataDecoders.Kuando.Busylight.BusylightAudio` |
 | Assembly        | `BinaryDataDecoders.Kuando.Busylight`                |
 | Coveredlines    | `0`                                                  |
-| Uncoveredlines  | `5`                                                  |
-| Coverablelines  | `5`                                                  |
+| Uncoveredlines  | `4`                                                  |
+| Coverablelines  | `4`                                                  |
 | Totallines      | `24`                                                 |
 | Linecoverage    | `0`                                                  |
 | Coveredbranches | `0`                                                  |
 | Totalbranches   | `0`                                                  |
+| Coveredmethods  | `0`                                                  |
+| Totalmethods    | `3`                                                  |
+| Methodcoverage  | `0`                                                  |
 
 ## Metrics
 
@@ -21,7 +24,6 @@
 | 1          | 0     | 100      | `ctor`       |
 | 1          | 0     | 100      | `get_Track`  |
 | 1          | 0     | 100      | `get_Volume` |
-| 1          | 0     | 100      | `get_None`   |
 
 ## Files
 
@@ -49,7 +51,7 @@
 ‼19:          public byte Track => (byte)((SoundByte >> 3) & 0x0f);
 ‼20:          public byte Volume => (byte)(SoundByte & 0x07);
 〰21:  
-‼22:          public static BusylightAudio None { get; } = new BusylightAudio();
+〰22:          public static BusylightAudio None { get; } = new BusylightAudio();
 〰23:      }
 〰24:  }
 ```

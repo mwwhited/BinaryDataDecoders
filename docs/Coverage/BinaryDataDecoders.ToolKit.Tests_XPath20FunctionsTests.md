@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.ToolKit.Tests.Xml.Xsl.Extensions.XPath20FunctionsTests` |
 | Assembly        | `BinaryDataDecoders.ToolKit.Tests`                                          |
 | Coveredlines    | `0`                                                                         |
-| Uncoveredlines  | `32`                                                                        |
-| Coverablelines  | `32`                                                                        |
-| Totallines      | `237`                                                                       |
+| Uncoveredlines  | `31`                                                                        |
+| Coverablelines  | `31`                                                                        |
+| Totallines      | `239`                                                                       |
 | Linecoverage    | `0`                                                                         |
 | Coveredbranches | `0`                                                                         |
 | Totalbranches   | `2`                                                                         |
 | Branchcoverage  | `0`                                                                         |
+| Coveredmethods  | `0`                                                                         |
+| Totalmethods    | `1`                                                                         |
+| Methodcoverage  | `0`                                                                         |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 2          | 0     | 0        | `MaxTest`         |
+| Complexity | Lines | Branches | Name      |
+| :--------- | :---- | :------- | :-------- |
+| 2          | 0     | 0        | `MaxTest` |
 
 ## Files
 
@@ -48,7 +50,7 @@
 〰19:      [TestClass]
 〰20:      public class XPath20FunctionsTests
 〰21:      {
-‼22:          public TestContext TestContext { get; set; }
+〰22:          public TestContext TestContext { get; set; }
 〰23:  
 〰24:          //private static T ExtendType<T>()
 〰25:          //{
@@ -204,66 +206,68 @@
 〰175: 
 〰176: 
 ‼177:             var result = new XPath20Functions().apply("local-name(.)", selected);
-‼178:             Assert.AreEqual(15m, result);
-‼179:         }
-〰180: 
-〰181:         //public decimal abs(decimal input) => Math.Abs(input);
+〰178:             //Assert.AreEqual(15m, result);
+〰179: 
+‼180:             Assert.Inconclusive();
+‼181:         }
 〰182: 
-〰183:         //public decimal? max(XPathNodeIterator input) =>
-〰184:         //    (from i in input.OfType<IXPathNavigable>()
-〰185:         //     let n = i.CreateNavigator()
-〰186:         //     where !string.IsNullOrWhiteSpace(n.Value)
-〰187:         //     let d = decimal.TryParse(n.Value, out var v) ? (decimal?)v : null
-〰188:         //     where d.HasValue
-〰189:         //     select d).Max();
-〰190: 
-〰191:         //public decimal? min(XPathNodeIterator input) =>
-〰192:         //    (from i in input.OfType<IXPathNavigable>()
-〰193:         //     let n = i.CreateNavigator()
-〰194:         //     where !string.IsNullOrWhiteSpace(n.Value)
-〰195:         //     let d = decimal.TryParse(n.Value, out var v) ? (decimal?)v : null
-〰196:         //     where d.HasValue
-〰197:         //     select d).Min();
-〰198: 
-〰199:         //// https://www.w3.org/2005/xpath-functions/
+〰183:         //public decimal abs(decimal input) => Math.Abs(input);
+〰184: 
+〰185:         //public decimal? max(XPathNodeIterator input) =>
+〰186:         //    (from i in input.OfType<IXPathNavigable>()
+〰187:         //     let n = i.CreateNavigator()
+〰188:         //     where !string.IsNullOrWhiteSpace(n.Value)
+〰189:         //     let d = decimal.TryParse(n.Value, out var v) ? (decimal?)v : null
+〰190:         //     where d.HasValue
+〰191:         //     select d).Max();
+〰192: 
+〰193:         //public decimal? min(XPathNodeIterator input) =>
+〰194:         //    (from i in input.OfType<IXPathNavigable>()
+〰195:         //     let n = i.CreateNavigator()
+〰196:         //     where !string.IsNullOrWhiteSpace(n.Value)
+〰197:         //     let d = decimal.TryParse(n.Value, out var v) ? (decimal?)v : null
+〰198:         //     where d.HasValue
+〰199:         //     select d).Min();
 〰200: 
-〰201:         //public XPathNodeIterator distinct-values(XPathNodeIterator input) =>
-〰202:         //     new EnumerableXPathNodeIterator(
-〰203:         //        from i in input.OfType<IXPathNavigable>()
-〰204:         //        let n = i.CreateNavigator()
-〰205:         //        group n by n.Value into grouped
-〰206:         //        from i in grouped
-〰207:         //        select grouped.First());
-〰208:     }
-〰209: 
-〰210:     public class XsltExtensionContext : XsltContext
-〰211:     {
-〰212:         public XsltExtensionContext(NameTable nameTable)
-〰213:             : base(nameTable)
-〰214:         {
-〰215: 
-〰216:         }
+〰201:         //// https://www.w3.org/2005/xpath-functions/
+〰202: 
+〰203:         //public XPathNodeIterator distinct-values(XPathNodeIterator input) =>
+〰204:         //     new EnumerableXPathNodeIterator(
+〰205:         //        from i in input.OfType<IXPathNavigable>()
+〰206:         //        let n = i.CreateNavigator()
+〰207:         //        group n by n.Value into grouped
+〰208:         //        from i in grouped
+〰209:         //        select grouped.First());
+〰210:     }
+〰211: 
+〰212:     public class XsltExtensionContext : XsltContext
+〰213:     {
+〰214:         public XsltExtensionContext(NameTable nameTable)
+〰215:             : base(nameTable)
+〰216:         {
 〰217: 
-〰218:         public override bool Whitespace => true;
+〰218:         }
 〰219: 
-〰220:         public override int CompareDocument(string baseUri, string nextbaseUri)
-〰221:         {
-〰222:             throw new NotImplementedException();
-〰223:         }
-〰224: 
-〰225:         public override bool PreserveWhitespace(XPathNavigator node) => true;
+〰220:         public override bool Whitespace => true;
+〰221: 
+〰222:         public override int CompareDocument(string baseUri, string nextbaseUri)
+〰223:         {
+〰224:             throw new NotImplementedException();
+〰225:         }
 〰226: 
-〰227:         public override IXsltContextFunction ResolveFunction(string prefix, string name, XPathResultType[] ArgTypes)
-〰228:         {
-〰229:             throw new NotImplementedException();
-〰230:         }
-〰231: 
-〰232:         public override IXsltContextVariable ResolveVariable(string prefix, string name)
-〰233:         {
-〰234:             throw new NotImplementedException();
-〰235:         }
-〰236:     }
-〰237: }
+〰227:         public override bool PreserveWhitespace(XPathNavigator node) => true;
+〰228: 
+〰229:         public override IXsltContextFunction ResolveFunction(string prefix, string name, XPathResultType[] ArgTypes)
+〰230:         {
+〰231:             throw new NotImplementedException();
+〰232:         }
+〰233: 
+〰234:         public override IXsltContextVariable ResolveVariable(string prefix, string name)
+〰235:         {
+〰236:             throw new NotImplementedException();
+〰237:         }
+〰238:     }
+〰239: }
 ```
 
 ## Links

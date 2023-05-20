@@ -6,19 +6,21 @@
 | :-------------- | :---------------------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Expressions.ExpressionBaseExtensionsTests` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                           |
-| Coveredlines    | `46`                                                                                      |
+| Coveredlines    | `45`                                                                                      |
 | Uncoveredlines  | `0`                                                                                       |
-| Coverablelines  | `46`                                                                                      |
+| Coverablelines  | `45`                                                                                      |
 | Totallines      | `85`                                                                                      |
 | Linecoverage    | `100`                                                                                     |
 | Coveredbranches | `0`                                                                                       |
 | Totalbranches   | `0`                                                                                       |
+| Coveredmethods  | `3`                                                                                       |
+| Totalmethods    | `3`                                                                                       |
+| Methodcoverage  | `100`                                                                                     |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                           |
 | :--------- | :---- | :------- | :----------------------------- |
-| 1          | 100   | 100      | `get_TestContext`              |
 | 1          | 100   | 100      | `ParseAndEvaluateTest`         |
 | 1          | 100   | 100      | `ParseAndPreEvaluateTest`      |
 | 1          | 100   | 100      | `ParseAndReplaceVariablesTest` |
@@ -38,7 +40,7 @@
 〰8:       [TestClass]
 〰9:       public class ExpressionBaseExtensionsTests
 〰10:      {
-✔11:          public TestContext TestContext { get; set; }
+〰11:          public TestContext TestContext { get; set; }
 〰12:  
 〰13:          [TestMethod, TestCategory(TestCategories.Unit)]
 〰14:          [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Evaluate))]

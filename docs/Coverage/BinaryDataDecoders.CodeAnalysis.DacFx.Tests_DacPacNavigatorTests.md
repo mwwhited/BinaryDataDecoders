@@ -7,19 +7,21 @@
 | Class           | `BinaryDataDecoders.CodeAnalysis.DacFx.Tests.DacPacNavigatorTests` |
 | Assembly        | `BinaryDataDecoders.CodeAnalysis.DacFx.Tests`                      |
 | Coveredlines    | `0`                                                                |
-| Uncoveredlines  | `6`                                                                |
-| Coverablelines  | `6`                                                                |
+| Uncoveredlines  | `5`                                                                |
+| Coverablelines  | `5`                                                                |
 | Totallines      | `20`                                                               |
 | Linecoverage    | `0`                                                                |
 | Coveredbranches | `0`                                                                |
 | Totalbranches   | `0`                                                                |
+| Coveredmethods  | `0`                                                                |
+| Totalmethods    | `1`                                                                |
+| Methodcoverage  | `0`                                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name              |
-| :--------- | :---- | :------- | :---------------- |
-| 1          | 0     | 100      | `get_TestContext` |
-| 1          | 0     | 100      | `Test`            |
+| Complexity | Lines | Branches | Name    |
+| :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `Test`  |
 
 ## Files
 
@@ -34,7 +36,7 @@
 〰6:       [TestClass]
 〰7:       public class DacPacNavigatorTests
 〰8:       {
-‼9:           public TestContext TestContext { get; set; }
+〰9:           public TestContext TestContext { get; set; }
 〰10:  
 〰11:          [TestMethod, TestCategory("DACPAC"), TestCategory(TestCategories.DevLocal)]
 〰12:          public void Test()

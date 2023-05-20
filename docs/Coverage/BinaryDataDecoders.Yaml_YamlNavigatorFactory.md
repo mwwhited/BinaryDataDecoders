@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.Yaml.YamlNavigatorFactory` |
 | Assembly        | `BinaryDataDecoders.Yaml`                      |
 | Coveredlines    | `0`                                            |
-| Uncoveredlines  | `29`                                           |
-| Coverablelines  | `29`                                           |
-| Totallines      | `53`                                           |
+| Uncoveredlines  | `30`                                           |
+| Coverablelines  | `30`                                           |
+| Totallines      | `54`                                           |
 | Linecoverage    | `0`                                            |
 | Coveredbranches | `0`                                            |
-| Totalbranches   | `20`                                           |
+| Totalbranches   | `24`                                           |
 | Branchcoverage  | `0`                                            |
+| Coveredmethods  | `0`                                            |
+| Totalmethods    | `4`                                            |
+| Methodcoverage  | `0`                                            |
 
 ## Metrics
 
@@ -22,7 +25,7 @@
 | 1          | 0     | 100      | `ToNavigable` |
 | 1          | 0     | 100      | `ToNavigable` |
 | 1          | 0     | 100      | `AsNode`      |
-| 20         | 0     | 0        | `AsNode`      |
+| 24         | 0     | 0        | `AsNode`      |
 
 ## Files
 
@@ -67,21 +70,22 @@
 ‼36:  
 ‼37:                    attributeSelector: a => a switch
 ‼38:                    {
-‼39:                        _ when !string.IsNullOrWhiteSpace(a.Tag) => new[] { ((XName)nameof(a.Tag), a.Tag ), },
-‼40:                        _ => null,
-‼41:                    },
-‼42:  
-‼43:                   childSelector: c => c switch
-‼44:                   {
-‼45:                       YamlMappingNode mapping => mapping.Select(i => (XName.Get(i.Key is YamlScalarNode s ? s.Value : "item", rootName.NamespaceName), i.Value)),
-‼46:                       YamlSequenceNode mapping => mapping.Select(i => (XName.Get("item", rootName.NamespaceName), i)),
-‼47:                       YamlScalarNode scalar => null,
-‼48:                       _ => null,
-‼49:                   }
-‼50:              );
-〰51:          }
-〰52:      }
-〰53:  }
+‼39:                        _ when a.Tag == null => null,
+‼40:                        _ when !string.IsNullOrWhiteSpace(a.Tag.Value) => new[] { ((XName)nameof(a.Tag), a.Tag.Value ?? ""), },
+‼41:                        _ => null,
+‼42:                    },
+‼43:  
+‼44:                   childSelector: c => c switch
+‼45:                   {
+‼46:                       YamlMappingNode mapping => mapping.Select(i => (XName.Get(i.Key is YamlScalarNode s ? s.Value : "item", rootName.NamespaceName), i.Value)),
+‼47:                       YamlSequenceNode mapping => mapping.Select(i => (XName.Get("item", rootName.NamespaceName), i)),
+‼48:                       YamlScalarNode scalar => null,
+‼49:                       _ => null,
+‼50:                   }
+‼51:              );
+〰52:          }
+〰53:      }
+〰54:  }
 ```
 
 ## Links

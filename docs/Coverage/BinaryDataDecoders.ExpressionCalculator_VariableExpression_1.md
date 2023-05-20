@@ -6,20 +6,22 @@
 | :-------------- | :------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Expressions.VariableExpression`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator`                                  |
-| Coveredlines    | `12`                                                                       |
+| Coveredlines    | `11`                                                                       |
 | Uncoveredlines  | `0`                                                                        |
-| Coverablelines  | `12`                                                                       |
+| Coverablelines  | `11`                                                                       |
 | Totallines      | `29`                                                                       |
 | Linecoverage    | `100`                                                                      |
 | Coveredbranches | `10`                                                                       |
 | Totalbranches   | `10`                                                                       |
 | Branchcoverage  | `100`                                                                      |
+| Coveredmethods  | `5`                                                                        |
+| Totalmethods    | `5`                                                                        |
+| Methodcoverage  | `100`                                                                      |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `get_Name` |
 | 2          | 100   | 100      | `ctor`     |
 | 1          | 100   | 100      | `Clone`    |
 | 1          | 100   | 100      | `Evaluate` |
@@ -41,7 +43,7 @@
 〰8:   #pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
 〰9:           where T : struct, IComparable<T>, IEquatable<T>
 〰10:      {
-✔11:          public string Name { get; }
+〰11:          public string Name { get; }
 〰12:  
 ✔13:          public VariableExpression(string name)
 〰14:          {

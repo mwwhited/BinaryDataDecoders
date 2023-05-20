@@ -7,18 +7,20 @@
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.SaintGeorge.SqTestDataExtractor` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests`                                 |
 | Coveredlines    | `0`                                                                                          |
-| Uncoveredlines  | `13`                                                                                         |
-| Coverablelines  | `13`                                                                                         |
+| Uncoveredlines  | `12`                                                                                         |
+| Coverablelines  | `12`                                                                                         |
 | Totallines      | `39`                                                                                         |
 | Linecoverage    | `0`                                                                                          |
 | Coveredbranches | `0`                                                                                          |
 | Totalbranches   | `0`                                                                                          |
+| Coveredmethods  | `0`                                                                                          |
+| Totalmethods    | `1`                                                                                          |
+| Methodcoverage  | `0`                                                                                          |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                |
 | :--------- | :---- | :------- | :------------------ |
-| 1          | 0     | 100      | `get_TestContext`   |
 | 1          | 0     | 100      | `TestDataExtractor` |
 
 ## Files
@@ -42,7 +44,7 @@
 〰14:      [TestClass]
 〰15:      public class SqTestDataExtractor
 〰16:      {
-‼17:          public TestContext TestContext { get; set; }
+〰17:          public TestContext TestContext { get; set; }
 〰18:  
 〰19:          [TestMethod, TestCategory(TestCategories.DevLocal)]
 〰20:          [Ignore]

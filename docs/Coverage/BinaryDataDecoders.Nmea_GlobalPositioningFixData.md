@@ -7,32 +7,23 @@
 | Class           | `BinaryDataDecoders.Nmea.GlobalPositioningFixData` |
 | Assembly        | `BinaryDataDecoders.Nmea`                          |
 | Coveredlines    | `0`                                                |
-| Uncoveredlines  | `48`                                               |
-| Coverablelines  | `48`                                               |
+| Uncoveredlines  | `35`                                               |
+| Coverablelines  | `35`                                               |
 | Totallines      | `93`                                               |
 | Linecoverage    | `0`                                                |
 | Coveredbranches | `0`                                                |
-| Totalbranches   | `24`                                               |
+| Totalbranches   | `17`                                               |
 | Branchcoverage  | `0`                                                |
+| Coveredmethods  | `0`                                                |
+| Totalmethods    | `2`                                                |
+| Methodcoverage  | `0`                                                |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name                     |
-| :--------- | :---- | :------- | :----------------------- |
-| 1          | 0     | 100      | `get_Fix`                |
-| 1          | 0     | 100      | `get_Latitude`           |
-| 1          | 0     | 100      | `get_LatitudeDirection`  |
-| 1          | 0     | 100      | `get_Longitude`          |
-| 1          | 0     | 100      | `get_LongitudeDirection` |
-| 1          | 0     | 100      | `get_FixQuality`         |
-| 1          | 0     | 100      | `get_NumberOfSatellites` |
-| 1          | 0     | 100      | `get_HorizontalDilution` |
-| 1          | 0     | 100      | `get_Altitude`           |
-| 1          | 0     | 100      | `get_AltitudeUnits`      |
-| 1          | 0     | 100      | `get_Height`             |
-| 1          | 0     | 100      | `get_HeightUnits`        |
-| 24         | 0     | 0        | `ctor`                   |
-| 1          | 0     | 100      | `ToString`               |
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 17         | 0     | 0        | `ctor`     |
+| 1          | 0     | 100      | `ToString` |
 
 ## Files
 
@@ -74,20 +65,20 @@
 〰33:               *47          the checksum data, always begins with
 〰34:          */
 〰35:  
-‼36:          public TimeSpan Fix { get; }
-‼37:          public decimal Latitude { get; }
-‼38:          public char LatitudeDirection { get; }
-‼39:          public decimal Longitude { get; }
-‼40:          public char LongitudeDirection { get; }
-‼41:          public FixQuality FixQuality { get; }
-‼42:          public int NumberOfSatellites { get; }
-‼43:          public decimal HorizontalDilution { get; }
-‼44:          public decimal Altitude { get; }
-‼45:          public string AltitudeUnits { get; }
-‼46:          public decimal Height { get; }
-‼47:          public string HeightUnits { get; }
+〰36:          public TimeSpan Fix { get; }
+〰37:          public decimal Latitude { get; }
+〰38:          public char LatitudeDirection { get; }
+〰39:          public decimal Longitude { get; }
+〰40:          public char LongitudeDirection { get; }
+〰41:          public FixQuality FixQuality { get; }
+〰42:          public int NumberOfSatellites { get; }
+〰43:          public decimal HorizontalDilution { get; }
+〰44:          public decimal Altitude { get; }
+〰45:          public string AltitudeUnits { get; }
+〰46:          public decimal Height { get; }
+〰47:          public string HeightUnits { get; }
 〰48:  
-‼49:          public GlobalPositioningFixData(string[] data)
+〰49:          public GlobalPositioningFixData(string[] data)
 〰50:          {
 ‼51:              var fixTime = data.ElementAtOrDefault(1) ?? "0000000000";
 ‼52:              Fix = new TimeSpan(

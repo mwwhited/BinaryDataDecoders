@@ -7,13 +7,16 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncReaderWriterLock` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
 | Coveredlines    | `0`                                                          |
-| Uncoveredlines  | `54`                                                         |
-| Coverablelines  | `54`                                                         |
+| Uncoveredlines  | `53`                                                         |
+| Coverablelines  | `53`                                                         |
 | Totallines      | `126`                                                        |
 | Linecoverage    | `0`                                                          |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `22`                                                         |
 | Branchcoverage  | `0`                                                          |
+| Coveredmethods  | `0`                                                          |
+| Totalmethods    | `7`                                                          |
+| Methodcoverage  | `0`                                                          |
 
 ## Metrics
 
@@ -49,7 +52,7 @@
 〰15:          private int m_readersWaiting;
 〰16:          private int m_status;
 〰17:  
-‼18:          public AsyncReaderWriterLock()
+〰18:          public AsyncReaderWriterLock()
 〰19:          {
 ‼20:              m_readerReleaser = Task.FromResult(new Releaser(this, false));
 ‼21:              m_writerReleaser = Task.FromResult(new Releaser(this, true));

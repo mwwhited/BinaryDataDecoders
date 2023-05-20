@@ -14,13 +14,16 @@
 | Coveredbranches | `1`                                             |
 | Totalbranches   | `2`                                             |
 | Branchcoverage  | `50`                                            |
+| Coveredmethods  | `2`                                             |
+| Totalmethods    | `2`                                             |
+| Methodcoverage  | `100`                                           |
 
 ## Metrics
 
-| Complexity | Lines | Branches | Name         |
-| :--------- | :---- | :------- | :----------- |
-| 1          | 100   | 100      | `get_Apple2` |
-| 2          | 100   | 50.0     | `GetChars`   |
+| Complexity | Lines | Branches | Name       |
+| :--------- | :---- | :------- | :--------- |
+| 1          | 100   | 100      | `cctor`    |
+| 2          | 100   | 50.0     | `GetChars` |
 
 ## Files
 
