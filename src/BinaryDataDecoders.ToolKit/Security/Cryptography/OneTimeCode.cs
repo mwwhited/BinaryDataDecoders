@@ -25,32 +25,30 @@ namespace BinaryDataDecoders.ToolKit.Security.Cryptography
 
             var key = GetKey(secret);
 
-            using (var hmac = new HMACSHA1(key, true))
-            {
-                var hash = hmac.ComputeHash(counter);
+            using var hmac = new HMACSHA1(key);
+            var hash = hmac.ComputeHash(counter);
 
-                var offset = hash[hash.Length - 1] & 0xf;
+            var offset = hash[hash.Length - 1] & 0xf;
 
-                var binary =
-                    ((hash[offset] & 0x7f) << 24)
-                    | ((hash[offset + 1] & 0xff) << 16)
-                    | ((hash[offset + 2] & 0xff) << 8)
-                    | (hash[offset + 3] & 0xff);
+            var binary =
+                ((hash[offset] & 0x7f) << 24)
+                | ((hash[offset + 1] & 0xff) << 16)
+                | ((hash[offset + 2] & 0xff) << 8)
+                | (hash[offset + 3] & 0xff);
 
-                var password = binary % (int)Math.Pow(10, digits); // 6 digits
+            var password = binary % (int)Math.Pow(10, digits); // 6 digits
 
-                var result = password.ToString(new string('0', digits));
+            var result = password.ToString(new string('0', digits));
 
-                return result;
-            }
+            return result;
         }
 
-        public  string GetToken(string secret, long? counter = null)
+        public string GetToken(string secret, long? counter = null)
         {
             return GenerateToken(secret, counter ?? GetCurrentCounter());
         }
 
-        public  bool IsValid(string secret, string token, int checkAdjacentIntervals = 1)
+        public bool IsValid(string secret, string token, int checkAdjacentIntervals = 1)
         {
             if (token == GetToken(secret))
                 return true;
@@ -73,28 +71,21 @@ namespace BinaryDataDecoders.ToolKit.Security.Cryptography
             return false;
         }
 
-        public  string GenerateSecret()
+        public string GenerateSecret()
         {
-            var buffer = new byte[9];
-
-            using (var rng = RNGCryptoServiceProvider.Create())
-            {
-                rng.GetBytes(buffer);
-            }
-
+            var buffer = RandomNumberGenerator.GetBytes(9);
             var secret = Convert.ToBase64String(buffer).Substring(0, 10).Replace('/', '0').Replace('+', '1');
-
             var encoded = Base32Encoding.Encode(Encoding.ASCII.GetBytes(secret));
             return encoded;
         }
 
-        public  byte[] GetKey(string secret)
+        public byte[] GetKey(string secret)
         {
             var decoded = Base32Encoding.Decode(secret);
             return decoded;
         }
 
-        public  string GetUri(string secret, string issuer, string account = null, Types type = Types.TOTP)
+        public string GetUri(string secret, string issuer, string account = null, Types type = Types.TOTP)
         {
             return $"otpauth://{type.ToString().ToLower()}/{issuer}{(!string.IsNullOrWhiteSpace(account) ? ":" + account : null)}?secret={secret}&issuer={issuer}";
         }
