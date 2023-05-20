@@ -97,7 +97,7 @@ jobs:
     # If master publish the docs
     - name: Update Documentation
       if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-      run: rsync -r Publish/docs/ docs
+      run: rsync --recursive --delete --verbose Publish/docs/ docs
 
     - name: Commit Documentation and Tag
       if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'

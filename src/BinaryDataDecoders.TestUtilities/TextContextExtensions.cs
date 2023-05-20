@@ -25,9 +25,11 @@ namespace BinaryDataDecoders.TestUtilities
         /// <returns>test context for chaining</returns>
         public static TestContext AddResult(this TestContext context, object value, string fileName = "")
         {
-            if (value == null) return context;
+            if (value == null)
+                return context;
             // if (value is IXPathNavigable nav && !(value is XPathNodeIterator)) return AddResult(context, nav.CreateNavigator(), fileName);
-            if (value is INode node) return AddResult(context, new ExtensibleNavigator(node, fileName), fileName);
+            if (value is INode node)
+                return AddResult(context, new ExtensibleNavigator(node, fileName), fileName);
 
             if (string.IsNullOrWhiteSpace(fileName))
             {
@@ -95,7 +97,7 @@ namespace BinaryDataDecoders.TestUtilities
         {
             var outFile = Path.Combine(context.TestRunResultsDirectory, fileName);
             var dir = Path.GetDirectoryName(outFile);
-            if (!Directory.Exists(dir))
+            if (!string.IsNullOrWhiteSpace(dir) && !Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
             File.WriteAllBytes(outFile, content);
             context.AddResultFile(outFile);

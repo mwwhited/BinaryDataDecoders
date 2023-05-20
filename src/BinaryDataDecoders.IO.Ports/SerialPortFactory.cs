@@ -14,18 +14,21 @@ namespace BinaryDataDecoders.IO.Ports
 
         public IDeviceAdapter? GetDevice(string devicePath, object? definition)
         {
-            devicePath = SerialPort.GetPortNames()
+            var assignedDevicePath = SerialPort.GetPortNames()
                                    .FirstOrDefault(sp => string.Equals(sp, devicePath, StringComparison.InvariantCultureIgnoreCase));
-            if (string.IsNullOrWhiteSpace(devicePath)) return null;
-            if (definition == null) return null;
+            if (string.IsNullOrWhiteSpace(assignedDevicePath))
+                return null;
+            if (definition == null)
+                return null;
 
             var def = definition.GetType();
             var config = def.GetCustomAttribute<SerialPortAttribute>();
-            if (config == null) return null;
+            if (config == null)
+                return null;
 
             return new SerialPortDeviceAdapter(
                 new SerialPort(
-                    portName: devicePath,
+                    portName: assignedDevicePath,
                     baudRate: config.BaudRate,
                     parity: config.Parity.AsSystem(),
                     dataBits: config.DataBits,

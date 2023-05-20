@@ -63,7 +63,7 @@ namespace BinaryDataDecoders.IO.Controller.Cli
             usbHid.GetDevice(definition: definition) ??
                  throw new NullReferenceException($"Enable to configure \"{definition}\"");
 
-        public async Task Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage> messageFactory = null)
+        public async Task Execute<TMessage>(IDeviceDefinition<TMessage> definition, Func<int, TMessage>? messageFactory = null)
         {
             async Task HandleStream(IDeviceAdapter device)
             {

@@ -6,7 +6,8 @@ namespace BinaryDataDecoders.ToolKit
 {
     public static class ConsoleEx
     {
-        public static Task<string> ReadLineAsync() => Task.FromResult(Console.ReadLine());
+        public static Task<string?> ReadLineAsync() => 
+            Task.FromResult(Console.ReadLine());
 
         public static string? Prompt(string? prompt = null, string? defaultValue = null)
         {

@@ -35,7 +35,8 @@ namespace BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions
                 var className = input?.GetAttribute("className", "");
                 var name = input?.GetAttribute("name", "");
 
-                if (!File.Exists(codeBase)) return new XElement(ns + "targets", new XComment($"File: \"{codeBase}\" not found")).ToXPathNavigable().CreateNavigator();
+                if (!File.Exists(codeBase))
+                    return new XElement(ns + "targets", new XComment($"File: \"{codeBase}\" not found")).ToXPathNavigable().CreateNavigator();
 
                 var assembly = string.IsNullOrWhiteSpace(codeBase) ? null : Assembly.LoadFrom(codeBase);
                 var testClass = string.IsNullOrWhiteSpace(className) ? null : assembly?.GetType(className);
@@ -46,8 +47,8 @@ namespace BinaryDataDecoders.TestUtilities.Xml.Xsl.Extensions
                     from a in attributes
                     select new XElement(ns + "target",
                         new XAttribute("name", a.Class.Name),
-                        new XAttribute("namespace", a.Class.Namespace),
-                        new XAttribute("assembly", a.Class.Assembly.FullName),
+                        (string.IsNullOrWhiteSpace(a.Class.Namespace) ? null : new XAttribute("namespace", a.Class.Namespace)),
+                        (string.IsNullOrWhiteSpace(a.Class.Assembly.FullName) ? null : new XAttribute("assembly", a.Class.Assembly.FullName)),
                         (string.IsNullOrWhiteSpace(a.Member) ? null : new XAttribute("member", a.Member))
                         )
                     );

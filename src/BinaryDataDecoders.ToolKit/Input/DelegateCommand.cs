@@ -7,7 +7,7 @@ namespace BinaryDataDecoders.ToolKit.Input
         private readonly Predicate<object> _canExecute;
         private readonly Action<object> _execute;
 
-        public DelegateCommand(Action<object> execute, Predicate<object> canExecute = null)
+        public DelegateCommand(Action<object> execute, Predicate<object>? canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;

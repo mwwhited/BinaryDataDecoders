@@ -13,7 +13,8 @@ namespace BinaryDataDecoders.ToolKit.Threading
 
         public AsyncSemaphore(int initialCount)
         {
-            if (initialCount < 0) throw new ArgumentOutOfRangeException("initialCount");
+            if (initialCount < 0)
+                throw new ArgumentOutOfRangeException("initialCount");
             m_currentCount = initialCount;
         }
 
@@ -37,7 +38,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
 
         public void Release()
         {
-            TaskCompletionSource<bool> toRelease = default;
+            TaskCompletionSource<bool>? toRelease = default;
             lock (m_waiters)
             {
                 if (m_waiters.Count > 0)
@@ -45,8 +46,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
                 else
                     ++m_currentCount;
             }
-            if (toRelease != null)
-                toRelease.SetResult(true);
+            toRelease?.SetResult(true);
         }
     }
 }

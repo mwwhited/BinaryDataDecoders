@@ -15,9 +15,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
         public NumberExpression(T value) => Value = value;
         public override T Evaluate(IDictionary<string, T> variables) => Value;
         public override ExpressionBase<T> Clone() => new NumberExpression<T>(Value);
-        public override string ToString() => Value.ToString();
+        public override string? ToString() => Value.ToString();
 
-        public override bool Equals(object obj) =>
+        public override bool Equals(object? obj) =>
             this == obj ||
             obj is NumberExpression<T> no && Value.Equals(no.Value) ||
             obj is T && Value.Equals(obj);

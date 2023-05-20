@@ -46,9 +46,12 @@ namespace BinaryDataDecoders.TestUtilities.Configuration
             {
                 if (_store.ContainsKey(key))
                 {
-                    _store[key] = value;
+                    if (value == null)
+                        _store.Remove(key);
+                    else
+                        _store[key] = value;
                 }
-                else
+                else if (value != null)
                 {
                     _store.Add(key, value);
                 }

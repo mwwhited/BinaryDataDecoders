@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
@@ -62,9 +63,14 @@ namespace BinaryDataDecoders.ToolKit.Xml.Schema
                 var xDocument = XDocument.Load(xsdUri);
                 var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
 
-                var targetNamespace = (string)(xDocument.Element(xsdNs + "schema").Attribute("targetNamespace"));
+                var targetNamespace = xDocument.Element(xsdNs + "schema").Attribute("targetNamespace") switch
+                {
+                    null => null,
+                    XAttribute attribute => (string)attribute
+                };
 
-                this.XmlSchemaSet.Add(targetNamespace, xsdUri);
+                if (targetNamespace != null)
+                    this.XmlSchemaSet.Add(targetNamespace, xsdUri);
             }
         }
         public XmlSchemaValidatorEx(IEnumerable<XContainer> xsdContainers)
@@ -74,9 +80,14 @@ namespace BinaryDataDecoders.ToolKit.Xml.Schema
             {
                 var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
 
-                var targetNamespace = (string)(xsdContainer.Element(xsdNs + "schema").Attribute("targetNamespace"));
+                var targetNamespace = xsdContainer.Element(xsdNs + "schema").Attribute("targetNamespace") switch
+                {
+                    null => null,
+                    XAttribute attribute => (string)attribute
+                };
 
-                this.XmlSchemaSet.Add(targetNamespace, xsdContainer.CreateReader());
+                if (targetNamespace != null)
+                    this.XmlSchemaSet.Add(targetNamespace, xsdContainer.CreateReader());
             }
         }
 

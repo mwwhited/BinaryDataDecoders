@@ -28,13 +28,14 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
         /// </summary>
         /// <param name="variableName">The name of the environment variable.</param>
         /// <returns>The value of the environment variable specified by variable, or null if the environment variable is not found.</returns>
-        public string GetValue(string variableName) => Environment.GetEnvironmentVariable(variableName) ?? "";
+        public string GetValue(string variableName) =>
+            Environment.GetEnvironmentVariable(variableName) ?? "";
 
         /// <summary>
         /// Retrieves all environment variable names and their values from the current process.
         /// </summary>
         /// <returns>XML element with an attribute for each current environment variable</returns>
-        public XPathNavigator GetValues()
+        public XPathNavigator? GetValues()
         {
             var xml = new XElement(_ns + "variables",
                  from k in Environment.GetEnvironmentVariables().Keys.Cast<string>()

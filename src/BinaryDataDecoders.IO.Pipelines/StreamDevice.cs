@@ -16,9 +16,9 @@ namespace BinaryDataDecoders.IO.Pipelines
         private Stream _stream => _adapter.Stream;
         private readonly IDeviceAdapter _adapter;
         private readonly IDeviceDefinition _device;
-        private readonly ISegmentBuildDefinition _segmentDefintion;
-        private readonly IMessageDecoder<TMessage> _decoder;
-        private readonly IMessageEncoder<TMessage> _encoder;
+        private readonly ISegmentBuildDefinition? _segmentDefintion;
+        private readonly IMessageDecoder<TMessage>? _decoder;
+        private readonly IMessageEncoder<TMessage>? _encoder;
         private readonly int _minimumTrasmissionDelay;
         private readonly CancellationToken _token;
         private readonly CancellationTokenSource _tokenSource;

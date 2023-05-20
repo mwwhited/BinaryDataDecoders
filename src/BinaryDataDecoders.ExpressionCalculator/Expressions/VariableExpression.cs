@@ -21,7 +21,7 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions
         public override T Evaluate(IDictionary<string, T> variables) => variables[Name];
         public override string ToString() => Name;
 
-        public override bool Equals(object obj) =>
+        public override bool Equals(object? obj) =>
             this == obj ||
             obj is VariableExpression<T> vari && Name.Equals(vari.Name) ||
             obj is string && Name.Equals(obj);

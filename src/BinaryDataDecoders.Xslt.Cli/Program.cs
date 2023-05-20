@@ -21,11 +21,11 @@ namespace BinaryDataDecoders.Xslt.Cli
                                 Path.GetDirectoryName(o.Output) :
                                 o.Sandbox) ?? throw new ArgumentNullException(nameof(o.Sandbox)))
                             .TransformAll(
-                              template: PathEx.FixUpPath( o.Template), 
-                              input: PathEx.FixUpPath(o.Input),
+                              template: PathEx.FixUpPath(o.Template) ?? throw new ArgumentNullException($"{nameof(o.Template)} must be provided"),
+                              input: PathEx.FixUpPath(o.Input) ?? throw new ArgumentNullException($"{nameof(o.Input)} must be provided"),
                               exclude: PathEx.FixUpPath(o.Exclude),
-                              inputType: o.InputType, 
-                              output: PathEx.FixUpPath(o.Output),
+                              inputType: o.InputType,
+                              output: PathEx.FixUpPath(o.Output) ?? throw new ArgumentNullException($"{nameof(o.Output)} must be provided"),
                               merge: o.Merge
                               );
                       });
