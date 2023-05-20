@@ -163,7 +163,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             var outputPattern = Path.GetFileName(outputFullPath).Split('*').LastOrDefault() ?? "";
 
             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
-            if (!inputFiles.Any()) throw new FileNotFoundException($"input");
+            if (!inputFiles.Any()) throw new FileNotFoundException($"File Not Found Exception: input");
 
             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
 

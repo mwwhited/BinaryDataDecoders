@@ -1,18 +1,24 @@
 <Project Sdk="Microsoft.Build.NoTargets">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net7.0</TargetFrameworks>
 
     <BaseDirectory Condition="'$(SolutionDir)'==''">.</BaseDirectory>
     <BaseDirectory Condition="'$(SolutionDir)'!=''">$(SolutionDir)</BaseDirectory>
     <BaseDirectory>$([System.IO.Path]::GetFullPath('$(BaseDirectory)'))</BaseDirectory>
 
+    <!--
     <BddXslBinPath31>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\netcoreapp3.1\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath31>
     <BddXslBinPath6>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net6.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath6>
+    -->
+    <BddXslBinPath7>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net7.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath7>
     <BddXslBinPathBin>$([System.IO.Path]::GetFullPath('$(PublishedBinaries)/BinaryDataDecoders.Xslt.Cli.dll'))</BddXslBinPathBin>
     
+    <!--
     <BddXslBinPath Condition="Exists($(BddXslBinPath31))">$(BddXslBinPath31)</BddXslBinPath>
     <BddXslBinPath Condition="Exists($(BddXslBinPath6))">$(BddXslBinPath6)</BddXslBinPath>
+    -->
+    <BddXslBinPath Condition="Exists($(BddXslBinPath7))">$(BddXslBinPath7)</BddXslBinPath>
     <BddXslBinPath Condition="Exists($(BddXslBinPathBin))">$(BddXslBinPathBin)</BddXslBinPath>
     
     <BddXslt Condition="'$(BddXslBinPath)'!=''">dotnet &quot;$(BddXslBinPath)&quot;</BddXslt>
@@ -83,68 +89,32 @@
     <Message Text="BddXslBinPath: $(BddXslBinPath)" />
 
     <Message Text="Generate Reports: XmlComments to Structured" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; -i &quot;$(RESULTS_PATH)\Binary\BinaryDataDecoders.*.xml&quot; -o &quot;$(RESULTS_PATH)\Code\*.xml&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; --input &quot;$(RESULTS_PATH)\Binary\BinaryDataDecoders.*.xml&quot; --output &quot;$(RESULTS_PATH)\Code\*.xml&quot; --sandbox &quot;$(SANDBOX_PATH)&quot;" />
 
     <Message Text="Generate Reports: XmlComments to Markdown" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\XmlCommentsToMarkdown.xslt&quot; -i &quot;$(RESULTS_PATH)\Code\*.xml&quot; -o &quot;$(DOCS_PATH)\Code\*.md&quot; -s &quot;$(SANDBOX_PATH)&quot;" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\XmlCommentsToMarkdown.xslt&quot; --input &quot;$(RESULTS_PATH)\Code\*.xml&quot; --output &quot;$(DOCS_PATH)\Code\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot;" />
 
     <Message Text="Generate Reports: CSharp to Markdown" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\CSharpToMarkdown.xslt&quot; -i &quot;$(BUILD_PATH)\**\*.cs&quot; -o &quot;$(DOCS_PATH)\SourceCode\*.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x CSharp" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CSharpToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.cs&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type CSharp" />
 
     <Message Text="Generate Reports: VB to Markdown" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\VbToMarkdown.xslt&quot; -i &quot;$(BUILD_PATH)\**\*.vb&quot; -o &quot;$(DOCS_PATH)\SourceCode\*.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x VB" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\VbToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.vb&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type VB" />
 
     <Message Text="Generate Reports: Build Log to Markdown" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\BuildLogToMarkdown.xslt&quot; -i &quot;$(BUILD_LOG)&quot; -o &quot;$(DOCS_PATH)\BuildLog.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x MSBuildStructuredLog" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\BuildLogToMarkdown.xslt&quot; --input &quot;$(BUILD_LOG)&quot; --output &quot;$(DOCS_PATH)\BuildLog.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type MSBuildStructuredLog" />
 
 
     <Message Text="Generate Reports: TestResults" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\TestResultsToMarkdown.xslt&quot; -i &quot;$(TEST_RESULTS_PATH)\*.trx&quot; -o &quot;$(DOCS_PATH)\TestReports\Summary.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -m" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\TestResultsToMarkdown.xslt&quot; --input &quot;$(TEST_RESULTS_PATH)\*.trx&quot; --output &quot;$(DOCS_PATH)\TestReports\Summary.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; -m" />
 
     <Message Text="Generate Reports: Coverage" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\CoverageToMarkdown.xslt&quot; -i &quot;$(RESULTS_PATH)\Coverage\*.xml&quot; -o &quot;$(DOCS_PATH)\Coverage\*.md&quot;  -s &quot;$(SANDBOX_PATH)&quot;" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CoverageToMarkdown.xslt&quot; --input &quot;$(RESULTS_PATH)\Coverage\*.xml&quot; --output &quot;$(DOCS_PATH)\Coverage\*.md&quot;  --sandbox &quot;$(SANDBOX_PATH)&quot;" />
 
     <!-- This one should be last -->
     <Message Text="Generate Reports: Docs to Markdown" />
-    <Exec Command="$(BddXslt) -t &quot;$(TEMPLATES_PATH)\PathToMarkdown.xslt&quot; -i &quot;$(DOCS_PATH)&quot; -o &quot;$(DOCS_PATH)\TOC.md&quot; -s &quot;$(SANDBOX_PATH)&quot; -x Path" />
+    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\PathToMarkdown.xslt&quot; --input &quot;$(DOCS_PATH)&quot; --output &quot;$(DOCS_PATH)\TOC.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type Path" />
   </Target>
 
-
-  <!--
-  
-  <PropertyGroup>
-    <OutputType>Reports</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <IsPackable>false</IsPackable>
-    <_CopyResolvedFilesToPublishPreserveNewest>false</_CopyResolvedFilesToPublishPreserveNewest>
-    <_DebugSymbolsProduced>false</_DebugSymbolsProduced>
-    <DefaultCopyToPublishDirectoryMetadata>false</DefaultCopyToPublishDirectoryMetadata>
-    <_GetChildProjectCopyToPublishDirectoryItems>false</_GetChildProjectCopyToPublishDirectoryItems>
-    <PublishReadyToRunComposite>false</PublishReadyToRunComposite>    
-  </PropertyGroup>
-  
-  <Target Name="Publish" DependsOnTargets="Build">
-  
-     1>Done building target "_CopyResolvedFilesToPublishPreserveNewest" in project "BinaryDataDecoders.rptproj".
-       Target "_ComputeResolvedFilesToPublishTypes" skipped. Previously built successfully.
-     1>Target "_CopyResolvedFilesToPublishAlways" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "CopyFilesToPublishDirectory" depends on it):
-       Task "Copy"
-       Done executing task "Copy".
-     1>Done building target "_CopyResolvedFilesToPublishAlways" in project "BinaryDataDecoders.rptproj".
-     1>Target "CopyFilesToPublishDirectory" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "ComputeAndCopyFilesToPublishDirectory" depends on it):
-     1>Done building target "CopyFilesToPublishDirectory" in project "BinaryDataDecoders.rptproj".
-     1>Target "ComputeAndCopyFilesToPublishDirectory" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "_PublishBuildAlternative" depends on it):
-     1>Done building target "ComputeAndCopyFilesToPublishDirectory" in project "BinaryDataDecoders.rptproj".
-     1>Target "_PublishBuildAlternative" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (target "Publish" depends on it):
-     1>Done building target "_PublishBuildAlternative" in project "BinaryDataDecoders.rptproj".
-       Target "_PublishNoBuildAlternative" skipped, due to false condition; ('$(NoBuild)' == 'true') was evaluated as ('' == 'true').
-       Target "_CheckForLanguageAndPublishFeatureCombinationSupport" skipped. Previously built successfully.
-     1>Target "Publish" in file "C:\Program Files\dotnet\sdk\5.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Publish.targets" from project "C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.rptproj" (entry point):
-       Task "Message"
-         Bi
-  -->
   <!--<ItemGroup>
     <Documents Include="$(DOCS_PATH)\**\*.*" />
   </ItemGroup>

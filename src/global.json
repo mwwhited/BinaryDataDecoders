@@ -1,7 +1,7 @@
 {
   "msbuild-sdks": {
-    "Microsoft.Build.NoTargets": "2.0.1",
-    "Microsoft.Build.Traversal": "2.2.3",
-    "MSBuild.Sdk.SqlProj": "1.9.0"
+    "Microsoft.Build.NoTargets": "3.7.0",
+    "Microsoft.Build.Traversal": "4.0.0",
+    "MSBuild.Sdk.SqlProj": "2.6.0"
   }
 }

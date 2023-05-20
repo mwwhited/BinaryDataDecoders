@@ -62,8 +62,8 @@ IF NOT "%TARGET_INPUT%"=="" GOTO %TARGET_INPUT%
 :clean
 IF "%DO_NOT_CLEAN%"=="1" GOTO skip_clean
 echo "Clean Packages"
-dotnet clean "%BUILD_PROJECT%" -v m
-dotnet clean BinaryDataDecoders.rptproj -v n
+dotnet clean "%BUILD_PROJECT%" --verbosity minimal
+dotnet clean BinaryDataDecoders.rptproj --verbosity normal
 rmdir /s/q "%OUTPUT_PATH%"
 :skip_clean
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
@@ -86,27 +86,27 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 :test
 echo "Run Tests"
 
-dotnet test "%BUILD_PROJECT%" --no-build --no-restore --collect:"XPlat Code Coverage" -r "%TEST_RESULTS_PATH%" ^
---nologo --filter "TestCategory=Unit|TestCategory=Simulate" -s "%TEST_RUN_SETTINGS%" /p:CollectCoverage=true ^
+dotnet test "%BUILD_PROJECT%" --no-build --no-restore --collect:"XPlat Code Coverage" --results-directory "%TEST_RESULTS_PATH%" ^
+--nologo --filter "TestCategory=Unit|TestCategory=Simulate" --settings "%TEST_RUN_SETTINGS%" /p:CollectCoverage=true ^
 /p:CopyLocalLockFileAssemblies=true
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :pack
 echo "Pack Projects"
-dotnet pack "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%OUTPUT_PATH%\Nuget" -p:PackageVersion=%BUILD_VERSION%
+dotnet pack "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore --output "%OUTPUT_PATH%\Nuget" -p:PackageVersion=%BUILD_VERSION%
 IF %errorlevel% NEQ 0 GOTO error
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :publish
 echo "Pack Projects"
 
-REM dotnet publish "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary" -f netcoreapp3.1
+REM dotnet publish "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore --output "%RESULTS_PATH%\Binary" --framework net7.0
 REM IF %errorlevel% NEQ 0 GOTO error
-dotnet publish "BinaryDataDecoders.Xslt.Cli" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary" -f netcoreapp3.1
+dotnet publish "BinaryDataDecoders.Xslt.Cli" --configuration %Configuration% --no-build --no-restore --output "%RESULTS_PATH%\Binary" 
+REM --framework net7.0
 IF %errorlevel% NEQ 0 GOTO error
-REM dotnet publish "%BUILD_PROJECT%" --configuration %Configuration% --no-build --no-restore -o "%RESULTS_PATH%\Binary60" -f net6.0
-REM IF %errorlevel% NEQ 0 GOTO error
+
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :report
@@ -117,21 +117,20 @@ IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 
 :transform
 echo "Transform Reports"
-dotnet build BinaryDataDecoders.rptproj -v n -f netcoreapp3.1
+dotnet build BinaryDataDecoders.rptproj --verbosity normal 
+REM --framework net7.0
 IF %errorlevel% NEQ 0 GOTO error
-
-REM dotnet publish BinaryDataDecoders.rptproj -f netcoreapp3.1 -v n
 
 IF "%NO_XML_TRANSFORM%"=="1" GOTO skip_xml_out
 :transform_xml
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (CSharp to XML) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.cs" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x CSharp
+%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%BUILD_PATH%\**\*.cs" --output "%RESULTS_PATH%\SourceCode\*.xml" --sandbox "%SANDBOX_PATH%" --input-type CSharp
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (VB to XML) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_PATH%\**\*.vb" -o "%RESULTS_PATH%\SourceCode\*.xml" -s "%SANDBOX_PATH%" -x VB
+%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%BUILD_PATH%\**\*.vb" --output "%RESULTS_PATH%\SourceCode\*.xml" --sandbox "%SANDBOX_PATH%" --input-type VB
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Docs to XML) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%DOCS_PATH%" -o "%RESULTS_PATH%\Path.xml" -s "%SANDBOX_PATH%" -x Path
+%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%DOCS_PATH%" --output "%RESULTS_PATH%\Path.xml" --sandbox "%SANDBOX_PATH%" --input-type Path
 ECHO ">>> BinaryDataDecoders.Xslt.Cli (Build Log to XML) <<<"
-%XSLT_CMD% -t "%TEMPLATES_PATH%\ToXml.xslt" -i "%BUILD_LOG%" -o "%RESULTS_PATH%\BuildLog.xml" -s "%SANDBOX_PATH%" -x MSBuildStructuredLog
+%XSLT_CMD% --template "%TEMPLATES_PATH%\ToXml.xslt" --input "%BUILD_LOG%" --output "%RESULTS_PATH%\BuildLog.xml" --sandbox "%SANDBOX_PATH%" --input-type MSBuildStructuredLog
 :skip_xml_out
 
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
@@ -192,7 +191,7 @@ GOTO top
 :push
 @echo off
 SET /P NUGET_API_KEY=<%USERPROFILE%\BinaryDataDecoders.Nuget.Key
-dotnet nuget push "%OUTPUT_PATH%\Nuget\*.nupkg" -k %NUGET_API_KEY% -s https://api.nuget.org/v3/index.json --skip-duplicate
+dotnet nuget push "%OUTPUT_PATH%\Nuget\*.nupkg" --api-key %NUGET_API_KEY% --source https://api.nuget.org/v3/index.json --skip-duplicate
 SET NUGET_API_KEY=
 IF NOT "%TARGET_INPUT%"=="" GOTO check_next_arg
 

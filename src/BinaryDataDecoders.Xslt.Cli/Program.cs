@@ -22,9 +22,9 @@ namespace BinaryDataDecoders.Xslt.Cli
                             .TransformAll(PathEx.FixUpPath( o.Template), PathEx.FixUpPath(o.Input), o.InputType, PathEx.FixUpPath(o.Output), o.Merge);
                       });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Console.Error.WriteLine(ex.Message);
+                Console.Error.WriteLine(ex.Message);
                 Environment.Exit(1);
             }
         }
