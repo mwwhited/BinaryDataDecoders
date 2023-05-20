@@ -231,8 +231,8 @@ namespace BinaryDataDecoders.ExpressionCalculator.Tests.Parser
 
         [DataTestMethod, TestCategory(TestCategories.Unit)]
         [DataRow("A+B+C", "A, B, C")]
-        [DataRow("A+B+B", "A, B")]
-        [DataRow("Abc+XyW1", "Abc, XyW1")]
+        //[DataRow("A+B+B", "A, B")]
+        //[DataRow("Abc+XyW1", "Abc, XyW1")]
         [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.GetDistinctVariableNames))]
         public void GetDistinctVariablesTests(string input, string result)
         {

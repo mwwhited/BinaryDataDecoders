@@ -3,21 +3,17 @@
 
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Nullable>enable</Nullable>
 
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+		<ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 	</PropertyGroup>
 
 	<PropertyGroup>
-	  <NoWarn>1701;1702;CS1591;CS3021</NoWarn>
+		<NoWarn>1701;1702;CS1591;CS3021</NoWarn>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<None Remove="Parser\ExpressionTree.g4" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<Antlr4 Include="Parser\ExpressionTree.g4">
@@ -26,8 +22,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.11.1" />
-    <PackageReference Include="Antlr4BuildTasks" Version="12.1.0" />
+		<PackageReference Include="Antlr4.Runtime.Standard" Version="4.12.0" />
+		<PackageReference Include="Antlr4BuildTasks" Version="12.2.0" />
 	</ItemGroup>
 
 </Project>
