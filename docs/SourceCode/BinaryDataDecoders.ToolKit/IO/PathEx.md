@@ -51,7 +51,7 @@
 
 #####  Parameters
 
- - string wildcardPath 
+ - string ? wildcardPath 
 
 #### Public Static Method - EnumerateDirectories
 

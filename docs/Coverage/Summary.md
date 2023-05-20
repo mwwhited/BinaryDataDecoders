@@ -4,17 +4,17 @@
 
 | Key             | Value                         |
 | :-------------- | :---------------------------- |
-| Generatedon     | `05/20/2023 - 19:02:26`       |
-| Parser          | `MultiReport (49x Cobertura)` |
+| Generatedon     | `05/20/2023 - 20:07:09`       |
+| Parser          | `MultiReport (44x Cobertura)` |
 | Assemblies      | `54`                          |
 | Classes         | `354`                         |
 | Coveredlines    | `3544`                        |
-| Uncoveredlines  | `5311`                        |
-| Coverablelines  | `8855`                        |
-| Totallines      | `22882`                       |
-| Linecoverage    | `40`                          |
+| Uncoveredlines  | `5324`                        |
+| Coverablelines  | `8868`                        |
+| Totallines      | `22897`                       |
+| Linecoverage    | `39.9`                        |
 | Coveredbranches | `1079`                        |
-| Totalbranches   | `3394`                        |
+| Totalbranches   | `3400`                        |
 | Branchcoverage  | `31.7`                        |
 | Coveredmethods  | `638`                         |
 | Totalmethods    | `1488`                        |
@@ -1360,13 +1360,13 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `100`  |
-| coverage        | `28`   |
+| coverage        | `27.9` |
 | coveredlines    | `655`  |
-| coverablelines  | `2333` |
-| totallines      | `7118` |
-| branchcoverage  | `26.2` |
+| coverablelines  | `2346` |
+| totallines      | `7133` |
+| branchcoverage  | `26.1` |
 | coveredbranches | `297`  |
-| totalbranches   | `1130` |
+| totalbranches   | `1136` |
 | coveredmethods  | `157`  |
 | totalmethods    | `501`  |
 | methodcoverage  | `31.3` |

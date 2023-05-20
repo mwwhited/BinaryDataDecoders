@@ -5,11 +5,6 @@
     * [BinaryDataDecoders.Xslt.Cli](./Code/BinaryDataDecoders.Xslt.Cli.md)
   * SourceCode
     * BinaryDataDecoders.ExpressionCalculator.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.ExpressionCalculator.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.ExpressionCalculator.Tests/obj/Release/net7.0/BinaryDataDecoders.ExpressionCalculator.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.ExpressionCalculator.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Evaluators
         * [ExpressionEvaluatorExtensionsTests](./SourceCode/BinaryDataDecoders.ExpressionCalculator.Tests/Evaluators/ExpressionEvaluatorExtensionsTests.md)
       * Parser
@@ -20,11 +15,6 @@
         * [ExpressionBaseTests](./SourceCode/BinaryDataDecoders.ExpressionCalculator.Tests/Expressions/ExpressionBaseTests.md)
         * [VariableExpressionTests](./SourceCode/BinaryDataDecoders.ExpressionCalculator.Tests/Expressions/VariableExpressionTests.md)
     * BinaryDataDecoders.CodeAnalysis
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.CodeAnalysis.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis/obj/Release/net7.0/BinaryDataDecoders.CodeAnalysis.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * CSharp
         * [CSharpNavigator](./SourceCode/BinaryDataDecoders.CodeAnalysis/CSharp/CSharpNavigator.md)
         * [CSharpSementicNavigator](./SourceCode/BinaryDataDecoders.CodeAnalysis/CSharp/CSharpSementicNavigator.md)
@@ -36,17 +26,7 @@
       * [ISemanticModelNodeExtensions](./SourceCode/BinaryDataDecoders.CodeAnalysis/ISemanticModelNodeExtensions.md)
       * [SyntaxTreeNavigatorFactory](./SourceCode/BinaryDataDecoders.CodeAnalysis/SyntaxTreeNavigatorFactory.md)
       * [SemanticModelNavigatorFactory](./SourceCode/BinaryDataDecoders.CodeAnalysis/SemanticModelNavigatorFactory.md)
-    * BinaryDataDecoders.IO
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO/obj/Release/net7.0/BinaryDataDecoders.IO.AssemblyInfo.md)
     * BinaryDataDecoders.IO.Pipelines
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.Pipelines.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.Pipelines/obj/Release/net7.0/BinaryDataDecoders.IO.Pipelines.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.Pipelines/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Factories
         * [SegmentPipeFactory](./SourceCode/BinaryDataDecoders.IO.Pipelines/Factories/SegmentPipeFactory.md)
         * [StreamPipelineFactory](./SourceCode/BinaryDataDecoders.IO.Pipelines/Factories/StreamPipelineFactory.md)
@@ -56,49 +36,19 @@
       * [PipelineBuilder](./SourceCode/BinaryDataDecoders.IO.Pipelines/PipelineBuilder.md)
       * [StreamDevice](./SourceCode/BinaryDataDecoders.IO.Pipelines/StreamDevice.md)
     * BinaryDataDecoders.Net.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Net.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Net.Tests/obj/Release/net7.0/BinaryDataDecoders.Net.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Net.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Net.Tests/UnitTest1.md)
     * BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests/obj/Release/net7.0/BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [StructuredLogNavigatorTests](./SourceCode/BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests/StructuredLogNavigatorTests.md)
     * BinaryDataDecoders.Yaml.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Yaml.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Yaml.Tests/obj/Release/net7.0/BinaryDataDecoders.Yaml.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Yaml.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [YamlNavigatorTests](./SourceCode/BinaryDataDecoders.Yaml.Tests/YamlNavigatorTests.md)
     * BinaryDataDecoders.IO.Ports.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.Ports.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.Ports.Tests/obj/Release/net7.0/BinaryDataDecoders.IO.Ports.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.Ports.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.IO.Ports.Tests/UnitTest1.md)
     * BinaryDataDecoders.Xslt.Cli
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Xslt.Cli.AssemblyInfo](./SourceCode/BinaryDataDecoders.Xslt.Cli/obj/Release/net7.0/BinaryDataDecoders.Xslt.Cli.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Xslt.Cli/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [CommandLineOptions](./SourceCode/BinaryDataDecoders.Xslt.Cli/CommandLineOptions.md)
       * [SandboxedTransformer](./SourceCode/BinaryDataDecoders.Xslt.Cli/SandboxedTransformer.md)
       * [InputTypes](./SourceCode/BinaryDataDecoders.Xslt.Cli/InputTypes.md)
       * [Program](./SourceCode/BinaryDataDecoders.Xslt.Cli/Program.md)
     * BinaryDataDecoders.Text.Markdown
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Text.Markdown.AssemblyInfo](./SourceCode/BinaryDataDecoders.Text.Markdown/obj/Release/net7.0/BinaryDataDecoders.Text.Markdown.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Text.Markdown/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [PlantUmlHtmlBlockRenderer](./SourceCode/BinaryDataDecoders.Text.Markdown/PlantUmlHtmlBlockRenderer.md)
       * [PlantUmlGithubMarkdownBlockRenderer](./SourceCode/BinaryDataDecoders.Text.Markdown/PlantUmlGithubMarkdownBlockRenderer.md)
       * [PlantUmlExtensionFunctions](./SourceCode/BinaryDataDecoders.Text.Markdown/PlantUmlExtensionFunctions.md)
@@ -107,15 +57,6 @@
       * [PlantUmlBlockParser](./SourceCode/BinaryDataDecoders.Text.Markdown/PlantUmlBlockParser.md)
       * [PlantUmlBlock](./SourceCode/BinaryDataDecoders.Text.Markdown/PlantUmlBlock.md)
     * BinaryDataDecoders.ExpressionCalculator
-      * obj
-        * Release
-          * net7.0
-            * [ExpressionTreeBaseVisitor](./SourceCode/BinaryDataDecoders.ExpressionCalculator/obj/Release/net7.0/ExpressionTreeBaseVisitor.md)
-            * [ExpressionTreeVisitor](./SourceCode/BinaryDataDecoders.ExpressionCalculator/obj/Release/net7.0/ExpressionTreeVisitor.md)
-            * [ExpressionTreeParser](./SourceCode/BinaryDataDecoders.ExpressionCalculator/obj/Release/net7.0/ExpressionTreeParser.md)
-            * [ExpressionTreeLexer](./SourceCode/BinaryDataDecoders.ExpressionCalculator/obj/Release/net7.0/ExpressionTreeLexer.md)
-            * [BinaryDataDecoders.ExpressionCalculator.AssemblyInfo](./SourceCode/BinaryDataDecoders.ExpressionCalculator/obj/Release/net7.0/BinaryDataDecoders.ExpressionCalculator.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.ExpressionCalculator/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Visitors
         * [ExpressionVariableReplacementVistor](./SourceCode/BinaryDataDecoders.ExpressionCalculator/Visitors/ExpressionVariableReplacementVistor.md)
       * Evaluators
@@ -156,11 +97,6 @@
         * [ExpressionBaseExtensions](./SourceCode/BinaryDataDecoders.ExpressionCalculator/Expressions/ExpressionBaseExtensions.md)
         * [BinaryOperators](./SourceCode/BinaryDataDecoders.ExpressionCalculator/Expressions/BinaryOperators.md)
     * BinaryDataDecoders.IO.Abstractions
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.Abstractions.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.Abstractions/obj/Release/net7.0/BinaryDataDecoders.IO.Abstractions.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.Abstractions/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Messages
         * [IMessageEncoder](./SourceCode/BinaryDataDecoders.IO.Abstractions/Messages/IMessageEncoder.md)
         * [IMessageDecoder](./SourceCode/BinaryDataDecoders.IO.Abstractions/Messages/IMessageDecoder.md)
@@ -215,24 +151,9 @@
       * [IDeviceReceiver](./SourceCode/BinaryDataDecoders.IO.Abstractions/IDeviceReceiver.md)
       * [IStreamDevice](./SourceCode/BinaryDataDecoders.IO.Abstractions/IStreamDevice.md)
     * BinaryDataDecoders.CodeAnalysis.DacFx
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.CodeAnalysis.DacFx.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx/obj/Release/net7.0/BinaryDataDecoders.CodeAnalysis.DacFx.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [DacPacElementNodeBuilder](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx/DacPacElementNodeBuilder.md)
       * [DacPacNavigator](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx/DacPacNavigator.md)
-    * BinaryDataDecoders.EByteElectronicTechnology
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.EByteElectronicTechnology.AssemblyInfo](./SourceCode/BinaryDataDecoders.EByteElectronicTechnology/obj/Release/net7.0/BinaryDataDecoders.EByteElectronicTechnology.AssemblyInfo.md)
     * BinaryDataDecoders.Apple2
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Apple2.AssemblyInfo](./SourceCode/BinaryDataDecoders.Apple2/obj/Release/net7.0/BinaryDataDecoders.Apple2.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Apple2/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Dos33
         * [TrackSectorList](./SourceCode/BinaryDataDecoders.Apple2/Dos33/TrackSectorList.md)
         * [CatalogEntry](./SourceCode/BinaryDataDecoders.Apple2/Dos33/CatalogEntry.md)
@@ -248,11 +169,6 @@
       * Text
         * [Apple2Encoding](./SourceCode/BinaryDataDecoders.Apple2/Text/Apple2Encoding.md)
     * BinaryDataDecoders.LanC
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.LanC.AssemblyInfo](./SourceCode/BinaryDataDecoders.LanC/obj/Release/net7.0/BinaryDataDecoders.LanC.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.LanC/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [LanCCommandCameraSpecial](./SourceCode/BinaryDataDecoders.LanC/LanCCommandCameraSpecial.md)
       * [LanCSubCommand](./SourceCode/BinaryDataDecoders.LanC/LanCSubCommand.md)
       * [LanCCommand_CameraVtr](./SourceCode/BinaryDataDecoders.LanC/LanCCommand_CameraVtr.md)
@@ -261,11 +177,6 @@
       * Mending
         * [JpegSegment](./SourceCode/BinaryDataDecoders.Drawing/Mending/JpegSegment.md)
         * [JpegSegmentReader](./SourceCode/BinaryDataDecoders.Drawing/Mending/JpegSegmentReader.md)
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Drawing.AssemblyInfo](./SourceCode/BinaryDataDecoders.Drawing/obj/Release/net7.0/BinaryDataDecoders.Drawing.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Drawing/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * MultiScaleImages
         * [ZOrderCurveEx](./SourceCode/BinaryDataDecoders.Drawing/MultiScaleImages/ZOrderCurveEx.md)
         * [GraphicsEx](./SourceCode/BinaryDataDecoders.Drawing/MultiScaleImages/GraphicsEx.md)
@@ -275,11 +186,6 @@
       * Barcodes
         * [Code39](./SourceCode/BinaryDataDecoders.Drawing/Barcodes/Code39.md)
     * BinaryDataDecoders.ToolKit.Abstractions
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.ToolKit.Abstractions.AssemblyInfo](./SourceCode/BinaryDataDecoders.ToolKit.Abstractions/obj/Release/net7.0/BinaryDataDecoders.ToolKit.Abstractions.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.ToolKit.Abstractions/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * MetaData
         * [FileExtensionAttribute](./SourceCode/BinaryDataDecoders.ToolKit.Abstractions/MetaData/FileExtensionAttribute.md)
         * [MediaTypeAttribute](./SourceCode/BinaryDataDecoders.ToolKit.Abstractions/MetaData/MediaTypeAttribute.md)
@@ -304,19 +210,9 @@
         * [ITempFile](./SourceCode/BinaryDataDecoders.ToolKit.Abstractions/IO/ITempFile.md)
       * [DelimiterOptions](./SourceCode/BinaryDataDecoders.ToolKit.Abstractions/DelimiterOptions.md)
     * BinaryDataDecoders.Yaml
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Yaml.AssemblyInfo](./SourceCode/BinaryDataDecoders.Yaml/obj/Release/net7.0/BinaryDataDecoders.Yaml.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Yaml/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [YamlNavigator](./SourceCode/BinaryDataDecoders.Yaml/YamlNavigator.md)
       * [YamlNavigatorFactory](./SourceCode/BinaryDataDecoders.Yaml/YamlNavigatorFactory.md)
     * BinaryDataDecoders.TestUtilities
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.TestUtilities.AssemblyInfo](./SourceCode/BinaryDataDecoders.TestUtilities/obj/Release/net7.0/BinaryDataDecoders.TestUtilities.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.TestUtilities/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Logging
         * [TestContextWrapper](./SourceCode/BinaryDataDecoders.TestUtilities/Logging/TestContextWrapper.md)
         * [ITestContextWrapper](./SourceCode/BinaryDataDecoders.TestUtilities/Logging/ITestContextWrapper.md)
@@ -333,18 +229,8 @@
       * [TestCategories](./SourceCode/BinaryDataDecoders.TestUtilities/TestCategories.md)
       * [TextContextExtensions](./SourceCode/BinaryDataDecoders.TestUtilities/TextContextExtensions.md)
     * BinaryDataDecoders.Rigol.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Rigol.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Rigol.Tests/obj/Release/net7.0/BinaryDataDecoders.Rigol.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Rigol.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Rigol.Tests/UnitTest1.md)
     * BinaryDataDecoders.ToolKit.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.ToolKit.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.ToolKit.Tests/obj/Release/net7.0/BinaryDataDecoders.ToolKit.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.ToolKit.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Reflection
         * [ReflectionElementNodeTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.md)
       * Codecs
@@ -372,39 +258,19 @@
       * [ReadOnlySpanExTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/ReadOnlySpanExTests.md)
       * [ByteExTests](./SourceCode/BinaryDataDecoders.ToolKit.Tests/ByteExTests.md)
     * BinaryDataDecoders.FileSystems
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.FileSystems.AssemblyInfo](./SourceCode/BinaryDataDecoders.FileSystems/obj/Release/net7.0/BinaryDataDecoders.FileSystems.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.FileSystems/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Iso9660
         * [DirectoryType](./SourceCode/BinaryDataDecoders.FileSystems/Iso9660/DirectoryType.md)
         * [Tools](./SourceCode/BinaryDataDecoders.FileSystems/Iso9660/Tools.md)
         * [DirectoryRecord](./SourceCode/BinaryDataDecoders.FileSystems/Iso9660/DirectoryRecord.md)
         * [VolumeDescription](./SourceCode/BinaryDataDecoders.FileSystems/Iso9660/VolumeDescription.md)
     * BinaryDataDecoders.IO.Controller.Cli
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.Controller.Cli.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.Controller.Cli/obj/Release/net7.0/BinaryDataDecoders.IO.Controller.Cli.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.Controller.Cli/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [PortProvider](./SourceCode/BinaryDataDecoders.IO.Controller.Cli/PortProvider.md)
       * [Program](./SourceCode/BinaryDataDecoders.IO.Controller.Cli/Program.md)
       * [ZStickFactory](./SourceCode/BinaryDataDecoders.IO.Controller.Cli/ZStickFactory.md)
       * [DeviceConsole](./SourceCode/BinaryDataDecoders.IO.Controller.Cli/DeviceConsole.md)
     * BinaryDataDecoders.EByteElectronicTechnology.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.EByteElectronicTechnology.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.EByteElectronicTechnology.Tests/obj/Release/net7.0/BinaryDataDecoders.EByteElectronicTechnology.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.EByteElectronicTechnology.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.EByteElectronicTechnology.Tests/UnitTest1.md)
     * BinaryDataDecoders.Cryptography
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Cryptography.AssemblyInfo](./SourceCode/BinaryDataDecoders.Cryptography/obj/Release/net7.0/BinaryDataDecoders.Cryptography.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Cryptography/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Lorenz
         * [LorenzMachine](./SourceCode/BinaryDataDecoders.Cryptography/Lorenz/LorenzMachine.md)
       * Enigma
@@ -416,11 +282,6 @@
       * [OneTimeCode](./SourceCode/BinaryDataDecoders.Cryptography/OneTimeCode.md)
       * [EncryptionUtils](./SourceCode/BinaryDataDecoders.Cryptography/EncryptionUtils.md)
     * BinaryDataDecoders.Velleman.K8055
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Velleman.K8055.AssemblyInfo](./SourceCode/BinaryDataDecoders.Velleman.K8055/obj/Release/net7.0/BinaryDataDecoders.Velleman.K8055.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Velleman.K8055/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [K8055Definition](./SourceCode/BinaryDataDecoders.Velleman.K8055/K8055Definition.md)
       * [K8055Request](./SourceCode/BinaryDataDecoders.Velleman.K8055/K8055Request.md)
       * [IK8055Object](./SourceCode/BinaryDataDecoders.Velleman.K8055/IK8055Object.md)
@@ -430,11 +291,6 @@
       * [K8055Decoder](./SourceCode/BinaryDataDecoders.Velleman.K8055/K8055Decoder.md)
       * [DigitalInputs](./SourceCode/BinaryDataDecoders.Velleman.K8055/DigitalInputs.md)
     * BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/obj/Release/net7.0/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Favero
         * [FaveroStateParserTests](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/Favero/FaveroStateParserTests.md)
         * [FaveroTestDataExtractor](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/Favero/FaveroTestDataExtractor.md)
@@ -442,68 +298,28 @@
         * [SgStateParserTests](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/SaintGeorge/SgStateParserTests.md)
         * [SqTestDataExtractor](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing.Tests/SaintGeorge/SqTestDataExtractor.md)
     * BinaryDataDecoders.Templating.Html.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Templating.Html.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Templating.Html.Tests/obj/Release/net7.0/BinaryDataDecoders.Templating.Html.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Templating.Html.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Templating.Html.Tests/UnitTest1.md)
     * BinaryDataDecoders.IO.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.Tests/obj/Release/net7.0/BinaryDataDecoders.IO.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Functions
         * [ChecksumCalculatorTests](./SourceCode/BinaryDataDecoders.IO.Tests/Functions/ChecksumCalculatorTests.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.IO.Tests/UnitTest1.md)
     * BinaryDataDecoders.Kuando.Busylight
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Kuando.Busylight.AssemblyInfo](./SourceCode/BinaryDataDecoders.Kuando.Busylight/obj/Release/net7.0/BinaryDataDecoders.Kuando.Busylight.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Kuando.Busylight/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [Class1](./SourceCode/BinaryDataDecoders.Kuando.Busylight/Class1.md)
       * [BusylightAudio](./SourceCode/BinaryDataDecoders.Kuando.Busylight/BusylightAudio.md)
       * [BusylightCommand](./SourceCode/BinaryDataDecoders.Kuando.Busylight/BusylightCommand.md)
       * [BusylightColor](./SourceCode/BinaryDataDecoders.Kuando.Busylight/BusylightColor.md)
     * BinaryDataDecoders.Text.Json.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Text.Json.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Text.Json.Tests/obj/Release/net7.0/BinaryDataDecoders.Text.Json.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Text.Json.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * JsonPath
         * Parser
           * [JsonPathFactoryTests](./SourceCode/BinaryDataDecoders.Text.Json.Tests/JsonPath/Parser/JsonPathFactoryTests.md)
       * [JsonNavigatorTests](./SourceCode/BinaryDataDecoders.Text.Json.Tests/JsonNavigatorTests.md)
     * BinaryDataDecoders.FileSystems.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.FileSystems.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.FileSystems.Tests/obj/Release/net7.0/BinaryDataDecoders.FileSystems.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.FileSystems.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.FileSystems.Tests/UnitTest1.md)
     * BinaryDataDecoders.Text.Markdown.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Text.Markdown.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Text.Markdown.Tests/obj/Release/net7.0/BinaryDataDecoders.Text.Markdown.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Text.Markdown.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Text.Markdown.Tests/UnitTest1.md)
     * BinaryDataDecoders.IO.UsbHids.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.UsbHids.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.UsbHids.Tests/obj/Release/net7.0/BinaryDataDecoders.IO.UsbHids.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.UsbHids.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [SampleUsageTests](./SourceCode/BinaryDataDecoders.IO.UsbHids.Tests/SampleUsageTests.md)
     * BinaryDataDecoders.Archives
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Archives.AssemblyInfo](./SourceCode/BinaryDataDecoders.Archives/obj/Release/net7.0/BinaryDataDecoders.Archives.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Archives/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Tar
         * [EFileShare](./SourceCode/BinaryDataDecoders.Archives/Tar/EFileShare.md)
         * [EFileAttributes](./SourceCode/BinaryDataDecoders.Archives/Tar/EFileAttributes.md)
@@ -522,11 +338,6 @@
         * [ZipFile](./SourceCode/BinaryDataDecoders.Archives/Zip/ZipFile.md)
         * [LocalFileHeader](./SourceCode/BinaryDataDecoders.Archives/Zip/LocalFileHeader.md)
     * BinaryDataDecoders.Zoom.H4n
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Zoom.H4n.AssemblyInfo](./SourceCode/BinaryDataDecoders.Zoom.H4n/obj/Release/net7.0/BinaryDataDecoders.Zoom.H4n.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Zoom.H4n/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [IH4nMessage](./SourceCode/BinaryDataDecoders.Zoom.H4n/IH4nMessage.md)
       * [H4nRequests](./SourceCode/BinaryDataDecoders.Zoom.H4n/H4nRequests.md)
       * [H4nDefinition](./SourceCode/BinaryDataDecoders.Zoom.H4n/H4nDefinition.md)
@@ -536,18 +347,8 @@
       * [H4nResponse](./SourceCode/BinaryDataDecoders.Zoom.H4n/H4nResponse.md)
       * [H4nRequest](./SourceCode/BinaryDataDecoders.Zoom.H4n/H4nRequest.md)
     * BinaryDataDecoders.VisualBasic.Samples
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.VisualBasic.Samples.AssemblyInfo](./SourceCode/BinaryDataDecoders.VisualBasic.Samples/obj/Release/net7.0/BinaryDataDecoders.VisualBasic.Samples.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.VisualBasic.Samples/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [Class1](./SourceCode/BinaryDataDecoders.VisualBasic.Samples/Class1.md)
     * BinaryDataDecoders.Quarta.RadexOne
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Quarta.RadexOne.AssemblyInfo](./SourceCode/BinaryDataDecoders.Quarta.RadexOne/obj/Release/net7.0/BinaryDataDecoders.Quarta.RadexOne.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Quarta.RadexOne/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [ReadSerialNumberResponse](./SourceCode/BinaryDataDecoders.Quarta.RadexOne/ReadSerialNumberResponse.md)
       * [IRadexOneDecoder](./SourceCode/BinaryDataDecoders.Quarta.RadexOne/IRadexOneDecoder.md)
       * [ReadSettingsRequest](./SourceCode/BinaryDataDecoders.Quarta.RadexOne/ReadSettingsRequest.md)
@@ -565,18 +366,8 @@
       * [ResetAccumulatedRequest](./SourceCode/BinaryDataDecoders.Quarta.RadexOne/ResetAccumulatedRequest.md)
       * [RadexOneDecoder](./SourceCode/BinaryDataDecoders.Quarta.RadexOne/RadexOneDecoder.md)
     * BinaryDataDecoders.CodeAnalysis.DacFx.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.CodeAnalysis.DacFx.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx.Tests/obj/Release/net7.0/BinaryDataDecoders.CodeAnalysis.DacFx.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [DacPacNavigatorTests](./SourceCode/BinaryDataDecoders.CodeAnalysis.DacFx.Tests/DacPacNavigatorTests.md)
     * BinaryDataDecoders.Nmea
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Nmea.AssemblyInfo](./SourceCode/BinaryDataDecoders.Nmea/obj/Release/net7.0/BinaryDataDecoders.Nmea.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Nmea/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Notes
         * [ROOT.CIMV2.Win32_PnPEntity](./SourceCode/BinaryDataDecoders.Nmea/Notes/ROOT.CIMV2.Win32_PnPEntity.md)
         * [GeneralHeading](./SourceCode/BinaryDataDecoders.Nmea/Notes/GeneralHeading.md)
@@ -597,11 +388,6 @@
       * [StringNemaMessage](./SourceCode/BinaryDataDecoders.Nmea/StringNemaMessage.md)
       * [RecommendedMinimumNavigationInformation](./SourceCode/BinaryDataDecoders.Nmea/RecommendedMinimumNavigationInformation.md)
     * BinaryDataDecoders.Net
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Net.AssemblyInfo](./SourceCode/BinaryDataDecoders.Net/obj/Release/net7.0/BinaryDataDecoders.Net.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Net/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Protocols
         * [WakeOnLan](./SourceCode/BinaryDataDecoders.Net/Protocols/WakeOnLan.md)
       * [ConvertEx](./SourceCode/BinaryDataDecoders.Net/ConvertEx.md)
@@ -609,11 +395,6 @@
       * [MacAddressEx](./SourceCode/BinaryDataDecoders.Net/MacAddressEx.md)
       * [InvalidHexadecimalStringException](./SourceCode/BinaryDataDecoders.Net/InvalidHexadecimalStringException.md)
     * BinaryDataDecoders.ElectronicScoringMachines.Fencing
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.ElectronicScoringMachines.Fencing.AssemblyInfo](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing/obj/Release/net7.0/BinaryDataDecoders.ElectronicScoringMachines.Fencing.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Common
         * [IScoreMachineState](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/IScoreMachineState.md)
         * [Fencer](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/Fencer.md)
@@ -631,15 +412,6 @@
         * [SgStateDefinition](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing/SaintGeorge/SgStateDefinition.md)
         * [SgStateParser](./SourceCode/BinaryDataDecoders.ElectronicScoringMachines.Fencing/SaintGeorge/SgStateParser.md)
     * BinaryDataDecoders.Text.Json
-      * obj
-        * Release
-          * net7.0
-            * [JsonPathVisitor](./SourceCode/BinaryDataDecoders.Text.Json/obj/Release/net7.0/JsonPathVisitor.md)
-            * [JsonPathParser](./SourceCode/BinaryDataDecoders.Text.Json/obj/Release/net7.0/JsonPathParser.md)
-            * [JsonPathBaseVisitor](./SourceCode/BinaryDataDecoders.Text.Json/obj/Release/net7.0/JsonPathBaseVisitor.md)
-            * [BinaryDataDecoders.Text.Json.AssemblyInfo](./SourceCode/BinaryDataDecoders.Text.Json/obj/Release/net7.0/BinaryDataDecoders.Text.Json.AssemblyInfo.md)
-            * [JsonPathLexer](./SourceCode/BinaryDataDecoders.Text.Json/obj/Release/net7.0/JsonPathLexer.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Text.Json/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * JsonPath
         * Parser
           * [JsonPathFactory](./SourceCode/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPathFactory.md)
@@ -648,11 +420,6 @@
       * [JsonNavigatorFactory](./SourceCode/BinaryDataDecoders.Text.Json/JsonNavigatorFactory.md)
       * [JsonNavigator](./SourceCode/BinaryDataDecoders.Text.Json/JsonNavigator.md)
     * BinaryDataDecoders.Drawing.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Drawing.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Drawing.Tests/obj/Release/net7.0/BinaryDataDecoders.Drawing.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Drawing.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * BarCodes
         * [Code39Tests](./SourceCode/BinaryDataDecoders.Drawing.Tests/BarCodes/Code39Tests.md)
       * MultiScaleImages
@@ -661,95 +428,39 @@
         * [PngPackTests](./SourceCode/BinaryDataDecoders.Drawing.Tests/Packers/PngPackTests.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Drawing.Tests/UnitTest1.md)
     * BinaryDataDecoders.Quarta.RadexOne.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Quarta.RadexOne.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Quarta.RadexOne.Tests/obj/Release/net7.0/BinaryDataDecoders.Quarta.RadexOne.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Quarta.RadexOne.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Quarta.RadexOne.Tests/UnitTest1.md)
     * BinaryDataDecoders.Apple2.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Apple2.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Apple2.Tests/obj/Release/net7.0/BinaryDataDecoders.Apple2.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Apple2.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Dos33
         * [DiskImageCommandsTests](./SourceCode/BinaryDataDecoders.Apple2.Tests/Dos33/DiskImageCommandsTests.md)
       * ApplesoftBASIC
         * [DetokenizerTests](./SourceCode/BinaryDataDecoders.Apple2.Tests/ApplesoftBASIC/DetokenizerTests.md)
     * BinaryDataDecoders.Rigol
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Rigol.AssemblyInfo](./SourceCode/BinaryDataDecoders.Rigol/obj/Release/net7.0/BinaryDataDecoders.Rigol.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Rigol/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [Class1](./SourceCode/BinaryDataDecoders.Rigol/Class1.md)
     * BinaryDataDecoders.IO.Pipelines.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.Pipelines.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.Pipelines.Tests/obj/Release/net7.0/BinaryDataDecoders.IO.Pipelines.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.Pipelines.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.IO.Pipelines.Tests/UnitTest1.md)
     * BinaryDataDecoders.Templating.Html
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Templating.Html.AssemblyInfo](./SourceCode/BinaryDataDecoders.Templating.Html/obj/Release/net7.0/BinaryDataDecoders.Templating.Html.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Templating.Html/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [HtmlTemplateTransform](./SourceCode/BinaryDataDecoders.Templating.Html/HtmlTemplateTransform.md)
       * [HtmlNavigator](./SourceCode/BinaryDataDecoders.Templating.Html/HtmlNavigator.md)
       * [IHtmlDocumentVistor](./SourceCode/BinaryDataDecoders.Templating.Html/IHtmlDocumentVistor.md)
     * BinaryDataDecoders.IO.Ports
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.Ports.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.Ports/obj/Release/net7.0/BinaryDataDecoders.IO.Ports.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.Ports/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [SerialPortFactory](./SourceCode/BinaryDataDecoders.IO.Ports/SerialPortFactory.md)
       * [BridgeExtensions](./SourceCode/BinaryDataDecoders.IO.Ports/BridgeExtensions.md)
       * [SerialPortDeviceAdapter](./SourceCode/BinaryDataDecoders.IO.Ports/SerialPortDeviceAdapter.md)
     * BinaryDataDecoders.Cryptography.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Cryptography.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Cryptography.Tests/obj/Release/net7.0/BinaryDataDecoders.Cryptography.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Cryptography.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * Lorenz
         * [LorenzMachineTests](./SourceCode/BinaryDataDecoders.Cryptography.Tests/Lorenz/LorenzMachineTests.md)
       * Enigma
         * [EnigmaMachineTests](./SourceCode/BinaryDataDecoders.Cryptography.Tests/Enigma/EnigmaMachineTests.md)
     * BinaryDataDecoders.Templating.Abstractions
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Templating.Abstractions.AssemblyInfo](./SourceCode/BinaryDataDecoders.Templating.Abstractions/obj/Release/net7.0/BinaryDataDecoders.Templating.Abstractions.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Templating.Abstractions/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [IInstanceFactory](./SourceCode/BinaryDataDecoders.Templating.Abstractions/IInstanceFactory.md)
       * [IPathResolver](./SourceCode/BinaryDataDecoders.Templating.Abstractions/IPathResolver.md)
       * [MediaTypes](./SourceCode/BinaryDataDecoders.Templating.Abstractions/MediaTypes.md)
       * [ITemplateTransform](./SourceCode/BinaryDataDecoders.Templating.Abstractions/ITemplateTransform.md)
       * [TemplateTransformAttribute](./SourceCode/BinaryDataDecoders.Templating.Abstractions/TemplateTransformAttribute.md)
       * [IFormatter](./SourceCode/BinaryDataDecoders.Templating.Abstractions/IFormatter.md)
-    * BinaryDataDecoders.Nmea.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Nmea.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Nmea.Tests/obj/Release/net7.0/BinaryDataDecoders.Nmea.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Nmea.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
     * BinaryDataDecoders.Archives.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Archives.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Archives.Tests/obj/Release/net7.0/BinaryDataDecoders.Archives.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Archives.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Archives.Tests/UnitTest1.md)
     * BinaryDataDecoders.CodeAnalysis.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.CodeAnalysis.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/obj/Release/net7.0/BinaryDataDecoders.CodeAnalysis.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * CSharp
         * [CSharpNavigatorTests](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/CSharp/CSharpNavigatorTests.md)
         * [CSharpSementicNavigatorTests](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/CSharp/CSharpSementicNavigatorTests.md)
@@ -757,26 +468,11 @@
       * VisualBasic
         * [SampleClasses](./SourceCode/BinaryDataDecoders.CodeAnalysis.Tests/VisualBasic/SampleClasses.md)
     * BinaryDataDecoders.Kuando.Busylight.Tests
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.Kuando.Busylight.Tests.AssemblyInfo](./SourceCode/BinaryDataDecoders.Kuando.Busylight.Tests/obj/Release/net7.0/BinaryDataDecoders.Kuando.Busylight.Tests.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.Kuando.Busylight.Tests/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UnitTest1](./SourceCode/BinaryDataDecoders.Kuando.Busylight.Tests/UnitTest1.md)
     * BinaryDataDecoders.IO.UsbHids
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.IO.UsbHids.AssemblyInfo](./SourceCode/BinaryDataDecoders.IO.UsbHids/obj/Release/net7.0/BinaryDataDecoders.IO.UsbHids.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.IO.UsbHids/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [UsbHidFactory](./SourceCode/BinaryDataDecoders.IO.UsbHids/UsbHidFactory.md)
       * [UsbHidDeviceAdapter](./SourceCode/BinaryDataDecoders.IO.UsbHids/UsbHidDeviceAdapter.md)
     * BinaryDataDecoders.ToolKit
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.ToolKit.AssemblyInfo](./SourceCode/BinaryDataDecoders.ToolKit/obj/Release/net7.0/BinaryDataDecoders.ToolKit.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.ToolKit/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * ComponentModel
         * [ViewModelBase](./SourceCode/BinaryDataDecoders.ToolKit/ComponentModel/ViewModelBase.md)
       * Linq
@@ -910,11 +606,6 @@
       * [ByteEx](./SourceCode/BinaryDataDecoders.ToolKit/ByteEx.md)
       * [BigEndianUShort](./SourceCode/BinaryDataDecoders.ToolKit/BigEndianUShort.md)
     * BinaryDataDecoders.CodeAnalysis.StructuredLog
-      * obj
-        * Release
-          * net7.0
-            * [BinaryDataDecoders.CodeAnalysis.StructuredLog.AssemblyInfo](./SourceCode/BinaryDataDecoders.CodeAnalysis.StructuredLog/obj/Release/net7.0/BinaryDataDecoders.CodeAnalysis.StructuredLog.AssemblyInfo.md)
-            * [.NETCoreApp,Version=v7.0.AssemblyAttributes](./SourceCode/BinaryDataDecoders.CodeAnalysis.StructuredLog/obj/Release/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.md)
       * [StructuredLogNavigatorFactory](./SourceCode/BinaryDataDecoders.CodeAnalysis.StructuredLog/StructuredLogNavigatorFactory.md)
       * [StructuredLogNavigator](./SourceCode/BinaryDataDecoders.CodeAnalysis.StructuredLog/StructuredLogNavigator.md)
   * Coverage

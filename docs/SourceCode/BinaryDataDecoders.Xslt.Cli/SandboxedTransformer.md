@@ -52,6 +52,7 @@
 
  - string template 
  - string input 
+ - string exclude 
  - InputTypes inputType 
  - string output 
  - bool merge 

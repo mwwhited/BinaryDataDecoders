@@ -81,6 +81,7 @@
  - string template 
  - string input 
  - string output 
+ - string ? exclude = null 
 
 #### Method - TransformAll
 
@@ -100,6 +101,7 @@
  - string input 
  - Func < string , IXPathNavigable > inputNavigatorFactory 
  - string output 
+ - string ? exclude = null 
 
 #### Method - TransformMerge
 
@@ -119,4 +121,5 @@
  - string input 
  - Func < string , IXPathNavigable > inputNavigatorFactory 
  - string output 
+ - string ? exclude = null 
 

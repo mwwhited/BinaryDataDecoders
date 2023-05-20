@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.CodeAnalysis::SyntaxTreeNavigatorFactory::AsNode
-  * BinaryDataDecoders.CodeAnalysis, Version=0.4.6.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.CodeAnalysis, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.31
+* Duration: 00:00:00.37
 
 ## Links
 

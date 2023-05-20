@@ -32,6 +32,29 @@
 
  * Type: [ Option ( 'i' , "input" , Required = true , HelpText = "input file (xml?)" ) ] string 
 
+#### Public Property - Exclude
+
+##### Attributes
+
+ - Option
+ - (
+ - 'e'
+ - ,
+ - "exclude"
+ - ,
+ - Required
+ - =
+ - false
+ - ,
+ - HelpText
+ - =
+ - "exclude files"
+ - )
+
+##### Summary
+
+ * Type: [ Option ( 'e' , "exclude" , Required = false , HelpText = "exclude files" ) ] string 
+
 #### Public Property - InputType
 
 ##### Attributes
