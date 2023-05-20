@@ -107,7 +107,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             xslt.Load(xmlreader, xsltSettings, null);
 
             var outputDir = Path.GetDirectoryName(output);
-            if (!Directory.Exists(outputDir)) Directory.CreateDirectory(outputDir);
+            if (!Directory.Exists(outputDir))
+                Directory.CreateDirectory(outputDir);
             using var resultStream = File.Create(output);
 
             var currentDirectory = Environment.CurrentDirectory;
@@ -142,8 +143,8 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="template">path for XSLT style-sheet</param>
         /// <param name="input">Wild card allowed for multiple files</param>
         /// <param name="output">Output and suffix per file.</param>
-        public void TransformAll(string template, string input, string output) =>
-            TransformAll(template, input, ReadAsXml, output);
+        public void TransformAll(string template, string input, string output, string? excludeInputSource = null) =>
+            TransformAll(template, input, ReadAsXml, output, excludeInputSource);
 
         /// <summary>
         /// Multi-action transform. 
@@ -152,18 +153,20 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
         /// <param name="input">Wild card allowed for multiple files</param>
         /// <param name="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
         /// <param name="output">Output and suffix per file.</param>
-        public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
+        public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output, string? excludeInputSource = null)
         {
             var inputFullPath = Path.GetFullPath(input);
             var inputDir = PathEx.GetBasePath(input);
-            var inputFiles = PathEx.EnumerateFiles(input);
+            var excludeFiles = PathEx.EnumerateFiles(excludeInputSource);
+            var inputFiles = PathEx.EnumerateFiles(input).Except(excludeFiles);
 
             var outputFullPath = Path.GetFullPath(output);
             var outputDir = Path.GetDirectoryName(outputFullPath);
             var outputPattern = Path.GetFileName(outputFullPath).Split('*').LastOrDefault() ?? "";
 
             Console.WriteLine($"\"{inputDir}\" => \"{outputDir}\"");
-            if (!inputFiles.Any()) throw new FileNotFoundException($"File Not Found Exception: input");
+            if (!inputFiles.Any())
+                throw new FileNotFoundException($"File Not Found Exception: input");
 
             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
 
@@ -213,10 +216,11 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
 #if PARALLEL
             );
 #endif
-            if (errors.Any()) throw new AggregateException(errors);
+            if (errors.Any())
+                throw new AggregateException(errors);
         }
 
-        public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output)
+        public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output, string? excludeInputSource = null)
         {
             static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
             var tid = Thread.CurrentThread.ManagedThreadId;
@@ -224,9 +228,11 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl
             {
                 var inputFullPath = Path.GetFullPath(input);
                 var inputDir = PathEx.GetBasePath(input);
-                var inputFiles = PathEx.EnumerateFiles(input);
+                var excludeFiles = PathEx.EnumerateFiles(excludeInputSource);
+                var inputFiles = PathEx.EnumerateFiles(input).Except(excludeFiles);
 
-                if (!inputFiles.Any()) throw new FileNotFoundException($"input");
+                if (!inputFiles.Any())
+                    throw new FileNotFoundException($"input");
 
                 //TODO: should probably add the file to the input navigator
                 var navigators = inputFiles.Select(f => (f, (IXPathNavigable?)inputNavigatorFactory(f))).ToList();

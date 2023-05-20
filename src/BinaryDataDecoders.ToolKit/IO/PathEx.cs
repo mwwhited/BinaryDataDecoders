@@ -19,7 +19,8 @@ namespace BinaryDataDecoders.ToolKit.IO
         public static string CreateParentIfNotExists(this string path)
         {
             var realDir = Path.GetDirectoryName(path);
-            if (!Directory.Exists(realDir)) Directory.CreateDirectory(realDir);
+            if (!Directory.Exists(realDir))
+                Directory.CreateDirectory(realDir);
             return path;
         }
 
@@ -27,13 +28,16 @@ namespace BinaryDataDecoders.ToolKit.IO
             path.EndsWith(Path.DirectorySeparatorChar) ||
             path.EndsWith(Path.AltDirectorySeparatorChar);
 
-        public static string FixUpPath(string path) =>
-           string.Join(Path.DirectorySeparatorChar, path.Split('/', '\\'));
+        public static string? FixUpPath(string path) =>
+           string.IsNullOrWhiteSpace(path) ? null : string.Join(Path.DirectorySeparatorChar, path.Split('/', '\\'));
 
-        public static string GetBasePath(string path)
+        public static string? GetBasePath(string path)
         {
+            if (string.IsNullOrWhiteSpace(path))
+                return null;
             path = Path.GetFullPath(path);
-            if (EndsInDirectorySeparator(path)) path += "*.*";
+            if (EndsInDirectorySeparator(path))
+                path += "*.*";
             var wildCards = new[] { '*', '?' };
             var pathSegments = path.Split('/', '\\');
             var segmentsQuery = from ps in pathSegments
@@ -48,8 +52,11 @@ namespace BinaryDataDecoders.ToolKit.IO
             return basePath;
         }
 
-        public static IEnumerable<string> EnumerateFiles(string wildcardPath)
+        public static IEnumerable<string> EnumerateFiles(string? wildcardPath)
         {
+            if (string.IsNullOrWhiteSpace(wildcardPath))
+                yield break;
+
             wildcardPath = Path.GetFullPath(wildcardPath);
 
             if (File.Exists(wildcardPath))
@@ -58,7 +65,8 @@ namespace BinaryDataDecoders.ToolKit.IO
                 yield break;
             }
 
-            if (EndsInDirectorySeparator(wildcardPath)) wildcardPath += "*.*";
+            if (EndsInDirectorySeparator(wildcardPath))
+                wildcardPath += "*.*";
             var wildCards = new[] { '*', '?' };
             var pathSegments = wildcardPath.Split('/', '\\');
             var segmentsQuery = from ps in pathSegments
@@ -111,7 +119,8 @@ namespace BinaryDataDecoders.ToolKit.IO
                 if (enumerator.Current == "**")
                 {
                     recursive = true;
-                    while (enumerator.MoveNext() && enumerator.Current == "**") ;
+                    while (enumerator.MoveNext() && enumerator.Current == "**")
+                        ;
                 }
                 var searchOption = recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
 

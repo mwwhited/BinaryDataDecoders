@@ -77,21 +77,34 @@ namespace BinaryDataDecoders.Xslt.Cli
                 _ => GetNavigator(InputTypes.Unknown),
             };
 
-        public void TransformAll(string template, string input, InputTypes inputType, string output, bool merge)
+        public void TransformAll(
+            string template,
+            string input,
+            string exclude,
+            InputTypes inputType, 
+            string output, 
+            bool merge
+            )
         {
 #if DEBUG
-            Console.WriteLine($"template: {template}");
-            Console.WriteLine($"input: {input}");
-            Console.WriteLine($"inputType: {inputType}");
-            Console.WriteLine($"output: {output}");
-            Console.WriteLine($"merge: {merge}");
+            Console.WriteLine($"{nameof(template)}: {template}");
+            Console.WriteLine($"{nameof(input)}: {input}");
+            Console.WriteLine($"{nameof(exclude)}: {exclude}");
+            Console.WriteLine($"{nameof(inputType)}: {inputType}");
+            Console.WriteLine($"{nameof(output)}: {output}");
+            Console.WriteLine($"{nameof(merge)}: {merge}");
 #endif
 
             switch (inputType)
             {
                 case InputTypes.Path:
                     Console.WriteLine($"{inputType}: \"{input}\" => \"{output}\"");
-                    _transformer.Transform(template, input, GetNavigator(inputType, input)(input), output);
+                    _transformer.Transform(
+                        template: template, 
+                        inputSource: input,
+                        input: GetNavigator(inputType, input)(input), 
+                        output: output
+                        );
                     break;
 
                 case InputTypes.Unknown:
@@ -104,9 +117,21 @@ namespace BinaryDataDecoders.Xslt.Cli
                 case InputTypes.ByExtention:
                 default:
                     if (merge)
-                        _transformer.TransformMerge(template, input, GetNavigator(inputType, input), output);
+                        _transformer.TransformMerge(
+                            template: template,
+                            input: input,
+                            exclude: exclude,
+                            inputNavigatorFactory: GetNavigator(inputType, input),
+                            output: output
+                            );
                     else
-                        _transformer.TransformAll(template, input, GetNavigator(inputType, input), output);
+                        _transformer.TransformAll(
+                            template: template,
+                            input: input,
+                            exclude: exclude,
+                            inputNavigatorFactory: GetNavigator(inputType, input),
+                            output: output
+                            );
                     break;
             }
         }

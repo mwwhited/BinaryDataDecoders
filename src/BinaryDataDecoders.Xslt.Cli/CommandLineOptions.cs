@@ -8,6 +8,9 @@ namespace BinaryDataDecoders.Xslt.Cli
         [Option('i', "input", Required = true, HelpText ="input file (xml?)")]
         public string Input { get; set; }
 
+        [Option('e', "exclude", Required = false, HelpText = "exclude files")]
+        public string Exclude { get; set; }
+
         [Option('x', "input-type", Required = false, HelpText = "input file type (default XML)")]
         public InputTypes InputType { get; set; } = InputTypes.Xml;
 
