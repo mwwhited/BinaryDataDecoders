@@ -1,4 +1,5 @@
-﻿using BinaryDataDecoders.ToolKit.Codecs;
+﻿using BinaryDataDecoders.TestUtilities;
+using BinaryDataDecoders.ToolKit.Codecs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Codecs
         [DataRow("Hello, World!", ".... . .-.. .-.. ---  .-- --- .-. .-.. -..")]
         [DataRow("hello world", ".... . .-.. .-.. ---  .-- --- .-. .-.. -..")]
         [DataRow("abcdefghijklmnopqrstuvwxyz1234567890", ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void EncodeTest(string message, string expected)
         {
             var result = new MorseCode().Encode(message);
@@ -27,6 +29,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Codecs
         [DataTestMethod]
         [DataRow(".... . .-.. .-.. ---  .-- --- .-. .-.. -..", "HELLO WORLD")]
         [DataRow(".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..  .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----", "ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void DecodeTest(string message, string expected)
         {
             var result = new MorseCode().Decode(message);

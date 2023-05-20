@@ -47,7 +47,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Pipel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.TestUtilities", "BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj", "{9B125317-A5A9-4173-8F62-AF2E4837DF39}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
 	ProjectSection(SolutionItems) = preProject
 		.runsettings = .runsettings
 		BinaryDataDecoders.rptproj = BinaryDataDecoders.rptproj
@@ -196,7 +196,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{804457D3-DD93-4330-A2BA-C5EDF7FF8053}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.Net.ServiceHost.Cli", "BinaryDataDecoders.Net.ServiceHost.Cli\BinaryDataDecoders.Net.ServiceHost.Cli.csproj", "{B6FDACE9-4AB0-432B-A313-DD8BB6C471B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Net.ServiceHost.Cli", "BinaryDataDecoders.Net.ServiceHost.Cli\BinaryDataDecoders.Net.ServiceHost.Cli.csproj", "{B6FDACE9-4AB0-432B-A313-DD8BB6C471B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

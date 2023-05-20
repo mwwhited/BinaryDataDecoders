@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using BinaryDataDecoders.TestUtilities;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BinaryDataDecoders.Cryptography.Tests
 {
@@ -12,6 +13,7 @@ namespace BinaryDataDecoders.Cryptography.Tests
         [DataRow("Hello, World", "world", "Dscwr, Nzuhr")]
         [DataRow("hello, world", "World", "dscwr, nzuhr")]
         [DataRow("hello world", "Hello", "oiwwc azczk")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void EncodeTest(string message, string key, string expected)
         {
             var result = new Vigenere().Encode(message, key);
@@ -24,6 +26,7 @@ namespace BinaryDataDecoders.Cryptography.Tests
         [DataRow("Dscwr, Nzuhr", "World", "Hello, World")]
         [DataRow("dscwr, nzuhr", "World", "hello, world")]
         [DataRow("oiwwc azczk", "Hello", "hello world")]
+        [TestMethod, TestCategory(TestCategories.Unit)]
         public void DecodeTest(string message, string key, string expected)
         {
             var result = new Vigenere().Decode(message, key);

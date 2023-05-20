@@ -1,4 +1,5 @@
 ﻿using BinaryDataDecoders.Net.Services;
+using BinaryDataDecoders.Net.Sockets;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace BinaryDataDecoders.Net.ServiceHost.Cli
 
             Console.WriteLine("Running!");
             while (!string.IsNullOrWhiteSpace(Console.ReadLine()))
-                Console.WriteLine("Enter anything to exit.")
+                Console.WriteLine("Enter anything to exit.");
 
             foreach (var service in services)
             {
