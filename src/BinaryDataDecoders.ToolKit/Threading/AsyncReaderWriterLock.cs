@@ -6,7 +6,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
 {
     public class AsyncReaderWriterLock
     {
-    // http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10267069.aspx
+        // http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10267069.aspx
         private readonly Task<Releaser> m_readerReleaser;
         private readonly Task<Releaser> m_writerReleaser;
 
@@ -39,9 +39,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
         }
         private void ReaderRelease()
         {
-            TaskCompletionSource<Releaser> toWake = null;
-
-
+            TaskCompletionSource<Releaser>? toWake = null;
             lock (m_waitingWriters)
             {
                 --m_status;
@@ -52,8 +50,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
                 }
             }
 
-            if (toWake != null)
-                toWake.SetResult(new Releaser(this, true));
+            toWake?.SetResult(new Releaser(this, true));
         }
 
 
@@ -77,7 +74,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
 
         private void WriterRelease()
         {
-            TaskCompletionSource<Releaser> toWake = null;
+            TaskCompletionSource<Releaser>? toWake = null;
             bool toWakeIsWriter = false;
 
             lock (m_waitingWriters)
@@ -94,11 +91,11 @@ namespace BinaryDataDecoders.ToolKit.Threading
                     m_readersWaiting = 0;
                     m_waitingReader = new TaskCompletionSource<Releaser>();
                 }
-                else m_status = 0;
+                else
+                    m_status = 0;
             }
 
-            if (toWake != null)
-                toWake.SetResult(new Releaser(this, toWakeIsWriter));
+            toWake?.SetResult(new Releaser(this, toWakeIsWriter));
         }
 
 
@@ -117,8 +114,10 @@ namespace BinaryDataDecoders.ToolKit.Threading
             {
                 if (m_toRelease != null)
                 {
-                    if (m_writer) m_toRelease.WriterRelease();
-                    else m_toRelease.ReaderRelease();
+                    if (m_writer)
+                        m_toRelease.WriterRelease();
+                    else
+                        m_toRelease.ReaderRelease();
                 }
             }
         }

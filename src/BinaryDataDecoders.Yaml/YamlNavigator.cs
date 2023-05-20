@@ -17,19 +17,19 @@ namespace BinaryDataDecoders.Yaml
     [MediaType("application/x-yaml")]
     public class YamlNavigator : IToXPathNavigable
     {
-        public IXPathNavigable ToNavigable(string filePath)
+        public IXPathNavigable? ToNavigable(string filePath)
         {
             using var input = new StreamReader(filePath);
             return ToNavigable(input);
         }
 
-        public IXPathNavigable ToNavigable(Stream stream)
+        public IXPathNavigable? ToNavigable(Stream stream)
         {
             using var input = new StreamReader(stream);
             return ToNavigable(input);
         }
 
-        private IXPathNavigable ToNavigable(StreamReader reader)
+        private IXPathNavigable? ToNavigable(StreamReader reader)
         {
             var yaml = new YamlStream();
             yaml.Load(reader);

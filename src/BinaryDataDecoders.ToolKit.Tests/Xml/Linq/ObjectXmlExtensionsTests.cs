@@ -34,8 +34,8 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.Linq
             };
 
             var result = ObjectXmlExtensions.AsXElement(testData);
-
-            this.TestContext.AddResult(result);
+            if (result != null)
+                this.TestContext.AddResult(result);
         }
     }
 }

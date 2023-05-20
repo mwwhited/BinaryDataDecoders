@@ -8,7 +8,7 @@ namespace BinaryDataDecoders.ToolKit.Linq
     {
         private static Random RandomGenerator { get; } = new Random();
 
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random randomGenerator = null)
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random? randomGenerator = null)
         {
             if (randomGenerator == null)
                 randomGenerator = EnumerableEx.RandomGenerator;
