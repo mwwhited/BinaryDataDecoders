@@ -63,15 +63,15 @@ namespace BinaryDataDecoders.ToolKit.Xml.Linq
                 yield return XNode.ReadFrom(xmlReader);
         }
 
-        public override string ToString() => this;
+        public override string? ToString() => this;
 
         public XmlReader CreateReader() => XmlReader.Create(new StringReader(this), new XmlReaderSettings
         {
             ConformanceLevel = ConformanceLevel.Fragment,
         });
 
-        public static XFragment Parse(string xml) => new XFragment(xml);
-        public static XFragment Parse(XmlReader xmlReader) => new XFragment(xmlReader);
+        public static XFragment Parse(string xml) => new(xml);
+        public static XFragment Parse(XmlReader xmlReader) => new(xmlReader);
 
         #region IEnumerable 
 
