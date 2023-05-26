@@ -56,6 +56,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solutio
 		build.sh = build.sh
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
+		Directory.Packages.props = Directory.Packages.props
 		global.json = global.json
 	EndProjectSection
 EndProject
@@ -197,6 +198,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{804457D3-DD93-4330-A2BA-C5EDF7FF8053}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Net.ServiceHost.Cli", "BinaryDataDecoders.Net.ServiceHost.Cli\BinaryDataDecoders.Net.ServiceHost.Cli.csproj", "{B6FDACE9-4AB0-432B-A313-DD8BB6C471B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.WinForms.Samples", "BinaryDataDecoders.WinForms.Samples\BinaryDataDecoders.WinForms.Samples.csproj", "{69C2BFAF-E0CA-466A-AE37-92715BA5F739}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Windows.Forms", "BinaryDataDecoders.Windows.Forms\BinaryDataDecoders.Windows.Forms.csproj", "{EF366977-9415-44EB-B627-101ECB18D4F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.PackMan.Cli", "BinaryDataDecoders.PackMan.Cli\BinaryDataDecoders.PackMan.Cli.csproj", "{5042C38D-17AE-4019-8214-1341F3D2C317}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -458,6 +465,18 @@ Global
 		{B6FDACE9-4AB0-432B-A313-DD8BB6C471B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6FDACE9-4AB0-432B-A313-DD8BB6C471B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6FDACE9-4AB0-432B-A313-DD8BB6C471B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C2BFAF-E0CA-466A-AE37-92715BA5F739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C2BFAF-E0CA-466A-AE37-92715BA5F739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C2BFAF-E0CA-466A-AE37-92715BA5F739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C2BFAF-E0CA-466A-AE37-92715BA5F739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF366977-9415-44EB-B627-101ECB18D4F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF366977-9415-44EB-B627-101ECB18D4F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF366977-9415-44EB-B627-101ECB18D4F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF366977-9415-44EB-B627-101ECB18D4F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5042C38D-17AE-4019-8214-1341F3D2C317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5042C38D-17AE-4019-8214-1341F3D2C317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5042C38D-17AE-4019-8214-1341F3D2C317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5042C38D-17AE-4019-8214-1341F3D2C317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -514,6 +533,8 @@ Global
 		{07D3AAB3-742B-44B8-98AA-765996DAB2EB} = {C03241B8-6842-4873-99F2-85C7FD41A691}
 		{952E4AAB-4B2A-41D2-B403-27FFD07D9832} = {C03241B8-6842-4873-99F2-85C7FD41A691}
 		{B6FDACE9-4AB0-432B-A313-DD8BB6C471B6} = {4507E2A1-443A-460D-AFC6-40BDC0306045}
+		{69C2BFAF-E0CA-466A-AE37-92715BA5F739} = {2A3D7512-2575-4D02-B4DF-E37742A42E8B}
+		{5042C38D-17AE-4019-8214-1341F3D2C317} = {4507E2A1-443A-460D-AFC6-40BDC0306045}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A0F5E9F-1152-44D6-AAC1-32C474A8585F}
