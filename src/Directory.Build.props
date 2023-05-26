@@ -12,6 +12,7 @@
     <Authors>Matthew Whited</Authors>
     
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <ItemGroup>
