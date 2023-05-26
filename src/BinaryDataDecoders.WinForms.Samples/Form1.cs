@@ -8,5 +8,10 @@ namespace BinaryDataDecoders.WinForms.Samples
         {
             InitializeComponent();
         }
+
+        private void validTextBox1_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

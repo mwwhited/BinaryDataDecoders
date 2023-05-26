@@ -5,9 +5,19 @@ namespace BinaryDataDecoders.Windows.Forms
 {
     public partial class ValidTextBox : TextBox
     {
+        private string? _filter;
+
         [Category("Validation Rules")]
         [Description("Regular Expression (Regex) for validation patterns")]
-        public string? Filter { get; set; }
+        public string? Filter
+        {
+            get { return _filter; }
+            set
+            {
+                _filter = value;
+                OnFilterChanged(new EventArgs());
+            }
+        }
 
         [Category("Validation Rules")]
         [Description("Background Color if input is Valid")]
@@ -27,15 +37,32 @@ namespace BinaryDataDecoders.Windows.Forms
             Validate();
         }
 
-        public bool IsValid =>string.IsNullOrWhiteSpace(Filter) ||  Regex.IsMatch(Filter, Text);
+        public event EventHandler<ValidationEventArgs>? ValidateChanged;
+
+        public bool IsValid =>
+            string.IsNullOrWhiteSpace(Filter) ||
+            Regex.IsMatch(Text, Filter);
+
+        private bool _lastValidate;
         public void Validate()
         {
-            BackColor = IsValid ? ValidColor : InvalidColor;
+            var validated = IsValid;
+            BackColor = validated ? ValidColor : InvalidColor;
+            if (_lastValidate != validated)
+            {
+                ValidateChanged?.Invoke(this, new ValidationEventArgs { IsValid = validated, Value = Text });
+                _lastValidate = validated;
+            }
         }
 
         protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
+            Validate();
+        }
+
+        protected virtual void OnFilterChanged(EventArgs e)
+        {
             Validate();
         }
 
