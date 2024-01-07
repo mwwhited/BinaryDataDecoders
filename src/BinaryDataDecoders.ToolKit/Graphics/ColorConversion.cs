@@ -29,8 +29,7 @@ public static class ColorConversion
             {
                 0.0 => 0.0,
                 _ => diff / (1.0 - Math.Abs(2 * lightness - 1))
-            },
-            lightness: lightness
+            }, lightness
             );
     }
 
@@ -63,7 +62,7 @@ public static class ColorConversion
 
     public static (double red, double green, double blue) Hsv2Rgb((double hue, double saturation, double value) color, double factor = 1.0)
     {
-        var adjusted = (hue: color.hue % 360.0, saturation: color.saturation, value: color.value);
+        var adjusted = (hue: color.hue % 360.0, color.saturation, color.value);
 
         var c = adjusted.value * adjusted.saturation;
         var x = c * (1 - Math.Abs(adjusted.hue / 60 % 2 - 1));
@@ -83,7 +82,7 @@ public static class ColorConversion
     }
     public static (double red, double green, double blue) Hsl2Rgb((double hue, double saturation, double lightness) color, double factor = 1.0)
     {
-        var adjusted = (hue: color.hue % 360.0, saturation: color.saturation, lightness: color.lightness);
+        var adjusted = (hue: color.hue % 360.0, color.saturation, color.lightness);
 
         var c = (1 - Math.Abs(2.0 * adjusted.lightness - 1.0)) * adjusted.saturation;
         ;
@@ -105,7 +104,7 @@ public static class ColorConversion
 
     public static (double hue, double saturation, double value) Hsl2Hsv((double hue, double saturation, double lightness) color)
     {
-        var adjusted = (hue: color.hue % 360.0, saturation: color.saturation, lightness: color.lightness);
+        var adjusted = (hue: color.hue % 360.0, color.saturation, color.lightness);
 
         var c = (1 - Math.Abs(2.0 * adjusted.lightness - 1.0)) * adjusted.saturation;
         var x = c * (1 - Math.Abs(adjusted.hue / 60 % 2 - 1));
@@ -116,8 +115,7 @@ public static class ColorConversion
         var c2 = (max: terms.Max(), min: terms.Min());
         var diff = c2.max - c2.min;
 
-        return (
-            hue: adjusted.hue,
+        return (adjusted.hue,
             saturation: c2.max == 0.0 ? 0.0 : diff / c2.max,
             value: c2.max
             );
@@ -125,7 +123,7 @@ public static class ColorConversion
 
     public static (double hue, double saturation, double lightness) Hsv2Hsl((double hue, double saturation, double value) color)
     {
-        var adjusted = (hue: color.hue % 360.0, saturation: color.saturation, value: color.value);
+        var adjusted = (hue: color.hue % 360.0, color.saturation, color.value);
 
         var c = adjusted.value * adjusted.saturation;
         var x = c * (1 - Math.Abs(adjusted.hue / 60 % 2 - 1));
@@ -136,10 +134,8 @@ public static class ColorConversion
         var diff = c2.max - c2.min;
         var lightness = (c2.max + c2.min) / 2.0;
 
-        return (
-            hue: adjusted.hue,
-            saturation: diff == 0.0 ? 0.0 : diff / (1.0 - Math.Abs(2 * lightness - 1)),
-            lightness: lightness
+        return (adjusted.hue,
+            saturation: diff == 0.0 ? 0.0 : diff / (1.0 - Math.Abs(2 * lightness - 1)), lightness
             );
     }
 }

@@ -5,13 +5,10 @@ using System.Text.RegularExpressions;
 
 namespace BinaryDataDecoders.Net;
 
-public class ConvertEx
+public partial class ConvertEx
 {
-    public static bool IsHexString(string hexString)
-    {
-        var hexPattern = new Regex("([0-9a-fA-F]{2}){1,}", RegexOptions.Compiled);
-        return hexPattern.IsMatch(hexString);
-    }
+    public static bool IsHexString(string hexString) =>
+        HexStringRegex().IsMatch(hexString);
 
     public static byte[] FromHexString(string hexString)
     {
@@ -35,4 +32,7 @@ public class ConvertEx
     {
         return buffer.Aggregate(new StringBuilder(), (sb, v) => sb.Append(v), sb => sb.ToString());
     }
+
+    [GeneratedRegex("([0-9a-fA-F]{2}){1,}", RegexOptions.Compiled)]
+    private static partial Regex HexStringRegex();
 }

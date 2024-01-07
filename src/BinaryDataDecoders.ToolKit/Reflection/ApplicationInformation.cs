@@ -22,7 +22,7 @@ public  class ApplicationInformation
     /// Gets the executing assembly version.
     /// </summary>
     /// <value>The executing assembly version.</value>
-    public  Version ExecutingAssemblyVersion
+    public  Version? ExecutingAssemblyVersion
     {
         get { return executingAssemblyVersion ??= ExecutingAssembly.GetName().Version; }
     }

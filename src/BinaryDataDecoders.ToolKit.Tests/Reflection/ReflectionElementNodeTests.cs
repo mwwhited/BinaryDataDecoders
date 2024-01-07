@@ -33,7 +33,7 @@ public class ReflectionElementNodeTests
             Hello = "World!",
             DateTime = DateTime.Now,
             DateTimeOffset = DateTimeOffset.Now,
-            TimeOfDay = DateTimeOffset.Now.TimeOfDay,
+            DateTimeOffset.Now.TimeOfDay,
             Integer = 123,
             Decimal = 123.456m,
             Bytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 },
