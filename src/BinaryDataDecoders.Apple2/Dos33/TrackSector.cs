@@ -7,13 +7,8 @@ namespace BinaryDataDecoders.Apple2.Dos33;
 /// Track/Sector point to next section of file
 /// </summary>
 [StructLayout(LayoutKind.Explicit, Size = 2)]
-public readonly struct TrackSector
+public readonly struct TrackSector(ReadOnlySpan<byte> span)
 {
-    public TrackSector(ReadOnlySpan<byte> span)
-    {
-        Track = span[0x00];
-        Sector = span[0x01];
-    }
 
     /// <summary>
     /// Track of first track/sector list sector.  If this is a deleted file, this byte contains $FF
@@ -22,13 +17,13 @@ public readonly struct TrackSector
     /// (This means that track 0 can never be used for data entry if the DOS image is wiped off the diskette.)
     /// </summary>
     [FieldOffset(0)]
-    public readonly byte Track;
+    public readonly byte Track = span[0x00];
 
     /// <summary>
     /// Sector of the first track/sector list sector
     /// </summary>
     [FieldOffset(1)]
-    public readonly byte Sector;
+    public readonly byte Sector = span[0x01];
 
     public override string ToString() => $"{Track}/{Sector}";
 }

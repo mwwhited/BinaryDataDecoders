@@ -15,7 +15,7 @@ public class RadexOneDefinition : IDeviceDefinitionTransmitter<IRadexObject>, ID
     public IMessageEncoder<IRadexObject> Encoder { get; } = new MessageEncoder<IRadexObject>();
 
     public ISegmentBuildDefinition SegmentDefintion { get; } =
-        Segment.StartsWith(0x7a)
+        Segment.StartsWith("z"u8.ToArray())
                .AndIsLength(12)
                .ExtendedWithLengthAt<ushort>(4, Endianness.Little)
                .WithOptions(SegmentionOptions.SkipInvalidSegment);

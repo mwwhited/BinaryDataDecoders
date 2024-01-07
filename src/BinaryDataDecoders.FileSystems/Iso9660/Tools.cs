@@ -50,12 +50,11 @@ public static class Tools
     {
         var temp = Encoding.ASCII.GetString(buffer, offset, 16).Trim();
         var timeOffset = (sbyte)buffer[offset + 16] * 15;
-        DateTime ret;
         if (DateTime.TryParseExact(temp,
                                    "yyyyMMddHHmmssff",
                                    Thread.CurrentThread.CurrentCulture,
                                    DateTimeStyles.AdjustToUniversal,
-                                   out ret))
+                                   out DateTime ret))
             ret = ret.AddMinutes(timeOffset);
         offset += length;
         return ret;

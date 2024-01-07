@@ -56,8 +56,7 @@ public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INo
     {
         if (key == null) throw new ArgumentNullException(nameof(key));
 
-        TValue value;
-        Dictionary.TryGetValue(key, out value);
+        Dictionary.TryGetValue(key, out TValue value);
         var removed = Dictionary.Remove(key);
         if (removed)
             //OnCollectionChanged(NotifyCollectionChangedAction.Remove, new KeyValuePair<TKey, TValue>(key, value));
@@ -133,11 +132,12 @@ public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INo
     {
         if (key == null) throw new ArgumentNullException(nameof(key));
 
-        TValue item;
-        if (Dictionary.TryGetValue(key, out item))
+        if (Dictionary.TryGetValue(key, out TValue item))
         {
-            if (add) throw new ArgumentException("An item with the same key has already been added.");
-            if (Equals(item, value)) return;
+            if (add)
+                throw new ArgumentException("An item with the same key has already been added.");
+            if (Equals(item, value))
+                return;
             Dictionary[key] = value;
 
             OnCollectionChanged(NotifyCollectionChangedAction.Replace, new KeyValuePair<TKey, TValue>(key, value), new KeyValuePair<TKey, TValue>(key, item));

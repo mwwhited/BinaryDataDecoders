@@ -2,9 +2,6 @@
 
 namespace BinaryDataDecoders.Text.Json.JsonPath.Parser;
 
-public class JsonPathException : Exception
+public class JsonPathException(string message) : Exception(message)
 {
-    public JsonPathException(string message) : base(message)
-    {
-    }
 }
