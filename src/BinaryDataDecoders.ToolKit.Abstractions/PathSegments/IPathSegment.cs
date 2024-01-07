@@ -1,10 +1,9 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public interface IPathSegment<out T> : IPathSegment
 {
-    public interface IPathSegment<out T> : IPathSegment
-    {
-        T Value { get; }
-    }
-    public interface IPathSegment
-    {
-    }
+    T Value { get; }
+}
+public interface IPathSegment
+{
 }

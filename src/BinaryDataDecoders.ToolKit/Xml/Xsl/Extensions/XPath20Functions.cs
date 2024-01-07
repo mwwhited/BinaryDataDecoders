@@ -4,60 +4,60 @@ using System.Linq;
 using System.Xml.Serialization;
 using System.Xml.XPath;
 
-namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions
+namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions;
+
+[XmlRoot(Namespace = @"http://www.w3.org/2005/xpath-functions")]
+public class XPath20Functions
 {
-    [XmlRoot(Namespace = @"http://www.w3.org/2005/xpath-functions")]
-    public class XPath20Functions
-    {
-        public decimal abs(decimal input) => Math.Abs(input);
-        public decimal ceiling(decimal input) => Math.Ceiling(input);
-        public decimal count(XPathNodeIterator input) =>input.AsNavigatorSet().Count();
-        public decimal avg(XPathNodeIterator input) => sum(input) / count(input);
-        public bool exists(XPathNodeIterator input) => input.AsNavigatorSet().Any();
-        public bool empty(XPathNodeIterator input) => !exists(input);
-        public bool @false() => false;
-        public bool not(bool input) => !input;
-        public bool @true() => true;
+    public decimal abs(decimal input) => Math.Abs(input);
+    public decimal ceiling(decimal input) => Math.Ceiling(input);
+    public decimal count(XPathNodeIterator input) =>input.AsNavigatorSet().Count();
+    public decimal avg(XPathNodeIterator input) => sum(input) / count(input);
+    public bool exists(XPathNodeIterator input) => input.AsNavigatorSet().Any();
+    public bool empty(XPathNodeIterator input) => !exists(input);
+    public bool @false() => false;
+    public bool not(bool input) => !input;
+    public bool @true() => true;
 
-        public decimal sum(XPathNodeIterator input) =>
-            (from i in input.AsNavigatorSet()
-             where !string.IsNullOrWhiteSpace(i.Value)
-             let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
-             where d.HasValue
-             select d).Sum() ?? 0;
+    public decimal sum(XPathNodeIterator input) =>
+        (from i in input.AsNavigatorSet()
+         where !string.IsNullOrWhiteSpace(i.Value)
+         let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
+         where d.HasValue
+         select d).Sum() ?? 0;
 
-        public decimal max(XPathNodeIterator input) =>
-            (from i in input.AsNavigatorSet()
-             where !string.IsNullOrWhiteSpace(i.Value)
-             let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
-             where d.HasValue
-             select d).Max() ?? 0;
+    public decimal max(XPathNodeIterator input) =>
+        (from i in input.AsNavigatorSet()
+         where !string.IsNullOrWhiteSpace(i.Value)
+         let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
+         where d.HasValue
+         select d).Max() ?? 0;
 
-        public decimal min(XPathNodeIterator input) =>
-            (from i in input.AsNavigatorSet()
-             where !string.IsNullOrWhiteSpace(i.Value)
-             let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
-             where d.HasValue
-             select d).Min() ?? 0;
+    public decimal min(XPathNodeIterator input) =>
+        (from i in input.AsNavigatorSet()
+         where !string.IsNullOrWhiteSpace(i.Value)
+         let d = decimal.TryParse(i.Value, out var v) ? (decimal?)v : null
+         where d.HasValue
+         select d).Min() ?? 0;
 
-        // https://www.w3.org/2005/xpath-functions/
+    // https://www.w3.org/2005/xpath-functions/
 
-        [XsltFunction("distinct-values", HideOriginalName = true)]
-        public XPathNodeIterator distinct_values(XPathNodeIterator input) =>
-             new EnumerableXPathNodeIterator(
-                from i in input.AsNavigatorSet()
-                group i by i.Value into grouped
-                from i in grouped
-                select grouped.First());
+    [XsltFunction("distinct-values", HideOriginalName = true)]
+    public XPathNodeIterator distinct_values(XPathNodeIterator input) =>
+         new EnumerableXPathNodeIterator(
+            from i in input.AsNavigatorSet()
+            group i by i.Value into grouped
+            from i in grouped
+            select grouped.First());
 
-        public XPathNodeIterator apply(string xpath, XPathNodeIterator input) =>
-             new EnumerableXPathNodeIterator(
-                from item in input.AsNavigatorSet()
-                let value = item.Evaluate(xpath)
-                from node in value.AsNodeSet()
-                select node
-                );
-        /*
+    public XPathNodeIterator apply(string xpath, XPathNodeIterator input) =>
+         new EnumerableXPathNodeIterator(
+            from item in input.AsNavigatorSet()
+            let value = item.Evaluate(xpath)
+            from node in value.AsNodeSet()
+            select node
+            );
+    /*
 
 Returns the absolute value of $arg.
 
@@ -1088,6 +1088,5 @@ Stores a document or element to the location specified by $uri. This function is
 The external effects of fn:put are implementation-defined, since they occur outside the domain of XQuery. The intent is that, if fn:put is invoked on a document node and no error is raised, a subsequent query can access the stored document by invoking fn:doc with the same URI.
 
 
-        */
-    }
+    */
 }

@@ -1,21 +1,20 @@
-﻿namespace BinaryDataDecoders.Xslt.Cli
+﻿namespace BinaryDataDecoders.Xslt.Cli;
+
+public enum InputTypes
 {
-    public enum InputTypes
-    {
-        Unknown = 0,
+    Unknown = 0,
 
-        Xml,
-        Html,
-        Json,
-        Yaml,
+    Xml,
+    Html,
+    Json,
+    Yaml,
 
-        CSharp = 256,
-        VB,
-        MSBuildStructuredLog,
-        DacPac,
+    CSharp = 256,
+    VB,
+    MSBuildStructuredLog,
+    DacPac,
 
-        Path = 512,
+    Path = 512,
 
-        ByExtention = 0x7fffffff,
-    }
+    ByExtention = 0x7fffffff,
 }

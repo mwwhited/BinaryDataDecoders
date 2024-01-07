@@ -1,16 +1,15 @@
-﻿namespace BinaryDataDecoders.ExpressionCalculator.Expressions
+﻿namespace BinaryDataDecoders.ExpressionCalculator.Expressions;
+
+public enum BinaryOperators
 {
-    public enum BinaryOperators
-    {
-        Unknown,
+    Unknown,
 
-        Power,
+    Power,
 
-        Multiply,
-        Divide,
-        Modulo,
+    Multiply,
+    Divide,
+    Modulo,
 
-        Add,
-        Subtract,
-    }
+    Add,
+    Subtract,
 }

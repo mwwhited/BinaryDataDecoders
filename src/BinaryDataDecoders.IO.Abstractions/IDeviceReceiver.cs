@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.IO
+namespace BinaryDataDecoders.IO;
+
+public interface IDeviceReceiver<TMessage> : IDevice<TMessage>
 {
-    public interface IDeviceReceiver<TMessage> : IDevice<TMessage>
-    {
-        event EventHandler<TMessage> MessageReceived;
-    }
+    event EventHandler<TMessage> MessageReceived;
 }

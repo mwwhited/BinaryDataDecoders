@@ -7,19 +7,18 @@ using BinaryDataDecoders.IO.Segmenters;
 using System.ComponentModel;
 using System.Composition;
 
-namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
-{
-    [SerialPort(9600, Parity.None, 8, StopBits.One)]
-    [Description("Saint George")]
-    [Export(typeof(IDeviceDefinition))]
-    public class SgStateDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
-    {
-        public ISegmentBuildDefinition SegmentDefintion { get; } =
-            Segment.StartsWith(ControlCharacters.StartOfHeading)
-                   .AndEndsWith(ControlCharacters.EndOfTransmission)
-                   .WithMaxLength(100)
-                   .WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid);
+namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge;
 
-        public IMessageDecoder<IScoreMachineState> Decoder { get; } = new SgStateDecoder();
-    }
+[SerialPort(9600, Parity.None, 8, StopBits.One)]
+[Description("Saint George")]
+[Export(typeof(IDeviceDefinition))]
+public class SgStateDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
+{
+    public ISegmentBuildDefinition SegmentDefintion { get; } =
+        Segment.StartsWith(ControlCharacters.StartOfHeading)
+               .AndEndsWith(ControlCharacters.EndOfTransmission)
+               .WithMaxLength(100)
+               .WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid);
+
+    public IMessageDecoder<IScoreMachineState> Decoder { get; } = new SgStateDecoder();
 }

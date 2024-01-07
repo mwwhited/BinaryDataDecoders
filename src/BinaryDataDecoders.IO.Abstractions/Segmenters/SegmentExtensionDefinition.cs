@@ -1,20 +1,11 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.IO.Segmenters
-{
-    public class SegmentExtensionDefinition
-    {
-        public SegmentExtensionDefinition(Type type, int length, long postion, Endianness endianness)
-        {
-            Type = type;
-            Length = length;
-            Postion = postion;
-            Endianness = endianness;
-        }
+namespace BinaryDataDecoders.IO.Segmenters;
 
-        public Type Type { get; }
-        public int Length { get; }
-        public long Postion { get; }
-        public Endianness Endianness { get; }
-    }
+public class SegmentExtensionDefinition(Type type, int length, long postion, Endianness endianness)
+{
+    public Type Type { get; } = type;
+    public int Length { get; } = length;
+    public long Postion { get; } = postion;
+    public Endianness Endianness { get; } = endianness;
 }

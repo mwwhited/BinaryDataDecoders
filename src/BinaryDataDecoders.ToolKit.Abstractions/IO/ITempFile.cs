@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.ToolKit.IO
+namespace BinaryDataDecoders.ToolKit.IO;
+
+public interface ITempFile : IDisposable
 {
-    public interface ITempFile : IDisposable
-    {
-        string FilePath { get; }
-    }
+    string FilePath { get; }
 }

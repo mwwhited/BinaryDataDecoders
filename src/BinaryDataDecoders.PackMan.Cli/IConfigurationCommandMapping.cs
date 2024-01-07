@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace BinaryDataDecoders.PackMan.Cli
+namespace BinaryDataDecoders.PackMan.Cli;
+
+public interface IConfigurationCommandMapping : IDictionary<string, string>
 {
-    public interface IConfigurationCommandMapping : IDictionary<string, string>
-    {
-    }
 }

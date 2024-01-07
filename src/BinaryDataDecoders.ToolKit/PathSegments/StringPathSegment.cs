@@ -1,7 +1,5 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public sealed class StringPathSegment(string value) : BaseValuePathSegment<string>(value)
 {
-    public sealed class StringPathSegment : BaseValuePathSegment<string>
-    {
-        public StringPathSegment(string value) : base(value) { }
-    }
 }

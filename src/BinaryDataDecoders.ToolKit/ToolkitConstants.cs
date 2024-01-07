@@ -1,11 +1,10 @@
-﻿namespace BinaryDataDecoders.ToolKit
+﻿namespace BinaryDataDecoders.ToolKit;
+
+internal static class ToolkitConstants
 {
-    internal static class ToolkitConstants
+    public static class XmlNamespaces
     {
-        public static class XmlNamespaces
-        {
-            public const string Base = "bdd:ToolKit/";
-            public const string OutputSuffix = ":out";
-        }
+        public const string Base = "bdd:ToolKit/";
+        public const string OutputSuffix = ":out";
     }
 }

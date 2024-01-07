@@ -3,81 +3,80 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 
-namespace BinaryDataDecoders.Archives.Zip
+namespace BinaryDataDecoders.Archives.Zip;
+
+class ZipFile
 {
-    class ZipFile
+    static void Entry(string[] args)
     {
-        static void Entry(string[] args)
+        string fileName = new DirectoryInfo(".\\").GetFiles("*.zip").Select(f => f.FullName).FirstOrDefault();
+        if (string.IsNullOrEmpty(fileName))
+            return;
+
+        byte[] zipFileContents = File.ReadAllBytes(fileName);
+        int offset = 0;
+        while (true)
         {
-            string fileName = new DirectoryInfo(".\\").GetFiles("*.zip").Select(f => f.FullName).FirstOrDefault();
-            if (string.IsNullOrEmpty(fileName))
-                return;
+            LocalFileHeader localFileHeader = zipFileContents;
+            if (localFileHeader.Signature != 0x04034b50)
+                break;
 
-            byte[] zipFileContents = File.ReadAllBytes(fileName);
-            int offset = 0;
-            while (true)
+            offset += localFileHeader.HeaderSize;
+            if (localFileHeader.CompressionMethod == CompressionMethodType.Deflate)
             {
-                LocalFileHeader localFileHeader = zipFileContents;
-                if (localFileHeader.Signature != 0x04034b50)
-                    break;
-
-                offset += localFileHeader.HeaderSize;
-                if (localFileHeader.CompressionMethod == CompressionMethodType.Deflate)
-                {
-                    byte[] fileContent = new byte[localFileHeader.CompressedSize];
-                    Array.Copy(zipFileContents, offset, fileContent, 0, fileContent.Length);
-                    File.WriteAllBytes(localFileHeader.FileName, Decompress(fileContent));
-                    offset += fileContent.Length;
-                }
-
-
-                byte[] newBuffer = new byte[zipFileContents.Length - offset];
-                Array.Copy(zipFileContents, offset, newBuffer, 0, newBuffer.Length);
-                zipFileContents = newBuffer;
-                offset = 0;
+                byte[] fileContent = new byte[localFileHeader.CompressedSize];
+                Array.Copy(zipFileContents, offset, fileContent, 0, fileContent.Length);
+                File.WriteAllBytes(localFileHeader.FileName, Decompress(fileContent));
+                offset += fileContent.Length;
             }
+
+
+            byte[] newBuffer = new byte[zipFileContents.Length - offset];
+            Array.Copy(zipFileContents, offset, newBuffer, 0, newBuffer.Length);
+            zipFileContents = newBuffer;
+            offset = 0;
         }
+    }
 
-        public static byte[] Decompress(byte[] input)
+    public static byte[] Decompress(byte[] input)
+    {
+        if (input == null || input.Length < 1)
+            return null;
+
+        using (MemoryStream compressedData = new MemoryStream(input))
+        using (MemoryStream decompressedData = new MemoryStream())
+        using (DeflateStream deflateDecompress = new DeflateStream(compressedData, CompressionMode.Decompress, true))
         {
-            if (input == null || input.Length < 1)
-                return null;
-
-            using (MemoryStream compressedData = new MemoryStream(input))
-            using (MemoryStream decompressedData = new MemoryStream())
-            using (DeflateStream deflateDecompress = new DeflateStream(compressedData, CompressionMode.Decompress, true))
+            byte[] buffer = new byte[1024];
+            int bufferLen;
+            do
             {
-                byte[] buffer = new byte[1024];
-                int bufferLen;
-                do
-                {
-                    bufferLen = deflateDecompress.Read(buffer, 0, buffer.Length);
-                    if (bufferLen > 0)
-                        decompressedData.Write(buffer, 0, bufferLen);
-                } while (bufferLen > 0);
-                return decompressedData.ToArray();
-            }
+                bufferLen = deflateDecompress.Read(buffer, 0, buffer.Length);
+                if (bufferLen > 0)
+                    decompressedData.Write(buffer, 0, bufferLen);
+            } while (bufferLen > 0);
+            return decompressedData.ToArray();
         }
+    }
 
-        public static byte[] Compress(byte[] input)
+    public static byte[] Compress(byte[] input)
+    {
+        if (input == null || input.Length < 1)
+            return null;
+
+        using (MemoryStream rawDataStreamIn = new MemoryStream(input))
+        using (MemoryStream compressedDataStreamOut = new MemoryStream())
+        using (DeflateStream deflateCompress = new DeflateStream(compressedDataStreamOut, CompressionMode.Compress, true))
         {
-            if (input == null || input.Length < 1)
-                return null;
-
-            using (MemoryStream rawDataStreamIn = new MemoryStream(input))
-            using (MemoryStream compressedDataStreamOut = new MemoryStream())
-            using (DeflateStream deflateCompress = new DeflateStream(compressedDataStreamOut, CompressionMode.Compress, true))
+            byte[] buffer = new byte[1024];
+            int bufferLen;
+            do
             {
-                byte[] buffer = new byte[1024];
-                int bufferLen;
-                do
-                {
-                    bufferLen = rawDataStreamIn.Read(buffer, 0, buffer.Length);
-                    if (bufferLen > 0)
-                        deflateCompress.Write(buffer, 0, bufferLen);
-                } while (bufferLen > 0);
-                return compressedDataStreamOut.ToArray();
-            }
+                bufferLen = rawDataStreamIn.Read(buffer, 0, buffer.Length);
+                if (bufferLen > 0)
+                    deflateCompress.Write(buffer, 0, bufferLen);
+            } while (bufferLen > 0);
+            return compressedDataStreamOut.ToArray();
         }
     }
 }

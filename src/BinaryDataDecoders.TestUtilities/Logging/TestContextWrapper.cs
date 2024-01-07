@@ -1,10 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BinaryDataDecoders.TestUtilities.Logging
+namespace BinaryDataDecoders.TestUtilities.Logging;
+
+public class TestContextWrapper(TestContext context) : ITestContextWrapper
 {
-    public class TestContextWrapper : ITestContextWrapper
-    {
-        public TestContextWrapper(TestContext context) => this.Context = context;
-        public TestContext Context { get; }
-    }
+    public TestContext Context { get; } = context;
 }

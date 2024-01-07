@@ -1,8 +1,7 @@
 ﻿
-namespace BinaryDataDecoders.ToolKit.PathSegments
+namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class DescendantsPathSegment : IPathSegment
 {
-    public class DescendantsPathSegment : IPathSegment
-    {
-        public override string ToString() => $"//";
-    }
+    public override string ToString() => $"//";
 }

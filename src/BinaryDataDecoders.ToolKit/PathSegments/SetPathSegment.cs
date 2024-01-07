@@ -1,21 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BinaryDataDecoders.ToolKit.PathSegments
+namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class SetPathSegment(
+    IEnumerable<IPathSegment> set
+        ) : IPathSegment
 {
-    public class SetPathSegment : IPathSegment
-    {
-        public IEnumerable<IPathSegment> Set { get; }
+    public IEnumerable<IPathSegment> Set { get; } = set;
 
-        public SetPathSegment(
-            IEnumerable<IPathSegment> set
-            )
-        {
-            Set = set;
-        }
+    public override string ToString() => string.Join(",", Set);
 
-        public override string ToString() => string.Join(",", Set);
-
-        public static readonly IPathSegment Empty = new SetPathSegment(Enumerable.Empty<IPathSegment>());
-    }
+    public static readonly IPathSegment Empty = new SetPathSegment(Enumerable.Empty<IPathSegment>());
 }

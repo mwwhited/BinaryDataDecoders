@@ -1,9 +1,6 @@
-﻿namespace BinaryDataDecoders.Nmea
+﻿namespace BinaryDataDecoders.Nmea;
+
+public class StringNemaMessage(string value) : INema0183Message
 {
-    public class StringNemaMessage : INema0183Message
-    {
-        private readonly string _value;
-        public StringNemaMessage(string value) => this._value = value;
-        public override string ToString() => _value;
-    }
+    public override string ToString() => value;
 }

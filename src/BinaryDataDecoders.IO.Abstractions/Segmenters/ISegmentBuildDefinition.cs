@@ -1,7 +1,6 @@
 ﻿
-namespace BinaryDataDecoders.IO.Segmenters
+namespace BinaryDataDecoders.IO.Segmenters;
+
+public interface ISegmentBuildDefinition
 {
-    public interface ISegmentBuildDefinition
-    {
-    }
 }

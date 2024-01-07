@@ -1,6 +1,5 @@
-﻿namespace BinaryDataDecoders.Velleman.K8055
+﻿namespace BinaryDataDecoders.Velleman.K8055;
+
+public interface IK8055Object
 {
-    public interface IK8055Object
-    {
-    }
 }

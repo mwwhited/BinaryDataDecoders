@@ -1,10 +1,9 @@
 ﻿
-namespace BinaryDataDecoders.IO.Segmenters
+namespace BinaryDataDecoders.IO.Segmenters;
+
+public enum SegmentationStatus
 {
-    public enum SegmentationStatus
-    {
-        Complete,
-        Incomplete,
-        Invalid,
-    }
+    Complete,
+    Incomplete,
+    Invalid,
 }

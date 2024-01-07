@@ -1,10 +1,9 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace BinaryDataDecoders.CodeAnalysis
+namespace BinaryDataDecoders.CodeAnalysis;
+
+internal interface ISemanticModelNode
 {
-    internal interface ISemanticModelNode
-    {
-        SemanticModel Semantic { get; }
-        object Node { get; }
-    }
+    SemanticModel Semantic { get; }
+    object Node { get; }
 }

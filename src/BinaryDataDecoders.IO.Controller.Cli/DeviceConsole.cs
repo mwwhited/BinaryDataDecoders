@@ -9,20 +9,11 @@ using System.Threading.Tasks;
 
 namespace BinaryDataDecoders.IO.Controller.Cli;
 
-public class DeviceConsole
-{
-    public DeviceConsole(
-        int minimumTrasmissionDelay = 1000,
-        int testCommandDelay = 1000
+public class DeviceConsole(
+    int minimumTrasmissionDelay = 1000,
+    int testCommandDelay = 1000
         )
-    {
-        _minimumTrasmissionDelay = minimumTrasmissionDelay;
-        _testCommandDelay = testCommandDelay;
-    }
-
-    private readonly int _minimumTrasmissionDelay;
-    private readonly int _testCommandDelay;
-
+{
     private readonly UsbHidFactory usbHid = new();
     private readonly SerialPortFactory serial = new();
 
@@ -38,7 +29,7 @@ public class DeviceConsole
             {
                 await transmitter.Transmit(messageFactory(x++));
                 if (!_token.IsCancellationRequested)
-                    await Task.Delay(_testCommandDelay);
+                    await Task.Delay(testCommandDelay);
             }
         });
 
@@ -71,7 +62,7 @@ public class DeviceConsole
             if (device.TryOpen(out var stream))
                 using (stream ?? throw new ApplicationException())
                 {
-                    var streamDevice = new StreamDevice<TMessage>(device, definition, _token, _minimumTrasmissionDelay);//stream,
+                    var streamDevice = new StreamDevice<TMessage>(device, definition, _token, minimumTrasmissionDelay);//stream,
                     streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
                     // streamDevice.DeviceStatus += (s, e) => Console.WriteLine($"Status: {e}");
                     streamDevice.MessageReceivedError += (s, e) =>

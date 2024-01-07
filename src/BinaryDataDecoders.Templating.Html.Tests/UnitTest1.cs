@@ -7,53 +7,52 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Xml.Xsl;
 
-namespace BinaryDataDecoders.Templating.Html.Tests
+namespace BinaryDataDecoders.Templating.Html.Tests;
+
+[TestClass]
+public class UnitTest1
 {
-    [TestClass]
-    public class UnitTest1
+    public TestContext TestContext { get; set; }
+
+    [TestMethod, TestCategory(TestCategories.DevLocal)]
+    public async Task DeeperTest()
     {
-        public TestContext TestContext { get; set; }
+        var xsltArgumentList = new XsltArgumentList();
 
-        [TestMethod, TestCategory(TestCategories.DevLocal)]
-        public async Task DeeperTest()
+        using var styleSheet = this.GetResourceStream("SimpleCopy.xslt");
+        var template = await this.GetResourceAsStringAsync("TestTemplate.html").ConfigureAwait(false);
+
+        var xslt = new XslCompiledTransform(false);
+        using var xmlreader = XmlReader.Create(styleSheet, new XmlReaderSettings
         {
-            var xsltArgumentList = new XsltArgumentList();
+            DtdProcessing = DtdProcessing.Parse,
+            ConformanceLevel = ConformanceLevel.Document,
+            NameTable = new NameTable(),
+        });
+        var xsltSettings = new XsltSettings(false, false);
+        xslt.Load(xmlreader, xsltSettings, null);
 
-            using var styleSheet = this.GetResourceStream("SimpleCopy.xslt");
-            var template = await this.GetResourceAsStringAsync("TestTemplate.html").ConfigureAwait(false);
+        using var resultStream = new MemoryStream();
 
-            var xslt = new XslCompiledTransform(false);
-            using var xmlreader = XmlReader.Create(styleSheet, new XmlReaderSettings
-            {
-                DtdProcessing = DtdProcessing.Parse,
-                ConformanceLevel = ConformanceLevel.Document,
-                NameTable = new NameTable(),
-            });
-            var xsltSettings = new XsltSettings(false, false);
-            xslt.Load(xmlreader, xsltSettings, null);
+        XPathNavigator nav = new HtmlTemplateTransform(null, null).ToXPathNavigator(template);
 
-            using var resultStream = new MemoryStream();
+        xslt.Transform(nav, xsltArgumentList, resultStream);
 
-            XPathNavigator nav = new HtmlTemplateTransform(null, null).ToXPathNavigator(template);
+        this.TestContext.AddResult(resultStream, "TestResult.html");
+    }
 
-            xslt.Transform(nav, xsltArgumentList, resultStream);
-
-            this.TestContext.AddResult(resultStream, "TestResult.html");
-        }
-
-        [TestMethod, TestCategory(TestCategories.DevLocal)]
-        public void QueryTest()
-        {
-            using var styleSheet = this.GetResourceStream("ComplexTemplate.html");
-            var html = new HtmlNavigator();
-            var xpath = html.ToNavigable(styleSheet).CreateNavigator().Clone();
+    [TestMethod, TestCategory(TestCategories.DevLocal)]
+    public void QueryTest()
+    {
+        using var styleSheet = this.GetResourceStream("ComplexTemplate.html");
+        var html = new HtmlNavigator();
+        var xpath = html.ToNavigable(styleSheet).CreateNavigator().Clone();
 
 
-            var valueOf = xpath.Select("//value-of");
-            var valueAttr = xpath.Select("//value-attr");
-            var repeater = xpath.Select("//repeater");
-            var condition = xpath.Select("//condition");
-            var dataBinding = xpath.Select("//@data-binding");
-        }
+        var valueOf = xpath.Select("//value-of");
+        var valueAttr = xpath.Select("//value-attr");
+        var repeater = xpath.Select("//repeater");
+        var condition = xpath.Select("//condition");
+        var dataBinding = xpath.Select("//@data-binding");
     }
 }

@@ -6,25 +6,24 @@ using Microsoft.CodeAnalysis.Text;
 using System.IO;
 using System.Xml.XPath;
 
-namespace BinaryDataDecoders.CodeAnalysis.CSharp
-{
-    [FileExtension(".cs")]
-    public class CSharpNavigator : IToXPathNavigable
-    {
-        public IXPathNavigable ToNavigable(string filePath)
-        {
-            var content = File.ReadAllText(filePath);
-            var syntax = CSharpSyntaxTree.ParseText(content);
-            var root = syntax.ToNavigable(filePath);
-            return root;
-        }
+namespace BinaryDataDecoders.CodeAnalysis.CSharp;
 
-        public IXPathNavigable ToNavigable(Stream stream)
-        {
-            var content = SourceText.From(stream);
-            var syntax = CSharpSyntaxTree.ParseText(content);
-            var root = syntax.ToNavigable();
-            return root;
-        }
+[FileExtension(".cs")]
+public class CSharpNavigator : IToXPathNavigable
+{
+    public IXPathNavigable ToNavigable(string filePath)
+    {
+        var content = File.ReadAllText(filePath);
+        var syntax = CSharpSyntaxTree.ParseText(content);
+        var root = syntax.ToNavigable(filePath);
+        return root;
+    }
+
+    public IXPathNavigable ToNavigable(Stream stream)
+    {
+        var content = SourceText.From(stream);
+        var syntax = CSharpSyntaxTree.ParseText(content);
+        var root = syntax.ToNavigable();
+        return root;
     }
 }

@@ -5,23 +5,14 @@ using System.Xml.XPath;
 namespace BinaryDataDecoders.ToolKit.Xml.XPath;
 
 [DebuggerDisplay("N:>{Name}")]
-internal class ExtensibleNamespaceNode<T> : INamespaceNode
+internal class ExtensibleNamespaceNode<T>(
+     INode parent,
+     XName name,
+     T item
+        ) : INamespaceNode
 {
-    private readonly T _item;
-
-    //TODO: this stuff needs some work... but low priority so whateves
-    public ExtensibleNamespaceNode(
-         INode parent,
-         XName name,
-         T item
-        )
-    {
-        Parent = parent;
-        Name = name;
-        _item = item;
-    }
-    public INode? Parent { get; }
-    public XName Name { get; }
+    public INode? Parent { get; } = parent;
+    public XName Name { get; } = name;
     public string? Value => Name.NamespaceName;
 
     public INamespaceNode? Next { get; internal set; }

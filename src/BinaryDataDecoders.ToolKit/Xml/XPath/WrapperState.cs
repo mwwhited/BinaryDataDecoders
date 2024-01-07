@@ -1,11 +1,10 @@
-﻿namespace BinaryDataDecoders.ToolKit.Xml.XPath
+﻿namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+
+internal enum WrapperState
 {
-    internal enum WrapperState
-    {
-        Root,
-        Top,
-        Node,
-        NodeAttribute,
-        Child,
-    }
+    Root,
+    Top,
+    Node,
+    NodeAttribute,
+    Child,
 }

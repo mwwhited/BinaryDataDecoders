@@ -1,9 +1,8 @@
 ﻿
-namespace BinaryDataDecoders.ToolKit.PathSegments
+namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public enum PathBaseTypes
 {
-    public enum PathBaseTypes
-    {
-        Root,
-        Relative,
-    }
+    Root,
+    Relative,
 }

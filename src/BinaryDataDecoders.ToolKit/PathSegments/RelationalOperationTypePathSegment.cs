@@ -1,8 +1,6 @@
 ﻿
-namespace BinaryDataDecoders.ToolKit.PathSegments
+namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public sealed class RelationalOperationTypePathSegment(RelationalOperationTypes type) : BaseValuePathSegment<RelationalOperationTypes>(type)
 {
-    public sealed class RelationalOperationTypePathSegment : BaseValuePathSegment<RelationalOperationTypes>
-    {
-        public RelationalOperationTypePathSegment(RelationalOperationTypes type) : base(type) { }
-    }
 }

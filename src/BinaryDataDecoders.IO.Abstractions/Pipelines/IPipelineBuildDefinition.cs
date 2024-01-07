@@ -1,6 +1,5 @@
-﻿namespace BinaryDataDecoders.IO.Pipelines
+﻿namespace BinaryDataDecoders.IO.Pipelines;
+
+public interface IPipelineBuildDefinition
 {
-    public interface IPipelineBuildDefinition
-    {
-    }
 }

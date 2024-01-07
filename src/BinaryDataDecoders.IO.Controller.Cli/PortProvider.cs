@@ -1,18 +1,17 @@
 ﻿using System.IO.Ports;
 
-namespace BinaryDataDecoders.IO.Controller.Cli
-{
-    public class PortProvider
-    {    
-        public SerialPort GetZStickPort(string portName)
+namespace BinaryDataDecoders.IO.Controller.Cli;
+
+public class PortProvider
+{    
+    public SerialPort GetZStickPort(string portName)
+    {
+        return new SerialPort(portName)
         {
-            return new SerialPort(portName)
-            {
-                BaudRate = 115200,
-                DataBits = 8,
-                StopBits = StopBits.One,
-                Parity = Parity.None,
-            };
-        }
+            BaudRate = 115200,
+            DataBits = 8,
+            StopBits = StopBits.One,
+            Parity = Parity.None,
+        };
     }
 }

@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.Templating.Abstractions
+namespace BinaryDataDecoders.Templating.Abstractions;
+
+public interface IPathResolver
 {
-    public interface IPathResolver
-    {
-        Task<object> ItemSelector(string path);
-    }
+    Task<object> ItemSelector(string path);
 }

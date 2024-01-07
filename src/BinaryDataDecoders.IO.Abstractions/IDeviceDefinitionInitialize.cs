@@ -2,10 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.IO
+namespace BinaryDataDecoders.IO;
+
+public interface IDeviceDefinitionInitialize
 {
-    public interface IDeviceDefinitionInitialize
-    {
-        Task InitializeAsync(IDeviceAdapter device, CancellationToken token);
-    }
+    Task InitializeAsync(IDeviceAdapter device, CancellationToken token);
 }

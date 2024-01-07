@@ -1,27 +1,25 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.TestUtilities
+namespace BinaryDataDecoders.TestUtilities;
+
+/// <summary>
+/// This attribute may be used to mark what Class/Member is covered by a particular test method
+/// </summary>
+/// <remarks>
+/// create and instance of TestTargetAttribute
+/// </remarks>
+/// <param name="class">type of related class</param>
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+public class TestTargetAttribute(Type @class) : Attribute
 {
+
     /// <summary>
-    /// This attribute may be used to mark what Class/Member is covered by a particular test method
+    /// required type reference for related test
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class TestTargetAttribute : Attribute
-    {
-        /// <summary>
-        /// create and instance of TestTargetAttribute
-        /// </summary>
-        /// <param name="class">type of related class</param>
-        public TestTargetAttribute(Type @class) => Class = @class;
+    public Type Class { get; } = @class;
 
-        /// <summary>
-        /// required type reference for related test
-        /// </summary>
-        public Type Class { get; }
-
-        /// <summary>
-        /// optional member mapping for related test
-        /// </summary>
-        public string? Member { get; set; }
-    }
+    /// <summary>
+    /// optional member mapping for related test
+    /// </summary>
+    public string? Member { get; set; }
 }

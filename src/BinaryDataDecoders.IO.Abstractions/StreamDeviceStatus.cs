@@ -1,16 +1,15 @@
-﻿namespace BinaryDataDecoders.IO
+﻿namespace BinaryDataDecoders.IO;
+
+public enum StreamDeviceStatus
 {
-    public enum StreamDeviceStatus
-    {
-        Unknown,
+    Unknown,
 
-        Initializing,
-        Initialized,
+    Initializing,
+    Initialized,
 
-        Transmitting,
-        Transmitted,
+    Transmitting,
+    Transmitted,
 
-        Receiving,
-        Received,
-    }
+    Receiving,
+    Received,
 }

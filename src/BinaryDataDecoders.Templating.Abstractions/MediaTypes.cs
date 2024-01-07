@@ -1,7 +1,6 @@
-﻿namespace BinaryDataDecoders.Templating.Abstractions
+﻿namespace BinaryDataDecoders.Templating.Abstractions;
+
+public static class MediaTypes
 {
-    public static class MediaTypes
-    {
-        public const string Html = "text/html";
-    }
+    public const string Html = "text/html";
 }

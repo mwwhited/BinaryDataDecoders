@@ -1,13 +1,12 @@
 ﻿
-namespace BinaryDataDecoders.ToolKit.PathSegments
+namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public enum RelationalOperationTypes
 {
-    public enum RelationalOperationTypes
-    {
-        Equal,
-        GreaterThanOrEqual,
-        GreaterThan,
-        LessThanOrEqual,
-        LessThan,
-        NotEqual,
-    }
+    Equal,
+    GreaterThanOrEqual,
+    GreaterThan,
+    LessThanOrEqual,
+    LessThan,
+    NotEqual,
 }

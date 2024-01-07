@@ -5,18 +5,17 @@ using Microsoft.SqlServer.Dac.Model;
 using System.IO;
 using System.Xml.XPath;
 
-namespace BinaryDataDecoders.CodeAnalysis.DacFx
-{
-    [FileExtension(".dacpac")]
-    public class DacPacNavigator : IToXPathNavigable
-    {
-        public IXPathNavigable? ToNavigable(string filePath) =>
-            new DacPacElementNodeBuilder(new TSqlModel(filePath)).Build().ToNavigable();
+namespace BinaryDataDecoders.CodeAnalysis.DacFx;
 
-        public IXPathNavigable? ToNavigable(Stream stream)
-        {
-            using var temp = stream.AsTempFile();
-            return ToNavigable(temp.FilePath);
-        }
+[FileExtension(".dacpac")]
+public class DacPacNavigator : IToXPathNavigable
+{
+    public IXPathNavigable? ToNavigable(string filePath) =>
+        new DacPacElementNodeBuilder(new TSqlModel(filePath)).Build().ToNavigable();
+
+    public IXPathNavigable? ToNavigable(Stream stream)
+    {
+        using var temp = stream.AsTempFile();
+        return ToNavigable(temp.FilePath);
     }
 }

@@ -2,85 +2,84 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.ToolKit
+namespace BinaryDataDecoders.ToolKit;
+
+public static class ConsoleEx
 {
-    public static class ConsoleEx
+    public static Task<string?> ReadLineAsync() => 
+        Task.FromResult(Console.ReadLine());
+
+    public static string? Prompt(string? prompt = null, string? defaultValue = null)
     {
-        public static Task<string?> ReadLineAsync() => 
-            Task.FromResult(Console.ReadLine());
+        if (!string.IsNullOrWhiteSpace(prompt))
+            Console.Write("{0} ", prompt);
+        if (!string.IsNullOrWhiteSpace(defaultValue))
+            Console.Write("{0}", defaultValue);
 
-        public static string? Prompt(string? prompt = null, string? defaultValue = null)
+        var chars = new List<char>(defaultValue ?? "");
+        while (true)
         {
-            if (!string.IsNullOrWhiteSpace(prompt))
-                Console.Write("{0} ", prompt);
-            if (!string.IsNullOrWhiteSpace(defaultValue))
-                Console.Write("{0}", defaultValue);
+            var key = Console.ReadKey(true);
 
-            var chars = new List<char>(defaultValue ?? "");
-            while (true)
+            if (key.Key == ConsoleKey.Escape)
+                return null;
+            else if (key.Key == ConsoleKey.Enter)
+                break;
+            else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
             {
-                var key = Console.ReadKey(true);
-
-                if (key.Key == ConsoleKey.Escape)
-                    return null;
-                else if (key.Key == ConsoleKey.Enter)
-                    break;
-                else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
+                if (chars.Count > 0)
                 {
-                    if (chars.Count > 0)
-                    {
-                        chars.RemoveAt(chars.Count - 1);
-                        Console.Write((char)8);
-                        Console.Write(" ");
-                        Console.Write((char)8);
-                    }
-                }
-                else
-                {
-                    chars.Add(key.KeyChar);
-                    Console.Write(key.KeyChar);
+                    chars.RemoveAt(chars.Count - 1);
+                    Console.Write((char)8);
+                    Console.Write(" ");
+                    Console.Write((char)8);
                 }
             }
-            Console.WriteLine();
-            var result = new string(chars.ToArray());
-            return result;
-        }
-
-        public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
-        {
-            if (!string.IsNullOrWhiteSpace(prompt))
-                Console.Write($"{prompt} ");
-            if (!string.IsNullOrWhiteSpace(defaultValue))
-                Console.Write($"{new string(hideWith, defaultValue.Length)}");
-
-            var chars = new List<char>(defaultValue ?? "");
-            while (true)
+            else
             {
-                var key = Console.ReadKey(true);
+                chars.Add(key.KeyChar);
+                Console.Write(key.KeyChar);
+            }
+        }
+        Console.WriteLine();
+        var result = new string(chars.ToArray());
+        return result;
+    }
 
-                if (key.Key == ConsoleKey.Escape)
-                    return null;
-                else if (key.Key == ConsoleKey.Enter)
-                    break;
-                else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
+    public static string? PromptSecure(string? prompt = null, string? defaultValue = null, char hideWith = '*')
+    {
+        if (!string.IsNullOrWhiteSpace(prompt))
+            Console.Write($"{prompt} ");
+        if (!string.IsNullOrWhiteSpace(defaultValue))
+            Console.Write($"{new string(hideWith, defaultValue.Length)}");
+
+        var chars = new List<char>(defaultValue ?? "");
+        while (true)
+        {
+            var key = Console.ReadKey(true);
+
+            if (key.Key == ConsoleKey.Escape)
+                return null;
+            else if (key.Key == ConsoleKey.Enter)
+                break;
+            else if (key.Key == ConsoleKey.Backspace || key.Key == ConsoleKey.Delete)
+            {
+                if (chars.Count > 0)
                 {
-                    if (chars.Count > 0)
-                    {
-                        chars.RemoveAt(chars.Count - 1);
-                        Console.Write((char)8);
-                        Console.Write(" ");
-                        Console.Write((char)8);
-                    }
-                }
-                else
-                {
-                    chars.Add(key.KeyChar);
-                    Console.Write(hideWith);
+                    chars.RemoveAt(chars.Count - 1);
+                    Console.Write((char)8);
+                    Console.Write(" ");
+                    Console.Write((char)8);
                 }
             }
-            Console.WriteLine();
-            var result = new string(chars.ToArray());
-            return result;
+            else
+            {
+                chars.Add(key.KeyChar);
+                Console.Write(hideWith);
+            }
         }
+        Console.WriteLine();
+        var result = new string(chars.ToArray());
+        return result;
     }
 }

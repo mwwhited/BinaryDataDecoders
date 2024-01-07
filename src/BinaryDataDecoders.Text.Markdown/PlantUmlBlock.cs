@@ -2,11 +2,9 @@
 using Markdig.Syntax;
 using System;
 
-namespace BinaryDataDecoders.Text.Markdown
+namespace BinaryDataDecoders.Text.Markdown;
+
+public class PlantUmlBlock(BlockParser parser) : FencedCodeBlock(parser)
 {
-    public class PlantUmlBlock : FencedCodeBlock
-    {
-        public PlantUmlBlock(BlockParser parser) : base(parser) { }
-        public string GetScript() => string.Join(Environment.NewLine, Lines);
-    }
+    public string GetScript() => string.Join(Environment.NewLine, Lines);
 }
