@@ -7,21 +7,25 @@
 | Class           | `BinaryDataDecoders.Cryptography.Enigma.EnigmaTools` |
 | Assembly        | `BinaryDataDecoders.Cryptography`                    |
 | Coveredlines    | `11`                                                 |
-| Uncoveredlines  | `1`                                                  |
-| Coverablelines  | `12`                                                 |
-| Totallines      | `37`                                                 |
-| Linecoverage    | `91.6`                                               |
+| Uncoveredlines  | `13`                                                 |
+| Coverablelines  | `24`                                                 |
+| Totallines      | `59`                                                 |
+| Linecoverage    | `45.8`                                               |
 | Coveredbranches | `5`                                                  |
-| Totalbranches   | `8`                                                  |
-| Branchcoverage  | `62.5`                                               |
+| Totalbranches   | `16`                                                 |
+| Branchcoverage  | `31.2`                                               |
 | Coveredmethods  | `4`                                                  |
-| Totalmethods    | `4`                                                  |
-| Methodcoverage  | `100`                                                |
+| Totalmethods    | `8`                                                  |
+| Methodcoverage  | `50`                                                 |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
+| 4          | 0     | 0        | `Clean`    |
+| 1          | 0     | 100      | `AsString` |
+| 1          | 0     | 100      | `SplitAt`  |
+| 4          | 0     | 0        | `SwapSet`  |
 | 4          | 100   | 75.00    | `Clean`    |
 | 1          | 100   | 100      | `AsString` |
 | 1          | 100   | 100      | `SplitAt`  |
@@ -32,43 +36,70 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Cryptography/Enigma/EnigmaTools.cs
 
 ```CSharp
-〰1:   using System;
-〰2:   using System.Collections.Generic;
-〰3:   using System.Linq;
-〰4:   using System.Text;
-〰5:   using System.Threading.Tasks;
+〰1:   using System.Collections.Generic;
+〰2:   using System.Linq;
+〰3:   using System.Text;
+〰4:   
+〰5:   namespace BinaryDataDecoders.Cryptography.Enigma;
 〰6:   
-〰7:   namespace BinaryDataDecoders.Cryptography.Enigma
+〰7:   public static class EnigmaTools
 〰8:   {
-〰9:       public static class EnigmaTools
-〰10:      {
-〰11:          public static IEnumerable<char> Clean(this IEnumerable<char> input)
-〰12:          {
-⚠13:              return input.Select(c => (char)(c > 'Z' ? c - 32 : c))
-✔14:                          .Where(c => c >= 'A' && c <= 'Z');
-〰15:          }
-〰16:          public static string AsString(this IEnumerable<char> input)
-〰17:          {
-✔18:              return new string(input.ToArray());
-〰19:          }
-〰20:  
-〰21:          public static IEnumerable<string> SplitAt(this string input, int at = 2)
-〰22:          {
-✔23:              return Enumerable.Range(0, input.Length / at)
-✔24:                               .Select(i => input.Substring(i * at, at));
-〰25:          }
-〰26:          internal static string SwapSet(this string input, string[] swaps)
-〰27:          {
-⚠28:              if (swaps == null)
-‼29:                  return input;
-⚠30:              return swaps.Aggregate(new StringBuilder(input ?? ""),
-✔31:                                     (sb, s) => sb.Replace(s[0], '_')
-✔32:                                                  .Replace(s[1], s[0])
-✔33:                                                  .Replace('_', s[1]),
-✔34:                                     sb => sb.ToString());
-〰35:          }
-〰36:      }
-〰37:  }
+〰9:       public static IEnumerable<char> Clean(this IEnumerable<char> input) =>
+‼10:          input.Select(c => (char)(c > 'Z' ? c - 32 : c))
+‼11:                      .Where(c => c >= 'A' && c <= 'Z');
+〰12:      public static string AsString(this IEnumerable<char> input) =>
+‼13:          new string(input.ToArray());
+〰14:  
+〰15:      public static IEnumerable<string> SplitAt(this string input, int at = 2) =>
+‼16:          Enumerable.Range(0, input.Length / at)
+‼17:                    .Select(i => input.Substring(i * at, at));
+〰18:  
+〰19:      internal static string SwapSet(this string input, string[]? swaps)
+〰20:      {
+‼21:          if (swaps == null)
+‼22:              return input;
+‼23:          return swaps.Aggregate(new StringBuilder(input ?? ""),
+‼24:                                 (sb, s) => sb.Replace(s[0], '_')
+‼25:                                              .Replace(s[1], s[0])
+‼26:                                              .Replace('_', s[1]),
+‼27:                                 sb => sb.ToString());
+〰28:      }
+〰29:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.Cryptography/Enigma/EnigmaTools.cs
+
+```CSharp
+〰1:   using System.Collections.Generic;
+〰2:   using System.Linq;
+〰3:   using System.Text;
+〰4:   
+〰5:   namespace BinaryDataDecoders.Cryptography.Enigma;
+〰6:   
+〰7:   public static class EnigmaTools
+〰8:   {
+〰9:       public static IEnumerable<char> Clean(this IEnumerable<char> input) =>
+⚠10:          input.Select(c => (char)(c > 'Z' ? c - 32 : c))
+✔11:                      .Where(c => c >= 'A' && c <= 'Z');
+〰12:      public static string AsString(this IEnumerable<char> input) =>
+✔13:          new string(input.ToArray());
+〰14:  
+〰15:      public static IEnumerable<string> SplitAt(this string input, int at = 2) =>
+✔16:          Enumerable.Range(0, input.Length / at)
+✔17:                    .Select(i => input.Substring(i * at, at));
+〰18:  
+〰19:      internal static string SwapSet(this string input, string[]? swaps)
+〰20:      {
+⚠21:          if (swaps == null)
+‼22:              return input;
+⚠23:          return swaps.Aggregate(new StringBuilder(input ?? ""),
+✔24:                                 (sb, s) => sb.Replace(s[0], '_')
+✔25:                                              .Replace(s[1], s[0])
+✔26:                                              .Replace('_', s[1]),
+✔27:                                 sb => sb.ToString());
+〰28:      }
+〰29:  }
+〰30:  
 ```
 
 ## Links

@@ -16,12 +16,6 @@
 
 ### Members
 
-#### Public Constructor - ExtensibleRootNode
-
-#####  Parameters
-
- - INode child 
-
 #### Public Property - FirstChild
 
 ##### Summary

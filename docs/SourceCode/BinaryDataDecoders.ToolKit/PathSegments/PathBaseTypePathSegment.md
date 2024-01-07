@@ -9,12 +9,6 @@
 
 ### Members
 
-#### Public Constructor - PathBaseTypePathSegment
-
-#####  Parameters
-
- - PathBaseTypes type 
-
 #### Public Method - ToString
 
 

@@ -113,6 +113,6 @@
 
  * Type: 
 
-#### Public Method - ToString
+#### Public ReadOnly Method - ToString
 
 

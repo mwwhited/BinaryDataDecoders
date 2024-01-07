@@ -7,11 +7,3 @@
 
 ## Public Class - SatellitesInView
 
-### Members
-
-#### Public Constructor - SatellitesInView
-
-#####  Parameters
-
- - string [  ] data 
-

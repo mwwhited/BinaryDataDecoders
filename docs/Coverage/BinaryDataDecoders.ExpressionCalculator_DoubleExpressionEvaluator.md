@@ -35,29 +35,29 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/DoubleExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/DoubleExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class DoubleExpressionEvaluator : IExpressionEvaluator<double>
-〰6:       {
-✔7:           public double Add(double left, double right) => left + right;
-✔8:           public double Divide(double left, double right) => left / right;
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class DoubleExpressionEvaluator : IExpressionEvaluator<double>
+〰6:   {
+✔7:       public double Add(double left, double right) => left + right;
+✔8:       public double Divide(double left, double right) => left / right;
 〰9:   
-✔10:          public double Modulo(double left, double right) => left % right;
-✔11:          public double Multiply(double left, double right) => left * right;
-✔12:          public double Negate(double operand) => -operand;
-✔13:          public double Power(double left, double right) => (double)Math.Pow((double)left, (double)right);
-✔14:          public double Subtract(double left, double right) => left - right;
+✔10:      public double Modulo(double left, double right) => left % right;
+✔11:      public double Multiply(double left, double right) => left * right;
+✔12:      public double Negate(double operand) => -operand;
+✔13:      public double Power(double left, double right) => (double)Math.Pow((double)left, (double)right);
+✔14:      public double Subtract(double left, double right) => left - right;
 〰15:  
-⚠16:          public double? TryParse(string input) => double.TryParse(input, out var ret) ? (double?)ret : null;
-✔17:          public double GetValue(int value) => (double)value;
-✔18:          public double GetValue(double value) => value;
-〰19:      }
-〰20:  }
+⚠16:      public double? TryParse(string input) => double.TryParse(input, out var ret) ? (double?)ret : null;
+✔17:      public double GetValue(int value) => (double)value;
+✔18:      public double GetValue(double value) => value;
+〰19:  }
+〰20:  
 ```
 
 ## Links

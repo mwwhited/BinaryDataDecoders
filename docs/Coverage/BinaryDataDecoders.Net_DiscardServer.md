@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Net.Services.DiscardServer` |
 | Assembly        | `BinaryDataDecoders.Net`                        |
 | Coveredlines    | `0`                                             |
-| Uncoveredlines  | `3`                                             |
-| Coverablelines  | `3`                                             |
-| Totallines      | `20`                                            |
+| Uncoveredlines  | `2`                                             |
+| Coverablelines  | `2`                                             |
+| Totallines      | `14`                                            |
 | Linecoverage    | `0`                                             |
 | Coveredbranches | `0`                                             |
 | Totalbranches   | `0`                                             |
@@ -36,19 +36,13 @@
 〰5:   using System.Threading;
 〰6:   using System.Threading.Tasks;
 〰7:   
-〰8:   namespace BinaryDataDecoders.Net.Services
-〰9:   {
-〰10:      public class DiscardServer : ServerBase
-〰11:      {
-〰12:          public DiscardServer(IPAddress? ipAddress = default, ushort port = 9)
-‼13:              : base(ipAddress, port)
-〰14:          {
-‼15:          }
-〰16:  
-〰17:          protected override Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken) =>
-‼18:              Task.CompletedTask;
-〰19:      }
-〰20:  }
+〰8:   namespace BinaryDataDecoders.Net.Services;
+〰9:   
+‼10:  public class DiscardServer(IPAddress? ipAddress = default, ushort port = 9) : ServerBase(ipAddress, port)
+〰11:  {
+〰12:      protected override Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken) =>
+‼13:          Task.CompletedTask;
+〰14:  }
 ```
 
 ## Links

@@ -35,29 +35,29 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int32ExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int32ExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class Int32ExpressionEvaluator : IExpressionEvaluator<int>
-〰6:       {
-✔7:           public int Add(int left, int right) => left + right;
-✔8:           public int Divide(int left, int right) => left / right;
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class Int32ExpressionEvaluator : IExpressionEvaluator<int>
+〰6:   {
+✔7:       public int Add(int left, int right) => left + right;
+✔8:       public int Divide(int left, int right) => left / right;
 〰9:   
-✔10:          public int Modulo(int left, int right) => left % right;
-✔11:          public int Multiply(int left, int right) => left * right;
-✔12:          public int Negate(int operand) => -operand;
-✔13:          public int Power(int left, int right) => (int)Math.Pow((double)left, (double)right);
-✔14:          public int Subtract(int left, int right) => left - right;
+✔10:      public int Modulo(int left, int right) => left % right;
+✔11:      public int Multiply(int left, int right) => left * right;
+✔12:      public int Negate(int operand) => -operand;
+✔13:      public int Power(int left, int right) => (int)Math.Pow((double)left, (double)right);
+✔14:      public int Subtract(int left, int right) => left - right;
 〰15:  
-⚠16:          public int? TryParse(string input) => int.TryParse(input, out var ret) ? (int?)ret : null;
-✔17:          public int GetValue(int value) => value;
-✔18:          public int GetValue(double value) => (int)value;
-〰19:      }
-〰20:  }
+⚠16:      public int? TryParse(string input) => int.TryParse(input, out var ret) ? (int?)ret : null;
+✔17:      public int GetValue(int value) => value;
+✔18:      public int GetValue(double value) => (int)value;
+〰19:  }
+〰20:  
 ```
 
 ## Links

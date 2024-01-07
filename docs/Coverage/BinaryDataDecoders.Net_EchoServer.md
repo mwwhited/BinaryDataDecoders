@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Net.Services.EchoServer` |
 | Assembly        | `BinaryDataDecoders.Net`                     |
 | Coveredlines    | `0`                                          |
-| Uncoveredlines  | `4`                                          |
-| Coverablelines  | `4`                                          |
-| Totallines      | `22`                                         |
+| Uncoveredlines  | `3`                                          |
+| Coverablelines  | `3`                                          |
+| Totallines      | `16`                                         |
 | Linecoverage    | `0`                                          |
 | Coveredbranches | `0`                                          |
 | Totalbranches   | `0`                                          |
@@ -36,21 +36,15 @@
 〰5:   using System.Threading;
 〰6:   using System.Threading.Tasks;
 〰7:   
-〰8:   namespace BinaryDataDecoders.Net.Services
-〰9:   {
-〰10:      public class EchoServer : ServerBase
-〰11:      {
-〰12:          public EchoServer(IPAddress? ipAddress = default, ushort port = 7)
-‼13:              : base(ipAddress, port)
-〰14:          {
-‼15:          }
-〰16:  
-〰17:          protected override async Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken)
-〰18:          {
-‼19:              await accepted.GetStream().WriteAsync(message);
-‼20:          }
-〰21:      }
-〰22:  }
+〰8:   namespace BinaryDataDecoders.Net.Services;
+〰9:   
+‼10:  public class EchoServer(IPAddress? ipAddress = default, ushort port = 7) : ServerBase(ipAddress, port)
+〰11:  {
+〰12:      protected override async Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken)
+〰13:      {
+‼14:          await accepted.GetStream().WriteAsync(message, cancellationToken);
+‼15:      }
+〰16:  }
 ```
 
 ## Links

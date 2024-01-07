@@ -18,12 +18,6 @@
 
 ### Members
 
-#### Public Constructor - DeviceTargetAttribute
-
-#####  Parameters
-
- - Type target 
-
 #### Public Property - Target
 
 ##### Summary

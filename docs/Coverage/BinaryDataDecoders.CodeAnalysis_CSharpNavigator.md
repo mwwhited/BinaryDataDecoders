@@ -26,7 +26,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis/CSharp/CSharpNavigator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.CodeAnalysis/CSharp/CSharpNavigator.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.MetaData;
@@ -37,28 +37,28 @@
 〰6:   using System.IO;
 〰7:   using System.Xml.XPath;
 〰8:   
-〰9:   namespace BinaryDataDecoders.CodeAnalysis.CSharp
-〰10:  {
-〰11:      [FileExtension(".cs")]
-〰12:      public class CSharpNavigator : IToXPathNavigable
-〰13:      {
-〰14:          public IXPathNavigable ToNavigable(string filePath)
-〰15:          {
-‼16:              var content = File.ReadAllText(filePath);
-‼17:              var syntax = CSharpSyntaxTree.ParseText(content);
-‼18:              var root = syntax.ToNavigable(filePath);
-‼19:              return root;
-〰20:          }
+〰9:   namespace BinaryDataDecoders.CodeAnalysis.CSharp;
+〰10:  
+〰11:  [FileExtension(".cs")]
+〰12:  public class CSharpNavigator : IToXPathNavigable
+〰13:  {
+〰14:      public IXPathNavigable ToNavigable(string filePath)
+〰15:      {
+‼16:          var content = File.ReadAllText(filePath);
+‼17:          var syntax = CSharpSyntaxTree.ParseText(content);
+‼18:          var root = syntax.ToNavigable(filePath);
+‼19:          return root;
+〰20:      }
 〰21:  
-〰22:          public IXPathNavigable ToNavigable(Stream stream)
-〰23:          {
-‼24:              var content = SourceText.From(stream);
-‼25:              var syntax = CSharpSyntaxTree.ParseText(content);
-‼26:              var root = syntax.ToNavigable();
-‼27:              return root;
-〰28:          }
-〰29:      }
-〰30:  }
+〰22:      public IXPathNavigable ToNavigable(Stream stream)
+〰23:      {
+‼24:          var content = SourceText.From(stream);
+‼25:          var syntax = CSharpSyntaxTree.ParseText(content);
+‼26:          var root = syntax.ToNavigable();
+‼27:          return root;
+〰28:      }
+〰29:  }
+〰30:  
 ```
 
 ## Links

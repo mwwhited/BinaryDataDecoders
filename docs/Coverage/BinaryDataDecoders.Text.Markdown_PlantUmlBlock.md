@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                              |
 | Uncoveredlines  | `2`                                              |
 | Coverablelines  | `2`                                              |
-| Totallines      | `12`                                             |
+| Totallines      | `10`                                             |
 | Linecoverage    | `0`                                              |
 | Coveredbranches | `0`                                              |
 | Totalbranches   | `0`                                              |
@@ -33,14 +33,12 @@
 〰2:   using Markdig.Syntax;
 〰3:   using System;
 〰4:   
-〰5:   namespace BinaryDataDecoders.Text.Markdown
-〰6:   {
-〰7:       public class PlantUmlBlock : FencedCodeBlock
-〰8:       {
-‼9:           public PlantUmlBlock(BlockParser parser) : base(parser) { }
-‼10:          public string GetScript() => string.Join(Environment.NewLine, Lines);
-〰11:      }
-〰12:  }
+〰5:   namespace BinaryDataDecoders.Text.Markdown;
+〰6:   
+‼7:   public class PlantUmlBlock(BlockParser parser) : FencedCodeBlock(parser)
+〰8:   {
+‼9:       public string GetScript() => string.Join(Environment.NewLine, Lines);
+〰10:  }
 ```
 
 ## Links

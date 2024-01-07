@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleSignificantWhitespaceNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                                 |
 | Coveredlines    | `0`                                                                          |
-| Uncoveredlines  | `6`                                                                          |
-| Coverablelines  | `6`                                                                          |
-| Totallines      | `22`                                                                         |
+| Uncoveredlines  | `12`                                                                         |
+| Coverablelines  | `12`                                                                         |
+| Totallines      | `43`                                                                         |
 | Linecoverage    | `0`                                                                          |
 | Coveredbranches | `0`                                                                          |
 | Totalbranches   | `0`                                                                          |
 | Coveredmethods  | `0`                                                                          |
-| Totalmethods    | `1`                                                                          |
+| Totalmethods    | `2`                                                                          |
 | Methodcoverage  | `0`                                                                          |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 | 1          | 0     | 100      | `ctor`  |
 
 ## Files
@@ -31,24 +32,50 @@
 〰1:   using System.Xml.Linq;
 〰2:   using System.Xml.XPath;
 〰3:   
-〰4:   namespace BinaryDataDecoders.ToolKit.Xml.XPath
-〰5:   {
-〰6:       internal class ExtensibleSignificantWhitespaceNode<T> : ExtensibleSimpleNodeBase<T>
-〰7:       {
-〰8:           public ExtensibleSignificantWhitespaceNode(
-〰9:                INode parent,
-〰10:               XName name,
-〰11:               T item,
-〰12:               string value
-‼13:              ) : base(
-‼14:                  parent, name, item, "",
-‼15:                  XPathNodeType.SignificantWhitespace
-‼16:                  )
-〰17:          {
-‼18:              FirstChild = new ExtensibleTextNode<T>(this, name, item, value);
-‼19:          }
-〰20:      }
-〰21:  }
+〰4:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰5:   
+〰6:   internal class ExtensibleSignificantWhitespaceNode<T> : ExtensibleSimpleNodeBase<T>
+〰7:   {
+〰8:       public ExtensibleSignificantWhitespaceNode(
+〰9:            INode parent,
+〰10:           XName name,
+〰11:           T item,
+〰12:           string value
+‼13:          ) : base(
+‼14:              parent, name, item, "",
+‼15:              XPathNodeType.SignificantWhitespace
+‼16:              )
+〰17:      {
+‼18:          FirstChild = new ExtensibleTextNode<T>(this, name, item, value);
+‼19:      }
+〰20:  }
+〰21:  
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleSignificantWhitespaceNode.cs
+
+```CSharp
+〰1:   using System.Xml.Linq;
+〰2:   using System.Xml.XPath;
+〰3:   
+〰4:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰5:   
+〰6:   internal class ExtensibleSignificantWhitespaceNode<T> : ExtensibleSimpleNodeBase<T>
+〰7:   {
+〰8:       public ExtensibleSignificantWhitespaceNode(
+〰9:            INode parent,
+〰10:           XName name,
+〰11:           T item,
+〰12:           string value
+‼13:          ) : base(
+‼14:              parent, name, item, "",
+‼15:              XPathNodeType.SignificantWhitespace
+‼16:              )
+〰17:      {
+‼18:          FirstChild = new ExtensibleTextNode<T>(this, name, item, value);
+‼19:      }
+〰20:  }
+〰21:  
 〰22:  
 ```
 

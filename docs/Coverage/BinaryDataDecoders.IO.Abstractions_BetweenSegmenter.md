@@ -7,21 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.BetweenSegmenter` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `18`                                                |
-| Coverablelines  | `18`                                                |
-| Totallines      | `61`                                                |
+| Uncoveredlines  | `36`                                                |
+| Coverablelines  | `36`                                                |
+| Totallines      | `120`                                               |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
-| Totalbranches   | `12`                                                |
+| Totalbranches   | `24`                                                |
 | Branchcoverage  | `0`                                                 |
 | Coveredmethods  | `0`                                                 |
-| Totalmethods    | `2`                                                 |
+| Totalmethods    | `4`                                                 |
 | Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 12         | 0     | 0        | `Read`  |
 | 1          | 0     | 100      | `ctor`  |
 | 12         | 0     | 0        | `Read`  |
 
@@ -33,64 +35,128 @@
 〰1:   using System.Buffers;
 〰2:   using System.Linq;
 〰3:   
-〰4:   namespace BinaryDataDecoders.IO.Segmenters
-〰5:   {
-〰6:       internal sealed class BetweenSegmenter : SegmenterBase
-〰7:       {
-〰8:           internal BetweenSegmenter(
-〰9:               OnSegmentReceived onSegmentReceived,
-〰10:              byte[] starts,
-〰11:              byte end,
-〰12:              long? maxLength,
-〰13:              SegmentionOptions options
-〰14:              )
-‼15:              : base(onSegmentReceived, options)
-〰16:          {
-〰17:              Starts = starts;
-〰18:              End = end;
-〰19:              MaxLength = maxLength;
-‼20:          }
+〰4:   namespace BinaryDataDecoders.IO.Segmenters;
+〰5:   
+〰6:   internal sealed class BetweenSegmenter : SegmenterBase
+〰7:   {
+〰8:       internal BetweenSegmenter(
+〰9:           OnSegmentReceived onSegmentReceived,
+〰10:          byte[] starts,
+〰11:          byte end,
+〰12:          long? maxLength,
+〰13:          SegmentionOptions options
+〰14:          )
+‼15:          : base(onSegmentReceived, options)
+〰16:      {
+〰17:          Starts = starts;
+〰18:          End = end;
+〰19:          MaxLength = maxLength;
+‼20:      }
 〰21:  
-〰22:          internal byte[] Starts { get; }
-〰23:          internal byte End { get; }
-〰24:          internal long? MaxLength { get; }
+〰22:      internal byte[] Starts { get; }
+〰23:      internal byte End { get; }
+〰24:      internal long? MaxLength { get; }
 〰25:  
-〰26:          protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
-〰27:          {
-‼28:              var startOfSegment = Starts.Select(start => buffer.PositionOf(start)).FirstOrDefault(start => start != null);
-‼29:              if (startOfSegment != null)
-〰30:              {
-‼31:                  var segment = buffer.Slice(startOfSegment.Value);
+〰26:      protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
+〰27:      {
+‼28:          var startOfSegment = Starts.Select(start => buffer.PositionOf(start)).FirstOrDefault(start => start != null);
+‼29:          if (startOfSegment != null)
+〰30:          {
+‼31:              var segment = buffer.Slice(startOfSegment.Value);
 〰32:  
-‼33:                  var endOfSegment = segment.PositionOf(End);
-‼34:                  if (endOfSegment != null)
-〰35:                  {
-‼36:                      var completeSegment = segment.Slice(0, segment.GetPosition(1, endOfSegment.Value));
+‼33:              var endOfSegment = segment.PositionOf(End);
+‼34:              if (endOfSegment != null)
+〰35:              {
+‼36:                  var completeSegment = segment.Slice(0, segment.GetPosition(1, endOfSegment.Value));
 〰37:  
-‼38:                      if (this.Options.HasFlag(SegmentionOptions.SecondStartInvalid))
-〰39:                      {
-‼40:                          var secondStart = Starts.Select(start => completeSegment.PositionOf(start)).FirstOrDefault(start => start != null);
-‼41:                          if (secondStart != null)
-〰42:                          {
-〰43:                              // Second start detected
-‼44:                              return (SegmentationStatus.Invalid, buffer.Slice(0, secondStart.Value));
-〰45:                          }
-〰46:                      }
+‼38:                  if (this.Options.HasFlag(SegmentionOptions.SecondStartInvalid))
+〰39:                  {
+‼40:                      var secondStart = Starts.Select(start => completeSegment.PositionOf(start)).FirstOrDefault(start => start != null);
+‼41:                      if (secondStart != null)
+〰42:                      {
+〰43:                          // Second start detected
+‼44:                          return (SegmentationStatus.Invalid, buffer.Slice(0, secondStart.Value));
+〰45:                      }
+〰46:                  }
 〰47:  
-‼48:                      return (SegmentationStatus.Complete, completeSegment);
-〰49:                  }
-‼50:                  else if (this.MaxLength.HasValue && buffer.Length > this.MaxLength)
-〰51:                  {
-‼52:                      var leftover = buffer.Length % this.MaxLength.Value;
-‼53:                      buffer = buffer.Slice(0, buffer.GetPosition(-leftover, buffer.End));
-‼54:                      return (SegmentationStatus.Invalid, buffer);
-〰55:                  }
-〰56:              }
+‼48:                  return (SegmentationStatus.Complete, completeSegment);
+〰49:              }
+‼50:              else if (this.MaxLength.HasValue && buffer.Length > this.MaxLength)
+〰51:              {
+‼52:                  var leftover = buffer.Length % this.MaxLength.Value;
+‼53:                  buffer = buffer.Slice(0, buffer.GetPosition(-leftover, buffer.End));
+‼54:                  return (SegmentationStatus.Invalid, buffer);
+〰55:              }
+〰56:          }
 〰57:  
-‼58:              return (SegmentationStatus.Incomplete, null);
-〰59:          }
-〰60:      }
-〰61:  }
+‼58:          return (SegmentationStatus.Incomplete, null);
+〰59:      }
+〰60:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.IO.Abstractions/Segmenters/BetweenSegmenter.cs
+
+```CSharp
+〰1:   using System.Buffers;
+〰2:   using System.Linq;
+〰3:   
+〰4:   namespace BinaryDataDecoders.IO.Segmenters;
+〰5:   
+〰6:   internal sealed class BetweenSegmenter : SegmenterBase
+〰7:   {
+〰8:       internal BetweenSegmenter(
+〰9:           OnSegmentReceived onSegmentReceived,
+〰10:          byte[] starts,
+〰11:          byte end,
+〰12:          long? maxLength,
+〰13:          SegmentionOptions options
+〰14:          )
+‼15:          : base(onSegmentReceived, options)
+〰16:      {
+〰17:          Starts = starts;
+〰18:          End = end;
+〰19:          MaxLength = maxLength;
+‼20:      }
+〰21:  
+〰22:      internal byte[] Starts { get; }
+〰23:      internal byte End { get; }
+〰24:      internal long? MaxLength { get; }
+〰25:  
+〰26:      protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
+〰27:      {
+‼28:          var startOfSegment = Starts.Select(start => buffer.PositionOf(start)).FirstOrDefault(start => start != null);
+‼29:          if (startOfSegment != null)
+〰30:          {
+‼31:              var segment = buffer.Slice(startOfSegment.Value);
+〰32:  
+‼33:              var endOfSegment = segment.PositionOf(End);
+‼34:              if (endOfSegment != null)
+〰35:              {
+‼36:                  var completeSegment = segment.Slice(0, segment.GetPosition(1, endOfSegment.Value));
+〰37:  
+‼38:                  if (this.Options.HasFlag(SegmentionOptions.SecondStartInvalid))
+〰39:                  {
+‼40:                      var secondStart = Starts.Select(start => completeSegment.PositionOf(start)).FirstOrDefault(start => start != null);
+‼41:                      if (secondStart != null)
+〰42:                      {
+〰43:                          // Second start detected
+‼44:                          return (SegmentationStatus.Invalid, buffer.Slice(0, secondStart.Value));
+〰45:                      }
+〰46:                  }
+〰47:  
+‼48:                  return (SegmentationStatus.Complete, completeSegment);
+〰49:              }
+‼50:              else if (this.MaxLength.HasValue && buffer.Length > this.MaxLength)
+〰51:              {
+‼52:                  var leftover = buffer.Length % this.MaxLength.Value;
+‼53:                  buffer = buffer.Slice(0, buffer.GetPosition(-leftover, buffer.End));
+‼54:                  return (SegmentationStatus.Invalid, buffer);
+〰55:              }
+〰56:          }
+〰57:  
+‼58:          return (SegmentationStatus.Incomplete, null);
+〰59:      }
+〰60:  }
 ```
 
 ## Links

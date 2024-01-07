@@ -9,18 +9,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _value
-
-##### Summary
-
- * Type: 
-
-#### Public Constructor - StringNemaMessage
-
-#####  Parameters
-
- - string value 
-
 #### Public Method - ToString
 
 

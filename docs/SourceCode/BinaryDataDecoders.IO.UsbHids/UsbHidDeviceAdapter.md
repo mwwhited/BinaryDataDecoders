@@ -9,18 +9,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _device
-
-##### Summary
-
- * Type: HidDevice 
-
-#### Public Constructor - UsbHidDeviceAdapter
-
-#####  Parameters
-
- - HidDevice device 
-
 #### Public Property - Type
 
 ##### Summary

@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - SegmentReadResult
-
-#####  Parameters
-
- - SegmentationStatus Status 
- - ReadOnlySequence < byte > remainingData 
-
 #### Public Property - Status
 
 ##### Summary

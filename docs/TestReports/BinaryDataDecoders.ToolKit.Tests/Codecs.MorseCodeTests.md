@@ -1,23 +1,5 @@
 # BinaryDataDecoders.ToolKit.Tests.Codecs.MorseCodeTests
 
-## EncodeTest (hello world,.... . .-.. .-.. ---  .-- --- .-. .-.. -..)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-hello world -> .... . .-.. .-.. ---  .-- --- .-. .-.. -..
-```
-
 ## DecodeTest (.- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..  .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----,ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890)
 
 ### Categories
@@ -34,6 +16,24 @@ hello world -> .... . .-.. .-.. ---  .-- --- .-. .-.. -..
 ```
 TestContext Messages:
 .- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..  .---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- -> ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890
+```
+
+## EncodeTest (abcdefghijklmnopqrstuvwxyz1234567890,.- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+abcdefghijklmnopqrstuvwxyz1234567890 -> .- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----
 ```
 
 ## DecodeTest (.... . .-.. .-.. ---  .-- --- .-. .-.. -..,HELLO WORLD)
@@ -54,7 +54,7 @@ TestContext Messages:
 .... . .-.. .-.. ---  .-- --- .-. .-.. -.. -> HELLO WORLD
 ```
 
-## EncodeTest (abcdefghijklmnopqrstuvwxyz1234567890,.- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----)
+## EncodeTest (hello world,.... . .-.. .-.. ---  .-- --- .-. .-.. -..)
 
 ### Categories
 
@@ -69,7 +69,7 @@ TestContext Messages:
 
 ```
 TestContext Messages:
-abcdefghijklmnopqrstuvwxyz1234567890 -> .- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----
+hello world -> .... . .-.. .-.. ---  .-- --- .-. .-.. -..
 ```
 
 ## EncodeTest (Hello, World!,.... . .-.. .-.. ---  .-- --- .-. .-.. -..)

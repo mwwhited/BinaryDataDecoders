@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Net.Services.DaytimeServer` |
 | Assembly        | `BinaryDataDecoders.Net`                        |
 | Coveredlines    | `0`                                             |
-| Uncoveredlines  | `5`                                             |
-| Coverablelines  | `5`                                             |
-| Totallines      | `24`                                            |
+| Uncoveredlines  | `4`                                             |
+| Coverablelines  | `4`                                             |
+| Totallines      | `18`                                            |
 | Linecoverage    | `0`                                             |
 | Coveredbranches | `0`                                             |
 | Totalbranches   | `0`                                             |
@@ -37,22 +37,16 @@
 〰6:   using System.Threading;
 〰7:   using System.Threading.Tasks;
 〰8:   
-〰9:   namespace BinaryDataDecoders.Net.Services
-〰10:  {
-〰11:      public class DaytimeServer : ServerBase
-〰12:      {
-〰13:          public DaytimeServer(IPAddress? ipAddress = default, ushort port = 13)
-‼14:              : base(ipAddress, port)
-〰15:          {
-‼16:          }
-〰17:  
-〰18:          protected override async Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken)
-〰19:          {
-‼20:              Memory<byte> buffer = Encoding.UTF8.GetBytes(DateTimeOffset.Now.ToString());
-‼21:              await accepted.GetStream().WriteAsync(buffer);
-‼22:          }
-〰23:      }
-〰24:  }
+〰9:   namespace BinaryDataDecoders.Net.Services;
+〰10:  
+‼11:  public class DaytimeServer(IPAddress? ipAddress = default, ushort port = 13) : ServerBase(ipAddress, port)
+〰12:  {
+〰13:      protected override async Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken)
+〰14:      {
+‼15:          Memory<byte> buffer = Encoding.UTF8.GetBytes(DateTimeOffset.Now.ToString());
+‼16:          await accepted.GetStream().WriteAsync(buffer, cancellationToken);
+‼17:      }
+〰18:  }
 ```
 
 ## Links

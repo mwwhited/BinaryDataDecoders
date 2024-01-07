@@ -1,11 +1,27 @@
 # BinaryDataDecoders.ExpressionCalculator.Tests.Expressions.ExpressionBaseTests
 
+## ImplicitConvertTest_MoreOverlyComplex
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
 ## ImplicitConvertTest_OverlyComplex
 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -21,55 +37,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## ImplicitConvertTest_Expression
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## ImplicitConvertTest_MoreOverlyComplex
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## ImplicitConvertTest_WayMoreOverlyComplex
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -85,7 +53,39 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+## ImplicitConvertTest_Expression
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+## ImplicitConvertTest_WayMoreOverlyComplex
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBase`1::implicit operator
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

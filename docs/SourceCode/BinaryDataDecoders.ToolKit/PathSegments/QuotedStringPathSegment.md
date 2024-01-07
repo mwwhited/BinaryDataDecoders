@@ -9,12 +9,6 @@
 
 ### Members
 
-#### Public Constructor - QuotedStringPathSegment
-
-#####  Parameters
-
- - string value 
-
 #### Public Method - ToString
 
 

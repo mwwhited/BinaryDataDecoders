@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Quarta.RadexOne/ReadSerialNumberRequest.cs
 
-## Public Structure - ReadSerialNumberRequest
+## Public ReadOnly Structure - ReadSerialNumberRequest
 
 ### Comments
 

@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - SemanticModelNode
-
-#####  Parameters
-
- - SemanticModel semantic 
- - object node 
-
 #### Public Property - Semantic
 
 ##### Summary

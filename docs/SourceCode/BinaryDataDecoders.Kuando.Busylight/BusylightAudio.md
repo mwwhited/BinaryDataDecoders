@@ -22,13 +22,6 @@
 
 ### Members
 
-#### Public Constructor - BusylightAudio
-
-#####  Parameters
-
- - byte track 
- - byte volume 
-
 #### Public Field - SoundByte
 
 ##### Attributes
@@ -42,13 +35,13 @@
 
  * Type: 
 
-#### Public Property - Track
+#### Public ReadOnly Property - Track
 
 ##### Summary
 
  * Type: byte 
 
-#### Public Property - Volume
+#### Public ReadOnly Property - Volume
 
 ##### Summary
 

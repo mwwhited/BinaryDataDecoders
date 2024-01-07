@@ -7,11 +7,3 @@
 
 ## Public Class - LogicOperationTypePathSegment
 
-### Members
-
-#### Public Constructor - LogicOperationTypePathSegment
-
-#####  Parameters
-
- - LogicOperationTypes type 
-

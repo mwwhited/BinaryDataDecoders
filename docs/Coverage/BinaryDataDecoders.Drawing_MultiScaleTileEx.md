@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Drawing.MultiScaleImages.MultiScaleTileEx` |
 | Assembly        | `BinaryDataDecoders.Drawing`                                   |
 | Coveredlines    | `0`                                                            |
-| Uncoveredlines  | `130`                                                          |
-| Coverablelines  | `130`                                                          |
-| Totallines      | `261`                                                          |
+| Uncoveredlines  | `128`                                                          |
+| Coverablelines  | `128`                                                          |
+| Totallines      | `235`                                                          |
 | Linecoverage    | `0`                                                            |
 | Coveredbranches | `0`                                                            |
 | Totalbranches   | `6`                                                            |
@@ -48,262 +48,236 @@
 〰3:   using System.Drawing.Imaging;
 〰4:   using System.IO;
 〰5:   
-〰6:   namespace BinaryDataDecoders.Drawing.MultiScaleImages
-〰7:   {
-〰8:       public static class MultiScaleTileEx
-〰9:       {
-〰10:          public const int DefaultTileSize = 256;
+〰6:   namespace BinaryDataDecoders.Drawing.MultiScaleImages;
+〰7:   
+〰8:   public static class MultiScaleTileEx
+〰9:   {
+〰10:      public const int DefaultTileSize = 256;
 〰11:  
-〰12:          public static double GetMaxLevel(this string imagePath)
-〰13:          {
-‼14:              using (var bitmap = new Bitmap(imagePath))
-〰15:              {
-‼16:                  return bitmap.Size.MaxLevel();
-〰17:              }
-‼18:          }
-〰19:          public static Size GetTileCount(this string imagePath,
-〰20:                                            int level,
-〰21:                                            int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰22:          {
-‼23:              using (var bitmap = new Bitmap(imagePath))
-〰24:              {
-‼25:                  var maxLevel = bitmap.Size.MaxLevel();
-‼26:                  var scalingFactor = Math.Pow(2, level) / Math.Pow(2, maxLevel);
-〰27:  
-‼28:                  var scaled = new
-‼29:                  {
-‼30:                      Width = (double)bitmap.Size.Width * scalingFactor,
-‼31:                      Height = (double)bitmap.Size.Height * scalingFactor,
-‼32:                  };
-‼33:                  var tiles = new
-‼34:                  {
-‼35:                      Width = scaled.Width / (double)tileSize,
-‼36:                      Height = scaled.Height / (double)tileSize,
-‼37:                  };
-‼38:                  var tileCounts = new Size((int)Math.Ceiling(tiles.Width), (int)Math.Ceiling(tiles.Height));
-‼39:                  return tileCounts;
-〰40:              }
-‼41:          }
-〰42:  
-〰43:          public static byte[] GetTileAsBytes(this string imagePath,
-〰44:                                      int level, int x, int y,
-〰45:                                      int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰46:          {
-‼47:              using (var outStream = new MemoryStream())
-‼48:              using (var tile = MultiScaleTileEx.GetTile(imagePath, level, x, y, tileSize))
-〰49:              {
-‼50:                  tile.Save(outStream, ImageFormat.Jpeg);
-‼51:                  return outStream.ToArray();
-〰52:              }
-‼53:          }
-〰54:  
-〰55:          public static Stream GetTileAsStream(this string imagePath,
-〰56:                                      int level, int x, int y,
-〰57:                                      int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰58:          {
-‼59:              var outStream = new MemoryStream();
-‼60:              using (var tile = MultiScaleTileEx.GetTile(imagePath, level, x, y, tileSize))
-〰61:              {
-‼62:                  tile.Save(outStream, ImageFormat.Jpeg);
-‼63:              }
-‼64:              outStream.Position = 0;
-‼65:              return outStream;
-〰66:          }
-〰67:          public static Image GetTile(this string imagePath,
-〰68:                                      int level, int x, int y,
-〰69:                                      int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰70:          {
-‼71:              using (var bitmap = new Bitmap(imagePath))
-〰72:              {
-‼73:                  var outStream = new MemoryStream();
-〰74:  
-‼75:                  var tile = bitmap.GetTile(level, x, y, tileSize);
-‼76:                  return tile;
-〰77:              }
-‼78:          }
-〰79:  
-〰80:          public static double GetMaxLevel(this Stream imageStream)
-〰81:          {
-‼82:              using (var bitmap = new Bitmap(imageStream))
-〰83:              {
-‼84:                  return bitmap.Size.MaxLevel();
-〰85:              }
-‼86:          }
-〰87:  
-〰88:          public static Size GetTileCount(this Stream imageStream,
-〰89:                                            int level,
-〰90:                                            int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰91:          {
-‼92:              using (var bitmap = new Bitmap(imageStream))
-〰93:              {
-‼94:                  var maxLevel = bitmap.Size.MaxLevel();
-‼95:                  var scalingFactor = Math.Pow(2, level) / Math.Pow(2, maxLevel);
-〰96:  
-‼97:                  var scaled = new
-‼98:                  {
-‼99:                      Width = (double)bitmap.Size.Width * scalingFactor,
-‼100:                     Height = (double)bitmap.Size.Height * scalingFactor,
-‼101:                 };
-‼102:                 var tiles = new
-‼103:                 {
-‼104:                     Width = scaled.Width / (double)tileSize,
-‼105:                     Height = scaled.Height / (double)tileSize,
-‼106:                 };
-‼107:                 var tileCounts = new Size((int)Math.Ceiling(tiles.Width), (int)Math.Ceiling(tiles.Height));
-‼108:                 return tileCounts;
-〰109:             }
-‼110:         }
-〰111:         public static byte[] GetTileAsBytes(this Stream imageStream,
-〰112:                                     int level, int x, int y,
-〰113:                                     int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰114:         {
-‼115:             using (var outStream = new MemoryStream())
-‼116:             using (var tile = MultiScaleTileEx.GetTile(imageStream, level, x, y, tileSize))
-〰117:             {
-‼118:                 tile.Save(outStream, ImageFormat.Jpeg);
-‼119:                 return outStream.ToArray();
-〰120:             }
-‼121:         }
-〰122: 
-〰123:         public static Stream GetTileAsStream(this Stream imageStream,
-〰124:                                     int level, int x, int y,
-〰125:                                     int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰126:         {
-‼127:             var outStream = new MemoryStream();
-‼128:             using (var tile = MultiScaleTileEx.GetTile(imageStream, level, x, y, tileSize))
-〰129:             {
-‼130:                 tile.Save(outStream, ImageFormat.Jpeg);
-‼131:             }
-‼132:             outStream.Position = 0;
-‼133:             return outStream;
-〰134:         }
-〰135:         public static Image GetTile(this Stream imageStream,
-〰136:                                     int level, int x, int y,
-〰137:                                     int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰138:         {
-‼139:             using (var bitmap = new Bitmap(imageStream))
-〰140:             {
-‼141:                 var outStream = new MemoryStream();
-〰142: 
-‼143:                 var tile = bitmap.GetTile(level, x, y, tileSize);
-‼144:                 return tile;
-〰145:             }
-‼146:         }
-〰147: 
-〰148:         public static double GetMaxLevel(this Image image)
-〰149:         {
-‼150:             return image.Size.MaxLevel();
-〰151:         }
-〰152: 
-〰153: 
-〰154:         public static Size GetTileCount(this Image image,
-〰155:                                           int level,
-〰156:                                           int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰157:         {
-‼158:             using (var bitmap = new Bitmap(image))
-〰159:             {
-‼160:                 var maxLevel = bitmap.Size.MaxLevel();
-‼161:                 var scalingFactor = Math.Pow(2, level) / Math.Pow(2, maxLevel);
-〰162: 
-‼163:                 var scaled = new
-‼164:                 {
-‼165:                     Width = (double)bitmap.Size.Width * scalingFactor,
-‼166:                     Height = (double)bitmap.Size.Height * scalingFactor,
-‼167:                 };
-‼168:                 var tiles = new
-‼169:                 {
-‼170:                     Width = scaled.Width / (double)tileSize,
-‼171:                     Height = scaled.Height / (double)tileSize,
-‼172:                 };
-‼173:                 var tileCounts = new Size((int)Math.Ceiling(tiles.Width), (int)Math.Ceiling(tiles.Height));
-‼174:                 return tileCounts;
-〰175:             }
-‼176:         }
-〰177:         public static byte[] GetTileAsBytes(this Image image,
-〰178:                                     int level, int x, int y,
-〰179:                                     int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰180:         {
-‼181:             using (var outStream = new MemoryStream())
-‼182:             using (var tile = MultiScaleTileEx.GetTile(image, level, x, y, tileSize))
-〰183:             {
-‼184:                 tile.Save(outStream, ImageFormat.Jpeg);
-‼185:                 return outStream.ToArray();
-〰186:             }
-‼187:         }
-〰188: 
-〰189:         public static Stream GetTileAsStream(this Image image,
-〰190:                                     int level, int x, int y,
-〰191:                                     int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰192:         {
-‼193:             var outStream = new MemoryStream();
-‼194:             using (var tile = MultiScaleTileEx.GetTile(image, level, x, y, tileSize))
-〰195:             {
-‼196:                 tile.Save(outStream, ImageFormat.Jpeg);
-‼197:             }
-‼198:             outStream.Position = 0;
-‼199:             return outStream;
-〰200:         }
-〰201: 
-〰202:         public static Image GetTile(this Image image,
-〰203:                                     int level, int x, int y,
-〰204:                                     int tileSize = MultiScaleTileEx.DefaultTileSize)
-〰205:         {
-‼206:             var point = new Point(x, y);
-〰207: 
-‼208:             var maxLevel = image.Size.MaxLevel();
-‼209:             var maxLevelLength = Math.Pow(2, maxLevel);
-‼210:             var maxLevelSize = new Size((int)maxLevelLength, (int)maxLevelLength);
-〰211: 
-‼212:             var levelLength = Math.Pow(2, level);
-‼213:             var levelScale = (double)tileSize / levelLength;
-〰214: 
-‼215:             var imageScale = levelLength / maxLevelLength;
-‼216:             var imageScaledSize = image.Size.Scale(imageScale);
-‼217:             var imageOffset = point.OffSetBy(imageScaledSize);
-〰218: 
-‼219:             if (levelScale < 1)
-〰220:             {
-‼221:                 var subTileSize = new Size(tileSize, tileSize);
-‼222:                 var extractSize = maxLevelSize.Scale(levelScale);
-‼223:                 var extractPoint = point.OffSetBy(extractSize);
-‼224:                 var extractBlock = new Rectangle(extractPoint, extractSize);
-〰225: 
-‼226:                 Bitmap? subTileImage = null;
-〰227:                 try
-〰228:                 {
-‼229:                     subTileImage = new Bitmap(subTileSize.Width, subTileSize.Height);
-〰230: 
-‼231:                     if ((subTileImage.PixelFormat & PixelFormat.Indexed) != 0)
-‼232:                         throw new NotSupportedException("sorry this file format is not supported at this time");
-〰233: 
-‼234:                     using (var graphic = Graphics.FromImage(subTileImage))
-〰235:                     {
-‼236:                         graphic.DrawImage(
-‼237:                                 image,
-‼238:                                 new Rectangle(0, 0, subTileImage.Width, subTileImage.Height),
-‼239:                                 extractBlock,
-‼240:                                 GraphicsUnit.Pixel);
-‼241:                     }
-‼242:                 }
-‼243:                 catch
-〰244:                 {
-‼245:                     if (subTileImage != null)
-〰246:                     {
-〰247:                         // Don't want to leave any extra windows GDI handles laying around.
-‼248:                         subTileImage.Dispose();
-〰249:                     }
-‼250:                     throw;
-〰251:                 }
-〰252: 
-‼253:                 return subTileImage;
-〰254:             }
-〰255:             else
-〰256:             {
-‼257:                 return new Bitmap(image, imageScaledSize);
-〰258:             }
-〰259:         }
-〰260:     }
-〰261: }
+〰12:      public static double GetMaxLevel(this string imagePath)
+〰13:      {
+‼14:          using var bitmap = new Bitmap(imagePath);
+‼15:          return bitmap.Size.MaxLevel();
+‼16:      }
+〰17:      public static Size GetTileCount(this string imagePath,
+〰18:                                        int level,
+〰19:                                        int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰20:      {
+‼21:          using var bitmap = new Bitmap(imagePath);
+‼22:          var maxLevel = bitmap.Size.MaxLevel();
+‼23:          var scalingFactor = Math.Pow(2, level) / Math.Pow(2, maxLevel);
+〰24:  
+‼25:          var scaled = new
+‼26:          {
+‼27:              Width = (double)bitmap.Size.Width * scalingFactor,
+‼28:              Height = (double)bitmap.Size.Height * scalingFactor,
+‼29:          };
+‼30:          var tiles = new
+‼31:          {
+‼32:              Width = scaled.Width / (double)tileSize,
+‼33:              Height = scaled.Height / (double)tileSize,
+‼34:          };
+‼35:          var tileCounts = new Size((int)Math.Ceiling(tiles.Width), (int)Math.Ceiling(tiles.Height));
+‼36:          return tileCounts;
+‼37:      }
+〰38:  
+〰39:      public static byte[] GetTileAsBytes(this string imagePath,
+〰40:                                  int level, int x, int y,
+〰41:                                  int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰42:      {
+‼43:          using var outStream = new MemoryStream();
+‼44:          using var tile = MultiScaleTileEx.GetTile(imagePath, level, x, y, tileSize);
+‼45:          tile.Save(outStream, ImageFormat.Jpeg);
+‼46:          return outStream.ToArray();
+‼47:      }
+〰48:  
+〰49:      public static Stream GetTileAsStream(this string imagePath,
+〰50:                                  int level, int x, int y,
+〰51:                                  int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰52:      {
+‼53:          var outStream = new MemoryStream();
+‼54:          using (var tile = MultiScaleTileEx.GetTile(imagePath, level, x, y, tileSize))
+〰55:          {
+‼56:              tile.Save(outStream, ImageFormat.Jpeg);
+‼57:          }
+‼58:          outStream.Position = 0;
+‼59:          return outStream;
+〰60:      }
+〰61:      public static Image GetTile(this string imagePath,
+〰62:                                  int level, int x, int y,
+〰63:                                  int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰64:      {
+‼65:          using var bitmap = new Bitmap(imagePath);
+‼66:          var outStream = new MemoryStream();
+〰67:  
+‼68:          var tile = bitmap.GetTile(level, x, y, tileSize);
+‼69:          return tile;
+‼70:      }
+〰71:  
+〰72:      public static double GetMaxLevel(this Stream imageStream)
+〰73:      {
+‼74:          using var bitmap = new Bitmap(imageStream);
+‼75:          return bitmap.Size.MaxLevel();
+‼76:      }
+〰77:  
+〰78:      public static Size GetTileCount(this Stream imageStream,
+〰79:                                        int level,
+〰80:                                        int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰81:      {
+‼82:          using var bitmap = new Bitmap(imageStream);
+‼83:          var maxLevel = bitmap.Size.MaxLevel();
+‼84:          var scalingFactor = Math.Pow(2, level) / Math.Pow(2, maxLevel);
+〰85:  
+‼86:          var scaled = new
+‼87:          {
+‼88:              Width = (double)bitmap.Size.Width * scalingFactor,
+‼89:              Height = (double)bitmap.Size.Height * scalingFactor,
+‼90:          };
+‼91:          var tiles = new
+‼92:          {
+‼93:              Width = scaled.Width / (double)tileSize,
+‼94:              Height = scaled.Height / (double)tileSize,
+‼95:          };
+‼96:          var tileCounts = new Size((int)Math.Ceiling(tiles.Width), (int)Math.Ceiling(tiles.Height));
+‼97:          return tileCounts;
+‼98:      }
+〰99:      public static byte[] GetTileAsBytes(this Stream imageStream,
+〰100:                                 int level, int x, int y,
+〰101:                                 int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰102:     {
+‼103:         using var outStream = new MemoryStream();
+‼104:         using var tile = MultiScaleTileEx.GetTile(imageStream, level, x, y, tileSize);
+‼105:         tile.Save(outStream, ImageFormat.Jpeg);
+‼106:         return outStream.ToArray();
+‼107:     }
+〰108: 
+〰109:     public static Stream GetTileAsStream(this Stream imageStream,
+〰110:                                 int level, int x, int y,
+〰111:                                 int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰112:     {
+‼113:         var outStream = new MemoryStream();
+‼114:         using (var tile = MultiScaleTileEx.GetTile(imageStream, level, x, y, tileSize))
+〰115:         {
+‼116:             tile.Save(outStream, ImageFormat.Jpeg);
+‼117:         }
+‼118:         outStream.Position = 0;
+‼119:         return outStream;
+〰120:     }
+〰121:     public static Image GetTile(this Stream imageStream,
+〰122:                                 int level, int x, int y,
+〰123:                                 int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰124:     {
+‼125:         using var bitmap = new Bitmap(imageStream);
+‼126:         var outStream = new MemoryStream();
+〰127: 
+‼128:         var tile = bitmap.GetTile(level, x, y, tileSize);
+‼129:         return tile;
+‼130:     }
+〰131: 
+〰132:     public static double GetMaxLevel(this Image image)
+〰133:     {
+‼134:         return image.Size.MaxLevel();
+〰135:     }
+〰136: 
+〰137: 
+〰138:     public static Size GetTileCount(this Image image,
+〰139:                                       int level,
+〰140:                                       int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰141:     {
+‼142:         using var bitmap = new Bitmap(image);
+‼143:         var maxLevel = bitmap.Size.MaxLevel();
+‼144:         var scalingFactor = Math.Pow(2, level) / Math.Pow(2, maxLevel);
+〰145: 
+‼146:         var scaled = new
+‼147:         {
+‼148:             Width = (double)bitmap.Size.Width * scalingFactor,
+‼149:             Height = (double)bitmap.Size.Height * scalingFactor,
+‼150:         };
+‼151:         var tiles = new
+‼152:         {
+‼153:             Width = scaled.Width / (double)tileSize,
+‼154:             Height = scaled.Height / (double)tileSize,
+‼155:         };
+‼156:         var tileCounts = new Size((int)Math.Ceiling(tiles.Width), (int)Math.Ceiling(tiles.Height));
+‼157:         return tileCounts;
+‼158:     }
+〰159:     public static byte[] GetTileAsBytes(this Image image,
+〰160:                                 int level, int x, int y,
+〰161:                                 int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰162:     {
+‼163:         using var outStream = new MemoryStream();
+‼164:         using var tile = MultiScaleTileEx.GetTile(image, level, x, y, tileSize);
+‼165:         tile.Save(outStream, ImageFormat.Jpeg);
+‼166:         return outStream.ToArray();
+‼167:     }
+〰168: 
+〰169:     public static Stream GetTileAsStream(this Image image,
+〰170:                                 int level, int x, int y,
+〰171:                                 int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰172:     {
+‼173:         var outStream = new MemoryStream();
+‼174:         using (var tile = MultiScaleTileEx.GetTile(image, level, x, y, tileSize))
+〰175:         {
+‼176:             tile.Save(outStream, ImageFormat.Jpeg);
+‼177:         }
+‼178:         outStream.Position = 0;
+‼179:         return outStream;
+〰180:     }
+〰181: 
+〰182:     public static Image GetTile(this Image image,
+〰183:                                 int level, int x, int y,
+〰184:                                 int tileSize = MultiScaleTileEx.DefaultTileSize)
+〰185:     {
+‼186:         var point = new Point(x, y);
+〰187: 
+‼188:         var maxLevel = image.Size.MaxLevel();
+‼189:         var maxLevelLength = Math.Pow(2, maxLevel);
+‼190:         var maxLevelSize = new Size((int)maxLevelLength, (int)maxLevelLength);
+〰191: 
+‼192:         var levelLength = Math.Pow(2, level);
+‼193:         var levelScale = (double)tileSize / levelLength;
+〰194: 
+‼195:         var imageScale = levelLength / maxLevelLength;
+‼196:         var imageScaledSize = image.Size.Scale(imageScale);
+‼197:         var imageOffset = point.OffSetBy(imageScaledSize);
+〰198: 
+‼199:         if (levelScale < 1)
+〰200:         {
+‼201:             var subTileSize = new Size(tileSize, tileSize);
+‼202:             var extractSize = maxLevelSize.Scale(levelScale);
+‼203:             var extractPoint = point.OffSetBy(extractSize);
+‼204:             var extractBlock = new Rectangle(extractPoint, extractSize);
+〰205: 
+‼206:             Bitmap? subTileImage = null;
+〰207:             try
+〰208:             {
+‼209:                 subTileImage = new Bitmap(subTileSize.Width, subTileSize.Height);
+〰210: 
+‼211:                 if ((subTileImage.PixelFormat & PixelFormat.Indexed) != 0)
+‼212:                     throw new NotSupportedException("sorry this file format is not supported at this time");
+〰213: 
+‼214:                 using var graphic = Graphics.FromImage(subTileImage);
+‼215:                 graphic.DrawImage(
+‼216:                         image,
+‼217:                         new Rectangle(0, 0, subTileImage.Width, subTileImage.Height),
+‼218:                         extractBlock,
+‼219:                         GraphicsUnit.Pixel);
+‼220:             }
+‼221:             catch
+〰222:             {
+〰223:                 // Don't want to leave any extra windows GDI handles laying around.
+‼224:                 subTileImage?.Dispose();
+‼225:                 throw;
+〰226:             }
+〰227: 
+‼228:             return subTileImage;
+〰229:         }
+〰230:         else
+〰231:         {
+‼232:             return new Bitmap(image, imageScaledSize);
+〰233:         }
+〰234:     }
+〰235: }
 ```
 
 ## Links

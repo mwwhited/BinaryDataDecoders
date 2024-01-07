@@ -9,7 +9,7 @@
 | Coveredlines    | `1`                                                                                   |
 | Uncoveredlines  | `0`                                                                                   |
 | Coverablelines  | `1`                                                                                   |
-| Totallines      | `92`                                                                                  |
+| Totallines      | `91`                                                                                  |
 | Linecoverage    | `100`                                                                                 |
 | Coveredbranches | `0`                                                                                   |
 | Totalbranches   | `0`                                                                                   |
@@ -25,19 +25,19 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Optimizers/ShiftCommutativeVariablesRight.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Optimizers/ShiftCommutativeVariablesRight.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ExpressionCalculator.Expressions;
 〰2:   using System;
 〰3:   
-〰4:   namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
-〰5:   {
-〰6:       public sealed class ShiftCommutativeVariablesRight<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
-〰7:       {
-✔8:           public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
+〰4:   namespace BinaryDataDecoders.ExpressionCalculator.Optimizers;
+〰5:   
+〰6:   public sealed class ShiftCommutativeVariablesRight<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
+〰7:   {
+✔8:       public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
 〰9:   		/*
-〰10:           if (expression instanceof InnerExpression) {
+〰10:       if (expression instanceof InnerExpression) {
 〰11:  			var inner =(InnerExpression) expression;
 〰12:  			var child = moveCommutativeVariablesRight(inner.getInner());
 〰13:  			inner.setInner(child);
@@ -117,9 +117,8 @@
 〰87:  
 〰88:  		return expression;
 〰89:  		*/
-〰90:      }
-〰91:  }
-〰92:  
+〰90:  }
+〰91:  
 ```
 
 ## Links

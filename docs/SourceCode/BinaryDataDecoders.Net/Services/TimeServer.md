@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - TimeServer
-
-#####  Parameters
-
- - IPAddress ? ipAddress = default 
- - ushort port = 37 
-
 #### Async Method - MessageReceivedAsync
 
 #####  Parameters

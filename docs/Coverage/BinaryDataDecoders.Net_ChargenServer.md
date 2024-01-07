@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Net.Services.ChargenServer` |
 | Assembly        | `BinaryDataDecoders.Net`                        |
 | Coveredlines    | `0`                                             |
-| Uncoveredlines  | `19`                                            |
-| Coverablelines  | `19`                                            |
-| Totallines      | `49`                                            |
+| Uncoveredlines  | `18`                                            |
+| Coverablelines  | `18`                                            |
+| Totallines      | `43`                                            |
 | Linecoverage    | `0`                                             |
 | Coveredbranches | `0`                                             |
 | Totalbranches   | `8`                                             |
@@ -39,47 +39,41 @@
 〰6:   using System.Threading;
 〰7:   using System.Threading.Tasks;
 〰8:   
-〰9:   namespace BinaryDataDecoders.Net.Services
-〰10:  {
-〰11:      public class ChargenServer : ServerBase
-〰12:      {
-〰13:          public ChargenServer(IPAddress? ipAddress = default, ushort port = 19)
-‼14:              : base(ipAddress, port)
-〰15:          {
-‼16:          }
-〰17:  
-〰18:          protected override async Task OnStartAsync(CancellationToken cancellationToken)
-〰19:          {
-‼20:              var rand = new Random();
-‼21:              var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-‼22:              while (!cancellationToken.IsCancellationRequested)
-〰23:              {
-‼24:                  foreach (var client in Clients.ToArray())
-〰25:                  {
-〰26:                      try
-〰27:                      {
-‼28:                          if (!client.Value.Connected)
-‼29:                              continue;
-〰30:  
-‼31:                          if (rand.NextDouble() > 0.5)
-‼32:                              continue;
-‼33:                          Memory<byte> buffer = Guid.NewGuid().ToByteArray();
-‼34:                          await client.Value.GetStream().WriteAsync(buffer, cts.Token);
-‼35:                      }
-‼36:                      catch (OperationCanceledException ocex)
-〰37:                      {
-‼38:                          Console.WriteLine($"{this.GetType()}::ChargenServer::Canceled: {Thread.CurrentThread.ManagedThreadId} ({ocex.Message})");
-‼39:                      }
-〰40:                  }
-〰41:  
-‼42:                  await Task.Delay(rand.Next(1, 10) * 100);
-〰43:              }
-‼44:          }
-〰45:  
-〰46:          protected override Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken) =>
-‼47:              Task.CompletedTask;
-〰48:      }
-〰49:  }
+〰9:   namespace BinaryDataDecoders.Net.Services;
+〰10:  
+‼11:  public class ChargenServer(IPAddress? ipAddress = default, ushort port = 19) : ServerBase(ipAddress, port)
+〰12:  {
+〰13:      protected override async Task OnStartAsync(CancellationToken cancellationToken)
+〰14:      {
+‼15:          var rand = new Random();
+‼16:          var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+‼17:          while (!cancellationToken.IsCancellationRequested)
+〰18:          {
+‼19:              foreach (var client in Clients.ToArray())
+〰20:              {
+〰21:                  try
+〰22:                  {
+‼23:                      if (!client.Value.Connected)
+‼24:                          continue;
+〰25:  
+‼26:                      if (rand.NextDouble() > 0.5)
+‼27:                          continue;
+‼28:                      Memory<byte> buffer = Guid.NewGuid().ToByteArray();
+‼29:                      await client.Value.GetStream().WriteAsync(buffer, cts.Token);
+‼30:                  }
+‼31:                  catch (OperationCanceledException ocex)
+〰32:                  {
+‼33:                      Console.WriteLine($"{this.GetType()}::ChargenServer::Canceled: {Environment.CurrentManagedThreadId} ({ocex.Message})");
+‼34:                  }
+〰35:              }
+〰36:  
+‼37:              await Task.Delay(rand.Next(1, 10) * 100, cancellationToken);
+〰38:          }
+‼39:      }
+〰40:  
+〰41:      protected override Task MessageReceivedAsync(int clientId, TcpClient accepted, Memory<byte> message, CancellationToken cancellationToken) =>
+‼42:          Task.CompletedTask;
+〰43:  }
 ```
 
 ## Links

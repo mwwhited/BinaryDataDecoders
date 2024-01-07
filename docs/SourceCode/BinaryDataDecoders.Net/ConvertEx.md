@@ -27,3 +27,17 @@
 
  - byte [  ] buffer 
 
+#### Private Static Method - HexStringRegex
+
+##### Attributes
+
+ - GeneratedRegex
+ - (
+ - "([0-9a-fA-F]{2}){1,}"
+ - ,
+ - RegexOptions
+ - .
+ - Compiled
+ - )
+
+

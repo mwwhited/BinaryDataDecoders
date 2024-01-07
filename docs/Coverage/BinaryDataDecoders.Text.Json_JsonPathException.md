@@ -7,14 +7,14 @@
 | Class           | `BinaryDataDecoders.Text.Json.JsonPath.Parser.JsonPathException` |
 | Assembly        | `BinaryDataDecoders.Text.Json`                                   |
 | Coveredlines    | `0`                                                              |
-| Uncoveredlines  | `8`                                                              |
-| Coverablelines  | `8`                                                              |
-| Totallines      | `24`                                                             |
+| Uncoveredlines  | `2`                                                              |
+| Coverablelines  | `2`                                                              |
+| Totallines      | `10`                                                             |
 | Linecoverage    | `0`                                                              |
 | Coveredbranches | `0`                                                              |
 | Totalbranches   | `0`                                                              |
 | Coveredmethods  | `0`                                                              |
-| Totalmethods    | `4`                                                              |
+| Totalmethods    | `1`                                                              |
 | Methodcoverage  | `0`                                                              |
 
 ## Metrics
@@ -22,39 +22,22 @@
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
 | 1          | 0     | 100      | `ctor`  |
-| 1          | 0     | 100      | `ctor`  |
-| 1          | 0     | 100      | `ctor`  |
-| 1          | 0     | 100      | `ctor`  |
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPathException.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.Text.Json/JsonPath/Parser/JsonPathException.cs
 
 ```CSharp
 〰1:   using System;
-〰2:   using System.Runtime.Serialization;
-〰3:   
-〰4:   namespace BinaryDataDecoders.Text.Json.JsonPath.Parser
-〰5:   {
-〰6:       public class JsonPathException : Exception
-〰7:       {
-‼8:           public JsonPathException()
-〰9:           {
-‼10:          }
-〰11:  
-‼12:          public JsonPathException(string message) : base(message)
-〰13:          {
-‼14:          }
-〰15:  
-‼16:          public JsonPathException(string message, Exception innerException) : base(message, innerException)
-〰17:          {
-‼18:          }
-〰19:  
-‼20:          protected JsonPathException(SerializationInfo info, StreamingContext context) : base(info, context)
-〰21:          {
-‼22:          }
-〰23:      }
-〰24:  }
+〰2:   
+〰3:   namespace BinaryDataDecoders.Text.Json.JsonPath.Parser;
+〰4:   
+〰5:   public class JsonPathException : Exception
+〰6:   {
+‼7:       public JsonPathException(string message) : base(message)
+〰8:       {
+‼9:       }
+〰10:  }
 ```
 
 ## Links

@@ -6,22 +6,22 @@
 | :-------------- | :--------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.RangePathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
-| Coveredlines    | `2`                                                        |
-| Uncoveredlines  | `0`                                                        |
+| Coveredlines    | `1`                                                        |
+| Uncoveredlines  | `1`                                                        |
 | Coverablelines  | `2`                                                        |
-| Totallines      | `18`                                                       |
-| Linecoverage    | `100`                                                      |
+| Totallines      | `21`                                                       |
+| Linecoverage    | `50`                                                       |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `0`                                                        |
-| Coveredmethods  | `2`                                                        |
+| Coveredmethods  | `1`                                                        |
 | Totalmethods    | `2`                                                        |
-| Methodcoverage  | `100`                                                      |
+| Methodcoverage  | `50`                                                       |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `ctor`     |
+| 1          | 0     | 100      | `ToString` |
 | 1          | 100   | 100      | `ToString` |
 
 ## Files
@@ -29,24 +29,32 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/PathSegments/RangePathSegment.cs
 
 ```CSharp
-〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments
-〰2:   {
-〰3:       public class RangePathSegment : IPathSegment
-〰4:       {
-〰5:           public RangePathSegment(IPathSegment<int>? start, IPathSegment<int>? end, IPathSegment<int>? step)
-〰6:           {
-〰7:               Start = start;
-〰8:               End = end;
-〰9:               Step = step;
-✔10:          }
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+〰3:   public class RangePathSegment(IPathSegment<int>? start, IPathSegment<int>? end, IPathSegment<int>? step) : IPathSegment
+〰4:   {
+〰5:       public IPathSegment<int>? Start { get; } = start;
+〰6:       public IPathSegment<int>? End { get; } = end;
+〰7:       public IPathSegment<int>? Step { get; } = step;
+〰8:   
+‼9:       public override string ToString() => $"{Start}:{End}:{Step}";
+〰10:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/PathSegments/RangePathSegment.cs
+
+```CSharp
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+〰3:   public class RangePathSegment(IPathSegment<int>? start, IPathSegment<int>? end, IPathSegment<int>? step) : IPathSegment
+〰4:   {
+〰5:       public IPathSegment<int>? Start { get; } = start;
+〰6:       public IPathSegment<int>? End { get; } = end;
+〰7:       public IPathSegment<int>? Step { get; } = step;
+〰8:   
+✔9:       public override string ToString() => $"{Start}:{End}:{Step}";
+〰10:  }
 〰11:  
-〰12:          public IPathSegment<int>? Start { get; }
-〰13:          public IPathSegment<int>? End { get; }
-〰14:          public IPathSegment<int>? Step { get; }
-〰15:  
-✔16:          public override string ToString() => $"{Start}:{End}:{Step}";
-〰17:      }
-〰18:  }
 ```
 
 ## Links

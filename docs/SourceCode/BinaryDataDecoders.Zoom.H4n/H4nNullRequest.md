@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Zoom.H4n/H4nNullRequest.cs
 
-## Public Structure - H4nNullRequest
+## Public ReadOnly Structure - H4nNullRequest
 
 ### Attributes
 

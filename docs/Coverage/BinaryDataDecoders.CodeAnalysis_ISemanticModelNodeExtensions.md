@@ -26,19 +26,19 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis/ISemanticModelNodeExtensions.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.CodeAnalysis/ISemanticModelNodeExtensions.cs
 
 ```CSharp
 〰1:   using Microsoft.CodeAnalysis;
 〰2:   
-〰3:   namespace BinaryDataDecoders.CodeAnalysis
-〰4:   {
-〰5:       internal static class ISemanticModelNodeExtensions
-〰6:       {
-‼7:           public static ISemanticModelNode AddTo(this object obj, SemanticModel semantic) => new SemanticModelNode(semantic, obj);
-‼8:           public static object WrapWith(this object obj, SemanticModel semantic) => obj.AddTo(semantic);
-〰9:       }
-〰10:  }
+〰3:   namespace BinaryDataDecoders.CodeAnalysis;
+〰4:   
+〰5:   internal static class ISemanticModelNodeExtensions
+〰6:   {
+‼7:       public static ISemanticModelNode AddTo(this object obj, SemanticModel semantic) => new SemanticModelNode(semantic, obj);
+‼8:       public static object WrapWith(this object obj, SemanticModel semantic) => obj.AddTo(semantic);
+〰9:   }
+〰10:  
 ```
 
 ## Links

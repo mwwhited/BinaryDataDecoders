@@ -31,7 +31,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/XsltExtensionFactoryTests.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit.Tests/Xml/Xsl/XsltExtensionFactoryTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.TestUtilities;
@@ -41,80 +41,80 @@
 〰5:   using System.Diagnostics;
 〰6:   using System.Reflection;
 〰7:   
-〰8:   namespace BinaryDataDecoders.ToolKit.Tests.Xml.Xsl
-〰9:   {
-〰10:      [TestClass]
-〰11:      public class XsltExtensionFactoryTests
-〰12:      {
-〰13:          public TestContext TestContext { get; set; }
+〰8:   namespace BinaryDataDecoders.ToolKit.Tests.Xml.Xsl;
+〰9:   
+〰10:  [TestClass]
+〰11:  public class XsltExtensionFactoryTests
+〰12:  {
+〰13:      public TestContext TestContext { get; set; }
 〰14:  
-〰15:          [TestMethod, TestCategory(TestCategories.DevLocal)]
-〰16:          public void BuildXsltExtensionTest()
-〰17:          {
-‼18:              var factory = new XsltExtensionFactory();
+〰15:      [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰16:      public void BuildXsltExtensionTest()
+〰17:      {
+‼18:          var factory = new XsltExtensionFactory();
 〰19:  
-‼20:              var toWrap = new FakeClass();
+‼20:          var toWrap = new FakeClass();
 〰21:  
-‼22:              var wrapped = factory.BuildXsltExtension(toWrap);
-‼23:              var wrappedType = wrapped.GetType();
+‼22:          var wrapped = factory.BuildXsltExtension(toWrap);
+‼23:          var wrappedType = wrapped.GetType();
 〰24:  
-〰25:              {
-‼26:                  var mi = wrappedType.GetMethod("do-work", BindingFlags.Public | BindingFlags.Instance);
-‼27:                  var ret = mi?.Invoke(wrapped, new object[] { "Hi!" });
-‼28:                  this.TestContext.WriteLine($"{"do-work"}: {ret}");
-〰29:              }
-〰30:              {
-‼31:                  var mi = wrappedType.GetMethod("big-work", BindingFlags.Public | BindingFlags.Instance);
-‼32:                  var ret = mi?.Invoke(wrapped, new object[] { "Hi!", "2", "3", "4", "5", "6" });
-‼33:                  this.TestContext.WriteLine($"{"big-work"}: {ret}");
-〰34:              }
-〰35:              {
-‼36:                  var mi = wrappedType.GetMethod("more-work", BindingFlags.Public | BindingFlags.Instance);
-‼37:                  var ret = mi?.Invoke(wrapped, new object[] { "Hi!" });
-‼38:                  this.TestContext.WriteLine($"{"more-work"}: {ret}");
-〰39:              }
-〰40:              {
-‼41:                  var mi = wrappedType.GetMethod("other-work", BindingFlags.Public | BindingFlags.Instance);
-‼42:                  var ret = mi?.Invoke(wrapped, Array.Empty<object>());
-‼43:                  this.TestContext.WriteLine($"{"other-work"}: {ret}");
-〰44:              }
-〰45:              {
-‼46:                  var mi = wrappedType.GetMethod("and-work", BindingFlags.Public | BindingFlags.Instance);
-‼47:                  var ret = mi?.Invoke(wrapped, Array.Empty<object>());
-‼48:                  this.TestContext.WriteLine($"{"and-work"}: {ret}");
-〰49:              }
+〰25:          {
+‼26:              var mi = wrappedType.GetMethod("do-work", BindingFlags.Public | BindingFlags.Instance);
+‼27:              var ret = mi?.Invoke(wrapped, new object[] { "Hi!" });
+‼28:              this.TestContext.WriteLine($"{"do-work"}: {ret}");
+〰29:          }
+〰30:          {
+‼31:              var mi = wrappedType.GetMethod("big-work", BindingFlags.Public | BindingFlags.Instance);
+‼32:              var ret = mi?.Invoke(wrapped, new object[] { "Hi!", "2", "3", "4", "5", "6" });
+‼33:              this.TestContext.WriteLine($"{"big-work"}: {ret}");
+〰34:          }
+〰35:          {
+‼36:              var mi = wrappedType.GetMethod("more-work", BindingFlags.Public | BindingFlags.Instance);
+‼37:              var ret = mi?.Invoke(wrapped, new object[] { "Hi!" });
+‼38:              this.TestContext.WriteLine($"{"more-work"}: {ret}");
+〰39:          }
+〰40:          {
+‼41:              var mi = wrappedType.GetMethod("other-work", BindingFlags.Public | BindingFlags.Instance);
+‼42:              var ret = mi?.Invoke(wrapped, []);
+‼43:              this.TestContext.WriteLine($"{"other-work"}: {ret}");
+〰44:          }
+〰45:          {
+‼46:              var mi = wrappedType.GetMethod("and-work", BindingFlags.Public | BindingFlags.Instance);
+‼47:              var ret = mi?.Invoke(wrapped, []);
+‼48:              this.TestContext.WriteLine($"{"and-work"}: {ret}");
+〰49:          }
 〰50:  
-‼51:          }
+‼51:      }
 〰52:  
 〰53:  
-〰54:          public class FakeClass
-〰55:          {
-〰56:              [XsltFunction("big-work")]
-〰57:              public string DoWork3(string x1, string x2, string x3, string x4, string x5, string x6)
-〰58:              {
-‼59:                  return string.Join("_", x1, x2, x3, x4, x5, x6);
-〰60:              }
+〰54:      public class FakeClass
+〰55:      {
+〰56:          [XsltFunction("big-work")]
+〰57:          public string DoWork3(string x1, string x2, string x3, string x4, string x5, string x6)
+〰58:          {
+‼59:              return string.Join("_", x1, x2, x3, x4, x5, x6);
+〰60:          }
 〰61:  
-〰62:              [XsltFunction("do-work")]
-‼63:              public string DoWork(string input) => input;
+〰62:          [XsltFunction("do-work")]
+‼63:          public string DoWork(string input) => input;
 〰64:  
-〰65:              [XsltFunction("more-work")]
-〰66:              public void MoreWork(string input)
-〰67:              {
-〰68:                  Debug.WriteLine(input);
-‼69:              }
+〰65:          [XsltFunction("more-work")]
+〰66:          public void MoreWork(string input)
+〰67:          {
+〰68:              Debug.WriteLine(input);
+‼69:          }
 〰70:  
-〰71:              [XsltFunction("other-work")]
-〰72:              public void OtherWork()
-〰73:              {
-〰74:                  Debug.WriteLine("hello!");
-‼75:              }
+〰71:          [XsltFunction("other-work")]
+〰72:          public void OtherWork()
+〰73:          {
+〰74:              Debug.WriteLine("hello!");
+‼75:          }
 〰76:  
-〰77:              [XsltFunction("and-work")]
-‼78:              public string AndWork() => "noice";
-〰79:          }
-〰80:      }
-〰81:  }
+〰77:          [XsltFunction("and-work")]
+‼78:          public string AndWork() => "noice";
+〰79:      }
+〰80:  }
+〰81:  
 ```
 
 ## Links

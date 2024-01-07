@@ -33,7 +33,7 @@
 
  * Type: 
 
-#### Private Field - reflector
+#### Private ReadOnly Field - reflector
 
 ##### Summary
 
@@ -45,10 +45,10 @@
 
  - EnigmaRotor [  ] rotors 
  - EnigmaReflector reflector 
- - string ringSettings = null 
- - string plugBoard = null 
+ - string ? ringSettings = default 
+ - string ? plugBoard = default 
 
-#### Public Property - Position
+#### Public Property - Positions
 
 ##### Summary
 
@@ -58,13 +58,13 @@
 
 ##### Summary
 
- * Type: string 
+ * Type: string ? 
 
 #### Public Property - PlugBoard
 
 ##### Summary
 
- * Type: string 
+ * Type: string ? 
 
 #### Public Property - Rotors
 

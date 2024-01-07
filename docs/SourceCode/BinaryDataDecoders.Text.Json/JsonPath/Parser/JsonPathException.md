@@ -11,24 +11,7 @@
 
 #### Public Constructor - JsonPathException
 
-
-#### Public Constructor - JsonPathException
-
 #####  Parameters
 
  - string message 
-
-#### Public Constructor - JsonPathException
-
-#####  Parameters
-
- - string message 
- - Exception innerException 
-
-#### Constructor - JsonPathException
-
-#####  Parameters
-
- - SerializationInfo info 
- - StreamingContext context 
 

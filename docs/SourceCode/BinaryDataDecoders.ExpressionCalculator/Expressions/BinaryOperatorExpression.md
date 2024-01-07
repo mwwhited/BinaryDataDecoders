@@ -15,14 +15,6 @@
 
  * Type: 
 
-#### Public Constructor - BinaryOperatorExpression
-
-#####  Parameters
-
- - ExpressionBase < T > left 
- - BinaryOperators @operator 
- - ExpressionBase < T > right 
-
 #### Public Property - Left
 
 ##### Summary

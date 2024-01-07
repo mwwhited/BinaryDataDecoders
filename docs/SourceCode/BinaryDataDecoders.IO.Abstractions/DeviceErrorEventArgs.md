@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - DeviceErrorEventArgs
-
-#####  Parameters
-
- - Exception exception 
- - ErrorHandling errorHandling 
-
 #### Public Property - Exception
 
 ##### Summary

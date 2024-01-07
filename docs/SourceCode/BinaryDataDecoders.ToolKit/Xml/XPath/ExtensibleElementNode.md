@@ -14,20 +14,6 @@
  - "E:>{Name}"
  - )
 
-### Members
-
-#### Public Constructor - ExtensibleElementNode
-
-#####  Parameters
-
- - XName name 
- - object item 
- - Func < object , string ? > ? valueSelector = null 
- - Func < object , IEnumerable < ( XName name , string ? value ) > ? > ? attributeSelector = null 
- - Func < object , IEnumerable < ( XName name , object child ) > ? > ? childSelector = null 
- - Func < object , IEnumerable < XName > ? > ? namespacesSelector = null 
- - Predicate < object > ? preserveWhitespace = null 
-
 ## Public Class - ExtensibleElementNode
 
 ### Attributes

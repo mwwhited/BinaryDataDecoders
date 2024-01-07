@@ -12,6 +12,10 @@
  <summary>
  This attribute may be used to mark what Class/Member is covered by a particular test method
  </summary>
+ <remarks>
+ create and instance of TestTargetAttribute
+ </remarks>
+ <paramname="class">type of related class</param>
 
 ### Attributes
 
@@ -27,19 +31,6 @@
  - )
 
 ### Members
-
-#### Public Constructor - TestTargetAttribute
-
-##### Comments
-
- <summary>
- create and instance of TestTargetAttribute
- </summary>
- <paramname="class">type of related class</param>
-
-#####  Parameters
-
- - Type @class 
 
 #### Public Property - Class
 

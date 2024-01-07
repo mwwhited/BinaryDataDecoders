@@ -9,16 +9,6 @@
 
 ### Members
 
-#### Public Constructor - StartAndFixLengthSegmenter
-
-#####  Parameters
-
- - OnSegmentReceived onSegmentReceived 
- - byte [  ] starts 
- - long fixedLength 
- - SegmentionOptions options 
- - SegmentExtensionDefinition ? extensionDefinition = null 
-
 #### Public Property - Starts
 
 ##### Summary

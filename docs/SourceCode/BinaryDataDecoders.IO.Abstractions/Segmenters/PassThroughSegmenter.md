@@ -9,20 +9,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _minimumLength
-
-##### Summary
-
- * Type: 
-
-#### Public Constructor - PassThroughSegmenter
-
-#####  Parameters
-
- - OnSegmentReceived onSegmentReceived 
- - long minimumLength 
- - SegmentionOptions options 
-
 #### Method - Read
 
 #####  Parameters

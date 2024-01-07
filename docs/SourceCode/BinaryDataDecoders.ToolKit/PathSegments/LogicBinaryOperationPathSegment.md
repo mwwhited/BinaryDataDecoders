@@ -7,13 +7,3 @@
 
 ## Public Class - LogicBinaryOperationPathSegment
 
-### Members
-
-#### Public Constructor - LogicBinaryOperationPathSegment
-
-#####  Parameters
-
- - IPathSegment left 
- - IPathSegment < LogicOperationTypes > @operator 
- - IPathSegment right 
-

@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.NodeExtensions` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                          |
 | Coveredlines    | `1`                                                   |
-| Uncoveredlines  | `1`                                                   |
-| Coverablelines  | `2`                                                   |
-| Totallines      | `12`                                                  |
-| Linecoverage    | `50`                                                  |
+| Uncoveredlines  | `3`                                                   |
+| Coverablelines  | `4`                                                   |
+| Totallines      | `23`                                                  |
+| Linecoverage    | `25`                                                  |
 | Coveredbranches | `0`                                                   |
 | Totalbranches   | `0`                                                   |
 | Coveredmethods  | `1`                                                   |
-| Totalmethods    | `2`                                                   |
-| Methodcoverage  | `50`                                                  |
+| Totalmethods    | `4`                                                   |
+| Methodcoverage  | `25`                                                  |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name          |
 | :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToNavigable` |
+| 1          | 0     | 100      | `ToNavigator` |
 | 1          | 100   | 100      | `ToNavigable` |
 | 1          | 0     | 100      | `ToNavigator` |
 
@@ -31,16 +33,32 @@
 ```CSharp
 〰1:   using System.Xml.XPath;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ToolKit.Xml.XPath
-〰4:   {
-〰5:       public static class NodeExtensions
-〰6:       {
-〰7:           public static IXPathNavigable ToNavigable(this INode node, string baseUri = "") =>
-✔8:               new ExtensibleNavigator(node, baseUri);
-〰9:           public static XPathNavigator? ToNavigator(this INode node, string baseUri = "") =>
-‼10:              node.ToNavigable(baseUri).CreateNavigator();
-〰11:      }
-〰12:  }
+〰3:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰4:   
+〰5:   public static class NodeExtensions
+〰6:   {
+〰7:       public static IXPathNavigable ToNavigable(this INode node, string baseUri = "") =>
+‼8:           new ExtensibleNavigator(node, baseUri);
+〰9:       public static XPathNavigator? ToNavigator(this INode node, string baseUri = "") =>
+‼10:          node.ToNavigable(baseUri).CreateNavigator();
+〰11:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Xml/XPath/NodeExtensions.cs
+
+```CSharp
+〰1:   using System.Xml.XPath;
+〰2:   
+〰3:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰4:   
+〰5:   public static class NodeExtensions
+〰6:   {
+〰7:       public static IXPathNavigable ToNavigable(this INode node, string baseUri = "") =>
+✔8:           new ExtensibleNavigator(node, baseUri);
+〰9:       public static XPathNavigator? ToNavigator(this INode node, string baseUri = "") =>
+‼10:          node.ToNavigable(baseUri).CreateNavigator();
+〰11:  }
+〰12:  
 ```
 
 ## Links

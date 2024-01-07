@@ -35,29 +35,29 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int64ExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int64ExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class Int64ExpressionEvaluator : IExpressionEvaluator<long>
-〰6:       {
-✔7:           public long Add(long left, long right) => left + right;
-✔8:           public long Divide(long left, long right) => left / right;
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class Int64ExpressionEvaluator : IExpressionEvaluator<long>
+〰6:   {
+✔7:       public long Add(long left, long right) => left + right;
+✔8:       public long Divide(long left, long right) => left / right;
 〰9:   
-✔10:          public long Modulo(long left, long right) => left % right;
-✔11:          public long Multiply(long left, long right) => left * right;
-✔12:          public long Negate(long operand) => -operand;
-✔13:          public long Power(long left, long right) => (long)Math.Pow((double)left, (double)right);
-✔14:          public long Subtract(long left, long right) => left - right;
+✔10:      public long Modulo(long left, long right) => left % right;
+✔11:      public long Multiply(long left, long right) => left * right;
+✔12:      public long Negate(long operand) => -operand;
+✔13:      public long Power(long left, long right) => (long)Math.Pow((double)left, (double)right);
+✔14:      public long Subtract(long left, long right) => left - right;
 〰15:  
-⚠16:          public long? TryParse(string input) => long.TryParse(input, out var ret) ? (long?)ret : null;
-✔17:          public long GetValue(int value) => value;
-✔18:          public long GetValue(double value) => (long)value;
-〰19:      }
-〰20:  }
+⚠16:      public long? TryParse(string input) => long.TryParse(input, out var ret) ? (long?)ret : null;
+✔17:      public long GetValue(int value) => value;
+✔18:      public long GetValue(double value) => (long)value;
+〰19:  }
+〰20:  
 ```
 
 ## Links

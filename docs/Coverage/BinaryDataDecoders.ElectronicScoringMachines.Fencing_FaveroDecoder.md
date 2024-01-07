@@ -26,7 +26,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Favero/FaveroDecoder.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Favero/FaveroDecoder.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
@@ -34,20 +34,20 @@
 〰3:   using System;
 〰4:   using System.Buffers;
 〰5:   
-〰6:   namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
-〰7:   {
-〰8:       public class FaveroDecoder : IMessageDecoder<IScoreMachineState>
-〰9:       {
-‼10:          private readonly IParseScoreMachineState _parser = new FaveroStateParser();
+〰6:   namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero;
+〰7:   
+〰8:   public class FaveroDecoder : IMessageDecoder<IScoreMachineState>
+〰9:   {
+‼10:      private readonly IParseScoreMachineState _parser = new FaveroStateParser();
 〰11:  
-〰12:          public IScoreMachineState Decode(ReadOnlySequence<byte> response)
-〰13:          {
-‼14:              Span<byte> buffer = new byte[response.Length];
-‼15:              response.CopyTo(buffer);
-‼16:              return _parser.Parse(buffer);
-〰17:          }
-〰18:      }
-〰19:  }
+〰12:      public IScoreMachineState Decode(ReadOnlySequence<byte> response)
+〰13:      {
+‼14:          Span<byte> buffer = new byte[response.Length];
+‼15:          response.CopyTo(buffer);
+‼16:          return _parser.Parse(buffer);
+〰17:      }
+〰18:  }
+〰19:  
 ```
 
 ## Links

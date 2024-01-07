@@ -15,12 +15,6 @@
 
  * Type: IPathSegment 
 
-#### Public Constructor - PredicatePathSegment
-
-#####  Parameters
-
- - IPathSegment child 
-
 #### Public Method - ToString
 
 

@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Zoom.H4n/H4nRequest.cs
 
-## Public Structure - H4nRequest
+## Public ReadOnly Structure - H4nRequest
 
 ### Attributes
 
@@ -21,12 +21,6 @@
  - )
 
 ### Members
-
-#### Public Constructor - H4nRequest
-
-#####  Parameters
-
- - H4nRequests request 
 
 #### Public ReadOnly Field - Request
 

@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Net.InvalidHexadecimalStringException` |
 | Assembly        | `BinaryDataDecoders.Net`                                   |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `6`                                                        |
-| Coverablelines  | `6`                                                        |
-| Totallines      | `23`                                                       |
+| Uncoveredlines  | `4`                                                        |
+| Coverablelines  | `4`                                                        |
+| Totallines      | `16`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `2`                                                        |
@@ -33,26 +33,19 @@
 〰1:   using System;
 〰2:   using System.Diagnostics;
 〰3:   
-〰4:   namespace BinaryDataDecoders.Net
-〰5:   {
-〰6:       public class InvalidHexadecimalStringException : Exception
-〰7:       {
-〰8:           public string Hexadecimal { get; private set; }
+〰4:   namespace BinaryDataDecoders.Net;
+〰5:   
+‼6:   public class InvalidHexadecimalStringException(string hexString) : Exception(string.Format("\"{0}\" is not a valid Hexadecimal Number", hexString))
+〰7:   {
+〰8:       public string Hexadecimal { get; } = hexString;
 〰9:   
-〰10:          public InvalidHexadecimalStringException(string hexString)
-‼11:              : base(string.Format("\"{0}\" is not a valid Hexadecimal Number", hexString))
-〰12:          {
-‼13:              this.Hexadecimal = hexString;
-‼14:          }
-〰15:  
-〰16:          [DebuggerNonUserCode]
-〰17:          public static void Check(string hexString)
-〰18:          {
-‼19:              if (!ConvertEx.IsHexString(hexString))
-‼20:                  throw new InvalidHexadecimalStringException(hexString);
-‼21:          }
-〰22:      }
-〰23:  }
+〰10:      [DebuggerNonUserCode]
+〰11:      public static void Check(string hexString)
+〰12:      {
+‼13:          if (!ConvertEx.IsHexString(hexString))
+‼14:              throw new InvalidHexadecimalStringException(hexString);
+‼15:      }
+〰16:  }
 ```
 
 ## Links

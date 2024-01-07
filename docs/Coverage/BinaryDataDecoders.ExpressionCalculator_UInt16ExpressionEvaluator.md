@@ -35,29 +35,29 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/UInt16ExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/UInt16ExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class UInt16ExpressionEvaluator : IExpressionEvaluator<ushort>
-〰6:       {
-✔7:           public ushort Add(ushort left, ushort right) => (ushort)(left + right);
-✔8:           public ushort Divide(ushort left, ushort right) => (ushort)(left / right);
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class UInt16ExpressionEvaluator : IExpressionEvaluator<ushort>
+〰6:   {
+✔7:       public ushort Add(ushort left, ushort right) => (ushort)(left + right);
+✔8:       public ushort Divide(ushort left, ushort right) => (ushort)(left / right);
 〰9:   
-✔10:          public ushort Modulo(ushort left, ushort right) => (ushort)(left % right);
-✔11:          public ushort Multiply(ushort left, ushort right) => (ushort)(left * right);
-✔12:          public ushort Negate(ushort operand) => throw new NotSupportedException(nameof(Negate));
-✔13:          public ushort Power(ushort left, ushort right) => (ushort)Math.Pow((double)left, (double)right);
-✔14:          public ushort Subtract(ushort left, ushort right) => (ushort)(left - right);
+✔10:      public ushort Modulo(ushort left, ushort right) => (ushort)(left % right);
+✔11:      public ushort Multiply(ushort left, ushort right) => (ushort)(left * right);
+✔12:      public ushort Negate(ushort operand) => throw new NotSupportedException(nameof(Negate));
+✔13:      public ushort Power(ushort left, ushort right) => (ushort)Math.Pow((double)left, (double)right);
+✔14:      public ushort Subtract(ushort left, ushort right) => (ushort)(left - right);
 〰15:  
-⚠16:          public ushort? TryParse(string input) => ushort.TryParse(input, out var ret) ? (ushort?)ret : null;
-✔17:          public ushort GetValue(int value) => (ushort)value;
-✔18:          public ushort GetValue(double value) => (ushort)value;
-〰19:      }
-〰20:  }
+⚠16:      public ushort? TryParse(string input) => ushort.TryParse(input, out var ret) ? (ushort?)ret : null;
+✔17:      public ushort GetValue(int value) => (ushort)value;
+✔18:      public ushort GetValue(double value) => (ushort)value;
+〰19:  }
+〰20:  
 ```
 
 ## Links

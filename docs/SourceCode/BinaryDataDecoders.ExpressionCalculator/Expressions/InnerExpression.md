@@ -15,12 +15,6 @@
 
  * Type: ExpressionBase < T > 
 
-#### Public Constructor - InnerExpression
-
-#####  Parameters
-
- - ExpressionBase < T > expression 
-
 #### Public Method - Clone
 
 

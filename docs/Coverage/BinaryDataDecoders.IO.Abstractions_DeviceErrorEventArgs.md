@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.IO.DeviceErrorEventArgs` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`         |
 | Coveredlines    | `0`                                          |
-| Uncoveredlines  | `3`                                          |
-| Coverablelines  | `3`                                          |
-| Totallines      | `17`                                         |
+| Uncoveredlines  | `2`                                          |
+| Coverablelines  | `2`                                          |
+| Totallines      | `19`                                         |
 | Linecoverage    | `0`                                          |
 | Coveredbranches | `0`                                          |
 | Totalbranches   | `0`                                          |
 | Coveredmethods  | `0`                                          |
-| Totalmethods    | `1`                                          |
+| Totalmethods    | `2`                                          |
 | Methodcoverage  | `0`                                          |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 | 1          | 0     | 100      | `ctor`  |
 
 ## Files
@@ -30,21 +31,28 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.IO
-〰4:   {
-〰5:       public class DeviceErrorEventArgs : EventArgs
-〰6:       {
-‼7:           public DeviceErrorEventArgs(Exception exception, ErrorHandling errorHandling)
-〰8:           {
-〰9:               Exception = exception;
-‼10:              ErrorHandling = errorHandling;
-‼11:          }
-〰12:  
-〰13:          public Exception Exception { get; }
-〰14:          public ErrorHandling ErrorHandling { get; set; }
-〰15:      }
-〰16:  
-〰17:  }
+〰3:   namespace BinaryDataDecoders.IO;
+〰4:   
+‼5:   public class DeviceErrorEventArgs(Exception exception, ErrorHandling errorHandling) : EventArgs
+〰6:   {
+〰7:       public Exception Exception { get; } = exception;
+〰8:       public ErrorHandling ErrorHandling { get; set; } = errorHandling;
+〰9:   }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.IO.Abstractions/DeviceErrorEventArgs.cs
+
+```CSharp
+〰1:   using System;
+〰2:   
+〰3:   namespace BinaryDataDecoders.IO;
+〰4:   
+‼5:   public class DeviceErrorEventArgs(Exception exception, ErrorHandling errorHandling) : EventArgs
+〰6:   {
+〰7:       public Exception Exception { get; } = exception;
+〰8:       public ErrorHandling ErrorHandling { get; set; } = errorHandling;
+〰9:   }
+〰10:  
 ```
 
 ## Links

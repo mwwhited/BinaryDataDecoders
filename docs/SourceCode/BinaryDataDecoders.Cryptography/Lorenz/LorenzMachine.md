@@ -15,13 +15,6 @@
 
  * Type: 
 
-#### Public Constructor - LorenzMachine
-
-#####  Parameters
-
- - byte [  ] keySet 
- - int [  ] startPosition 
-
 #### Private ReadOnly Field - _ita2
 
 ##### Summary
@@ -33,12 +26,6 @@
 #####  Parameters
 
  - string input 
-
-#### Private ReadOnly Field - _keySet
-
-##### Summary
-
- * Type: 
 
 #### Private ReadOnly Field - _chiModulus
 
@@ -53,12 +40,6 @@
  * Type: 
 
 #### Private ReadOnly Field - _psiModulus
-
-##### Summary
-
- * Type: 
-
-#### Private ReadOnly Field - _positions
 
 ##### Summary
 

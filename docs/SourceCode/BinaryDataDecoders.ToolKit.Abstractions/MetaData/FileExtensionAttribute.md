@@ -28,9 +28,3 @@
 
  * Type: string 
 
-#### Public Constructor - FileExtensionAttribute
-
-#####  Parameters
-
- - string fileExtension 
-

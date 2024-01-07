@@ -52,12 +52,6 @@
 
 ### Members
 
-#### Public Constructor - XsltExtensionContext
-
-#####  Parameters
-
- - NameTable nameTable 
-
 #### Public Property - Whitespace
 
 ##### Summary

@@ -7,11 +7,3 @@
 
 ## Public Class - NumericPathSegment
 
-### Members
-
-#### Public Constructor - NumericPathSegment
-
-#####  Parameters
-
- - int value 
-

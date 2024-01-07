@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Templating.Abstractions.TemplateTransformAttribute` |
 | Assembly        | `BinaryDataDecoders.Templating.Abstractions`                            |
 | Coveredlines    | `0`                                                                     |
-| Uncoveredlines  | `3`                                                                     |
-| Coverablelines  | `3`                                                                     |
-| Totallines      | `18`                                                                    |
+| Uncoveredlines  | `2`                                                                     |
+| Coverablelines  | `2`                                                                     |
+| Totallines      | `12`                                                                    |
 | Linecoverage    | `0`                                                                     |
 | Coveredbranches | `0`                                                                     |
 | Totalbranches   | `0`                                                                     |
@@ -31,22 +31,16 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.Templating.Abstractions
-〰4:   {
-〰5:       [AttributeUsage(AttributeTargets.Class)]
-〰6:       public class TemplateTransformAttribute : Attribute
-〰7:       {
-‼8:           public TemplateTransformAttribute(params string[] targetMediaTypes) : this(0, targetMediaTypes) { }
-‼9:           public TemplateTransformAttribute(int priority, params string[] targetMediaTypes)
-〰10:          {
-〰11:              this.Priority = priority;
-〰12:              this.TargetMediaTypes = targetMediaTypes;
-‼13:          }
-〰14:  
-〰15:          public string[] TargetMediaTypes { get; }
-〰16:          public int Priority { get; }
-〰17:      }
-〰18:  }
+〰3:   namespace BinaryDataDecoders.Templating.Abstractions;
+〰4:   
+〰5:   [AttributeUsage(AttributeTargets.Class)]
+‼6:   public class TemplateTransformAttribute(int priority, params string[] targetMediaTypes) : Attribute
+〰7:   {
+‼8:       public TemplateTransformAttribute(params string[] targetMediaTypes) : this(0, targetMediaTypes) { }
+〰9:   
+〰10:      public string[] TargetMediaTypes { get; } = targetMediaTypes;
+〰11:      public int Priority { get; } = priority;
+〰12:  }
 ```
 
 ## Links

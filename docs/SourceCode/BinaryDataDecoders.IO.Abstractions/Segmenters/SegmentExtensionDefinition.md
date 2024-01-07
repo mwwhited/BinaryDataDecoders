@@ -9,15 +9,6 @@
 
 ### Members
 
-#### Public Constructor - SegmentExtensionDefinition
-
-#####  Parameters
-
- - Type type 
- - int length 
- - long postion 
- - Endianness endianness 
-
 #### Public Property - Type
 
 ##### Summary

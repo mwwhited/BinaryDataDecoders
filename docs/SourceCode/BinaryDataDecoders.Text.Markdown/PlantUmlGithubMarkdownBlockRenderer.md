@@ -15,12 +15,6 @@
 
  * Type: PlantUmlRenderer 
 
-#### Public Constructor - PlantUmlGithubMarkdownBlockRenderer
-
-#####  Parameters
-
- - MarkdownPipeline pipeline 
-
 #### Method - Write
 
 #####  Parameters

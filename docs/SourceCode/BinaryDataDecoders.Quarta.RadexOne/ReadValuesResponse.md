@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Quarta.RadexOne/ReadValuesResponse.cs
 
-## Public Structure - ReadValuesResponse
+## Public ReadOnly Structure - ReadValuesResponse
 
 ### Comments
 

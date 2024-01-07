@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Quarta.RadexOne/ReadSerialNumberResponse.cs
 
-## Public Structure - ReadSerialNumberResponse
+## Public ReadOnly Structure - ReadSerialNumberResponse
 
 ### Comments
 
@@ -451,7 +451,7 @@
 
 ##### Summary
 
- * Type: # pragma warning restore CS1591    < summary > 
+ * Type:   < summary > 
   Formatted serial number 
    </ summary > 
   string 

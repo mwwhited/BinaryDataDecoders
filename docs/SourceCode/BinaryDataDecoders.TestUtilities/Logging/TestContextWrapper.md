@@ -9,12 +9,6 @@
 
 ### Members
 
-#### Public Constructor - TestContextWrapper
-
-#####  Parameters
-
- - TestContext context 
-
 #### Public Property - Context
 
 ##### Summary

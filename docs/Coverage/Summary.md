@@ -4,21 +4,21 @@
 
 | Key             | Value                         |
 | :-------------- | :---------------------------- |
-| Generatedon     | `01/07/2024 - 12:33:57`       |
-| Parser          | `MultiReport (42x Cobertura)` |
+| Generatedon     | `01/07/2024 - 14:34:58`       |
+| Parser          | `MultiReport (40x Cobertura)` |
 | Assemblies      | `54`                          |
-| Classes         | `374`                         |
-| Coveredlines    | `3727`                        |
-| Uncoveredlines  | `5494`                        |
-| Coverablelines  | `9221`                        |
-| Totallines      | `23778`                       |
-| Linecoverage    | `40.4`                        |
-| Coveredbranches | `1146`                        |
-| Totalbranches   | `3588`                        |
-| Branchcoverage  | `31.9`                        |
-| Coveredmethods  | `667`                         |
-| Totalmethods    | `1557`                        |
-| Methodcoverage  | `42.8`                        |
+| Classes         | `372`                         |
+| Coveredlines    | `3710`                        |
+| Uncoveredlines  | `8637`                        |
+| Coverablelines  | `12347`                       |
+| Totallines      | `29395`                       |
+| Linecoverage    | `30`                          |
+| Coveredbranches | `1152`                        |
+| Totalbranches   | `5189`                        |
+| Branchcoverage  | `22.2`                        |
+| Coveredmethods  | `658`                         |
+| Totalmethods    | `2173`                        |
+| Methodcoverage  | `30.2`                        |
 
 ## Coverage
 
@@ -30,9 +30,9 @@
 | :-------------- | :----- |
 | classes         | `9`    |
 | coverage        | `96.8` |
-| coveredlines    | `247`  |
-| coverablelines  | `255`  |
-| totallines      | `770`  |
+| coveredlines    | `246`  |
+| coverablelines  | `254`  |
+| totallines      | `743`  |
 | branchcoverage  | `82.6` |
 | coveredbranches | `38`   |
 | totalbranches   | `46`   |
@@ -48,7 +48,7 @@
 | 100        | [ApplesoftBASIC.TokenMap](BinaryDataDecoders.Apple2_TokenMap.md) |
 | 100        | [Dos33.CatalogEntry](BinaryDataDecoders.Apple2_CatalogEntry.md) |
 | 95.2       | [Dos33.DiskImageCommands](BinaryDataDecoders.Apple2_DiskImageCommands.md) |
-| 81.8       | [Dos33.FileEntry](BinaryDataDecoders.Apple2_FileEntry.md) |
+| 80         | [Dos33.FileEntry](BinaryDataDecoders.Apple2_FileEntry.md) |
 | 25         | [Dos33.TrackSector](BinaryDataDecoders.Apple2_TrackSector.md) |
 | 100        | [Dos33.TrackSectorList](BinaryDataDecoders.Apple2_TrackSectorList.md) |
 | 100        | [Dos33.VolumeTableOfContents](BinaryDataDecoders.Apple2_VolumeTableOfContents.md) |
@@ -89,11 +89,11 @@
 | classes         | `5`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `239` |
-| totallines      | `491` |
+| coverablelines  | `241` |
+| totallines      | `482` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
-| totalbranches   | `124` |
+| totalbranches   | `144` |
 | coveredmethods  | `0`   |
 | totalmethods    | `16`  |
 | methodcoverage  | `0`   |
@@ -118,7 +118,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `19` |
+| totallines      | `18` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -138,17 +138,17 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `8`    |
-| coverage        | `29.9` |
+| classes         | `7`    |
+| coverage        | `30`   |
 | coveredlines    | `92`   |
-| coverablelines  | `307`  |
-| totallines      | `510`  |
+| coverablelines  | `306`  |
+| totallines      | `495`  |
 | branchcoverage  | `26.4` |
 | coveredbranches | `47`   |
 | totalbranches   | `178`  |
 | coveredmethods  | `4`    |
-| totalmethods    | `20`   |
-| methodcoverage  | `20`   |
+| totalmethods    | `19`   |
+| methodcoverage  | `21`   |
 
 #### Classes
 
@@ -159,7 +159,6 @@
 | 0          | [ISemanticModelNodeExtensions](BinaryDataDecoders.CodeAnalysis_.md) |
 | 53         | [ResolveNames](BinaryDataDecoders.CodeAnalysis_.md) |
 | 0          | [SemanticModelNavigatorFactory](BinaryDataDecoders.CodeAnalysis_.md) |
-| 0          | [SemanticModelNode](BinaryDataDecoders.CodeAnalysis_.md) |
 | 84.6       | [SyntaxTreeNavigatorFactory](BinaryDataDecoders.CodeAnalysis_.md) |
 | 0          | [VisualBasic.VisualBasicNavigator](BinaryDataDecoders.CodeAnalysis_VisualBasicNavigator.md) |
 
@@ -172,8 +171,8 @@
 | classes         | `2`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `69`  |
-| totallines      | `150` |
+| coverablelines  | `68`  |
+| totallines      | `142` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `50`  |
@@ -198,7 +197,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `6`  |
-| totallines      | `24` |
+| totallines      | `23` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -222,7 +221,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `194` |
-| totallines      | `224` |
+| totallines      | `222` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `112` |
@@ -247,7 +246,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `6`  |
-| totallines      | `27` |
+| totallines      | `26` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -293,29 +292,29 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `8`    |
-| coverage        | `66.4` |
-| coveredlines    | `222`  |
-| coverablelines  | `334`  |
-| totallines      | `724`  |
-| branchcoverage  | `47.9` |
-| coveredbranches | `71`   |
-| totalbranches   | `148`  |
+| coverage        | `32.7` |
+| coveredlines    | `219`  |
+| coverablelines  | `668`  |
+| totallines      | `1368` |
+| branchcoverage  | `24`   |
+| coveredbranches | `76`   |
+| totalbranches   | `316`  |
 | coveredmethods  | `25`   |
-| totalmethods    | `31`   |
-| methodcoverage  | `80.6` |
+| totalmethods    | `64`   |
+| methodcoverage  | `39`   |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
-| 90         | [Caesar](BinaryDataDecoders.Cryptography_.md) |
-| 72.3       | [Enigma.EnigmaMachine](BinaryDataDecoders.Cryptography_EnigmaMachine.md) |
-| 100        | [Enigma.EnigmaReflector](BinaryDataDecoders.Cryptography_EnigmaReflector.md) |
-| 100        | [Enigma.EnigmaRotor](BinaryDataDecoders.Cryptography_EnigmaRotor.md) |
-| 91.6       | [Enigma.EnigmaTools](BinaryDataDecoders.Cryptography_EnigmaTools.md) |
-| 100        | [Lorenz.LorenzMachine](BinaryDataDecoders.Cryptography_LorenzMachine.md) |
+| 45         | [Caesar](BinaryDataDecoders.Cryptography_.md) |
+| 36.1       | [Enigma.EnigmaMachine](BinaryDataDecoders.Cryptography_EnigmaMachine.md) |
+| 50         | [Enigma.EnigmaReflector](BinaryDataDecoders.Cryptography_EnigmaReflector.md) |
+| 48.2       | [Enigma.EnigmaRotor](BinaryDataDecoders.Cryptography_EnigmaRotor.md) |
+| 45.8       | [Enigma.EnigmaTools](BinaryDataDecoders.Cryptography_EnigmaTools.md) |
+| 50         | [Lorenz.LorenzMachine](BinaryDataDecoders.Cryptography_LorenzMachine.md) |
 | 0          | [PlayFair](BinaryDataDecoders.Cryptography_.md) |
-| 78.5       | [Vigenere](BinaryDataDecoders.Cryptography_.md) |
+| 39.2       | [Vigenere](BinaryDataDecoders.Cryptography_.md) |
 
 ### Assembly - BinaryDataDecoders.Cryptography.Tests
 
@@ -324,10 +323,10 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `5`    |
-| coverage        | `97.2` |
-| coveredlines    | `35`   |
-| coverablelines  | `36`   |
-| totallines      | `141`  |
+| coverage        | `97.3` |
+| coveredlines    | `37`   |
+| coverablelines  | `38`   |
+| totallines      | `142`  |
 | branchcoverage  | `100`  |
 | coveredbranches | `2`    |
 | totalbranches   | `2`    |
@@ -351,16 +350,16 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `6`   |
+| classes         | `7`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `452` |
-| totallines      | `726` |
+| coverablelines  | `450` |
+| totallines      | `697` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `32`  |
 | coveredmethods  | `0`   |
-| totalmethods    | `29`  |
+| totalmethods    | `30`  |
 | methodcoverage  | `0`   |
 
 #### Classes
@@ -368,6 +367,7 @@
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [Barcodes.Code39](BinaryDataDecoders.Drawing_Code39.md) |
+| 0          | [Mending.JpegSegment](BinaryDataDecoders.Drawing_JpegSegment.md) |
 | 0          | [Mending.JpegSegmentReader](BinaryDataDecoders.Drawing_JpegSegmentReader.md) |
 | 0          | [MultiScaleImages.GraphicsEx](BinaryDataDecoders.Drawing_GraphicsEx.md) |
 | 0          | [MultiScaleImages.MultiScaleTileEx](BinaryDataDecoders.Drawing_MultiScaleTileEx.md) |
@@ -383,8 +383,8 @@
 | classes         | `5`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `69`  |
-| totallines      | `174` |
+| coverablelines  | `66`  |
+| totallines      | `164` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `12`  |
@@ -432,7 +432,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `19` |
+| totallines      | `18` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -453,23 +453,23 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `8`    |
-| coverage        | `30.7` |
-| coveredlines    | `44`   |
-| coverablelines  | `143`  |
-| totallines      | `411`  |
+| coverage        | `29.7` |
+| coveredlines    | `42`   |
+| coverablelines  | `141`  |
+| totallines      | `391`  |
 | branchcoverage  | `4.2`  |
 | coveredbranches | `6`    |
 | totalbranches   | `142`  |
-| coveredmethods  | `5`    |
-| totalmethods    | `20`   |
-| methodcoverage  | `25`   |
+| coveredmethods  | `3`    |
+| totalmethods    | `18`   |
+| methodcoverage  | `16.6` |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
-| 20         | [Common.Fencer](BinaryDataDecoders.ElectronicScoringMachines.Fencing_Fencer.md) |
-| 22.2       | [Common.ScoreMachineState](BinaryDataDecoders.ElectronicScoringMachines.Fencing_ScoreMachineState.md) |
+| 11.1       | [Common.Fencer](BinaryDataDecoders.ElectronicScoringMachines.Fencing_Fencer.md) |
+| 12.5       | [Common.ScoreMachineState](BinaryDataDecoders.ElectronicScoringMachines.Fencing_ScoreMachineState.md) |
 | 0          | [Favero.FaveroDecoder](BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroDecoder.md) |
 | 0          | [Favero.FaveroDefinition](BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroDefinition.md) |
 | 97.5       | [Favero.FaveroStateParser](BinaryDataDecoders.ElectronicScoringMachines.Fencing_FaveroStateParser.md) |
@@ -487,7 +487,7 @@
 | coverage        | `38.2` |
 | coveredlines    | `18`   |
 | coverablelines  | `47`   |
-| totallines      | `568`  |
+| totallines      | `567`  |
 | branchcoverage  | `0`    |
 | coveredbranches | `0`    |
 | totalbranches   | `12`   |
@@ -514,7 +514,7 @@
 | coverage        | `85.4` |
 | coveredlines    | `878`  |
 | coverablelines  | `1028` |
-| totallines      | `2284` |
+| totallines      | `1403` |
 | branchcoverage  | `82.6` |
 | coveredbranches | `390`  |
 | totalbranches   | `472`  |
@@ -539,13 +539,13 @@
 | 100        | [Evaluators.UInt32ExpressionEvaluator](BinaryDataDecoders.ExpressionCalculator_UInt32ExpressionEvaluator.md) |
 | 100        | [Evaluators.UInt64ExpressionEvaluator](BinaryDataDecoders.ExpressionCalculator_UInt64ExpressionEvaluator.md) |
 | 100        | [Evaluators.UInt8ExpressionEvaluator](BinaryDataDecoders.ExpressionCalculator_UInt8ExpressionEvaluator.md) |
-| 96         | [Expressions.BinaryOperatorExpression`1](BinaryDataDecoders.ExpressionCalculator_BinaryOperatorExpression_1.md) |
+| 95.8       | [Expressions.BinaryOperatorExpression`1](BinaryDataDecoders.ExpressionCalculator_BinaryOperatorExpression_1.md) |
 | 24         | [Expressions.ExpressionBase`1](BinaryDataDecoders.ExpressionCalculator_ExpressionBase_1.md) |
 | 92.3       | [Expressions.ExpressionBaseExtensions](BinaryDataDecoders.ExpressionCalculator_ExpressionBaseExtensions.md) |
 | 100        | [Expressions.InnerExpression`1](BinaryDataDecoders.ExpressionCalculator_InnerExpression_1.md) |
 | 100        | [Expressions.NumberExpression`1](BinaryDataDecoders.ExpressionCalculator_NumberExpression_1.md) |
 | 86.6       | [Expressions.OperatorExtensions](BinaryDataDecoders.ExpressionCalculator_OperatorExtensions.md) |
-| 96         | [Expressions.UnaryOperatorExpression`1](BinaryDataDecoders.ExpressionCalculator_UnaryOperatorExpression_1.md) |
+| 95.8       | [Expressions.UnaryOperatorExpression`1](BinaryDataDecoders.ExpressionCalculator_UnaryOperatorExpression_1.md) |
 | 100        | [Expressions.VariableExpression`1](BinaryDataDecoders.ExpressionCalculator_VariableExpression_1.md) |
 | 100        | [Optimizers.DeterminedExpressionReducer`1](BinaryDataDecoders.ExpressionCalculator_DeterminedExpressionReducer_1.md) |
 | 100        | [Optimizers.ExpressionOptimizationProvider`1](BinaryDataDecoders.ExpressionCalculator_ExpressionOptimizationProvider_1.md) |
@@ -567,12 +567,12 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `15`   |
-| coverage        | `91.2` |
-| coveredlines    | `199`  |
+| coverage        | `92.6` |
+| coveredlines    | `202`  |
 | coverablelines  | `218`  |
 | totallines      | `3613` |
-| branchcoverage  | `90.9` |
-| coveredbranches | `20`   |
+| branchcoverage  | `95.4` |
+| coveredbranches | `21`   |
 | totalbranches   | `22`   |
 | coveredmethods  | `40`   |
 | totalmethods    | `42`   |
@@ -588,7 +588,7 @@
 | 100        | [Expressions.ExpressionBaseTests](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionBaseTests.md) |
 | 100        | [Expressions.NumberExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_NumberExpressionTests.md) |
 | 84         | [Expressions.VariableExpressionTests](BinaryDataDecoders.ExpressionCalculator.Tests_VariableExpressionTests.md) |
-| 81.5       | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
+| 85.5       | [Parser.ExpressionParserTests`1](BinaryDataDecoders.ExpressionCalculator.Tests_ExpressionParserTests_1.md) |
 | 100        | [Parser.Int16ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int16ExpressionParserTests.md) |
 | 100        | [Parser.Int32ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int32ExpressionParserTests.md) |
 | 100        | [Parser.Int64ExpressionParserTests](BinaryDataDecoders.ExpressionCalculator.Tests_Int64ExpressionParserTests.md) |
@@ -608,7 +608,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `158` |
-| totallines      | `474` |
+| totallines      | `471` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `40`  |
@@ -634,7 +634,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `19` |
+| totallines      | `18` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -674,17 +674,17 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `15`  |
-| coverage        | `2.6` |
+| classes         | `13`  |
+| coverage        | `1.3` |
 | coveredlines    | `4`   |
-| coverablelines  | `151` |
-| totallines      | `540` |
-| branchcoverage  | `2.5` |
+| coverablelines  | `286` |
+| totallines      | `932` |
+| branchcoverage  | `1.2` |
 | coveredbranches | `2`   |
-| totalbranches   | `78`  |
+| totalbranches   | `156` |
 | coveredmethods  | `1`   |
-| totalmethods    | `34`  |
-| methodcoverage  | `2.9` |
+| totalmethods    | `64`  |
+| methodcoverage  | `1.5` |
 
 #### Classes
 
@@ -692,7 +692,7 @@
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [entArgs](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [ttribute](BinaryDataDecoders.IO.Abstractions_.md) |
-| 100        | [cksumCalculator](BinaryDataDecoders.IO.Abstractions_.md) |
+| 50         | [cksumCalculator](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [ageEncoder`1](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [ageMatchPatternAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [ortAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
@@ -701,8 +701,6 @@
 | 0          | [ssThroughSegmenter](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [gment](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [gmenterBase](BinaryDataDecoders.IO.Abstractions_.md) |
-| 0          | [gmentExtensionDefinition](BinaryDataDecoders.IO.Abstractions_.md) |
-| 0          | [gmentReadResult](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [artAndFixLengthSegmenter](BinaryDataDecoders.IO.Abstractions_.md) |
 | 0          | [dAttribute](BinaryDataDecoders.IO.Abstractions_.md) |
 
@@ -716,7 +714,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `230` |
-| totallines      | `482` |
+| totallines      | `477` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `80`  |
@@ -744,7 +742,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `3`  |
-| totallines      | `19` |
+| totallines      | `18` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -767,13 +765,13 @@
 | classes         | `3`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `56`  |
-| totallines      | `115` |
+| coverablelines  | `55`  |
+| totallines      | `108` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `25`  |
 | coveredmethods  | `0`   |
-| totalmethods    | `11`  |
+| totalmethods    | `10`  |
 | methodcoverage  | `0`   |
 
 #### Classes
@@ -794,7 +792,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `2`  |
-| totallines      | `18` |
+| totallines      | `17` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -842,13 +840,13 @@
 | classes         | `2`  |
 | coverage        | `0`  |
 | coveredlines    | `0`  |
-| coverablelines  | `30` |
-| totallines      | `78` |
+| coverablelines  | `29` |
+| totallines      | `72` |
 | branchcoverage  | `0`  |
 | coveredbranches | `0`  |
 | totalbranches   | `16` |
 | coveredmethods  | `0`  |
-| totalmethods    | `10` |
+| totalmethods    | `9`  |
 | methodcoverage  | `0`  |
 
 #### Classes
@@ -868,7 +866,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `30` |
-| totallines      | `88` |
+| totallines      | `87` |
 | branchcoverage  | `0`  |
 | coveredbranches | `0`  |
 | totalbranches   | `14` |
@@ -893,12 +891,12 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `42`  |
-| totallines      | `111` |
+| totallines      | `104` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `8`   |
 | coveredmethods  | `0`   |
-| totalmethods    | `4`   |
+| totalmethods    | `5`   |
 | methodcoverage  | `0`   |
 
 #### Classes
@@ -918,7 +916,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `112` |
-| totallines      | `172` |
+| totallines      | `171` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `56`  |
@@ -939,16 +937,16 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `11`  |
+| classes         | `12`  |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `186` |
-| totallines      | `477` |
+| coverablelines  | `256` |
+| totallines      | `427` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
-| totalbranches   | `72`  |
+| totalbranches   | `106` |
 | coveredmethods  | `0`   |
-| totalmethods    | `32`  |
+| totalmethods    | `41`  |
 | methodcoverage  | `0`   |
 
 #### Classes
@@ -966,6 +964,7 @@
 | 0          | [Services.EchoServer](BinaryDataDecoders.Net_EchoServer.md) |
 | 0          | [Services.TimeServer](BinaryDataDecoders.Net_TimeServer.md) |
 | 0          | [Sockets.ServerBase](BinaryDataDecoders.Net_ServerBase.md) |
+| 0          | [essions.Generated](BinaryDataDecoders.Net_Generated.md) |
 
 ### Assembly - BinaryDataDecoders.Net.Tests
 
@@ -977,7 +976,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `2`  |
-| totallines      | `17` |
+| totallines      | `16` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -997,16 +996,16 @@
 
 | Key             | Value |
 | :-------------- | :---- |
-| classes         | `7`   |
+| classes         | `6`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `88`  |
-| totallines      | `379` |
+| coverablelines  | `86`  |
+| totallines      | `298` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `45`  |
 | coveredmethods  | `0`   |
-| totalmethods    | `10`  |
+| totalmethods    | `8`   |
 | methodcoverage  | `0`   |
 
 #### Classes
@@ -1018,7 +1017,6 @@
 | 0          | [Nema0183Decoder](BinaryDataDecoders.Nmea_.md) |
 | 0          | [Nema0183Definition](BinaryDataDecoders.Nmea_.md) |
 | 0          | [RecommendedMinimumNavigationInformation](BinaryDataDecoders.Nmea_.md) |
-| 0          | [SatellitesInView](BinaryDataDecoders.Nmea_.md) |
 | 0          | [StringNemaMessage](BinaryDataDecoders.Nmea_.md) |
 
 ### Assembly - BinaryDataDecoders.Nmea.Tests
@@ -1054,7 +1052,7 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `121` |
-| totallines      | `754` |
+| totallines      | `719` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `11`  |
@@ -1090,10 +1088,10 @@
 | coverage        | `0`   |
 | coveredlines    | `0`   |
 | coverablelines  | `116` |
-| totallines      | `171` |
+| totallines      | `170` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
-| totalbranches   | `77`  |
+| totalbranches   | `85`  |
 | coveredmethods  | `0`   |
 | totalmethods    | `3`   |
 | methodcoverage  | `0`   |
@@ -1135,7 +1133,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `2`  |
-| totallines      | `17` |
+| totallines      | `16` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -1158,8 +1156,8 @@
 | classes         | `1`  |
 | coverage        | `0`  |
 | coveredlines    | `0`  |
-| coverablelines  | `3`  |
-| totallines      | `18` |
+| coverablelines  | `2`  |
+| totallines      | `12` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -1181,12 +1179,12 @@
 | classes         | `2`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `71`  |
-| totallines      | `124` |
+| coverablelines  | `68`  |
+| totallines      | `112` |
 | coveredbranches | `0`   |
 | totalbranches   | `0`   |
 | coveredmethods  | `0`   |
-| totalmethods    | `5`   |
+| totalmethods    | `4`   |
 | methodcoverage  | `0`   |
 
 #### Classes
@@ -1206,7 +1204,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `27` |
-| totallines      | `63` |
+| totallines      | `62` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -1227,16 +1225,16 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `10`   |
-| coverage        | `14.1` |
+| coverage        | `7`    |
 | coveredlines    | `23`   |
-| coverablelines  | `163`  |
-| totallines      | `612`  |
-| branchcoverage  | `17.4` |
+| coverablelines  | `324`  |
+| totallines      | `1205` |
+| branchcoverage  | `8.7`  |
 | coveredbranches | `18`   |
-| totalbranches   | `103`  |
+| totalbranches   | `206`  |
 | coveredmethods  | `3`    |
-| totalmethods    | `34`   |
-| methodcoverage  | `8.8`  |
+| totalmethods    | `66`   |
+| methodcoverage  | `4.5`  |
 
 #### Classes
 
@@ -1249,8 +1247,8 @@
 | 0          | [Logging.TestLogger](BinaryDataDecoders.TestUtilities_TestLogger.md) |
 | 0          | [Logging.TestLogger`1](BinaryDataDecoders.TestUtilities_TestLogger_1.md) |
 | 0          | [Logging.TestLoggerRegistrar](BinaryDataDecoders.TestUtilities_TestLoggerRegistrar.md) |
-| 100        | [TestTargetAttribute](BinaryDataDecoders.TestUtilities_.md) |
-| 48.8       | [TextContextExtensions](BinaryDataDecoders.TestUtilities_.md) |
+| 50         | [TestTargetAttribute](BinaryDataDecoders.TestUtilities_.md) |
+| 24.4       | [TextContextExtensions](BinaryDataDecoders.TestUtilities_.md) |
 | 0          | [Xml.Xsl.Extensions.TrxExtensions](BinaryDataDecoders.TestUtilities_TrxExtensions.md) |
 
 ### Assembly - BinaryDataDecoders.Text.Json
@@ -1260,16 +1258,16 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `8`    |
-| coverage        | `80.6` |
+| coverage        | `81.1` |
 | coveredlines    | `780`  |
-| coverablelines  | `967`  |
-| totallines      | `1841` |
+| coverablelines  | `961`  |
+| totallines      | `302`  |
 | branchcoverage  | `71.1` |
 | coveredbranches | `197`  |
 | totalbranches   | `277`  |
 | coveredmethods  | `118`  |
-| totalmethods    | `180`  |
-| methodcoverage  | `65.5` |
+| totalmethods    | `177`  |
+| methodcoverage  | `66.6` |
 
 #### Classes
 
@@ -1294,7 +1292,7 @@
 | coverage        | `92.5` |
 | coveredlines    | `37`   |
 | coverablelines  | `40`   |
-| totallines      | `186`  |
+| totallines      | `185`  |
 | branchcoverage  | `50`   |
 | coveredbranches | `4`    |
 | totalbranches   | `8`    |
@@ -1319,8 +1317,8 @@
 | classes         | `7`   |
 | coverage        | `0`   |
 | coveredlines    | `0`   |
-| coverablelines  | `89`  |
-| totallines      | `249` |
+| coverablelines  | `91`  |
+| totallines      | `241` |
 | branchcoverage  | `0`   |
 | coveredbranches | `0`   |
 | totalbranches   | `38`  |
@@ -1350,7 +1348,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `23` |
-| totallines      | `46` |
+| totallines      | `45` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -1368,32 +1366,32 @@
 
 ## Summary
 
-| Key             | Value  |
-| :-------------- | :----- |
-| classes         | `107`  |
-| coverage        | `30.6` |
-| coveredlines    | `772`  |
-| coverablelines  | `2517` |
-| totallines      | `7467` |
-| branchcoverage  | `27.4` |
-| coveredbranches | `330`  |
-| totalbranches   | `1202` |
-| coveredmethods  | `168`  |
-| totalmethods    | `531`  |
-| methodcoverage  | `31.6` |
+| Key             | Value   |
+| :-------------- | :------ |
+| classes         | `107`   |
+| coverage        | `15.2`  |
+| coveredlines    | `756`   |
+| coverablelines  | `4962`  |
+| totallines      | `14505` |
+| branchcoverage  | `13.7`  |
+| coveredbranches | `330`   |
+| totalbranches   | `2392`  |
+| coveredmethods  | `161`   |
+| totalmethods    | `1052`  |
+| methodcoverage  | `15.3`  |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
-| 31.2       | [BcdEx](BinaryDataDecoders.ToolKit_.md) |
+| 15.6       | [BcdEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [BigEndianUShort](BinaryDataDecoders.ToolKit_.md) |
-| 93.3       | [ByteEx](BinaryDataDecoders.ToolKit_.md) |
+| 46.6       | [ByteEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Calculators.LightCalculator](BinaryDataDecoders.ToolKit_LightCalculator.md) |
-| 97.6       | [Codecs.Base32Codec](BinaryDataDecoders.ToolKit_Base32Codec.md) |
-| 97.9       | [Codecs.MorseCode](BinaryDataDecoders.ToolKit_MorseCode.md) |
-| 89.2       | [Codecs.RomanExtensions](BinaryDataDecoders.ToolKit_RomanExtensions.md) |
-| 100        | [Codecs.RomanNumeral](BinaryDataDecoders.ToolKit_RomanNumeral.md) |
+| 48.8       | [Codecs.Base32Codec](BinaryDataDecoders.ToolKit_Base32Codec.md) |
+| 48.9       | [Codecs.MorseCode](BinaryDataDecoders.ToolKit_MorseCode.md) |
+| 44.6       | [Codecs.RomanExtensions](BinaryDataDecoders.ToolKit_RomanExtensions.md) |
+| 50         | [Codecs.RomanNumeral](BinaryDataDecoders.ToolKit_RomanNumeral.md) |
 | 0          | [Collections.DoubleLinkedList`1](BinaryDataDecoders.ToolKit_DoubleLinkedList_1.md) |
 | 0          | [Collections.DoubleLinkedListEx](BinaryDataDecoders.ToolKit_DoubleLinkedListEx.md) |
 | 0          | [Collections.EnumerableEx](BinaryDataDecoders.ToolKit_EnumerableEx.md) |
@@ -1404,7 +1402,7 @@
 | 0          | [ComponentModel.ViewModelBase](BinaryDataDecoders.ToolKit_ViewModelBase.md) |
 | 0          | [ConsoleEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Data.SqlTypes.SqlXmlEx](BinaryDataDecoders.ToolKit_SqlXmlEx.md) |
-| 33.3       | [DateTimeEx](BinaryDataDecoders.ToolKit_.md) |
+| 16.6       | [DateTimeEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Graphics.ColorConversion](BinaryDataDecoders.ToolKit_ColorConversion.md) |
 | 0          | [Graphics.LightCalculator](BinaryDataDecoders.ToolKit_LightCalculator.md) |
 | 0          | [Input.CommandBase](BinaryDataDecoders.ToolKit_CommandBase.md) |
@@ -1412,38 +1410,38 @@
 | 0          | [IO.PathEx](BinaryDataDecoders.ToolKit_PathEx.md) |
 | 0          | [IO.PathNavigator](BinaryDataDecoders.ToolKit_PathNavigator.md) |
 | 0          | [IO.PathNavigatorFactory](BinaryDataDecoders.ToolKit_PathNavigatorFactory.md) |
-| 50         | [IO.StreamEx](BinaryDataDecoders.ToolKit_StreamEx.md) |
-| 36.8       | [IO.TempFileHandle](BinaryDataDecoders.ToolKit_TempFileHandle.md) |
+| 25         | [IO.StreamEx](BinaryDataDecoders.ToolKit_StreamEx.md) |
+| 18.4       | [IO.TempFileHandle](BinaryDataDecoders.ToolKit_TempFileHandle.md) |
 | 0          | [Linq.EnumerableEx](BinaryDataDecoders.ToolKit_EnumerableEx.md) |
 | 0          | [Linq.ShuffleExtensions](BinaryDataDecoders.ToolKit_ShuffleExtensions.md) |
 | 0          | [Linq.TupleExtensions](BinaryDataDecoders.ToolKit_TupleExtensions.md) |
 | 0          | [MemoryCompare`1](BinaryDataDecoders.ToolKit_.md) |
-| 61.1       | [MemoryEx](BinaryDataDecoders.ToolKit_.md) |
+| 30.5       | [MemoryEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [NumberEx](BinaryDataDecoders.ToolKit_.md) |
-| 11.7       | [ObjectEx](BinaryDataDecoders.ToolKit_.md) |
-| 100        | [PathSegments.BaseValuePathSegment`1](BinaryDataDecoders.ToolKit_BaseValuePathSegment_1.md) |
-| 100        | [PathSegments.BinaryOperationPathSegment`1](BinaryDataDecoders.ToolKit_BinaryOperationPathSegment_1.md) |
-| 100        | [PathSegments.BinaryPathSegment](BinaryDataDecoders.ToolKit_BinaryPathSegment.md) |
-| 100        | [PathSegments.DecimalPathSegment](BinaryDataDecoders.ToolKit_DecimalPathSegment.md) |
-| 100        | [PathSegments.DescendantsPathSegment](BinaryDataDecoders.ToolKit_DescendantsPathSegment.md) |
-| 100        | [PathSegments.FunctionPathSegment](BinaryDataDecoders.ToolKit_FunctionPathSegment.md) |
-| 100        | [PathSegments.IndexerPathSegment](BinaryDataDecoders.ToolKit_IndexerPathSegment.md) |
-| 100        | [PathSegments.LogicBinaryOperationPathSegment](BinaryDataDecoders.ToolKit_LogicBinaryOperationPathSegment.md) |
-| 100        | [PathSegments.LogicOperationTypePathSegment](BinaryDataDecoders.ToolKit_LogicOperationTypePathSegment.md) |
-| 100        | [PathSegments.NumericPathSegment](BinaryDataDecoders.ToolKit_NumericPathSegment.md) |
-| 85.7       | [PathSegments.PathBaseTypePathSegment](BinaryDataDecoders.ToolKit_PathBaseTypePathSegment.md) |
-| 100        | [PathSegments.PathExistsPathSegment](BinaryDataDecoders.ToolKit_PathExistsPathSegment.md) |
-| 100        | [PathSegments.PredicatePathSegment](BinaryDataDecoders.ToolKit_PredicatePathSegment.md) |
-| 100        | [PathSegments.QuotedStringPathSegment](BinaryDataDecoders.ToolKit_QuotedStringPathSegment.md) |
-| 100        | [PathSegments.RangePathSegment](BinaryDataDecoders.ToolKit_RangePathSegment.md) |
-| 100        | [PathSegments.RelationalOperationTypePathSegment](BinaryDataDecoders.ToolKit_RelationalOperationTypePathSegment.md) |
-| 100        | [PathSegments.RelationBinaryOperationPathSegment](BinaryDataDecoders.ToolKit_RelationBinaryOperationPathSegment.md) |
-| 100        | [PathSegments.SetPathSegment](BinaryDataDecoders.ToolKit_SetPathSegment.md) |
-| 100        | [PathSegments.StringPathSegment](BinaryDataDecoders.ToolKit_StringPathSegment.md) |
-| 100        | [PathSegments.WildcardPathSegment](BinaryDataDecoders.ToolKit_WildcardPathSegment.md) |
-| 95.8       | [ReadOnlySpanEx](BinaryDataDecoders.ToolKit_.md) |
+| 5.8        | [ObjectEx](BinaryDataDecoders.ToolKit_.md) |
+| 50         | [PathSegments.BaseValuePathSegment`1](BinaryDataDecoders.ToolKit_BaseValuePathSegment_1.md) |
+| 50         | [PathSegments.BinaryOperationPathSegment`1](BinaryDataDecoders.ToolKit_BinaryOperationPathSegment_1.md) |
+| 50         | [PathSegments.BinaryPathSegment](BinaryDataDecoders.ToolKit_BinaryPathSegment.md) |
+| 50         | [PathSegments.DecimalPathSegment](BinaryDataDecoders.ToolKit_DecimalPathSegment.md) |
+| 50         | [PathSegments.DescendantsPathSegment](BinaryDataDecoders.ToolKit_DescendantsPathSegment.md) |
+| 25         | [PathSegments.FunctionPathSegment](BinaryDataDecoders.ToolKit_FunctionPathSegment.md) |
+| 50         | [PathSegments.IndexerPathSegment](BinaryDataDecoders.ToolKit_IndexerPathSegment.md) |
+| 50         | [PathSegments.LogicBinaryOperationPathSegment](BinaryDataDecoders.ToolKit_LogicBinaryOperationPathSegment.md) |
+| 50         | [PathSegments.LogicOperationTypePathSegment](BinaryDataDecoders.ToolKit_LogicOperationTypePathSegment.md) |
+| 50         | [PathSegments.NumericPathSegment](BinaryDataDecoders.ToolKit_NumericPathSegment.md) |
+| 42.8       | [PathSegments.PathBaseTypePathSegment](BinaryDataDecoders.ToolKit_PathBaseTypePathSegment.md) |
+| 50         | [PathSegments.PathExistsPathSegment](BinaryDataDecoders.ToolKit_PathExistsPathSegment.md) |
+| 50         | [PathSegments.PredicatePathSegment](BinaryDataDecoders.ToolKit_PredicatePathSegment.md) |
+| 50         | [PathSegments.QuotedStringPathSegment](BinaryDataDecoders.ToolKit_QuotedStringPathSegment.md) |
+| 50         | [PathSegments.RangePathSegment](BinaryDataDecoders.ToolKit_RangePathSegment.md) |
+| 50         | [PathSegments.RelationalOperationTypePathSegment](BinaryDataDecoders.ToolKit_RelationalOperationTypePathSegment.md) |
+| 50         | [PathSegments.RelationBinaryOperationPathSegment](BinaryDataDecoders.ToolKit_RelationBinaryOperationPathSegment.md) |
+| 50         | [PathSegments.SetPathSegment](BinaryDataDecoders.ToolKit_SetPathSegment.md) |
+| 50         | [PathSegments.StringPathSegment](BinaryDataDecoders.ToolKit_StringPathSegment.md) |
+| 50         | [PathSegments.WildcardPathSegment](BinaryDataDecoders.ToolKit_WildcardPathSegment.md) |
+| 47.9       | [ReadOnlySpanEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Reflection.ApplicationInformation](BinaryDataDecoders.ToolKit_ApplicationInformation.md) |
-| 76.1       | [Reflection.ReflectionElementNodeBuilder](BinaryDataDecoders.ToolKit_ReflectionElementNodeBuilder.md) |
+| 37.9       | [Reflection.ReflectionElementNodeBuilder](BinaryDataDecoders.ToolKit_ReflectionElementNodeBuilder.md) |
 | 0          | [SecureStringEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Security.Cryptography.OneTimeCode](BinaryDataDecoders.ToolKit_OneTimeCode.md) |
 | 0          | [Security.SandboxPath](BinaryDataDecoders.ToolKit_SandboxPath.md) |
@@ -1457,31 +1455,31 @@
 | 0          | [Threading.AsyncReaderWriterLock](BinaryDataDecoders.ToolKit_AsyncReaderWriterLock.md) |
 | 0          | [Threading.AsyncSemaphore](BinaryDataDecoders.ToolKit_AsyncSemaphore.md) |
 | 0          | [Threading.Tasks.TaskEx](BinaryDataDecoders.ToolKit_TaskEx.md) |
-| 53.3       | [TypeEx](BinaryDataDecoders.ToolKit_.md) |
+| 26.6       | [TypeEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Xml.Linq.ObjectXmlExtensions](BinaryDataDecoders.ToolKit_ObjectXmlExtensions.md) |
 | 0          | [Xml.Linq.XAttributeEx](BinaryDataDecoders.ToolKit_XAttributeEx.md) |
 | 0          | [Xml.Linq.XElementEx](BinaryDataDecoders.ToolKit_XElementEx.md) |
-| 67.1       | [Xml.Linq.XFragment](BinaryDataDecoders.ToolKit_XFragment.md) |
-| 100        | [Xml.Linq.XFragmentEx](BinaryDataDecoders.ToolKit_XFragmentEx.md) |
+| 33.3       | [Xml.Linq.XFragment](BinaryDataDecoders.ToolKit_XFragment.md) |
+| 50         | [Xml.Linq.XFragmentEx](BinaryDataDecoders.ToolKit_XFragmentEx.md) |
 | 0          | [Xml.Linq.XmlNodeEx](BinaryDataDecoders.ToolKit_XmlNodeEx.md) |
 | 0          | [Xml.Schema.XmlSchemaValidatorEx](BinaryDataDecoders.ToolKit_XmlSchemaValidatorEx.md) |
 | 0          | [Xml.XPath.EnumerableXPathNodeIterator](BinaryDataDecoders.ToolKit_EnumerableXPathNodeIterator.md) |
-| 75         | [Xml.XPath.ExtensibleAttributeNode`1](BinaryDataDecoders.ToolKit_ExtensibleAttributeNode_1.md) |
-| 100        | [Xml.XPath.ExtensibleElementNode](BinaryDataDecoders.ToolKit_ExtensibleElementNode.md) |
-| 87         | [Xml.XPath.ExtensibleElementNode`1](BinaryDataDecoders.ToolKit_ExtensibleElementNode_1.md) |
+| 33.3       | [Xml.XPath.ExtensibleAttributeNode`1](BinaryDataDecoders.ToolKit_ExtensibleAttributeNode_1.md) |
+| 50         | [Xml.XPath.ExtensibleElementNode](BinaryDataDecoders.ToolKit_ExtensibleElementNode.md) |
+| 43.5       | [Xml.XPath.ExtensibleElementNode`1](BinaryDataDecoders.ToolKit_ExtensibleElementNode_1.md) |
 | 0          | [Xml.XPath.ExtensibleNamespaceNode`1](BinaryDataDecoders.ToolKit_ExtensibleNamespaceNode_1.md) |
-| 40         | [Xml.XPath.ExtensibleNameTable](BinaryDataDecoders.ToolKit_ExtensibleNameTable.md) |
-| 76.6       | [Xml.XPath.ExtensibleNavigator](BinaryDataDecoders.ToolKit_ExtensibleNavigator.md) |
-| 37.5       | [Xml.XPath.ExtensibleRootNode`1](BinaryDataDecoders.ToolKit_ExtensibleRootNode_1.md) |
+| 20         | [Xml.XPath.ExtensibleNameTable](BinaryDataDecoders.ToolKit_ExtensibleNameTable.md) |
+| 38.3       | [Xml.XPath.ExtensibleNavigator](BinaryDataDecoders.ToolKit_ExtensibleNavigator.md) |
+| 18.7       | [Xml.XPath.ExtensibleRootNode`1](BinaryDataDecoders.ToolKit_ExtensibleRootNode_1.md) |
 | 0          | [Xml.XPath.ExtensibleSignificantWhitespaceNode`1](BinaryDataDecoders.ToolKit_ExtensibleSignificantWhitespaceNode_1.md) |
-| 75         | [Xml.XPath.ExtensibleSimpleNodeBase`1](BinaryDataDecoders.ToolKit_ExtensibleSimpleNodeBase_1.md) |
-| 100        | [Xml.XPath.ExtensibleTextNode`1](BinaryDataDecoders.ToolKit_ExtensibleTextNode_1.md) |
-| 100        | [Xml.XPath.ExtensibleWhitespaceNode`1](BinaryDataDecoders.ToolKit_ExtensibleWhitespaceNode_1.md) |
-| 50         | [Xml.XPath.NodeExtensions](BinaryDataDecoders.ToolKit_NodeExtensions.md) |
-| 32.9       | [Xml.XPath.WrappedNavigator](BinaryDataDecoders.ToolKit_WrappedNavigator.md) |
-| 85         | [Xml.XPath.WrappedNode](BinaryDataDecoders.ToolKit_WrappedNode.md) |
-| 89.7       | [Xml.XPath.XPathExpressionBuilder](BinaryDataDecoders.ToolKit_XPathExpressionBuilder.md) |
-| 15.3       | [Xml.XPath.XPathExtensions](BinaryDataDecoders.ToolKit_XPathExtensions.md) |
+| 37.5       | [Xml.XPath.ExtensibleSimpleNodeBase`1](BinaryDataDecoders.ToolKit_ExtensibleSimpleNodeBase_1.md) |
+| 50         | [Xml.XPath.ExtensibleTextNode`1](BinaryDataDecoders.ToolKit_ExtensibleTextNode_1.md) |
+| 50         | [Xml.XPath.ExtensibleWhitespaceNode`1](BinaryDataDecoders.ToolKit_ExtensibleWhitespaceNode_1.md) |
+| 25         | [Xml.XPath.NodeExtensions](BinaryDataDecoders.ToolKit_NodeExtensions.md) |
+| 16.2       | [Xml.XPath.WrappedNavigator](BinaryDataDecoders.ToolKit_WrappedNavigator.md) |
+| 42.5       | [Xml.XPath.WrappedNode](BinaryDataDecoders.ToolKit_WrappedNode.md) |
+| 44.8       | [Xml.XPath.XPathExpressionBuilder](BinaryDataDecoders.ToolKit_XPathExpressionBuilder.md) |
+| 7.6        | [Xml.XPath.XPathExtensions](BinaryDataDecoders.ToolKit_XPathExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.EnvironmentExtensions](BinaryDataDecoders.ToolKit_EnvironmentExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.FileExtensions](BinaryDataDecoders.ToolKit_FileExtensions.md) |
 | 0          | [Xml.Xsl.Extensions.PathExtensions](BinaryDataDecoders.ToolKit_PathExtensions.md) |
@@ -1504,7 +1502,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `2`  |
-| totallines      | `24` |
+| totallines      | `18` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |
@@ -1525,10 +1523,10 @@
 | Key             | Value  |
 | :-------------- | :----- |
 | classes         | `21`   |
-| coverage        | `64.9` |
+| coverage        | `65.1` |
 | coveredlines    | `237`  |
-| coverablelines  | `365`  |
-| totallines      | `1342` |
+| coverablelines  | `364`  |
+| totallines      | `1330` |
 | branchcoverage  | `24`   |
 | coveredbranches | `13`   |
 | totalbranches   | `54`   |
@@ -1572,7 +1570,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `39` |
-| totallines      | `93` |
+| totallines      | `91` |
 | branchcoverage  | `0`  |
 | coveredbranches | `0`  |
 | totalbranches   | `24` |
@@ -1597,7 +1595,7 @@
 | coverage        | `0`  |
 | coveredlines    | `0`  |
 | coverablelines  | `6`  |
-| totallines      | `29` |
+| totallines      | `28` |
 | coveredbranches | `0`  |
 | totalbranches   | `0`  |
 | coveredmethods  | `0`  |

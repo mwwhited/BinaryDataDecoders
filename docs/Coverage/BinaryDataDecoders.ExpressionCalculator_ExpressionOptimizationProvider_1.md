@@ -9,7 +9,7 @@
 | Coveredlines    | `10`                                                                                  |
 | Uncoveredlines  | `0`                                                                                   |
 | Coverablelines  | `10`                                                                                  |
-| Totallines      | `142`                                                                                 |
+| Totallines      | `141`                                                                                 |
 | Linecoverage    | `100`                                                                                 |
 | Coveredbranches | `4`                                                                                   |
 | Totalbranches   | `4`                                                                                   |
@@ -27,7 +27,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Optimizers/ExpressionOptimizer.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Optimizers/ExpressionOptimizer.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ExpressionCalculator.Expressions;
@@ -35,143 +35,142 @@
 〰3:   using System.Collections.Generic;
 〰4:   using System.Linq;
 〰5:   
-〰6:   namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
-〰7:   {
-〰8:       public class ExpressionOptimizationProvider<T>
-〰9:           where T : struct, IComparable<T>, IEquatable<T>
-〰10:      {
-✔11:          private static readonly IEnumerable<IExpressionOptimizer<T>> _optimizations = new IExpressionOptimizer<T>[]
-✔12:          {
-✔13:              new InnerExpressionReducer<T>(),
-✔14:              new UnaryNumericExpressionReducer<T>(),
-✔15:              new IdentityExpressionOptimizer<T>(),
-✔16:              new DeterminedExpressionReducer<T>(),
-✔17:              new ShiftCommutativeVariablesRight<T>(),
-✔18:          };
+〰6:   namespace BinaryDataDecoders.ExpressionCalculator.Optimizers;
+〰7:   
+〰8:   public class ExpressionOptimizationProvider<T>
+〰9:       where T : struct, IComparable<T>, IEquatable<T>
+〰10:  {
+✔11:      private static readonly IEnumerable<IExpressionOptimizer<T>> _optimizations = new IExpressionOptimizer<T>[]
+✔12:      {
+✔13:          new InnerExpressionReducer<T>(),
+✔14:          new UnaryNumericExpressionReducer<T>(),
+✔15:          new IdentityExpressionOptimizer<T>(),
+✔16:          new DeterminedExpressionReducer<T>(),
+✔17:          new ShiftCommutativeVariablesRight<T>(),
+✔18:      };
 〰19:  
-〰20:          public ExpressionBase<T> Optimize(ExpressionBase<T> expression)
-〰21:          {
-✔22:              var optimized = _optimizations.Aggregate(expression.Clone(), (exp, operation) => operation.Optimize(exp));
-✔23:              return string.Equals(optimized.ToString(), expression.ToString()) ? optimized : Optimize(optimized);
-〰24:          }
-〰25:      }
-〰26:  }
-〰27:  /*
-〰28:  	private static ExpressionBase replaceVariables(ExpressionBase expression, HashMap<String, BigDecimal> variables) {
-〰29:  		if (expression instanceof InnerExpression) {
-〰30:  			var inner =(InnerExpression) expression;
-〰31:  			var child = replaceVariables(inner.getInner(), variables);
-〰32:  			inner.setInner(child);
-〰33:  			return inner;
-〰34:  		} else if (expression instanceof BinaryOperatorExpression) {
-〰35:  			var binOpExp = (BinaryOperatorExpression) expression;
-〰36:  			binOpExp.setLeft(replaceVariables(binOpExp.getLeft(), variables));
-〰37:  			binOpExp.setRight(replaceVariables(binOpExp.getRight(), variables));
-〰38:  		} else if (expression instanceof VariableExpression) {
-〰39:  			var varExp = (VariableExpression) expression;
-〰40:  			var name = varExp.getName();
-〰41:  			if (variables.containsKey(name)) {
-〰42:  				var value = variables.get(name);
-〰43:  				return new NumberExpression(value);
-〰44:  			}
-〰45:  		}
-〰46:  
-〰47:  		return expression;
-〰48:  	}
-〰49:  
-〰50:  	// Bonus Round (if add term reducer)
-〰51:  	// B^-1=>(1/B)
-〰52:  	// B/N=>B*(1/N)
-〰53:  	// (B/N)*(B/Y)=>B*(1/(N*Y))
-〰54:  	// B*B*...=>B^T
-〰55:  	// B+B+...=>B*T
-〰56:  
-〰57:  	@SuppressWarnings("unlikely-arg-type")
-〰58:  	private static boolean isOne(ExpressionBase child) {
-〰59:  		return child.equals(BigDecimal.ONE);
-〰60:  	}
-〰61:  
-〰62:  	@SuppressWarnings("unlikely-arg-type")
-〰63:  	private static boolean isZero(ExpressionBase child) {
-〰64:  		return child.equals(BigDecimal.ZERO);
-〰65:  	}
-〰66:  
-〰67:  	@SuppressWarnings("unlikely-arg-type")
-〰68:  	private static boolean isNegativeOne(ExpressionBase child) {
-〰69:  		return child.equals(new BigDecimal(-1));
-〰70:  	}
-〰71:  
-〰72:  */
-〰73:  /*
-〰74:  package tools;
-〰75:  
-〰76:  import java.util.Comparator;
-〰77:  import expressions.*;
-〰78:  
-〰79:  public class ExpressionComparator implements Comparator<ExpressionBase> {
-〰80:  
-〰81:  	@Override
-〰82:  	public int compare(ExpressionBase left, ExpressionBase right) {
-〰83:  
-〰84:  		if (left instanceof VariableExpression && !(right instanceof VariableExpression)) {
-〰85:  			return 1;
-〰86:  		}
-〰87:  		else if (!(left instanceof VariableExpression) && right instanceof VariableExpression) {
-〰88:  			return -1;
-〰89:  		} else {
-〰90:  		return 0;
-〰91:  		}
-〰92:  	}
-〰93:  }
-〰94:  */
-〰95:  /*
-〰96:  package tools;
-〰97:  
-〰98:  import java.util.*;
-〰99:  import java.util.stream.Stream;
-〰100: 
-〰101: import expressions.*;
-〰102: 
-〰103: public final class ExpressionIterator {
-〰104: 
-〰105: 	public static Stream<ExpressionBase> GetAllSubExpressions(ExpressionBase expression) {
-〰106: 		var items = new ArrayList<ExpressionBase>();
-〰107: 		populateWith(items, expression);
-〰108: 		return items.stream();
-〰109: 	}
-〰110: 
-〰111: 	public static Stream<VariableExpression> GetAllVariableExpressions(ExpressionBase expression){
-〰112: 		return GetAllSubExpressions(expression)
-〰113: 				.filter(exp-> exp instanceof VariableExpression)
-〰114: 				.map(exp -> (VariableExpression)exp)
-〰115: 				;
-〰116: 	}
-〰117: 
-〰118: 	public static Stream<String> GetDistinctVariableNames(ExpressionBase expression){
-〰119: 		return GetAllVariableExpressions(expression)
-〰120: 				.map(exp -> exp.getName())
-〰121: 				.distinct()
-〰122: 				;
-〰123: 	}
-〰124: 
-〰125: 	private static void populateWith(ArrayList<ExpressionBase> items, ExpressionBase expression) {
-〰126: 		if (expression != null) {
-〰127: 			items.add(expression);
-〰128: 			if (expression instanceof InnerExpression) {
-〰129: 				populateWith(items, ((InnerExpression)expression).getInner());
-〰130: 			}
-〰131: 			else if (expression instanceof UnaryOperatorExpression) {
-〰132: 				populateWith(items, ((UnaryOperatorExpression)expression).getOperand());
-〰133: 			}
-〰134: 			else if (expression instanceof BinaryOperatorExpression) {
-〰135: 				populateWith(items, ((BinaryOperatorExpression)expression).getLeft());
-〰136: 				populateWith(items, ((BinaryOperatorExpression)expression).getRight());
-〰137: 			}
-〰138: 		}
-〰139: 	}
-〰140: 
-〰141: }
-〰142: */
+〰20:      public ExpressionBase<T> Optimize(ExpressionBase<T> expression)
+〰21:      {
+✔22:          var optimized = _optimizations.Aggregate(expression.Clone(), (exp, operation) => operation.Optimize(exp));
+✔23:          return string.Equals(optimized.ToString(), expression.ToString()) ? optimized : Optimize(optimized);
+〰24:      }
+〰25:  }
+〰26:  /*
+〰27:  	private static ExpressionBase replaceVariables(ExpressionBase expression, HashMap<String, BigDecimal> variables) {
+〰28:  		if (expression instanceof InnerExpression) {
+〰29:  			var inner =(InnerExpression) expression;
+〰30:  			var child = replaceVariables(inner.getInner(), variables);
+〰31:  			inner.setInner(child);
+〰32:  			return inner;
+〰33:  		} else if (expression instanceof BinaryOperatorExpression) {
+〰34:  			var binOpExp = (BinaryOperatorExpression) expression;
+〰35:  			binOpExp.setLeft(replaceVariables(binOpExp.getLeft(), variables));
+〰36:  			binOpExp.setRight(replaceVariables(binOpExp.getRight(), variables));
+〰37:  		} else if (expression instanceof VariableExpression) {
+〰38:  			var varExp = (VariableExpression) expression;
+〰39:  			var name = varExp.getName();
+〰40:  			if (variables.containsKey(name)) {
+〰41:  				var value = variables.get(name);
+〰42:  				return new NumberExpression(value);
+〰43:  			}
+〰44:  		}
+〰45:  
+〰46:  		return expression;
+〰47:  	}
+〰48:  
+〰49:  	// Bonus Round (if add term reducer)
+〰50:  	// B^-1=>(1/B)
+〰51:  	// B/N=>B*(1/N)
+〰52:  	// (B/N)*(B/Y)=>B*(1/(N*Y))
+〰53:  	// B*B*...=>B^T
+〰54:  	// B+B+...=>B*T
+〰55:  
+〰56:  	@SuppressWarnings("unlikely-arg-type")
+〰57:  	private static boolean isOne(ExpressionBase child) {
+〰58:  		return child.equals(BigDecimal.ONE);
+〰59:  	}
+〰60:  
+〰61:  	@SuppressWarnings("unlikely-arg-type")
+〰62:  	private static boolean isZero(ExpressionBase child) {
+〰63:  		return child.equals(BigDecimal.ZERO);
+〰64:  	}
+〰65:  
+〰66:  	@SuppressWarnings("unlikely-arg-type")
+〰67:  	private static boolean isNegativeOne(ExpressionBase child) {
+〰68:  		return child.equals(new BigDecimal(-1));
+〰69:  	}
+〰70:  
+〰71:  */
+〰72:  /*
+〰73:  package tools;
+〰74:  
+〰75:  import java.util.Comparator;
+〰76:  import expressions.*;
+〰77:  
+〰78:  public class ExpressionComparator implements Comparator<ExpressionBase> {
+〰79:  
+〰80:  	@Override
+〰81:  	public int compare(ExpressionBase left, ExpressionBase right) {
+〰82:  
+〰83:  		if (left instanceof VariableExpression && !(right instanceof VariableExpression)) {
+〰84:  			return 1;
+〰85:  		}
+〰86:  		else if (!(left instanceof VariableExpression) && right instanceof VariableExpression) {
+〰87:  			return -1;
+〰88:  		} else {
+〰89:  		return 0;
+〰90:  		}
+〰91:  	}
+〰92:  }
+〰93:  */
+〰94:  /*
+〰95:  package tools;
+〰96:  
+〰97:  import java.util.*;
+〰98:  import java.util.stream.Stream;
+〰99:  
+〰100: import expressions.*;
+〰101: 
+〰102: public final class ExpressionIterator {
+〰103: 
+〰104: 	public static Stream<ExpressionBase> GetAllSubExpressions(ExpressionBase expression) {
+〰105: 		var items = new ArrayList<ExpressionBase>();
+〰106: 		populateWith(items, expression);
+〰107: 		return items.stream();
+〰108: 	}
+〰109: 
+〰110: 	public static Stream<VariableExpression> GetAllVariableExpressions(ExpressionBase expression){
+〰111: 		return GetAllSubExpressions(expression)
+〰112: 				.filter(exp-> exp instanceof VariableExpression)
+〰113: 				.map(exp -> (VariableExpression)exp)
+〰114: 				;
+〰115: 	}
+〰116: 
+〰117: 	public static Stream<String> GetDistinctVariableNames(ExpressionBase expression){
+〰118: 		return GetAllVariableExpressions(expression)
+〰119: 				.map(exp -> exp.getName())
+〰120: 				.distinct()
+〰121: 				;
+〰122: 	}
+〰123: 
+〰124: 	private static void populateWith(ArrayList<ExpressionBase> items, ExpressionBase expression) {
+〰125: 		if (expression != null) {
+〰126: 			items.add(expression);
+〰127: 			if (expression instanceof InnerExpression) {
+〰128: 				populateWith(items, ((InnerExpression)expression).getInner());
+〰129: 			}
+〰130: 			else if (expression instanceof UnaryOperatorExpression) {
+〰131: 				populateWith(items, ((UnaryOperatorExpression)expression).getOperand());
+〰132: 			}
+〰133: 			else if (expression instanceof BinaryOperatorExpression) {
+〰134: 				populateWith(items, ((BinaryOperatorExpression)expression).getLeft());
+〰135: 				populateWith(items, ((BinaryOperatorExpression)expression).getRight());
+〰136: 			}
+〰137: 		}
+〰138: 	}
+〰139: 
+〰140: }
+〰141: */
 ```
 
 ## Links

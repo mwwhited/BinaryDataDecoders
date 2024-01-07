@@ -35,29 +35,29 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int16ExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int16ExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class Int16ExpressionEvaluator : IExpressionEvaluator<short>
-〰6:       {
-✔7:           public short Add(short left, short right) => (short)(left + right);
-✔8:           public short Divide(short left, short right) => (short)(left / right);
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class Int16ExpressionEvaluator : IExpressionEvaluator<short>
+〰6:   {
+✔7:       public short Add(short left, short right) => (short)(left + right);
+✔8:       public short Divide(short left, short right) => (short)(left / right);
 〰9:   
-✔10:          public short Modulo(short left, short right) => (short)(left % right);
-✔11:          public short Multiply(short left, short right) => (short)(left * right);
-✔12:          public short Negate(short operand) => (short)(-operand);
-✔13:          public short Power(short left, short right) => (short)Math.Pow((double)left, (double)right);
-✔14:          public short Subtract(short left, short right) => (short)(left - right);
+✔10:      public short Modulo(short left, short right) => (short)(left % right);
+✔11:      public short Multiply(short left, short right) => (short)(left * right);
+✔12:      public short Negate(short operand) => (short)(-operand);
+✔13:      public short Power(short left, short right) => (short)Math.Pow((double)left, (double)right);
+✔14:      public short Subtract(short left, short right) => (short)(left - right);
 〰15:  
-⚠16:          public short? TryParse(string input) => short.TryParse(input, out var ret) ? (short?)ret : null;
-✔17:          public short GetValue(int value) => (short)value;
-✔18:          public short GetValue(double value) => (short)value;
-〰19:      }
-〰20:  }
+⚠16:      public short? TryParse(string input) => short.TryParse(input, out var ret) ? (short?)ret : null;
+✔17:      public short GetValue(int value) => (short)value;
+✔18:      public short GetValue(double value) => (short)value;
+〰19:  }
+〰20:  
 ```
 
 ## Links

@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - DiscardServer
-
-#####  Parameters
-
- - IPAddress ? ipAddress = default 
- - ushort port = 9 
-
 #### Method - MessageReceivedAsync
 
 #####  Parameters

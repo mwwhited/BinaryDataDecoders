@@ -21,12 +21,6 @@
 
  * Type: T 
 
-#### Public Constructor - NumberExpression
-
-#####  Parameters
-
- - T value 
-
 #### Public Method - Evaluate
 
 #####  Parameters

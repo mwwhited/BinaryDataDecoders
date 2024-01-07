@@ -27,14 +27,6 @@
 
  * Type: object 
 
-#### Public Constructor - ReflectionElementNodeBuilder
-
-#####  Parameters
-
- - object seed 
- - bool excludeNamespace = false 
- - bool excludeTypeDetails = false 
-
 #### Public Method - Build
 
 

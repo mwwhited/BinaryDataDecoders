@@ -26,46 +26,46 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Cryptography.Tests/VigenereTests.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.Cryptography.Tests/VigenereTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.TestUtilities;
 〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
 〰3:   
-〰4:   namespace BinaryDataDecoders.Cryptography.Tests
-〰5:   {
-〰6:       [TestClass]
-〰7:       public class VigenereTests
-〰8:       {
-〰9:           public TestContext TestContext { get; set; }
+〰4:   namespace BinaryDataDecoders.Cryptography.Tests;
+〰5:   
+〰6:   [TestClass]
+〰7:   public class VigenereTests
+〰8:   {
+〰9:       public TestContext TestContext { get; set; }
 〰10:  
-〰11:          [DataTestMethod]
-〰12:          [DataRow("Hello World", "World", "Dscwr Kfcoz")]
-〰13:          [DataRow("Hello, World", "world", "Dscwr, Nzuhr")]
-〰14:          [DataRow("hello, world", "World", "dscwr, nzuhr")]
-〰15:          [DataRow("hello world", "Hello", "oiwwc azczk")]
-〰16:          [TestMethod, TestCategory(TestCategories.Unit)]
-〰17:          public void EncodeTest(string message, string key, string expected)
-〰18:          {
-✔19:              var result = new Vigenere().Encode(message, key);
-✔20:              this.TestContext.WriteLine($"{message} -> {result}");
-✔21:              Assert.AreEqual(expected, result);
-✔22:          }
+〰11:      [DataTestMethod]
+〰12:      [DataRow("Hello World", "World", "Dscwr Kfcoz")]
+〰13:      [DataRow("Hello, World", "world", "Dscwr, Nzuhr")]
+〰14:      [DataRow("hello, world", "World", "dscwr, nzuhr")]
+〰15:      [DataRow("hello world", "Hello", "oiwwc azczk")]
+〰16:      [TestMethod, TestCategory(TestCategories.Unit)]
+〰17:      public void EncodeTest(string message, string key, string expected)
+〰18:      {
+✔19:          var result = new Vigenere().Encode(message, key);
+✔20:          this.TestContext.WriteLine($"{message} -> {result}");
+✔21:          Assert.AreEqual(expected, result);
+✔22:      }
 〰23:  
-〰24:          [DataTestMethod]
-〰25:          [DataRow("Dscwr Kfcoz", "World", "Hello World")]
-〰26:          [DataRow("Dscwr, Nzuhr", "World", "Hello, World")]
-〰27:          [DataRow("dscwr, nzuhr", "World", "hello, world")]
-〰28:          [DataRow("oiwwc azczk", "Hello", "hello world")]
-〰29:          [TestMethod, TestCategory(TestCategories.Unit)]
-〰30:          public void DecodeTest(string message, string key, string expected)
-〰31:          {
-✔32:              var result = new Vigenere().Decode(message, key);
-✔33:              this.TestContext.WriteLine($"{message} -> {result}");
-✔34:              Assert.AreEqual(expected, result);
-✔35:          }
-〰36:      }
-〰37:  }
+〰24:      [DataTestMethod]
+〰25:      [DataRow("Dscwr Kfcoz", "World", "Hello World")]
+〰26:      [DataRow("Dscwr, Nzuhr", "World", "Hello, World")]
+〰27:      [DataRow("dscwr, nzuhr", "World", "hello, world")]
+〰28:      [DataRow("oiwwc azczk", "Hello", "hello world")]
+〰29:      [TestMethod, TestCategory(TestCategories.Unit)]
+〰30:      public void DecodeTest(string message, string key, string expected)
+〰31:      {
+✔32:          var result = new Vigenere().Decode(message, key);
+✔33:          this.TestContext.WriteLine($"{message} -> {result}");
+✔34:          Assert.AreEqual(expected, result);
+✔35:      }
+〰36:  }
+〰37:  
 ```
 
 ## Links

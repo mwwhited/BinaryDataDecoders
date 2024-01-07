@@ -7,21 +7,26 @@
 | Class           | `BinaryDataDecoders.ToolKit.Codecs.MorseCode` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                  |
 | Coveredlines    | `48`                                          |
-| Uncoveredlines  | `1`                                           |
-| Coverablelines  | `49`                                          |
-| Totallines      | `67`                                          |
-| Linecoverage    | `97.9`                                        |
+| Uncoveredlines  | `50`                                          |
+| Coverablelines  | `98`                                          |
+| Totallines      | `129`                                         |
+| Linecoverage    | `48.9`                                        |
 | Coveredbranches | `7`                                           |
-| Totalbranches   | `8`                                           |
-| Branchcoverage  | `87.5`                                        |
+| Totalbranches   | `16`                                          |
+| Branchcoverage  | `43.7`                                        |
 | Coveredmethods  | `5`                                           |
-| Totalmethods    | `5`                                           |
-| Methodcoverage  | `100`                                         |
+| Totalmethods    | `10`                                          |
+| Methodcoverage  | `50`                                          |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name     |
 | :--------- | :---- | :------- | :------- |
+| 1          | 0     | 100      | `Encode` |
+| 1          | 0     | 100      | `Decode` |
+| 8          | 0     | 0        | `Map`    |
+| 1          | 0     | 100      | `Map`    |
+| 1          | 0     | 100      | `ctor`   |
 | 1          | 100   | 100      | `Encode` |
 | 1          | 100   | 100      | `Decode` |
 | 8          | 85.71 | 87.50    | `Map`    |
@@ -36,70 +41,137 @@
 〰1:   using System;
 〰2:   using System.Collections.Generic;
 〰3:   using System.Linq;
-〰4:   using System.Text;
-〰5:   using System.Threading.Tasks;
+〰4:   
+〰5:   namespace BinaryDataDecoders.ToolKit.Codecs;
 〰6:   
-〰7:   namespace BinaryDataDecoders.ToolKit.Codecs
+〰7:   public class MorseCode
 〰8:   {
-〰9:       public class MorseCode
-〰10:      {
-✔11:          public string Encode(string input) => string.Join(" ", input.Select(Map).Where(c => c != "")).Replace("   ", "  ");
+‼9:       public string Encode(string input) => string.Join(" ", input.Select(Map).Where(c => c != "")).Replace("   ", "  ");
+〰10:  
+‼11:      public string Decode(string input) => new(input.Split(' ').Select(Map).ToArray());
 〰12:  
-✔13:          public string Decode(string input) => new string(input.Split(' ').Select(Map).ToArray());
-〰14:  
-〰15:          public string Map(char input) =>
-⚠16:              (char)(input > '_' ? input & 0b01011111 : input) switch
-✔17:              {
-✔18:                  char chr when _mapping.ContainsKey(chr) => _mapping[chr],
-‼19:                  '\n' => Environment.NewLine,
-✔20:                  ' ' => " ",
-✔21:                  _ => "",
-✔22:              };
-〰23:  
-〰24:          public char Map(string input) =>
-✔25:              _mapping.Where(v => v.Value == input).Select(k => k.Key).FirstOrDefault(' ');
-〰26:  
-✔27:          private IReadOnlyDictionary<char, string> _mapping = new Dictionary<char, string>
-✔28:          {
-✔29:                { 'A', ".-"    },
-✔30:                { 'B', "-..."  },
-✔31:                { 'C', "-.-."  },
-✔32:                { 'D', "-.."   },
-✔33:                { 'E', "."     },
-✔34:                { 'F', "..-."  },
-✔35:                { 'G', "--."   },
-✔36:                { 'H', "...."  },
-✔37:                { 'I', ".."    },
-✔38:                { 'J', ".---"  },
-✔39:                { 'K', "-.-"   },
-✔40:                { 'L', ".-.."  },
-✔41:                { 'M', "--"    },
-✔42:                { 'N', "-."    },
-✔43:                { 'O', "---"   },
-✔44:                { 'P', ".--."  },
-✔45:                { 'Q', "--.-"  },
-✔46:                { 'R', ".-."   },
-✔47:                { 'S', "..."   },
-✔48:                { 'T', "-"     },
-✔49:                { 'U', "..-"   },
-✔50:                { 'V', "...-"  },
-✔51:                { 'W', ".--"   },
-✔52:                { 'X', "-..-"  },
-✔53:                { 'Y', "-.--"  },
-✔54:                { 'Z', "--.."  },
-✔55:                { '1', ".----" },
-✔56:                { '2', "..---" },
-✔57:                { '3', "...--" },
-✔58:                { '4', "....-" },
-✔59:                { '5', "....." },
-✔60:                { '6', "-...." },
-✔61:                { '7', "--..." },
-✔62:                { '8', "---.." },
-✔63:                { '9', "----." },
-✔64:                { '0', "-----" },
-✔65:          };
-〰66:      }
-〰67:  }
+〰13:      public string Map(char input) =>
+‼14:          (char)(input > '_' ? input & 0b01011111 : input) switch
+‼15:          {
+‼16:              char chr when _mapping.ContainsKey(chr) => _mapping[chr],
+‼17:              '\n' => Environment.NewLine,
+‼18:              ' ' => " ",
+‼19:              _ => "",
+‼20:          };
+〰21:  
+〰22:      public char Map(string input) =>
+‼23:          _mapping.Where(v => v.Value == input).Select(k => k.Key).FirstOrDefault(' ');
+〰24:  
+‼25:      private readonly IReadOnlyDictionary<char, string> _mapping = new Dictionary<char, string>
+‼26:      {
+‼27:            { 'A', ".-"    },
+‼28:            { 'B', "-..."  },
+‼29:            { 'C', "-.-."  },
+‼30:            { 'D', "-.."   },
+‼31:            { 'E', "."     },
+‼32:            { 'F', "..-."  },
+‼33:            { 'G', "--."   },
+‼34:            { 'H', "...."  },
+‼35:            { 'I', ".."    },
+‼36:            { 'J', ".---"  },
+‼37:            { 'K', "-.-"   },
+‼38:            { 'L', ".-.."  },
+‼39:            { 'M', "--"    },
+‼40:            { 'N', "-."    },
+‼41:            { 'O', "---"   },
+‼42:            { 'P', ".--."  },
+‼43:            { 'Q', "--.-"  },
+‼44:            { 'R', ".-."   },
+‼45:            { 'S', "..."   },
+‼46:            { 'T', "-"     },
+‼47:            { 'U', "..-"   },
+‼48:            { 'V', "...-"  },
+‼49:            { 'W', ".--"   },
+‼50:            { 'X', "-..-"  },
+‼51:            { 'Y', "-.--"  },
+‼52:            { 'Z', "--.."  },
+‼53:            { '1', ".----" },
+‼54:            { '2', "..---" },
+‼55:            { '3', "...--" },
+‼56:            { '4', "....-" },
+‼57:            { '5', "....." },
+‼58:            { '6', "-...." },
+‼59:            { '7', "--..." },
+‼60:            { '8', "---.." },
+‼61:            { '9', "----." },
+‼62:            { '0', "-----" },
+‼63:      };
+〰64:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Codecs/MorseCode.cs
+
+```CSharp
+〰1:   using System;
+〰2:   using System.Collections.Generic;
+〰3:   using System.Linq;
+〰4:   
+〰5:   namespace BinaryDataDecoders.ToolKit.Codecs;
+〰6:   
+〰7:   public class MorseCode
+〰8:   {
+✔9:       public string Encode(string input) => string.Join(" ", input.Select(Map).Where(c => c != "")).Replace("   ", "  ");
+〰10:  
+✔11:      public string Decode(string input) => new(input.Split(' ').Select(Map).ToArray());
+〰12:  
+〰13:      public string Map(char input) =>
+⚠14:          (char)(input > '_' ? input & 0b01011111 : input) switch
+✔15:          {
+✔16:              char chr when _mapping.ContainsKey(chr) => _mapping[chr],
+‼17:              '\n' => Environment.NewLine,
+✔18:              ' ' => " ",
+✔19:              _ => "",
+✔20:          };
+〰21:  
+〰22:      public char Map(string input) =>
+✔23:          _mapping.Where(v => v.Value == input).Select(k => k.Key).FirstOrDefault(' ');
+〰24:  
+✔25:      private readonly IReadOnlyDictionary<char, string> _mapping = new Dictionary<char, string>
+✔26:      {
+✔27:            { 'A', ".-"    },
+✔28:            { 'B', "-..."  },
+✔29:            { 'C', "-.-."  },
+✔30:            { 'D', "-.."   },
+✔31:            { 'E', "."     },
+✔32:            { 'F', "..-."  },
+✔33:            { 'G', "--."   },
+✔34:            { 'H', "...."  },
+✔35:            { 'I', ".."    },
+✔36:            { 'J', ".---"  },
+✔37:            { 'K', "-.-"   },
+✔38:            { 'L', ".-.."  },
+✔39:            { 'M', "--"    },
+✔40:            { 'N', "-."    },
+✔41:            { 'O', "---"   },
+✔42:            { 'P', ".--."  },
+✔43:            { 'Q', "--.-"  },
+✔44:            { 'R', ".-."   },
+✔45:            { 'S', "..."   },
+✔46:            { 'T', "-"     },
+✔47:            { 'U', "..-"   },
+✔48:            { 'V', "...-"  },
+✔49:            { 'W', ".--"   },
+✔50:            { 'X', "-..-"  },
+✔51:            { 'Y', "-.--"  },
+✔52:            { 'Z', "--.."  },
+✔53:            { '1', ".----" },
+✔54:            { '2', "..---" },
+✔55:            { '3', "...--" },
+✔56:            { '4', "....-" },
+✔57:            { '5', "....." },
+✔58:            { '6', "-...." },
+✔59:            { '7', "--..." },
+✔60:            { '8', "---.." },
+✔61:            { '9', "----." },
+✔62:            { '0', "-----" },
+✔63:      };
+〰64:  }
+〰65:  
 ```
 
 ## Links

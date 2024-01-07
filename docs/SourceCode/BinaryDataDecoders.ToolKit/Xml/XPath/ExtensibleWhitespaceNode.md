@@ -7,14 +7,3 @@
 
 ## Internal Class - ExtensibleWhitespaceNode
 
-### Members
-
-#### Public Constructor - ExtensibleWhitespaceNode
-
-#####  Parameters
-
- - INode parent 
- - XName name 
- - T item 
- - string value 
-

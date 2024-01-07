@@ -9,25 +9,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _nugetLogger
-
-##### Summary
-
- * Type: ILogger 
-
-#### Private ReadOnly Field - _logger
-
-##### Summary
-
- * Type: 
-
-#### Public Constructor - NugetManager
-
-#####  Parameters
-
- - ILogger nugetLogger 
- - ILogger < NugetManager > logger 
-
 #### Public Method - SplitVersions
 
 #####  Parameters

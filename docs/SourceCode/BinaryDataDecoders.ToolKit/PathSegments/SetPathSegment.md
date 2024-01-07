@@ -15,12 +15,6 @@
 
  * Type: IEnumerable < IPathSegment > 
 
-#### Public Constructor - SetPathSegment
-
-#####  Parameters
-
- - IEnumerable < IPathSegment > set 
-
 #### Public Method - ToString
 
 

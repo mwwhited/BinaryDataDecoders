@@ -9,12 +9,6 @@
 
 ### Members
 
-#### Public Constructor - PlantUmlBlock
-
-#####  Parameters
-
- - BlockParser parser 
-
 #### Public Method - GetScript
 
 

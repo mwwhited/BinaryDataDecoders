@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - DaytimeServer
-
-#####  Parameters
-
- - IPAddress ? ipAddress = default 
- - ushort port = 13 
-
 #### Async Method - MessageReceivedAsync
 
 #####  Parameters

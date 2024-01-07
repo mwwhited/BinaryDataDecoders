@@ -16,20 +16,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _item
-
-##### Summary
-
- * Type: T 
-
-#### Public Constructor - ExtensibleNamespaceNode
-
-#####  Parameters
-
- - INode parent 
- - XName name 
- - T item 
-
 #### Public Property - Parent
 
 ##### Summary

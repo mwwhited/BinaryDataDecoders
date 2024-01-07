@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.Xsl.XsltFunctionAttribute` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                               |
 | Coveredlines    | `0`                                                        |
-| Uncoveredlines  | `1`                                                        |
-| Coverablelines  | `1`                                                        |
-| Totallines      | `14`                                                       |
+| Uncoveredlines  | `2`                                                        |
+| Coverablelines  | `2`                                                        |
+| Totallines      | `23`                                                       |
 | Linecoverage    | `0`                                                        |
 | Coveredbranches | `0`                                                        |
 | Totalbranches   | `0`                                                        |
 | Coveredmethods  | `0`                                                        |
-| Totalmethods    | `1`                                                        |
+| Totalmethods    | `2`                                                        |
 | Methodcoverage  | `0`                                                        |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 | 1          | 0     | 100      | `ctor`  |
 
 ## Files
@@ -30,18 +31,32 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ToolKit.Xml.Xsl
-〰4:   {
-〰5:       [AttributeUsage(AttributeTargets.Method)]
-〰6:       public class XsltFunctionAttribute : Attribute
-〰7:       {
-〰8:           public string Name { get; }
+〰3:   namespace BinaryDataDecoders.ToolKit.Xml.Xsl;
+〰4:   
+〰5:   [AttributeUsage(AttributeTargets.Method)]
+‼6:   public class XsltFunctionAttribute(string name) : Attribute
+〰7:   {
+〰8:       public string Name { get; } = name;
 〰9:   
-〰10:          public bool HideOriginalName { get; set; }
-〰11:  
-‼12:          public XsltFunctionAttribute(string name) => Name = name;
-〰13:      }
-〰14:  }
+〰10:      public bool HideOriginalName { get; set; }
+〰11:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Xml/Xsl/XsltFunctionAttribute.cs
+
+```CSharp
+〰1:   using System;
+〰2:   
+〰3:   namespace BinaryDataDecoders.ToolKit.Xml.Xsl;
+〰4:   
+〰5:   [AttributeUsage(AttributeTargets.Method)]
+‼6:   public class XsltFunctionAttribute(string name) : Attribute
+〰7:   {
+〰8:       public string Name { get; } = name;
+〰9:   
+〰10:      public bool HideOriginalName { get; set; }
+〰11:  }
+〰12:  
 ```
 
 ## Links

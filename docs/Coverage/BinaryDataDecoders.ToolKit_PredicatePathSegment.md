@@ -6,22 +6,22 @@
 | :-------------- | :------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.PredicatePathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                   |
-| Coveredlines    | `2`                                                            |
-| Uncoveredlines  | `0`                                                            |
+| Coveredlines    | `1`                                                            |
+| Uncoveredlines  | `1`                                                            |
 | Coverablelines  | `2`                                                            |
-| Totallines      | `16`                                                           |
-| Linecoverage    | `100`                                                          |
+| Totallines      | `20`                                                           |
+| Linecoverage    | `50`                                                           |
 | Coveredbranches | `0`                                                            |
 | Totalbranches   | `0`                                                            |
-| Coveredmethods  | `2`                                                            |
+| Coveredmethods  | `1`                                                            |
 | Totalmethods    | `2`                                                            |
-| Methodcoverage  | `100`                                                          |
+| Methodcoverage  | `50`                                                           |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
-| 1          | 100   | 100      | `ctor`     |
+| 1          | 0     | 100      | `ToString` |
 | 1          | 100   | 100      | `ToString` |
 
 ## Files
@@ -29,22 +29,31 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/PathSegments/PredicatePathSegment.cs
 
 ```CSharp
-〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments
-〰2:   {
-〰3:       public class PredicatePathSegment : IPathSegment
-〰4:       {
-〰5:           public IPathSegment Child { get; }
-〰6:   
-〰7:           public PredicatePathSegment(
-〰8:               IPathSegment child
-〰9:               )
-〰10:          {
-〰11:              Child = child;
-✔12:          }
-〰13:  
-✔14:          public override string ToString() => $"{{{Child}}}";
-〰15:      }
-〰16:  }
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+〰3:   public class PredicatePathSegment(
+〰4:       IPathSegment child
+〰5:           ) : IPathSegment
+〰6:   {
+〰7:       public IPathSegment Child { get; } = child;
+〰8:   
+‼9:       public override string ToString() => $"{{{Child}}}";
+〰10:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/PathSegments/PredicatePathSegment.cs
+
+```CSharp
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+〰3:   public class PredicatePathSegment(
+〰4:       IPathSegment child
+〰5:           ) : IPathSegment
+〰6:   {
+〰7:       public IPathSegment Child { get; } = child;
+〰8:   
+✔9:       public override string ToString() => $"{{{Child}}}";
+〰10:  }
 ```
 
 ## Links

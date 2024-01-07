@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.ToolKit.Data.SqlTypes.SqlXmlEx` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                        |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `4`                                                 |
-| Coverablelines  | `4`                                                 |
-| Totallines      | `16`                                                |
+| Uncoveredlines  | `8`                                                 |
+| Coverablelines  | `8`                                                 |
+| Totallines      | `31`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `0`                                                 |
 | Coveredmethods  | `0`                                                 |
-| Totalmethods    | `2`                                                 |
+| Totalmethods    | `4`                                                 |
 | Methodcoverage  | `0`                                                 |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name          |
 | :--------- | :---- | :------- | :------------ |
+| 1          | 0     | 100      | `ToXFragment` |
+| 1          | 0     | 100      | `ToSqlXml`    |
 | 1          | 0     | 100      | `ToXFragment` |
 | 1          | 0     | 100      | `ToSqlXml`    |
 
@@ -32,19 +34,39 @@
 〰1:   using BinaryDataDecoders.ToolKit.Xml.Linq;
 〰2:   using System.Data.SqlTypes;
 〰3:   
-〰4:   namespace BinaryDataDecoders.ToolKit.Data.SqlTypes
-〰5:   {
-〰6:       public static class SqlXmlEx
-〰7:       {
-〰8:           public static XFragment ToXFragment(this SqlXml sqlxml)
-〰9:           {
-‼10:              using var xmlReader = sqlxml.CreateReader();
-‼11:              return XFragment.Parse(xmlReader);
-‼12:          }
+〰4:   namespace BinaryDataDecoders.ToolKit.Data.SqlTypes;
+〰5:   
+〰6:   public static class SqlXmlEx
+〰7:   {
+〰8:       public static XFragment ToXFragment(this SqlXml sqlxml)
+〰9:       {
+‼10:          using var xmlReader = sqlxml.CreateReader();
+‼11:          return XFragment.Parse(xmlReader);
+‼12:      }
 〰13:  
-‼14:          public static SqlXml ToSqlXml(this XFragment xFragment) => new SqlXml(xFragment.CreateReader());
-〰15:      }
-〰16:  }
+‼14:      public static SqlXml ToSqlXml(this XFragment xFragment) => new(xFragment.CreateReader());
+〰15:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Data/SqlTypes/SqlXmlEx.cs
+
+```CSharp
+〰1:   using BinaryDataDecoders.ToolKit.Xml.Linq;
+〰2:   using System.Data.SqlTypes;
+〰3:   
+〰4:   namespace BinaryDataDecoders.ToolKit.Data.SqlTypes;
+〰5:   
+〰6:   public static class SqlXmlEx
+〰7:   {
+〰8:       public static XFragment ToXFragment(this SqlXml sqlxml)
+〰9:       {
+‼10:          using var xmlReader = sqlxml.CreateReader();
+‼11:          return XFragment.Parse(xmlReader);
+‼12:      }
+〰13:  
+‼14:      public static SqlXml ToSqlXml(this XFragment xFragment) => new(xFragment.CreateReader());
+〰15:  }
+〰16:  
 ```
 
 ## Links

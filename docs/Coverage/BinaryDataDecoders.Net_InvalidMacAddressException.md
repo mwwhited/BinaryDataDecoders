@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Net.InvalidMacAddressException` |
 | Assembly        | `BinaryDataDecoders.Net`                            |
 | Coveredlines    | `0`                                                 |
-| Uncoveredlines  | `6`                                                 |
-| Coverablelines  | `6`                                                 |
-| Totallines      | `23`                                                |
+| Uncoveredlines  | `4`                                                 |
+| Coverablelines  | `4`                                                 |
+| Totallines      | `16`                                                |
 | Linecoverage    | `0`                                                 |
 | Coveredbranches | `0`                                                 |
 | Totalbranches   | `2`                                                 |
@@ -33,26 +33,19 @@
 〰1:   using System;
 〰2:   using System.Diagnostics;
 〰3:   
-〰4:   namespace BinaryDataDecoders.Net
-〰5:   {
-〰6:       public class InvalidMacAddressException : Exception
-〰7:       {
-〰8:           public string MACAddress { get; private set; }
+〰4:   namespace BinaryDataDecoders.Net;
+〰5:   
+‼6:   public class InvalidMacAddressException(string macAddress) : Exception(string.Format("\"{0}\" is not a valid MAC Address", macAddress))
+〰7:   {
+〰8:       public string MACAddress { get; } = macAddress;
 〰9:   
-〰10:          public InvalidMacAddressException(string macAddress)
-‼11:              : base(string.Format("\"{0}\" is not a valid MAC Address", macAddress))
-〰12:          {
-‼13:              this.MACAddress = macAddress;
-‼14:          }
-〰15:  
-〰16:          [DebuggerNonUserCode]
-〰17:          public static void Check(string macAddress)
-〰18:          {
-‼19:              if (!MacAddressEx.IsValid(macAddress))
-‼20:                  throw new InvalidMacAddressException(macAddress);
-‼21:          }
-〰22:      }
-〰23:  }
+〰10:      [DebuggerNonUserCode]
+〰11:      public static void Check(string macAddress)
+〰12:      {
+‼13:          if (!MacAddressEx.IsValid(macAddress))
+‼14:              throw new InvalidMacAddressException(macAddress);
+‼15:      }
+〰16:  }
 ```
 
 ## Links

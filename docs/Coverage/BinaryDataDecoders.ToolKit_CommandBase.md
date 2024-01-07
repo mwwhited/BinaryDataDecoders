@@ -7,21 +7,23 @@
 | Class           | `BinaryDataDecoders.ToolKit.Input.CommandBase` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                   |
 | Coveredlines    | `0`                                            |
-| Uncoveredlines  | `3`                                            |
-| Coverablelines  | `3`                                            |
-| Totallines      | `21`                                           |
+| Uncoveredlines  | `6`                                            |
+| Coverablelines  | `6`                                            |
+| Totallines      | `41`                                           |
 | Linecoverage    | `0`                                            |
 | Coveredbranches | `0`                                            |
-| Totalbranches   | `2`                                            |
+| Totalbranches   | `4`                                            |
 | Branchcoverage  | `0`                                            |
 | Coveredmethods  | `0`                                            |
-| Totalmethods    | `2`                                            |
+| Totalmethods    | `4`                                            |
 | Methodcoverage  | `0`                                            |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                     |
 | :--------- | :---- | :------- | :----------------------- |
+| 1          | 0     | 100      | `CanExecute`             |
+| 2          | 0     | 0        | `RaiseCanExecuteChanged` |
 | 1          | 0     | 100      | `CanExecute`             |
 | 2          | 0     | 0        | `RaiseCanExecuteChanged` |
 
@@ -32,25 +34,50 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ToolKit.Input
-〰4:   {
-〰5:       public abstract class CommandBase : ICommand
-〰6:       {
-〰7:           public virtual bool CanExecute(object? parameter)
-〰8:           {
-‼9:               return true;
-〰10:          }
+〰3:   namespace BinaryDataDecoders.ToolKit.Input;
+〰4:   
+〰5:   public abstract class CommandBase : ICommand
+〰6:   {
+〰7:       public virtual bool CanExecute(object? parameter)
+〰8:       {
+‼9:           return true;
+〰10:      }
 〰11:  
-〰12:          public event EventHandler? CanExecuteChanged;
+〰12:      public event EventHandler? CanExecuteChanged;
 〰13:  
-〰14:          public virtual void RaiseCanExecuteChanged()
-〰15:          {
-‼16:              this.CanExecuteChanged?.Invoke(this, new EventArgs());
-‼17:          }
+〰14:      public virtual void RaiseCanExecuteChanged()
+〰15:      {
+‼16:          this.CanExecuteChanged?.Invoke(this, new EventArgs());
+‼17:      }
 〰18:  
-〰19:          public abstract void Execute(object? parameter);
-〰20:      }
-〰21:  }
+〰19:      public abstract void Execute(object? parameter);
+〰20:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Input/CommandBase.cs
+
+```CSharp
+〰1:   using System;
+〰2:   
+〰3:   namespace BinaryDataDecoders.ToolKit.Input;
+〰4:   
+〰5:   public abstract class CommandBase : ICommand
+〰6:   {
+〰7:       public virtual bool CanExecute(object? parameter)
+〰8:       {
+‼9:           return true;
+〰10:      }
+〰11:  
+〰12:      public event EventHandler? CanExecuteChanged;
+〰13:  
+〰14:      public virtual void RaiseCanExecuteChanged()
+〰15:      {
+‼16:          this.CanExecuteChanged?.Invoke(this, new EventArgs());
+‼17:      }
+〰18:  
+〰19:      public abstract void Execute(object? parameter);
+〰20:  }
+〰21:  
 ```
 
 ## Links

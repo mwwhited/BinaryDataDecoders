@@ -7,20 +7,22 @@
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.PathExistsPathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                    |
 | Coveredlines    | `2`                                                             |
-| Uncoveredlines  | `0`                                                             |
-| Coverablelines  | `2`                                                             |
-| Totallines      | `8`                                                             |
-| Linecoverage    | `100`                                                           |
+| Uncoveredlines  | `2`                                                             |
+| Coverablelines  | `4`                                                             |
+| Totallines      | `12`                                                            |
+| Linecoverage    | `50`                                                            |
 | Coveredbranches | `0`                                                             |
 | Totalbranches   | `0`                                                             |
 | Coveredmethods  | `2`                                                             |
-| Totalmethods    | `2`                                                             |
-| Methodcoverage  | `100`                                                           |
+| Totalmethods    | `4`                                                             |
+| Methodcoverage  | `50`                                                            |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
+| 1          | 0     | 100      | `ctor`     |
+| 1          | 0     | 100      | `ToString` |
 | 1          | 100   | 100      | `ctor`     |
 | 1          | 100   | 100      | `ToString` |
 
@@ -29,14 +31,23 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/PathSegments/PathExistsPathSegment.cs
 
 ```CSharp
-〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments
-〰2:   {
-〰3:       public class PathExistsPathSegment : BaseValuePathSegment<BinaryPathSegment>
-〰4:       {
-✔5:           public PathExistsPathSegment(BinaryPathSegment path) : base(path) { }
-✔6:           public override string ToString() => $"[{Value}]";
-〰7:       }
-〰8:   }
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+‼3:   public class PathExistsPathSegment(BinaryPathSegment path) : BaseValuePathSegment<BinaryPathSegment>(path)
+〰4:   {
+‼5:       public override string ToString() => $"[{Value}]";
+〰6:   }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/PathSegments/PathExistsPathSegment.cs
+
+```CSharp
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+✔3:   public class PathExistsPathSegment(BinaryPathSegment path) : BaseValuePathSegment<BinaryPathSegment>(path)
+〰4:   {
+✔5:       public override string ToString() => $"[{Value}]";
+〰6:   }
 ```
 
 ## Links

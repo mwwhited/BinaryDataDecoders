@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetCatalogs
-  * BinaryDataDecoders.Apple2, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -14,7 +14,7 @@
 ### Results
 
 * Outcome: ✔ Passed
-* Duration: 00:00:00.02
+* Duration: 00:00:00.03
 
 #### Standard Out
 
@@ -142,43 +142,12 @@ Next: 0/0	 Files: 0
 ~"" - Text (0/0) 0S
 ```
 
-## GetDataFileEntryTest
-
-### Targets
-
-* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetDataFileEntry
-  * BinaryDataDecoders.Apple2, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.03
-
-#### Standard Out
-
-```
-TestContext Messages:
-owEJCAoAiTqXAB4IFABEJNDnKDQpOrIgQ1RSTC1EADkIHgCiMjpBJNAiQVBQTEUgSUkiOrAxMDAw
-AGoIKACiNDpBJNAiRE9TIFZFUlNJT04gMy4zICBTWVNURU0gTUFTVEVSIjqwMTAwMACMCDIAojc6
-QSTQIkpBTlVBUlkgMSwgMTk4MyI6sDEwMDAAqAg8ALpEJDsiQkxPQUQgTE9BREVSLk9CSjAiAM8I
-RgCMNDA5NjqyIEZBU1QgTE9BRCBJTiBJTlRFR0VSIEJBU0lDABAJUACiMTA6jMk5NTg6QSTQIkNP
-UFlSSUdIVCBBUFBMRSBDT01QVVRFUixJTkMuIDE5ODAsMTk4MiI6sDEwMDAATwlaAEPQ4ijJMTEw
-MSk6rUPQNsS6Op46QSTQIkJFIFNVUkUgQ0FQUyBMT0NLIElTIERPV04iOrAxMDAwOp0AXglkALrn
-KDQpOyJGUCIAdQnoA7IgQ0VOVEVSIFNUUklORyBBJACVCfIDQtDTKDIwySjjKEEkKcsyKSk6rULQ
-0TDEQtAxAKIJ/AOWQjq6QSQ6sQAAAIcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-```
-
 ## GetTrackSectorListForFileEntryTest
 
 ### Targets
 
 * BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetTrackSectorListForFileEntry
-  * BinaryDataDecoders.Apple2, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -198,12 +167,12 @@ TestContext Messages:
 ~19/13
 ```
 
-## GetVolumeTableOfContentsTest
+## GetDataFileEntryTest
 
 ### Targets
 
-* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetCatalogs
-  * BinaryDataDecoders.Apple2, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetDataFileEntry
+  * BinaryDataDecoders.Apple2, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -213,6 +182,37 @@ TestContext Messages:
 
 * Outcome: ✔ Passed
 * Duration: 00:00:00.01
+
+#### Standard Out
+
+```
+TestContext Messages:
+owEJCAoAiTqXAB4IFABEJNDnKDQpOrIgQ1RSTC1EADkIHgCiMjpBJNAiQVBQTEUgSUkiOrAxMDAw
+AGoIKACiNDpBJNAiRE9TIFZFUlNJT04gMy4zICBTWVNURU0gTUFTVEVSIjqwMTAwMACMCDIAojc6
+QSTQIkpBTlVBUlkgMSwgMTk4MyI6sDEwMDAAqAg8ALpEJDsiQkxPQUQgTE9BREVSLk9CSjAiAM8I
+RgCMNDA5NjqyIEZBU1QgTE9BRCBJTiBJTlRFR0VSIEJBU0lDABAJUACiMTA6jMk5NTg6QSTQIkNP
+UFlSSUdIVCBBUFBMRSBDT01QVVRFUixJTkMuIDE5ODAsMTk4MiI6sDEwMDAATwlaAEPQ4ijJMTEw
+MSk6rUPQNsS6Op46QSTQIkJFIFNVUkUgQ0FQUyBMT0NLIElTIERPV04iOrAxMDAwOp0AXglkALrn
+KDQpOyJGUCIAdQnoA7IgQ0VOVEVSIFNUUklORyBBJACVCfIDQtDTKDIwySjjKEEkKcsyKSk6rULQ
+0TDEQtAxAKIJ/AOWQjq6QSQ6sQAAAIcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+```
+
+## GetVolumeTableOfContentsTest
+
+### Targets
+
+* BinaryDataDecoders.Apple2.Dos33::DiskImageCommands::GetCatalogs
+  * BinaryDataDecoders.Apple2, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.02
 
 ## Links
 

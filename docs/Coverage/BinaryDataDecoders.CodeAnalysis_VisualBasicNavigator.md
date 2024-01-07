@@ -26,7 +26,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.CodeAnalysis/VisualBasic/VisualBasicNavigator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.CodeAnalysis/VisualBasic/VisualBasicNavigator.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.MetaData;
@@ -36,28 +36,28 @@
 〰5:   using System.IO;
 〰6:   using System.Xml.XPath;
 〰7:   
-〰8:   namespace BinaryDataDecoders.CodeAnalysis.VisualBasic
-〰9:   {
-〰10:      [FileExtension(".vb")]
-〰11:      public class VisualBasicNavigator : IToXPathNavigable
-〰12:      {
-〰13:          public IXPathNavigable ToNavigable(string filePath)
-〰14:          {
-‼15:              var content = File.ReadAllText(filePath);
-‼16:              var syntax = VisualBasicSyntaxTree.ParseText(content);
-‼17:              var root = syntax.ToNavigable(filePath);
-‼18:              return root;
-〰19:          }
+〰8:   namespace BinaryDataDecoders.CodeAnalysis.VisualBasic;
+〰9:   
+〰10:  [FileExtension(".vb")]
+〰11:  public class VisualBasicNavigator : IToXPathNavigable
+〰12:  {
+〰13:      public IXPathNavigable ToNavigable(string filePath)
+〰14:      {
+‼15:          var content = File.ReadAllText(filePath);
+‼16:          var syntax = VisualBasicSyntaxTree.ParseText(content);
+‼17:          var root = syntax.ToNavigable(filePath);
+‼18:          return root;
+〰19:      }
 〰20:  
-〰21:          public IXPathNavigable ToNavigable(Stream stream)
-〰22:          {
-‼23:              var content = SourceText.From(stream);
-‼24:              var syntax = VisualBasicSyntaxTree.ParseText(content);
-‼25:              var root = syntax.ToNavigable();
-‼26:              return root;
-〰27:          }
-〰28:      }
-〰29:  }
+〰21:      public IXPathNavigable ToNavigable(Stream stream)
+〰22:      {
+‼23:          var content = SourceText.From(stream);
+‼24:          var syntax = VisualBasicSyntaxTree.ParseText(content);
+‼25:          var root = syntax.ToNavigable();
+‼26:          return root;
+〰27:      }
+〰28:  }
+〰29:  
 ```
 
 ## Links

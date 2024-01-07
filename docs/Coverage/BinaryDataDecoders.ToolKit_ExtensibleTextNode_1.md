@@ -6,21 +6,22 @@
 | :-------------- | :---------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleTextNode`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                |
-| Coveredlines    | `2`                                                         |
-| Uncoveredlines  | `0`                                                         |
+| Coveredlines    | `1`                                                         |
+| Uncoveredlines  | `1`                                                         |
 | Coverablelines  | `2`                                                         |
-| Totallines      | `18`                                                        |
-| Linecoverage    | `100`                                                       |
+| Totallines      | `27`                                                        |
+| Linecoverage    | `50`                                                        |
 | Coveredbranches | `0`                                                         |
 | Totalbranches   | `0`                                                         |
 | Coveredmethods  | `1`                                                         |
-| Totalmethods    | `1`                                                         |
-| Methodcoverage  | `100`                                                       |
+| Totalmethods    | `2`                                                         |
+| Methodcoverage  | `50`                                                        |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 | 1          | 100   | 100      | `ctor`  |
 
 ## Files
@@ -31,21 +32,35 @@
 〰1:   using System.Xml.Linq;
 〰2:   using System.Xml.XPath;
 〰3:   
-〰4:   namespace BinaryDataDecoders.ToolKit.Xml.XPath
-〰5:   {
-〰6:   
-〰7:       internal class ExtensibleTextNode<T> : ExtensibleSimpleNodeBase<T>
-〰8:       {
-〰9:           public ExtensibleTextNode(
-〰10:               INode parent,
-〰11:               XName name,
-〰12:               T item,
-〰13:               string value
-✔14:              ) : base(parent, name, item, value, XPathNodeType.Text)
-〰15:          {
-✔16:          }
-〰17:      }
-〰18:  }
+〰4:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰5:   
+〰6:   internal class ExtensibleTextNode<T>(
+〰7:        INode parent,
+〰8:        XName name,
+〰9:        T item,
+〰10:       string value
+‼11:          ) : ExtensibleSimpleNodeBase<T>(parent, name, item, value, XPathNodeType.Text)
+〰12:  {
+〰13:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleTextNode.cs
+
+```CSharp
+〰1:   using System.Xml.Linq;
+〰2:   using System.Xml.XPath;
+〰3:   
+〰4:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰5:   
+〰6:   internal class ExtensibleTextNode<T>(
+〰7:        INode parent,
+〰8:        XName name,
+〰9:        T item,
+〰10:       string value
+✔11:          ) : ExtensibleSimpleNodeBase<T>(parent, name, item, value, XPathNodeType.Text)
+〰12:  {
+〰13:  }
+〰14:  
 ```
 
 ## Links

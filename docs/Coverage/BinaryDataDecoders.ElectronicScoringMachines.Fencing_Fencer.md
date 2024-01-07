@@ -6,23 +6,22 @@
 | :-------------- | :------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common.Fencer` |
 | Assembly        | `BinaryDataDecoders.ElectronicScoringMachines.Fencing`               |
-| Coveredlines    | `2`                                                                  |
+| Coveredlines    | `1`                                                                  |
 | Uncoveredlines  | `8`                                                                  |
-| Coverablelines  | `10`                                                                 |
-| Totallines      | `31`                                                                 |
-| Linecoverage    | `20`                                                                 |
+| Coverablelines  | `9`                                                                  |
+| Totallines      | `22`                                                                 |
+| Linecoverage    | `11.1`                                                               |
 | Coveredbranches | `0`                                                                  |
 | Totalbranches   | `8`                                                                  |
 | Branchcoverage  | `0`                                                                  |
-| Coveredmethods  | `2`                                                                  |
-| Totalmethods    | `6`                                                                  |
-| Methodcoverage  | `33.3`                                                               |
+| Coveredmethods  | `1`                                                                  |
+| Totalmethods    | `5`                                                                  |
+| Methodcoverage  | `20`                                                                 |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name            |
 | :--------- | :---- | :------- | :-------------- |
-| 1          | 100   | 100      | `ctor`          |
 | 1          | 100   | 100      | `ToString`      |
 | 8          | 0     | 0        | `Equals`        |
 | 1          | 0     | 100      | `GetHashCode`   |
@@ -31,40 +30,31 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/Fencer.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/Fencer.cs
 
 ```CSharp
 〰1:   using System.Diagnostics;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common
-〰4:   {
-〰5:       [DebuggerDisplay("S{Score} L{Lights} C{Cards} P{Priority}")]
-〰6:       public struct Fencer
-〰7:       {
-〰8:           public Fencer(byte score, Cards cards, Lights lights, bool priority)
-〰9:           {
-〰10:              Score = score;
-〰11:              Cards = cards;
-〰12:              Lights = lights;
-〰13:              Priority = priority;
-✔14:          }
-〰15:  
-〰16:          public byte Score { get; }
-〰17:          public Cards Cards { get; }
-〰18:          public Lights Lights { get; }
-〰19:          public bool Priority { get; }
-〰20:  
-✔21:          public override string ToString() => $"S>{Score:000} L>{Lights} C>{Cards} P>{Priority}";
-‼22:          public override bool Equals(object obj) => obj switch
-‼23:          {
-‼24:              Fencer i => Score == i.Score && Cards == i.Cards && Lights == i.Lights && Priority == i.Priority,
-‼25:              _ => false
-‼26:          };
-‼27:          public override int GetHashCode() => (Score, Cards, Lights, Priority).GetHashCode();
-‼28:          public static bool operator ==(Fencer left, Fencer right) => left.Equals(right);
-‼29:          public static bool operator !=(Fencer left, Fencer right) => !(left == right);
-〰30:      }
-〰31:  }
+〰3:   namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
+〰4:   
+〰5:   [DebuggerDisplay("S{Score} L{Lights} C{Cards} P{Priority}")]
+〰6:   public readonly struct Fencer(byte score, Cards cards, Lights lights, bool priority)
+〰7:   {
+〰8:       public byte Score { get; } = score;
+〰9:       public Cards Cards { get; } = cards;
+〰10:      public Lights Lights { get; } = lights;
+〰11:      public bool Priority { get; } = priority;
+〰12:  
+✔13:      public override string ToString() => $"S>{Score:000} L>{Lights} C>{Cards} P>{Priority}";
+‼14:      public override bool Equals(object obj) => obj switch
+‼15:      {
+‼16:          Fencer i => Score == i.Score && Cards == i.Cards && Lights == i.Lights && Priority == i.Priority,
+‼17:          _ => false
+‼18:      };
+‼19:      public override int GetHashCode() => (Score, Cards, Lights, Priority).GetHashCode();
+‼20:      public static bool operator ==(Fencer left, Fencer right) => left.Equals(right);
+‼21:      public static bool operator !=(Fencer left, Fencer right) => !(left == right);
+〰22:  }
 ```
 
 ## Links

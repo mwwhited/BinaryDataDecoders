@@ -1,5 +1,113 @@
 # BinaryDataDecoders.Cryptography.Tests.CaesarTests
 
+## EncodeTest (hello, world,h,olssv, dvysk)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+hello, world -> olssv, dvysk
+```
+
+## DecodeTest (olssv, dvysk,h,hello, world)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+olssv, dvysk -> hello, world
+```
+
+## DecodeTest (Olssv, Dvysk,H,Hello, World)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+Olssv, Dvysk -> Hello, World
+```
+
+## DecodeTest (Olssv Dvysk,H,Hello World)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+Olssv Dvysk -> Hello World
+```
+
+## EncodeTest (Hello World,H,Olssv Dvysk)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.01
+
+#### Standard Out
+
+```
+TestContext Messages:
+Hello World -> Olssv Dvysk
+```
+
+## DecodeTest (jgnnq yqtnf,C,hello world)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+jgnnq yqtnf -> hello world
+```
+
 ## EncodeTest (hello world,C,jgnnq yqtnf)
 
 ### Categories
@@ -34,114 +142,6 @@ hello world -> jgnnq yqtnf
 ```
 TestContext Messages:
 Hello, World -> Olssv, Dvysk
-```
-
-## DecodeTest (Olssv, Dvysk,H,Hello, World)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-Olssv, Dvysk -> Hello, World
-```
-
-## EncodeTest (hello, world,h,olssv, dvysk)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-hello, world -> olssv, dvysk
-```
-
-## EncodeTest (Hello World,H,Olssv Dvysk)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-Hello World -> Olssv Dvysk
-```
-
-## DecodeTest (olssv, dvysk,h,hello, world)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-olssv, dvysk -> hello, world
-```
-
-## DecodeTest (jgnnq yqtnf,C,hello world)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-jgnnq yqtnf -> hello world
-```
-
-## DecodeTest (Olssv Dvysk,H,Hello World)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-Olssv Dvysk -> Hello World
 ```
 
 ## Links

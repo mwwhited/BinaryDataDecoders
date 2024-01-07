@@ -7,21 +7,23 @@
 | Class           | `BinaryDataDecoders.ToolKit.PathSegments.PathBaseTypePathSegment` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                      |
 | Coveredlines    | `6`                                                               |
-| Uncoveredlines  | `1`                                                               |
-| Coverablelines  | `7`                                                               |
-| Totallines      | `14`                                                              |
-| Linecoverage    | `85.7`                                                            |
+| Uncoveredlines  | `8`                                                               |
+| Coverablelines  | `14`                                                              |
+| Totallines      | `23`                                                              |
+| Linecoverage    | `42.8`                                                            |
 | Coveredbranches | `3`                                                               |
-| Totalbranches   | `4`                                                               |
-| Branchcoverage  | `75`                                                              |
+| Totalbranches   | `8`                                                               |
+| Branchcoverage  | `37.5`                                                            |
 | Coveredmethods  | `2`                                                               |
-| Totalmethods    | `2`                                                               |
-| Methodcoverage  | `100`                                                             |
+| Totalmethods    | `4`                                                               |
+| Methodcoverage  | `50`                                                              |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
+| 1          | 0     | 100      | `ctor`     |
+| 4          | 0     | 0        | `ToString` |
 | 1          | 100   | 100      | `ctor`     |
 | 4          | 83.33 | 75.00    | `ToString` |
 
@@ -30,20 +32,34 @@
 ## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit/PathSegments/PathBaseTypePathSegment.cs
 
 ```CSharp
-〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments
-〰2:   {
-〰3:       public sealed class PathBaseTypePathSegment : BaseValuePathSegment<PathBaseTypes>
-〰4:       {
-✔5:           public PathBaseTypePathSegment(PathBaseTypes type) : base(type) { }
-〰6:   
-⚠7:           public override string ToString() => Value switch
-✔8:           {
-✔9:               PathBaseTypes.Root => ":",
-✔10:              PathBaseTypes.Relative => ".",
-‼11:              _ => $"{Value}",
-✔12:          };
-〰13:      }
-〰14:  }
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+‼3:   public sealed class PathBaseTypePathSegment(PathBaseTypes type) : BaseValuePathSegment<PathBaseTypes>(type)
+〰4:   {
+‼5:       public override string ToString() => Value switch
+‼6:       {
+‼7:           PathBaseTypes.Root => ":",
+‼8:           PathBaseTypes.Relative => ".",
+‼9:           _ => $"{Value}",
+‼10:      };
+〰11:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/PathSegments/PathBaseTypePathSegment.cs
+
+```CSharp
+〰1:   namespace BinaryDataDecoders.ToolKit.PathSegments;
+〰2:   
+✔3:   public sealed class PathBaseTypePathSegment(PathBaseTypes type) : BaseValuePathSegment<PathBaseTypes>(type)
+〰4:   {
+⚠5:       public override string ToString() => Value switch
+✔6:       {
+✔7:           PathBaseTypes.Root => ":",
+✔8:           PathBaseTypes.Relative => ".",
+‼9:           _ => $"{Value}",
+✔10:      };
+〰11:  }
+〰12:  
 ```
 
 ## Links

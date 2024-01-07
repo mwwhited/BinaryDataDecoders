@@ -9,25 +9,13 @@
 
 ### Members
 
-#### Private ReadOnly Field - _logger
-
-##### Summary
-
- * Type: 
-
-#### Public Constructor - NugetLoggerBridge
-
-#####  Parameters
-
- - ILogger < NugetLoggerBridge > logger 
-
 #### Public Method - Log
 
 #####  Parameters
 
  - ILogMessage message 
 
-#### Private Method - Convert
+#### Private Static Method - Convert
 
 #####  Parameters
 

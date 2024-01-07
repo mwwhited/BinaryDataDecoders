@@ -9,14 +9,6 @@
 
 ### Members
 
-#### Public Constructor - RangePathSegment
-
-#####  Parameters
-
- - IPathSegment < int > ? start 
- - IPathSegment < int > ? end 
- - IPathSegment < int > ? step 
-
 #### Public Property - Start
 
 ##### Summary

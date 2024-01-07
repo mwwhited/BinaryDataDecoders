@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Apple2/Dos33/TrackSector.cs
 
-## Public Structure - TrackSector
+## Public ReadOnly Structure - TrackSector
 
 ### Comments
 

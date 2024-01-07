@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Quarta.RadexOne/ReadSettingsRequest.cs
 
-## Public Structure - ReadSettingsRequest
+## Public ReadOnly Structure - ReadSettingsRequest
 
 ### Comments
 

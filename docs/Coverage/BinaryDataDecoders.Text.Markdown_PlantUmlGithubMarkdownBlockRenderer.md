@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Text.Markdown.PlantUmlGithubMarkdownBlockRenderer` |
 | Assembly        | `BinaryDataDecoders.Text.Markdown`                                     |
 | Coveredlines    | `0`                                                                    |
-| Uncoveredlines  | `2`                                                                    |
-| Coverablelines  | `2`                                                                    |
-| Totallines      | `12`                                                                   |
+| Uncoveredlines  | `3`                                                                    |
+| Coverablelines  | `3`                                                                    |
+| Totallines      | `11`                                                                   |
 | Linecoverage    | `0`                                                                    |
 | Coveredbranches | `0`                                                                    |
 | Totalbranches   | `0`                                                                    |
@@ -32,15 +32,14 @@
 〰1:   using Markdig;
 〰2:   using Markdig.Renderers.Normalize;
 〰3:   
-〰4:   namespace BinaryDataDecoders.Text.Markdown
-〰5:   {
-〰6:       public class PlantUmlGithubMarkdownBlockRenderer : NormalizeObjectRenderer<PlantUmlBlock>
-〰7:       {
-〰8:           private readonly PlantUmlRenderer _renderer;
-‼9:           public PlantUmlGithubMarkdownBlockRenderer(MarkdownPipeline pipeline) => _renderer = new PlantUmlRenderer(pipeline);
-‼10:          protected override void Write(NormalizeRenderer renderer, PlantUmlBlock obj) => _renderer.Write(renderer, obj.GetScript());
-〰11:      }
-〰12:  }
+〰4:   namespace BinaryDataDecoders.Text.Markdown;
+〰5:   
+‼6:   public class PlantUmlGithubMarkdownBlockRenderer(MarkdownPipeline pipeline) : NormalizeObjectRenderer<PlantUmlBlock>
+〰7:   {
+‼8:       private readonly PlantUmlRenderer _renderer = new(pipeline);
+〰9:   
+‼10:      protected override void Write(NormalizeRenderer renderer, PlantUmlBlock obj) => _renderer.Write(renderer, obj.GetScript());
+〰11:  }
 ```
 
 ## Links

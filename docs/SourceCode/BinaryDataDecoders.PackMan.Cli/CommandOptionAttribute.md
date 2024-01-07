@@ -18,13 +18,6 @@
 
 ### Members
 
-#### Public Constructor - CommandOptionAttribute
-
-#####  Parameters
-
- - string ? @short = null 
- - string ? command = null 
-
 #### Public Property - Short
 
 ##### Summary

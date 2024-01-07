@@ -9,18 +9,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _state
-
-##### Summary
-
- * Type: TState 
-
-#### Public Constructor - LoggerScope
-
-#####  Parameters
-
- - TState state 
-
 #### Public Method - Dispose
 
 

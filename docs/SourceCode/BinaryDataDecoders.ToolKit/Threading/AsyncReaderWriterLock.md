@@ -82,7 +82,7 @@
 #### Public Method - Dispose
 
 
-## Public Structure - Releaser
+## Public ReadOnly Structure - Releaser
 
 ### Members
 

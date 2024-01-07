@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Zoom.H4n/H4nResponse.cs
 
-## Public Structure - H4nResponse
+## Public ReadOnly Structure - H4nResponse
 
 ### Attributes
 
@@ -21,12 +21,6 @@
  - )
 
 ### Members
-
-#### Public Constructor - H4nResponse
-
-#####  Parameters
-
- - byte response 
 
 #### Public ReadOnly Field - Response
 

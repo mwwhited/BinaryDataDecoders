@@ -24,13 +24,6 @@
 
  - params string [  ] targetMediaTypes 
 
-#### Public Constructor - TemplateTransformAttribute
-
-#####  Parameters
-
- - int priority 
- - params string [  ] targetMediaTypes 
-
 #### Public Property - TargetMediaTypes
 
 ##### Summary

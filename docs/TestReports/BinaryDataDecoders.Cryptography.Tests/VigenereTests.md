@@ -1,23 +1,5 @@
 # BinaryDataDecoders.Cryptography.Tests.VigenereTests
 
-## DecodeTest (oiwwc azczk,Hello,hello world)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-oiwwc azczk -> hello world
-```
-
 ## EncodeTest (hello, world,World,dscwr, nzuhr)
 
 ### Categories
@@ -36,7 +18,7 @@ TestContext Messages:
 hello, world -> dscwr, nzuhr
 ```
 
-## DecodeTest (Dscwr Kfcoz,World,Hello World)
+## DecodeTest (oiwwc azczk,Hello,hello world)
 
 ### Categories
 
@@ -51,7 +33,25 @@ hello, world -> dscwr, nzuhr
 
 ```
 TestContext Messages:
-Dscwr Kfcoz -> Hello World
+oiwwc azczk -> hello world
+```
+
+## EncodeTest (Hello, World,world,Dscwr, Nzuhr)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+Hello, World -> Dscwr, Nzuhr
 ```
 
 ## DecodeTest (Dscwr, Nzuhr,World,Hello, World)
@@ -72,42 +72,6 @@ TestContext Messages:
 Dscwr, Nzuhr -> Hello, World
 ```
 
-## EncodeTest (Hello World,World,Dscwr Kfcoz)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-Hello World -> Dscwr Kfcoz
-```
-
-## EncodeTest (hello world,Hello,oiwwc azczk)
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-hello world -> oiwwc azczk
-```
-
 ## DecodeTest (dscwr, nzuhr,World,hello, world)
 
 ### Categories
@@ -126,7 +90,7 @@ TestContext Messages:
 dscwr, nzuhr -> hello, world
 ```
 
-## EncodeTest (Hello, World,world,Dscwr, Nzuhr)
+## EncodeTest (Hello World,World,Dscwr Kfcoz)
 
 ### Categories
 
@@ -141,7 +105,43 @@ dscwr, nzuhr -> hello, world
 
 ```
 TestContext Messages:
-Hello, World -> Dscwr, Nzuhr
+Hello World -> Dscwr Kfcoz
+```
+
+## DecodeTest (Dscwr Kfcoz,World,Hello World)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+Dscwr Kfcoz -> Hello World
+```
+
+## EncodeTest (hello world,Hello,oiwwc azczk)
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+hello world -> oiwwc azczk
 ```
 
 ## Links

@@ -13,6 +13,10 @@
  this is a enumerator is bidirectional
  </summary>
  <typeparamname="T"></typeparam>
+ <remarks>
+ Wrap existing IEnumerator
+ </remarks>
+ <paramname="base"></param>
 
 ### Attributes
 
@@ -30,12 +34,6 @@
  * Type: 
 
 #### Private ReadOnly Field - _lock
-
-##### Summary
-
- * Type: 
-
-#### Private ReadOnly Field - _base
 
 ##### Summary
 
@@ -83,19 +81,6 @@
 #####  Parameters
 
  - IEnumerable < T > @base 
-
-#### Public Constructor - ReversableEnumerator
-
-##### Comments
-
- <summary>
- Wrap existing IEnumerator
- </summary>
- <paramname="base"></param>
-
-#####  Parameters
-
- - IEnumerator < T > @base 
 
 #### Public Property - Current
 

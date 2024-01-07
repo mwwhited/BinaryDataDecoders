@@ -7,21 +7,26 @@
 | Class           | `BinaryDataDecoders.ToolKit.Collections.DoubleLinkedList`1` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                |
 | Coveredlines    | `0`                                                         |
-| Uncoveredlines  | `30`                                                        |
-| Coverablelines  | `30`                                                        |
-| Totallines      | `66`                                                        |
+| Uncoveredlines  | `60`                                                        |
+| Coverablelines  | `60`                                                        |
+| Totallines      | `127`                                                       |
 | Linecoverage    | `0`                                                         |
 | Coveredbranches | `0`                                                         |
-| Totalbranches   | `12`                                                        |
+| Totalbranches   | `24`                                                        |
 | Branchcoverage  | `0`                                                         |
 | Coveredmethods  | `0`                                                         |
-| Totalmethods    | `5`                                                         |
+| Totalmethods    | `10`                                                        |
 | Methodcoverage  | `0`                                                         |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name           |
 | :--------- | :---- | :------- | :------------- |
+| 1          | 0     | 100      | `ctor`         |
+| 1          | 0     | 100      | `get_Position` |
+| 4          | 0     | 0        | `SyncPosition` |
+| 4          | 0     | 0        | `InsertBefore` |
+| 4          | 0     | 0        | `InsertAfter`  |
 | 1          | 0     | 100      | `ctor`         |
 | 1          | 0     | 100      | `get_Position` |
 | 4          | 0     | 0        | `SyncPosition` |
@@ -35,70 +40,136 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ToolKit.Collections
-〰4:   {
-〰5:       internal class DoubleLinkedList<T> : IDoubleLinkedList<T>
-〰6:       {
-‼7:           private readonly object _lock = new object();
-〰8:           private int _position;
+〰3:   namespace BinaryDataDecoders.ToolKit.Collections;
+〰4:   
+〰5:   internal class DoubleLinkedList<T>(T item) : IDoubleLinkedList<T>
+〰6:   {
+‼7:       private readonly object _lock = new();
+〰8:       private int _position;
 〰9:   
-‼10:          public DoubleLinkedList(T item) => Current = item;
-〰11:  
-〰12:          public IDoubleLinkedList<T>? Previous { get; private set; }
-〰13:          public T Current { get; }
-〰14:          public IDoubleLinkedList<T>? Next { get; private set; }
+〰10:      public IDoubleLinkedList<T>? Previous { get; private set; }
+‼11:      public T Current { get; } = item;
+〰12:      public IDoubleLinkedList<T>? Next { get; private set; }
+〰13:  
+‼14:      public int Position => _position;
 〰15:  
-‼16:          public int Position => _position;
-〰17:  
-〰18:          private static void SyncPosition(DoubleLinkedList<T> from)
-〰19:          {
-‼20:              var seed = from._position;
-‼21:              while (from?.Next is DoubleLinkedList<T> next)
-〰22:              {
-‼23:                  next._position = ++seed;
-‼24:                  from = next;
-‼25:              }
-‼26:          }
-〰27:  
-〰28:          public IDoubleLinkedList<T> InsertBefore(T item)
+〰16:      private static void SyncPosition(DoubleLinkedList<T> from)
+〰17:      {
+‼18:          var seed = from._position;
+‼19:          while (from?.Next is DoubleLinkedList<T> next)
+〰20:          {
+‼21:              next._position = ++seed;
+‼22:              from = next;
+‼23:          }
+‼24:      }
+〰25:  
+〰26:      public IDoubleLinkedList<T> InsertBefore(T item)
+〰27:      {
+‼28:          lock (_lock)
 〰29:          {
-‼30:              lock (_lock)
-〰31:              {
-‼32:                  var newItem = new DoubleLinkedList<T>(item) { Previous = this.Previous, Next = this };
-‼33:                  if (this.Previous is DoubleLinkedList<T> previous)
-〰34:                  {
-‼35:                      previous.Next = newItem;
-‼36:                      newItem._position = previous._position + 1;
-〰37:                  }
-‼38:                  else if (this.Previous != null)
-〰39:                  {
-‼40:                      throw new NotSupportedException();
-〰41:                  }
-‼42:                  this.Previous = newItem;
-‼43:                  SyncPosition(newItem);
-‼44:                  return newItem;
-〰45:              }
-‼46:          }
-〰47:          public IDoubleLinkedList<T> InsertAfter(T item)
+‼30:              var newItem = new DoubleLinkedList<T>(item) { Previous = this.Previous, Next = this };
+‼31:              if (this.Previous is DoubleLinkedList<T> previous)
+〰32:              {
+‼33:                  previous.Next = newItem;
+‼34:                  newItem._position = previous._position + 1;
+〰35:              }
+‼36:              else if (this.Previous != null)
+〰37:              {
+‼38:                  throw new NotSupportedException();
+〰39:              }
+‼40:              this.Previous = newItem;
+‼41:              SyncPosition(newItem);
+‼42:              return newItem;
+〰43:          }
+‼44:      }
+〰45:      public IDoubleLinkedList<T> InsertAfter(T item)
+〰46:      {
+‼47:          lock (_lock)
 〰48:          {
-‼49:              lock (_lock)
-〰50:              {
-‼51:                  var newItem = new DoubleLinkedList<T>(item) { Previous = this, Next = this.Next, _position = this._position + 1, };
-‼52:                  if (this.Next is DoubleLinkedList<T> next)
-〰53:                  {
-‼54:                      next.Previous = newItem;
-〰55:                  }
-‼56:                  else if (this.Next != null)
-〰57:                  {
-‼58:                      throw new NotSupportedException();
-〰59:                  }
-‼60:                  this.Next = newItem;
-‼61:                  SyncPosition(newItem);
-‼62:                  return newItem;
-〰63:              }
-‼64:          }
-〰65:      }
-〰66:  }
+‼49:              var newItem = new DoubleLinkedList<T>(item) { Previous = this, Next = this.Next, _position = this._position + 1, };
+‼50:              if (this.Next is DoubleLinkedList<T> next)
+〰51:              {
+‼52:                  next.Previous = newItem;
+〰53:              }
+‼54:              else if (this.Next != null)
+〰55:              {
+‼56:                  throw new NotSupportedException();
+〰57:              }
+‼58:              this.Next = newItem;
+‼59:              SyncPosition(newItem);
+‼60:              return newItem;
+〰61:          }
+‼62:      }
+〰63:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Collections/DoubleLinkedList.cs
+
+```CSharp
+〰1:   using System;
+〰2:   
+〰3:   namespace BinaryDataDecoders.ToolKit.Collections;
+〰4:   
+〰5:   internal class DoubleLinkedList<T>(T item) : IDoubleLinkedList<T>
+〰6:   {
+‼7:       private readonly object _lock = new();
+〰8:       private int _position;
+〰9:   
+〰10:      public IDoubleLinkedList<T>? Previous { get; private set; }
+‼11:      public T Current { get; } = item;
+〰12:      public IDoubleLinkedList<T>? Next { get; private set; }
+〰13:  
+‼14:      public int Position => _position;
+〰15:  
+〰16:      private static void SyncPosition(DoubleLinkedList<T> from)
+〰17:      {
+‼18:          var seed = from._position;
+‼19:          while (from?.Next is DoubleLinkedList<T> next)
+〰20:          {
+‼21:              next._position = ++seed;
+‼22:              from = next;
+‼23:          }
+‼24:      }
+〰25:  
+〰26:      public IDoubleLinkedList<T> InsertBefore(T item)
+〰27:      {
+‼28:          lock (_lock)
+〰29:          {
+‼30:              var newItem = new DoubleLinkedList<T>(item) { Previous = this.Previous, Next = this };
+‼31:              if (this.Previous is DoubleLinkedList<T> previous)
+〰32:              {
+‼33:                  previous.Next = newItem;
+‼34:                  newItem._position = previous._position + 1;
+〰35:              }
+‼36:              else if (this.Previous != null)
+〰37:              {
+‼38:                  throw new NotSupportedException();
+〰39:              }
+‼40:              this.Previous = newItem;
+‼41:              SyncPosition(newItem);
+‼42:              return newItem;
+〰43:          }
+‼44:      }
+〰45:      public IDoubleLinkedList<T> InsertAfter(T item)
+〰46:      {
+‼47:          lock (_lock)
+〰48:          {
+‼49:              var newItem = new DoubleLinkedList<T>(item) { Previous = this, Next = this.Next, _position = this._position + 1, };
+‼50:              if (this.Next is DoubleLinkedList<T> next)
+〰51:              {
+‼52:                  next.Previous = newItem;
+〰53:              }
+‼54:              else if (this.Next != null)
+〰55:              {
+‼56:                  throw new NotSupportedException();
+〰57:              }
+‼58:              this.Next = newItem;
+‼59:              SyncPosition(newItem);
+‼60:              return newItem;
+〰61:          }
+‼62:      }
+〰63:  }
+〰64:  
 ```
 
 ## Links

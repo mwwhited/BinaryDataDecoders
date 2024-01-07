@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Apple2/Dos33/CatalogEntry.cs
 
-## Public Structure - CatalogEntry
+## Public ReadOnly Structure - CatalogEntry
 
 ### Comments
 

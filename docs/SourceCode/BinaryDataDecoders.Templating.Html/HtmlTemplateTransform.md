@@ -18,25 +18,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _instanceFactory
-
-##### Summary
-
- * Type: IInstanceFactory 
-
-#### Private ReadOnly Field - _htmlVisitor
-
-##### Summary
-
- * Type: IHtmlDocumentVistor 
-
-#### Public Constructor - HtmlTemplateTransform
-
-#####  Parameters
-
- - IInstanceFactory instanceFactory 
- - IHtmlDocumentVistor htmlVisitor 
-
 #### Public Method - ToXPathNavigator
 
 #####  Parameters

@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Favero/FaveroDefinition.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Favero/FaveroDefinition.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
@@ -36,21 +36,21 @@
 〰6:   using System.ComponentModel;
 〰7:   using System.Composition;
 〰8:   
-〰9:   namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero
-〰10:  {
-〰11:      [SerialPort(2400, Parity.None, 8, StopBits.One)]
-〰12:      [Description("Favero")]
-〰13:      [Export(typeof(IDeviceDefinition))]
-〰14:      public class FaveroDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
-〰15:      {
-〰16:          public ISegmentBuildDefinition SegmentDefintion { get; } =
-‼17:              Segment.StartsWith(0xff)
-‼18:                     .AndIsLength(10)
-‼19:                     .WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid);
+〰9:   namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero;
+〰10:  
+〰11:  [SerialPort(2400, Parity.None, 8, StopBits.One)]
+〰12:  [Description("Favero")]
+〰13:  [Export(typeof(IDeviceDefinition))]
+〰14:  public class FaveroDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
+〰15:  {
+〰16:      public ISegmentBuildDefinition SegmentDefintion { get; } =
+‼17:          Segment.StartsWith(0xff)
+‼18:                 .AndIsLength(10)
+‼19:                 .WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid);
 〰20:  
-〰21:          public IMessageDecoder<IScoreMachineState> Decoder { get; } = new FaveroDecoder();
-〰22:      }
-〰23:  }
+〰21:      public IMessageDecoder<IScoreMachineState> Decoder { get; } = new FaveroDecoder();
+〰22:  }
+〰23:  
 ```
 
 ## Links

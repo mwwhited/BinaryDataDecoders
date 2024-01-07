@@ -28,7 +28,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit.Tests/Reflection/ReflectionElementNodeTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ToolKit.Reflection;
@@ -38,67 +38,67 @@
 〰5:   using System;
 〰6:   using BinaryDataDecoders.TestUtilities;
 〰7:   
-〰8:   namespace BinaryDataDecoders.ToolKit.Tests.Reflection
-〰9:   {
-〰10:      [TestClass]
-〰11:      public class ReflectionElementNodeTests
-〰12:      {
-〰13:          public TestContext TestContext { get; set; }
+〰8:   namespace BinaryDataDecoders.ToolKit.Tests.Reflection;
+〰9:   
+〰10:  [TestClass]
+〰11:  public class ReflectionElementNodeTests
+〰12:  {
+〰13:      public TestContext TestContext { get; set; }
 〰14:  
-〰15:          private MockRepository mockRepository;
+〰15:      private MockRepository mockRepository;
 〰16:  
-〰17:          [TestInitialize]
-〰18:          public void TestInitialize()
-〰19:          {
-✔20:              this.mockRepository = new MockRepository(MockBehavior.Strict);
-✔21:          }
+〰17:      [TestInitialize]
+〰18:      public void TestInitialize()
+〰19:      {
+✔20:          this.mockRepository = new MockRepository(MockBehavior.Strict);
+✔21:      }
 〰22:  
-〰23:          private ReflectionElementNodeBuilder CreateReflectionElementNode(object testData, bool excludeNamespace = false) =>
-✔24:              new ReflectionElementNodeBuilder(testData, excludeNamespace);
+〰23:      private ReflectionElementNodeBuilder CreateReflectionElementNode(object testData, bool excludeNamespace = false) =>
+✔24:          new(testData, excludeNamespace);
 〰25:  
-〰26:          [TestMethod, TestCategory(TestCategories.DevLocal)]
-〰27:          [TestCategory(TestCategories.Unit)]
-〰28:          public void ReflectionElementNodeTest()
-〰29:          {
-〰30:              // Stage
-✔31:              var testData = new
-✔32:              {
-✔33:                  Hello = "World!",
-✔34:                  DateTime = DateTime.Now,
-✔35:                  DateTimeOffset = DateTimeOffset.Now,
-✔36:                  TimeOfDay = DateTimeOffset.Now.TimeOfDay,
-✔37:                  Integer = 123,
-✔38:                  Decimal = 123.456m,
-✔39:                  Bytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 },
-✔40:                  Nested = new
-✔41:                  {
-✔42:                      Other = "Property1",
-✔43:                  },
-✔44:                  Array = new[]
-✔45:                  {
-✔46:                      "test",
-✔47:                      "test2"
-✔48:                  },
-✔49:                  ArrayIntegers = new[] { 1, 2, 3, 4, 5, 6 }
-✔50:              };
+〰26:      [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰27:      [TestCategory(TestCategories.Unit)]
+〰28:      public void ReflectionElementNodeTest()
+〰29:      {
+〰30:          // Stage
+✔31:          var testData = new
+✔32:          {
+✔33:              Hello = "World!",
+✔34:              DateTime = DateTime.Now,
+✔35:              DateTimeOffset = DateTimeOffset.Now,
+✔36:              DateTimeOffset.Now.TimeOfDay,
+✔37:              Integer = 123,
+✔38:              Decimal = 123.456m,
+✔39:              Bytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 },
+✔40:              Nested = new
+✔41:              {
+✔42:                  Other = "Property1",
+✔43:              },
+✔44:              Array = new[]
+✔45:              {
+✔46:                  "test",
+✔47:                  "test2"
+✔48:              },
+✔49:              ArrayIntegers = new[] { 1, 2, 3, 4, 5, 6 }
+✔50:          };
 〰51:  
-〰52:              // Mock
+〰52:          // Mock
 〰53:  
-〰54:              // Test
-✔55:              var reflectionElementNode = this.CreateReflectionElementNode(testData, true).Build();
-✔56:              var nav = reflectionElementNode.ToNavigable().CreateNavigator();
+〰54:          // Test
+✔55:          var reflectionElementNode = this.CreateReflectionElementNode(testData, true).Build();
+✔56:          var nav = reflectionElementNode.ToNavigable().CreateNavigator();
 〰57:  
-✔58:              if (nav != null)
-✔59:                  this.TestContext.AddResult(nav);
+✔58:          if (nav != null)
+✔59:              this.TestContext.AddResult(nav);
 〰60:  
-〰61:              // Assert
-⚠62:              Assert.IsFalse(string.IsNullOrWhiteSpace(nav?.OuterXml));
+〰61:          // Assert
+⚠62:          Assert.IsFalse(string.IsNullOrWhiteSpace(nav?.OuterXml));
 〰63:  
-〰64:              // Verify
-✔65:              this.mockRepository.VerifyAll();
-✔66:          }
-〰67:      }
-〰68:  }
+〰64:          // Verify
+✔65:          this.mockRepository.VerifyAll();
+✔66:      }
+〰67:  }
+〰68:  
 ```
 
 ## Links

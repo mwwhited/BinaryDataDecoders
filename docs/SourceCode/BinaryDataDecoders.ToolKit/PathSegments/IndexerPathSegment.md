@@ -15,12 +15,6 @@
 
  * Type: IPathSegment 
 
-#### Public Constructor - IndexerPathSegment
-
-#####  Parameters
-
- - IPathSegment child 
-
 #### Public Method - ToString
 
 

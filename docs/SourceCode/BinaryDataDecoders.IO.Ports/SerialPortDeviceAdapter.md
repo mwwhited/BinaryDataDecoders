@@ -9,18 +9,6 @@
 
 ### Members
 
-#### Private ReadOnly Field - _device
-
-##### Summary
-
- * Type: SerialPort 
-
-#### Public Constructor - SerialPortDeviceAdapter
-
-#####  Parameters
-
- - SerialPort device 
-
 #### Public Property - Type
 
 ##### Summary

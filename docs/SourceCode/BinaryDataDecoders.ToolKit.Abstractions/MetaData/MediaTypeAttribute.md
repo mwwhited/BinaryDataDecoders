@@ -28,9 +28,3 @@
 
  * Type: string 
 
-#### Public Constructor - MediaTypeAttribute
-
-#####  Parameters
-
- - string mediaType 
-

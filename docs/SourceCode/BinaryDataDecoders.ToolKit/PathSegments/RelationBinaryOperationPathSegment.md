@@ -7,13 +7,3 @@
 
 ## Public Class - RelationBinaryOperationPathSegment
 
-### Members
-
-#### Public Constructor - RelationBinaryOperationPathSegment
-
-#####  Parameters
-
- - IPathSegment left 
- - IPathSegment < RelationalOperationTypes > @operator 
- - IPathSegment right 
-

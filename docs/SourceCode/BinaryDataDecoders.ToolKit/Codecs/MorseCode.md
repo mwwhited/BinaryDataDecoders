@@ -33,7 +33,7 @@
 
  - string input 
 
-#### Private Field - _mapping
+#### Private ReadOnly Field - _mapping
 
 ##### Summary
 

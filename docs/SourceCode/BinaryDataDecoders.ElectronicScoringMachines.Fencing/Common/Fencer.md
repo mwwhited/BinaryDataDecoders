@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/Common/Fencer.cs
 
-## Public Structure - Fencer
+## Public ReadOnly Structure - Fencer
 
 ### Attributes
 
@@ -15,15 +15,6 @@
  - )
 
 ### Members
-
-#### Public Constructor - Fencer
-
-#####  Parameters
-
- - byte score 
- - Cards cards 
- - Lights lights 
- - bool priority 
 
 #### Public Property - Score
 

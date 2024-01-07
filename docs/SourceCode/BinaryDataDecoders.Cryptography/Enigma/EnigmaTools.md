@@ -33,5 +33,5 @@
 #####  Parameters
 
  - this string input 
- - string [  ] swaps 
+ - string [  ] ? swaps 
 

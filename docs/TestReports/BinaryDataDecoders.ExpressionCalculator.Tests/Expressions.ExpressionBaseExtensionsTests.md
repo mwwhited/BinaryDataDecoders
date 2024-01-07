@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Evaluate
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -31,7 +31,7 @@ Result: 5.5
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::PreEvaluate
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -57,7 +57,7 @@ Result: 2.1 + 3.4
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::ReplaceVariables
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

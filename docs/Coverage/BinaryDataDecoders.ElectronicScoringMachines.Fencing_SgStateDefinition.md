@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                                                  |
 | Uncoveredlines  | `4`                                                                                  |
 | Coverablelines  | `4`                                                                                  |
-| Totallines      | `25`                                                                                 |
+| Totallines      | `24`                                                                                 |
 | Linecoverage    | `0`                                                                                  |
 | Coveredbranches | `0`                                                                                  |
 | Totalbranches   | `0`                                                                                  |
@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/SaintGeorge/SgStateDefinition.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ElectronicScoringMachines.Fencing/SaintGeorge/SgStateDefinition.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
@@ -37,22 +37,21 @@
 〰7:   using System.ComponentModel;
 〰8:   using System.Composition;
 〰9:   
-〰10:  namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge
-〰11:  {
-〰12:      [SerialPort(9600, Parity.None, 8, StopBits.One)]
-〰13:      [Description("Saint George")]
-〰14:      [Export(typeof(IDeviceDefinition))]
-〰15:      public class SgStateDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
-〰16:      {
-〰17:          public ISegmentBuildDefinition SegmentDefintion { get; } =
-‼18:              Segment.StartsWith(ControlCharacters.StartOfHeading)
-‼19:                     .AndEndsWith(ControlCharacters.EndOfTransmission)
-‼20:                     .WithMaxLength(100)
-‼21:                     .WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid);
+〰10:  namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge;
+〰11:  
+〰12:  [SerialPort(9600, Parity.None, 8, StopBits.One)]
+〰13:  [Description("Saint George")]
+〰14:  [Export(typeof(IDeviceDefinition))]
+〰15:  public class SgStateDefinition : IDeviceDefinitionReceiver<IScoreMachineState>
+〰16:  {
+〰17:      public ISegmentBuildDefinition SegmentDefintion { get; } =
+‼18:          Segment.StartsWith(ControlCharacters.StartOfHeading)
+‼19:                 .AndEndsWith(ControlCharacters.EndOfTransmission)
+‼20:                 .WithMaxLength(100)
+‼21:                 .WithOptions(SegmentionOptions.SkipInvalidSegment | SegmentionOptions.SecondStartInvalid);
 〰22:  
-〰23:          public IMessageDecoder<IScoreMachineState> Decoder { get; } = new SgStateDecoder();
-〰24:      }
-〰25:  }
+〰23:      public IMessageDecoder<IScoreMachineState> Decoder { get; } = new SgStateDecoder();
+〰24:  }
 ```
 
 ## Links

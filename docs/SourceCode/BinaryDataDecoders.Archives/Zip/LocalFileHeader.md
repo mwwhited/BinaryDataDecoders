@@ -87,7 +87,7 @@
 
  * Type: 
 
-#### Public Property - HeaderSize
+#### Public ReadOnly Property - HeaderSize
 
 ##### Summary
 

@@ -7,11 +7,3 @@
 
 ## Public Class - StringPathSegment
 
-### Members
-
-#### Public Constructor - StringPathSegment
-
-#####  Parameters
-
- - string value 
-

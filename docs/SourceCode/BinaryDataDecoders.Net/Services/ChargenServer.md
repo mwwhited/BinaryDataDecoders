@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - ChargenServer
-
-#####  Parameters
-
- - IPAddress ? ipAddress = default 
- - ushort port = 19 
-
 #### Async Method - OnStartAsync
 
 #####  Parameters

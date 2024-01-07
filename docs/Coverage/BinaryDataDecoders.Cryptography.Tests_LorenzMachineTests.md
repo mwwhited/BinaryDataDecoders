@@ -25,7 +25,7 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.Cryptography.Tests/Lorenz/LorenzMachineTests.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.Cryptography.Tests/Lorenz/LorenzMachineTests.cs
 
 ```CSharp
 〰1:   using BinaryDataDecoders.Cryptography.Lorenz;
@@ -35,30 +35,30 @@
 〰5:   using System.Collections.Generic;
 〰6:   using System.Text;
 〰7:   
-〰8:   namespace BinaryDataDecoders.Cryptography.Tests.Lorenz
-〰9:   {
-〰10:      [TestClass]
-〰11:      public class LorenzMachineTests
-〰12:      {
-〰13:          public TestContext TestContext { get; set; }
+〰8:   namespace BinaryDataDecoders.Cryptography.Tests.Lorenz;
+〰9:   
+〰10:  [TestClass]
+〰11:  public class LorenzMachineTests
+〰12:  {
+〰13:      public TestContext TestContext { get; set; }
 〰14:  
-〰15:          [TestMethod, TestCategory(TestCategories.Unit)]
-〰16:          public void Test()
-〰17:          {
-✔18:              var lm = new LorenzMachine(LorenzMachine.ZMUG.key, LorenzMachine.ZMUG.start);
+〰15:      [TestMethod, TestCategory(TestCategories.Unit)]
+〰16:      public void Test()
+〰17:      {
+✔18:          var lm = new LorenzMachine(LorenzMachine.ZMUG.key, LorenzMachine.ZMUG.start);
 〰19:  
-✔20:              var mesg = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ012345";
+✔20:          var mesg = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ012345";
 〰21:  
-✔22:              var result = lm.Encode(mesg);
+✔22:          var result = lm.Encode(mesg);
 〰23:  
-✔24:              Assert.AreEqual("EATAS1DSSQ421X4B5ZHPRXE5XNV4CESS", result);
+✔24:          Assert.AreEqual("EATAS1DSSQ421X4B5ZHPRXE5XNV4CESS", result);
 〰25:  
-✔26:              var check = lm.Encode(result);
+✔26:          var check = lm.Encode(result);
 〰27:  
-✔28:              Assert.AreEqual(mesg, check);
-✔29:          }
-〰30:      }
-〰31:  }
+✔28:          Assert.AreEqual(mesg, check);
+✔29:      }
+〰30:  }
+〰31:  
 ```
 
 ## Links

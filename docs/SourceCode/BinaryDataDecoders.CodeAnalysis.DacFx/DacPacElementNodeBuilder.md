@@ -15,12 +15,6 @@
 
  * Type: 
 
-#### Public Constructor - DacPacElementNodeBuilder
-
-#####  Parameters
-
- - TSqlModel sqlModel 
-
 #### Method - ChildSelector
 
 #####  Parameters
@@ -81,13 +75,13 @@
 
  - Type model 
 
-#### Private Field - _excludeProperties
+#### Private ReadOnly Field - _excludeProperties
 
 ##### Summary
 
  * Type: 
 
-#### Private Field - _collected
+#### Private ReadOnly Field - _collected
 
 ##### Summary
 

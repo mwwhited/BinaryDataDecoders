@@ -35,27 +35,27 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/DecimalExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/DecimalExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class DecimalExpressionEvaluator : IExpressionEvaluator<decimal>
-〰6:       {
-✔7:           public decimal Add(decimal left, decimal right) => left + right;
-✔8:           public decimal Divide(decimal left, decimal right) => left / right;
-✔9:           public decimal Modulo(decimal left, decimal right) => left % right;
-✔10:          public decimal Multiply(decimal left, decimal right) => left * right;
-✔11:          public decimal Negate(decimal operand) => -operand;
-✔12:          public decimal Power(decimal left, decimal right) => (decimal)Math.Pow((double)left, (double)right);
-✔13:          public decimal Subtract(decimal left, decimal right) => left - right;
-⚠14:          public decimal? TryParse(string input) => decimal.TryParse(input, out var ret) ? (decimal?)ret : null;
-✔15:          public decimal GetValue(int value) => (decimal)value;
-✔16:          public decimal GetValue(double value) => (decimal)value;
-〰17:      }
-〰18:  }
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class DecimalExpressionEvaluator : IExpressionEvaluator<decimal>
+〰6:   {
+✔7:       public decimal Add(decimal left, decimal right) => left + right;
+✔8:       public decimal Divide(decimal left, decimal right) => left / right;
+✔9:       public decimal Modulo(decimal left, decimal right) => left % right;
+✔10:      public decimal Multiply(decimal left, decimal right) => left * right;
+✔11:      public decimal Negate(decimal operand) => -operand;
+✔12:      public decimal Power(decimal left, decimal right) => (decimal)Math.Pow((double)left, (double)right);
+✔13:      public decimal Subtract(decimal left, decimal right) => left - right;
+⚠14:      public decimal? TryParse(string input) => decimal.TryParse(input, out var ret) ? (decimal?)ret : null;
+✔15:      public decimal GetValue(int value) => (decimal)value;
+✔16:      public decimal GetValue(double value) => (decimal)value;
+〰17:  }
+〰18:  
 ```
 
 ## Links

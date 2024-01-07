@@ -7,11 +7,3 @@
 
 ## Public Class - RelationalOperationTypePathSegment
 
-### Members
-
-#### Public Constructor - RelationalOperationTypePathSegment
-
-#####  Parameters
-
- - RelationalOperationTypes type 
-

@@ -7,21 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.PassThroughSegmenter` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                    |
 | Coveredlines    | `0`                                                     |
-| Uncoveredlines  | `9`                                                     |
-| Coverablelines  | `9`                                                     |
-| Totallines      | `23`                                                    |
+| Uncoveredlines  | `14`                                                    |
+| Coverablelines  | `14`                                                    |
+| Totallines      | `28`                                                    |
 | Linecoverage    | `0`                                                     |
 | Coveredbranches | `0`                                                     |
-| Totalbranches   | `4`                                                     |
+| Totalbranches   | `8`                                                     |
 | Branchcoverage  | `0`                                                     |
 | Coveredmethods  | `0`                                                     |
-| Totalmethods    | `2`                                                     |
+| Totalmethods    | `4`                                                     |
 | Methodcoverage  | `0`                                                     |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 4          | 0     | 0        | `Read`  |
 | 1          | 0     | 100      | `ctor`  |
 | 4          | 0     | 0        | `Read`  |
 
@@ -32,27 +34,37 @@
 ```CSharp
 〰1:   using System.Buffers;
 〰2:   
-〰3:   namespace BinaryDataDecoders.IO.Segmenters
-〰4:   {
-〰5:       internal class PassThroughSegmenter : SegmenterBase
-〰6:       {
-〰7:           private readonly long _minimumLength;
-〰8:   
-〰9:           public PassThroughSegmenter(OnSegmentReceived onSegmentReceived, long minimumLength, SegmentionOptions options)
-‼10:              : base(onSegmentReceived, options)
-〰11:          {
-‼12:              _minimumLength = minimumLength;
-‼13:          }
-〰14:  
-〰15:          protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer) =>
-‼16:              buffer.Length switch
-‼17:              {
-‼18:                  0 => (SegmentationStatus.Incomplete, buffer),
-‼19:                  _ when buffer.Length < _minimumLength => (SegmentationStatus.Invalid, buffer),
-‼20:                  _ => (SegmentationStatus.Complete, buffer)
-‼21:              };
-〰22:      }
-〰23:  }
+〰3:   namespace BinaryDataDecoders.IO.Segmenters;
+〰4:   
+‼5:   internal class PassThroughSegmenter(OnSegmentReceived onSegmentReceived, long minimumLength, SegmentionOptions options) : SegmenterBase(onSegmentReceived, options)
+〰6:   {
+〰7:       protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer) =>
+‼8:           buffer.Length switch
+‼9:           {
+‼10:              0 => (SegmentationStatus.Incomplete, buffer),
+‼11:              _ when buffer.Length < minimumLength => (SegmentationStatus.Invalid, buffer),
+‼12:              _ => (SegmentationStatus.Complete, buffer)
+‼13:          };
+〰14:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.IO.Abstractions/Segmenters/PassThroughSegmenter.cs
+
+```CSharp
+〰1:   using System.Buffers;
+〰2:   
+〰3:   namespace BinaryDataDecoders.IO.Segmenters;
+〰4:   
+‼5:   internal class PassThroughSegmenter(OnSegmentReceived onSegmentReceived, long minimumLength, SegmentionOptions options) : SegmenterBase(onSegmentReceived, options)
+〰6:   {
+〰7:       protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer) =>
+‼8:           buffer.Length switch
+‼9:           {
+‼10:              0 => (SegmentationStatus.Incomplete, buffer),
+‼11:              _ when buffer.Length < minimumLength => (SegmentationStatus.Invalid, buffer),
+‼12:              _ => (SegmentationStatus.Complete, buffer)
+‼13:          };
+〰14:  }
 ```
 
 ## Links

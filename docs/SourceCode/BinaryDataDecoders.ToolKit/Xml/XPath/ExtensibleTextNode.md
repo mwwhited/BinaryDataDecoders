@@ -7,14 +7,3 @@
 
 ## Internal Class - ExtensibleTextNode
 
-### Members
-
-#### Public Constructor - ExtensibleTextNode
-
-#####  Parameters
-
- - INode parent 
- - XName name 
- - T item 
- - string value 
-

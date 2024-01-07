@@ -7,21 +7,26 @@
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.EnumerableXPathNodeIterator` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                       |
 | Coveredlines    | `0`                                                                |
-| Uncoveredlines  | `14`                                                               |
-| Coverablelines  | `14`                                                               |
-| Totallines      | `41`                                                               |
+| Uncoveredlines  | `26`                                                               |
+| Coverablelines  | `26`                                                               |
+| Totallines      | `67`                                                               |
 | Linecoverage    | `0`                                                                |
 | Coveredbranches | `0`                                                                |
-| Totalbranches   | `6`                                                                |
+| Totalbranches   | `12`                                                               |
 | Branchcoverage  | `0`                                                                |
 | Coveredmethods  | `0`                                                                |
-| Totalmethods    | `5`                                                                |
+| Totalmethods    | `10`                                                               |
 | Methodcoverage  | `0`                                                                |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name                  |
 | :--------- | :---- | :------- | :-------------------- |
+| 1          | 0     | 100      | `ctor`                |
+| 1          | 0     | 100      | `get_Current`         |
+| 1          | 0     | 100      | `get_CurrentPosition` |
+| 4          | 0     | 0        | `Clone`               |
+| 2          | 0     | 0        | `MoveNext`            |
 | 1          | 0     | 100      | `ctor`                |
 | 1          | 0     | 100      | `get_Current`         |
 | 1          | 0     | 100      | `get_CurrentPosition` |
@@ -38,42 +43,73 @@
 〰3:   using System.Linq;
 〰4:   using System.Xml.XPath;
 〰5:   
-〰6:   namespace BinaryDataDecoders.ToolKit.Xml.XPath
-〰7:   {
-〰8:       public class EnumerableXPathNodeIterator : XPathNodeIterator
-〰9:       {
-〰10:          private int _pointer;
-〰11:          private readonly IEnumerable<IXPathNavigable> _set;
-〰12:          private readonly IEnumerator<IXPathNavigable> _enumerator;
+〰6:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰7:   
+‼8:   public class EnumerableXPathNodeIterator(IEnumerable<IXPathNavigable> set) : XPathNodeIterator
+〰9:   {
+‼10:      private int _pointer = -1;
+‼11:      private readonly IEnumerable<IXPathNavigable> _set = set.ToArray();
+‼12:      private readonly IEnumerator<IXPathNavigable> _enumerator = set.GetEnumerator();
 〰13:  
-‼14:          public EnumerableXPathNodeIterator(IEnumerable<IXPathNavigable> set)
-〰15:          {
-‼16:              _set = set.ToArray();
-‼17:              _pointer = -1;
-‼18:              _enumerator = set.GetEnumerator();
-‼19:          }
-〰20:  
-‼21:          public override XPathNavigator Current => _enumerator.Current.CreateNavigator();
-‼22:          public override int CurrentPosition => _pointer;
+‼14:      public override XPathNavigator Current => _enumerator.Current.CreateNavigator();
+‼15:      public override int CurrentPosition => _pointer;
+〰16:  
+〰17:      public override XPathNodeIterator Clone()
+〰18:      {
+‼19:          var newIterator = new EnumerableXPathNodeIterator(_set);
+‼20:          while (newIterator.CurrentPosition < _pointer && newIterator.MoveNext()) ;
+‼21:          return newIterator;
+〰22:      }
 〰23:  
-〰24:          public override XPathNodeIterator Clone()
-〰25:          {
-‼26:              var newIterator = new EnumerableXPathNodeIterator(_set);
-‼27:              while (newIterator.CurrentPosition < _pointer && newIterator.MoveNext()) ;
-‼28:              return newIterator;
-〰29:          }
-〰30:  
-〰31:          public override bool MoveNext()
-〰32:          {
-‼33:              if (_enumerator.MoveNext())
-〰34:              {
-‼35:                  _pointer++;
-‼36:                  return true;
-〰37:              }
-‼38:              return false;
-〰39:          }
-〰40:      }
-〰41:  }
+〰24:      public override bool MoveNext()
+〰25:      {
+‼26:          if (_enumerator.MoveNext())
+〰27:          {
+‼28:              _pointer++;
+‼29:              return true;
+〰30:          }
+‼31:          return false;
+〰32:      }
+〰33:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Xml/XPath/EnumerableXPathNodeIterator.cs
+
+```CSharp
+〰1:   using System;
+〰2:   using System.Collections.Generic;
+〰3:   using System.Linq;
+〰4:   using System.Xml.XPath;
+〰5:   
+〰6:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰7:   
+‼8:   public class EnumerableXPathNodeIterator(IEnumerable<IXPathNavigable> set) : XPathNodeIterator
+〰9:   {
+‼10:      private int _pointer = -1;
+‼11:      private readonly IEnumerable<IXPathNavigable> _set = set.ToArray();
+‼12:      private readonly IEnumerator<IXPathNavigable> _enumerator = set.GetEnumerator();
+〰13:  
+‼14:      public override XPathNavigator Current => _enumerator.Current.CreateNavigator();
+‼15:      public override int CurrentPosition => _pointer;
+〰16:  
+〰17:      public override XPathNodeIterator Clone()
+〰18:      {
+‼19:          var newIterator = new EnumerableXPathNodeIterator(_set);
+‼20:          while (newIterator.CurrentPosition < _pointer && newIterator.MoveNext()) ;
+‼21:          return newIterator;
+〰22:      }
+〰23:  
+〰24:      public override bool MoveNext()
+〰25:      {
+‼26:          if (_enumerator.MoveNext())
+〰27:          {
+‼28:              _pointer++;
+‼29:              return true;
+〰30:          }
+‼31:          return false;
+〰32:      }
+〰33:  }
+〰34:  
 ```
 
 ## Links

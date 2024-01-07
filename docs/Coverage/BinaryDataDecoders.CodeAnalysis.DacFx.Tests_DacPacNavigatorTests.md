@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                                |
 | Uncoveredlines  | `5`                                                                |
 | Coverablelines  | `5`                                                                |
-| Totallines      | `20`                                                               |
+| Totallines      | `19`                                                               |
 | Linecoverage    | `0`                                                                |
 | Coveredbranches | `0`                                                                |
 | Totalbranches   | `0`                                                                |
@@ -31,23 +31,22 @@
 〰1:   using BinaryDataDecoders.TestUtilities;
 〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
 〰3:   
-〰4:   namespace BinaryDataDecoders.CodeAnalysis.DacFx.Tests
-〰5:   {
-〰6:       [TestClass]
-〰7:       public class DacPacNavigatorTests
-〰8:       {
-〰9:           public TestContext TestContext { get; set; }
+〰4:   namespace BinaryDataDecoders.CodeAnalysis.DacFx.Tests;
+〰5:   
+〰6:   [TestClass]
+〰7:   public class DacPacNavigatorTests
+〰8:   {
+〰9:       public TestContext TestContext { get; set; }
 〰10:  
-〰11:          [TestMethod, TestCategory("DACPAC"), TestCategory(TestCategories.DevLocal)]
-〰12:          public void Test()
-〰13:          {
-‼14:              var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\BinaryDataDecoders.SqlServer.Samples.dacpac";
-‼15:              var builder = new DacPacNavigator();
-‼16:              var nav = builder.ToNavigable(testFile);
-‼17:              this.TestContext.AddResult(nav);
-‼18:          }
-〰19:      }
-〰20:  }
+〰11:      [TestMethod, TestCategory("DACPAC"), TestCategory(TestCategories.DevLocal)]
+〰12:      public void Test()
+〰13:      {
+‼14:          var testFile = @"C:\Repos\mwwhited\BinaryDataDecoders\src\BinaryDataDecoders.SqlServer.Samples\bin\Debug\BinaryDataDecoders.SqlServer.Samples.dacpac";
+‼15:          var builder = new DacPacNavigator();
+‼16:          var nav = builder.ToNavigable(testFile);
+‼17:          this.TestContext.AddResult(nav);
+‼18:      }
+〰19:  }
 ```
 
 ## Links

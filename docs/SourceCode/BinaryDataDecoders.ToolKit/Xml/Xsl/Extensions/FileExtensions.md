@@ -12,6 +12,9 @@
  <summary>
  Sandboxable wrapper around File IO functions intended for use with XslCompiledTransform
  </summary>
+ <remarks>
+ </remarks>
+ <paramname="sandbox">base path for sandboxing these functions</param>
 
 ### Attributes
 
@@ -30,24 +33,6 @@
  - )
 
 ### Members
-
-#### Private ReadOnly Field - _sandbox
-
-##### Summary
-
- * Type: 
-
-#### Public Constructor - FileExtensions
-
-##### Comments
-
- <summary>
- </summary>
- <paramname="sandbox">base path for sandboxing these functions</param>
-
-#####  Parameters
-
- - string sandbox 
 
 #### Public Method - WriteToFile
 

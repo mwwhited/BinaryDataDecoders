@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                          |
 | Uncoveredlines  | `1`                                                          |
 | Coverablelines  | `1`                                                          |
-| Totallines      | `12`                                                         |
+| Totallines      | `9`                                                          |
 | Linecoverage    | `0`                                                          |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `0`                                                          |
@@ -30,16 +30,13 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ToolKit.MetaData
-〰4:   {
-〰5:       [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-〰6:       public class FileExtensionAttribute : Attribute
-〰7:       {
-〰8:           public string FileExtension { get; }
-〰9:   
-‼10:          public FileExtensionAttribute(string fileExtension) => FileExtension = fileExtension;
-〰11:      }
-〰12:  }
+〰3:   namespace BinaryDataDecoders.ToolKit.MetaData;
+〰4:   
+〰5:   [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+‼6:   public class FileExtensionAttribute(string fileExtension) : Attribute
+〰7:   {
+〰8:       public string FileExtension { get; } = fileExtension;
+〰9:   }
 ```
 
 ## Links

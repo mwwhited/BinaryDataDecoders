@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.ToolKit/BigEndianUShort.cs
 
-## Public Structure - BigEndianUShort
+## Public ReadOnly Structure - BigEndianUShort
 
 ### Comments
 

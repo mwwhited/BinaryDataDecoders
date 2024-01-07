@@ -35,29 +35,29 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/UInt64ExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/UInt64ExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class UInt64ExpressionEvaluator : IExpressionEvaluator<ulong>
-〰6:       {
-✔7:           public ulong Add(ulong left, ulong right) => left + right;
-✔8:           public ulong Divide(ulong left, ulong right) => left / right;
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class UInt64ExpressionEvaluator : IExpressionEvaluator<ulong>
+〰6:   {
+✔7:       public ulong Add(ulong left, ulong right) => left + right;
+✔8:       public ulong Divide(ulong left, ulong right) => left / right;
 〰9:   
-✔10:          public ulong Modulo(ulong left, ulong right) => left % right;
-✔11:          public ulong Multiply(ulong left, ulong right) => left * right;
-✔12:          public ulong Negate(ulong operand) => throw new NotSupportedException(nameof(Negate));
-✔13:          public ulong Power(ulong left, ulong right) => (ulong)Math.Pow((double)left, (double)right);
-✔14:          public ulong Subtract(ulong left, ulong right) => left - right;
+✔10:      public ulong Modulo(ulong left, ulong right) => left % right;
+✔11:      public ulong Multiply(ulong left, ulong right) => left * right;
+✔12:      public ulong Negate(ulong operand) => throw new NotSupportedException(nameof(Negate));
+✔13:      public ulong Power(ulong left, ulong right) => (ulong)Math.Pow((double)left, (double)right);
+✔14:      public ulong Subtract(ulong left, ulong right) => left - right;
 〰15:  
-⚠16:          public ulong? TryParse(string input) => ulong.TryParse(input, out var ret) ? (ulong?)ret : null;
-✔17:          public ulong GetValue(int value) => (ulong)value;
-✔18:          public ulong GetValue(double value) => (ulong)value;
-〰19:      }
-〰20:  }
+⚠16:      public ulong? TryParse(string input) => ulong.TryParse(input, out var ret) ? (ulong?)ret : null;
+✔17:      public ulong GetValue(int value) => (ulong)value;
+✔18:      public ulong GetValue(double value) => (ulong)value;
+〰19:  }
+〰20:  
 ```
 
 ## Links

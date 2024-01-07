@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Quarta.RadexOne/DevicePing.cs
 
-## Public Structure - DevicePing
+## Public ReadOnly Structure - DevicePing
 
 ### Comments
 

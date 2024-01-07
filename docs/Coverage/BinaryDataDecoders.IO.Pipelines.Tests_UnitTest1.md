@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                               |
 | Uncoveredlines  | `2`                                               |
 | Coverablelines  | `2`                                               |
-| Totallines      | `15`                                              |
+| Totallines      | `14`                                              |
 | Linecoverage    | `0`                                               |
 | Coveredbranches | `0`                                               |
 | Totalbranches   | `0`                                               |
@@ -31,18 +31,17 @@
 〰1:   using BinaryDataDecoders.TestUtilities;
 〰2:   using Microsoft.VisualStudio.TestTools.UnitTesting;
 〰3:   
-〰4:   namespace BinaryDataDecoders.IO.Pipelines.Tests
-〰5:   {
-〰6:       [TestClass]
-〰7:       public class UnitTest1
-〰8:       {
-〰9:           [TestMethod, TestCategory(TestCategories.DevLocal)]
-〰10:          public void TestMethod1()
-〰11:          {
-‼12:              Assert.Inconclusive();
-‼13:          }
-〰14:      }
-〰15:  }
+〰4:   namespace BinaryDataDecoders.IO.Pipelines.Tests;
+〰5:   
+〰6:   [TestClass]
+〰7:   public class UnitTest1
+〰8:   {
+〰9:       [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰10:      public void TestMethod1()
+〰11:      {
+‼12:          Assert.Inconclusive();
+‼13:      }
+〰14:  }
 ```
 
 ## Links

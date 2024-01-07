@@ -7,11 +7,3 @@
 
 ## Public Class - ConfigurationCommandMapping
 
-### Members
-
-#### Public Constructor - ConfigurationCommandMapping
-
-#####  Parameters
-
- - IEnumerable < ( string key , string value ) > collection 
-

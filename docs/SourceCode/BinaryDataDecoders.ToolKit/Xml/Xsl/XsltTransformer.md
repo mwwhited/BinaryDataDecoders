@@ -12,6 +12,10 @@
  <summary>
  Implementation of XsltTransformer
  </summary>
+ <remarks>
+ create instance of XsltTransformer
+ </remarks>
+ <paramname="extensions">optional extensions for XSLT Transform</param>
 
 ### Members
 
@@ -20,26 +24,6 @@
 ##### Summary
 
  * Type: 
-
-#### Private ReadOnly Field - _extensions
-
-##### Summary
-
- * Type: 
-
-#### Public Constructor - XsltTransformer
-
-##### Comments
-
- <summary>
- create instance of XsltTransformer
- </summary>
- <paramname="extensions">optional extensions for XSLT Transform</param>
-
-#####  Parameters
-
- - string sandbox 
- - params object [  ] extensions 
 
 #### Public Method - ReadAsXml
 

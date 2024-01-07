@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.InvalidSegmentationException` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                            |
 | Coveredlines    | `0`                                                             |
-| Uncoveredlines  | `2`                                                             |
-| Coverablelines  | `2`                                                             |
-| Totallines      | `13`                                                            |
+| Uncoveredlines  | `4`                                                             |
+| Coverablelines  | `4`                                                             |
+| Totallines      | `24`                                                            |
 | Linecoverage    | `0`                                                             |
 | Coveredbranches | `0`                                                             |
 | Totalbranches   | `0`                                                             |
 | Coveredmethods  | `0`                                                             |
-| Totalmethods    | `1`                                                             |
+| Totalmethods    | `2`                                                             |
 | Methodcoverage  | `0`                                                             |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 | 1          | 0     | 100      | `ctor`  |
 
 ## Files
@@ -31,16 +32,32 @@
 〰1:   using System;
 〰2:   using System.Runtime.Serialization;
 〰3:   
-〰4:   namespace BinaryDataDecoders.IO.Segmenters
-〰5:   {
-〰6:       [Serializable]
-〰7:       public class InvalidSegmentationException : Exception
-〰8:       {
-‼9:           public InvalidSegmentationException()
-〰10:          {
-‼11:          }
-〰12:      }
-〰13:  }
+〰4:   namespace BinaryDataDecoders.IO.Segmenters;
+〰5:   
+〰6:   [Serializable]
+〰7:   public class InvalidSegmentationException : Exception
+〰8:   {
+‼9:       public InvalidSegmentationException()
+〰10:      {
+‼11:      }
+〰12:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.IO.Abstractions/Segmenters/InvalidSegmentationException.cs
+
+```CSharp
+〰1:   using System;
+〰2:   using System.Runtime.Serialization;
+〰3:   
+〰4:   namespace BinaryDataDecoders.IO.Segmenters;
+〰5:   
+〰6:   [Serializable]
+〰7:   public class InvalidSegmentationException : Exception
+〰8:   {
+‼9:       public InvalidSegmentationException()
+〰10:      {
+‼11:      }
+〰12:  }
 ```
 
 ## Links

@@ -21,12 +21,6 @@
 
  * Type: IWrappedNode 
 
-#### Public Constructor - WrappedNavigator
-
-#####  Parameters
-
- - IWrappedNode node 
-
 #### Public Method - Clone
 
 

@@ -27,12 +27,6 @@
 
  * Type: 
 
-#### Public Constructor - EnumerableXPathNodeIterator
-
-#####  Parameters
-
- - IEnumerable < IXPathNavigable > set 
-
 #### Public Property - Current
 
 ##### Summary

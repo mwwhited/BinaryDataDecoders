@@ -9,12 +9,6 @@
 
 ### Members
 
-#### Public Constructor - PathExistsPathSegment
-
-#####  Parameters
-
- - BinaryPathSegment path 
-
 #### Public Method - ToString
 
 

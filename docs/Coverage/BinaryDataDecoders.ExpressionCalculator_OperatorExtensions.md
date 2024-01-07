@@ -31,90 +31,90 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Expressions/OperatorExtensions.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Expressions/OperatorExtensions.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   using static BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperators;
 〰3:   using static BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperators;
 〰4:   
-〰5:   namespace BinaryDataDecoders.ExpressionCalculator.Expressions
-〰6:   {
-〰7:       public static class OperatorExtensions
-〰8:       {
-〰9:           public static string AsString(this UnaryOperators @operator) =>
-⚠10:              @operator switch
-✔11:              {
-✔12:                  Negate => "-",
-✔13:                  Factorial => "!",
+〰5:   namespace BinaryDataDecoders.ExpressionCalculator.Expressions;
+〰6:   
+〰7:   public static class OperatorExtensions
+〰8:   {
+〰9:       public static string AsString(this UnaryOperators @operator) =>
+⚠10:          @operator switch
+✔11:          {
+✔12:              Negate => "-",
+✔13:              Factorial => "!",
 ✔14:  
-‼15:                  _ => throw new NotSupportedException($"Operator {@operator} not supported")
-✔16:              };
+‼15:              _ => throw new NotSupportedException($"Operator {@operator} not supported")
+✔16:          };
 〰17:  
-〰18:          public static bool IsRight(this UnaryOperators @operator) =>
-⚠19:              @operator switch
-✔20:              {
-✔21:                  Negate => false,
-✔22:                  Factorial => true,
+〰18:      public static bool IsRight(this UnaryOperators @operator) =>
+⚠19:          @operator switch
+✔20:          {
+✔21:              Negate => false,
+✔22:              Factorial => true,
 ✔23:  
-‼24:                  _ => throw new NotSupportedException($"Operator {@operator} not supported")
-✔25:              };
+‼24:              _ => throw new NotSupportedException($"Operator {@operator} not supported")
+✔25:          };
 〰26:  
-〰27:          public static UnaryOperators AsUnaryOperator(this string input) =>
-⚠28:              input switch
-✔29:              {
-✔30:                  "-" => Negate,
-✔31:                  "!" => Factorial,
+〰27:      public static UnaryOperators AsUnaryOperator(this string input) =>
+⚠28:          input switch
+✔29:          {
+✔30:              "-" => Negate,
+✔31:              "!" => Factorial,
 ✔32:  
-‼33:                  _ => UnaryOperators.Unknown
-✔34:              };
+‼33:              _ => UnaryOperators.Unknown
+✔34:          };
 〰35:  
-〰36:          public static string AsString(this BinaryOperators @operator) =>
-⚠37:              @operator switch
-✔38:              {
-✔39:                  Power => "^",
+〰36:      public static string AsString(this BinaryOperators @operator) =>
+⚠37:          @operator switch
+✔38:          {
+✔39:              Power => "^",
 ✔40:  
-✔41:                  Multiply => "*",
-✔42:                  Divide => "/",
-✔43:                  Modulo =>"%",
+✔41:              Multiply => "*",
+✔42:              Divide => "/",
+✔43:              Modulo =>"%",
 ✔44:  
-✔45:                  Add => "+",
-✔46:                  Subtract => "-",
+✔45:              Add => "+",
+✔46:              Subtract => "-",
 ✔47:  
-‼48:                  _ => $"?{@operator}?"
-✔49:              };
+‼48:              _ => $"?{@operator}?"
+✔49:          };
 〰50:  
-〰51:          public static BinaryOperators AsBinaryOperators(this string input) =>
-⚠52:              input switch
-✔53:              {
-✔54:                  "^" => Power,
+〰51:      public static BinaryOperators AsBinaryOperators(this string input) =>
+⚠52:          input switch
+✔53:          {
+✔54:              "^" => Power,
 ✔55:  
-✔56:                  "*" => Multiply,
-✔57:                  "/" => Divide,
-✔58:                  "%" => Modulo,
+✔56:              "*" => Multiply,
+✔57:              "/" => Divide,
+✔58:              "%" => Modulo,
 ✔59:  
-✔60:                  "+" => Add,
-✔61:                  "-" => Subtract,
+✔60:              "+" => Add,
+✔61:              "-" => Subtract,
 ✔62:  
-‼63:                  _ => BinaryOperators.Unknown
-✔64:              };
+‼63:              _ => BinaryOperators.Unknown
+✔64:          };
 〰65:  
-〰66:          public static int GetPriority(this BinaryOperators @operator) =>
-⚠67:              @operator switch
-✔68:              {
-‼69:                  Power => 3,
+〰66:      public static int GetPriority(this BinaryOperators @operator) =>
+⚠67:          @operator switch
+✔68:          {
+‼69:              Power => 3,
 ✔70:  
-✔71:                  Multiply => 2,
-✔72:                  Divide => 2,
-‼73:                  Modulo => 2,
+✔71:              Multiply => 2,
+✔72:              Divide => 2,
+‼73:              Modulo => 2,
 ✔74:  
-✔75:                  Add => 1,
-✔76:                  Subtract => 1,
+✔75:              Add => 1,
+✔76:              Subtract => 1,
 ✔77:  
-‼78:                  _ => int.MaxValue,
-✔79:              };
-〰80:      }
-〰81:  }
+‼78:              _ => int.MaxValue,
+✔79:          };
+〰80:  }
+〰81:  
 ```
 
 ## Links

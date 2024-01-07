@@ -7,20 +7,21 @@
 | Class           | `BinaryDataDecoders.IO.Messages.MessageEncoder`1` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`              |
 | Coveredlines    | `0`                                               |
-| Uncoveredlines  | `7`                                               |
-| Coverablelines  | `7`                                               |
-| Totallines      | `19`                                              |
+| Uncoveredlines  | `14`                                              |
+| Coverablelines  | `14`                                              |
+| Totallines      | `37`                                              |
 | Linecoverage    | `0`                                               |
 | Coveredbranches | `0`                                               |
 | Totalbranches   | `0`                                               |
 | Coveredmethods  | `0`                                               |
-| Totalmethods    | `1`                                               |
+| Totalmethods    | `2`                                               |
 | Methodcoverage  | `0`                                               |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name     |
 | :--------- | :---- | :------- | :------- |
+| 1          | 0     | 100      | `Encode` |
 | 1          | 0     | 100      | `Encode` |
 
 ## Files
@@ -31,22 +32,45 @@
 〰1:   using System;
 〰2:   using System.Runtime.InteropServices;
 〰3:   
-〰4:   namespace BinaryDataDecoders.IO.Messages
-〰5:   {
-〰6:       public class MessageEncoder<TMessage> : IMessageEncoder<TMessage>
-〰7:       {
-〰8:           public ReadOnlyMemory<byte> Encode(ref TMessage request)
-〰9:           {
-‼10:              var requestBuffer = new byte[Marshal.SizeOf(request)];
-‼11:              IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);
-‼12:              Marshal.StructureToPtr(request, ptr, true);
-‼13:              Marshal.Copy(ptr, requestBuffer, 0, requestBuffer.Length);
-‼14:              Marshal.FreeHGlobal(ptr);
-‼15:              ReadOnlyMemory<byte> span = requestBuffer;
-‼16:              return span;
-〰17:          }
-〰18:      }
-〰19:  }
+〰4:   namespace BinaryDataDecoders.IO.Messages;
+〰5:   
+〰6:   public class MessageEncoder<TMessage> : IMessageEncoder<TMessage>
+〰7:   {
+〰8:       public ReadOnlyMemory<byte> Encode(ref TMessage request)
+〰9:       {
+‼10:          var requestBuffer = new byte[Marshal.SizeOf(request)];
+‼11:          IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);
+‼12:          Marshal.StructureToPtr(request, ptr, true);
+‼13:          Marshal.Copy(ptr, requestBuffer, 0, requestBuffer.Length);
+‼14:          Marshal.FreeHGlobal(ptr);
+‼15:          ReadOnlyMemory<byte> span = requestBuffer;
+‼16:          return span;
+〰17:      }
+〰18:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.IO.Abstractions/Messages/MessageEncoder.cs
+
+```CSharp
+〰1:   using System;
+〰2:   using System.Runtime.InteropServices;
+〰3:   
+〰4:   namespace BinaryDataDecoders.IO.Messages;
+〰5:   
+〰6:   public class MessageEncoder<TMessage> : IMessageEncoder<TMessage>
+〰7:   {
+〰8:       public ReadOnlyMemory<byte> Encode(ref TMessage request)
+〰9:       {
+‼10:          var requestBuffer = new byte[Marshal.SizeOf(request)];
+‼11:          IntPtr ptr = Marshal.AllocHGlobal(requestBuffer.Length);
+‼12:          Marshal.StructureToPtr(request, ptr, true);
+‼13:          Marshal.Copy(ptr, requestBuffer, 0, requestBuffer.Length);
+‼14:          Marshal.FreeHGlobal(ptr);
+‼15:          ReadOnlyMemory<byte> span = requestBuffer;
+‼16:          return span;
+〰17:      }
+〰18:  }
+〰19:  
 ```
 
 ## Links

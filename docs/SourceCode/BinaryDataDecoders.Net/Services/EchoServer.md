@@ -9,13 +9,6 @@
 
 ### Members
 
-#### Public Constructor - EchoServer
-
-#####  Parameters
-
- - IPAddress ? ipAddress = default 
- - ushort port = 7 
-
 #### Async Method - MessageReceivedAsync
 
 #####  Parameters

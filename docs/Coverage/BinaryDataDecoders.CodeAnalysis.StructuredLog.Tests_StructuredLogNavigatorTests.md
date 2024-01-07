@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                                               |
 | Uncoveredlines  | `5`                                                                               |
 | Coverablelines  | `5`                                                                               |
-| Totallines      | `23`                                                                              |
+| Totallines      | `22`                                                                              |
 | Linecoverage    | `0`                                                                               |
 | Coveredbranches | `0`                                                                               |
 | Totalbranches   | `0`                                                                               |
@@ -32,25 +32,24 @@
 〰2:   using BinaryDataDecoders.TestUtilities;
 〰3:   using Microsoft.VisualStudio.TestTools.UnitTesting;
 〰4:   
-〰5:   namespace BinaryDataDecoders.CodeAnalysis.Tests.StructuredLog
-〰6:   {
-〰7:       [TestClass]
-〰8:       public class StructuredLogNavigatorTests
-〰9:       {
-〰10:          public TestContext TestContext { get; set; }
+〰5:   namespace BinaryDataDecoders.CodeAnalysis.Tests.StructuredLog;
+〰6:   
+〰7:   [TestClass]
+〰8:   public class StructuredLogNavigatorTests
+〰9:   {
+〰10:      public TestContext TestContext { get; set; }
 〰11:  
-〰12:          [TestMethod, TestCategory(TestCategories.DevLocal)]
-〰13:          //[TestCategory(TestCategories.Unit)]
-〰14:          [TestTarget(typeof(StructuredLogNavigator), Member = nameof(StructuredLogNavigator.ToNavigable))]
-〰15:          public void TestXPath()
-〰16:          {
-‼17:              var filePath = @"C:\Repos\mwwhited\BinaryDataDecoders\Publish\dotnet_build.binlog";
-‼18:              var lognav = new StructuredLogNavigator().ToNavigable(filePath);
-‼19:              var nav = lognav.CreateNavigator();
-‼20:              this.TestContext.AddResult(nav);
-‼21:          }
-〰22:      }
-〰23:  }
+〰12:      [TestMethod, TestCategory(TestCategories.DevLocal)]
+〰13:      //[TestCategory(TestCategories.Unit)]
+〰14:      [TestTarget(typeof(StructuredLogNavigator), Member = nameof(StructuredLogNavigator.ToNavigable))]
+〰15:      public void TestXPath()
+〰16:      {
+‼17:          var filePath = @"C:\Repos\mwwhited\BinaryDataDecoders\Publish\dotnet_build.binlog";
+‼18:          var lognav = new StructuredLogNavigator().ToNavigable(filePath);
+‼19:          var nav = lognav.CreateNavigator();
+‼20:          this.TestContext.AddResult(nav);
+‼21:      }
+〰22:  }
 ```
 
 ## Links

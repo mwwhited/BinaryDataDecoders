@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                           |
 | Uncoveredlines  | `3`                                                           |
 | Coverablelines  | `3`                                                           |
-| Totallines      | `17`                                                          |
+| Totallines      | `16`                                                          |
 | Linecoverage    | `0`                                                           |
 | Coveredbranches | `0`                                                           |
 | Totalbranches   | `2`                                                           |
@@ -31,21 +31,20 @@
 ```CSharp
 〰1:   using Markdig;
 〰2:   
-〰3:   namespace BinaryDataDecoders.Text.Markdown
-〰4:   {
-〰5:       /// <summary>
-〰6:       /// Add a extension method to add the extension to the pipeline
-〰7:       /// </summary>
-〰8:       public static class PlantumlExtensionFunctions
-〰9:       {
-〰10:          public static MarkdownPipelineBuilder UsePlantuml(this MarkdownPipelineBuilder pipeline)
-〰11:          {
-‼12:              if (!pipeline.Extensions.Contains<PlantUmlExtension>())
-‼13:                  pipeline.Extensions.Add(new PlantUmlExtension());
-‼14:              return pipeline;
-〰15:          }
-〰16:      }
-〰17:  }
+〰3:   namespace BinaryDataDecoders.Text.Markdown;
+〰4:   
+〰5:   /// <summary>
+〰6:   /// Add a extension method to add the extension to the pipeline
+〰7:   /// </summary>
+〰8:   public static class PlantumlExtensionFunctions
+〰9:   {
+〰10:      public static MarkdownPipelineBuilder UsePlantuml(this MarkdownPipelineBuilder pipeline)
+〰11:      {
+‼12:          if (!pipeline.Extensions.Contains<PlantUmlExtension>())
+‼13:              pipeline.Extensions.Add(new PlantUmlExtension());
+‼14:          return pipeline;
+〰15:      }
+〰16:  }
 ```
 
 ## Links

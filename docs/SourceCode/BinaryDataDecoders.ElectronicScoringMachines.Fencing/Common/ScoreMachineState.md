@@ -23,23 +23,6 @@
 
  * Type: IScoreMachineState 
 
-#### Public Constructor - ScoreMachineState
-
-##### Comments
-
- <summary>
- </summary>
- <paramname="left">Left</param>
- <paramname="right">Right</param>
- <paramname="clock"></param>
-
-#####  Parameters
-
- - Fencer left 
- - Fencer right 
- - TimeSpan clock 
- - byte match 
-
 #### Public Property - Left
 
 ##### Summary

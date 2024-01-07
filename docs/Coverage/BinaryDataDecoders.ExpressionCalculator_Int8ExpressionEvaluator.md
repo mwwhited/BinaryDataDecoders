@@ -35,29 +35,29 @@
 
 ## Files
 
-## File - /home/runner/work/BinaryDataDecoders/BinaryDataDecoders/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int8ExpressionEvaluator.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator/Evaluators/Int8ExpressionEvaluator.cs
 
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators
-〰4:   {
-〰5:       public sealed class Int8ExpressionEvaluator : IExpressionEvaluator<sbyte>
-〰6:       {
-✔7:           public sbyte Add(sbyte left, sbyte right) => (sbyte)(left + right);
-✔8:           public sbyte Divide(sbyte left, sbyte right) => (sbyte)(left / right);
+〰3:   namespace BinaryDataDecoders.ExpressionCalculator.Evaluators;
+〰4:   
+〰5:   public sealed class Int8ExpressionEvaluator : IExpressionEvaluator<sbyte>
+〰6:   {
+✔7:       public sbyte Add(sbyte left, sbyte right) => (sbyte)(left + right);
+✔8:       public sbyte Divide(sbyte left, sbyte right) => (sbyte)(left / right);
 〰9:   
-✔10:          public sbyte Modulo(sbyte left, sbyte right) => (sbyte)(left % right);
-✔11:          public sbyte Multiply(sbyte left, sbyte right) => (sbyte)(left * right);
-✔12:          public sbyte Negate(sbyte operand) => (sbyte)(-operand);
-✔13:          public sbyte Power(sbyte left, sbyte right) => (sbyte)Math.Pow((double)left, (double)right);
-✔14:          public sbyte Subtract(sbyte left, sbyte right) => (sbyte)(left - right);
+✔10:      public sbyte Modulo(sbyte left, sbyte right) => (sbyte)(left % right);
+✔11:      public sbyte Multiply(sbyte left, sbyte right) => (sbyte)(left * right);
+✔12:      public sbyte Negate(sbyte operand) => (sbyte)(-operand);
+✔13:      public sbyte Power(sbyte left, sbyte right) => (sbyte)Math.Pow((double)left, (double)right);
+✔14:      public sbyte Subtract(sbyte left, sbyte right) => (sbyte)(left - right);
 〰15:  
-⚠16:          public sbyte? TryParse(string input) => sbyte.TryParse(input, out var ret) ? (sbyte?)ret : null;
-✔17:          public sbyte GetValue(int value) => (sbyte)value;
-✔18:          public sbyte GetValue(double value) => (sbyte)value;
-〰19:      }
-〰20:  }
+⚠16:      public sbyte? TryParse(string input) => sbyte.TryParse(input, out var ret) ? (sbyte?)ret : null;
+✔17:      public sbyte GetValue(int value) => (sbyte)value;
+✔18:      public sbyte GetValue(double value) => (sbyte)value;
+〰19:  }
+〰20:  
 ```
 
 ## Links

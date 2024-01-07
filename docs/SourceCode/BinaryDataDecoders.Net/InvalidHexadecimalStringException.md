@@ -15,12 +15,6 @@
 
  * Type: string 
 
-#### Public Constructor - InvalidHexadecimalStringException
-
-#####  Parameters
-
- - string hexString 
-
 #### Public Static Method - Check
 
 ##### Attributes

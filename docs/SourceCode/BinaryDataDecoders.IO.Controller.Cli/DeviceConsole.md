@@ -9,25 +9,6 @@
 
 ### Members
 
-#### Public Constructor - DeviceConsole
-
-#####  Parameters
-
- - int minimumTrasmissionDelay = 1000 
- - int testCommandDelay = 1000 
-
-#### Private Field - _minimumTrasmissionDelay
-
-##### Summary
-
- * Type: 
-
-#### Private Field - _testCommandDelay
-
-##### Summary
-
- * Type: 
-
 #### Private ReadOnly Field - usbHid
 
 ##### Summary
@@ -46,7 +27,7 @@
 
  * Type: CancellationTokenSource 
 
-#### Private Property - _token
+#### Private Property - Token
 
 ##### Summary
 

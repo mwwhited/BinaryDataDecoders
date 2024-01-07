@@ -7,21 +7,24 @@
 | Class           | `BinaryDataDecoders.ToolKit.Input.DelegateCommand` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                       |
 | Coveredlines    | `0`                                                |
-| Uncoveredlines  | `9`                                                |
-| Coverablelines  | `9`                                                |
-| Totallines      | `31`                                               |
+| Uncoveredlines  | `6`                                                |
+| Coverablelines  | `6`                                                |
+| Totallines      | `25`                                               |
 | Linecoverage    | `0`                                                |
 | Coveredbranches | `0`                                                |
-| Totalbranches   | `2`                                                |
+| Totalbranches   | `4`                                                |
 | Branchcoverage  | `0`                                                |
 | Coveredmethods  | `0`                                                |
-| Totalmethods    | `3`                                                |
+| Totalmethods    | `6`                                                |
 | Methodcoverage  | `0`                                                |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name         |
 | :--------- | :---- | :------- | :----------- |
+| 1          | 0     | 100      | `ctor`       |
+| 2          | 0     | 0        | `CanExecute` |
+| 1          | 0     | 100      | `Execute`    |
 | 1          | 0     | 100      | `ctor`       |
 | 2          | 0     | 0        | `CanExecute` |
 | 1          | 0     | 100      | `Execute`    |
@@ -33,35 +36,34 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ToolKit.Input
-〰4:   {
-〰5:       public class DelegateCommand : CommandBase
-〰6:       {
-〰7:           private readonly Predicate<object> _canExecute;
-〰8:           private readonly Action<object> _execute;
+〰3:   namespace BinaryDataDecoders.ToolKit.Input;
+〰4:   
+‼5:   public class DelegateCommand(Action<object?> execute, Predicate<object?>? canExecute = default) : CommandBase
+〰6:   {
+〰7:       public override bool CanExecute(object? parameter) =>
+‼8:           canExecute?.Invoke(parameter) ?? true;
 〰9:   
-‼10:          public DelegateCommand(Action<object> execute, Predicate<object>? canExecute = null)
-〰11:          {
-‼12:              _execute = execute;
-‼13:              _canExecute = canExecute;
-‼14:          }
-〰15:  
-〰16:          public override bool CanExecute(object parameter)
-〰17:          {
-‼18:              if (_canExecute == null)
-〰19:              {
-‼20:                  return true;
-〰21:              }
-〰22:  
-‼23:              return _canExecute(parameter);
-〰24:          }
-〰25:  
-〰26:          public override void Execute(object parameter)
-〰27:          {
-‼28:              _execute(parameter);
-‼29:          }
-〰30:      }
-〰31:  }
+〰10:      public override void Execute(object? parameter)=>
+‼11:          execute(parameter);
+〰12:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Input/DelegateCommand.cs
+
+```CSharp
+〰1:   using System;
+〰2:   
+〰3:   namespace BinaryDataDecoders.ToolKit.Input;
+〰4:   
+‼5:   public class DelegateCommand(Action<object?> execute, Predicate<object?>? canExecute = default) : CommandBase
+〰6:   {
+〰7:       public override bool CanExecute(object? parameter) =>
+‼8:           canExecute?.Invoke(parameter) ?? true;
+〰9:   
+〰10:      public override void Execute(object? parameter)=>
+‼11:          execute(parameter);
+〰12:  }
+〰13:  
 ```
 
 ## Links

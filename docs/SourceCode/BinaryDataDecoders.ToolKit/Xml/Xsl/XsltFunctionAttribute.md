@@ -30,9 +30,3 @@
 
  * Type: bool 
 
-#### Public Constructor - XsltFunctionAttribute
-
-#####  Parameters
-
- - string name 
-

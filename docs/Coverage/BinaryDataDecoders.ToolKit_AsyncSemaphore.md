@@ -7,15 +7,15 @@
 | Class           | `BinaryDataDecoders.ToolKit.Threading.AsyncSemaphore` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                          |
 | Coveredlines    | `0`                                                   |
-| Uncoveredlines  | `22`                                                  |
-| Coverablelines  | `22`                                                  |
-| Totallines      | `52`                                                  |
+| Uncoveredlines  | `42`                                                  |
+| Coverablelines  | `42`                                                  |
+| Totallines      | `101`                                                 |
 | Linecoverage    | `0`                                                   |
 | Coveredbranches | `0`                                                   |
-| Totalbranches   | `8`                                                   |
+| Totalbranches   | `12`                                                  |
 | Branchcoverage  | `0`                                                   |
 | Coveredmethods  | `0`                                                   |
-| Totalmethods    | `4`                                                   |
+| Totalmethods    | `8`                                                   |
 | Methodcoverage  | `0`                                                   |
 
 ## Metrics
@@ -23,7 +23,11 @@
 | Complexity | Lines | Branches | Name        |
 | :--------- | :---- | :------- | :---------- |
 | 1          | 0     | 100      | `cctor`     |
-| 2          | 0     | 0        | `ctor`      |
+| 1          | 0     | 100      | `ctor`      |
+| 2          | 0     | 0        | `WaitAsync` |
+| 4          | 0     | 0        | `Release`   |
+| 1          | 0     | 100      | `cctor`     |
+| 1          | 0     | 100      | `ctor`      |
 | 2          | 0     | 0        | `WaitAsync` |
 | 4          | 0     | 0        | `Release`   |
 
@@ -36,54 +40,108 @@
 〰2:   using System.Collections.Generic;
 〰3:   using System.Threading.Tasks;
 〰4:   
-〰5:   namespace BinaryDataDecoders.ToolKit.Threading
-〰6:   {
-〰7:       public class AsyncSemaphore
-〰8:       {
-〰9:           // http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
-‼10:          private readonly static Task s_completed = Task.FromResult(true);
-‼11:          private readonly Queue<TaskCompletionSource<bool>> m_waiters = new Queue<TaskCompletionSource<bool>>();
-〰12:          private int m_currentCount;
+〰5:   namespace BinaryDataDecoders.ToolKit.Threading;
+〰6:   
+〰7:   public class AsyncSemaphore
+〰8:   {
+〰9:       // http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
+‼10:      private readonly static Task s_completed = Task.FromResult(true);
+‼11:      private readonly Queue<TaskCompletionSource<bool>> m_waiters = new();
+〰12:      private int m_currentCount;
 〰13:  
-〰14:          public AsyncSemaphore(int initialCount)
-〰15:          {
-‼16:              if (initialCount < 0)
-‼17:                  throw new ArgumentOutOfRangeException("initialCount");
-‼18:              m_currentCount = initialCount;
-‼19:          }
-〰20:  
-〰21:          public Task WaitAsync()
-〰22:          {
-‼23:              lock (m_waiters)
-〰24:              {
-‼25:                  if (m_currentCount > 0)
-〰26:                  {
-‼27:                      --m_currentCount;
-‼28:                      return s_completed;
-〰29:                  }
-〰30:                  else
-〰31:                  {
-‼32:                      var waiter = new TaskCompletionSource<bool>();
-‼33:                      m_waiters.Enqueue(waiter);
-‼34:                      return waiter.Task;
-〰35:                  }
-〰36:              }
-‼37:          }
-〰38:  
-〰39:          public void Release()
-〰40:          {
-‼41:              TaskCompletionSource<bool>? toRelease = default;
-‼42:              lock (m_waiters)
-〰43:              {
-‼44:                  if (m_waiters.Count > 0)
-‼45:                      toRelease = m_waiters.Dequeue();
-〰46:                  else
-‼47:                      ++m_currentCount;
-‼48:              }
-‼49:              toRelease?.SetResult(true);
-‼50:          }
-〰51:      }
-〰52:  }
+〰14:      public AsyncSemaphore(int initialCount)
+〰15:      {
+‼16:          ArgumentOutOfRangeException.ThrowIfNegative(initialCount, nameof(initialCount));
+‼17:          m_currentCount = initialCount;
+‼18:      }
+〰19:  
+〰20:      public Task WaitAsync()
+〰21:      {
+‼22:          lock (m_waiters)
+〰23:          {
+‼24:              if (m_currentCount > 0)
+〰25:              {
+‼26:                  --m_currentCount;
+‼27:                  return s_completed;
+〰28:              }
+〰29:              else
+〰30:              {
+‼31:                  var waiter = new TaskCompletionSource<bool>();
+‼32:                  m_waiters.Enqueue(waiter);
+‼33:                  return waiter.Task;
+〰34:              }
+〰35:          }
+‼36:      }
+〰37:  
+〰38:      public void Release()
+〰39:      {
+‼40:          TaskCompletionSource<bool>? toRelease = default;
+‼41:          lock (m_waiters)
+〰42:          {
+‼43:              if (m_waiters.Count > 0)
+‼44:                  toRelease = m_waiters.Dequeue();
+〰45:              else
+‼46:                  ++m_currentCount;
+‼47:          }
+‼48:          toRelease?.SetResult(true);
+‼49:      }
+〰50:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Threading/AsyncSemaphore.cs
+
+```CSharp
+〰1:   using System;
+〰2:   using System.Collections.Generic;
+〰3:   using System.Threading.Tasks;
+〰4:   
+〰5:   namespace BinaryDataDecoders.ToolKit.Threading;
+〰6:   
+〰7:   public class AsyncSemaphore
+〰8:   {
+〰9:       // http://blogs.msdn.com/b/pfxteam/archive/2012/02/12/10266983.aspx
+‼10:      private readonly static Task s_completed = Task.FromResult(true);
+‼11:      private readonly Queue<TaskCompletionSource<bool>> m_waiters = new();
+〰12:      private int m_currentCount;
+〰13:  
+〰14:      public AsyncSemaphore(int initialCount)
+〰15:      {
+‼16:          ArgumentOutOfRangeException.ThrowIfNegative(initialCount, nameof(initialCount));
+‼17:          m_currentCount = initialCount;
+‼18:      }
+〰19:  
+〰20:      public Task WaitAsync()
+〰21:      {
+‼22:          lock (m_waiters)
+〰23:          {
+‼24:              if (m_currentCount > 0)
+〰25:              {
+‼26:                  --m_currentCount;
+‼27:                  return s_completed;
+〰28:              }
+〰29:              else
+〰30:              {
+‼31:                  var waiter = new TaskCompletionSource<bool>();
+‼32:                  m_waiters.Enqueue(waiter);
+‼33:                  return waiter.Task;
+〰34:              }
+〰35:          }
+‼36:      }
+〰37:  
+〰38:      public void Release()
+〰39:      {
+‼40:          TaskCompletionSource<bool>? toRelease = default;
+‼41:          lock (m_waiters)
+〰42:          {
+‼43:              if (m_waiters.Count > 0)
+‼44:                  toRelease = m_waiters.Dequeue();
+〰45:              else
+‼46:                  ++m_currentCount;
+‼47:          }
+‼48:          toRelease?.SetResult(true);
+‼49:      }
+〰50:  }
+〰51:  
 ```
 
 ## Links

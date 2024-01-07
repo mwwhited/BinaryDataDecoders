@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Quarta.RadexOne/WriteSettingsResponse.cs
 
-## Public Structure - WriteSettingsResponse
+## Public ReadOnly Structure - WriteSettingsResponse
 
 ### Comments
 

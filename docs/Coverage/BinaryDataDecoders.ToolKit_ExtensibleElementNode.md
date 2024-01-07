@@ -6,21 +6,22 @@
 | :-------------- | :----------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ToolKit.Xml.XPath.ExtensibleElementNode` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                                 |
-| Coveredlines    | `2`                                                          |
-| Uncoveredlines  | `0`                                                          |
+| Coveredlines    | `1`                                                          |
+| Uncoveredlines  | `1`                                                          |
 | Coverablelines  | `2`                                                          |
-| Totallines      | `196`                                                        |
-| Linecoverage    | `100`                                                        |
+| Totallines      | `383`                                                        |
+| Linecoverage    | `50`                                                         |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `0`                                                          |
 | Coveredmethods  | `1`                                                          |
-| Totalmethods    | `1`                                                          |
-| Methodcoverage  | `100`                                                        |
+| Totalmethods    | `2`                                                          |
+| Methodcoverage  | `50`                                                         |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
 | 1          | 100   | 100      | `ctor`  |
 
 ## Files
@@ -35,195 +36,387 @@
 〰5:   using System.Xml.Linq;
 〰6:   using System.Xml.XPath;
 〰7:   
-〰8:   namespace BinaryDataDecoders.ToolKit.Xml.XPath
-〰9:   {
-〰10:      [DebuggerDisplay("E:>{Name}")]
-〰11:      public class ExtensibleElementNode : ExtensibleElementNode<object>
-〰12:      {
-〰13:          public ExtensibleElementNode(
-〰14:              XName name,
-〰15:              object item,
-〰16:              Func<object, string?>? valueSelector = null,
-〰17:              Func<object, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
-〰18:              Func<object, IEnumerable<(XName name, object child)>?>? childSelector = null,
-〰19:              Func<object, IEnumerable<XName>?>? namespacesSelector = null,
-〰20:              Predicate<object>? preserveWhitespace = null
-〰21:              )
-✔22:              : base(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
-〰23:          {
-✔24:          }
-〰25:      }
-〰26:      [DebuggerDisplay("E:>{Name}")]
-〰27:      public class ExtensibleElementNode<T> : IElementNode, ISimpleNode
-〰28:      {
-〰29:          private readonly T _item;
-〰30:  
-〰31:          private readonly Func<T, string?>? _valueSelector;
-〰32:          private readonly Predicate<T>? _preserveWhitespace;
-〰33:          private readonly Func<T, IEnumerable<(XName name, string? value)>?>? _attributeSelector;
-〰34:          private readonly Func<T, IEnumerable<(XName name, T child)>?>? _childSelector;
-〰35:          private readonly Func<T, IEnumerable<XName>?>? _namespacesSelector;
-〰36:  
-〰37:          private readonly Lazy<INode?> _value;
-〰38:          private readonly Lazy<INode?> _children;
-〰39:          private readonly Lazy<IAttributeNode?> _attributes;
-〰40:          private readonly Lazy<INamespaceNode?> _namespaces;
-〰41:  
-〰42:          public ExtensibleElementNode(
-〰43:              XName name,
-〰44:              T item,
-〰45:              Func<T, string?>? valueSelector = null,
-〰46:              Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
-〰47:              Func<T, IEnumerable<(XName name, T child)>?>? childSelector = null,
-〰48:              Func<T, IEnumerable<XName>?>? namespacesSelector = null,
-〰49:              Predicate<T>? preserveWhitespace = null
-〰50:              )
-〰51:              : this(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
-〰52:          {
-〰53:          }
-〰54:  
-〰55:          protected ExtensibleElementNode(
-〰56:              INode? parent,
-〰57:              XName name,
-〰58:              T item,
-〰59:              Func<T, string?>? valueSelector,
-〰60:              Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector,
-〰61:              Func<T, IEnumerable<(XName name, T child)>?>? childSelector,
-〰62:              Func<T, IEnumerable<XName>?>? namespacesSelector,
-〰63:              Predicate<T>? preserveWhitespace = null
-〰64:              )
-〰65:          {
-〰66:              Parent = parent ?? new ExtensibleRootNode<T>(this);
-〰67:              Name = name;
-〰68:              _item = item;
-〰69:  
-〰70:              _valueSelector = valueSelector;
-〰71:              _attributeSelector = attributeSelector;
-〰72:              _childSelector = childSelector;
-〰73:              _namespacesSelector = namespacesSelector;
-〰74:              _preserveWhitespace = preserveWhitespace;
-〰75:  
-〰76:              _value = new Lazy<INode?>(() =>
-〰77:                  _valueSelector?.Invoke(_item) switch
-〰78:                  {
-〰79:                      null => (INode?)null,
-〰80:                      string value => string.IsNullOrWhiteSpace(value) switch
-〰81:                      {
-〰82:                          true => new ExtensibleWhitespaceNode<T>(this, Name, _item, value),
-〰83:                          false => (_preserveWhitespace?.Invoke(_item) ?? false) switch
-〰84:                          {
-〰85:                              true => new ExtensibleSignificantWhitespaceNode<T>(this, Name, _item, value),
-〰86:                              false => new ExtensibleTextNode<T>(this, Name, _item, value)
-〰87:                          }
-〰88:                      },
-〰89:                  });
-〰90:  
-〰91:              _attributes = new Lazy<IAttributeNode?>(() =>
-〰92:              {
-〰93:                  var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string? value)>()).GetEnumerator();
-〰94:                  IAttributeNode? first = null;
-〰95:                  IAttributeNode? previous = null;
+〰8:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰9:   
+〰10:  [DebuggerDisplay("E:>{Name}")]
+〰11:  public class ExtensibleElementNode(
+〰12:      XName name,
+〰13:      object item,
+〰14:      Func<object, string?>? valueSelector = null,
+〰15:      Func<object, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
+〰16:      Func<object, IEnumerable<(XName name, object child)>?>? childSelector = null,
+〰17:      Func<object, IEnumerable<XName>?>? namespacesSelector = null,
+〰18:      Predicate<object>? preserveWhitespace = null
+‼19:          ) : ExtensibleElementNode<object>(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
+〰20:  {
+〰21:  }
+〰22:  [DebuggerDisplay("E:>{Name}")]
+〰23:  public class ExtensibleElementNode<T> : IElementNode, ISimpleNode
+〰24:  {
+〰25:      private readonly T _item;
+〰26:  
+〰27:      private readonly Func<T, string?>? _valueSelector;
+〰28:      private readonly Predicate<T>? _preserveWhitespace;
+〰29:      private readonly Func<T, IEnumerable<(XName name, string? value)>?>? _attributeSelector;
+〰30:      private readonly Func<T, IEnumerable<(XName name, T child)>?>? _childSelector;
+〰31:      private readonly Func<T, IEnumerable<XName>?>? _namespacesSelector;
+〰32:  
+〰33:      private readonly Lazy<INode?> _value;
+〰34:      private readonly Lazy<INode?> _children;
+〰35:      private readonly Lazy<IAttributeNode?> _attributes;
+〰36:      private readonly Lazy<INamespaceNode?> _namespaces;
+〰37:  
+〰38:      public ExtensibleElementNode(
+〰39:          XName name,
+〰40:          T item,
+〰41:          Func<T, string?>? valueSelector = null,
+〰42:          Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
+〰43:          Func<T, IEnumerable<(XName name, T child)>?>? childSelector = null,
+〰44:          Func<T, IEnumerable<XName>?>? namespacesSelector = null,
+〰45:          Predicate<T>? preserveWhitespace = null
+〰46:          )
+〰47:          : this(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
+〰48:      {
+〰49:      }
+〰50:  
+〰51:      protected ExtensibleElementNode(
+〰52:          INode? parent,
+〰53:          XName name,
+〰54:          T item,
+〰55:          Func<T, string?>? valueSelector,
+〰56:          Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector,
+〰57:          Func<T, IEnumerable<(XName name, T child)>?>? childSelector,
+〰58:          Func<T, IEnumerable<XName>?>? namespacesSelector,
+〰59:          Predicate<T>? preserveWhitespace = null
+〰60:          )
+〰61:      {
+〰62:          Parent = parent ?? new ExtensibleRootNode<T>(this);
+〰63:          Name = name;
+〰64:          _item = item;
+〰65:  
+〰66:          _valueSelector = valueSelector;
+〰67:          _attributeSelector = attributeSelector;
+〰68:          _childSelector = childSelector;
+〰69:          _namespacesSelector = namespacesSelector;
+〰70:          _preserveWhitespace = preserveWhitespace;
+〰71:  
+〰72:          _value = new Lazy<INode?>(() =>
+〰73:              _valueSelector?.Invoke(_item) switch
+〰74:              {
+〰75:                  null => (INode?)null,
+〰76:                  string value => string.IsNullOrWhiteSpace(value) switch
+〰77:                  {
+〰78:                      true => new ExtensibleWhitespaceNode<T>(this, Name, _item, value),
+〰79:                      false => (_preserveWhitespace?.Invoke(_item) ?? false) switch
+〰80:                      {
+〰81:                          true => new ExtensibleSignificantWhitespaceNode<T>(this, Name, _item, value),
+〰82:                          false => new ExtensibleTextNode<T>(this, Name, _item, value)
+〰83:                      }
+〰84:                  },
+〰85:              });
+〰86:  
+〰87:          _attributes = new Lazy<IAttributeNode?>(() =>
+〰88:          {
+〰89:              var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string? value)>()).GetEnumerator();
+〰90:              IAttributeNode? first = null;
+〰91:              IAttributeNode? previous = null;
+〰92:  
+〰93:              while (query.MoveNext())
+〰94:              {
+〰95:                  if (query.Current.value == null) continue;
 〰96:  
-〰97:                  while (query.MoveNext())
-〰98:                  {
-〰99:                      if (query.Current.value == null) continue;
-〰100: 
-〰101:                     var newItem = new ExtensibleAttributeNode<T>(
-〰102:                         this,
-〰103:                         query.Current.name,
-〰104:                         _item,
-〰105:                         query.Current.value
-〰106:                         )
-〰107:                     {
-〰108:                         Previous = previous,
-〰109:                     };
-〰110:                     if (previous is ExtensibleAttributeNode<T> node) node.Next = newItem;
-〰111:                     if (first == null) first = newItem;
-〰112:                     previous = newItem;
-〰113:                 }
-〰114: 
-〰115:                 return first;
-〰116:             });
-〰117: 
-〰118:             _children = new Lazy<INode?>(() =>
-〰119:             {
-〰120:                 var query = (_childSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, T child)>()).GetEnumerator();
-〰121:                 INode? first = null;
-〰122:                 INode? previous = null;
-〰123: 
-〰124:                 while (query.MoveNext())
-〰125:                 {
-〰126:                     if (query.Current.child == null) continue;
-〰127:                     var newItem = new ExtensibleElementNode<T>(
-〰128:                         this,
-〰129:                         query.Current.name,
-〰130:                         query.Current.child,
-〰131:                         _valueSelector,
-〰132:                         _attributeSelector,
-〰133:                         _childSelector,
-〰134:                         _namespacesSelector
-〰135:                         )
-〰136:                     {
-〰137:                         Previous = previous,
-〰138:                     };
-〰139:                     // Console.WriteLine($"\t\t==={newItem.Name} +++ {newItem.NodeType}");
-〰140:                     if (previous is ISimpleNode node) node.Next = newItem;
-〰141:                     if (first == null) first = newItem;
-〰142:                     previous = newItem;
-〰143:                 }
-〰144: 
-〰145:                 if (_value.Value is ISimpleNode next && previous is ISimpleNode last)
-〰146:                 {
-〰147:                     last.Next = next;
-〰148:                     next.Previous = last;
-〰149:                 }
+〰97:                  var newItem = new ExtensibleAttributeNode<T>(
+〰98:                      this,
+〰99:                      query.Current.name,
+〰100:                     _item,
+〰101:                     query.Current.value
+〰102:                     )
+〰103:                 {
+〰104:                     Previous = previous,
+〰105:                 };
+〰106:                 if (previous is ExtensibleAttributeNode<T> node) node.Next = newItem;
+〰107:                 first ??= newItem;
+〰108:                 previous = newItem;
+〰109:             }
+〰110: 
+〰111:             return first;
+〰112:         });
+〰113: 
+〰114:         _children = new Lazy<INode?>(() =>
+〰115:         {
+〰116:             var query = (_childSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, T child)>()).GetEnumerator();
+〰117:             INode? first = null;
+〰118:             INode? previous = null;
+〰119: 
+〰120:             while (query.MoveNext())
+〰121:             {
+〰122:                 if (query.Current.child == null) continue;
+〰123:                 var newItem = new ExtensibleElementNode<T>(
+〰124:                     this,
+〰125:                     query.Current.name,
+〰126:                     query.Current.child,
+〰127:                     _valueSelector,
+〰128:                     _attributeSelector,
+〰129:                     _childSelector,
+〰130:                     _namespacesSelector
+〰131:                     )
+〰132:                 {
+〰133:                     Previous = previous,
+〰134:                 };
+〰135:                 // Console.WriteLine($"\t\t==={newItem.Name} +++ {newItem.NodeType}");
+〰136:                 if (previous is ISimpleNode node) node.Next = newItem;
+〰137:                 first ??= newItem;
+〰138:                 previous = newItem;
+〰139:             }
+〰140: 
+〰141:             if (_value.Value is ISimpleNode next && previous is ISimpleNode last)
+〰142:             {
+〰143:                 last.Next = next;
+〰144:                 next.Previous = last;
+〰145:             }
+〰146: 
+〰147:             return first ?? _value.Value;
+〰148:         });
+〰149: 
 〰150: 
-〰151:                 return first ?? _value.Value;
-〰152:             });
-〰153: 
-〰154: 
-〰155:             _namespaces = new Lazy<INamespaceNode?>(() =>
-〰156:             {
-〰157:                 var query = (_namespacesSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
-〰158:                 INamespaceNode? first = null;
-〰159:                 INamespaceNode? previous = null;
-〰160: 
-〰161:                 while (query.MoveNext())
-〰162:                 {
-〰163:                     var newItem = new ExtensibleNamespaceNode<T>(
-〰164:                         this,
-〰165:                         query.Current,
-〰166:                         _item
-〰167:                         )
-〰168:                     {
-〰169:                         Previous = previous,
-〰170:                     };
-〰171:                     if (previous is ExtensibleNamespaceNode<T> node) node.Next = newItem;
-〰172:                     if (first == null) first = newItem;
-〰173:                     previous = newItem;
-〰174:                 }
+〰151:         _namespaces = new Lazy<INamespaceNode?>(() =>
+〰152:         {
+〰153:             var query = (_namespacesSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
+〰154:             INamespaceNode? first = null;
+〰155:             INamespaceNode? previous = null;
+〰156: 
+〰157:             while (query.MoveNext())
+〰158:             {
+〰159:                 var newItem = new ExtensibleNamespaceNode<T>(
+〰160:                     this,
+〰161:                     query.Current,
+〰162:                     _item
+〰163:                     )
+〰164:                 {
+〰165:                     Previous = previous,
+〰166:                 };
+〰167:                 if (previous is ExtensibleNamespaceNode<T> node) node.Next = newItem;
+〰168:                 first ??= newItem;
+〰169:                 previous = newItem;
+〰170:             }
+〰171: 
+〰172:             return first;
+〰173:         });
+〰174:     }
 〰175: 
-〰176:                 return first;
-〰177:             });
-〰178:         }
+〰176:     public INode? FirstChild => _children.Value;
+〰177:     public IAttributeNode? FirstAttribute => _attributes.Value;
+〰178:     public INamespaceNode? FirstNamespace => _namespaces.Value;
 〰179: 
-〰180:         public INode? FirstChild => _children.Value;
-〰181:         public IAttributeNode? FirstAttribute => _attributes.Value;
-〰182:         public INamespaceNode? FirstNamespace => _namespaces.Value;
-〰183: 
-〰184:         public INode? Next { get; private set; }
-〰185:         public INode? Previous { get; private set; }
+〰180:     public INode? Next { get; private set; }
+〰181:     public INode? Previous { get; private set; }
+〰182: 
+〰183:     public INode? Parent { get; }
+〰184:     public XName Name { get; }
+〰185:     public string? Value => _value.Value?.Value;
 〰186: 
-〰187:         public INode? Parent { get; }
-〰188:         public XName Name { get; }
-〰189:         public string? Value => _value.Value?.Value;
-〰190: 
-〰191:         public XPathNodeType NodeType { get; } = XPathNodeType.Element;
+〰187:     public XPathNodeType NodeType { get; } = XPathNodeType.Element;
+〰188: 
+〰189:     INode? ISimpleNode.Next { set => Next = value; }
+〰190:     INode? ISimpleNode.Previous { set => Previous = value; }
+〰191: }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Xml/XPath/ExtensibleElementNode.cs
+
+```CSharp
+〰1:   using System;
+〰2:   using System.Collections.Generic;
+〰3:   using System.Diagnostics;
+〰4:   using System.Linq;
+〰5:   using System.Xml.Linq;
+〰6:   using System.Xml.XPath;
+〰7:   
+〰8:   namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+〰9:   
+〰10:  [DebuggerDisplay("E:>{Name}")]
+〰11:  public class ExtensibleElementNode(
+〰12:      XName name,
+〰13:      object item,
+〰14:      Func<object, string?>? valueSelector = null,
+〰15:      Func<object, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
+〰16:      Func<object, IEnumerable<(XName name, object child)>?>? childSelector = null,
+〰17:      Func<object, IEnumerable<XName>?>? namespacesSelector = null,
+〰18:      Predicate<object>? preserveWhitespace = null
+✔19:          ) : ExtensibleElementNode<object>(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
+〰20:  {
+〰21:  }
+〰22:  [DebuggerDisplay("E:>{Name}")]
+〰23:  public class ExtensibleElementNode<T> : IElementNode, ISimpleNode
+〰24:  {
+〰25:      private readonly T _item;
+〰26:  
+〰27:      private readonly Func<T, string?>? _valueSelector;
+〰28:      private readonly Predicate<T>? _preserveWhitespace;
+〰29:      private readonly Func<T, IEnumerable<(XName name, string? value)>?>? _attributeSelector;
+〰30:      private readonly Func<T, IEnumerable<(XName name, T child)>?>? _childSelector;
+〰31:      private readonly Func<T, IEnumerable<XName>?>? _namespacesSelector;
+〰32:  
+〰33:      private readonly Lazy<INode?> _value;
+〰34:      private readonly Lazy<INode?> _children;
+〰35:      private readonly Lazy<IAttributeNode?> _attributes;
+〰36:      private readonly Lazy<INamespaceNode?> _namespaces;
+〰37:  
+〰38:      public ExtensibleElementNode(
+〰39:          XName name,
+〰40:          T item,
+〰41:          Func<T, string?>? valueSelector = null,
+〰42:          Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector = null,
+〰43:          Func<T, IEnumerable<(XName name, T child)>?>? childSelector = null,
+〰44:          Func<T, IEnumerable<XName>?>? namespacesSelector = null,
+〰45:          Predicate<T>? preserveWhitespace = null
+〰46:          )
+〰47:          : this(null, name, item, valueSelector, attributeSelector, childSelector, namespacesSelector, preserveWhitespace)
+〰48:      {
+〰49:      }
+〰50:  
+〰51:      protected ExtensibleElementNode(
+〰52:          INode? parent,
+〰53:          XName name,
+〰54:          T item,
+〰55:          Func<T, string?>? valueSelector,
+〰56:          Func<T, IEnumerable<(XName name, string? value)>?>? attributeSelector,
+〰57:          Func<T, IEnumerable<(XName name, T child)>?>? childSelector,
+〰58:          Func<T, IEnumerable<XName>?>? namespacesSelector,
+〰59:          Predicate<T>? preserveWhitespace = null
+〰60:          )
+〰61:      {
+〰62:          Parent = parent ?? new ExtensibleRootNode<T>(this);
+〰63:          Name = name;
+〰64:          _item = item;
+〰65:  
+〰66:          _valueSelector = valueSelector;
+〰67:          _attributeSelector = attributeSelector;
+〰68:          _childSelector = childSelector;
+〰69:          _namespacesSelector = namespacesSelector;
+〰70:          _preserveWhitespace = preserveWhitespace;
+〰71:  
+〰72:          _value = new Lazy<INode?>(() =>
+〰73:              _valueSelector?.Invoke(_item) switch
+〰74:              {
+〰75:                  null => (INode?)null,
+〰76:                  string value => string.IsNullOrWhiteSpace(value) switch
+〰77:                  {
+〰78:                      true => new ExtensibleWhitespaceNode<T>(this, Name, _item, value),
+〰79:                      false => (_preserveWhitespace?.Invoke(_item) ?? false) switch
+〰80:                      {
+〰81:                          true => new ExtensibleSignificantWhitespaceNode<T>(this, Name, _item, value),
+〰82:                          false => new ExtensibleTextNode<T>(this, Name, _item, value)
+〰83:                      }
+〰84:                  },
+〰85:              });
+〰86:  
+〰87:          _attributes = new Lazy<IAttributeNode?>(() =>
+〰88:          {
+〰89:              var query = (_attributeSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, string? value)>()).GetEnumerator();
+〰90:              IAttributeNode? first = null;
+〰91:              IAttributeNode? previous = null;
+〰92:  
+〰93:              while (query.MoveNext())
+〰94:              {
+〰95:                  if (query.Current.value == null) continue;
+〰96:  
+〰97:                  var newItem = new ExtensibleAttributeNode<T>(
+〰98:                      this,
+〰99:                      query.Current.name,
+〰100:                     _item,
+〰101:                     query.Current.value
+〰102:                     )
+〰103:                 {
+〰104:                     Previous = previous,
+〰105:                 };
+〰106:                 if (previous is ExtensibleAttributeNode<T> node) node.Next = newItem;
+〰107:                 first ??= newItem;
+〰108:                 previous = newItem;
+〰109:             }
+〰110: 
+〰111:             return first;
+〰112:         });
+〰113: 
+〰114:         _children = new Lazy<INode?>(() =>
+〰115:         {
+〰116:             var query = (_childSelector?.Invoke(_item) ?? Enumerable.Empty<(XName name, T child)>()).GetEnumerator();
+〰117:             INode? first = null;
+〰118:             INode? previous = null;
+〰119: 
+〰120:             while (query.MoveNext())
+〰121:             {
+〰122:                 if (query.Current.child == null) continue;
+〰123:                 var newItem = new ExtensibleElementNode<T>(
+〰124:                     this,
+〰125:                     query.Current.name,
+〰126:                     query.Current.child,
+〰127:                     _valueSelector,
+〰128:                     _attributeSelector,
+〰129:                     _childSelector,
+〰130:                     _namespacesSelector
+〰131:                     )
+〰132:                 {
+〰133:                     Previous = previous,
+〰134:                 };
+〰135:                 // Console.WriteLine($"\t\t==={newItem.Name} +++ {newItem.NodeType}");
+〰136:                 if (previous is ISimpleNode node) node.Next = newItem;
+〰137:                 first ??= newItem;
+〰138:                 previous = newItem;
+〰139:             }
+〰140: 
+〰141:             if (_value.Value is ISimpleNode next && previous is ISimpleNode last)
+〰142:             {
+〰143:                 last.Next = next;
+〰144:                 next.Previous = last;
+〰145:             }
+〰146: 
+〰147:             return first ?? _value.Value;
+〰148:         });
+〰149: 
+〰150: 
+〰151:         _namespaces = new Lazy<INamespaceNode?>(() =>
+〰152:         {
+〰153:             var query = (_namespacesSelector?.Invoke(_item) ?? Enumerable.Empty<XName>()).GetEnumerator();
+〰154:             INamespaceNode? first = null;
+〰155:             INamespaceNode? previous = null;
+〰156: 
+〰157:             while (query.MoveNext())
+〰158:             {
+〰159:                 var newItem = new ExtensibleNamespaceNode<T>(
+〰160:                     this,
+〰161:                     query.Current,
+〰162:                     _item
+〰163:                     )
+〰164:                 {
+〰165:                     Previous = previous,
+〰166:                 };
+〰167:                 if (previous is ExtensibleNamespaceNode<T> node) node.Next = newItem;
+〰168:                 first ??= newItem;
+〰169:                 previous = newItem;
+〰170:             }
+〰171: 
+〰172:             return first;
+〰173:         });
+〰174:     }
+〰175: 
+〰176:     public INode? FirstChild => _children.Value;
+〰177:     public IAttributeNode? FirstAttribute => _attributes.Value;
+〰178:     public INamespaceNode? FirstNamespace => _namespaces.Value;
+〰179: 
+〰180:     public INode? Next { get; private set; }
+〰181:     public INode? Previous { get; private set; }
+〰182: 
+〰183:     public INode? Parent { get; }
+〰184:     public XName Name { get; }
+〰185:     public string? Value => _value.Value?.Value;
+〰186: 
+〰187:     public XPathNodeType NodeType { get; } = XPathNodeType.Element;
+〰188: 
+〰189:     INode? ISimpleNode.Next { set => Next = value; }
+〰190:     INode? ISimpleNode.Previous { set => Previous = value; }
+〰191: }
 〰192: 
-〰193:         INode? ISimpleNode.Next { set => Next = value; }
-〰194:         INode? ISimpleNode.Previous { set => Previous = value; }
-〰195:     }
-〰196: }
 ```
 
 ## Links

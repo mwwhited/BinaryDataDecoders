@@ -7,9 +7,9 @@
 | Class           | `BinaryDataDecoders.Text.Markdown.PlantUmlHtmlBlockRenderer` |
 | Assembly        | `BinaryDataDecoders.Text.Markdown`                           |
 | Coveredlines    | `0`                                                          |
-| Uncoveredlines  | `2`                                                          |
-| Coverablelines  | `2`                                                          |
-| Totallines      | `13`                                                         |
+| Uncoveredlines  | `3`                                                          |
+| Coverablelines  | `3`                                                          |
+| Totallines      | `12`                                                         |
 | Linecoverage    | `0`                                                          |
 | Coveredbranches | `0`                                                          |
 | Totalbranches   | `0`                                                          |
@@ -33,15 +33,14 @@
 〰2:   using Markdig.Renderers;
 〰3:   using Markdig.Renderers.Html;
 〰4:   
-〰5:   namespace BinaryDataDecoders.Text.Markdown
-〰6:   {
-〰7:       public class PlantUmlHtmlBlockRenderer : HtmlObjectRenderer<PlantUmlBlock>
-〰8:       {
-〰9:           private readonly PlantUmlRenderer _renderer;
-‼10:          public PlantUmlHtmlBlockRenderer(MarkdownPipeline pipeline) => _renderer = new PlantUmlRenderer(pipeline);
-‼11:          protected override void Write(HtmlRenderer renderer, PlantUmlBlock obj) => _renderer.Write(renderer, obj.GetScript());
-〰12:      }
-〰13:  }
+〰5:   namespace BinaryDataDecoders.Text.Markdown;
+〰6:   
+‼7:   public class PlantUmlHtmlBlockRenderer(MarkdownPipeline pipeline) : HtmlObjectRenderer<PlantUmlBlock>
+〰8:   {
+‼9:       private readonly PlantUmlRenderer _renderer = new(pipeline);
+〰10:  
+‼11:      protected override void Write(HtmlRenderer renderer, PlantUmlBlock obj) => _renderer.Write(renderer, obj.GetScript());
+〰12:  }
 ```
 
 ## Links

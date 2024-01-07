@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.Apple2/Dos33/FileEntry.cs
 
-## Public Structure - FileEntry
+## Public ReadOnly Structure - FileEntry
 
 ### Comments
 
@@ -17,12 +17,6 @@
  </summary>
 
 ### Members
-
-#### Public Constructor - FileEntry
-
-#####  Parameters
-
- - ReadOnlySpan < byte > span 
 
 #### Public ReadOnly Field - Track
 

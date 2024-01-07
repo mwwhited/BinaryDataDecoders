@@ -15,12 +15,6 @@
 
  * Type: string 
 
-#### Public Constructor - InvalidMacAddressException
-
-#####  Parameters
-
- - string macAddress 
-
 #### Public Static Method - Check
 
 ##### Attributes

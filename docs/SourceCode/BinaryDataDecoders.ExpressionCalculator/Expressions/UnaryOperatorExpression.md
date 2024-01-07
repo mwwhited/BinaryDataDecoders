@@ -15,13 +15,6 @@
 
  * Type: 
 
-#### Public Constructor - UnaryOperatorExpression
-
-#####  Parameters
-
- - UnaryOperators @operator 
- - ExpressionBase < T > operand 
-
 #### Public Property - Operator
 
 ##### Summary

@@ -7,21 +7,23 @@
 | Class           | `BinaryDataDecoders.IO.Segmenters.StartAndFixLengthSegmenter` |
 | Assembly        | `BinaryDataDecoders.IO.Abstractions`                          |
 | Coveredlines    | `0`                                                           |
-| Uncoveredlines  | `27`                                                          |
-| Coverablelines  | `27`                                                          |
-| Totallines      | `81`                                                          |
+| Uncoveredlines  | `52`                                                          |
+| Coverablelines  | `52`                                                          |
+| Totallines      | `144`                                                         |
 | Linecoverage    | `0`                                                           |
 | Coveredbranches | `0`                                                           |
-| Totalbranches   | `18`                                                          |
+| Totalbranches   | `36`                                                          |
 | Branchcoverage  | `0`                                                           |
 | Coveredmethods  | `0`                                                           |
-| Totalmethods    | `2`                                                           |
+| Totalmethods    | `4`                                                           |
 | Methodcoverage  | `0`                                                           |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name    |
 | :--------- | :---- | :------- | :------ |
+| 1          | 0     | 100      | `ctor`  |
+| 18         | 0     | 0        | `Read`  |
 | 1          | 0     | 100      | `ctor`  |
 | 18         | 0     | 0        | `Read`  |
 
@@ -34,83 +36,151 @@
 〰2:   using System.Buffers;
 〰3:   using System.Linq;
 〰4:   
-〰5:   namespace BinaryDataDecoders.IO.Segmenters
-〰6:   {
-〰7:       public sealed class StartAndFixLengthSegmenter : SegmenterBase
-〰8:       {
-〰9:           public StartAndFixLengthSegmenter(
-〰10:              OnSegmentReceived onSegmentReceived,
-〰11:              byte[] starts,
-〰12:              long fixedLength,
-〰13:              SegmentionOptions options,
-〰14:              SegmentExtensionDefinition? extensionDefinition = null)
-‼15:              : base(onSegmentReceived, options)
-〰16:          {
-〰17:              Starts = starts;
-〰18:              FixedLength = fixedLength;
-〰19:              ExtensionDefinition = extensionDefinition;
-‼20:          }
-〰21:  
-〰22:          public byte[] Starts { get; }
-〰23:          public long FixedLength { get; }
-〰24:          public SegmentExtensionDefinition? ExtensionDefinition { get; }
-〰25:  
-〰26:          protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
-〰27:          {
-‼28:              var startOfSegment = Starts.Select(start => buffer.PositionOf(start)).FirstOrDefault(start => start != null);
-‼29:              if (startOfSegment != null)
-〰30:              {
-‼31:                  var segment = buffer.Slice(startOfSegment.Value);
-‼32:                  if (segment.Length >= FixedLength)
-〰33:                  {
-‼34:                      var completeSegment = segment.Slice(0, buffer.GetPosition(FixedLength, startOfSegment.Value));
-〰35:  
-‼36:                      if (this.Options.HasFlag(SegmentionOptions.SecondStartInvalid))
-〰37:                      {
-‼38:                          var secondStart = Starts.Select(start => completeSegment.PositionOf(start)).FirstOrDefault(start => start != null);
-‼39:                          if (secondStart != null)
-〰40:                          {
-〰41:                              // Second start detected
-‼42:                              return (SegmentationStatus.Invalid, buffer.Slice(0, secondStart.Value));
-〰43:                          }
-〰44:                      }
-〰45:  
-‼46:                      if (ExtensionDefinition != null)
-〰47:                      {
-‼48:                          var valueData = completeSegment.Slice(ExtensionDefinition.Postion, ExtensionDefinition.Length);
-〰49:                          //TODO, drop the endian check... only support little and convert
-‼50:                          var set = this.ExtensionDefinition.Endianness == Endianness.Little ? valueData.ToArray() : valueData.ToArray().Reverse().ToArray();
+〰5:   namespace BinaryDataDecoders.IO.Segmenters;
+〰6:   
+〰7:   public sealed class StartAndFixLengthSegmenter(
+〰8:       OnSegmentReceived onSegmentReceived,
+〰9:       byte[] starts,
+〰10:      long fixedLength,
+〰11:      SegmentionOptions options,
+‼12:      SegmentExtensionDefinition? extensionDefinition = null) : SegmenterBase(onSegmentReceived, options)
+〰13:  {
+〰14:      public byte[] Starts { get; } = starts;
+〰15:      public long FixedLength { get; } = fixedLength;
+〰16:      public SegmentExtensionDefinition? ExtensionDefinition { get; } = extensionDefinition;
+〰17:  
+〰18:      protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
+〰19:      {
+‼20:          var startOfSegment = Starts.Select(start => buffer.PositionOf(start)).FirstOrDefault(start => start != null);
+‼21:          if (startOfSegment != null)
+〰22:          {
+‼23:              var segment = buffer.Slice(startOfSegment.Value);
+‼24:              if (segment.Length >= FixedLength)
+〰25:              {
+‼26:                  var completeSegment = segment.Slice(0, buffer.GetPosition(FixedLength, startOfSegment.Value));
+〰27:  
+‼28:                  if (this.Options.HasFlag(SegmentionOptions.SecondStartInvalid))
+〰29:                  {
+‼30:                      var secondStart = Starts.Select(start => completeSegment.PositionOf(start)).FirstOrDefault(start => start != null);
+‼31:                      if (secondStart != null)
+〰32:                      {
+〰33:                          // Second start detected
+‼34:                          return (SegmentationStatus.Invalid, buffer.Slice(0, secondStart.Value));
+〰35:                      }
+〰36:                  }
+〰37:  
+‼38:                  if (ExtensionDefinition != null)
+〰39:                  {
+‼40:                      var valueData = completeSegment.Slice(ExtensionDefinition.Postion, ExtensionDefinition.Length);
+〰41:                      //TODO, drop the endian check... only support little and convert
+‼42:                      var set = this.ExtensionDefinition.Endianness == Endianness.Little ? valueData.ToArray() : valueData.ToArray().Reverse().ToArray();
+〰43:  
+‼44:                      ulong extendedLength = 0;
+‼45:                      for (var i = 0; i < this.ExtensionDefinition.Length; i++)
+〰46:                      {
+‼47:                          extendedLength |= (ulong)set[i] << (8 * i);
+〰48:                      }
+〰49:  
+‼50:                      var actualLength = FixedLength + (long)extendedLength;
 〰51:  
-‼52:                          ulong extendedLength = 0;
-‼53:                          for (var i = 0; i < this.ExtensionDefinition.Length; i++)
-〰54:                          {
-‼55:                              extendedLength |= (ulong)set[i] << (8 * i);
-〰56:                          }
-〰57:  
-‼58:                          var actualLength = FixedLength + (long)extendedLength;
+‼52:                      if (segment.Length < actualLength)
+〰53:                      {
+‼54:                          return (SegmentationStatus.Incomplete, buffer);
+〰55:                      }
+〰56:  
+‼57:                      completeSegment = segment.Slice(0, buffer.GetPosition(actualLength, startOfSegment.Value));
+〰58:                  }
 〰59:  
-‼60:                          if (segment.Length < actualLength)
-〰61:                          {
-‼62:                              return (SegmentationStatus.Incomplete, buffer);
-〰63:                          }
-〰64:  
-‼65:                          completeSegment = segment.Slice(0, buffer.GetPosition(actualLength, startOfSegment.Value));
-〰66:                      }
-〰67:  
-‼68:                      return (SegmentationStatus.Complete, completeSegment);
-〰69:                  }
-〰70:              }
-‼71:              else if (buffer.Length > this.FixedLength)
-〰72:              {
-‼73:                  var leftover = buffer.Length % this.FixedLength;
-‼74:                  buffer = buffer.Slice(0, buffer.GetPosition(-leftover, buffer.End));
-‼75:                  return (SegmentationStatus.Invalid, buffer);
-〰76:              }
-〰77:  
-‼78:              return (SegmentationStatus.Incomplete, buffer);
-〰79:          }
-〰80:      }
-〰81:  }
+‼60:                  return (SegmentationStatus.Complete, completeSegment);
+〰61:              }
+〰62:          }
+‼63:          else if (buffer.Length > this.FixedLength)
+〰64:          {
+‼65:              var leftover = buffer.Length % this.FixedLength;
+‼66:              buffer = buffer.Slice(0, buffer.GetPosition(-leftover, buffer.End));
+‼67:              return (SegmentationStatus.Invalid, buffer);
+〰68:          }
+〰69:  
+‼70:          return (SegmentationStatus.Incomplete, buffer);
+〰71:      }
+〰72:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.IO.Abstractions/Segmenters/StartAndFixLengthSegmenter.cs
+
+```CSharp
+〰1:   using System;
+〰2:   using System.Buffers;
+〰3:   using System.Linq;
+〰4:   
+〰5:   namespace BinaryDataDecoders.IO.Segmenters;
+〰6:   
+〰7:   public sealed class StartAndFixLengthSegmenter(
+〰8:       OnSegmentReceived onSegmentReceived,
+〰9:       byte[] starts,
+〰10:      long fixedLength,
+〰11:      SegmentionOptions options,
+‼12:      SegmentExtensionDefinition? extensionDefinition = null) : SegmenterBase(onSegmentReceived, options)
+〰13:  {
+〰14:      public byte[] Starts { get; } = starts;
+〰15:      public long FixedLength { get; } = fixedLength;
+〰16:      public SegmentExtensionDefinition? ExtensionDefinition { get; } = extensionDefinition;
+〰17:  
+〰18:      protected override (SegmentationStatus status, ReadOnlySequence<byte>? segment) Read(ReadOnlySequence<byte> buffer)
+〰19:      {
+‼20:          var startOfSegment = Starts.Select(start => buffer.PositionOf(start)).FirstOrDefault(start => start != null);
+‼21:          if (startOfSegment != null)
+〰22:          {
+‼23:              var segment = buffer.Slice(startOfSegment.Value);
+‼24:              if (segment.Length >= FixedLength)
+〰25:              {
+‼26:                  var completeSegment = segment.Slice(0, buffer.GetPosition(FixedLength, startOfSegment.Value));
+〰27:  
+‼28:                  if (this.Options.HasFlag(SegmentionOptions.SecondStartInvalid))
+〰29:                  {
+‼30:                      var secondStart = Starts.Select(start => completeSegment.PositionOf(start)).FirstOrDefault(start => start != null);
+‼31:                      if (secondStart != null)
+〰32:                      {
+〰33:                          // Second start detected
+‼34:                          return (SegmentationStatus.Invalid, buffer.Slice(0, secondStart.Value));
+〰35:                      }
+〰36:                  }
+〰37:  
+‼38:                  if (ExtensionDefinition != null)
+〰39:                  {
+‼40:                      var valueData = completeSegment.Slice(ExtensionDefinition.Postion, ExtensionDefinition.Length);
+〰41:                      //TODO, drop the endian check... only support little and convert
+‼42:                      var set = this.ExtensionDefinition.Endianness == Endianness.Little ? valueData.ToArray() : valueData.ToArray().Reverse().ToArray();
+〰43:  
+‼44:                      ulong extendedLength = 0;
+‼45:                      for (var i = 0; i < this.ExtensionDefinition.Length; i++)
+〰46:                      {
+‼47:                          extendedLength |= (ulong)set[i] << (8 * i);
+〰48:                      }
+〰49:  
+‼50:                      var actualLength = FixedLength + (long)extendedLength;
+〰51:  
+‼52:                      if (segment.Length < actualLength)
+〰53:                      {
+‼54:                          return (SegmentationStatus.Incomplete, buffer);
+〰55:                      }
+〰56:  
+‼57:                      completeSegment = segment.Slice(0, buffer.GetPosition(actualLength, startOfSegment.Value));
+〰58:                  }
+〰59:  
+‼60:                  return (SegmentationStatus.Complete, completeSegment);
+〰61:              }
+〰62:          }
+‼63:          else if (buffer.Length > this.FixedLength)
+〰64:          {
+‼65:              var leftover = buffer.Length % this.FixedLength;
+‼66:              buffer = buffer.Slice(0, buffer.GetPosition(-leftover, buffer.End));
+‼67:              return (SegmentationStatus.Invalid, buffer);
+〰68:          }
+〰69:  
+‼70:          return (SegmentationStatus.Incomplete, buffer);
+〰71:      }
+〰72:  }
 ```
 
 ## Links

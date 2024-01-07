@@ -21,12 +21,6 @@
 
  * Type: 
 
-#### Public Constructor - DoubleLinkedList
-
-#####  Parameters
-
- - T item 
-
 #### Public Property - Previous
 
 ##### Summary

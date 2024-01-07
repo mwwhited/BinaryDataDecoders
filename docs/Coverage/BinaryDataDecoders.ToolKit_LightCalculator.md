@@ -7,20 +7,26 @@
 | Class           | `BinaryDataDecoders.ToolKit.Calculators.LightCalculator` |
 | Assembly        | `BinaryDataDecoders.ToolKit`                             |
 | Coveredlines    | `0`                                                      |
-| Uncoveredlines  | `6`                                                      |
-| Coverablelines  | `6`                                                      |
-| Totallines      | `15`                                                     |
+| Uncoveredlines  | `12`                                                     |
+| Coverablelines  | `12`                                                     |
+| Totallines      | `29`                                                     |
 | Linecoverage    | `0`                                                      |
 | Coveredbranches | `0`                                                      |
 | Totalbranches   | `0`                                                      |
 | Coveredmethods  | `0`                                                      |
-| Totalmethods    | `6`                                                      |
+| Totalmethods    | `12`                                                     |
 | Methodcoverage  | `0`                                                      |
 
 ## Metrics
 
 | Complexity | Lines | Branches | Name       |
 | :--------- | :---- | :------- | :--------- |
+| 1          | 0     | 100      | `Lux`      |
+| 1          | 0     | 100      | `Iso`      |
+| 1          | 0     | 100      | `Aperture` |
+| 1          | 0     | 100      | `Shutter`  |
+| 1          | 0     | 100      | `Ev`       |
+| 1          | 0     | 100      | `A`        |
 | 1          | 0     | 100      | `Lux`      |
 | 1          | 0     | 100      | `Iso`      |
 | 1          | 0     | 100      | `Aperture` |
@@ -35,19 +41,38 @@
 ```CSharp
 〰1:   using static System.Math;
 〰2:   
-〰3:   namespace BinaryDataDecoders.ToolKit.Calculators
-〰4:   {
-〰5:       public class LightCalculator
-〰6:       {
-‼7:           public double Lux(double aperture, double iso, double shutter) => (Pow(aperture, 2d) * 250d) / (iso * shutter);
-‼8:           public double Iso(double aperture, double lux, double shutter) => (Pow(aperture, 2d) * 250d) / (lux * shutter);
-‼9:           public double Aperture(double iso, double lux, double shutter) => Sqrt(lux * shutter / 2.5d * (iso) / 100);
-‼10:          public double Shutter(double iso, double lux, double aperture) => Pow(aperture, 2d) * 2.5 / lux * 100 / iso;
+〰3:   namespace BinaryDataDecoders.ToolKit.Calculators;
+〰4:   
+〰5:   public class LightCalculator
+〰6:   {
+‼7:       public double Lux(double aperture, double iso, double shutter) => (Pow(aperture, 2d) * 250d) / (iso * shutter);
+‼8:       public double Iso(double aperture, double lux, double shutter) => (Pow(aperture, 2d) * 250d) / (lux * shutter);
+‼9:       public double Aperture(double iso, double lux, double shutter) => Sqrt(lux * shutter / 2.5d * (iso) / 100);
+‼10:      public double Shutter(double iso, double lux, double aperture) => Pow(aperture, 2d) * 2.5 / lux * 100 / iso;
 〰11:  
-‼12:          public double Ev(double lux) => Log(lux / 2.5d, 2d);
-‼13:          public double A(double aperture, double shutter) => Log(Pow(aperture, 2d) / shutter, 2d);
-〰14:      }
-〰15:  }
+‼12:      public double Ev(double lux) => Log(lux / 2.5d, 2d);
+‼13:      public double A(double aperture, double shutter) => Log(Pow(aperture, 2d) / shutter, 2d);
+〰14:  }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ToolKit/Calculators/LightCalculator.cs
+
+```CSharp
+〰1:   using static System.Math;
+〰2:   
+〰3:   namespace BinaryDataDecoders.ToolKit.Calculators;
+〰4:   
+〰5:   public class LightCalculator
+〰6:   {
+‼7:       public double Lux(double aperture, double iso, double shutter) => (Pow(aperture, 2d) * 250d) / (iso * shutter);
+‼8:       public double Iso(double aperture, double lux, double shutter) => (Pow(aperture, 2d) * 250d) / (lux * shutter);
+‼9:       public double Aperture(double iso, double lux, double shutter) => Sqrt(lux * shutter / 2.5d * (iso) / 100);
+‼10:      public double Shutter(double iso, double lux, double aperture) => Pow(aperture, 2d) * 2.5 / lux * 100 / iso;
+〰11:  
+‼12:      public double Ev(double lux) => Log(lux / 2.5d, 2d);
+‼13:      public double A(double aperture, double shutter) => Log(Pow(aperture, 2d) / shutter, 2d);
+〰14:  }
+〰15:  
 ```
 
 ## Links

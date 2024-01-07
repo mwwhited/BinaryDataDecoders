@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                      |
 | Uncoveredlines  | `1`                                      |
 | Coverablelines  | `1`                                      |
-| Totallines      | `13`                                     |
+| Totallines      | `12`                                     |
 | Linecoverage    | `0`                                      |
 | Coveredbranches | `0`                                      |
 | Totalbranches   | `0`                                      |
@@ -30,17 +30,16 @@
 ```CSharp
 〰1:   using Microsoft.VisualStudio.TestTools.UnitTesting;
 〰2:   
-〰3:   namespace BinaryDataDecoders.Net.Tests
-〰4:   {
-〰5:       [TestClass]
-〰6:       public class UnitTest1
-〰7:       {
-〰8:           [TestMethod]
-〰9:           public void TestMethod1()
-〰10:          {
-‼11:          }
-〰12:      }
-〰13:  }
+〰3:   namespace BinaryDataDecoders.Net.Tests;
+〰4:   
+〰5:   [TestClass]
+〰6:   public class UnitTest1
+〰7:   {
+〰8:       [TestMethod]
+〰9:       public void TestMethod1()
+〰10:      {
+‼11:      }
+〰12:  }
 ```
 
 ## Links

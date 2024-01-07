@@ -7,11 +7,3 @@
 
 ## Public Class - DecimalPathSegment
 
-### Members
-
-#### Public Constructor - DecimalPathSegment
-
-#####  Parameters
-
- - decimal value 
-

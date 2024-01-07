@@ -37,7 +37,7 @@
 
 ##### Summary
 
- * Type: Assembly 
+ * Type: 
 
 #### Public Property - ExecutingAssemblyVersion
 
@@ -54,13 +54,13 @@
   Gets the executing assembly version. 
    </ summary > 
    < value > The executing assembly version. </ value > 
-  Version 
+  Version ? 
 
 #### Private Field - executingAssemblyVersion
 
 ##### Summary
 
- * Type: Version 
+ * Type: 
 
 #### Public Property - CompileDate
 

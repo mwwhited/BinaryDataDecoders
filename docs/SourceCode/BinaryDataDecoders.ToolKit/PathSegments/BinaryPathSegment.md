@@ -21,13 +21,6 @@
 
  * Type: IPathSegment 
 
-#### Public Constructor - BinaryPathSegment
-
-#####  Parameters
-
- - IPathSegment left 
- - IPathSegment right 
-
 #### Public Method - ToString
 
 

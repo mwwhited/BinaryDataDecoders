@@ -1,27 +1,11 @@
 # BinaryDataDecoders.ExpressionCalculator.Tests.Evaluators.ExpressionEvaluatorExtensionsTests
 
-## Factorial_Test
+## Sum_Test
 
 ### Targets
 
-* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Factorial
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## Sequence_Test
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sequence
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sum
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -37,7 +21,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Product
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -48,12 +32,28 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## Sum_Test
+## Factorial_Test
 
 ### Targets
 
-* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sum
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Factorial
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+## Sequence_Test
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Evaluators::ExpressionEvaluatorExtensions::Sequence
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

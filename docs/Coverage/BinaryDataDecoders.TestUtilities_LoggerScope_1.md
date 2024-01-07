@@ -9,7 +9,7 @@
 | Coveredlines    | `0`                                                      |
 | Uncoveredlines  | `2`                                                      |
 | Coverablelines  | `2`                                                      |
-| Totallines      | `11`                                                     |
+| Totallines      | `16`                                                     |
 | Linecoverage    | `0`                                                      |
 | Coveredbranches | `0`                                                      |
 | Totalbranches   | `0`                                                      |
@@ -21,7 +21,7 @@
 
 | Complexity | Lines | Branches | Name      |
 | :--------- | :---- | :------- | :-------- |
-| 1          | 0     | 100      | `ctor`    |
+| 1          | 0     | 100      | `Dispose` |
 | 1          | 0     | 100      | `Dispose` |
 
 ## Files
@@ -31,15 +31,25 @@
 ```CSharp
 〰1:   using System;
 〰2:   
-〰3:   namespace BinaryDataDecoders.TestUtilities.Logging
-〰4:   {
-〰5:       internal class LoggerScope<TState> : IDisposable
-〰6:       {
-〰7:           private readonly TState _state;
-‼8:           public LoggerScope(TState state) => _state = state;
-‼9:           public void Dispose() { }
-〰10:      }
-〰11:  }
+〰3:   namespace BinaryDataDecoders.TestUtilities.Logging;
+〰4:   
+〰5:   internal class LoggerScope<TState>(TState state) : IDisposable
+〰6:   {
+‼7:       public void Dispose() { }
+〰8:   }
+```
+
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.TestUtilities/Logging/LoggerScope.cs
+
+```CSharp
+〰1:   using System;
+〰2:   
+〰3:   namespace BinaryDataDecoders.TestUtilities.Logging;
+〰4:   
+〰5:   internal class LoggerScope<TState>(TState state) : IDisposable
+〰6:   {
+‼7:       public void Dispose() { }
+〰8:   }
 ```
 
 ## Links
