@@ -1,7 +1,7 @@
 <Project Sdk="MSBuild.Sdk.SqlProj" DefaultTargets="WriteDacVersion;Build">
   <Import Project="WriteDacVersion.targets" />
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <SqlServerVersion>Sql150</SqlServerVersion>
     
     <IsPackable>false</IsPackable>
