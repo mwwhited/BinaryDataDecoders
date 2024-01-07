@@ -82,7 +82,7 @@ public class XsltExtensionFactory
 
     private void BuildConstructor(TypeBuilder typeBuilder, FieldBuilder wrapped)
     {
-        var ctorBuilder = typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard, new[] { wrapped.FieldType });
+        var ctorBuilder = typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.Standard, [wrapped.FieldType]);
         var il = ctorBuilder.GetILGenerator();
         il.Emit(OpCodes.Ldarg_0);
         il.Emit(OpCodes.Ldarg_1);

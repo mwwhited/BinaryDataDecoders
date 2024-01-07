@@ -9,6 +9,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions;
 [XmlRoot(Namespace = @"http://www.w3.org/2005/xpath-functions")]
 public class XPath20Functions
 {
+#pragma warning disable IDE1006 // Naming Styles
     public decimal abs(decimal input) => Math.Abs(input);
     public decimal ceiling(decimal input) => Math.Ceiling(input);
     public decimal count(XPathNodeIterator input) =>input.AsNavigatorSet().Count();
@@ -57,6 +58,9 @@ public class XPath20Functions
             from node in value.AsNodeSet()
             select node
             );
+
+#pragma warning restore IDE1006 // Naming Styles
+
     /*
 
 Returns the absolute value of $arg.

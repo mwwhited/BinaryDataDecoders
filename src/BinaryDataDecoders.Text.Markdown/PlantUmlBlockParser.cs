@@ -10,7 +10,7 @@ public class PlantUmlBlockParser : FencedBlockParserBase<PlantUmlBlock>
     // https://github.com/macaba/Markdig.Extensions.ScriptCs/blob/master/Markdig.Extensions.ScriptCs/ScriptCsBlockParser.cs
     public PlantUmlBlockParser()
     {
-        OpeningCharacters = new[] { '`' };
+        OpeningCharacters = ['`'];
         InfoPrefix = "plantuml";
         InfoParser = PlantUmlInfoParser;
     }

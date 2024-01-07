@@ -11,7 +11,7 @@ public class WakeOnLan
     {
         var clientMac = MacAddressEx.Parse(macAddress);
         var message = new[]{
-            new byte[] {0xff,0xff,0xff,0xff,0xff,0xff,},
+            [0xff,0xff,0xff,0xff,0xff,0xff,],
             clientMac,
             clientMac,
             clientMac,

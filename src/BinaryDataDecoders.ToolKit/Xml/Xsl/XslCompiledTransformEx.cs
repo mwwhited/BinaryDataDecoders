@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using System.Xml.XPath;
 using System.Xml.Xsl;
 
@@ -59,15 +58,13 @@ public static class XslCompiledTransformEx
                 var navigator = element.CreateNavigator();
                 xsltArgumentList.AddParam(element.Name.LocalName, element.Name.NamespaceName, navigator);
             }
-            else if (argument is XPathNavigator)
+            else if (argument is XPathNavigator navigator)
             {
-                var navigator = argument as XPathNavigator;
                 xsltArgumentList.AddParam(navigator.Name, navigator.NamespaceURI, navigator);
             }
-            else if (argument is KeyValuePair<string, object>)
+            else if (argument is KeyValuePair<string, object> kvp)
             {
-                var item = (KeyValuePair<string, object>)argument;
-                xsltArgumentList.AddExtensionObject(item.Key, item.Value);
+                xsltArgumentList.AddExtensionObject(kvp.Key, kvp.Value);
             }
             else
             {

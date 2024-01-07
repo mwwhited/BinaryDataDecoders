@@ -70,14 +70,14 @@ public static class TypeEx
     public static string GetXmlNamespaceForOutput(this Type type) =>
         type?.GetXmlNamespace() + ToolkitConstants.XmlNamespaces.OutputSuffix;
 
-    private static readonly Type[] _simpleTypes = new[] {
+    private static readonly Type[] _simpleTypes = [
         typeof(decimal), typeof(decimal?),
         typeof(Guid),typeof(Guid?),
         typeof(bool), typeof(bool?),
         typeof(DateTime), typeof(DateTime?),
         typeof(DateTimeOffset),typeof(DateTimeOffset?),
         typeof(TimeSpan),typeof(TimeSpan?),
-    };
+    ];
     /// <summary>
     /// check if type is "simple" .. primitive or [decimal, datetime, bool]
     /// </summary>
