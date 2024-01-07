@@ -18,17 +18,17 @@ public class DeviceConsole(
     private readonly SerialPortFactory serial = new();
 
     private readonly CancellationTokenSource _tokenSource = new();
-    private CancellationToken _token => _tokenSource.Token;
+    private CancellationToken Token => _tokenSource.Token;
 
     public Task UserInteractionAsync<TMessage>(
         IDeviceTransmitter<TMessage> transmitter,
         Func<int, TMessage> messageFactory) => Task.Run(async () =>
         {
             int x = 0;
-            while (!_token.IsCancellationRequested)
+            while (!Token.IsCancellationRequested)
             {
                 await transmitter.Transmit(messageFactory(x++));
-                if (!_token.IsCancellationRequested)
+                if (!Token.IsCancellationRequested)
                     await Task.Delay(testCommandDelay);
             }
         });
@@ -62,7 +62,7 @@ public class DeviceConsole(
             if (device.TryOpen(out var stream))
                 using (stream ?? throw new ApplicationException())
                 {
-                    var streamDevice = new StreamDevice<TMessage>(device, definition, _token, minimumTrasmissionDelay);//stream,
+                    var streamDevice = new StreamDevice<TMessage>(device, definition, Token, minimumTrasmissionDelay);//stream,
                     streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
                     // streamDevice.DeviceStatus += (s, e) => Console.WriteLine($"Status: {e}");
                     streamDevice.MessageReceivedError += (s, e) =>

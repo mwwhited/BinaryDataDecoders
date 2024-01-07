@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.Cryptography.Enigma;
 
@@ -13,7 +12,7 @@ public class EnigmaMachine
     private int[] postions;
     private int[] ringSettings;
     private readonly EnigmaRotor[] rotors;
-    private EnigmaReflector reflector;
+    private readonly EnigmaReflector reflector;
     public EnigmaMachine(EnigmaRotor[] rotors,
                          EnigmaReflector reflector,
                          //string start = null, 
@@ -29,6 +28,7 @@ public class EnigmaMachine
         this.reflector = reflector;
         this.Position = null;  //(start ?? new string('A', rotors.Length));
         this.RingSettings = ringSettings;
+        this.PlugBoard = plugBoard;
     }
 
     public string Position

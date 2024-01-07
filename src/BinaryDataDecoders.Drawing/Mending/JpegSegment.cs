@@ -1,10 +1,10 @@
 ﻿namespace BinaryDataDecoders.Drawing.Mending;
 
-public class JpegSegment
+public record JpegSegment
 {
     public int Index { get; init; }
     public byte Prefix { get; init; }
     public byte Type { get; init; }
     public ushort Length { get; init; }
-    public byte[] Data { get; init; }
+    public required byte[] Data { get; init; }
 }
