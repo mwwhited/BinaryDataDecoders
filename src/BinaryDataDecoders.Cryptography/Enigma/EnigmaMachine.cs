@@ -8,16 +8,17 @@ namespace BinaryDataDecoders.Cryptography.Enigma;
 // http://enigmaco.de/enigma/enigma.html
 public class EnigmaMachine
 {
-    private string[] plugboard;
-    private int[] postions;
-    private int[] ringSettings;
+    private string[]? plugboard;
+    private int[]? postions;
+    private int[]? ringSettings;
     private readonly EnigmaRotor[] rotors;
     private readonly EnigmaReflector reflector;
+
     public EnigmaMachine(EnigmaRotor[] rotors,
                          EnigmaReflector reflector,
                          //string start = null, 
-                         string ringSettings = null,
-                         string plugBoard = null)
+                         string? ringSettings = default,
+                         string? plugBoard = default)
     {
         if (rotors == null || rotors.Length < 3 || rotors.Length > 5)
             throw new InvalidOperationException("Invalid Rotor Set");
@@ -26,16 +27,16 @@ public class EnigmaMachine
 
         this.rotors = rotors.Reverse().ToArray();
         this.reflector = reflector;
-        this.Position = null;  //(start ?? new string('A', rotors.Length));
+        //this.Positions = default;  //(start ?? new string('A', rotors.Length));
         this.RingSettings = ringSettings;
         this.PlugBoard = plugBoard;
     }
 
-    public string Position
+    public string Positions
     {
         get
         {
-            return (this.postions
+            return (this.postions?
                         .Reverse()
                         .Select(p => (char)(p + 'A'))
                         .AsString()
@@ -52,11 +53,11 @@ public class EnigmaMachine
         }
     }
 
-    public string RingSettings
+    public string? RingSettings
     {
         get
         {
-            return (this.ringSettings
+            return (this.ringSettings?
                         .Reverse()
                         .Select(p => (char)(p + 'A'))
                         .AsString()
@@ -65,7 +66,7 @@ public class EnigmaMachine
         }
         private set
         {
-            this.ringSettings = (value?? new string('A', this.rotors.Length)).Select(i => i - 'A')
+            this.ringSettings = (value ?? new string('A', this.rotors.Length)).Select(i => i - 'A')
                                      .Concat(new int[this.rotors.Length])
                                      .Take(this.rotors.Length)
                                      .Reverse()
@@ -73,26 +74,26 @@ public class EnigmaMachine
         }
     }
 
-    public string PlugBoard
+    public string? PlugBoard
     {
         get
         {
-            return string.Join(" ", this.plugboard ?? new string[0]);
+            return string.Join(" ", this.plugboard ?? []);
         }
         set
         {
-            var cleaned = value.Clean().AsString();
+            var cleaned = value?.Clean().AsString() ?? "";
             if (cleaned.Length % 2 == 0 && cleaned.GroupBy(c => c).Any(c => c.Count() != 1))
                 throw new InvalidOperationException("Invalid Plug Board");
 
-            this.plugboard = cleaned.SplitAt(2).ToArray();
+            this.plugboard = cleaned?.SplitAt(2).ToArray();
         }
     }
 
     public string Rotors
     {
-        get { return string.Join(";", this.rotors.Select(r => r.Number));  }
-    } 
+        get { return string.Join(";", this.rotors.Select(r => r.Number)); }
+    }
     public string Reflector
     {
         get { return this.reflector.Number; }
@@ -101,7 +102,7 @@ public class EnigmaMachine
     public string Process(string input)
     {
         input = input.Clean().AsString().SwapSet(this.plugboard);
-        var start = this.Position;
+        var start = this.Positions;
         var set = this.rotors;
         var rs = this.ringSettings;
         var l = 26; // set[0].Length;
@@ -109,7 +110,7 @@ public class EnigmaMachine
         var cOut = new List<char>();
 
         foreach (var c in input.Select(x => x - 'A'))
-        {
+        {;
             this.postions[0] = (this.postions[0] + 1) % l;
             if (this.rotors[0].RotateOn.Contains((char)(this.postions[0] + 'A')))
             {

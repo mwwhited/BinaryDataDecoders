@@ -20,10 +20,11 @@ public class EnigmaMachineTests
         var reflector = EnigmaReflector.Reflectors
                                        .First(r => r.Number == "Reflector B");
 
-        var em = new EnigmaMachine(rotors, reflector);
-
-        em.PlugBoard = "AB DE YZ";
-        var start = em.Position = "AAA";
+        var em = new EnigmaMachine(rotors, reflector)
+        {
+            PlugBoard = "AB DE YZ"
+        };
+        var start = em.Positions = "AAA";
 
         var ret = em.Process("AAAAA");
         Assert.AreEqual("BJLCS", ret);
