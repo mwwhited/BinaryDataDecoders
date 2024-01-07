@@ -8,10 +8,10 @@ namespace BinaryDataDecoders.TestUtilities.Configuration;
 
 public class TupleConfiguration : IConfiguration, IConfigurationSection
 {
-    private readonly IDictionary<string, string> _store = new Dictionary<string, string>();
+    private readonly Dictionary<string, string> _store = [];
 
-    public string? Key { get; }
-    public string? Path { get; }
+    public string Key { get; }
+    public string Path { get; }
     public string? Value { get; set; }
 
     public TupleConfiguration(params (string key, string value)[] settings)
@@ -44,7 +44,7 @@ public class TupleConfiguration : IConfiguration, IConfigurationSection
         get { return _store.TryGetValue(key, out var value) ? value : null; }
         set
         {
-            if (_store.ContainsKey(key))
+            if (!_store.TryAdd(key, value))
             {
                 if (value == null)
                     _store.Remove(key);
@@ -53,7 +53,6 @@ public class TupleConfiguration : IConfiguration, IConfigurationSection
             }
             else if (value != null)
             {
-                _store.Add(key, value);
             }
         }
     }

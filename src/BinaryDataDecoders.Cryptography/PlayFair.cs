@@ -71,7 +71,7 @@ public class PlayFair
 
         foreach (char currentChar in key.ToCharArray())
         {
-            if (seed.IndexOf(currentChar) >= 0)
+            if (seed.Contains(currentChar))
             {
                 seed = seed.Replace(currentChar.ToString(), "");
                 cipherKey[pos++] = currentChar;
@@ -93,8 +93,7 @@ public class PlayFair
 
     public static string Cipher(char[] cryptic, string message, Mode mode, Swap swap)
     {
-        if (cryptic == null)
-            throw new ArgumentNullException(nameof(cryptic));
+        ArgumentNullException.ThrowIfNull(cryptic, nameof(cryptic));
 
         if (cryptic.Length != 25)
             throw new ArgumentOutOfRangeException(nameof(cryptic));
@@ -135,7 +134,7 @@ public class PlayFair
 
         List<char> newMessage = [];
         foreach (char currentChar in message.ToCharArray())
-            if (check.IndexOf(currentChar) >= 0)
+            if (check.Contains(currentChar))
                 newMessage.Add(currentChar);
         message = new string(newMessage.ToArray());
 

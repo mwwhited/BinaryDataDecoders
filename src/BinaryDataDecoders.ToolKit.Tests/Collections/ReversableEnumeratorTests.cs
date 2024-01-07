@@ -19,19 +19,19 @@ public class ReversableEnumeratorTests
         sb.AppendLine("MoveNext>");
         while (set.MoveNext())
         {
-            sb.Append(set.Current ?? "!NULL!").Append(";");
+            sb.Append(set.Current ?? "!NULL!").Append(';');
         }
         sb.AppendLine();
         sb.AppendLine("MovePrevious>");
         while (set.MovePrevious())
         {
-            sb.Append(set.Current ?? "!NULL!").Append(";");
+            sb.Append(set.Current ?? "!NULL!").Append(';');
         }
         sb.AppendLine();
         sb.AppendLine("MoveNext>");
         while (set.MoveNext())
         {
-            sb.Append(set.Current ?? "!NULL!").Append(";");
+            sb.Append(set.Current ?? "!NULL!").Append(';');
         }
 
         sb.AppendLine();
@@ -41,19 +41,19 @@ public class ReversableEnumeratorTests
         sb.AppendLine("MoveNext>");
         while (set.MoveNext())
         {
-            sb.Append(set.Current ?? "!NULL!").Append(";");
+            sb.Append(set.Current ?? "!NULL!").Append(';');
         }
         sb.AppendLine();
         sb.AppendLine("MovePrevious>");
         while (set.MovePrevious())
         {
-            sb.Append(set.Current ?? "!NULL!").Append(";");
+            sb.Append(set.Current ?? "!NULL!").Append(';');
         }
         sb.AppendLine();
         sb.AppendLine("MoveNext>");
         while (set.MoveNext())
         {
-            sb.Append(set.Current ?? "!NULL!").Append(";");
+            sb.Append(set.Current ?? "!NULL!").Append(';');
         }
 
         TestContext.WriteLine(sb.ToString());

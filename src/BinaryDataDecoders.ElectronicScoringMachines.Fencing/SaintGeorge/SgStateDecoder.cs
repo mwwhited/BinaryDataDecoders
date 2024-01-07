@@ -7,7 +7,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.SaintGeorge;
 
 public class SgStateDecoder : IMessageDecoder<IScoreMachineState>
 {
-    private readonly IParseScoreMachineState _parser = new SgStateParser();
+    private readonly SgStateParser _parser = new();
 
     public IScoreMachineState Decode(ReadOnlySequence<byte> response)
     {

@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 
 namespace BinaryDataDecoders.Archives.Tar;
 
-public static class IOUtilities
+public static partial class IOUtilities
 {
-    [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-    internal static extern SafeFileHandle CreateFile(
+    [LibraryImport("kernel32.dll", SetLastError = true, StringMarshalling = StringMarshalling.Utf16)]
+    internal static partial SafeFileHandle CreateFile(
         string lpFileName,
         EFileAccess dwDesiredAccess,
         EFileShare dwShareMode,

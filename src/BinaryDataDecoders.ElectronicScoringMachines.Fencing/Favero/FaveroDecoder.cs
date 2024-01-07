@@ -7,7 +7,7 @@ namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero;
 
 public class FaveroDecoder : IMessageDecoder<IScoreMachineState>
 {
-    private readonly IParseScoreMachineState _parser = new FaveroStateParser();
+    private readonly FaveroStateParser _parser = new ();
 
     public IScoreMachineState Decode(ReadOnlySequence<byte> response)
     {

@@ -12,7 +12,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Linq;
 public class XFragment : IList<XNode>
 {
     // https://github.com/OutOfBandDevelopment/Samples/blob/master/HandyClasses/XFragment.cs
-    private IList<XNode> Nodes { get; } = new List<XNode>();
+    private List<XNode> Nodes { get; } = [];
 
     public XFragment(IEnumerable<XNode> nodes)
     {

@@ -213,7 +213,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
             throw new AggregateException(errors);
     }
 
-    public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output, string? excludeInputSource = null)
+    public void TransformMerge(string template, string input, Func<string, IXPathNavigable?> inputNavigatorFactory, string output, string? excludeInputSource = null)
     {
         static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
         var tid = Environment.CurrentManagedThreadId;
@@ -228,7 +228,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
                 throw new FileNotFoundException($"input");
 
             //TODO: should probably add the file to the input navigator
-            var navigators = inputFiles.Select(f => (f, (IXPathNavigable?)inputNavigatorFactory(f))).ToList();
+            var navigators = inputFiles.Select(f => (f, inputNavigatorFactory(f))).ToList();
 
             //TODO: need to figure out why this won't navigate correctly.
             var merged = navigators.MergeNavigators().CreateNavigator();

@@ -22,7 +22,7 @@ public class MorseCode
     public char Map(string input) =>
         _mapping.Where(v => v.Value == input).Select(k => k.Key).FirstOrDefault(' ');
 
-    private readonly IReadOnlyDictionary<char, string> _mapping = new Dictionary<char, string>
+    private readonly Dictionary<char, string> _mapping = new()
     {
           { 'A', ".-"    },
           { 'B', "-..."  },

@@ -18,7 +18,7 @@ namespace BinaryDataDecoders.Xslt.Cli;
 public sealed class SandboxedTransformer
 {
     private readonly string _sandbox;
-    private readonly IXsltTransformer _transformer;
+    private readonly XsltTransformer _transformer;
 
     public SandboxedTransformer(string sandbox)
     {
@@ -120,7 +120,7 @@ public sealed class SandboxedTransformer
                     _transformer.TransformMerge(
                         template: template,
                         input: input,
-                        exclude: exclude,
+                        excludeInputSource: exclude,
                         inputNavigatorFactory: GetNavigator(inputType, input),
                         output: output
                         );
@@ -128,7 +128,7 @@ public sealed class SandboxedTransformer
                     _transformer.TransformAll(
                         template: template,
                         input: input,
-                        exclude: exclude,
+                        excludeInputSource: exclude,
                         inputNavigatorFactory: GetNavigator(inputType, input),
                         output: output
                         );

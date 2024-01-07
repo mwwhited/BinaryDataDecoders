@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 namespace BinaryDataDecoders.Drawing.Barcodes;
 
 [SupportedOSPlatform("windows")]
-public class Code39
+public partial class Code39
 {
     // http://en.wikipedia.org/wiki/Code_39
 
@@ -214,11 +214,11 @@ public class Code39
 
     public Image EncodeStandard(string message)
     {
-        var regexValid = new Regex(@"^(\*[-0-9A-Z.$/+% ]{1,}\*|[-0-9A-Z.$/+% ]{1,})$", RegexOptions.Compiled);
+        var regexValid = Code39Regex();
         if (!regexValid.IsMatch(message))
             throw new InvalidOperationException($"{nameof(message)} contains invalid characters");
 
-        if (!message.StartsWith("*"))
+        if (!message.StartsWith('*'))
             message = '*' + message + '*';
 
         var len = message.Length;
@@ -245,4 +245,7 @@ public class Code39
         bitmap.UnlockBits(bitmapdata);
         return bitmap;
     }
+
+    [GeneratedRegex(@"^(\*[-0-9A-Z.$/+% ]{1,}\*|[-0-9A-Z.$/+% ]{1,})$", RegexOptions.Compiled)]
+    private static partial Regex Code39Regex();
 }
