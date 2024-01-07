@@ -103,7 +103,7 @@ public class XFragment : IList<XNode>
 
     #region Conversions 
 
-    public static implicit operator XFragment(string? xml) => new XFragment(xml);
+    public static implicit operator XFragment(string? xml) => new(xml);
 
     public static implicit operator string?(XFragment fragment)
     {
@@ -127,9 +127,9 @@ public class XFragment : IList<XNode>
         return sb.ToString();
     }
 
-    public static implicit operator XFragment(XNode[] nodes) => new XFragment(nodes);
+    public static implicit operator XFragment(XNode[] nodes) => new(nodes);
 
-    public static implicit operator XFragment(XNode node) => new XFragment(node);
+    public static implicit operator XFragment(XNode node) => new(node);
 
     #endregion
 }

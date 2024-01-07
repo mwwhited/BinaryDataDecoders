@@ -16,7 +16,7 @@ namespace BinaryDataDecoders.ToolKit.Collections;
 public class ReversableEnumerator<T>(IEnumerator<T> @base) : IReversibleEnumerator<T>
 {
     private const int ResetPosition = -1;
-    private readonly object _lock = new object();
+    private readonly object _lock = new();
     private IDoubleLinkedList<T>? _pointer = null;
     private bool _reset = false;
     private bool _end = false;

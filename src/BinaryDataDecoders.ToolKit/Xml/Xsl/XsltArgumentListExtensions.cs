@@ -7,7 +7,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Xsl;
 /// </summary>
 public static class XsltArgumentListExtensions
 {
-    private static readonly XsltExtensionFactory _builder = new XsltExtensionFactory();
+    private static readonly XsltExtensionFactory _builder = new();
 
     /// <summary>
     /// simplify chaining XsltArgumentList and AddExtensionObject

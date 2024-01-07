@@ -43,9 +43,9 @@ class ZipFile
         if (input == null || input.Length < 1)
             return null;
 
-        using (MemoryStream compressedData = new MemoryStream(input))
-        using (MemoryStream decompressedData = new MemoryStream())
-        using (DeflateStream deflateDecompress = new DeflateStream(compressedData, CompressionMode.Decompress, true))
+        using (MemoryStream compressedData = new(input))
+        using (MemoryStream decompressedData = new())
+        using (DeflateStream deflateDecompress = new(compressedData, CompressionMode.Decompress, true))
         {
             byte[] buffer = new byte[1024];
             int bufferLen;
@@ -64,9 +64,9 @@ class ZipFile
         if (input == null || input.Length < 1)
             return null;
 
-        using (MemoryStream rawDataStreamIn = new MemoryStream(input))
-        using (MemoryStream compressedDataStreamOut = new MemoryStream())
-        using (DeflateStream deflateCompress = new DeflateStream(compressedDataStreamOut, CompressionMode.Compress, true))
+        using (MemoryStream rawDataStreamIn = new(input))
+        using (MemoryStream compressedDataStreamOut = new())
+        using (DeflateStream deflateCompress = new(compressedDataStreamOut, CompressionMode.Compress, true))
         {
             byte[] buffer = new byte[1024];
             int bufferLen;

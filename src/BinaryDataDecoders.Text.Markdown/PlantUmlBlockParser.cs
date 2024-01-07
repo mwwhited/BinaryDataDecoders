@@ -72,5 +72,5 @@ public class PlantUmlBlockParser : FencedBlockParserBase<PlantUmlBlock>
         return true;
     }
 
-    protected override PlantUmlBlock CreateFencedBlock(BlockProcessor processor) => new PlantUmlBlock(this);
+    protected override PlantUmlBlock CreateFencedBlock(BlockProcessor processor) => new(this);
 }

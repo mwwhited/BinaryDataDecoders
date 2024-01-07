@@ -4,7 +4,7 @@ namespace BinaryDataDecoders.ToolKit.Collections;
 
 internal class DoubleLinkedList<T>(T item) : IDoubleLinkedList<T>
 {
-    private readonly object _lock = new object();
+    private readonly object _lock = new();
     private int _position;
 
     public IDoubleLinkedList<T>? Previous { get; private set; }

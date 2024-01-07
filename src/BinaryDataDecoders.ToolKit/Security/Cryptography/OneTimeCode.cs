@@ -7,8 +7,8 @@ namespace BinaryDataDecoders.ToolKit.Security.Cryptography;
 
 public class OneTimeCode
 {
-    public static readonly DateTime UNIX_EPOCH = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-    public static readonly Base32Codec Base32Encoding = new Base32Codec();
+    public static readonly DateTime UNIX_EPOCH = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+    public static readonly Base32Codec Base32Encoding = new();
 
     public long GetCurrentCounter()
     {

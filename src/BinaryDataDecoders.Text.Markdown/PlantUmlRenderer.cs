@@ -84,8 +84,8 @@ public class PlantUmlRenderer
         }
         if (stackTrace)
         {
-            message = message + Environment.NewLine;
-            message = message + exception.StackTrace;
+            message += Environment.NewLine;
+            message += exception.StackTrace;
         }
         message = message + Environment.NewLine + "```" + Environment.NewLine;
         return message;

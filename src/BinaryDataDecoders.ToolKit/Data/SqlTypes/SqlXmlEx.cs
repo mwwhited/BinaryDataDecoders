@@ -11,5 +11,5 @@ public static class SqlXmlEx
         return XFragment.Parse(xmlReader);
     }
 
-    public static SqlXml ToSqlXml(this XFragment xFragment) => new SqlXml(xFragment.CreateReader());
+    public static SqlXml ToSqlXml(this XFragment xFragment) => new(xFragment.CreateReader());
 }
