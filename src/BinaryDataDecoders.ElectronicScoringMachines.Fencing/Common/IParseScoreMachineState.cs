@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common
+namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
+
+public interface IParseScoreMachineState
 {
-    public interface IParseScoreMachineState
-    {
-        IScoreMachineState Parse(ReadOnlySpan<byte> frame);
-    }
+    IScoreMachineState Parse(ReadOnlySpan<byte> frame);
 }

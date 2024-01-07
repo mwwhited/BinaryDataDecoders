@@ -1,7 +1,6 @@
-﻿namespace BinaryDataDecoders.ToolKit.Input
+﻿namespace BinaryDataDecoders.ToolKit.Input;
+
+public interface ICommand : System.Windows.Input.ICommand
 {
-    public interface ICommand : System.Windows.Input.ICommand
-    {
-        void RaiseCanExecuteChanged();
-    }
+    void RaiseCanExecuteChanged();
 }

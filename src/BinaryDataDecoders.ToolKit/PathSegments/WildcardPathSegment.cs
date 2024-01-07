@@ -1,7 +1,6 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class WildcardPathSegment : IPathSegment
 {
-    public class WildcardPathSegment : IPathSegment
-    {
-        public override string ToString() => "*";
-    }
+    public override string ToString() => "*";
 }

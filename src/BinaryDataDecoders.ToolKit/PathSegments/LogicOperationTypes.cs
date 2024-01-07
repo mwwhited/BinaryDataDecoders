@@ -1,9 +1,8 @@
 ﻿
-namespace BinaryDataDecoders.ToolKit.PathSegments
+namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public enum LogicOperationTypes
 {
-    public enum LogicOperationTypes
-    {
-        And,
-        Or,
-    }
+    And,
+    Or,
 }

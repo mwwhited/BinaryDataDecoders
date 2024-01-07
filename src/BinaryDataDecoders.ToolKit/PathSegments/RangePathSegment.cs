@@ -1,18 +1,10 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class RangePathSegment(IPathSegment<int>? start, IPathSegment<int>? end, IPathSegment<int>? step) : IPathSegment
 {
-    public class RangePathSegment : IPathSegment
-    {
-        public RangePathSegment(IPathSegment<int>? start, IPathSegment<int>? end, IPathSegment<int>? step)
-        {
-            Start = start;
-            End = end;
-            Step = step;
-        }
+    public IPathSegment<int>? Start { get; } = start;
+    public IPathSegment<int>? End { get; } = end;
+    public IPathSegment<int>? Step { get; } = step;
 
-        public IPathSegment<int>? Start { get; }
-        public IPathSegment<int>? End { get; }
-        public IPathSegment<int>? Step { get; }
-
-        public override string ToString() => $"{Start}:{End}:{Step}";
-    }
+    public override string ToString() => $"{Start}:{End}:{Step}";
 }

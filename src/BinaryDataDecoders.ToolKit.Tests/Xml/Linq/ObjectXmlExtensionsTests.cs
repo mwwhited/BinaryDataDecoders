@@ -5,37 +5,36 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BinaryDataDecoders.ToolKit.Tests.Xml.Linq
+namespace BinaryDataDecoders.ToolKit.Tests.Xml.Linq;
+
+[TestClass]
+public class ObjectXmlExtensionsTests
 {
-    [TestClass]
-    public class ObjectXmlExtensionsTests
+    public TestContext TestContext { get; set; }
+
+    [TestMethod, TestCategory(TestCategories.DevLocal)]
+    public void AsXElementTest()
     {
-        public TestContext TestContext { get; set; }
-
-        [TestMethod, TestCategory(TestCategories.DevLocal)]
-        public void AsXElementTest()
+        var testData = new
         {
-            var testData = new
+            hello = "world",
+            nested = new
             {
-                hello = "world",
-                nested = new
+                another = 1,
+                other = DateTimeOffset.Now,
+                DeeperStill = new[]
                 {
-                    another = 1,
-                    other = DateTimeOffset.Now,
-                    DeeperStill = new[]
-                    {
-                        new {obj1=1 },
-                        new {obj1=2 },
-                        new {obj1=3 },
-                        new {obj1=4 },
-                        new {obj1=5 },
-                    },
+                    new {obj1=1 },
+                    new {obj1=2 },
+                    new {obj1=3 },
+                    new {obj1=4 },
+                    new {obj1=5 },
                 },
-            };
+            },
+        };
 
-            var result = ObjectXmlExtensions.AsXElement(testData);
-            if (result != null)
-                this.TestContext.AddResult(result);
-        }
+        var result = ObjectXmlExtensions.AsXElement(testData);
+        if (result != null)
+            this.TestContext.AddResult(result);
     }
 }

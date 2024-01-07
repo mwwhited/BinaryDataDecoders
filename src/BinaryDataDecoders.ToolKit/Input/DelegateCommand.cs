@@ -1,31 +1,12 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.ToolKit.Input
+namespace BinaryDataDecoders.ToolKit.Input;
+
+public class DelegateCommand(Action<object?> execute, Predicate<object?>? canExecute = default) : CommandBase
 {
-    public class DelegateCommand : CommandBase
-    {
-        private readonly Predicate<object> _canExecute;
-        private readonly Action<object> _execute;
+    public override bool CanExecute(object? parameter) =>
+        canExecute?.Invoke(parameter) ?? true;
 
-        public DelegateCommand(Action<object> execute, Predicate<object>? canExecute = null)
-        {
-            _execute = execute;
-            _canExecute = canExecute;
-        }
-
-        public override bool CanExecute(object parameter)
-        {
-            if (_canExecute == null)
-            {
-                return true;
-            }
-
-            return _canExecute(parameter);
-        }
-
-        public override void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
-    }
+    public override void Execute(object? parameter)=>
+        execute(parameter);
 }

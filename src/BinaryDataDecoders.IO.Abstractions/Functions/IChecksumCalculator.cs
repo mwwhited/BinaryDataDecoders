@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.IO.Functions
+namespace BinaryDataDecoders.IO.Functions;
+
+public interface IChecksumCalculator
 {
-    public interface IChecksumCalculator
-    {
-        ushort Simple16(ReadOnlySpan<ushort> buffer);
-    }
+    ushort Simple16(ReadOnlySpan<ushort> buffer);
 }

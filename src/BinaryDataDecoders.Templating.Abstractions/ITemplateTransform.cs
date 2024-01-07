@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.Templating.Abstractions
+namespace BinaryDataDecoders.Templating.Abstractions;
+
+public interface ITemplateTransform
 {
-    public interface ITemplateTransform
-    {
-        Task<string> Transform(object source, string template);
-    }
+    Task<string> Transform(object source, string template);
 }

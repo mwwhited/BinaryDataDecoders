@@ -1,13 +1,13 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
 
-namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
+namespace BinaryDataDecoders.ExpressionCalculator.Optimizers;
+
+public sealed class ShiftCommutativeVariablesRight<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
 {
-    public sealed class ShiftCommutativeVariablesRight<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
-    {
-        public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
+    public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
 		/*
-         if (expression instanceof InnerExpression) {
+     if (expression instanceof InnerExpression) {
 			var inner =(InnerExpression) expression;
 			var child = moveCommutativeVariablesRight(inner.getInner());
 			inner.setInner(child);
@@ -87,6 +87,4 @@ namespace BinaryDataDecoders.ExpressionCalculator.Optimizers
 
 		return expression;
 		*/
-    }
 }
- 

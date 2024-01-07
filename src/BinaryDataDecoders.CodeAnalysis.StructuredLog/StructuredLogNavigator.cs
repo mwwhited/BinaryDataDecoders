@@ -4,13 +4,12 @@ using Microsoft.Build.Logging.StructuredLogger;
 using System.IO;
 using System.Xml.XPath;
 
-namespace BinaryDataDecoders.CodeAnalysis.StructuredLog
-{
-    [FileExtension(".binlog")]
-    public class StructuredLogNavigator : IToXPathNavigable
-    {
-        public IXPathNavigable ToNavigable(string filePath) => Serialization.Read(filePath).ToNavigable();
+namespace BinaryDataDecoders.CodeAnalysis.StructuredLog;
 
-        public IXPathNavigable ToNavigable(Stream stream) => Serialization.ReadBinLog(stream).ToNavigable();
-    }
+[FileExtension(".binlog")]
+public class StructuredLogNavigator : IToXPathNavigable
+{
+    public IXPathNavigable ToNavigable(string filePath) => Serialization.Read(filePath).ToNavigable();
+
+    public IXPathNavigable ToNavigable(Stream stream) => Serialization.ReadBinLog(stream).ToNavigable();
 }

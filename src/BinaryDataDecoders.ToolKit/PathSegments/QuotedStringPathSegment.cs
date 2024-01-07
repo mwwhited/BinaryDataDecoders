@@ -1,8 +1,6 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public sealed class QuotedStringPathSegment(string value) : BaseValuePathSegment<string>(value)
 {
-    public sealed class QuotedStringPathSegment : BaseValuePathSegment<string>
-    {
-        public QuotedStringPathSegment(string value) : base(value) { }
-        public override string ToString() => $@"""{Value}""";
-    }
+    public override string ToString() => $@"""{Value}""";
 }

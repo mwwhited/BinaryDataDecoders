@@ -1,7 +1,6 @@
-﻿namespace BinaryDataDecoders.IO
+﻿namespace BinaryDataDecoders.IO;
+
+public interface IBufferedDeviceAdapter : IDeviceAdapter
 {
-    public interface IBufferedDeviceAdapter : IDeviceAdapter
-    {
-        int BytesToRead { get; }
-    }
+    int BytesToRead { get; }
 }

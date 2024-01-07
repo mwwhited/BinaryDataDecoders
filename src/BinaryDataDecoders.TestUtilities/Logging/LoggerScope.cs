@@ -1,11 +1,8 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.TestUtilities.Logging
+namespace BinaryDataDecoders.TestUtilities.Logging;
+
+internal class LoggerScope<TState>(TState state) : IDisposable
 {
-    internal class LoggerScope<TState> : IDisposable
-    {
-        private readonly TState _state;
-        public LoggerScope(TState state) => _state = state;
-        public void Dispose() { }
-    }
+    public void Dispose() { }
 }

@@ -1,8 +1,7 @@
-﻿namespace BinaryDataDecoders.ToolKit.Xml.XPath
+﻿namespace BinaryDataDecoders.ToolKit.Xml.XPath;
+
+public interface INamespaceNode : INode
 {
-    public interface INamespaceNode : INode
-    {
-        new INamespaceNode? Next { get; }
-        new INamespaceNode? Previous { get; }
-    }
+    new INamespaceNode? Next { get; }
+    new INamespaceNode? Previous { get; }
 }

@@ -1,9 +1,8 @@
 ﻿
-namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common
+namespace BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
+
+public enum MachineType
 {
-    public enum MachineType
-    {
-        Sg,
-        Favero,
-    }
+    Sg,
+    Favero,
 }

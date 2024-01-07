@@ -1,9 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BinaryDataDecoders.TestUtilities.Logging
+namespace BinaryDataDecoders.TestUtilities.Logging;
+
+public interface ITestContextWrapper
 {
-    public interface ITestContextWrapper
-    {
-        TestContext Context { get; }
-    }
+    TestContext Context { get; }
 }

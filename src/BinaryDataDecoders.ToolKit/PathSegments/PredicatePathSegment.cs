@@ -1,16 +1,10 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class PredicatePathSegment(
+    IPathSegment child
+        ) : IPathSegment
 {
-    public class PredicatePathSegment : IPathSegment
-    {
-        public IPathSegment Child { get; }
+    public IPathSegment Child { get; } = child;
 
-        public PredicatePathSegment(
-            IPathSegment child
-            )
-        {
-            Child = child;
-        }
-
-        public override string ToString() => $"{{{Child}}}";
-    }
+    public override string ToString() => $"{{{Child}}}";
 }

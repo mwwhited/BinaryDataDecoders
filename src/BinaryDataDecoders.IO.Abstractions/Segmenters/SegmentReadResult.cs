@@ -1,16 +1,9 @@
 ﻿using System.Buffers;
 
-namespace BinaryDataDecoders.IO.Segmenters
-{
-    internal class SegmentReadResult : ISegmentReadResult
-    {
-        public SegmentReadResult(SegmentationStatus Status, ReadOnlySequence<byte> remainingData)
-        {
-            this.Status = Status;
-            this.RemainingData = remainingData;
-        }
+namespace BinaryDataDecoders.IO.Segmenters;
 
-        public SegmentationStatus Status { get; }
-        public ReadOnlySequence<byte> RemainingData { get; }
-    }
+internal class SegmentReadResult(SegmentationStatus Status, ReadOnlySequence<byte> remainingData) : ISegmentReadResult
+{
+    public SegmentationStatus Status { get; } = Status;
+    public ReadOnlySequence<byte> RemainingData { get; } = remainingData;
 }

@@ -1,19 +1,12 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class BinaryPathSegment(
+    IPathSegment left,
+    IPathSegment right
+        ) : IPathSegment
 {
-    public class BinaryPathSegment : IPathSegment
-    {
-        public IPathSegment Left { get; }
-        public IPathSegment Right { get; }
+    public IPathSegment Left { get; } = left;
+    public IPathSegment Right { get; } = right;
 
-        public BinaryPathSegment(
-            IPathSegment left,
-            IPathSegment right
-            )
-        {
-            Left = left;
-            Right = right;
-        }
-
-        public override string ToString() => $"{Left}/{Right}";
-    }
+    public override string ToString() => $"{Left}/{Right}";
 }

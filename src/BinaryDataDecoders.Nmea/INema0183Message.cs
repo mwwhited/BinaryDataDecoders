@@ -1,6 +1,5 @@
-﻿namespace BinaryDataDecoders.Nmea
+﻿namespace BinaryDataDecoders.Nmea;
+
+public interface INema0183Message
 {
-    public interface INema0183Message
-    {
-    }
 }

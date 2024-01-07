@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.ToolKit.MetaData
-{
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class MediaTypeAttribute : Attribute
-    {
-        public string MediaType { get; }
+namespace BinaryDataDecoders.ToolKit.MetaData;
 
-        public MediaTypeAttribute(string mediaType) => MediaType = mediaType;
-    }
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+public class MediaTypeAttribute(string mediaType) : Attribute
+{
+    public string MediaType { get; } = mediaType;
 }

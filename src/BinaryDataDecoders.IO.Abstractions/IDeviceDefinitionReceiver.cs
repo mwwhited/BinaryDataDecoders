@@ -1,11 +1,10 @@
 ﻿using BinaryDataDecoders.IO.Messages;
 using BinaryDataDecoders.IO.Segmenters;
 
-namespace BinaryDataDecoders.IO
+namespace BinaryDataDecoders.IO;
+
+public interface IDeviceDefinitionReceiver<TMessage> : IDeviceDefinition<TMessage>
 {
-    public interface IDeviceDefinitionReceiver<TMessage> : IDeviceDefinition<TMessage>
-    {
-        ISegmentBuildDefinition SegmentDefintion { get; }
-        IMessageDecoder<TMessage> Decoder { get; }
-    }
+    ISegmentBuildDefinition SegmentDefintion { get; }
+    IMessageDecoder<TMessage> Decoder { get; }
 }

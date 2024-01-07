@@ -1,14 +1,11 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
-{
-    public sealed class PathBaseTypePathSegment : BaseValuePathSegment<PathBaseTypes>
-    {
-        public PathBaseTypePathSegment(PathBaseTypes type) : base(type) { }
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
 
-        public override string ToString() => Value switch
-        {
-            PathBaseTypes.Root => ":",
-            PathBaseTypes.Relative => ".",
-            _ => $"{Value}",
-        };
-    }
+public sealed class PathBaseTypePathSegment(PathBaseTypes type) : BaseValuePathSegment<PathBaseTypes>(type)
+{
+    public override string ToString() => Value switch
+    {
+        PathBaseTypes.Root => ":",
+        PathBaseTypes.Relative => ".",
+        _ => $"{Value}",
+    };
 }

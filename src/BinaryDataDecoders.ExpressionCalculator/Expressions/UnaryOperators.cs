@@ -1,10 +1,9 @@
-﻿namespace BinaryDataDecoders.ExpressionCalculator.Expressions
-{
-    public enum UnaryOperators
-    {
-        Unknown,
+﻿namespace BinaryDataDecoders.ExpressionCalculator.Expressions;
 
-        Negate,
-        Factorial,
-    }
+public enum UnaryOperators
+{
+    Unknown,
+
+    Negate,
+    Factorial,
 }

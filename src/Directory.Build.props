@@ -1,10 +1,10 @@
 <Project>
   <PropertyGroup>
     <!--
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     -->
-    <Copyright>Out-of-Band Development, LLC 2023</Copyright>
+    <Copyright>Out-of-Band Development, LLC 2024</Copyright>
     <Company>Out-of-Band Development, LLC</Company>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>

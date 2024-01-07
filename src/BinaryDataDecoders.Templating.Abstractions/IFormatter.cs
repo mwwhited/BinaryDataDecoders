@@ -1,10 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-namespace BinaryDataDecoders.Templating.Abstractions
+namespace BinaryDataDecoders.Templating.Abstractions;
+
+public interface IFormatter
 {
-    public interface IFormatter
-    {
-        bool CanFormat(object source);
-        Task<string?> Format(object source, string format);
-    }
+    bool CanFormat(object source);
+    Task<string?> Format(object source, string format);
 }

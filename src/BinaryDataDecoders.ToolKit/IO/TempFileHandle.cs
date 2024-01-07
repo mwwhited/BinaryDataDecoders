@@ -2,56 +2,53 @@
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace BinaryDataDecoders.ToolKit.IO
+namespace BinaryDataDecoders.ToolKit.IO;
+
+public sealed class TempFileHandle : ITempFile
 {
-    public sealed class TempFileHandle : ITempFile
+    public string FilePath { get; }
+
+    public TempFileHandle() => FilePath = Path.GetTempFileName();
+
+    public override string ToString() => FilePath;
+
+    ~TempFileHandle() => Dispose(false);
+
+    public void Dispose()
     {
-        public string FilePath { get; }
+        this.Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        public TempFileHandle() => FilePath = Path.GetTempFileName();
+    private void Dispose(bool disposing)
+    {
+        if (!File.Exists(FilePath)) return;
 
-        public override string ToString() => FilePath;
-
-        ~TempFileHandle() => Dispose(false);
-
-        public void Dispose()
+        try
         {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
+            File.Delete(FilePath);
         }
-
-        private void Dispose(bool disposing)
+        catch
         {
-            if (!File.Exists(FilePath)) return;
+            //Note: yeah, I don't care why it failed.
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                throw;
 
             try
             {
-                File.Delete(FilePath);
+                NativeWin32Methods.MoveFileEx(FilePath, null, NativeWin32Methods.MoveFileFlags.DelayUntilReboot);
+                //scheduled for reboot so good to go
+                return;
             }
             catch
             {
-                //Note: yeah, I don't care why it failed.
-                if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                    throw;
+                //yep, another.  it's just a temp file give up it it doesn't work.  
+            }
 
-                try
-                {
-                    NativeWin32Methods.MoveFileEx(FilePath, null, NativeWin32Methods.MoveFileFlags.DelayUntilReboot);
-                    //scheduled for reboot so good to go
-                    return;
-                }
-#pragma warning disable CA1031 // Do not catch general exception types
-                catch
-                {
-                    //yep, another.  it's just a temp file give up it it doesn't work.  
-                }
-#pragma warning restore CA1031 // Do not catch general exception types
-
-                if (disposing)
-                {
-                    //something happen above so throw the original exception.
-                    throw;
-                }
+            if (disposing)
+            {
+                //something happen above so throw the original exception.
+                throw;
             }
         }
     }

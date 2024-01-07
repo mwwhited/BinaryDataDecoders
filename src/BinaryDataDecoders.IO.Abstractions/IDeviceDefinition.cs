@@ -1,9 +1,8 @@
-﻿namespace BinaryDataDecoders.IO
+﻿namespace BinaryDataDecoders.IO;
+
+public interface IDeviceDefinition
 {
-    public interface IDeviceDefinition
-    {
-    }
-    public interface IDeviceDefinition<TMessage> : IDeviceDefinition
-    {
-    }
+}
+public interface IDeviceDefinition<TMessage> : IDeviceDefinition
+{
 }
