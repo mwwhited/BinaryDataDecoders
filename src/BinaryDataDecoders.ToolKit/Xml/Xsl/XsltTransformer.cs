@@ -170,7 +170,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
         foreach (var inputFile in inputFiles)
 #endif
         {
-            var inputFileClean = inputFile.Substring(inputDir.Length).TrimStart('/', '\\');
+            var inputFileClean = inputFile[inputDir.Length..].TrimStart('/', '\\');
             var removedExt = Path.ChangeExtension(inputFileClean, null);
             var outFileName = removedExt + outputPattern;
             var outputFile = Path.Combine(outputDir, outFileName);

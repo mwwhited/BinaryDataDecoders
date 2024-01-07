@@ -16,7 +16,7 @@ public static class NumberEx
         if (double.TryParse(input, out var ret))
             return ret;
         else if (input?.Trim().StartsWith("1/") ?? false)
-            if (double.TryParse(input.Trim().Substring(2), out ret))
+            if (double.TryParse(input.Trim()[2..], out ret))
                 return 1d / ret;
 
         return null;

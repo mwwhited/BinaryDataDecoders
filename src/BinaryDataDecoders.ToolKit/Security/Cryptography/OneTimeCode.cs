@@ -74,7 +74,7 @@ public class OneTimeCode
     public string GenerateSecret()
     {
         var buffer = RandomNumberGenerator.GetBytes(9);
-        var secret = Convert.ToBase64String(buffer).Substring(0, 10).Replace('/', '0').Replace('+', '1');
+        var secret = Convert.ToBase64String(buffer)[..10].Replace('/', '0').Replace('+', '1');
         var encoded = Base32Encoding.Encode(Encoding.ASCII.GetBytes(secret));
         return encoded;
     }

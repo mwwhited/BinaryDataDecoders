@@ -85,7 +85,7 @@ internal class Program
                     {
                         if (pattern.StartsWith('!'))
                         {
-                            matcher.AddExclude(pattern.Substring(1));
+                            matcher.AddExclude(pattern[1..]);
                         }
                         else
                         {

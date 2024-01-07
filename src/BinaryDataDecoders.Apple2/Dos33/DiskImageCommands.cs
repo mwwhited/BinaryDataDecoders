@@ -91,7 +91,7 @@ public class DiskImageCommands : IDiskImageCommands
 
         diskImage.Position = location;
         var read = diskImage.Read(span);
-        var item = new TrackSectorList(span.Slice(0, read));
+        var item = new TrackSectorList(span[..read]);
         yield return item;
 
         if (item.NextTrack != 0 && item.NextSector != 0)

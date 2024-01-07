@@ -14,7 +14,7 @@ public static class ServiceCollectionConfigurationExtensions
     private static string CleanEnd(string value, string end) =>
         value switch
         {
-            string name when name.EndsWith(end) => name.Substring(0, name.Length - end.Length),
+            string name when name.EndsWith(end) => name[..^end.Length],
             string name => name,
         };
     private static IServiceCollection ConfigureCommandMappings(

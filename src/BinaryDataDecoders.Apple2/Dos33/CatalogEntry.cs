@@ -27,7 +27,7 @@ public readonly struct CatalogEntry
         NextSectorTrack = span[2];
         Unused_3_to_A = span.Slice(0x03, 13).ToArray();
 
-        var fileSpan = span.Slice(0x0b);
+        var fileSpan = span[0x0b..];
         var fileEntrySize = 35;
         var entries = new FileEntry[fileSpan.Length / fileEntrySize];
         for (var index = 0; index < entries.Length; index += fileEntrySize)

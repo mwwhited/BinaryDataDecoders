@@ -36,27 +36,19 @@ public class PlayFair
     public static char[] BuildKey(string key, Mode mode, Swap swap)
     {
         if (string.IsNullOrEmpty(key))
-            throw new ArgumentNullException("key");
+            throw new ArgumentNullException(nameof(key));
 
         string seed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         char[] cipherKey = new char[5 * 5];
         key = key.ToUpper();
-        char cSwap;
         char cMode;
-
-        switch (swap)
+        var cSwap = swap switch
         {
-            case Swap.X:
-                cSwap = 'X';
-                break;
-            case Swap.Z:
-                cSwap = 'Z';
-                break;
-            default:
-                throw new ArgumentOutOfRangeException("swap");
-        }
-
+            Swap.X => 'X',
+            Swap.Z => 'Z',
+            _ => throw new ArgumentOutOfRangeException(nameof(swap)),
+        };
         switch (mode)
         {
             case Mode.Q:
@@ -72,7 +64,7 @@ public class PlayFair
                 key = key.Replace('I', 'J');
                 break;
             default:
-                throw new ArgumentOutOfRangeException("mode");
+                throw new ArgumentOutOfRangeException(nameof(mode));
         }
         seed = seed.Replace(cMode.ToString(), "");
         int pos = 0;
@@ -102,31 +94,23 @@ public class PlayFair
     public static string Cipher(char[] cryptic, string message, Mode mode, Swap swap)
     {
         if (cryptic == null)
-            throw new ArgumentNullException("cryptic");
+            throw new ArgumentNullException(nameof(cryptic));
 
         if (cryptic.Length != 25)
-            throw new ArgumentOutOfRangeException("cryptic");
+            throw new ArgumentOutOfRangeException(nameof(cryptic));
 
         if (string.IsNullOrEmpty(message))
-            throw new ArgumentNullException("message");
+            throw new ArgumentNullException(nameof(message));
 
         message = message.ToUpper();
-
-        char cSwap;
         char cMode;
 
-        switch (swap)
+        var cSwap = swap switch
         {
-            case Swap.X:
-                cSwap = 'X';
-                break;
-            case Swap.Z:
-                cSwap = 'Z';
-                break;
-            default:
-                throw new ArgumentOutOfRangeException("swap");
-        }
-
+            Swap.X => 'X',
+            Swap.Z => 'Z',
+            _ => throw new ArgumentOutOfRangeException(nameof(swap)),
+        };
         string check = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         switch (mode)
         {
@@ -146,7 +130,7 @@ public class PlayFair
                 message = message.Replace('I', 'J');
                 break;
             default:
-                throw new ArgumentOutOfRangeException("mode");
+                throw new ArgumentOutOfRangeException(nameof(mode));
         }
 
         List<char> newMessage = new();

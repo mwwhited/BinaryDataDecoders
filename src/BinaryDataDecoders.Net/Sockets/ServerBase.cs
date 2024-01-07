@@ -109,7 +109,7 @@ public abstract class ServerBase : IServerBase
                     var readLength = await stream.ReadAsync(buffer, cts.Token);
                     if (readLength > 0)
                     {
-                        var sliced = buffer.Slice(0, readLength);
+                        var sliced = buffer[..readLength];
                         Console.WriteLine($"{this.GetType()}: {clientId}-{Thread.CurrentThread.ManagedThreadId}: {Encoding.UTF8.GetString(sliced.ToArray())}");
                         await MessageReceivedAsync(clientId, accepted, sliced, cts.Token);
                     }

@@ -39,7 +39,7 @@ public class PlantUmlBlockParser : FencedBlockParserBase<PlantUmlBlock>
 
         if (firstSpace > 0)
         {
-            infoString = line.Text.Substring(line.Start, firstSpace - line.Start).Trim();
+            infoString = line.Text[line.Start..firstSpace].Trim();
 
             // Skip any spaces after info string
             firstSpace++;

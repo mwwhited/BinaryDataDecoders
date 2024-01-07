@@ -40,7 +40,7 @@ public class EnigmaMachine
                         .Select(p => (char)(p + 'A'))
                         .AsString()
                         + new string('A', this.rotors.Length)
-                        ).Substring(0, this.rotors.Length);
+                        )[..this.rotors.Length];
         }
         set
         {
@@ -61,7 +61,7 @@ public class EnigmaMachine
                         .Select(p => (char)(p + 'A'))
                         .AsString()
                         + new string('A', this.rotors.Length)
-                        ).Substring(0, this.rotors.Length);
+                        )[..this.rotors.Length];
         }
         private set
         {

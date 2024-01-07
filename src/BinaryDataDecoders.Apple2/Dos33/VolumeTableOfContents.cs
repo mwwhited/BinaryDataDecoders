@@ -30,7 +30,7 @@ public struct VolumeTableOfContents
         NumberOfTracksPerDisk = span[0x34];
         NumberOfSectorsPerTrack = span[0x35];
         NumberOfBytesPerSector = BitConverter.ToUInt16(span.Slice(0x36, 2));
-        BitmapFreeSectors = MemoryMarshal.Cast<byte, uint>(span.Slice(0x38)).Slice(0,50).ToArray();
+        BitmapFreeSectors = MemoryMarshal.Cast<byte, uint>(span[0x38..])[..50].ToArray();
     }
 
     /// <summary>

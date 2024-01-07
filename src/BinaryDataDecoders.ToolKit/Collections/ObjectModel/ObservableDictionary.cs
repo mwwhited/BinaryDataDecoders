@@ -54,7 +54,7 @@ public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INo
 
     public bool Remove(TKey key)
     {
-        if (key == null) throw new ArgumentNullException("key");
+        if (key == null) throw new ArgumentNullException(nameof(key));
 
         TValue value;
         Dictionary.TryGetValue(key, out value);
@@ -131,7 +131,7 @@ public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INo
 
     private void Insert(TKey key, TValue value, bool add)
     {
-        if (key == null) throw new ArgumentNullException("key");
+        if (key == null) throw new ArgumentNullException(nameof(key));
 
         TValue item;
         if (Dictionary.TryGetValue(key, out item))

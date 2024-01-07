@@ -29,7 +29,7 @@ public struct TrackSectorList
         Unused_3_to_4 = span.Slice(0x03, 2).ToArray();
         SectorOffset = BitConverter.ToUInt16(span.Slice(0x05, 2));
         Unused_7_to_B = span.Slice(0x07, 5).ToArray();
-        TrackSectorPairs = MemoryMarshal.Cast<byte, TrackSector>(span.Slice(0x0c)).ToArray();
+        TrackSectorPairs = MemoryMarshal.Cast<byte, TrackSector>(span[0x0c..]).ToArray();
     }
 
     /// <summary>

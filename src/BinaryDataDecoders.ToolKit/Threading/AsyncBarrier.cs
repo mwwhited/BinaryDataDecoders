@@ -14,7 +14,7 @@ public class AsyncBarrier
 
     public AsyncBarrier(int participantCount)
     {
-        if (participantCount <= 0) throw new ArgumentOutOfRangeException("participantCount");
+        if (participantCount <= 0) throw new ArgumentOutOfRangeException(nameof(participantCount));
         m_remainingParticipants = m_participantCount = participantCount;
         m_waiters = new ConcurrentStack<TaskCompletionSource<bool>>();
     }
