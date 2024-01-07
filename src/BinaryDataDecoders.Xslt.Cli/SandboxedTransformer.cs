@@ -35,14 +35,14 @@ public sealed class SandboxedTransformer
                 );
     }
 
-    private Func<string, IXPathNavigable> GetNavigator(InputTypes inputType, string filePath) =>
+    private Func<string, IXPathNavigable?> GetNavigator(InputTypes inputType, string filePath) =>
         inputType switch
         {
             InputTypes.ByExtention => GetNavigator(filePath),
             _ => GetNavigator(inputType)
         } ?? throw new NotSupportedException($"No mapping for {inputType} ({Path.GetExtension(filePath)}) found");
 
-    private Func<string, IXPathNavigable>? GetNavigator(InputTypes inputType) =>
+    private Func<string, IXPathNavigable?>? GetNavigator(InputTypes inputType) =>
         inputType switch
         {
             InputTypes.Xml => _transformer.ReadAsXml,
@@ -60,7 +60,7 @@ public sealed class SandboxedTransformer
             _ => null
         };
 
-    private Func<string, IXPathNavigable>? GetNavigator(string filePath) =>
+    private Func<string, IXPathNavigable?>? GetNavigator(string filePath) =>
         Path.GetExtension(filePath).ToUpper() switch
         {
             ".XML" => GetNavigator(InputTypes.Xml),

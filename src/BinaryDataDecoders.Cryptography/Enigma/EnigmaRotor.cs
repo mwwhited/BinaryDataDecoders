@@ -32,9 +32,9 @@ public record EnigmaRotor
         // new EnigmaRotor {Number="ETW", Series="Enigma I",Wiring="ABCDEFGHIJKLMNOPQRSTUVWXYZ",Introduced="",RotateOn=new char[]{}},
     };
 
-    public string Introduced { get; init; }
-    public string Number { get; init; }
-    public char[] RotateOn { get; init; }
-    public string Series { get; init; }
-    public string Wiring { get; init; }
+    public required string Introduced { get; init; }
+    public required string Number { get; init; }
+    public required char[] RotateOn { get; init; }
+    public required string Series { get; init; }
+    public required string Wiring { get; init; }
 }

@@ -49,10 +49,12 @@ public class NugetManager(
             var directory = Path.GetDirectoryName(versionPropsFile);
             foreach (var import in imports)
             {
-                var importFile = (string)import.Attribute("Project");
+                var importFile = (string?)import.Attribute("Project");
+                if (string.IsNullOrWhiteSpace(importFile))
+                    continue;
                 var importPath = Path.GetFullPath(Path.Combine(directory ?? ".", importFile));
                 var imported = OpenXml(importPath, withImport);
-                import.ReplaceWith(imported.Root.Nodes());
+                import.ReplaceWith(imported.Root?.Nodes());
             }
         }
 
@@ -76,7 +78,7 @@ public class NugetManager(
     public async Task UpdateNugetVersionsAsync(XDocument versionXml, string nugetUrl, FeedType feedType, CancellationToken cancellationToken)
     {
         var packages = from packageVersion in versionXml.Descendants("PackageVersion")
-                       let condition = packageVersion.Parent.Attribute("Condition")
+                       let condition = packageVersion.Parent?.Attribute("Condition")
                        select (packageVersion, condition);
 
         var cache = new SourceCacheContext();
@@ -88,9 +90,9 @@ public class NugetManager(
             if (cancellationToken.IsCancellationRequested)
                 break;
 
-            var packageName = (string)package.packageVersion.Attribute("Include");
+            var packageName = (string?)package.packageVersion.Attribute("Include");
             var versionAttribute = package.packageVersion.Attribute("Version");
-            var version = (string)versionAttribute;
+            var version = (string?)versionAttribute;
             if (!NuGetVersion.TryParse(version, out var current))
             {
                 // _logger.LogInformation($"Found version {packageName}: {version} => Not Supported");
@@ -176,7 +178,7 @@ public class NugetManager(
     {
         var fullPath = Path.GetFullPath(filePath);
         var dir = Path.GetDirectoryName(fullPath);
-        if (!Directory.Exists(dir))
+        if (dir != null && !Directory.Exists(dir))
             Directory.CreateDirectory(dir);
 
         versionXml.Save(filePath);

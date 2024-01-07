@@ -11,7 +11,7 @@ public class EnumerableXPathNodeIterator(IEnumerable<IXPathNavigable> set) : XPa
     private readonly IEnumerable<IXPathNavigable> _set = set.ToArray();
     private readonly IEnumerator<IXPathNavigable> _enumerator = set.GetEnumerator();
 
-    public override XPathNavigator Current => _enumerator.Current.CreateNavigator();
+    public override XPathNavigator? Current => _enumerator.Current.CreateNavigator();
     public override int CurrentPosition => _pointer;
 
     public override XPathNodeIterator Clone()

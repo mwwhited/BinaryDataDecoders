@@ -43,7 +43,7 @@ public class DeviceConsole(
         var portName = Console.ReadLine();
 
         if (string.IsNullOrWhiteSpace(portName))
-            portName = ports.FirstOrDefault();
+            portName = ports.FirstOrDefault() ?? throw new ApplicationException($"{nameof(portName)} not set");
 
         var serialPort = serial.GetDevice(portName, definition: definition) ??
              throw new NullReferenceException($"Enable to configure \"{portName}\" for \"{definition}\"");

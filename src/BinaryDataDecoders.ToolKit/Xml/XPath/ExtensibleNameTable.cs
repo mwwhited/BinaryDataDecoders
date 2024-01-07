@@ -12,7 +12,7 @@ internal class ExtensibleNameTable : XmlNameTable
         _nameTable.Add(array);
 
     public override string Get(char[] array, int offset, int length) =>
-        _nameTable.Get(array, offset, length);
+        _nameTable.Get(array, offset, length) ?? "";
 
     public override string Get(string array) =>
         _nameTable.Add(array);

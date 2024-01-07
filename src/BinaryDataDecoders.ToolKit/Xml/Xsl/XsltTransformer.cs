@@ -31,7 +31,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
     /// </summary>
     /// <param name="fileName"></param>
     /// <returns></returns>
-    public IXPathNavigable? ReadAsXml(string fileName)
+    public IXPathNavigable ReadAsXml(string fileName)
     {
         try
         {
@@ -47,8 +47,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
         }
         catch
         {
-            return null;
-            //TODO: do something smart
+            return new XmlDocument();
         }
     }
 
@@ -69,10 +68,10 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
     /// <param name="output">resulting text content</param>
     public void Transform(string template, string inputSource, IXPathNavigable input, string output)
     {
-        template = PathEx.FixUpPath(template);
-        inputSource = PathEx.FixUpPath(inputSource);
-        output = PathEx.FixUpPath(output);
-        var sandbox = PathEx.FixUpPath(_sandbox);
+        template = PathEx.FixUpPath(template) ?? throw new ApplicationException($"{nameof(template)} must not be null");
+        inputSource = PathEx.FixUpPath(inputSource) ?? throw new ApplicationException($"{nameof(inputSource)} must not be null");
+        output = PathEx.FixUpPath(output) ?? throw new ApplicationException($"{nameof(output)} must not be null");
+        string sandbox = PathEx.FixUpPath(_sandbox) ?? throw new ApplicationException($"{nameof(_sandbox)} must not be null");
 
         var xsltArgumentList = new XsltArgumentList().AddExtensions(extensions);
 
@@ -80,13 +79,13 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
 
         XNamespace ns = this.GetXmlNamespace();
         xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
-            new XAttribute(nameof(template), Path.GetFullPath(template)),
-            new XAttribute(nameof(input), Path.GetFullPath(inputSource)),
-            new XAttribute(nameof(input) + "Type", input.GetType().AssemblyQualifiedName),
-            new XAttribute(nameof(output), Path.GetFullPath(output)),
-            new XAttribute(nameof(output) + "Path", Path.GetDirectoryName(Path.GetFullPath(output))),
-            new XAttribute("sandbox", Path.GetFullPath(sandbox))
-            ).ToXPathNavigable().CreateNavigator());
+            new XAttribute(nameof(template), Path.GetFullPath(template) ?? ""),
+            new XAttribute(nameof(input), Path.GetFullPath(inputSource) ?? ""),
+            new XAttribute(nameof(input) + "Type", input.GetType().AssemblyQualifiedName ?? ""),
+            new XAttribute(nameof(output), Path.GetFullPath(output) ?? ""),
+            new XAttribute(nameof(output) + "Path", Path.GetDirectoryName(Path.GetFullPath(output)) ?? ""),
+            new XAttribute("sandbox", Path.GetFullPath(sandbox) ?? "")
+            ).ToXPathNavigable().CreateNavigator() ?? throw new ApplicationException("no files added"));
 
         var xslt = new XslCompiledTransform(false);
         using var xmlreader = XmlReader.Create(template, new XmlReaderSettings
@@ -100,7 +99,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
         xslt.Load(xmlreader, xsltSettings, null);
 
         var outputDir = Path.GetDirectoryName(output);
-        if (!Directory.Exists(outputDir))
+        if (outputDir != null && !Directory.Exists(outputDir))
             Directory.CreateDirectory(outputDir);
         using var resultStream = File.Create(output);
 
@@ -108,13 +107,14 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
         try
         {
             var localOutfolder = Path.GetDirectoryName(output);
-            if (!Directory.Exists(localOutfolder))
+            if (localOutfolder != null && !Directory.Exists(localOutfolder))
             {
                 Directory.CreateDirectory(localOutfolder);
             }
-            Environment.CurrentDirectory = localOutfolder;
+            if (localOutfolder != null)
+                Environment.CurrentDirectory = localOutfolder;
 
-            var inputNavigator = input.CreateNavigator();
+            var inputNavigator = input.CreateNavigator() ?? throw new ApplicationException("navigator not created");
             inputNavigator.MoveToRoot();
 
             //var x = xslt.GetType();

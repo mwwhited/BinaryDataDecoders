@@ -19,18 +19,19 @@ public class AsyncLock
     public Task<Releaser> LockAsync()
     {
         var wait = m_semaphore.WaitAsync();
+
         return wait.IsCompleted ?
             m_releaser :
-            wait.ContinueWith((_, state) => new Releaser((AsyncLock)state),
+            wait.ContinueWith((_, state) => new Releaser(state as AsyncLock),
                 this, CancellationToken.None,
                 TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
     }
 
     public readonly struct Releaser : IDisposable
     {
-        private readonly AsyncLock m_toRelease;
+        private readonly AsyncLock? m_toRelease;
 
-        internal Releaser(AsyncLock toRelease) { m_toRelease = toRelease; }
+        internal Releaser(AsyncLock? toRelease) { m_toRelease = toRelease; }
 
         public void Dispose()
         {

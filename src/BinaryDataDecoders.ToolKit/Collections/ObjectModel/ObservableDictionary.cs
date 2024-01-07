@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.ToolKit.Collections.ObjectModel;
 
-public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INotifyCollectionChanged, INotifyPropertyChanged
+public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INotifyCollectionChanged, INotifyPropertyChanged where TKey : notnull
 {
     protected IDictionary<TKey, TValue> Dictionary { get; } = new Dictionary<TKey, TValue>();
 
@@ -54,9 +53,10 @@ public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INo
 
     public bool Remove(TKey key)
     {
-        if (key == null) throw new ArgumentNullException(nameof(key));
+        if (key == null)
+            throw new ArgumentNullException(nameof(key));
 
-        Dictionary.TryGetValue(key, out TValue value);
+        Dictionary.TryGetValue(key, out var _);
         var removed = Dictionary.Remove(key);
         if (removed)
             //OnCollectionChanged(NotifyCollectionChangedAction.Remove, new KeyValuePair<TKey, TValue>(key, value));
@@ -121,7 +121,8 @@ public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INo
             if (items.Keys.Any((k) => Dictionary.ContainsKey(k)))
                 throw new ArgumentException("An item with the same key has already been added.");
             else
-                foreach (var item in items) Dictionary.Add(item);
+                foreach (var item in items)
+                    Dictionary.Add(item);
 
 
             OnCollectionChanged(NotifyCollectionChangedAction.Add, items.ToArray());
@@ -130,9 +131,10 @@ public class ObservableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, INo
 
     private void Insert(TKey key, TValue value, bool add)
     {
-        if (key == null) throw new ArgumentNullException(nameof(key));
+        if (key == null)
+            throw new ArgumentNullException(nameof(key));
 
-        if (Dictionary.TryGetValue(key, out TValue item))
+        if (Dictionary.TryGetValue(key, out var item))
         {
             if (add)
                 throw new ArgumentException("An item with the same key has already been added.");

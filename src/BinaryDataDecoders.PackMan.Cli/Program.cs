@@ -101,14 +101,14 @@ internal class Program
                     Console.WriteLine($"{nameof(project)}: {project}");
                     var projectXml = XElement.Load(project);
 
-                    var targetFramework = projectXml.Descendants("PropertyGroup").Select(x => (string)x.Element("TargetFramework")).FirstOrDefault();
+                    var targetFramework = projectXml.Descendants("PropertyGroup").Select(x => (string?)x.Element("TargetFramework")).FirstOrDefault();
                     if (string.IsNullOrEmpty(targetFramework))
                     {
                         throw new NotSupportedException();
                     }
 
                     var packages =
-                         (from ig in versionXml.Root.Descendants("ItemGroup")
+                         (from ig in versionXml.Root?.Descendants("ItemGroup")
                           let conditionAttribute = (string?)ig.Attribute("Condition")
                           where conditionAttribute == null || conditionAttribute.Contains(targetFramework, StringComparison.InvariantCultureIgnoreCase)
                           from pv in ig.Elements("PackageVersion")

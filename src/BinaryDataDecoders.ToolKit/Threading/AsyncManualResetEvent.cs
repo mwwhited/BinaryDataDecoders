@@ -12,7 +12,7 @@ public class AsyncManualResetEvent
     public void Set()
     {
         var tcs = m_tcs;
-        Task.Factory.StartNew(s => ((TaskCompletionSource<bool>)s).TrySetResult(true),
+        Task.Factory.StartNew(s => (s as TaskCompletionSource<bool>)?.TrySetResult(true),
             tcs, CancellationToken.None, TaskCreationOptions.PreferFairness, TaskScheduler.Default);
         tcs.Task.Wait();
     }

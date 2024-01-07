@@ -19,7 +19,7 @@ public static class PathEx
     public static string CreateParentIfNotExists(this string path)
     {
         var realDir = Path.GetDirectoryName(path);
-        if (!Directory.Exists(realDir))
+        if (realDir != null && !Directory.Exists(realDir))
             Directory.CreateDirectory(realDir);
         return path;
     }
@@ -84,7 +84,7 @@ public static class PathEx
                 yield return file;
     }
 
-    public static IEnumerable<string> EnumerateDirectories(string path, string wildcardPath)
+    public static IEnumerable<string> EnumerateDirectories(string path, string? wildcardPath)
     {
         if (string.IsNullOrWhiteSpace(wildcardPath))
         {
@@ -111,7 +111,7 @@ public static class PathEx
 
     internal static IEnumerable<string> EnumerateDirectories(string path, IEnumerator<string> enumerator)
     {
-        IEnumerable<string> directories = null;
+        IEnumerable<string>? directories = null;
         var recursive = false;
         while (enumerator.MoveNext())
         {

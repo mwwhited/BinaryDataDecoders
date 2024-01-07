@@ -102,13 +102,17 @@ public class EnigmaMachine
         input = input.Clean().AsString().SwapSet(this.plugboard);
         var start = this.Positions;
         var set = this.rotors;
-        var rs = this.ringSettings;
+        var rs = this.ringSettings ??
+                throw new ApplicationException($"{nameof(this.ringSettings)} not set");
+
         var l = 26; // set[0].Length;
 
         var cOut = new List<char>();
 
         foreach (var c in input.Select(x => x - 'A'))
-        {;
+        {
+            if (this.postions == null)
+                throw new ApplicationException($"{nameof(this.postions)} not set");
             this.postions[0] = (this.postions[0] + 1) % l;
             if (this.rotors[0].RotateOn.Contains((char)(this.postions[0] + 'A')))
             {
