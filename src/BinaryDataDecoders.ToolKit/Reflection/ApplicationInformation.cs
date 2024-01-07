@@ -54,6 +54,6 @@ public  class ApplicationInformation
             s.Read(b, 0, 2048);
         }
         var dt = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(BitConverter.ToInt32(b, BitConverter.ToInt32(b, peHeaderOffset) + linkerTimestampOffset));
-        return dt.AddHours(TimeZone.CurrentTimeZone.GetUtcOffset(dt).Hours);
+        return dt.AddHours(TimeZoneInfo.Local.GetUtcOffset(dt).Hours);
     }
 }

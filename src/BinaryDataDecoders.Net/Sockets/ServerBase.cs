@@ -132,8 +132,8 @@ public abstract class ServerBase : IServerBase
     private CancellationTokenSource? _cts;
     private TcpListener? _listener;
     private Task? _task;
-    private readonly Dictionary<int, TcpClient> _clients = new();
-    private readonly List<Task> _tasks = new();
+    private readonly Dictionary<int, TcpClient> _clients = [];
+    private readonly List<Task> _tasks = [];
 
     protected IReadOnlyDictionary<int, TcpClient> Clients => _clients;
 

@@ -28,7 +28,7 @@ public class OneTimeCode
         using var hmac = new HMACSHA1(key);
         var hash = hmac.ComputeHash(counter);
 
-        var offset = hash[hash.Length - 1] & 0xf;
+        var offset = hash[^1] & 0xf;
 
         var binary =
             ((hash[offset] & 0x7f) << 24)
@@ -85,7 +85,7 @@ public class OneTimeCode
         return decoded;
     }
 
-    public string GetUri(string secret, string issuer, string account = null, Types type = Types.TOTP)
+    public string GetUri(string secret, string issuer, string? account = default, Types type = Types.TOTP)
     {
         return $"otpauth://{type.ToString().ToLower()}/{issuer}{(!string.IsNullOrWhiteSpace(account) ? ":" + account : null)}?secret={secret}&issuer={issuer}";
     }

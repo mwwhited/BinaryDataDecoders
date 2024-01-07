@@ -33,7 +33,7 @@ public struct TrackSectorList
     /// <summary>
     /// $00         Not used
     /// </summary>
-    private byte Unused_0;
+    private readonly byte Unused_0;
 
     /// <summary>
     /// $01         Track number of next T/S List sector if one was needed or zero if no more T/S List sectors

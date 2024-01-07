@@ -133,7 +133,7 @@ public class PlayFair
                 throw new ArgumentOutOfRangeException(nameof(mode));
         }
 
-        List<char> newMessage = new();
+        List<char> newMessage = [];
         foreach (char currentChar in message.ToCharArray())
             if (check.IndexOf(currentChar) >= 0)
                 newMessage.Add(currentChar);
@@ -151,7 +151,7 @@ public class PlayFair
 
         string sCryptic = new(cryptic);
 
-        List<char> cipherText = new();
+        List<char> cipherText = [];
 
         for (int i = 0; i < message.Length; i += 2)
         {

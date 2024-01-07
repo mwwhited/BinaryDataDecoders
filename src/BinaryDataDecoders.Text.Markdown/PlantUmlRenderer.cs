@@ -78,9 +78,9 @@ public class PlantUmlRenderer
     public string BuildMarkdownExceptionMessage(Exception exception, bool stackTrace)
     {
         string message = "```" + Environment.NewLine + "PlantUML exception:" + Environment.NewLine + exception.Message;
-        if (exception is FileNotFoundException)
+        if (exception is FileNotFoundException fileNotFoundEx)
         {
-            message += " (" + ((FileNotFoundException)exception).FileName + ")";
+            message += " (" + fileNotFoundEx.FileName + ")";
         }
         if (stackTrace)
         {
