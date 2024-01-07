@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::Evaluate
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -26,38 +26,12 @@ Variables: (A, 2.1), (B, 3.4)
 Result: 5.5
 ```
 
-## ParseAndReplaceVariablesTest
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::ReplaceVariables
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-#### Standard Out
-
-```
-TestContext Messages:
-Input: A+B
-As Parsed: A + B
-Variables: (A, X), (B, Y)
-Result: X + Y
-```
-
 ## ParseAndPreEvaluateTest
 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::PreEvaluate
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -76,6 +50,32 @@ Input: A+B
 As Parsed: A + B
 Variables: (A, 2.1), (B, 3.4)
 Result: 2.1 + 3.4
+```
+
+## ParseAndReplaceVariablesTest
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::ExpressionBaseExtensions::ReplaceVariables
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+#### Standard Out
+
+```
+TestContext Messages:
+Input: A+B
+As Parsed: A + B
+Variables: (A, X), (B, Y)
+Result: X + Y
 ```
 
 ## Links

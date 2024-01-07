@@ -1,6 +1,6 @@
 # BinaryDataDecoders.ToolKit.Tests.Codecs.Base32CodecTests
 
-## DecodeTest
+## EncodeTest
 
 ### Categories
 
@@ -11,7 +11,7 @@
 * Outcome: ✔ Passed
 * Duration: 00:00:00.00
 
-## EncodeTest
+## DecodeTest
 
 ### Categories
 

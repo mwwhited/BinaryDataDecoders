@@ -11,9 +11,9 @@
 | Coverablelines  | `54`                                  |
 | Totallines      | `126`                                 |
 | Linecoverage    | `61.1`                                |
-| Coveredbranches | `18`                                  |
-| Totalbranches   | `36`                                  |
-| Branchcoverage  | `50`                                  |
+| Coveredbranches | `16`                                  |
+| Totalbranches   | `34`                                  |
+| Branchcoverage  | `47`                                  |
 | Coveredmethods  | `5`                                   |
 | Totalmethods    | `9`                                   |
 | Methodcoverage  | `55.5`                                |
@@ -30,7 +30,7 @@
 | 4          | 100   | 100      | `Split`              |
 | 4          | 80.0  | 75.00    | `SplitWithExclude`   |
 | 4          | 80.0  | 75.00    | `SplitWithReturn`    |
-| 10         | 83.33 | 80.0     | `SplitWithCarry`     |
+| 8          | 83.33 | 75.00    | `SplitWithCarry`     |
 
 ## Files
 

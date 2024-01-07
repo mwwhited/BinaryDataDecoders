@@ -121,15 +121,15 @@
 ✔63:                  yield return XNode.ReadFrom(xmlReader);
 ✔64:          }
 〰65:  
-✔66:          public override string ToString() => this;
+✔66:          public override string? ToString() => this;
 〰67:  
 ‼68:          public XmlReader CreateReader() => XmlReader.Create(new StringReader(this), new XmlReaderSettings
 ‼69:          {
 ‼70:              ConformanceLevel = ConformanceLevel.Fragment,
 ‼71:          });
 〰72:  
-✔73:          public static XFragment Parse(string xml) => new XFragment(xml);
-‼74:          public static XFragment Parse(XmlReader xmlReader) => new XFragment(xmlReader);
+✔73:          public static XFragment Parse(string xml) => new(xml);
+‼74:          public static XFragment Parse(XmlReader xmlReader) => new(xmlReader);
 〰75:  
 〰76:          #region IEnumerable
 〰77:  

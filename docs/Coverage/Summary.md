@@ -4,21 +4,21 @@
 
 | Key             | Value                         |
 | :-------------- | :---------------------------- |
-| Generatedon     | `05/20/2023 - 22:41:17`       |
-| Parser          | `MultiReport (49x Cobertura)` |
+| Generatedon     | `01/07/2024 - 12:33:57`       |
+| Parser          | `MultiReport (42x Cobertura)` |
 | Assemblies      | `54`                          |
-| Classes         | `369`                         |
+| Classes         | `374`                         |
 | Coveredlines    | `3727`                        |
-| Uncoveredlines  | `5446`                        |
-| Coverablelines  | `9173`                        |
-| Totallines      | `23617`                       |
-| Linecoverage    | `40.6`                        |
-| Coveredbranches | `1149`                        |
-| Totalbranches   | `3580`                        |
-| Branchcoverage  | `32`                          |
+| Uncoveredlines  | `5494`                        |
+| Coverablelines  | `9221`                        |
+| Totallines      | `23778`                       |
+| Linecoverage    | `40.4`                        |
+| Coveredbranches | `1146`                        |
+| Totalbranches   | `3588`                        |
+| Branchcoverage  | `31.9`                        |
 | Coveredmethods  | `667`                         |
-| Totalmethods    | `1533`                        |
-| Methodcoverage  | `43.5`                        |
+| Totalmethods    | `1557`                        |
+| Methodcoverage  | `42.8`                        |
 
 ## Coverage
 
@@ -515,9 +515,9 @@
 | coveredlines    | `878`  |
 | coverablelines  | `1028` |
 | totallines      | `2284` |
-| branchcoverage  | `82.4` |
-| coveredbranches | `391`  |
-| totalbranches   | `474`  |
+| branchcoverage  | `82.6` |
+| coveredbranches | `390`  |
+| totalbranches   | `472`  |
 | coveredmethods  | `237`  |
 | totalmethods    | `302`  |
 | methodcoverage  | `78.4` |
@@ -1226,23 +1226,25 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `8`    |
-| coverage        | `16.5` |
+| classes         | `10`   |
+| coverage        | `14.1` |
 | coveredlines    | `23`   |
-| coverablelines  | `139`  |
-| totallines      | `536`  |
-| branchcoverage  | `18.9` |
+| coverablelines  | `163`  |
+| totallines      | `612`  |
+| branchcoverage  | `17.4` |
 | coveredbranches | `18`   |
-| totalbranches   | `95`   |
+| totalbranches   | `103`  |
 | coveredmethods  | `3`    |
-| totalmethods    | `25`   |
-| methodcoverage  | `12`   |
+| totalmethods    | `34`   |
+| methodcoverage  | `8.8`  |
 
 #### Classes
 
 | coverage   | name                                                             |
 | :--------- | :--------------------------------------------------------------- |
 | 0          | [Configuration.TupleConfiguration](BinaryDataDecoders.TestUtilities_TupleConfiguration.md) |
+| 0          | [ContextualTestClassBase](BinaryDataDecoders.TestUtilities_.md) |
+| 0          | [ContextualTestMethodAttribute](BinaryDataDecoders.TestUtilities_.md) |
 | 0          | [Logging.LoggerScope`1](BinaryDataDecoders.TestUtilities_LoggerScope_1.md) |
 | 0          | [Logging.TestLogger](BinaryDataDecoders.TestUtilities_TestLogger.md) |
 | 0          | [Logging.TestLogger`1](BinaryDataDecoders.TestUtilities_TestLogger_1.md) |
@@ -1368,17 +1370,17 @@
 
 | Key             | Value  |
 | :-------------- | :----- |
-| classes         | `104`  |
-| coverage        | `30.9` |
+| classes         | `107`  |
+| coverage        | `30.6` |
 | coveredlines    | `772`  |
-| coverablelines  | `2493` |
-| totallines      | `7382` |
-| branchcoverage  | `27.6` |
-| coveredbranches | `332`  |
-| totalbranches   | `1200` |
+| coverablelines  | `2517` |
+| totallines      | `7467` |
+| branchcoverage  | `27.4` |
+| coveredbranches | `330`  |
+| totalbranches   | `1202` |
 | coveredmethods  | `168`  |
-| totalmethods    | `516`  |
-| methodcoverage  | `32.5` |
+| totalmethods    | `531`  |
+| methodcoverage  | `31.6` |
 
 #### Classes
 
@@ -1404,6 +1406,7 @@
 | 0          | [Data.SqlTypes.SqlXmlEx](BinaryDataDecoders.ToolKit_SqlXmlEx.md) |
 | 33.3       | [DateTimeEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Graphics.ColorConversion](BinaryDataDecoders.ToolKit_ColorConversion.md) |
+| 0          | [Graphics.LightCalculator](BinaryDataDecoders.ToolKit_LightCalculator.md) |
 | 0          | [Input.CommandBase](BinaryDataDecoders.ToolKit_CommandBase.md) |
 | 0          | [Input.DelegateCommand](BinaryDataDecoders.ToolKit_DelegateCommand.md) |
 | 0          | [IO.PathEx](BinaryDataDecoders.ToolKit_PathEx.md) |
@@ -1457,8 +1460,10 @@
 | 53.3       | [TypeEx](BinaryDataDecoders.ToolKit_.md) |
 | 0          | [Xml.Linq.ObjectXmlExtensions](BinaryDataDecoders.ToolKit_ObjectXmlExtensions.md) |
 | 0          | [Xml.Linq.XAttributeEx](BinaryDataDecoders.ToolKit_XAttributeEx.md) |
+| 0          | [Xml.Linq.XElementEx](BinaryDataDecoders.ToolKit_XElementEx.md) |
 | 67.1       | [Xml.Linq.XFragment](BinaryDataDecoders.ToolKit_XFragment.md) |
 | 100        | [Xml.Linq.XFragmentEx](BinaryDataDecoders.ToolKit_XFragmentEx.md) |
+| 0          | [Xml.Linq.XmlNodeEx](BinaryDataDecoders.ToolKit_XmlNodeEx.md) |
 | 0          | [Xml.Schema.XmlSchemaValidatorEx](BinaryDataDecoders.ToolKit_XmlSchemaValidatorEx.md) |
 | 0          | [Xml.XPath.EnumerableXPathNodeIterator](BinaryDataDecoders.ToolKit_EnumerableXPathNodeIterator.md) |
 | 75         | [Xml.XPath.ExtensibleAttributeNode`1](BinaryDataDecoders.ToolKit_ExtensibleAttributeNode_1.md) |

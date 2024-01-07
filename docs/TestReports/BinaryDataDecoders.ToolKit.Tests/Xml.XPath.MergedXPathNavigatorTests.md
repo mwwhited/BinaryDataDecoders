@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit.Xml.XPath::XPathExtensions::MergeWith
-  * BinaryDataDecoders.ToolKit, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

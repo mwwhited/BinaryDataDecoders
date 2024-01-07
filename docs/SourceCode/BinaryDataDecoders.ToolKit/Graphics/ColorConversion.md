@@ -5,7 +5,7 @@
 * Language: C#
 * Path: src/BinaryDataDecoders.ToolKit/Graphics/ColorConversion.cs
 
-## Public Class - ColorConversion
+## Public Static Class - ColorConversion
 
 ### Members
 

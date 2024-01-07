@@ -1,11 +1,11 @@
 # BinaryDataDecoders.ExpressionCalculator.Tests.Expressions.NumberExpressionTests
 
-## Equals_DifferentNumber_Test
+## Equals_SameReference_Test
 
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::NumberExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -21,7 +21,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::NumberExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -37,23 +37,7 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::NumberExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
-
-### Categories
-
-* Unit
-
-### Results
-
-* Outcome: ✔ Passed
-* Duration: 00:00:00.00
-
-## Equals_SameReference_Test
-
-### Targets
-
-* BinaryDataDecoders.ExpressionCalculator.Expressions::NumberExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -69,7 +53,23 @@
 ### Targets
 
 * BinaryDataDecoders.ExpressionCalculator.Expressions::NumberExpression`1::Equals
-  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
+
+### Categories
+
+* Unit
+
+### Results
+
+* Outcome: ✔ Passed
+* Duration: 00:00:00.00
+
+## Equals_DifferentNumber_Test
+
+### Targets
+
+* BinaryDataDecoders.ExpressionCalculator.Expressions::NumberExpression`1::Equals
+  * BinaryDataDecoders.ExpressionCalculator, Version=0.4.10.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
