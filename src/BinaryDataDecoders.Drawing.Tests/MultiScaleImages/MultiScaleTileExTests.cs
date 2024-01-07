@@ -16,26 +16,24 @@ namespace BinaryDataDecoders.Drawing.Tests.MultiScaleImages
         {
             var sourceFileName = "TestData.DSC_4668.JPG";
             using var sourceFile = this.GetResourceStream(sourceFileName);
-            using (var bitmap = new Bitmap(sourceFile))
+            using var bitmap = new Bitmap(sourceFile);
+            var maxLevel = bitmap.GetMaxLevel();
+
+            for (var level = 0; level <= maxLevel; level++)
             {
-                var maxLevel = bitmap.GetMaxLevel();
+                var dir = level.ToString();
 
-                for (var level = 0; level <= maxLevel; level++)
-                {
-                    var dir = level.ToString();
+                var tileCounts = bitmap.GetTileCount(level);
 
-                    var tileCounts = bitmap.GetTileCount(level);
+                for (var x = 0; x < tileCounts.Width; x++)
+                    for (var y = 0; y < tileCounts.Height; y++)
+                    {
+                        var file = $"{dir}-{x:0000}_{y:0000}.jpg";
+                        TestContext.WriteLine($"{file} Created");
 
-                    for (var x = 0; x < tileCounts.Width; x++)
-                        for (var y = 0; y < tileCounts.Height; y++)
-                        {
-                            var file = $"{dir}-{x:0000}_{y:0000}.jpg";
-                            TestContext.WriteLine($"{file} Created");
-
-                            var buffer = bitmap.GetTileAsBytes(level, x, y);
-                            this.TestContext.AddResult(buffer, file);
-                        }
-                }
+                        var buffer = bitmap.GetTileAsBytes(level, x, y);
+                        this.TestContext.AddResult(buffer, file);
+                    }
             }
         }
     }
