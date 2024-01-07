@@ -48,7 +48,7 @@ namespace BinaryDataDecoders.CodeAnalysis.StructuredLog
 
                     Item log => new (XName, object?)[] {
                         (XName.Get(nameof(log.Name), ""), log.Name),
-                        (XName.Get(nameof(log.ShortenedText), ""), log.ShortenedText),
+                        (XName.Get(nameof(log.ShortenedName), ""), log.ShortenedName),
                         (XName.Get(nameof(log.Text), ""), log.Text),
                         }.AsEnumerable().Select(i => (i.Item1, i.Item2?.ToString())),
 
@@ -112,7 +112,7 @@ namespace BinaryDataDecoders.CodeAnalysis.StructuredLog
 
                     Message log => new (XName, object?)[] {
                         (XName.Get(nameof(log.LineNumber), ""), log.LineNumber),
-                        (XName.Get(nameof(log.Name), ""), log.Name),
+                        (XName.Get(nameof(log.TypeName), ""), log.TypeName),
                         (XName.Get(nameof(log.ShortenedText), ""), log.ShortenedText),
                         (XName.Get(nameof(log.SourceFilePath), ""), log.SourceFilePath),
                         (XName.Get(nameof(log.Text), ""), log.Text),
@@ -132,7 +132,7 @@ namespace BinaryDataDecoders.CodeAnalysis.StructuredLog
                         }.AsEnumerable().Select(i => (i.Item1, i.Item2?.ToString())),
 
                     Warning log => new (XName, object?)[] {
-                        (XName.Get(nameof(log.Name), ""), log.Name),
+                        (XName.Get(nameof(log.TypeName), ""), log.TypeName),
                         (XName.Get(nameof(log.Code), ""), log.Code),
                         (XName.Get(nameof(log.ColumnNumber), ""), log.ColumnNumber),
                         (XName.Get(nameof(log.EndColumnNumber), ""), log.EndColumnNumber),
@@ -147,7 +147,7 @@ namespace BinaryDataDecoders.CodeAnalysis.StructuredLog
                         }.AsEnumerable().Select(i => (i.Item1, i.Item2?.ToString())),
 
                     Error log => new (XName, object?)[] {
-                        (XName.Get(nameof(log.Name), ""), log.Name),
+                        (XName.Get(nameof(log.TypeName), ""), log.TypeName),
                         (XName.Get(nameof(log.Code), ""), log.Code),
                         (XName.Get(nameof(log.ColumnNumber), ""), log.ColumnNumber),
                         (XName.Get(nameof(log.EndColumnNumber), ""), log.EndColumnNumber),
