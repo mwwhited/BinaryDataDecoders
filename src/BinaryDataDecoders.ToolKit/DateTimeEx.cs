@@ -24,11 +24,11 @@ public static class DateTimeEx
 
     public static int MonthsDifferent(this DateTime ldate, DateTime rdate)
     {
-        return (ldate.Month - rdate.Month) + 12 * (ldate.Year - rdate.Year);
+        return ldate.Month - rdate.Month + 12 * (ldate.Year - rdate.Year);
     }
     public static int? MonthsDifferent(this DateTime? ldate, DateTime? rdate)
     {
-        return (ldate?.Month - rdate?.Month) + 12 * (ldate?.Year - rdate?.Year);
+        return ldate?.Month - rdate?.Month + 12 * (ldate?.Year - rdate?.Year);
     }
 
     public static int Days360(this DateTime startDate, DateTime endDate)

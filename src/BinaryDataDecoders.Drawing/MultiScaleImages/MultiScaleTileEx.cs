@@ -2,9 +2,11 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Runtime.Versioning;
 
 namespace BinaryDataDecoders.Drawing.MultiScaleImages;
 
+[SupportedOSPlatform("windows")]
 public static class MultiScaleTileEx
 {
     public const int DefaultTileSize = 256;

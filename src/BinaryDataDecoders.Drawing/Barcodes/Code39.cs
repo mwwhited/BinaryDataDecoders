@@ -4,63 +4,63 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace BinaryDataDecoders.Drawing.Barcodes;
 
+[SupportedOSPlatform("windows")]
 public class Code39
 {
     // http://en.wikipedia.org/wiki/Code_39
 
-    private Dictionary<char, byte[]> Standard
-    { get; }
-    = new Dictionary<char, byte[]>
+    private Dictionary<char, byte[]> Standard { get; } = new Dictionary<char, byte[]>
     {
-        ['A'] = [ (byte)0x8A, (byte)0xE8 ],
-        ['B'] = [ (byte)0xA2, (byte)0xE8 ],
-        ['C'] = [ (byte)0x88, (byte)0xBA ],
-        ['D'] = [ (byte)0xA8, (byte)0xE8 ],
-        ['E'] = [ (byte)0x8A, (byte)0x3A ],
-        ['F'] = [ (byte)0xA2, (byte)0x3A ],
-        ['G'] = [ (byte)0xAB, (byte)0x88 ],
-        ['H'] = [ (byte)0x8A, (byte)0xE2 ],
-        ['I'] = [ (byte)0xA2, (byte)0xE2 ],
-        ['J'] = [ (byte)0xA8, (byte)0xE2 ],
-        ['K'] = [ (byte)0x8A, (byte)0xB8 ],
-        ['L'] = [ (byte)0xA2, (byte)0xB8 ],
-        ['M'] = [ (byte)0x88, (byte)0xAE ],
-        ['N'] = [ (byte)0xA8, (byte)0xB8 ],
-        ['O'] = [ (byte)0x8A, (byte)0x2E ],
-        ['P'] = [ (byte)0xA2, (byte)0x2E ],
-        ['Q'] = [ (byte)0xAA, (byte)0x38 ],
-        ['R'] = [ (byte)0x8A, (byte)0x8E ],
-        ['S'] = [ (byte)0xA2, (byte)0x8E ],
-        ['T'] = [ (byte)0xA8, (byte)0x8E ],
-        ['U'] = [ (byte)0x8E, (byte)0xA8 ],
-        ['V'] = [ (byte)0xB8, (byte)0xA8 ],
-        ['W'] = [ (byte)0x8E, (byte)0x2A ],
-        ['X'] = [ (byte)0xBA, (byte)0x28 ],
-        ['Y'] = [ (byte)0x8E, (byte)0x8A ],
-        ['Z'] = [ (byte)0xB8, (byte)0x8A ],
-        ['0'] = [ (byte)0xAE, (byte)0x22 ],
-        ['1'] = [ (byte)0x8B, (byte)0xA8 ],
-        ['2'] = [ (byte)0xA3, (byte)0xA8 ],
-        ['3'] = [ (byte)0x88, (byte)0xEA ],
-        ['4'] = [ (byte)0xAE, (byte)0x28 ],
-        ['5'] = [ (byte)0x8B, (byte)0x8A ],
-        ['6'] = [ (byte)0xA3, (byte)0x8A ],
-        ['7'] = [ (byte)0xAE, (byte)0x88 ],
-        ['8'] = [ (byte)0x8B, (byte)0xA2 ],
-        ['9'] = [ (byte)0xA3, (byte)0xA2 ],
-        [' '] = [ (byte)0xB8, (byte)0xA2 ],
-        ['-'] = [ (byte)0xBA, (byte)0x88 ],
-        ['$'] = [ (byte)0xBB, (byte)0xBA ],
-        ['%'] = [ (byte)0xAE, (byte)0xEE ],
-        ['.'] = [ (byte)0x8E, (byte)0xA2 ],
-        ['/'] = [ (byte)0xBB, (byte)0xAE ],
-        ['+'] = [ (byte)0xBA, (byte)0xEE ],
-        ['*'] = [ (byte)0xBA, (byte)0x22 ],
+        ['A'] = [(byte)0x8A, (byte)0xE8],
+        ['B'] = [(byte)0xA2, (byte)0xE8],
+        ['C'] = [(byte)0x88, (byte)0xBA],
+        ['D'] = [(byte)0xA8, (byte)0xE8],
+        ['E'] = [(byte)0x8A, (byte)0x3A],
+        ['F'] = [(byte)0xA2, (byte)0x3A],
+        ['G'] = [(byte)0xAB, (byte)0x88],
+        ['H'] = [(byte)0x8A, (byte)0xE2],
+        ['I'] = [(byte)0xA2, (byte)0xE2],
+        ['J'] = [(byte)0xA8, (byte)0xE2],
+        ['K'] = [(byte)0x8A, (byte)0xB8],
+        ['L'] = [(byte)0xA2, (byte)0xB8],
+        ['M'] = [(byte)0x88, (byte)0xAE],
+        ['N'] = [(byte)0xA8, (byte)0xB8],
+        ['O'] = [(byte)0x8A, (byte)0x2E],
+        ['P'] = [(byte)0xA2, (byte)0x2E],
+        ['Q'] = [(byte)0xAA, (byte)0x38],
+        ['R'] = [(byte)0x8A, (byte)0x8E],
+        ['S'] = [(byte)0xA2, (byte)0x8E],
+        ['T'] = [(byte)0xA8, (byte)0x8E],
+        ['U'] = [(byte)0x8E, (byte)0xA8],
+        ['V'] = [(byte)0xB8, (byte)0xA8],
+        ['W'] = [(byte)0x8E, (byte)0x2A],
+        ['X'] = [(byte)0xBA, (byte)0x28],
+        ['Y'] = [(byte)0x8E, (byte)0x8A],
+        ['Z'] = [(byte)0xB8, (byte)0x8A],
+        ['0'] = [(byte)0xAE, (byte)0x22],
+        ['1'] = [(byte)0x8B, (byte)0xA8],
+        ['2'] = [(byte)0xA3, (byte)0xA8],
+        ['3'] = [(byte)0x88, (byte)0xEA],
+        ['4'] = [(byte)0xAE, (byte)0x28],
+        ['5'] = [(byte)0x8B, (byte)0x8A],
+        ['6'] = [(byte)0xA3, (byte)0x8A],
+        ['7'] = [(byte)0xAE, (byte)0x88],
+        ['8'] = [(byte)0x8B, (byte)0xA2],
+        ['9'] = [(byte)0xA3, (byte)0xA2],
+        [' '] = [(byte)0xB8, (byte)0xA2],
+        ['-'] = [(byte)0xBA, (byte)0x88],
+        ['$'] = [(byte)0xBB, (byte)0xBA],
+        ['%'] = [(byte)0xAE, (byte)0xEE],
+        ['.'] = [(byte)0x8E, (byte)0xA2],
+        ['/'] = [(byte)0xBB, (byte)0xAE],
+        ['+'] = [(byte)0xBA, (byte)0xEE],
+        ['*'] = [(byte)0xBA, (byte)0x22],
     };
 
     private Dictionary<char, string> FullAscii

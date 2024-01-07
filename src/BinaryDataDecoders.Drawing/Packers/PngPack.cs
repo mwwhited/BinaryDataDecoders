@@ -3,9 +3,11 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 namespace BinaryDataDecoders.Drawing.Packers;
 
+[SupportedOSPlatform("windows")]
 public class PngPack
 {
     public byte[] Pack(byte[] input)

@@ -19,7 +19,7 @@ public static class XPathExtensions
     public static IXPathNavigable MergeWith(this (string source, IXPathNavigable? navigator) navigator, params (string source, IXPathNavigable? navigator)[] navigators) =>
          navigator.MergeWith(navigators.AsEnumerable());
     public static IXPathNavigable MergeWith(this (string source, IXPathNavigable? navigator) navigator, IEnumerable<(string source, IXPathNavigable? navigator)> navigators) =>
-        new[] { (navigator) }.Concat(navigators).MergeNavigators();
+        new[] { navigator }.Concat(navigators).MergeNavigators();
 
     public static IEnumerable<XPathNavigator> AsNavigatorSet(this XPathNodeIterator iterator) =>
         iterator.OfType<IXPathNavigable>()

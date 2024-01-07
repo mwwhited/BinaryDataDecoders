@@ -88,7 +88,7 @@ public class DeviceConsole(
                             _tokenSource.Cancel();
                             Console.WriteLine("Done!");
                         }, _tokenSource.Token),
-                        uiTasks ?? Task.FromResult(0),
+                        uiTasks ?? Task.CompletedTask,
                         streamDevice.Runner
                     );
                 }

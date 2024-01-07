@@ -111,10 +111,10 @@ public class UnitTest1
         }
         static IEnumerable<(byte match, byte mask)> buildPatternMatch(string match, string mask)
         {
-            static bool predicate(char c) => (('0' <= c && c <= '9') || ('A' <= c && c <= 'F') || ('a' <= c && c <= 'f'));
+            static bool predicate(char c) => ('0' <= c && c <= '9') || ('A' <= c && c <= 'F') || ('a' <= c && c <= 'f');
             static bool predicateExtended(char c) => predicate(c) || c == '?' || c == '*';
-            var matchChain = getBytes((!string.IsNullOrWhiteSpace(mask) ? match.Where(predicate) : match.Where(predicateExtended).Select(c => c == '?' || c == '*' ? '0' : c))).ToArray();
-            var maskChain = getBytes((!string.IsNullOrWhiteSpace(mask) ? mask.Where(predicate) : match.Where(predicateExtended).Select(c => c == '?' || c == '*' ? '0' : 'f'))).ToArray();
+            var matchChain = getBytes(!string.IsNullOrWhiteSpace(mask) ? match.Where(predicate) : match.Where(predicateExtended).Select(c => c == '?' || c == '*' ? '0' : c)).ToArray();
+            var maskChain = getBytes(!string.IsNullOrWhiteSpace(mask) ? mask.Where(predicate) : match.Where(predicateExtended).Select(c => c == '?' || c == '*' ? '0' : 'f')).ToArray();
             static IEnumerable<byte> getBytes(IEnumerable<char> chars)
             {
                 var e = chars.GetEnumerator();

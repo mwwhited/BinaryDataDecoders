@@ -9,7 +9,7 @@ public sealed class Int16ExpressionEvaluator : IExpressionEvaluator<short>
 
     public short Modulo(short left, short right) => (short)(left % right);
     public short Multiply(short left, short right) => (short)(left * right);
-    public short Negate(short operand) => (short)(-operand);
+    public short Negate(short operand) => (short)-operand;
     public short Power(short left, short right) => (short)Math.Pow((double)left, (double)right);
     public short Subtract(short left, short right) => (short)(left - right);
 

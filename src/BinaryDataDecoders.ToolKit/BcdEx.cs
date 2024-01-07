@@ -16,13 +16,13 @@ public static class BcdEx
     /// <returns></returns>
     public static int AsBCD(this byte input)
     {
-        var low = (int)(input & 0x0f);
-        var high = (int)((input & 0xf0) >> 4);
+        var low = input & 0x0f;
+        var high = (input & 0xf0) >> 4;
 
         if (low > 9)
-            throw new ArgumentOutOfRangeException("low nibble");
+            throw new IndexOutOfRangeException("low");
         if (high > 9)
-            throw new ArgumentOutOfRangeException("high nibble");
+            throw new IndexOutOfRangeException("high");
 
         return low + (high * 10);
     }
@@ -34,16 +34,15 @@ public static class BcdEx
     public static byte ToBCD(this int input)
     {
         if (input > 99 || input < 0)
-            throw new ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException(nameof(input));
 
         var high = input / 10;
         var low = input - (high * 10);
 
         if (low > 9)
-            throw new ArgumentOutOfRangeException("low nibble");
+            throw new IndexOutOfRangeException("low");
         if (high > 9)
-            throw new ArgumentOutOfRangeException("high nibble");
-
+            throw new IndexOutOfRangeException("high");
 
         return (byte)((high << 4) | low);
     }

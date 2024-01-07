@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.IO;
+using System.Runtime.Versioning;
 
 namespace BinaryDataDecoders.Drawing.Tests.Packers;
 
@@ -15,6 +16,7 @@ public class PngPackTests
 {
     public TestContext TestContext { get; set; }
 
+    [SupportedOSPlatform("windows")]
     [TestMethod, TestCategory(TestCategories.DevLocal)]
     public void PngPackTest()
     {

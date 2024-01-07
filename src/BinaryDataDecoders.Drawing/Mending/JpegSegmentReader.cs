@@ -16,7 +16,7 @@ public class JpegSegmentReader
         foreach (var segment in segments)
         {
             Console.WriteLine("{0:x2} - {1}", segment.Type, segment.Length);
-            File.WriteAllBytes(string.Format(outFileFormatter, segment.Index.ToString("00000"), segment.Type), segment.Data ?? new byte[0]);
+            File.WriteAllBytes(string.Format(outFileFormatter, segment.Index.ToString("00000"), segment.Type), segment.Data ?? []);
         }
     }
 

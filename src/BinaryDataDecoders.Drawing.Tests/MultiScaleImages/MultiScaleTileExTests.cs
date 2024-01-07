@@ -3,6 +3,7 @@ using BinaryDataDecoders.TestUtilities;
 using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
+using System.Runtime.Versioning;
 
 namespace BinaryDataDecoders.Drawing.Tests.MultiScaleImages;
 
@@ -11,6 +12,7 @@ public class MultiScaleTileExTests
 {
     public TestContext TestContext { get; set; }
 
+    [SupportedOSPlatform("windows")]
     [TestMethod, TestCategory(TestCategories.DevLocal)]
     public void TestTileCreate()
     {

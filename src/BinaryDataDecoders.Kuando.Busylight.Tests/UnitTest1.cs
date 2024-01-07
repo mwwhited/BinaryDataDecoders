@@ -101,7 +101,7 @@ public class UnitTest1
     [TestMethod, TestCategory(TestCategories.DevLocal)]
     public async Task TestMethod1()
     {
-        await new Class1().Start(new System.Threading.CancellationTokenSource());
+        await new BusyLightRunner().Start(new System.Threading.CancellationTokenSource());
     }
 
 

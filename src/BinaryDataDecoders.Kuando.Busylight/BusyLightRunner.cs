@@ -10,7 +10,7 @@ namespace BinaryDataDecoders.Kuando.Busylight;
 
 
 [UsbHid(0x04d8, 0xf848)]
-public class Class1
+public class BusyLightRunner
 {
     public async Task Start(CancellationTokenSource cts)
     {

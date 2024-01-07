@@ -51,7 +51,7 @@ public class DirectoryRecord : IEnumerable<DirectoryRecord>
         var second = buffer[offset];
         offset++;
         //1	00 
-        var quaterHourOffset = (sbyte)(buffer[offset]);
+        var quaterHourOffset = (sbyte)buffer[offset];
         offset++;
 
         var timeOffset = quaterHourOffset * 15d;
@@ -64,7 +64,7 @@ public class DirectoryRecord : IEnumerable<DirectoryRecord>
                                      ).AddMinutes(timeOffset);
 
         //1	02 
-        this.DirectoryType = (DirectoryType)(buffer[offset]);
+        this.DirectoryType = (DirectoryType)buffer[offset];
         offset++;
 
         //1	00 

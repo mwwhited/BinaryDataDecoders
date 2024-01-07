@@ -63,7 +63,7 @@ public class Base32Codec
             vo[4] = (byte)((vi[2] & 0xF) * 2 + (vi[3] & 0x80) / 128);
             vo[5] = (byte)((vi[3] & 0x7E) / 4);
             vo[6] = (byte)((vi[3] & 0x3) * 8 + (vi[4] & 0xE0) / 32);
-            vo[7] = (byte)((vi[4] & 0x1F));
+            vo[7] = (byte)(vi[4] & 0x1F);
 
             if (cl < 5)
             {
@@ -102,11 +102,11 @@ public class Base32Codec
         {
             Array.Copy(iData, i, vi, 0, 8);
 
-            vo[0] = (byte)((vi[0]) * 8 + (vi[1] & 0x1C) / 4);
-            vo[1] = (byte)((vi[1] & 0x3) * 64 + (vi[2]) * 2 + (vi[3] & 0x10) / 16);
+            vo[0] = (byte)(vi[0] * 8 + (vi[1] & 0x1C) / 4);
+            vo[1] = (byte)((vi[1] & 0x3) * 64 + vi[2] * 2 + (vi[3] & 0x10) / 16);
             vo[2] = (byte)((vi[3] & 0xF) * 16 + (vi[4] & 0x1E) / 2);
-            vo[3] = (byte)((vi[4] & 0x1) * 128 + (vi[5]) * 4 + (vi[6] & 0x18) / 8);
-            vo[4] = (byte)((vi[6] & 0x7) * 32 + (vi[7]));
+            vo[3] = (byte)((vi[4] & 0x1) * 128 + vi[5] * 4 + (vi[6] & 0x18) / 8);
+            vo[4] = (byte)((vi[6] & 0x7) * 32 + vi[7]);
 
             var cl = oData.Length - o;
             Array.Copy(vo, 0, oData, o, cl < 5 ? cl : 5);

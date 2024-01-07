@@ -18,7 +18,7 @@ public static class Segment
                       .Distinct()
                       .ToArray()
             );
-    public static ISegmentBuildDefinition PassThough() => new SegmentBuildDefinition(new byte[0]);
+    public static ISegmentBuildDefinition PassThough() => new SegmentBuildDefinition([]);
 
     public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, ControlCharacters end) =>
         AndEndsWith(builder, (byte)end);

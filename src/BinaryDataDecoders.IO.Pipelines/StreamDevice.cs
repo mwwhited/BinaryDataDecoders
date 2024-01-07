@@ -66,9 +66,9 @@ public class StreamDevice<TMessage> : IStreamDevice<TMessage>
         }
 
         Runner = Task.WhenAll(
-            deviceInitializer ?? Task.FromResult(0),
-            messageReceiver ?? Task.FromResult(0),
-            messageTransmitter ?? Task.FromResult(0)
+            deviceInitializer ?? Task.CompletedTask,
+            messageReceiver ?? Task.CompletedTask,
+            messageTransmitter ?? Task.CompletedTask
             );
     }
 
@@ -84,12 +84,12 @@ public class StreamDevice<TMessage> : IStreamDevice<TMessage>
     private Task OnMessageReceived(TMessage message)
     {
         MessageReceived?.Invoke(this, message);
-        return Task.FromResult(0);
+        return Task.CompletedTask;
     }
     private Task ReportDeviceStatus(StreamDeviceStatus status)
     {
         DeviceStatus?.Invoke(this, status);
-        return Task.FromResult(0);
+        return Task.CompletedTask;
     }
 
     private async Task Initializer(AsyncManualResetEvent mre)

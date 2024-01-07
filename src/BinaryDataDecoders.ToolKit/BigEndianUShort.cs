@@ -16,7 +16,7 @@ public readonly struct BigEndianUShort
     public BigEndianUShort(ushort input)
     {
         HH = (byte)(input >> 8);
-        LL = (byte)(input);
+        LL = (byte)input;
     }
     /// <summary>
     /// create unsigned big endian 16bit from ReadOnlySpan&lt;byte&gt;

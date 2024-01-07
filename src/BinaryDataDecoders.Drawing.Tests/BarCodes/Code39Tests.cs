@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 
 namespace BinaryDataDecoders.Drawing.Tests.BarCodes;
@@ -16,6 +17,7 @@ public class Code39Tests
 {
     public TestContext TestContext { get; set; }
 
+    [SupportedOSPlatform("windows")]
     [TestMethod, TestCategory(TestCategories.DevLocal)]
     public void Test()
     {

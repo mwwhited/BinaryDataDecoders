@@ -39,7 +39,7 @@ public class Detokenizer
             do
             {
                 var v = (byte)(e.MoveNext() ? e.Current : 0);
-                if (nextLine = (v == 0))
+                if (nextLine = v == 0)
                 {
                     //End of Line
                     yield return sb.ToString();

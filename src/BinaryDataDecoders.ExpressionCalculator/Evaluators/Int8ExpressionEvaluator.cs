@@ -9,7 +9,7 @@ public sealed class Int8ExpressionEvaluator : IExpressionEvaluator<sbyte>
 
     public sbyte Modulo(sbyte left, sbyte right) => (sbyte)(left % right);
     public sbyte Multiply(sbyte left, sbyte right) => (sbyte)(left * right);
-    public sbyte Negate(sbyte operand) => (sbyte)(-operand);
+    public sbyte Negate(sbyte operand) => (sbyte)-operand;
     public sbyte Power(sbyte left, sbyte right) => (sbyte)Math.Pow((double)left, (double)right);
     public sbyte Subtract(sbyte left, sbyte right) => (sbyte)(left - right);
 

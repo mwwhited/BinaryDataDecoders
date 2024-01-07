@@ -20,7 +20,7 @@ public static class ColorConversion
             hue: diff switch
             {
                 0.0 => 0.0,
-                _ when c.max == primes.red => ((primes.green - primes.blue) / diff) % 6,
+                _ when c.max == primes.red => (primes.green - primes.blue) / diff % 6,
                 _ when c.max == primes.green => ((primes.blue - primes.red) / diff) + 2,
                 _ when c.max == primes.blue => ((primes.red - primes.green) / diff) + 4,
                 _ => 0.0
@@ -46,7 +46,7 @@ public static class ColorConversion
             hue: diff switch
             {
                 0.0 => 0.0,
-                _ when c.max == primes.red => ((primes.green - primes.blue) / diff) % 6,
+                _ when c.max == primes.red => (primes.green - primes.blue) / diff % 6,
                 _ when c.max == primes.green => ((primes.blue - primes.red) / diff) + 2,
                 _ when c.max == primes.blue => ((primes.red - primes.green) / diff) + 4,
                 _ => 0.0
