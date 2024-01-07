@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Text;
 
 namespace BinaryDataDecoders.Archives.Tar;
@@ -11,11 +9,13 @@ public static class Utilities
 {
     public static TarHeader ToHeader(this byte[] input)
     {
-        var header = new TarHeader();
-        header.FileName = input.ToString(0, 100);
-        header.FileMode = input.ToString(100, 8);
-        header.OwnerId = input.ToString(108, 8);
-        header.GroupId = input.ToString(116, 8);
+        var header = new TarHeader
+        {
+            FileName = input.ToString(0, 100),
+            FileMode = input.ToString(100, 8),
+            OwnerId = input.ToString(108, 8),
+            GroupId = input.ToString(116, 8)
+        };
         var fileSize = input.ToString(124, 12);
         header.FileSize = Convert.ToInt32(fileSize ?? "0", 8);
         var lastModifiedTime = input.ToString(136, 12);

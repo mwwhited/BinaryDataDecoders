@@ -103,7 +103,7 @@ internal class WrappedNavigator(IWrappedNode node) : XPathNavigator
         WrapperState.Child => _node.Current.IsSamePosition(other),
         _ => other switch
         {
-            WrappedNavigator wrapped => object.ReferenceEquals(wrapped._node, this._node) && wrapped._state == this._state,
+            WrappedNavigator wrapped => ReferenceEquals(wrapped._node, this._node) && wrapped._state == this._state,
             _ => false
         }
     };

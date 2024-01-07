@@ -22,11 +22,9 @@ public class EnigmaMachine
     {
         if (rotors == null || rotors.Length < 3 || rotors.Length > 5)
             throw new InvalidOperationException("Invalid Rotor Set");
-        if (reflector == null)
-            throw new InvalidOperationException("Invalid Reflector");
 
         this.rotors = rotors.Reverse().ToArray();
-        this.reflector = reflector;
+        this.reflector = reflector ?? throw new InvalidOperationException("Invalid Reflector");
         //this.Positions = default;  //(start ?? new string('A', rotors.Length));
         this.RingSettings = ringSettings;
         this.PlugBoard = plugBoard;

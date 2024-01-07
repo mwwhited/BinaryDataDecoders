@@ -9,8 +9,7 @@ public static class EnigmaTools
     public static IEnumerable<char> Clean(this IEnumerable<char> input) =>
         input.Select(c => (char)(c > 'Z' ? c - 32 : c))
                     .Where(c => c >= 'A' && c <= 'Z');
-    public static string AsString(this IEnumerable<char> input) =>
-        new string(input.ToArray());
+    public static string AsString(this IEnumerable<char> input) => new(input.ToArray());
 
     public static IEnumerable<string> SplitAt(this string input, int at = 2) =>
         Enumerable.Range(0, input.Length / at)

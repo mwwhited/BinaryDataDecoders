@@ -16,7 +16,7 @@ public static class MultiScaleTileEx
     }
     public static Size GetTileCount(this string imagePath,
                                       int level,
-                                      int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                      int tileSize = DefaultTileSize)
     {
         using var bitmap = new Bitmap(imagePath);
         var maxLevel = bitmap.Size.MaxLevel();
@@ -38,20 +38,20 @@ public static class MultiScaleTileEx
 
     public static byte[] GetTileAsBytes(this string imagePath,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         using var outStream = new MemoryStream();
-        using var tile = MultiScaleTileEx.GetTile(imagePath, level, x, y, tileSize);
+        using var tile = GetTile(imagePath, level, x, y, tileSize);
         tile.Save(outStream, ImageFormat.Jpeg);
         return outStream.ToArray();
     }
 
     public static Stream GetTileAsStream(this string imagePath,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         var outStream = new MemoryStream();
-        using (var tile = MultiScaleTileEx.GetTile(imagePath, level, x, y, tileSize))
+        using (var tile = GetTile(imagePath, level, x, y, tileSize))
         {
             tile.Save(outStream, ImageFormat.Jpeg);
         }
@@ -60,7 +60,7 @@ public static class MultiScaleTileEx
     }
     public static Image GetTile(this string imagePath,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         using var bitmap = new Bitmap(imagePath);
         var outStream = new MemoryStream();
@@ -77,7 +77,7 @@ public static class MultiScaleTileEx
 
     public static Size GetTileCount(this Stream imageStream,
                                       int level,
-                                      int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                      int tileSize = DefaultTileSize)
     {
         using var bitmap = new Bitmap(imageStream);
         var maxLevel = bitmap.Size.MaxLevel();
@@ -98,20 +98,20 @@ public static class MultiScaleTileEx
     }
     public static byte[] GetTileAsBytes(this Stream imageStream,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         using var outStream = new MemoryStream();
-        using var tile = MultiScaleTileEx.GetTile(imageStream, level, x, y, tileSize);
+        using var tile = GetTile(imageStream, level, x, y, tileSize);
         tile.Save(outStream, ImageFormat.Jpeg);
         return outStream.ToArray();
     }
 
     public static Stream GetTileAsStream(this Stream imageStream,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         var outStream = new MemoryStream();
-        using (var tile = MultiScaleTileEx.GetTile(imageStream, level, x, y, tileSize))
+        using (var tile = GetTile(imageStream, level, x, y, tileSize))
         {
             tile.Save(outStream, ImageFormat.Jpeg);
         }
@@ -120,7 +120,7 @@ public static class MultiScaleTileEx
     }
     public static Image GetTile(this Stream imageStream,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         using var bitmap = new Bitmap(imageStream);
         var outStream = new MemoryStream();
@@ -137,7 +137,7 @@ public static class MultiScaleTileEx
 
     public static Size GetTileCount(this Image image,
                                       int level,
-                                      int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                      int tileSize = DefaultTileSize)
     {
         using var bitmap = new Bitmap(image);
         var maxLevel = bitmap.Size.MaxLevel();
@@ -158,20 +158,20 @@ public static class MultiScaleTileEx
     }
     public static byte[] GetTileAsBytes(this Image image,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         using var outStream = new MemoryStream();
-        using var tile = MultiScaleTileEx.GetTile(image, level, x, y, tileSize);
+        using var tile = GetTile(image, level, x, y, tileSize);
         tile.Save(outStream, ImageFormat.Jpeg);
         return outStream.ToArray();
     }
 
     public static Stream GetTileAsStream(this Image image,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         var outStream = new MemoryStream();
-        using (var tile = MultiScaleTileEx.GetTile(image, level, x, y, tileSize))
+        using (var tile = GetTile(image, level, x, y, tileSize))
         {
             tile.Save(outStream, ImageFormat.Jpeg);
         }
@@ -181,7 +181,7 @@ public static class MultiScaleTileEx
 
     public static Image GetTile(this Image image,
                                 int level, int x, int y,
-                                int tileSize = MultiScaleTileEx.DefaultTileSize)
+                                int tileSize = DefaultTileSize)
     {
         var point = new Point(x, y);
 

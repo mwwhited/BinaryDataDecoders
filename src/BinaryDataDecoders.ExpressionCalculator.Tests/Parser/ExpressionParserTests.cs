@@ -129,7 +129,7 @@ public abstract class ExpressionParserTests<T>
     [TestTarget(typeof(ExpressionParser<>), Member = nameof(ExpressionParser<double>.Parse))]
     public void SimpleParserTests(string input, string result)
     {
-        if (_skipDecimal && input.Contains("."))
+        if (_skipDecimal && input.Contains('.'))
         {
             Assert.Inconclusive("Decimals not supported");
         }
@@ -199,7 +199,7 @@ public abstract class ExpressionParserTests<T>
             var optimized = parsed.Optimize();
             TestContext.WriteLine($"As Optimized: {optimized}");
 
-            if (_skipNegative && result.StartsWith("-"))
+            if (_skipNegative && result.StartsWith('-'))
             {
                 Assert.Inconclusive($"Negative not supported");
             }
@@ -317,12 +317,12 @@ public abstract class ExpressionParserTests<T>
     [TestTarget(typeof(ExpressionBaseExtensions), Member = nameof(ExpressionBaseExtensions.Optimize))]
     public void VerifyOptimizerForComplexExpressions(string input)
     {
-        var includesFactorial = input.Contains("!");
+        var includesFactorial = input.Contains('!');
         var x = 0;
     tryAgain:
         try
         {
-            if (_skipDecimal && input.Contains("."))
+            if (_skipDecimal && input.Contains('.'))
             {
                 Assert.Inconclusive("Decimals not supported");
             }

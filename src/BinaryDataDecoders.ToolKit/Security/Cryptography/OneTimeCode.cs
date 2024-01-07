@@ -12,7 +12,7 @@ public class OneTimeCode
 
     public long GetCurrentCounter()
     {
-        var counter = (long)(DateTime.UtcNow - OneTimeCode.UNIX_EPOCH).TotalSeconds / 30;
+        var counter = (long)(DateTime.UtcNow - UNIX_EPOCH).TotalSeconds / 30;
         return counter;
     }
 

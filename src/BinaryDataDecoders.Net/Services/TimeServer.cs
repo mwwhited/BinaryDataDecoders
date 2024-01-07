@@ -13,6 +13,6 @@ public class TimeServer(IPAddress? ipAddress = default, ushort port = 37) : Serv
     {
         var timeDiff = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - new DateTimeOffset(1900, 1, 1, 0, 0, 0, new TimeSpan(0, 0, 0)).ToUnixTimeSeconds();
         Memory<byte> buffer = BitConverter.GetBytes((int)timeDiff);
-        await accepted.GetStream().WriteAsync(buffer);
+        await accepted.GetStream().WriteAsync(buffer, cancellationToken);
     }
 }

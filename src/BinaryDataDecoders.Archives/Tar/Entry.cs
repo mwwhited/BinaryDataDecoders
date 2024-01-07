@@ -74,55 +74,54 @@ class Entry
                         case TarFileType.ContiguousFile:
                         case TarFileType.SparseFile:
                         case TarFileType.LongName:
+                        {
+                            if (header.FileSize == 0)
+                                getHeader = true;
+                            else
                             {
-                                if (header.FileSize == 0)
-                                    getHeader = true;
-                                else
+                                if (!writingFile)
                                 {
-                                    if (!writingFile)
-                                    {
-                                        lengthWrote = 0;
-                                        writingFile = true;
+                                    lengthWrote = 0;
+                                    writingFile = true;
 
-                                        var innerFile = Path.Combine(volumePath, longName ?? header.FileName);
-                                        if (!File.Exists(innerFile) || new FileInfo(innerFile).Length != header.FileSize)
-                                        {
-                                            if (header.FileType == TarFileType.LongName)
-                                                newFile = new MemoryStream();
-                                            else
-                                                newFile = IOUtilities.OpenFileStream(innerFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
-                                        }
-                                    }
-                                    else
+                                    var innerFile = Path.Combine(volumePath, longName ?? header.FileName);
+                                    if (!File.Exists(innerFile) || new FileInfo(innerFile).Length != header.FileSize)
                                     {
-                                        if (header.FileType != TarFileType.LongName)
-                                            longName = null;
-                                        newFile?.Write(buffer,
-                                                          0,
-                                                          Math.Min(buffer.Length,
-                                                                   header.FileSize - lengthWrote));
-                                        lengthWrote += 512;
-
-                                        if (lengthWrote >= header.FileSize && writingFile)
-                                        {
-                                            if (newFile != null)
-                                            {
-                                                var ms = newFile as MemoryStream;
-                                                if (ms != null)
-                                                    longName = string.Format("{0}{1}", longName, Encoding.ASCII.GetString(ms.ToArray()).TrimEnd('\0'));
-                                                newFile.Flush();
-                                                newFile.Close();
-                                            }
-                                            writingFile = false;
-                                            newFile = null;
-                                            getHeader = true;
-                                            lengthWrote = 0;
-                                        }
+                                        if (header.FileType == TarFileType.LongName)
+                                            newFile = new MemoryStream();
+                                        else
+                                            newFile = IOUtilities.OpenFileStream(innerFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
                                     }
                                 }
+                                else
+                                {
+                                    if (header.FileType != TarFileType.LongName)
+                                        longName = null;
+                                    newFile?.Write(buffer,
+                                                      0,
+                                                      Math.Min(buffer.Length,
+                                                               header.FileSize - lengthWrote));
+                                    lengthWrote += 512;
 
-                                break;
+                                    if (lengthWrote >= header.FileSize && writingFile)
+                                    {
+                                        if (newFile != null)
+                                        {
+                                            if (newFile is MemoryStream ms)
+                                                longName = string.Format("{0}{1}", longName, Encoding.ASCII.GetString(ms.ToArray()).TrimEnd('\0'));
+                                            newFile.Flush();
+                                            newFile.Close();
+                                        }
+                                        writingFile = false;
+                                        newFile = null;
+                                        getHeader = true;
+                                        lengthWrote = 0;
+                                    }
+                                }
                             }
+
+                            break;
+                        }
 
                         default:
                         case TarFileType.HardLink:
@@ -140,14 +139,14 @@ class Entry
                             break;
 
                         case TarFileType.Directory:
-                            {
-                                var tarPath = Path.Combine(volumePath, longName ?? header.FileName);
-                                longName = null;
-                                if (!Directory.Exists(tarPath))
-                                    Directory.CreateDirectory(tarPath);
-                                getHeader = true;
-                                break;
-                            }
+                        {
+                            var tarPath = Path.Combine(volumePath, longName ?? header.FileName);
+                            longName = null;
+                            if (!Directory.Exists(tarPath))
+                                Directory.CreateDirectory(tarPath);
+                            getHeader = true;
+                            break;
+                        }
                     }
                 }
                 Console.WriteLine("Decompress Complete");

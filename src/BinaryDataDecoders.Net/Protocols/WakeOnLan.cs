@@ -36,7 +36,7 @@ public class WakeOnLan
     public static async Task<bool> Wake(string macAddress, string ipAddress = "255.255.255.255")
     {
         var clientAddress = IPAddress.Parse(ipAddress);
-        var magicPacket = WakeOnLan.BuildMagicPacket(macAddress);
+        var magicPacket = BuildMagicPacket(macAddress);
 
         // http://en.wikipedia.org/wiki/Wake-on-LAN#Principle_of_operation
         using var client = new UdpClient();

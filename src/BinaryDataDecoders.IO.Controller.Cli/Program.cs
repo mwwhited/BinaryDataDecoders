@@ -17,7 +17,7 @@ class Program
         var configuration = new ContainerConfiguration();
         var files = Directory.GetFiles(".", "*.dll");
         var assemblies = from p in files
-                         select System.Reflection.Assembly.LoadFile(Path.GetFullPath(p));
+                         select Assembly.LoadFile(Path.GetFullPath(p));
 
         configuration.WithAssemblies(assemblies);
         var container = configuration.CreateContainer();

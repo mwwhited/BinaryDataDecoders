@@ -2,13 +2,9 @@
 
 namespace BinaryDataDecoders.Net;
 
-public static class MacAddressEx
+public static partial class MacAddressEx
 {
-    public static bool IsValid(string macAddress)
-    {
-        var macPattern = new Regex("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$", RegexOptions.Compiled);
-        return macPattern.IsMatch(macAddress);
-    }
+    public static bool IsValid(string macAddress) =>MacAddressRegex().IsMatch(macAddress);
 
     public static byte[] Parse(string macAddress)
     {
@@ -19,9 +15,9 @@ public static class MacAddressEx
 
     public static bool TryParse(string macAddress, out byte[] macBuffer)
     {
-        if (MacAddressEx.IsValid(macAddress))
+        if (IsValid(macAddress))
         {
-            macBuffer = new byte[0];
+            macBuffer = [];
             return false;
         }
         else
@@ -30,4 +26,7 @@ public static class MacAddressEx
             return true;
         }
     }
+
+    [GeneratedRegex("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$", RegexOptions.Compiled)]
+    private static partial Regex MacAddressRegex();
 }

@@ -62,7 +62,7 @@ public class DeviceConsole(
             if (device.TryOpen(out var stream))
                 using (stream ?? throw new ApplicationException())
                 {
-                    var streamDevice = new StreamDevice<TMessage>(device, definition, Token, minimumTrasmissionDelay);//stream,
+                    var streamDevice = new StreamDevice<TMessage>(device, definition, minimumTrasmissionDelay, Token);//stream,
                     streamDevice.MessageReceived += (s, e) => Console.WriteLine(e);
                     // streamDevice.DeviceStatus += (s, e) => Console.WriteLine($"Status: {e}");
                     streamDevice.MessageReceivedError += (s, e) =>

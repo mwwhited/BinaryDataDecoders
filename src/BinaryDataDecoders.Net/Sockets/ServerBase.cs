@@ -24,7 +24,7 @@ public abstract class ServerBase : IServerBase
     {
         if (_listener != null)
             throw new ApplicationException("Already Started!");
-        Console.WriteLine($"{this.GetType()}::Starting: {Thread.CurrentThread.ManagedThreadId} [{IPAddress}:{Port}]");
+        Console.WriteLine($"{this.GetType()}::Starting: {Environment.CurrentManagedThreadId} [{IPAddress}:{Port}]");
         _listener = new TcpListener(IPAddress, Port);
         _listener.Start();
         _cts = new CancellationTokenSource();
@@ -64,7 +64,7 @@ public abstract class ServerBase : IServerBase
         {
             try
             {
-                Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Listening: {Thread.CurrentThread.ManagedThreadId}");
+                Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Listening: {Environment.CurrentManagedThreadId}");
                 var accepted = await listener.AcceptTcpClientAsync(cts.Token);
                 var clientId = clientIdSeed++;
                 _clients.Add(clientId, accepted);
@@ -72,10 +72,10 @@ public abstract class ServerBase : IServerBase
 
                 var clientTask = Task.Run(async () =>
                 {
-                    Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Accepted: {clientId}-{Thread.CurrentThread.ManagedThreadId}");
+                    Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Accepted: {clientId}-{Environment.CurrentManagedThreadId}");
                     await AcceptClientAsync(clientId, accepted, cts.Token);
-                    Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Closed:   {clientId}-{Thread.CurrentThread.ManagedThreadId}");
-                });
+                    Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Closed:   {clientId}-{Environment.CurrentManagedThreadId}");
+                }, cancellationToken);
                 _tasks.Add(clientTask);
 
                 await Task.Yield();
@@ -90,7 +90,7 @@ public abstract class ServerBase : IServerBase
             }
             catch (OperationCanceledException ocex)
             {
-                Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Canceled: {Thread.CurrentThread.ManagedThreadId} ({ocex.Message})");
+                Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Canceled: {Environment.CurrentManagedThreadId} ({ocex.Message})");
             }
         }
     }
@@ -110,7 +110,7 @@ public abstract class ServerBase : IServerBase
                     if (readLength > 0)
                     {
                         var sliced = buffer[..readLength];
-                        Console.WriteLine($"{this.GetType()}: {clientId}-{Thread.CurrentThread.ManagedThreadId}: {Encoding.UTF8.GetString(sliced.ToArray())}");
+                        Console.WriteLine($"{this.GetType()}: {clientId}-{Environment.CurrentManagedThreadId}: {Encoding.UTF8.GetString(sliced.ToArray())}");
                         await MessageReceivedAsync(clientId, accepted, sliced, cts.Token);
                     }
                     else if (readLength <= 0)
@@ -122,7 +122,7 @@ public abstract class ServerBase : IServerBase
             }
             catch (OperationCanceledException ocex)
             {
-                Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Canceled: {clientId}-{Thread.CurrentThread.ManagedThreadId} ({ocex.Message})");
+                Console.WriteLine($"{this.GetType()}::ServiceLoopAsync::Canceled: {clientId}-{Environment.CurrentManagedThreadId} ({ocex.Message})");
             }
         }
     }

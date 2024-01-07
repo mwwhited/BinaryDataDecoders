@@ -47,7 +47,7 @@ public class XFragment : IList<XNode>
 
         using var stringReader = new StringReader(xml);
         using var xmlReader = XmlReader.Create(stringReader, settings);
-        foreach (var node in XFragment.Parser(xmlReader))
+        foreach (var node in Parser(xmlReader))
             yield return node;
     }
 

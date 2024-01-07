@@ -20,7 +20,7 @@ public class PlantUmlRenderer
         _render = renderFactory.CreateRenderer(new PlantUml.Net.PlantUmlSettings
         {
             RemoteUrl = "https://www.plantuml.com/plantuml/", //TODO: expose these are configurable
-            RenderingMode = PlantUml.Net.RenderingMode.Remote,                 
+            RenderingMode = RenderingMode.Remote,                 
         });
 
         this._pipeline = pipeline;

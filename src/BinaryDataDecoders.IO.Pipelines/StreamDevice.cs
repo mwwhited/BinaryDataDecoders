@@ -26,9 +26,9 @@ public class StreamDevice<TMessage> : IStreamDevice<TMessage>
     public StreamDevice(
         IDeviceAdapter adapter,
         IDeviceDefinition device,
-        CancellationToken token = default,
         int minimumTrasmissionDelay = 1000 //TODO should this default be overideable from the devicedefinition or it's attributes?
-        )
+,
+        CancellationToken token = default)
     {
         _tokenSource = CancellationTokenSource.CreateLinkedTokenSource(token);
         _token = _tokenSource.Token;

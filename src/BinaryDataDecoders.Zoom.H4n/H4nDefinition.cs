@@ -42,7 +42,7 @@ public class H4nDefinition :
                 maxInitCount--;
                 stream.WriteByte(0x00);
                 await stream.FlushAsync(token);
-                await Task.Delay(30);
+                await Task.Delay(30, token);
 
                 if (maxInitCount < 0) throw new IOException($"Unable to Initialize {nameof(H4nDefinition)}");
             }

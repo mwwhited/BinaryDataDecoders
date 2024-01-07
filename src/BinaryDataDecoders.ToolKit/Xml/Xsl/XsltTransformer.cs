@@ -76,7 +76,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
 
         var xsltArgumentList = new XsltArgumentList().AddExtensions(extensions);
 
-        xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t[{Thread.CurrentThread.ManagedThreadId}]{eventArgs.Message}");
+        xsltArgumentList.XsltMessageEncountered += (sender, eventArgs) => Console.WriteLine($"\t\t[{Environment.CurrentManagedThreadId}]{eventArgs.Message}");
 
         XNamespace ns = this.GetXmlNamespace();
         xsltArgumentList.AddParam("files", "", new XElement(ns + "file",
@@ -175,7 +175,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
             var outFileName = removedExt + outputPattern;
             var outputFile = Path.Combine(outputDir, outFileName);
 
-            var tid = Thread.CurrentThread.ManagedThreadId;
+            var tid = Environment.CurrentManagedThreadId;
 
             Console.WriteLine($"\t[{tid}]\"{inputFileClean}\" => \"{outFileName}\"");
 
@@ -216,7 +216,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
     public void TransformMerge(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output, string? excludeInputSource = null)
     {
         static Exception innerMost(Exception ex) => ex.InnerException == null ? ex : innerMost(ex.InnerException);
-        var tid = Thread.CurrentThread.ManagedThreadId;
+        var tid = Environment.CurrentManagedThreadId;
         try
         {
             var inputFullPath = Path.GetFullPath(input);
