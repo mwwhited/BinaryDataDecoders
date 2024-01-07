@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Text;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
+using System.Text;
 
 namespace BinaryDataDecoders.Archives.Tar;
 
