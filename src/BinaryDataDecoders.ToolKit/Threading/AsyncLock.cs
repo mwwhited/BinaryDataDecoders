@@ -26,7 +26,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
                     TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
         }
 
-        public struct Releaser : IDisposable
+        public readonly struct Releaser : IDisposable
         {
             private readonly AsyncLock m_toRelease;
 
@@ -34,8 +34,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
 
             public void Dispose()
             {
-                if (m_toRelease != null)
-                    m_toRelease.m_semaphore.Release();
+                m_toRelease?.m_semaphore.Release();
             }
         }
     }

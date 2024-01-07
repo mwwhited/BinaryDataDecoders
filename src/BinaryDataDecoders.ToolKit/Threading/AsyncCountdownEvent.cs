@@ -7,12 +7,12 @@ namespace BinaryDataDecoders.ToolKit.Threading
     public class AsyncCountdownEvent
     {
         // http://blogs.msdn.com/b/pfxteam/archive/2012/02/11/10266930.aspx
-        private readonly AsyncManualResetEvent m_amre = new AsyncManualResetEvent();
+        private readonly AsyncManualResetEvent m_amre = new();
         private int m_count;
 
         public AsyncCountdownEvent(int initialCount)
         {
-            if (initialCount <= 0) throw new ArgumentOutOfRangeException("initialCount");
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(initialCount, nameof(initialCount));
             m_count = initialCount;
         }
 

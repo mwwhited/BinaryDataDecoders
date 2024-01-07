@@ -21,7 +21,7 @@ namespace BinaryDataDecoders.ToolKit.Tests.Reflection
         }
 
         private ReflectionElementNodeBuilder CreateReflectionElementNode(object testData, bool excludeNamespace = false) =>
-            new ReflectionElementNodeBuilder(testData, excludeNamespace);
+            new(testData, excludeNamespace);
 
         [TestMethod, TestCategory(TestCategories.DevLocal)]
         [TestCategory(TestCategories.Unit)]

@@ -79,7 +79,7 @@ namespace BinaryDataDecoders.Kuando.Busylight.Tests
             if (requestBuffer.Length > 56) throw new InvalidOperationException();
 
             Span<byte> outBuffer = new byte[65];
-            requestBuffer.CopyTo(outBuffer.Slice(1));
+            requestBuffer.CopyTo(outBuffer[1..]);
 
             outBuffer[57] = 6; //_dpi_box_sensivity
             outBuffer[58] = 4; // _dpi_box_timeout
@@ -87,10 +87,10 @@ namespace BinaryDataDecoders.Kuando.Busylight.Tests
 
             outBuffer[60] = outBuffer[61] = outBuffer[62] = 0xff;
 
-            var checksum = new[] { outBuffer.Slice(0, 63).ToArray().Aggregate((ushort)0, (v, i) => (ushort)(v + i)) };
+            var checksum = new[] { outBuffer[..63].ToArray().Aggregate((ushort)0, (v, i) => (ushort)(v + i)) };
             var checksumBuffer = MemoryMarshal.Cast<ushort, byte>(checksum);
 
-            checksumBuffer.CopyTo(outBuffer.Slice(63));
+            checksumBuffer.CopyTo(outBuffer[63..]);
 
             var bytes = outBuffer.ToArray();
             var hex = bytes.ToHexString(",0x");

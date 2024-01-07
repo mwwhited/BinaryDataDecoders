@@ -63,7 +63,7 @@ namespace BinaryDataDecoders.TestUtilities.Configuration
         public IEnumerable<IConfigurationSection> GetChildren()
         {
             var values = from k in _store.Keys
-                         let p = k.Split(new char[] { ':' }, 2)
+                         let p = k.Split([':'], 2)
                          group new
                          {
                              key = p.ElementAtOrDefault(1),

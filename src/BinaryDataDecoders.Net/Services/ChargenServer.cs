@@ -35,11 +35,11 @@ namespace BinaryDataDecoders.Net.Services
                     }
                     catch (OperationCanceledException ocex)
                     {
-                        Console.WriteLine($"{this.GetType()}::ChargenServer::Canceled: {Thread.CurrentThread.ManagedThreadId} ({ocex.Message})");
+                        Console.WriteLine($"{this.GetType()}::ChargenServer::Canceled: {Environment.CurrentManagedThreadId} ({ocex.Message})");
                     }
                 }
 
-                await Task.Delay(rand.Next(1, 10) * 100);
+                await Task.Delay(rand.Next(1, 10) * 100, cancellationToken);
             }
         }
 

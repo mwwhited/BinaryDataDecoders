@@ -1,17 +1,9 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.IO
+namespace BinaryDataDecoders.IO;
+
+public class DeviceErrorEventArgs(Exception exception, ErrorHandling errorHandling) : EventArgs
 {
-    public class DeviceErrorEventArgs : EventArgs
-    {
-        public DeviceErrorEventArgs(Exception exception, ErrorHandling errorHandling)
-        {
-            Exception = exception;
-            ErrorHandling = errorHandling;
-        }
-
-        public Exception Exception { get; }
-        public ErrorHandling ErrorHandling { get; set; }
-    }
-
+    public Exception Exception { get; } = exception;
+    public ErrorHandling ErrorHandling { get; set; } = errorHandling;
 }

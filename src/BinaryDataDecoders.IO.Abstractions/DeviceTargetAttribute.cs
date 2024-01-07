@@ -1,11 +1,9 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.IO
+namespace BinaryDataDecoders.IO;
+
+[AttributeUsage(AttributeTargets.Class)]
+public sealed class DeviceTargetAttribute(Type target) : Attribute
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public sealed class DeviceTargetAttribute : Attribute
-    {
-        public DeviceTargetAttribute(Type target) => Target = target;
-        public Type Target { get; }
-    }
+    public Type Target { get; } = target;
 }

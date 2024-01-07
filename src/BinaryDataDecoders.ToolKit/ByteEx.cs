@@ -22,14 +22,12 @@ namespace BinaryDataDecoders.ToolKit
 
         public static byte[] Decompress(this byte[] input)
         {
-            using (var inputStream = new MemoryStream(input))
-            using (var outputStream = new MemoryStream())
-            using (var deflate = new DeflateStream(inputStream, CompressionMode.Decompress))
-            {
-                deflate.CopyTo(outputStream);
-                deflate.Close();
-                return outputStream.ToArray();
-            }
+            using var inputStream = new MemoryStream(input);
+            using var outputStream = new MemoryStream();
+            using var deflate = new DeflateStream(inputStream, CompressionMode.Decompress);
+            deflate.CopyTo(outputStream);
+            deflate.Close();
+            return outputStream.ToArray();
         }
 
         public static byte[] Compress(this byte[] input)

@@ -27,13 +27,13 @@ namespace BinaryDataDecoders.Kuando.Busylight
                     try
                     {
                         // light off + stop music
-                        await stream.WriteAsync(new byte[]
-                        {
+                        await stream.WriteAsync(
+                        [
                                         0,
                                         0x10, 0x01,
                                         0x00,0x00,0x00, //R,G,B
                                         0x01,0x00,0x80, //color change suffix
-                        }, 0, 9);
+                        ], 0, 9);
 
                         await Task.Delay(50);
                         byte soundByte = 0; // (byte)(0x80 | (x << 3) | 0x01);

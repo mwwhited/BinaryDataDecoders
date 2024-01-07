@@ -17,7 +17,7 @@ namespace BinaryDataDecoders.Archives.Tar
             EFileAttributes dwFlagsAndAttributes,
             IntPtr hTemplateFile);
 
-        internal static IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
+        internal static IntPtr INVALID_HANDLE_VALUE = new(-1);
         internal static int FILE_ATTRIBUTE_DIRECTORY = 0x00000010;
         internal const int MAX_PATH = 260;
 

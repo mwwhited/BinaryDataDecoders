@@ -7,7 +7,7 @@ namespace BinaryDataDecoders.ToolKit.Threading
     {
         //http://blogs.msdn.com/b/pfxteam/archive/2012/02/11/10266923.aspx
         private readonly static Task s_completed = Task.FromResult(true);
-        private readonly Queue<TaskCompletionSource<bool>> m_waits = new Queue<TaskCompletionSource<bool>>();
+        private readonly Queue<TaskCompletionSource<bool>> m_waits = new();
         private bool m_signaled;
         public Task WaitAsync()
         {

@@ -18,7 +18,7 @@ namespace BinaryDataDecoders.IO.Pipelines
 
         internal static IPipelineBuildDefinition FollowStream(this IPipelineBuildDefinition pipeline, Stream stream, int minimumBufferSize = 4096)
         {
-            if (!(pipeline is PipelineBuildDefinition def))
+            if (pipeline is not PipelineBuildDefinition def)
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
@@ -32,7 +32,7 @@ namespace BinaryDataDecoders.IO.Pipelines
 
         public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, ISegmenter segmenter)
         {
-            if (!(pipeline is PipelineBuildDefinition def))
+            if (pipeline is not PipelineBuildDefinition def)
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
@@ -45,7 +45,7 @@ namespace BinaryDataDecoders.IO.Pipelines
         }
         public static IPipelineBuildDefinition With(this IPipelineBuildDefinition pipeline, Stream stream)
         {
-            if (!(pipeline is PipelineBuildDefinition def))
+            if (pipeline is not PipelineBuildDefinition def)
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
@@ -59,7 +59,7 @@ namespace BinaryDataDecoders.IO.Pipelines
 
         public static IPipelineBuildDefinition OnError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
-            if (!(pipeline is PipelineBuildDefinition def))
+            if (pipeline is not PipelineBuildDefinition def)
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
@@ -72,7 +72,7 @@ namespace BinaryDataDecoders.IO.Pipelines
         }
         public static IPipelineBuildDefinition OnReaderError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
-            if (!(pipeline is PipelineBuildDefinition def))
+            if (pipeline is not PipelineBuildDefinition def)
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
@@ -85,7 +85,7 @@ namespace BinaryDataDecoders.IO.Pipelines
         }
         public static IPipelineBuildDefinition OnWriterError(this IPipelineBuildDefinition pipeline, OnException onPipelineError)
         {
-            if (!(pipeline is PipelineBuildDefinition def))
+            if (pipeline is not PipelineBuildDefinition def)
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
@@ -99,7 +99,7 @@ namespace BinaryDataDecoders.IO.Pipelines
 
         public static Task RunAsync(this IPipelineBuildDefinition pipeline, CancellationToken cancellationToken = default)
         {
-            if (!(pipeline is PipelineBuildDefinition def))
+            if (pipeline is not PipelineBuildDefinition def)
             {
                 throw new NotSupportedException($"{pipeline.GetType()} is not supported");
             }
@@ -115,8 +115,8 @@ namespace BinaryDataDecoders.IO.Pipelines
             cancellationToken.Register(() => def.CancellationTokenSource.Cancel());
 
             return Task.WhenAll(
-                Task.Run(async () => await def.PipeWriter),
-                Task.Run(async () => await def.PipeReader)
+                Task.Run(async () => await def.PipeWriter, cancellationToken),
+                Task.Run(async () => await def.PipeReader, cancellationToken)
                 );
         }
     }

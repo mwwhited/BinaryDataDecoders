@@ -26,7 +26,7 @@ namespace BinaryDataDecoders.ToolKit.ComponentModel
                 this.Dispatched(work);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             this.DispatchWork(() =>

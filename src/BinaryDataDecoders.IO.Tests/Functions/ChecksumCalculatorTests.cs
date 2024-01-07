@@ -34,7 +34,7 @@ namespace BinaryDataDecoders.IO.Tests.Functions
             //Test
             var provider = new ChecksumCalculator();
             var results = new[]{
-                provider.Simple16(shorts.Slice(0, 6)),
+                provider.Simple16(shorts[..6]),
                 provider.Simple16(shorts.Slice(6, 3)),
             };
 

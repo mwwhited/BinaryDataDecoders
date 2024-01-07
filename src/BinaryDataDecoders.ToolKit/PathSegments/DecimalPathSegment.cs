@@ -1,7 +1,5 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class DecimalPathSegment(decimal value) : BaseValuePathSegment<decimal>(value)
 {
-    public class DecimalPathSegment : BaseValuePathSegment<decimal>
-    {
-        public DecimalPathSegment(decimal value) : base(value) { }
-    }
 }

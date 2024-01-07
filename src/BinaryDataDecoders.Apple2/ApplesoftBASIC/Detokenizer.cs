@@ -9,7 +9,7 @@ namespace BinaryDataDecoders.Apple2.ApplesoftBASIC
     /// </summary>
     public class Detokenizer
     {
-        private readonly TokenMap _map = new TokenMap();
+        private readonly TokenMap _map = new();
 
         /// <summary>
         /// transform byte data into readable AppleSoft BASIC code.

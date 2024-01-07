@@ -14,9 +14,9 @@ namespace BinaryDataDecoders.ToolKit.Reflection
         /// <value>The executing assembly.</value>
         public  Assembly ExecutingAssembly
         {
-            get { return executingAssembly ?? (executingAssembly = Assembly.GetExecutingAssembly()); }
+            get { return executingAssembly ??= Assembly.GetExecutingAssembly(); }
         }
-        private  Assembly executingAssembly;
+        private  Assembly? executingAssembly;
 
         /// <summary>
         /// Gets the executing assembly version.
@@ -24,9 +24,9 @@ namespace BinaryDataDecoders.ToolKit.Reflection
         /// <value>The executing assembly version.</value>
         public  Version ExecutingAssemblyVersion
         {
-            get { return executingAssemblyVersion ?? (executingAssemblyVersion = ExecutingAssembly.GetName().Version); }
+            get { return executingAssemblyVersion ??= ExecutingAssembly.GetName().Version; }
         }
-        private  Version executingAssemblyVersion;
+        private  Version? executingAssemblyVersion;
 
         /// <summary>
         /// Gets the compile date of the currently executing assembly.
@@ -34,7 +34,7 @@ namespace BinaryDataDecoders.ToolKit.Reflection
         /// <value>The compile date.</value>
         public  DateTime CompileDate
         {
-            get { return (compileDate ?? (compileDate = RetrieveLinkerTimestamp(ExecutingAssembly.Location))).Value; }
+            get { return ((DateTime?)(compileDate ??= RetrieveLinkerTimestamp(ExecutingAssembly.Location))).Value; }
         }
         private  DateTime? compileDate;
 

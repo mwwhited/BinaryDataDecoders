@@ -39,12 +39,12 @@ namespace BinaryDataDecoders.ToolKit.Tests.Xml.Xsl
             }
             {
                 var mi = wrappedType.GetMethod("other-work", BindingFlags.Public | BindingFlags.Instance);
-                var ret = mi?.Invoke(wrapped, Array.Empty<object>());
+                var ret = mi?.Invoke(wrapped, []);
                 this.TestContext.WriteLine($"{"other-work"}: {ret}");
             }
             {
                 var mi = wrappedType.GetMethod("and-work", BindingFlags.Public | BindingFlags.Instance);
-                var ret = mi?.Invoke(wrapped, Array.Empty<object>());
+                var ret = mi?.Invoke(wrapped, []);
                 this.TestContext.WriteLine($"{"and-work"}: {ret}");
             }
 

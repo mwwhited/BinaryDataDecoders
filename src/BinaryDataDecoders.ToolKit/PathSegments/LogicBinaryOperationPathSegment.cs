@@ -1,12 +1,9 @@
-﻿namespace BinaryDataDecoders.ToolKit.PathSegments
+﻿namespace BinaryDataDecoders.ToolKit.PathSegments;
+
+public class LogicBinaryOperationPathSegment(
+    IPathSegment left,
+    IPathSegment<LogicOperationTypes> @operator,
+    IPathSegment right
+        ) : BinaryOperationPathSegment<LogicOperationTypes>(left, @operator, right)
 {
-    public class LogicBinaryOperationPathSegment : BinaryOperationPathSegment<LogicOperationTypes>
-    {
-        public LogicBinaryOperationPathSegment(
-            IPathSegment left,
-            IPathSegment<LogicOperationTypes> @operator,
-            IPathSegment right
-            ) : base(left, @operator, right)
-        { }
-    }
 }

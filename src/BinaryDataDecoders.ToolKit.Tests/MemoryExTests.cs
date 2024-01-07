@@ -20,8 +20,8 @@ namespace BinaryDataDecoders.ToolKit.Tests
             var segments = data.Split(0x08, Exclude);
 
             CheckResults(segments,
-                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, },
-                new byte[] { 9, 10, 11, 12, 13, 14, 15, }
+                [0, 1, 2, 3, 4, 5, 6, 7,],
+                [9, 10, 11, 12, 13, 14, 15,]
                 );
         }
         [TestMethod, TestCategory(TestCategories.Unit)]
@@ -32,8 +32,8 @@ namespace BinaryDataDecoders.ToolKit.Tests
             var segments = data.Split(0x08, Carry);
 
             CheckResults(segments,
-                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, },
-                new byte[] { 8, 9, 10, 11, 12, 13, 14, 15, }
+                [0, 1, 2, 3, 4, 5, 6, 7,],
+                [8, 9, 10, 11, 12, 13, 14, 15,]
                 );
         }
 
@@ -45,8 +45,8 @@ namespace BinaryDataDecoders.ToolKit.Tests
             var segments = data.Split(0x08, Return);
 
             CheckResults(segments,
-                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, },
-                new byte[] { 9, 10, 11, 12, 13, 14, 15, }
+                [0, 1, 2, 3, 4, 5, 6, 7, 8,],
+                [9, 10, 11, 12, 13, 14, 15,]
                 );
         }
 
@@ -58,10 +58,10 @@ namespace BinaryDataDecoders.ToolKit.Tests
             var segments = data.Split(0x08, Exclude);
 
             CheckResults(segments,
-                new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, },
-                new byte[] { 9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7, },
-                new byte[] { 9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7, },
-                new byte[] { 9, 10, 11, 12, 13, 14, 15, }
+                [0, 1, 2, 3, 4, 5, 6, 7,],
+                [9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7,],
+                [9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7,],
+                [9, 10, 11, 12, 13, 14, 15,]
                 );
         }
 
@@ -80,19 +80,19 @@ namespace BinaryDataDecoders.ToolKit.Tests
 
         private Memory<byte> GetTestData()
         {
-            return new Memory<byte>(new byte[]
-            {
+            return new Memory<byte>(
+            [
                 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
-            });
+            ]);
         }
         private Memory<byte> GetBigTestData()
         {
-            return new Memory<byte>(new byte[]
-            {
+            return new Memory<byte>(
+            [
                 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
                 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
                 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
-            });
+            ]);
         }
     }
 }

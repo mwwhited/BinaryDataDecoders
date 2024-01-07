@@ -76,12 +76,12 @@ namespace BinaryDataDecoders.Quarta.RadexOne.Tests
                 if (buffer.Length < checkType.minLength) continue;
                 var indexOf = buffer.IndexOf(checkType.firstByte);
                 if (indexOf < 0) continue;
-                var firstPass = buffer.Slice(indexOf);
+                var firstPass = buffer[indexOf..];
                 foreach (var pattern in checkType.patterns)
                 {
                     if (buffer.Length < pattern.length) continue;
 
-                    var subBuffer = firstPass.Slice(0, pattern.length);
+                    var subBuffer = firstPass[..pattern.length];
                     if (checkPattern(subBuffer, pattern.pattern))
                     {
                         var innerBuffer = subBuffer.ToArray();
@@ -111,8 +111,8 @@ namespace BinaryDataDecoders.Quarta.RadexOne.Tests
             }
             static IEnumerable<(byte match, byte mask)> buildPatternMatch(string match, string mask)
             {
-                Func<char, bool> predicate = c => (('0' <= c && c <= '9') || ('A' <= c && c <= 'F') || ('a' <= c && c <= 'f'));
-                Func<char, bool> predicateExtended = c => predicate(c) || c == '?' || c == '*';
+                static bool predicate(char c) => (('0' <= c && c <= '9') || ('A' <= c && c <= 'F') || ('a' <= c && c <= 'f'));
+                static bool predicateExtended(char c) => predicate(c) || c == '?' || c == '*';
                 var matchChain = getBytes((!string.IsNullOrWhiteSpace(mask) ? match.Where(predicate) : match.Where(predicateExtended).Select(c => c == '?' || c == '*' ? '0' : c))).ToArray();
                 var maskChain = getBytes((!string.IsNullOrWhiteSpace(mask) ? mask.Where(predicate) : match.Where(predicateExtended).Select(c => c == '?' || c == '*' ? '0' : 'f'))).ToArray();
                 static IEnumerable<byte> getBytes(IEnumerable<char> chars)
