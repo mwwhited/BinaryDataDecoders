@@ -6,7 +6,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne;
 /// request settings from Radex One device
 /// </summary>
 [StructLayout(LayoutKind.Explicit, Size = 18)]
-public struct ReadSettingsRequest : IRadexObject
+public readonly struct ReadSettingsRequest : IRadexObject
 {
     /// <summary>
     /// request settings from Radex One device

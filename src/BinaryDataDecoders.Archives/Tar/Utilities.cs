@@ -47,26 +47,24 @@ public static class Utilities
         if (input == null || input.Length < 1)
             return null;
 
-        using (var compressedData = new MemoryStream(input))
-        using (var decompressedData = new MemoryStream())
+        using var compressedData = new MemoryStream(input);
+        using var decompressedData = new MemoryStream();
+        using (var deflateDecompress = new GZipStream(compressedData,
+                                                      CompressionMode.Decompress,
+                                                      true))
         {
-            using (var deflateDecompress = new GZipStream(compressedData,
-                                                          CompressionMode.Decompress,
-                                                          true))
+            byte[] buffer = new byte[1024];
+            int bufferLen;
+            do
             {
-                byte[] buffer = new byte[1024];
-                int bufferLen;
-                do
-                {
-                    bufferLen = deflateDecompress.Read(buffer,
-                                                       0,
-                                                       buffer.Length);
-                    if (bufferLen > 0)
-                        decompressedData.Write(buffer, 0, bufferLen);
-                } while (bufferLen > 0);
-            }
-            return decompressedData.ToArray();
+                bufferLen = deflateDecompress.Read(buffer,
+                                                   0,
+                                                   buffer.Length);
+                if (bufferLen > 0)
+                    decompressedData.Write(buffer, 0, bufferLen);
+            } while (bufferLen > 0);
         }
+        return decompressedData.ToArray();
     }
 
     public static Stream Decompress(this Stream input)

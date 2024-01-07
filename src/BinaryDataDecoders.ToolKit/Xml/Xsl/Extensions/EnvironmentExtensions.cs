@@ -16,9 +16,7 @@ public class EnvironmentExtensions
 {
     private readonly XNamespace _ns;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public EnvironmentExtensions()
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         _ns = this.GetXmlNamespace() + XmlNamespaces.OutputSuffix;
     }

@@ -104,7 +104,7 @@ public class ExtensibleElementNode<T> : IElementNode, ISimpleNode
                     Previous = previous,
                 };
                 if (previous is ExtensibleAttributeNode<T> node) node.Next = newItem;
-                if (first == null) first = newItem;
+                first ??= newItem;
                 previous = newItem;
             }
 
@@ -134,7 +134,7 @@ public class ExtensibleElementNode<T> : IElementNode, ISimpleNode
                 };
                 // Console.WriteLine($"\t\t==={newItem.Name} +++ {newItem.NodeType}");
                 if (previous is ISimpleNode node) node.Next = newItem;
-                if (first == null) first = newItem;
+                first ??= newItem;
                 previous = newItem;
             }
 
@@ -165,7 +165,7 @@ public class ExtensibleElementNode<T> : IElementNode, ISimpleNode
                     Previous = previous,
                 };
                 if (previous is ExtensibleNamespaceNode<T> node) node.Next = newItem;
-                if (first == null) first = newItem;
+                first ??= newItem;
                 previous = newItem;
             }
 

@@ -10,8 +10,7 @@ public static class ShuffleExtensions
 
     public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random? randomGenerator = null)
     {
-        if (randomGenerator == null)
-            randomGenerator = RandomGenerator;
+        randomGenerator ??= RandomGenerator;
 
         //http://stackoverflow.com/questions/1287567/is-using-random-and-orderby-a-good-shuffle -algorithm
         var elements = source.ToArray();

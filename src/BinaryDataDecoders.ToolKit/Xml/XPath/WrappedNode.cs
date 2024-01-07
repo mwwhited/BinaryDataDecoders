@@ -58,7 +58,7 @@ internal class WrappedNode : IWrappedNode
             {
                 previous.Next = newItem;
             }
-            if (first == null) first = newItem;
+            first ??= newItem;
             previous = newItem;
         }
         return first;

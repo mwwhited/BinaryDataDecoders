@@ -39,15 +39,13 @@ public class WakeOnLan
         var magicPacket = WakeOnLan.BuildMagicPacket(macAddress);
 
         // http://en.wikipedia.org/wiki/Wake-on-LAN#Principle_of_operation
-        using (var client = new UdpClient())
-        {
-            client.Connect(clientAddress, 65535);
-            client.EnableBroadcast = true;
-            client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 0);
+        using var client = new UdpClient();
+        client.Connect(clientAddress, 65535);
+        client.EnableBroadcast = true;
+        client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 0);
 
-            var result = await client.SendAsync(magicPacket, magicPacket.Length);
+        var result = await client.SendAsync(magicPacket, magicPacket.Length);
 
-            return result == 102; /* MagicPacket length should be broadcast MAC + target MAX x 16 */
-        }
+        return result == 102; /* MagicPacket length should be broadcast MAC + target MAX x 16 */
     }
 }

@@ -25,7 +25,7 @@ public static class Segment
 
     public static ISegmentBuildDefinition AndEndsWith(this ISegmentBuildDefinition builder, byte end)
     {
-        if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+        if (builder is not SegmentBuildDefinition def) throw new NotSupportedException($"{builder.GetType()} is not supported");
         if (def.Length.HasValue) throw new NotSupportedException("May not set end byte if using length");
         def.EndsWith = end;
         return builder;
@@ -34,7 +34,7 @@ public static class Segment
     public static ISegmentBuildDefinition ExtendedWithLengthAt<TOfType>(this ISegmentBuildDefinition builder, long position, Endianness endianness)
         where TOfType : unmanaged
     {
-        if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+        if (builder is not SegmentBuildDefinition def) throw new NotSupportedException($"{builder.GetType()} is not supported");
         if (!def.Length.HasValue) throw new NotSupportedException("Must start with fixed length");
 
         unsafe
@@ -46,7 +46,7 @@ public static class Segment
 
     public static ISegmentBuildDefinition WithMaxLength(this ISegmentBuildDefinition builder, long maxLength)
     {
-        if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+        if (builder is not SegmentBuildDefinition def) throw new NotSupportedException($"{builder.GetType()} is not supported");
         if (def.Length.HasValue) throw new NotSupportedException("May not set end byte if using length");
         def.MaxLength = maxLength == 0 ? (long?)null : maxLength;
         return builder;
@@ -54,14 +54,14 @@ public static class Segment
 
     public static ISegmentBuildDefinition WithOptions(this ISegmentBuildDefinition builder, SegmentionOptions options)
     {
-        if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+        if (builder is not SegmentBuildDefinition def) throw new NotSupportedException($"{builder.GetType()} is not supported");
         def.Options = options;
         return builder;
     }
 
     public static ISegmentBuildDefinition AndIsLength(this ISegmentBuildDefinition builder, long length)
     {
-        if (!(builder is SegmentBuildDefinition def)) throw new NotSupportedException($"{builder.GetType()} is not supported");
+        if (builder is not SegmentBuildDefinition def) throw new NotSupportedException($"{builder.GetType()} is not supported");
         if (def.EndsWith.HasValue) throw new NotSupportedException("May not set length if using Ends With");
         if (def.MaxLength.HasValue) throw new NotSupportedException("May not set length if using Ends With");
         def.Length = length;

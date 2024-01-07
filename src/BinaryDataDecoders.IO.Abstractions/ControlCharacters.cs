@@ -8,7 +8,6 @@
 /// </remarks>
 public enum ControlCharacters : byte
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     Null = 0x00,
     StartOfHeading = 0x01,
     StartOfText = 0x02,
@@ -44,5 +43,4 @@ public enum ControlCharacters : byte
 
     Space = 0x20,
     Delete = 0x7F,
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

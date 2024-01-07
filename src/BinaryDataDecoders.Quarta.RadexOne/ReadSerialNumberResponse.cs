@@ -5,9 +5,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne;
 
 [MessageMatchPattern("7AFF-2080-1E00-????????-????|0100+")]
 [StructLayout(LayoutKind.Explicit, Size = 42)]
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-public struct ReadSerialNumberResponse : IRadexObject
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+public readonly struct ReadSerialNumberResponse : IRadexObject
 {
     // <7AFF 2080 1E00 9B0D ____ AB72 0100 ____ 1400 ____ 11A4 ____ 9820 ____ 1400 0612 0108 4803 0800 ____ D61D
     [FieldOffset(0)]
@@ -64,8 +62,6 @@ public struct ReadSerialNumberResponse : IRadexObject
     private readonly ushort ReservedD;
     [FieldOffset(40)]
     private readonly ushort CheckSum1;
-
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     [FieldOffset(31)]
     public readonly byte Sn1;
     [FieldOffset(30)]
@@ -83,7 +79,6 @@ public struct ReadSerialNumberResponse : IRadexObject
     public readonly byte Major;
     [FieldOffset(33)]
     public readonly byte Minor;
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
     /// <summary>
     /// Formatted serial number
@@ -93,9 +88,8 @@ public struct ReadSerialNumberResponse : IRadexObject
     /// Formatted version number
     /// </summary>
     public string Version => $"{Major}.{Minor}";
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
     public override string ToString()
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         return $"SN:\t{SerialNumber}; v{Version}\t({PacketNumber}:0x{PacketNumber:X2})\t[{SubCommand:X2}-{ReservedL1:X2}-{ReservedL2:X2}-{ReservedL3:X2}-{ReservedD:X2}]";
     }

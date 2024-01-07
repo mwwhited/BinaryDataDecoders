@@ -16,38 +16,34 @@ public class PngPack
         var height = Math.Ceiling(requiredPixels / width);
 
         var pixelFormat = PixelFormat.Format32bppArgb;
-        using (var bitmap = new Bitmap((int)width, (int)height, pixelFormat))
-        using (var outStream = new MemoryStream())
-        {
-            var bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.WriteOnly, pixelFormat);
-            var ptr = bitmapData.Scan0;
-            Marshal.Copy(BitConverter.GetBytes(length), 0, ptr, 4);
-            Marshal.Copy(input, 0, ptr + 4, length);
+        using var bitmap = new Bitmap((int)width, (int)height, pixelFormat);
+        using var outStream = new MemoryStream();
+        var bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.WriteOnly, pixelFormat);
+        var ptr = bitmapData.Scan0;
+        Marshal.Copy(BitConverter.GetBytes(length), 0, ptr, 4);
+        Marshal.Copy(input, 0, ptr + 4, length);
 
-            bitmap.UnlockBits(bitmapData);
-            bitmap.Save(outStream, ImageFormat.Png);
-            return outStream.ToArray();
-        }
+        bitmap.UnlockBits(bitmapData);
+        bitmap.Save(outStream, ImageFormat.Png);
+        return outStream.ToArray();
     }
 
     public byte[] Unpack(byte[] input)
     {
         var pixelFormat = PixelFormat.Format32bppArgb;
-        using (var inputStream = new MemoryStream(input))
-        using (var bitmap = new Bitmap(inputStream))
-        {
-            var bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadOnly, pixelFormat);
+        using var inputStream = new MemoryStream(input);
+        using var bitmap = new Bitmap(inputStream);
+        var bitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadOnly, pixelFormat);
 
-            var ptr = bitmapData.Scan0;
-            var lengthBuffer = new byte[4];
-            Marshal.Copy(ptr, lengthBuffer, 0, 4);
-            var length = BitConverter.ToInt32(lengthBuffer, 0);
-            var outBuffer = new byte[length];
-            Marshal.Copy(ptr + 4, outBuffer, 0, length);
+        var ptr = bitmapData.Scan0;
+        var lengthBuffer = new byte[4];
+        Marshal.Copy(ptr, lengthBuffer, 0, 4);
+        var length = BitConverter.ToInt32(lengthBuffer, 0);
+        var outBuffer = new byte[length];
+        Marshal.Copy(ptr + 4, outBuffer, 0, length);
 
-            bitmap.UnlockBits(bitmapData);
+        bitmap.UnlockBits(bitmapData);
 
-            return outBuffer;
-        }
+        return outBuffer;
     }
 }

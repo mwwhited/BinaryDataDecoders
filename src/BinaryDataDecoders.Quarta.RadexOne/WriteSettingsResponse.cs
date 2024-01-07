@@ -11,7 +11,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne;
     Mask = "ffff-ffff-ffff-00000000-0000|ffff+"
     )]
 [StructLayout(LayoutKind.Explicit, Size = 18)]
-public struct WriteSettingsResponse : IRadexObject
+public readonly struct WriteSettingsResponse : IRadexObject
 {
     //<: 7AFF 2080 0600 FA05 ____ 647A 0208 ____ FDF7
     [FieldOffset(0)]
@@ -33,9 +33,7 @@ public struct WriteSettingsResponse : IRadexObject
     [FieldOffset(16)]
     private readonly ushort CheckSum1;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public override string ToString()
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         return $"Write Settings:\t({PacketNumber}:0x{PacketNumber:X2})";
     }

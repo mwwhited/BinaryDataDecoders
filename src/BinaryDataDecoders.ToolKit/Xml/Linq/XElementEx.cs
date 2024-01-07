@@ -10,12 +10,10 @@ public static class XElementEx
 {
     public static XmlNode ToXmlNode(this XElement element)
     {
-        using (var xmlReader = element.CreateReader())
-        {
-            var xmlDoc = new XmlDocument();
-            xmlDoc.Load(xmlReader);
-            return xmlDoc.FirstChild;
-        }
+        using var xmlReader = element.CreateReader();
+        var xmlDoc = new XmlDocument();
+        xmlDoc.Load(xmlReader);
+        return xmlDoc.FirstChild;
     }
     public static string? GetDescendantAsString(this XElement element, XName name) =>
         (string?)element.Descendants(name).FirstOrDefault();

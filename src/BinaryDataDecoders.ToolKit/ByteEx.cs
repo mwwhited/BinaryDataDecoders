@@ -32,13 +32,11 @@ public static class ByteEx
 
     public static byte[] Compress(this byte[] input)
     {
-        using (var inputStream = new MemoryStream(input))
-        using (var outputStream = new MemoryStream())
-        using (var deflate = new DeflateStream(outputStream, CompressionLevel.Optimal))
-        {
-            inputStream.CopyTo(deflate);
-            deflate.Close();
-            return outputStream.ToArray();
-        }
+        using var inputStream = new MemoryStream(input);
+        using var outputStream = new MemoryStream();
+        using var deflate = new DeflateStream(outputStream, CompressionLevel.Optimal);
+        inputStream.CopyTo(deflate);
+        deflate.Close();
+        return outputStream.ToArray();
     }
 }

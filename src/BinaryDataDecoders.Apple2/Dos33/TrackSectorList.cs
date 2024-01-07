@@ -19,9 +19,7 @@ namespace BinaryDataDecoders.Apple2.Dos33;
 /// </summary>
 public struct TrackSectorList
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public TrackSectorList(ReadOnlySpan<byte> span)
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         Unused_0 = span[0x00];
         NextTrack = span[0x01];

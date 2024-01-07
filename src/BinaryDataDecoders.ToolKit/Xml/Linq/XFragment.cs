@@ -45,12 +45,10 @@ public class XFragment : IList<XNode>
             IgnoreWhitespace = true
         };
 
-        using (var stringReader = new StringReader(xml))
-        using (var xmlReader = XmlReader.Create(stringReader, settings))
-        {
-            foreach (var node in XFragment.Parser(xmlReader))
-                yield return node;
-        }
+        using var stringReader = new StringReader(xml);
+        using var xmlReader = XmlReader.Create(stringReader, settings);
+        foreach (var node in XFragment.Parser(xmlReader))
+            yield return node;
     }
 
     private static IEnumerable<XNode> Parser(XmlReader xmlReader)

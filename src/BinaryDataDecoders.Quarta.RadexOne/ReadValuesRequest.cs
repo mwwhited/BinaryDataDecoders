@@ -6,7 +6,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne;
 /// Read Values is used to access current device values
 /// </summary>
 [StructLayout(LayoutKind.Explicit,Size = 18)]
-public struct ReadValuesRequest : IRadexObject
+public readonly struct ReadValuesRequest : IRadexObject
 {
     /// <summary>
     /// Constructor to create a new read values request

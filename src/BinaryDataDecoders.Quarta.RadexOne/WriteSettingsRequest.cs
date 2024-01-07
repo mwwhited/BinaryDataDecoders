@@ -6,7 +6,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne;
 /// Write Settings will allow for the current device configuration to be updated
 /// </summary>
 [StructLayout(LayoutKind.Explicit, Size = 28)]
-public struct WriteSettingsRequest : IRadexObject
+public readonly struct WriteSettingsRequest : IRadexObject
 {
     //>: 7BFF 2000 0600 FD05 ____ 60FA 0108 _C00 F2F7
 

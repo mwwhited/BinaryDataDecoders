@@ -7,7 +7,7 @@ namespace BinaryDataDecoders.Quarta.RadexOne;
 /// </summary>
 [MessageMatchPattern("7AFF-2080-1600-????????-????|0008+")]
 [StructLayout(LayoutKind.Explicit, Size = 32)]
-public struct ReadValuesResponse : IRadexObject
+public readonly struct ReadValuesResponse : IRadexObject
 {
     // <: 7AFF 2080 1600 1800 ____ 3680 0008 ____ 0C00 ____ 1200 ____ 1200 ____ 1500 ____ BAF7
 
@@ -53,10 +53,7 @@ public struct ReadValuesResponse : IRadexObject
     [FieldOffset(32)]
     private readonly ushort CheckSum1;
 
-
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public override string ToString()
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         return $"Data:\t{Ambient / 100m} μSv/h\t{Accumulated / 100m} μSv\t{ClicksPerMinute} cpm\t({PacketNumber}:0x{PacketNumber:X2})\t[{SubCommandL:X2}]";
     }
