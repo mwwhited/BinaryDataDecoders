@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "BinaryDataDecoders.PackMan.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "--source \"$(SolutionDir)Directory.Packages.props\""
+    },
+    "Get Version": {
+      "commandName": "Project",
+      "commandLineArgs": "--get-version true"
+    }
+  }
+}

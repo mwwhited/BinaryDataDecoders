@@ -4,7 +4,8 @@ using System.Linq;
 
 namespace BinaryDataDecoders.ToolKit.Graphics
 {
-    public class ColorConversion
+
+    public static class ColorConversion
     {
         public static (double hue, double saturation, double lightness) Rgb2Hsl((byte red, byte green, byte blue) color) => Rgb2Hsl(color.red, color.green, color.blue);
         public static (double hue, double saturation, double lightness) Rgb2Hsl(byte red, byte green, byte blue) => Rgb2Hsl((red, green, blue), 255.0);
