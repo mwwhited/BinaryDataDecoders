@@ -2,7 +2,7 @@
   <PropertyGroup>
     <!--
     <TargetFramework>net8.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     -->
     <Copyright>Out-of-Band Development, LLC 2024</Copyright>
     <Company>Out-of-Band Development, LLC</Company>

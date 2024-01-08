@@ -4,7 +4,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
