@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ElectronicScoringMachines.Fencing.Favero::FaveroStateParser::Parse
-  * BinaryDataDecoders.ElectronicScoringMachines.Fencing, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ElectronicScoringMachines.Fencing, Version=0.4.12.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

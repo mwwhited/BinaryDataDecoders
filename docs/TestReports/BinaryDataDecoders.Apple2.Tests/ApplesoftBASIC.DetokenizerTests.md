@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.Apple2.ApplesoftBASIC::Detokenizer::GetLines
-  * BinaryDataDecoders.Apple2, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.Apple2, Version=0.4.12.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 

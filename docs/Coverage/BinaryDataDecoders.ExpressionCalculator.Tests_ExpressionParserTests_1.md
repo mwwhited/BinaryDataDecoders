@@ -6,14 +6,14 @@
 | :-------------- | :----------------------------------------------------------------------------- |
 | Class           | `BinaryDataDecoders.ExpressionCalculator.Tests.Parser.ExpressionParserTests`1` |
 | Assembly        | `BinaryDataDecoders.ExpressionCalculator.Tests`                                |
-| Coveredlines    | `65`                                                                           |
-| Uncoveredlines  | `11`                                                                           |
+| Coveredlines    | `62`                                                                           |
+| Uncoveredlines  | `14`                                                                           |
 | Coverablelines  | `76`                                                                           |
 | Totallines      | `365`                                                                          |
-| Linecoverage    | `85.5`                                                                         |
-| Coveredbranches | `21`                                                                           |
+| Linecoverage    | `81.5`                                                                         |
+| Coveredbranches | `20`                                                                           |
 | Totalbranches   | `22`                                                                           |
-| Branchcoverage  | `95.4`                                                                         |
+| Branchcoverage  | `90.9`                                                                         |
 | Coveredmethods  | `7`                                                                            |
 | Totalmethods    | `8`                                                                            |
 | Methodcoverage  | `87.5`                                                                         |
@@ -29,11 +29,11 @@
 | 8          | 87.50 | 100      | `OptimizerTests`                       |
 | 1          | 57.14 | 100      | `OptimizerTests_WithExceptions`        |
 | 1          | 100   | 100      | `GetDistinctVariablesTests`            |
-| 10         | 92.30 | 90.0     | `VerifyOptimizerForComplexExpressions` |
+| 10         | 80.76 | 80.0     | `VerifyOptimizerForComplexExpressions` |
 
 ## Files
 
-## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.ExpressionCalculator.Tests/Parser/ExpressionParserTests.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8f631c73b86dfbff461b431d62cf8c3119f222f7/src/BinaryDataDecoders.ExpressionCalculator.Tests/Parser/ExpressionParserTests.cs
 
 ```CSharp
 〰1:   using Antlr4.Runtime.Misc;
@@ -390,13 +390,13 @@
 〰352:         {
 ✔353:             Assert.Inconclusive($"{nse.Message} not supported");
 ‼354:         }
-✔355:         catch (DivideByZeroException)
+‼355:         catch (DivideByZeroException)
 〰356:         {
-⚠357:             if (x++ > 2)
+‼357:             if (x++ > 2)
 〰358:             {
 ‼359:                 throw;
 〰360:             }
-✔361:             goto tryAgain;
+‼361:             goto tryAgain;
 〰362:         }
 ✔363:     }
 〰364: }

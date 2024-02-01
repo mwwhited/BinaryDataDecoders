@@ -40,7 +40,7 @@
 
 ## Files
 
-## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8fd359b8b3f932c5cfbd8436ce7fb9059d985101/src/BinaryDataDecoders.Text.Json/obj/Release/net8.0/JsonPathBaseVisitor.cs
+## File - https://raw.githubusercontent.com/mwwhited/BinaryDataDecoders/8f631c73b86dfbff461b431d62cf8c3119f222f7/src/BinaryDataDecoders.Text.Json/obj/Release/net8.0/JsonPathBaseVisitor.cs
 
 ```CSharp
 ```

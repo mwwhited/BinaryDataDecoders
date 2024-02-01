@@ -5,7 +5,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.12.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -21,7 +21,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.12.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -37,7 +37,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.12.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
@@ -53,7 +53,7 @@
 ### Targets
 
 * BinaryDataDecoders.ToolKit::MemoryEx::Split
-  * BinaryDataDecoders.ToolKit, Version=0.4.11.0, Culture=neutral, PublicKeyToken=null
+  * BinaryDataDecoders.ToolKit, Version=0.4.12.0, Culture=neutral, PublicKeyToken=null
 
 ### Categories
 
