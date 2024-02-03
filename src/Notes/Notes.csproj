@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!--https://github.com/microsoft/MSBuildSdks/blob/main/src/NoTargets/README.md-->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>false</IsTestProject>
+  </PropertyGroup>
+
+  <Target Name="GetDocumentation">
+    <Message Text="Do not include" Importance="high" />
+  </Target>
+
+  <ItemGroup>
+    <None Include="$(SolutionDir)..\docs\**\*.*">
+      <Link>\docs\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </None>
+    <None Include="$(SolutionDir)..\Scripts\**\*.*">
+      <Link>\Scripts\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </None>
+    <None Include="$(SolutionDir)..\.config\**\*.*">
+      <Link>\.config\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </None>
+    <None Include="$(SolutionDir)..\.github\**\*.*">
+      <Link>\.github\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </None>
+    <None Include="$(SolutionDir).\*.*">
+      <Link>\solution\%(FileName)%(Extension)</Link>
+    </None>
+    <None Remove="$(SolutionDir).\*.sln" />
+    <None Remove="$(SolutionDir).\*.*proj" />
+    <None Include="$(SolutionDir)..\*.*">
+      <Link>\%(FileName)%(Extension)</Link>
+    </None>
+    <None Remove="$(SolutionDir)..\*.sln" />
+    <None Remove="$(SolutionDir)..\*.*proj" />
+
+    <None Include="$(SolutionDir)TestResults\**\*.*">
+      <Link>\TestResults\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </None>
+    <None Include="$(SolutionDir)publish\**\*.*">
+      <Link>\publish\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </None>
+  </ItemGroup>
+
+</Project>

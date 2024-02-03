@@ -1,82 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- 
-https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019
-https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-analysis?view=vs-2019
-https://github.com/ObjectivityLtd/Ocaramba/wiki/MsTest-.runsettings-.testsettings#:~:text=MsTest%20unit%20tests%20in%20Visual%20Studio%20can%20be,project%20during%20installation%20of%20each%20Ocaramba.MsTest%20nuget%20package.
-https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2015&redirectedfrom=MSDN
-https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-analysis?view=vs-2017#sample-runsettings-file
-https://github.com/coverlet-coverage/coverlet/blob/fc7ec26dcaed8fedba880ff13c6f1de8af78d546/Documentation/KnownIssues.md
--->
+
 <RunSettings>
-	<!-- Configurations that affect the Test Framework -->
-	<RunConfiguration>
-		<MaxCpuCount>10</MaxCpuCount>
-    <TestSessionTimeout>600000</TestSessionTimeout>
-	</RunConfiguration>
+  <!--https://learn.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2022-->
+  <RunConfiguration>
+    <MaxCpuCount>10</MaxCpuCount>
+    <ResultsDirectory>.\TestResults\</ResultsDirectory>
+    <!--<TestCaseFilter>(TestCategory=Unit) | (TestCategory=Simulate)</TestCaseFilter>-->
+  </RunConfiguration>
 
-	<!--Configurations for data collectors-->
-	<DataCollectionRunSettings>
-		<DataCollectors>
+  <!--Configurations for data collectors-->
+  <DataCollectionRunSettings>
+    <DataCollectors>
 
-			<DataCollector friendlyName="XPlat code coverage">
-				<Configuration>
-					<!--CompilerGeneratedAttribute,Obsolete,GeneratedCodeAttribute,-->
-					<ExcludeByAttribute>ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
-					<!--,[BinaryDataDecoders.*.Abstractions?]*,[BinaryDataDecoders.*.Tests?]*-->
-					<Exclude>[coverlet.*.tests?]*,[*]Coverlet.Core*</Exclude>
-					<!--<ExcludeByFile>**/*Registrar.cs,**/ServiceCollectionEx.cs,</ExcludeByFile>-->
-				
-					<!--<Format>cobertura</Format>-->
-					
-					<SingleHit>false</SingleHit>
-					<UseSourceLink>true</UseSourceLink>
-					<IncludeTestAssembly>true</IncludeTestAssembly>
-					<SkipAutoProps>true</SkipAutoProps>
-				
-				</Configuration>
-			</DataCollector>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <!--Obsolete,GeneratedCodeAttribute,-->
+          <!--https://github.com/coverlet-coverage/coverlet/blob/master/src/coverlet.collector/DataCollection/CoverletSettings.cs-->
+          <ExcludeByAttribute>ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
 
-		</DataCollectors>
-	</DataCollectionRunSettings>
-	
-	<InProcDataCollectionRunSettings>
-		<InProcDataCollectors>
-			<InProcDataCollector assemblyQualifiedName="Coverlet.Collector.DataCollection.CoverletInProcDataCollector, coverlet.collector, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null"
-						   friendlyName="XPlat Code Coverage"
-						   enabled="True"
-						   codebase="coverlet.collector.dll" />
-		</InProcDataCollectors>
-	</InProcDataCollectionRunSettings>
-	
-	<LoggerRunSettings>
-		<!--
-		https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019#loggerrunsettings-element
+          <Exclude>[coverlet.*.tests?]*,[*]Coverlet.Core*,[*.Abstractions?]*</Exclude>
+
+          <Format>cobertura,opencover</Format>
+
+          <SingleHit>false</SingleHit>
+          <UseSourceLink>false</UseSourceLink>
+          <IncludeTestAssembly>false</IncludeTestAssembly>
+          <SkipAutoProps>true</SkipAutoProps>
+
+          <ExcludeAssembliesWithoutSources>true</ExcludeAssembliesWithoutSources>
+
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+
+  <InProcDataCollectionRunSettings>
+    <InProcDataCollectors>
+      <InProcDataCollector assemblyQualifiedName="Coverlet.Collector.DataCollection.CoverletInProcDataCollector, coverlet.collector"
+         friendlyName="XPlat Code Coverage"
+         enabled="True"
+         codebase="coverlet.collector.dll" />
+    </InProcDataCollectors>
+  </InProcDataCollectionRunSettings>
+
+  <LoggerRunSettings>
+    <Loggers>
+      <Logger friendlyName="console" enabled="True">
+        <Configuration>
+          <Verbosity>normal</Verbosity>
+        </Configuration>
+      </Logger>
+      <Logger friendlyName="trx" enabled="True">
+        <Configuration>
+          <!-- vvv comment the following line for time stamped results vvv -->
+          <!--<LogFileName>LatestTestResults.trx</LogFileName>-->
+          <!-- ^^^ comment the above line for time stamped results ^^^ -->
+        </Configuration>
+      </Logger>
+    </Loggers>
+  </LoggerRunSettings>
+
+  <!-- MSTest adapter -->
+  <MSTest>
+    <MapInconclusiveToFailed>false</MapInconclusiveToFailed>
+    <CaptureTraceOutput>true</CaptureTraceOutput>
+    <DeleteDeploymentDirectoryAfterTestRunIsComplete>false</DeleteDeploymentDirectoryAfterTestRunIsComplete>
+    <DeploymentEnabled>true</DeploymentEnabled>
+    <DeployTestSourceDependencies>true</DeployTestSourceDependencies>
+
+    <!--
+		<Parallelize>
+			<Workers>8</Workers>
+			<Scope>MethodLevel</Scope>
+		</Parallelize>
 		-->
-		<Loggers>
-			<Logger friendlyName="console" enabled="True">
-				<Configuration>
-					<Verbosity>normal</Verbosity>
-				</Configuration>
-			</Logger>
-			<Logger friendlyName="trx" enabled="True">
-			</Logger>
-			
-			<!--<Logger friendlyName="html" enabled="True">
-				<Configuration>
-					<LogFileName>TestResult.html</LogFileName>
-				</Configuration>
-			</Logger>-->
-			
-		</Loggers>
-	</LoggerRunSettings>
 
-	<!-- MSTest adapter -->
-	<MSTest>
-		<MapInconclusiveToFailed>false</MapInconclusiveToFailed>
-		<CaptureTraceOutput>true</CaptureTraceOutput>
-		<DeleteDeploymentDirectoryAfterTestRunIsComplete>false</DeleteDeploymentDirectoryAfterTestRunIsComplete>
-		<DeploymentEnabled>true</DeploymentEnabled>
-		<DeployTestSourceDependencies>true</DeployTestSourceDependencies>
-	</MSTest>
+  </MSTest>
 
 </RunSettings>

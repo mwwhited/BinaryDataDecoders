@@ -1,50 +1,103 @@
 <Project>
+
+  <PropertyGroup Condition="'$(SolutionDir)' == ''">
+    <!-- Resolve solution dir if not set -->
+    <SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('./', '*.sln').get_Length()) != 0">./</SolutionDir>
+    <SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../', '*.sln').get_Length()) != 0">../</SolutionDir>
+    <SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../', '*.sln').get_Length()) != 0">../../</SolutionDir>
+    <SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../', '*.sln').get_Length()) != 0">../../../</SolutionDir>
+    <SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../', '*.sln').get_Length()) != 0">../../../../</SolutionDir>
+    <SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../../', '*.sln').get_Length()) != 0">../../../../../</SolutionDir>
+    <SolutionDir Condition="'$(SolutionDir)' != ''">$([System.IO.Path]::GetFullPath('$(SolutionDir)'))</SolutionDir>
+  </PropertyGroup>
+
   <PropertyGroup>
-    <!--
-    <TargetFramework>net8.0</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    -->
-    <Copyright>Out-of-Band Development, LLC 2024</Copyright>
     <Company>Out-of-Band Development, LLC</Company>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Authors>$(USERNAME)@$(USERDNSDOMAIN)</Authors>
+    <Copyright>$(Company), $([System.DateTime]::Now.ToString('yyyy'))</Copyright>
+
+    <TestResultsOutFolderPath>$(SolutionDir)TestResults\</TestResultsOutFolderPath>
+    <VSTestResultsDirectory>$(SolutionDir)TestResults\</VSTestResultsDirectory>
+    <RunSettingsFilePath>$(SolutionDir).runsettings</RunSettingsFilePath>
+        
     <RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Authors>Matthew Whited</Authors>
     
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
   </PropertyGroup>
 
+  <PropertyGroup Condition="Exists('$(SolutionDir)..\LICENSE')">
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+  <ItemGroup Condition="Exists('$(SolutionDir)..\LICENSE')">
+    <LicenseFile Include="$(SolutionDir)..\LICENSE" />
+    <None Include="@(LicenseFile)" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(LOCAL_NUGET)' != ''">
+    <PackageOutputPath>$(LOCAL_NUGET.Trim('\'))\</PackageOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(LOCAL_NUGET)' == ''">
+    <PackageOutputPath>$(SolutionDir)publish\packages</PackageOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DOCUMENT_PATH)' != ''">
+    <DocumentPath>$(DOCUMENT_PATH.Trim('\'))\</DocumentPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DOCUMENT_PATH)' == ''">
+    <DocumentPath>$(SolutionDir)..\docs\</DocumentPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(CodeDocumentPath)' == ''">
+    <CodeDocumentPath>$(DocumentPath)code\</CodeDocumentPath>
+  </PropertyGroup>
+
+  <Target Name="Details">
+    <Message Text="===== SolutionDir:              $(SolutionDir)"  Importance="high"/>
+    <Message Text="===== TestResultsOutFolderPath: $(TestResultsOutFolderPath)"  Importance="high"/>
+    <Message Text="===== DocumentPath:             $(DocumentPath)"  Importance="high"/>
+    <Message Text="===== CodeDocumentPath:         $(CodeDocumentPath)"  Importance="high"/>
+    <Message Text="===== LicenseFile:              @(LicenseFile)"  Importance="high"/>
+    <Message Text="===== PackageOutputPath:        $(PackageOutputPath)"  Importance="high"/>
+    <Message Text="===== PackageLicenseFile:       $(PackageLicenseFile)"  Importance="high"/>
+  </Target>
+
   <ItemGroup>
+    <!-- GitVersion will automatically calculate and maintain the version of projects within your solution -->
     <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
-  <!--
-  this is only needed for profiling so dont worry about it for now... but it seems to have an issue with fsharp
-    https://github.com/dotnet/fsharp/issues/7363
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-  -->
-
   <ItemGroup>
-    <EmbeddedResource Include="**\*.txt" />
-    <EmbeddedResource Include="**\*.json" />
-    <EmbeddedResource Include="**\*.html" />
-    <EmbeddedResource Include="**\*.htm" />
-    <EmbeddedResource Include="**\*.csv" />
-    <EmbeddedResource Include="**\*.sql" />
-    <EmbeddedResource Include="**\*.yml" />
-    <EmbeddedResource Include="**\*.xslt" />
-    <EmbeddedResource Include="**\*.jpg" />
-    <EmbeddedResource Include="**\*.png" />
+    <!-- This added additional documentation to your build output -->
+    <CodeDocumentation Include="**\*.md" />
+    <CodeDocumentation Include="**\*.plantuml" />
+    <CodeDocumentation Include="**\*.puml" />
+    <CodeDocumentation Remove="bin\**\*.*" />
+    <CodeDocumentation Remove="obj\**\*.*" />
+    <CodeDocumentation Remove="TestResults\**\*.*" />
 
-    <EmbeddedResource Remove="obj\**\*.*" />
-    <EmbeddedResource Remove="bin\**\*.*" />
+    <!-- these items will be automatically included as embedded resources in your assembly. -->
+    <Examples Include="**\*.txt" />
+    <Examples Include="**\*.json" />
+    <Examples Include="**\*.html" />
+    <Examples Include="**\*.csv" />
+    <Examples Include="**\*.sql" />
+    <Examples Include="**\*.xml" />
+    <Examples Remove="bin\**\*.*" />
+    <Examples Remove="obj\**\*.*" />
+    <Examples Remove="TestResults\**\*.*" />
+
+    <Content Include="@(CodeDocumentation)" Pack="true" PackagePath="\docs" />
+    <EmbeddedResource Include="@(Examples)" Pack="true" PackagePath="\examples"  />
   </ItemGroup>
-  
+
+  <ItemGroup Condition="'$(PackageReadmeFile)'!='' and Exists('$(PackageReadmeFile)')">
+    <None Remove="$(PackageReadmeFile)" />
+    <None Include="$(PackageReadmeFile)" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
 </Project>

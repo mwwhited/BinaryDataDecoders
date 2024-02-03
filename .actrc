@@ -1,3 +1,0 @@
-# sample .actrc file
-# https://github.com/nektos/act#use-an-alternative-runner-image
--P ubuntu-latest=nektos/act-environments-ubuntu:18.04
