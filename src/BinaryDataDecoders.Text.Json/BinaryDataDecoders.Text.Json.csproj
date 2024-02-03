@@ -4,9 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-
-    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+		
 	</PropertyGroup>
 
 	<ItemGroup>

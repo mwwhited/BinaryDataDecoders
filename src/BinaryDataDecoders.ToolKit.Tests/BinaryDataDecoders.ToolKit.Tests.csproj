@@ -5,8 +5,8 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<IsPackable>false</IsPackable>
+		
+		<IsTestProject>true</IsTestProject>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

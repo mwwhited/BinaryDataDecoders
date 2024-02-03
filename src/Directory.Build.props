@@ -2,7 +2,7 @@
   <PropertyGroup>
     <!--
     <TargetFramework>net8.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
     -->
     <Copyright>Out-of-Band Development, LLC 2024</Copyright>
     <Company>Out-of-Band Development, LLC</Company>
@@ -13,14 +13,16 @@
     
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
+    <VersionSource>$(SolutionDir)version.txt</VersionSource>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
+  </ItemGroup>-->
 
   <!--
   this is only needed for profiling so dont worry about it for now... but it seems to have an issue with fsharp
@@ -46,5 +48,12 @@
     <EmbeddedResource Remove="obj\**\*.*" />
     <EmbeddedResource Remove="bin\**\*.*" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuildVersion\BuildVersion.csproj">
+      <PrivateAssets>All</PrivateAssets>
+    </ProjectReference>
+  </ItemGroup>
+
   
 </Project>

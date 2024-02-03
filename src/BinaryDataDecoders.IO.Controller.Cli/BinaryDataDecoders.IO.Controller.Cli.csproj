@@ -4,8 +4,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <IsPackable>false</IsPackable>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IsTestProject>true</IsTestProject>
+    
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>bdd-io-ctrl</ToolCommandName>
     <Nullable>enable</Nullable>

@@ -7,8 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>false</ImplicitUsings>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <IsPackable>false</IsPackable>
+    
+    <IsSampleProject>true</IsSampleProject>
   </PropertyGroup>
 
   <ItemGroup>

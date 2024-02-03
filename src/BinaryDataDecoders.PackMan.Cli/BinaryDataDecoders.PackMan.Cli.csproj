@@ -5,7 +5,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <IsPackable>true</IsPackable>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>bdd-packman</ToolCommandName>
     <Nullable>enable</Nullable>

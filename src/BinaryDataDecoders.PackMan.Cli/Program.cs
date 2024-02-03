@@ -18,7 +18,8 @@ internal class Program
 {
     static async Task Main(string[] args)
     {
-
+await Task.FromResult(0);
+/*
 
         var services = new ServiceCollection()
             .AddApplicationServices(args)
@@ -175,5 +176,6 @@ internal class Program
             Console.Error.WriteLine(ex.Message);
             Environment.Exit(1);
         }
+*/
     }
 }

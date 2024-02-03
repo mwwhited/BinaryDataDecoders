@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
-		<Nullable>enable</Nullable>
-		<GenerateDocumentationFile>false</GenerateDocumentationFile>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
 
-	<PropertyGroup>
-		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-	</PropertyGroup>
-  
-	<ItemGroup>
-	  <ProjectReference Include="..\BinaryDataDecoders.ToolKit.Abstractions\BinaryDataDecoders.ToolKit.Abstractions.csproj" />
-	</ItemGroup>
+  </PropertyGroup>
 
+  <PropertyGroup>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryDataDecoders.ToolKit.Abstractions\BinaryDataDecoders.ToolKit.Abstractions.csproj" />
+  </ItemGroup>
 
 </Project>

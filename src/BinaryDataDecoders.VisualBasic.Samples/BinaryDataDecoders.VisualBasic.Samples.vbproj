@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<IsPackable>false</IsPackable>
-	</PropertyGroup>
+		
+    <IsSampleProject>true</IsSampleProject>
+  </PropertyGroup>
 
 </Project>
