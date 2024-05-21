@@ -1,13 +1,12 @@
 <Project>
-	<PropertyGroup Condition="'$(SolutionDir)' == ''">
-		<!-- Resolve solution dir if not set -->
+	<!--<PropertyGroup Condition="'$(SolutionDir)' == ''">
 		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../', '*.sln').get_Length()) != 0">../</SolutionDir>
 		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../', '*.sln').get_Length()) != 0">../../</SolutionDir>
 		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../', '*.sln').get_Length()) != 0">../../../</SolutionDir>
 		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../', '*.sln').get_Length()) != 0">../../../../</SolutionDir>
 		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../../', '*.sln').get_Length()) != 0">../../../../../</SolutionDir>
 		<SolutionDir Condition="'$(SolutionDir)' != ''">$([System.IO.Path]::GetFullPath('$(SolutionDir)'))</SolutionDir>
-	</PropertyGroup>
+	</PropertyGroup>-->
 
 	<PropertyGroup>
 		<Company>Out-of-Band Development, LLC</Company>

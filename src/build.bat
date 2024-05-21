@@ -32,7 +32,7 @@ REM SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Profes
 
 echo "========= Configurations ========="
 ECHO Configuration=     "%Configuration%"
-Echo Directory=         "%~dp0""
+Echo Directory=         "%~dp0"
 ECHO SANDBOX_PATH=      "%SANDBOX_PATH%"
 ECHO BUILD_PATH=        "%BUILD_PATH%"
 ECHO BUILD_PROJECT=     "%BUILD_PROJECT%"
