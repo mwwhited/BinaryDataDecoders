@@ -1,11 +1,4 @@
 <Project>
-  <ItemGroup>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath/>
-    </None>
-  </ItemGroup>
-
 	<!--https://docs.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-properties?view=vs-2019-->
 
 	<PropertyGroup Condition="'$(IsPreRelease)'=='true' and '$(PreReleaseOnly)'=='true'">

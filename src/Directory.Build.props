@@ -1,32 +1,33 @@
 <Project>
+	<PropertyGroup Condition="'$(SolutionDir)' == ''">
+		<!-- Resolve solution dir if not set -->
+		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../', '*.sln').get_Length()) != 0">../</SolutionDir>
+		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../', '*.sln').get_Length()) != 0">../../</SolutionDir>
+		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../', '*.sln').get_Length()) != 0">../../../</SolutionDir>
+		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../', '*.sln').get_Length()) != 0">../../../../</SolutionDir>
+		<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../../', '*.sln').get_Length()) != 0">../../../../../</SolutionDir>
+		<SolutionDir Condition="'$(SolutionDir)' != ''">$([System.IO.Path]::GetFullPath('$(SolutionDir)'))</SolutionDir>
+	</PropertyGroup>
+
 	<PropertyGroup>
-
-		<PropertyGroup Condition="'$(SolutionDir)' == ''">
-			<!-- Resolve solution dir if not set -->
-			<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../', '*.sln').get_Length()) != 0">../</SolutionDir>
-			<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../', '*.sln').get_Length()) != 0">../../</SolutionDir>
-			<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../', '*.sln').get_Length()) != 0">../../../</SolutionDir>
-			<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../', '*.sln').get_Length()) != 0">../../../../</SolutionDir>
-			<SolutionDir Condition="'$(SolutionDir)' == '' and $([System.IO.Directory]::GetFiles('../../../../../', '*.sln').get_Length()) != 0">../../../../../</SolutionDir>
-			<SolutionDir Condition="'$(SolutionDir)' != ''">$([System.IO.Path]::GetFullPath('$(SolutionDir)'))</SolutionDir>
-		</PropertyGroup>
-
 		<Company>Out-of-Band Development, LLC</Company>
 		<Copyright>$(Company), $([System.DateTime]::Now.ToString('yyyy'))</Copyright>
-		
+
 		<RepositoryUrl>https://github.com/mwwhited/BinaryDataDecoders/</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
 		<Authors>Matthew Whited</Authors>
 
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+		
+		<ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 	</PropertyGroup>
-	
-	<PropertyGroup Condition="Exists('$(SolutionDir)LICENSE')">
+
+	<PropertyGroup Condition="Exists('$(SolutionDir)..\LICENSE')">
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	</PropertyGroup>
-	<ItemGroup Condition="Exists('$(SolutionDir)LICENSE')">
-		<LicenseFile Include="$(SolutionDir)LICENSE" />
+	<ItemGroup Condition="Exists('$(SolutionDir)..\LICENSE')">
+		<LicenseFile Include="$(SolutionDir)..\LICENSE" />
 		<None Include="@(LicenseFile)" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
@@ -91,5 +92,5 @@
 		<None Remove="$(PackageReadmeFile)" />
 		<None Include="$(PackageReadmeFile)" Pack="true" PackagePath="\"/>
 	</ItemGroup>
-	
+
 </Project>
