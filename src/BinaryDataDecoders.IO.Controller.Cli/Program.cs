@@ -1,5 +1,4 @@
 ﻿using BinaryDataDecoders.Velleman.K8055;
-using BinaryDataDecoders.Zoom.H4n;
 using System;
 using System.ComponentModel;
 using System.Composition.Hosting;

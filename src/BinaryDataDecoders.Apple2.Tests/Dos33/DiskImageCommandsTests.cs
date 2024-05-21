@@ -4,7 +4,6 @@ using BinaryDataDecoders.ToolKit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.Apple2.Tests.Dos33;
 

@@ -1,13 +1,10 @@
 ﻿using BinaryDataDecoders.Drawing.Barcodes;
 using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace BinaryDataDecoders.Drawing.Tests.BarCodes;
 

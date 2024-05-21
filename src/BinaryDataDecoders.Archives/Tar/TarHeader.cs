@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BinaryDataDecoders.Archives.Tar;
+﻿namespace BinaryDataDecoders.Archives.Tar;
 
 public class TarHeader
 {

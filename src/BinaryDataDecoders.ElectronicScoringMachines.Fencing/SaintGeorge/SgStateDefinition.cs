@@ -1,7 +1,6 @@
 ﻿using BinaryDataDecoders.ElectronicScoringMachines.Fencing.Common;
 using BinaryDataDecoders.IO;
 using BinaryDataDecoders.IO.Messages;
-using BinaryDataDecoders.IO.Pipelines;
 using BinaryDataDecoders.IO.Ports;
 using BinaryDataDecoders.IO.Segmenters;
 using System.ComponentModel;

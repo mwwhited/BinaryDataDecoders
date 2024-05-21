@@ -1,5 +1,4 @@
 ﻿using BinaryDataDecoders.ToolKit.Xml.XPath;
-using System;
 using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;

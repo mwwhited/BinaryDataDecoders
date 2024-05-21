@@ -1,7 +1,6 @@
 ﻿using BinaryDataDecoders.TestUtilities;
 using BinaryDataDecoders.ToolKit.Xml.Xsl;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Diagnostics;
 using System.Reflection;
 

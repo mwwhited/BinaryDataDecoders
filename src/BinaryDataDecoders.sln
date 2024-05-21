@@ -47,19 +47,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.IO.Pipel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.TestUtilities", "BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj", "{9B125317-A5A9-4173-8F62-AF2E4837DF39}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{D330C7E6-F60B-4EB8-969A-9880EA6F2939}"
-	ProjectSection(SolutionItems) = preProject
-		.runsettings = .runsettings
-		BinaryDataDecoders.rptproj = BinaryDataDecoders.rptproj
-		BinaryDataDecoders.slnproj = BinaryDataDecoders.slnproj
-		build.bat = build.bat
-		build.sh = build.sh
-		Directory.Build.props = Directory.Build.props
-		Directory.Build.targets = Directory.Build.targets
-		Directory.Packages.props = Directory.Packages.props
-		global.json = global.json
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Apple2.Tests", "BinaryDataDecoders.Apple2.Tests\BinaryDataDecoders.Apple2.Tests.csproj", "{24C446C8-9468-4BE1-B4DA-E95039FC8915}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Archives.Tests", "BinaryDataDecoders.Archives.Tests\BinaryDataDecoders.Archives.Tests.csproj", "{CF87B846-A6DC-4E72-BCEB-6B594676757B}"
@@ -81,49 +68,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.CodeAnalysis.Tests", "BinaryDataDecoders.CodeAnalysis.Tests\BinaryDataDecoders.CodeAnalysis.Tests.csproj", "{01F9CF36-CCA5-4856-A7A7-468090E917CC}"
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "BinaryDataDecoders.VisualBasic.Samples", "BinaryDataDecoders.VisualBasic.Samples\BinaryDataDecoders.VisualBasic.Samples.vbproj", "{1B0A4D50-56AC-42C4-B45A-4EB1F05A2052}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{825B9B42-D068-4063-B995-1142ED94DC6B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "reports", "reports", "{D609EDE1-0BAD-4F9B-BBC7-32D5CBA485CD}"
-	ProjectSection(SolutionItems) = preProject
-		..\templates\reports\BuildLogToMarkdown.xslt = ..\templates\reports\BuildLogToMarkdown.xslt
-		..\templates\reports\CoverageToMarkdown.xslt = ..\templates\reports\CoverageToMarkdown.xslt
-		..\templates\reports\CSharpToMarkdown.xslt = ..\templates\reports\CSharpToMarkdown.xslt
-		..\templates\reports\DacPacToMarkdown.xslt = ..\templates\reports\DacPacToMarkdown.xslt
-		..\templates\reports\DisableXmlDocs.xslt = ..\templates\reports\DisableXmlDocs.xslt
-		..\templates\reports\MergedProjectsToMarkdown.xslt = ..\templates\reports\MergedProjectsToMarkdown.xslt
-		..\templates\reports\PathToMarkdown.xslt = ..\templates\reports\PathToMarkdown.xslt
-		..\templates\reports\TestResultsToMarkdown.xslt = ..\templates\reports\TestResultsToMarkdown.xslt
-		..\templates\reports\TestResultsToMarkdownDetailed.xslt = ..\templates\reports\TestResultsToMarkdownDetailed.xslt
-		..\templates\reports\ToXml.xslt = ..\templates\reports\ToXml.xslt
-		..\templates\reports\VbToMarkdown.xslt = ..\templates\reports\VbToMarkdown.xslt
-		..\templates\reports\XmlCommentsToMarkdown.xslt = ..\templates\reports\XmlCommentsToMarkdown.xslt
-		..\templates\reports\XmlCommentsToStructuredXml.xslt = ..\templates\reports\XmlCommentsToStructuredXml.xslt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{FE222999-4AF7-42C2-94E8-81347AE7114A}"
-	ProjectSection(SolutionItems) = preProject
-		..\.config\dotnet-tools.json = ..\.config\dotnet-tools.json
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F91910A6-92E0-42F8-AED2-A77A585BCD72}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{56263BB0-98DC-4471-81CC-1DD3B2D107D8}"
-	ProjectSection(SolutionItems) = preProject
-		..\.github\workflows\codeql-analysis.yml.disabled = ..\.github\workflows\codeql-analysis.yml.disabled
-		..\.github\workflows\dotnet-core.yml = ..\.github\workflows\dotnet-core.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "parent", "parent", "{E76B3AD8-5FB1-4998-A1B4-B9932D35933D}"
-	ProjectSection(SolutionItems) = preProject
-		..\.actrc = ..\.actrc
-		..\.editorconfig = ..\.editorconfig
-		..\.gitignore = ..\.gitignore
-		..\act_build.sh = ..\act_build.sh
-		..\GitVersion.yml = ..\GitVersion.yml
-		..\LICENSE = ..\LICENSE
-		..\README.md = ..\README.md
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Text.Json", "BinaryDataDecoders.Text.Json\BinaryDataDecoders.Text.Json.csproj", "{8BB7E1F4-1EA3-4399-833B-D2756D8D56E7}"
 EndProject
@@ -203,7 +147,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.WinForms
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Windows.Forms", "BinaryDataDecoders.Windows.Forms\BinaryDataDecoders.Windows.Forms.csproj", "{EF366977-9415-44EB-B627-101ECB18D4F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDataDecoders.PackMan.Cli", "BinaryDataDecoders.PackMan.Cli\BinaryDataDecoders.PackMan.Cli.csproj", "{5042C38D-17AE-4019-8214-1341F3D2C317}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.PackMan.Cli", "BinaryDataDecoders.PackMan.Cli\BinaryDataDecoders.PackMan.Cli.csproj", "{5042C38D-17AE-4019-8214-1341F3D2C317}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryDataDecoders.Notes", "BinaryDataDecoders.Notes\BinaryDataDecoders.Notes.csproj", "{3C410A4B-FDCB-4EA7-AE0D-283C7AD3713D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -477,6 +423,10 @@ Global
 		{5042C38D-17AE-4019-8214-1341F3D2C317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5042C38D-17AE-4019-8214-1341F3D2C317}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5042C38D-17AE-4019-8214-1341F3D2C317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C410A4B-FDCB-4EA7-AE0D-283C7AD3713D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C410A4B-FDCB-4EA7-AE0D-283C7AD3713D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C410A4B-FDCB-4EA7-AE0D-283C7AD3713D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C410A4B-FDCB-4EA7-AE0D-283C7AD3713D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -502,12 +452,6 @@ Global
 		{7AEDE655-81FF-47D0-A060-74FF2D0C48B8} = {AC5E5651-320D-453D-BA47-11C58543C425}
 		{01F9CF36-CCA5-4856-A7A7-468090E917CC} = {AC5E5651-320D-453D-BA47-11C58543C425}
 		{1B0A4D50-56AC-42C4-B45A-4EB1F05A2052} = {2A3D7512-2575-4D02-B4DF-E37742A42E8B}
-		{825B9B42-D068-4063-B995-1142ED94DC6B} = {E76B3AD8-5FB1-4998-A1B4-B9932D35933D}
-		{D609EDE1-0BAD-4F9B-BBC7-32D5CBA485CD} = {825B9B42-D068-4063-B995-1142ED94DC6B}
-		{FE222999-4AF7-42C2-94E8-81347AE7114A} = {E76B3AD8-5FB1-4998-A1B4-B9932D35933D}
-		{F91910A6-92E0-42F8-AED2-A77A585BCD72} = {E76B3AD8-5FB1-4998-A1B4-B9932D35933D}
-		{56263BB0-98DC-4471-81CC-1DD3B2D107D8} = {F91910A6-92E0-42F8-AED2-A77A585BCD72}
-		{E76B3AD8-5FB1-4998-A1B4-B9932D35933D} = {D330C7E6-F60B-4EB8-969A-9880EA6F2939}
 		{8BB7E1F4-1EA3-4399-833B-D2756D8D56E7} = {804457D3-DD93-4330-A2BA-C5EDF7FF8053}
 		{9D2C467B-D8D8-4828-B4B5-742168B77654} = {804457D3-DD93-4330-A2BA-C5EDF7FF8053}
 		{2E3E89A0-B051-4838-BD33-3B1F1FC3C7EE} = {804457D3-DD93-4330-A2BA-C5EDF7FF8053}

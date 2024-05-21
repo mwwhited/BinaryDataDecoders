@@ -1,6 +1,5 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
-using System.Net.Http.Headers;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Optimizers;
 
