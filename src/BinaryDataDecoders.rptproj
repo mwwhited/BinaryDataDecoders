@@ -15,7 +15,7 @@
     <BddXslBinPath31>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\netcoreapp3.1\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath31>
     <BddXslBinPath6>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net6.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath6>
     -->
-		<BddXslBinPath7>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net7.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath7>
+		<BddXslBinPath7>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net8.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath7>
 		<BddXslBinPathBin>$([System.IO.Path]::GetFullPath('$(PublishedBinaries)/BinaryDataDecoders.Xslt.Cli.dll'))</BddXslBinPathBin>
 
 		<!--
