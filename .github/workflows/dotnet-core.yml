@@ -73,8 +73,10 @@ jobs:
       
     - name: Build Coverage Report
       run: dotnet reportgenerator "-reports:$TEST_RESULTS_PATH/**/coverage.cobertura.xml" "-targetDir:$RESULTS_PATH/Coverage" "-reportTypes:Xml" "-title:$BUILD_PROJECT - $buildVersion"
-    - name: Build Reports
-      run: dotnet build "$REPORT_PROJECT" -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src --verbosity normal
+  
+    #TODO: this step is broken
+    # - name: Build Reports
+    #   run: dotnet build "$REPORT_PROJECT" -p:PublishedBinaries=$RESULTS_PATH/Binary -p:SolutionDir=src --verbosity normal
       
     ## If not master just attach the docs as an artifact
     - name: Publish Documents
