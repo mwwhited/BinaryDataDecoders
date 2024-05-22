@@ -1,14 +1,7 @@
 ﻿using BinaryDataDecoders.TestUtilities;
-using BinaryDataDecoders.ToolKit.Xml.Xsl;
 using BinaryDataDecoders.ToolKit.Xml.Xsl.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;

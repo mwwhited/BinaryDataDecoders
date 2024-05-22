@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BinaryDataDecoders.Rigol;
+﻿namespace BinaryDataDecoders.Rigol;
 
 
 //[SerialPort(9600)]

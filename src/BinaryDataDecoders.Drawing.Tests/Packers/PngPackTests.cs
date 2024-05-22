@@ -2,10 +2,6 @@
 using BinaryDataDecoders.ToolKit;
 using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
 using System.IO;
 
 namespace BinaryDataDecoders.Drawing.Tests.Packers;

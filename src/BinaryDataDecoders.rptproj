@@ -1,30 +1,34 @@
 <Project Sdk="Microsoft.Build.NoTargets">
 
-  <PropertyGroup>
-    <TargetFrameworks>net7.0</TargetFrameworks>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
 
-    <BaseDirectory Condition="'$(SolutionDir)'==''">.</BaseDirectory>
-    <BaseDirectory Condition="'$(SolutionDir)'!=''">$(SolutionDir)</BaseDirectory>
-    <BaseDirectory>$([System.IO.Path]::GetFullPath('$(BaseDirectory)'))</BaseDirectory>
+		<BaseDirectory Condition="'$(SolutionDir)'==''">./</BaseDirectory>
+		<BaseDirectory Condition="'$(SolutionDir)'!=''">$(SolutionDir)</BaseDirectory>
+		<BaseDirectory>$([System.IO.Path]::GetFullPath('$(BaseDirectory)'))</BaseDirectory>
 
-    <!--
+		<PublishedBinaries Condition="'$(PublishedBinaries).Trim()'!=''">$([System.IO.Path]::GetFullPath('$(SolutionDir)Publish/Results/Binary'))</PublishedBinaries>
+
+		<!--C:\Repos\github\BinaryDataDecoders\Publish\Results\Binary-->
+
+		<!--
     <BddXslBinPath31>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\netcoreapp3.1\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath31>
     <BddXslBinPath6>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net6.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath6>
     -->
-    <BddXslBinPath7>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net7.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath7>
-    <BddXslBinPathBin>$([System.IO.Path]::GetFullPath('$(PublishedBinaries)/BinaryDataDecoders.Xslt.Cli.dll'))</BddXslBinPathBin>
-    
-    <!--
+		<BddXslBinPath7>$(BaseDirectory)\BinaryDataDecoders.Xslt.Cli\bin\$(Configuration)\net8.0\BinaryDataDecoders.Xslt.Cli.dll</BddXslBinPath7>
+		<BddXslBinPathBin>$([System.IO.Path]::GetFullPath('$(PublishedBinaries)/BinaryDataDecoders.Xslt.Cli.dll'))</BddXslBinPathBin>
+
+		<!--
     <BddXslBinPath Condition="Exists($(BddXslBinPath31))">$(BddXslBinPath31)</BddXslBinPath>
     <BddXslBinPath Condition="Exists($(BddXslBinPath6))">$(BddXslBinPath6)</BddXslBinPath>
     -->
-    <BddXslBinPath Condition="Exists($(BddXslBinPath7))">$(BddXslBinPath7)</BddXslBinPath>
-    <BddXslBinPath Condition="Exists($(BddXslBinPathBin))">$(BddXslBinPathBin)</BddXslBinPath>
-    
-    <BddXslt Condition="'$(BddXslBinPath)'!=''">dotnet &quot;$(BddXslBinPath)&quot;</BddXslt>
+		<BddXslBinPath Condition="Exists($(BddXslBinPath7))">$(BddXslBinPath7)</BddXslBinPath>
+		<BddXslBinPath Condition="Exists($(BddXslBinPathBin))">$(BddXslBinPathBin)</BddXslBinPath>
 
-  </PropertyGroup>
- <!--
+		<BddXslt Condition="'$(BddXslBinPath).Trim()'!=''">dotnet &quot;$(BddXslBinPath)&quot;</BddXslt>
+
+	</PropertyGroup>
+	<!--
   <PropertyGroup>
     <IncludeBuildOutput>false</IncludeBuildOutput>
    <_DebugSymbolsProduced>false</_DebugSymbolsProduced>
@@ -35,87 +39,86 @@
     <_CopyResolvedFilesToPublishPreserveNewest>false</_CopyResolvedFilesToPublishPreserveNewest>
   </PropertyGroup>
  -->
- 
-  <PropertyGroup>
-    <SANDBOX_PATH>$(BaseDirectory)\..</SANDBOX_PATH>
-    <BUILD_PATH>$(BaseDirectory)</BUILD_PATH>
-    <OUTPUT_PATH>$(BaseDirectory)\..\Publish</OUTPUT_PATH>
-    <TEST_RESULTS_PATH>$(OUTPUT_PATH)\TestResults</TEST_RESULTS_PATH>
-    <DOCS_PATH>$(OUTPUT_PATH)\docs</DOCS_PATH>
-    <RESULTS_PATH>$(OUTPUT_PATH)\Results</RESULTS_PATH>
-    <TEMPLATES_PATH>$(SANDBOX_PATH)\templates\reports</TEMPLATES_PATH>
-    <WIKI_PATH>$(SANDBOX_PATH)\docs</WIKI_PATH>
 
-    <BUILD_LOG>$(OUTPUT_PATH)\dotnet_build.binlog</BUILD_LOG>
-    <TEST_LOG>$(TEST_RESULTS_PATH)\dotnet_test.trx</TEST_LOG>
+	<PropertyGroup>
+		<SANDBOX_PATH>$([System.IO.Path]::GetFullPath('$(BaseDirectory).'))</SANDBOX_PATH>
+		<BUILD_PATH>$([System.IO.Path]::GetFullPath('$(BaseDirectory)'))</BUILD_PATH>
+		<OUTPUT_PATH>$([System.IO.Path]::GetFullPath('$(BaseDirectory)Publish'))</OUTPUT_PATH>
+		<TEST_RESULTS_PATH>$([System.IO.Path]::GetFullPath('$(OUTPUT_PATH)/TestResults'))</TEST_RESULTS_PATH>
+		<DOCS_PATH>$([System.IO.Path]::GetFullPath('$(OUTPUT_PATH)/docs'))</DOCS_PATH>
+		<RESULTS_PATH>$([System.IO.Path]::GetFullPath('$(OUTPUT_PATH)/Results'))</RESULTS_PATH>
+		<TEMPLATES_PATH>$([System.IO.Path]::GetFullPath('$(SANDBOX_PATH)/templates/reports'))</TEMPLATES_PATH>
+		<WIKI_PATH>$([System.IO.Path]::GetFullPath('$(SANDBOX_PATH)/docs'))</WIKI_PATH>
 
-  </PropertyGroup>
+		<BUILD_LOG>$([System.IO.Path]::GetFullPath('$(OUTPUT_PATH)/dotnet_build.binlog'))</BUILD_LOG>
+		<TEST_LOG>$([System.IO.Path]::GetFullPath('$(TEST_RESULTS_PATH)/dotnet_test.trx'))</TEST_LOG>
 
-  <Target Name="CleanReports" AfterTargets="Clean">
-    <Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
-    <Message Text="BUILD_PATH: $(BUILD_PATH)" />
-    <Message Text="OUTPUT_PATH: $(OUTPUT_PATH)" />
-    <Message Text="TEST_RESULTS_PATH: $(TEST_RESULTS_PATH)" />
-    <Message Text="DOCS_PATH: $(DOCS_PATH)" />
-    <Message Text="RESULTS_PATH: $(RESULTS_PATH)" />
-    <Message Text="TEMPLATES_PATH: $(TEMPLATES_PATH)" />
-    <Message Text="WIKI_PATH: $(WIKI_PATH)" />
-    <Message Text="BUILD_LOG: $(BUILD_LOG)" />
-    <Message Text="TEST_LOG: $(TEST_LOG)" />
-    <Message Text="BddXslt: $(BddXslt)" />
+	</PropertyGroup>
 
-    <Message Text="Clean Up  Reports: &quot;$(DOCS_PATH)&quot;" />
-    <RemoveDir Directories="$(DOCS_PATH)" />
-    <!--<Exec Command="rmdir /s/q &quot;$(DOCS_PATH)&quot;" />-->
-  </Target>
+	<Target Name="CleanReports" AfterTargets="Clean">
+		<Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
+		<Message Text="BUILD_PATH: $(BUILD_PATH)" />
+		<Message Text="OUTPUT_PATH: $(OUTPUT_PATH)" />
+		<Message Text="TEST_RESULTS_PATH: $(TEST_RESULTS_PATH)" />
+		<Message Text="DOCS_PATH: $(DOCS_PATH)" />
+		<Message Text="RESULTS_PATH: $(RESULTS_PATH)" />
+		<Message Text="TEMPLATES_PATH: $(TEMPLATES_PATH)" />
+		<Message Text="WIKI_PATH: $(WIKI_PATH)" />
+		<Message Text="BUILD_LOG: $(BUILD_LOG)" />
+		<Message Text="TEST_LOG: $(TEST_LOG)" />
+		<Message Text="BddXslt: $(BddXslt)" />
 
-  <Target Name="GenerateReports" AfterTargets="Build">
-    <Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
-    <Message Text="BUILD_PATH: $(BUILD_PATH)" />
-    <Message Text="OUTPUT_PATH: $(OUTPUT_PATH)" />
-    <Message Text="TEST_RESULTS_PATH: $(TEST_RESULTS_PATH)" />
-    <Message Text="DOCS_PATH: $(DOCS_PATH)" />
-    <Message Text="RESULTS_PATH: $(RESULTS_PATH)" />
-    <Message Text="TEMPLATES_PATH: $(TEMPLATES_PATH)" />
-    <Message Text="WIKI_PATH: $(WIKI_PATH)" />
-    <Message Text="BUILD_LOG: $(BUILD_LOG)" />
-    <Message Text="TEST_LOG: $(TEST_LOG)" />
-    <Message Text="BddXslt: $(BddXslt)" />
-    <Message Text="PublishedBinaries: $(PublishedBinaries)" />
-    <Message Text="SolutionDir: $(SolutionDir)" />
-    <Message Text="SolutionPath: $(SolutionPath)" />
-    <Message Text="BaseDirectory: $(BaseDirectory)" />
-    <Message Text="BddXslBinPathBin: $(BddXslBinPathBin)" />
-    <Message Text="BddXslBinPath: $(BddXslBinPath)" />
+		<Message Text="Clean Up  Reports: &quot;$(DOCS_PATH)&quot;" />
+		<RemoveDir Directories="$(DOCS_PATH)" />
+		<!--<Exec Command="rmdir /s/q &quot;$(DOCS_PATH)&quot;" />-->
+	</Target>
 
-    <Message Text="Generate Reports: XmlComments to Structured" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; --input &quot;$(RESULTS_PATH)\Binary\BinaryDataDecoders.*.xml&quot; --output &quot;$(RESULTS_PATH)\Code\*.xml&quot; --sandbox &quot;$(SANDBOX_PATH)&quot;" />
+	<Target Name="GenerateReports" AfterTargets="Build">
+		<Message Text="SANDBOX_PATH: $(SANDBOX_PATH)"  />
+		<Message Text="BUILD_PATH: $(BUILD_PATH)" />
+		<Message Text="OUTPUT_PATH: $(OUTPUT_PATH)" />
+		<Message Text="TEST_RESULTS_PATH: $(TEST_RESULTS_PATH)" />
+		<Message Text="DOCS_PATH: $(DOCS_PATH)" />
+		<Message Text="RESULTS_PATH: $(RESULTS_PATH)" />
+		<Message Text="TEMPLATES_PATH: $(TEMPLATES_PATH)" />
+		<Message Text="WIKI_PATH: $(WIKI_PATH)" />
+		<Message Text="BUILD_LOG: $(BUILD_LOG)" />
+		<Message Text="TEST_LOG: $(TEST_LOG)" />
+		<Message Text="BddXslt: $(BddXslt)" />
+		<Message Text="PublishedBinaries: $(PublishedBinaries)" />
+		<Message Text="SolutionDir: $(SolutionDir)" />
+		<Message Text="BaseDirectory: $(BaseDirectory)" />
+		<Message Text="BddXslBinPathBin: $(BddXslBinPathBin)" />
+		<Message Text="BddXslBinPath: $(BddXslBinPath)" />
 
-    <Message Text="Generate Reports: XmlComments to Markdown" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\XmlCommentsToMarkdown.xslt&quot; --input &quot;$(RESULTS_PATH)\Code\*.xml&quot; --output &quot;$(DOCS_PATH)\Code\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot;" />
+		<Message Text="Generate Reports: XmlComments to Structured" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\XmlCommentsToStructuredXml.xslt&quot; --input &quot;$(RESULTS_PATH)\Binary\BinaryDataDecoders.*.xml&quot; --output &quot;$(RESULTS_PATH)\Code\*.xml&quot; --sandbox &quot;$(SANDBOX_PATH)&quot;" />
 
-    <Message Text="Generate Reports: CSharp to Markdown" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CSharpToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.cs&quot; --exclude &quot;$(BUILD_PATH)\**\obj\**\*.*&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type CSharp" />
+		<Message Text="Generate Reports: XmlComments to Markdown" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\XmlCommentsToMarkdown.xslt&quot; --input &quot;$(RESULTS_PATH)\Code\*.xml&quot; --output &quot;$(DOCS_PATH)\Code\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot;" />
 
-    <Message Text="Generate Reports: VB to Markdown" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\VbToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.vb&quot; --exclude &quot;$(BUILD_PATH)\**\obj\**\*.*&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type VB" />
+		<Message Text="Generate Reports: CSharp to Markdown" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CSharpToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.cs&quot; --exclude &quot;$(BUILD_PATH)\**\obj\**\*.*&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type CSharp" />
 
-    <Message Text="Generate Reports: Build Log to Markdown" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\BuildLogToMarkdown.xslt&quot; --input &quot;$(BUILD_LOG)&quot; --output &quot;$(DOCS_PATH)\BuildLog.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type MSBuildStructuredLog" />
+		<Message Text="Generate Reports: VB to Markdown" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\VbToMarkdown.xslt&quot; --input &quot;$(BUILD_PATH)\**\*.vb&quot; --exclude &quot;$(BUILD_PATH)\**\obj\**\*.*&quot; --output &quot;$(DOCS_PATH)\SourceCode\*.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type VB" />
+
+		<Message Text="Generate Reports: Build Log to Markdown" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\BuildLogToMarkdown.xslt&quot; --input &quot;$(BUILD_LOG)&quot; --output &quot;$(DOCS_PATH)\BuildLog.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type MSBuildStructuredLog" />
 
 
-    <Message Text="Generate Reports: TestResults" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\TestResultsToMarkdown.xslt&quot; --input &quot;$(TEST_RESULTS_PATH)\*.trx&quot; --output &quot;$(DOCS_PATH)\TestReports\Summary.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; -m" />
+		<Message Text="Generate Reports: TestResults" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\TestResultsToMarkdown.xslt&quot; --input &quot;$(TEST_RESULTS_PATH)\*.trx&quot; --output &quot;$(DOCS_PATH)\TestReports\Summary.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; -m" />
 
-    <Message Text="Generate Reports: Coverage" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CoverageToMarkdown.xslt&quot; --input &quot;$(RESULTS_PATH)\Coverage\*.xml&quot; --output &quot;$(DOCS_PATH)\Coverage\*.md&quot;  --sandbox &quot;$(SANDBOX_PATH)&quot;" />
+		<Message Text="Generate Reports: Coverage" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\CoverageToMarkdown.xslt&quot; --input &quot;$(RESULTS_PATH)\Coverage\*.xml&quot; --output &quot;$(DOCS_PATH)\Coverage\*.md&quot;  --sandbox &quot;$(SANDBOX_PATH)&quot;" />
 
-    <!-- This one should be last -->
-    <Message Text="Generate Reports: Docs to Markdown" />
-    <Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\PathToMarkdown.xslt&quot; --input &quot;$(DOCS_PATH)&quot; --output &quot;$(DOCS_PATH)\TOC.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type Path" />
-  </Target>
+		<!-- This one should be last -->
+		<Message Text="Generate Reports: Docs to Markdown" />
+		<Exec Command="$(BddXslt) --template &quot;$(TEMPLATES_PATH)\PathToMarkdown.xslt&quot; --input &quot;$(DOCS_PATH)&quot; --output &quot;$(DOCS_PATH)\TOC.md&quot; --sandbox &quot;$(SANDBOX_PATH)&quot; --input-type Path" />
+	</Target>
 
-  <!--<ItemGroup>
+	<!--<ItemGroup>
     <Documents Include="$(DOCS_PATH)\**\*.*" />
   </ItemGroup>
   

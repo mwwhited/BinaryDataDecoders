@@ -1,7 +1,6 @@
 ﻿using BinaryDataDecoders.ToolKit.IO;
 using CommandLine;
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace BinaryDataDecoders.Xslt.Cli;

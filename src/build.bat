@@ -25,14 +25,14 @@ SET TEST_LOG=%TEST_RESULTS_PATH%\dotnet_test.trx
 SET REFERENCE_GRAPH=%OUTPUT_PATH%\references.dg
 
 REM java is required for antlr4
-SET JAVA_EXEC=%JAVA_HOME%\bin\java.exe
+SET JAVA_EXEC=%JAVA_HOME%bin\java.exe
 
 REM SET SQLDBExtensionsRefPath=%VSAPPIDDIR%\..\..\MSBuild\Microsoft\VisualStudio\v%VisualStudioVersion%\SSDT
 REM SET VsInstallRoot=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional
 
 echo "========= Configurations ========="
 ECHO Configuration=     "%Configuration%"
-Echo Directory=         "%~dp0""
+Echo Directory=         "%~dp0"
 ECHO SANDBOX_PATH=      "%SANDBOX_PATH%"
 ECHO BUILD_PATH=        "%BUILD_PATH%"
 ECHO BUILD_PROJECT=     "%BUILD_PROJECT%"

@@ -1,6 +1,5 @@
 ﻿using BinaryDataDecoders.ToolKit.MetaData;
 using BinaryDataDecoders.ToolKit.Xml.XPath;
-using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
 using System.IO;

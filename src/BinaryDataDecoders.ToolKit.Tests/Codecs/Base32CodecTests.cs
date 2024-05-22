@@ -1,8 +1,6 @@
 ﻿using BinaryDataDecoders.TestUtilities;
 using BinaryDataDecoders.ToolKit.Codecs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace BinaryDataDecoders.ToolKit.Tests.Codecs;

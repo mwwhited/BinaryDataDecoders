@@ -1,8 +1,6 @@
 ﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
-using System.Collections.Generic;
 using static BinaryDataDecoders.ExpressionCalculator.Expressions.BinaryOperators;
-using static BinaryDataDecoders.ExpressionCalculator.Expressions.UnaryOperators;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Optimizers;
 

@@ -1,0 +1,75 @@
+
+reports:
+  - description: XmlComments to Structured
+    name: XmlCommentsToStructuredXml    
+    template: ../templates/reports/XmlCommentsToStructuredXml.xslt
+    input: ../Publish/Results/Binary/BinaryDataDecoders.*.xml
+    output: ../Publish/Results/Code/*.xml
+    sandbox: ../
+
+  - description: XmlComments to Markdown
+    name: XmlCommentsToMarkdown
+    template: ../templates/reports/XmlCommentsToMarkdown.xslt
+    input: ../Publish/Results/Code/*.xml
+    output: ../docs/Code/*.md
+    sandbox: ../
+    depends: 
+    - XmlCommentsToStructuredXml
+
+  - description: CSharp to Markdown
+    name: CSharpToMarkdown
+    template: ../templates/reports/CSharpToMarkdown.xslt
+    input: ./**/*.cs
+    exclude: ./**/obj/**/*.cs
+    output: ../docs/SourceCode/*.md
+    sandbox: ../
+    input-type: CSharp
+
+  - description: VB to Markdown
+    name: VbToMarkdown
+    template: ../templates/reports/VbToMarkdown.xslt
+    input: ./**/*.vb
+    exclude: ./**/obj/**/*.vb
+    output: ../docs/SourceCode/*.md
+    sandbox: ../
+    input-type: VB
+
+  - description: Build Log to Markdown
+    name: BuildLogToMarkdown
+    template: ../templates/reports/BuildLogToMarkdown.xslt
+    input: ../Publish/dotnet_build.binlog
+    output: ../docs/BuildLog.md
+    sandbox: ../
+    input-type: MSBuildStructuredLog
+
+  - description: TestResults
+    name: TestResultsToMarkdown
+    template: ../templates/reports/TestResultsToMarkdown.xslt
+    input: ../Publish/TestResults/*.trx
+    output: ../docs/TestReports/Summary.md
+    sandbox: ../
+    merge: true
+
+  - description: Coverage
+    name: CoverageToMarkdown
+    template: ../templates/reports/CoverageToMarkdown.xslt
+    input: ../Publish/Results/Coverage/*.xml
+    output: ../docs/Coverage/*.md
+    sandbox: ../
+    merge: true
+    
+  - description: Docs to Markdown
+    name: TableOfContents
+    template: ../templates/reports/PathToMarkdown.xslt
+    input: ../docs
+    output: ../docs/TOC.md
+    sandbox: ../
+    input-type: Path
+    depends: 
+    - XmlCommentsToStructuredXml
+    - XmlCommentsToMarkdown
+    - CSharpToMarkdown
+    - VbToMarkdown
+    - BuildLogToMarkdown
+    - TestResultsToMarkdown
+    - CoverageToMarkdown
