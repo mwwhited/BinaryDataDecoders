@@ -6,7 +6,7 @@ using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
 using System.Linq;
 
-namespace BinaryDataDecoders.ExpressionCalculator.Visitors;
+namespace BinaryDataDecoders.ExpressionCalculator.Parser;
 
 public class ExpressionTreeVisitor<T> : ExpressionTreeBaseVisitor<ExpressionBase<T>>
     where T : struct, IComparable<T>, IEquatable<T>

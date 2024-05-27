@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BinaryDataDecoders.Apple2;
+namespace BinaryDataDecoders.Apple2.Dos33;
 
 [Flags]
 public enum AppleFileType : byte

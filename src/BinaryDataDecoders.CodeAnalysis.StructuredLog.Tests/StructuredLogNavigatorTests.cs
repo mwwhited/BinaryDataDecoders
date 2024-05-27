@@ -2,7 +2,7 @@
 using BinaryDataDecoders.TestUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BinaryDataDecoders.CodeAnalysis.Tests.StructuredLog;
+namespace BinaryDataDecoders.CodeAnalysis.StructuredLog.Tests;
 
 [TestClass]
 public class StructuredLogNavigatorTests
@@ -17,6 +17,6 @@ public class StructuredLogNavigatorTests
         var filePath = @"C:\Repos\mwwhited\BinaryDataDecoders\Publish\dotnet_build.binlog";
         var lognav = new StructuredLogNavigator().ToNavigable(filePath);
         var nav = lognav.CreateNavigator();
-        this.TestContext.AddResult(nav);
+        TestContext.AddResult(nav);
     }
 }
