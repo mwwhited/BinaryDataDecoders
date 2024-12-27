@@ -2,7 +2,7 @@
 	<!--https://github.com/microsoft/MSBuildSdks/blob/main/src/NoTargets/README.md-->
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<IsPackable>false</IsPackable>
 		<IsTestProject>false</IsTestProject>

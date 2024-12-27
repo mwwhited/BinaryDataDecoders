@@ -20,9 +20,15 @@ public class ByteExTests
     [TestMethod, TestCategory(TestCategories.Unit)]
     public void CompressTest()
     {
-        var input = Encoding.UTF8.GetBytes(new string('A', 1024));
+        var testValue = new string('A', 1024);
+
+        var input = Encoding.UTF8.GetBytes(testValue);
         var compressed = input.Compress();
         var checkto = Convert.ToBase64String(compressed);
-        Assert.AreEqual("c3QcBaNgFIxUAAA=", checkto);
+
+        var backFrom = Convert.FromBase64String(checkto);
+        var decompressed = backFrom.Decompress();
+        var checkFrom = Encoding.UTF8.GetString(decompressed);
+        Assert.AreEqual(testValue, checkFrom);
     }
 }
