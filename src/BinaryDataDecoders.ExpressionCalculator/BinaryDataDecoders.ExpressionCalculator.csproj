@@ -26,4 +26,11 @@
 		<PackageReference Include="Antlr4BuildTasks" Version="12.8.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Update="GitVersion.MsBuild" Version="6.1.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+
 </Project>

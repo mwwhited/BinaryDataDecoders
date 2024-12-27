@@ -13,4 +13,11 @@
 	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <PackageReference Update="GitVersion.MsBuild" Version="6.1.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+
 </Project>

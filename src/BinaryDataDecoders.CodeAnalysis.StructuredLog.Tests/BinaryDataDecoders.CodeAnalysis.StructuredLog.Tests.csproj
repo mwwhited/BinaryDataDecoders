@@ -9,9 +9,9 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.3.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.3.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.7.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.7.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -21,6 +21,13 @@
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.CodeAnalysis.StructuredLog\BinaryDataDecoders.CodeAnalysis.StructuredLog.csproj" />
     <ProjectReference Include="..\BinaryDataDecoders.TestUtilities\BinaryDataDecoders.TestUtilities.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Update="GitVersion.MsBuild" Version="6.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   
 </Project>

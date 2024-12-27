@@ -9,7 +9,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
-    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+    <PackageReference Include="System.IO.Ports" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="GitVersion.MsBuild" Version="6.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   
 </Project>

@@ -37,7 +37,9 @@ internal class Program
 
             if (cmdLine.GetVersion)
             {
-                Console.WriteLine($"{GitVersionInformation.FullSemVer}");
+                //TODO: fix this !
+                // Console.WriteLine($"{GitVersionInformation.FullSemVer}");
+                throw new NotSupportedException();
                 return;
             }
 

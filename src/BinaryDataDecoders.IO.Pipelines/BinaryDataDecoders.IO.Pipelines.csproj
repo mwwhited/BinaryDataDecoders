@@ -9,12 +9,19 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO.Pipelines" Version="8.0.0" />
+    <PackageReference Include="System.IO.Pipelines" Version="9.0.0" />
   </ItemGroup>
 	
   <ItemGroup>
     <ProjectReference Include="..\BinaryDataDecoders.IO.Abstractions\BinaryDataDecoders.IO.Abstractions.csproj" />
     <ProjectReference Include="..\BinaryDataDecoders.ToolKit\BinaryDataDecoders.ToolKit.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Update="GitVersion.MsBuild" Version="6.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
