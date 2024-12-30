@@ -18,14 +18,16 @@ jobs:
     #runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4      
+    - uses: actions/checkout@v4.2.2 
       with:
         fetch-depth: 0
 
     - name: Setup .NET 8.0
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: |
+          8.0.x
+          9.0.x
         
     - name: Setup Project Variables
       run: |
@@ -81,14 +83,14 @@ jobs:
     ## If not master just attach the docs as an artifact
     - name: Publish Documents
       if: github.ref != 'refs/heads/master'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4.5.0
       with:
         name: BinaryDataDecoders_Documents
         path: Publish/docs/  
 
     - name: Commit Tag
       if: github.ref != 'refs/heads/master' && github.event_name != 'pull_request'
-      uses: EndBug/add-and-commit@v5
+      uses: EndBug/add-and-commit@v9
       with:
         add: 'docs'
         message: '${{env.buildVersion}} (${{env.dacVersion}})'
@@ -103,7 +105,7 @@ jobs:
 
     - name: Commit Documentation and Tag
       if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-      uses: EndBug/add-and-commit@v5
+      uses: EndBug/add-and-commit@v9
       with:
         add: 'docs'
         message: '${{env.buildVersion}} (${{env.dacVersion}})'
