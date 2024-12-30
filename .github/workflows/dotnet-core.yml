@@ -22,7 +22,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Setup .NET 8.0
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
@@ -66,7 +66,7 @@ jobs:
       run: dotnet pack "$BUILD_PROJECT" --configuration $BUILD_CONFIGURATION --no-build --no-restore --output "$OUTPUT_PATH/Nuget" -p:PackageVersion=$buildVersion
 
     - name: Publish BinaryDataDecoders.Xslt.Cli
-      run: dotnet publish "$BUILD_XSLT_PROJECT" --configuration $BUILD_CONFIGURATION  --no-build --no-restore --output "$RESULTS_PATH/Binary"
+      run: dotnet publish "$BUILD_XSLT_PROJECT" --configuration $BUILD_CONFIGURATION  --no-build --no-restore --output "$RESULTS_PATH/Binary" --framework net9.0
 
     ## Don't publish PR's
     - name: Publish Project to Nuget
