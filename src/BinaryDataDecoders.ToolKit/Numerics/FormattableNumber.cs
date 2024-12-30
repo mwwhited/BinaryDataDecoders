@@ -5,19 +5,29 @@ namespace BinaryDataDecoders.ToolKit.Numerics;
 
 public record FormattableNumber : INumeric
 {
-    private readonly IFormatProvider _provider;
+    protected readonly IFormatProvider _provider;
 
-    public FormattableNumber(IFormatProvider provider, object value)
+    public FormattableNumber(object value, IFormatProvider? provider = default)
     {
+        _provider = provider?? new ScienceNotationFormatter();
+
         if (value is double) ValueDouble = Convert.ToDouble(value);
         else if (value is float) ValueDouble = Convert.ToDouble(value);
         else if (value is decimal) ValueDouble = Convert.ToDouble(value);
         else if (value is short) ValueDouble = Convert.ToDouble(value);
         else if (value is int) ValueDouble = Convert.ToDouble(value);
         else if (value is long) ValueDouble = Convert.ToDouble(value);
+        else if (value is FormattableNumber formatted)
+        {
+            _provider = formatted._provider;
+            ValueDecimal = formatted.AsDecimal();
+        }
+        else if (value is INumeric numeric)
+        {
+            ValueDecimal = numeric.AsDecimal();
+        }
         else throw new NotSupportedException($"type {value.GetType()} is not supported");
 
-        _provider = provider;
     }
 
     protected double? ValueDouble { get; init; }
@@ -91,24 +101,10 @@ public record FormattableNumber : INumeric
     public static INumeric? Parse(string? input)
     {
         if (string.IsNullOrWhiteSpace(input)) return default;
-
-        IFormatProvider? formatProvider = new ScienceNotationFormatter();
-
-        var symbol = new string(input[^1], 1);
-        if (symbol == "b")
-        {
-            formatProvider = new ByteNotationFormatter();
-        }
-
-        var power = Symbols.Notations.FirstOrDefault(i => i.Value == symbol).Key;
-
-        var value = power switch
-        {
-            0 => double.Parse(input),
-            _ => double.Parse(input[0..^1]) * Math.Pow(1000, power)
-        };
-
-        return new FormattableNumber(formatProvider, value);
+        else if (ByteNumber.TryParse(input, out var byteNumber)) return byteNumber;
+        else if (EngineeringNumber.TryParse(input, out var engineeringNumber)) return engineeringNumber;
+        else if (ScientificNumber.TryParse(input, out var scientificNumber)) return scientificNumber;
+        else throw new NotSupportedException("Invalid input format");
     }
 
     public override string ToString() => ToString(null, _provider);

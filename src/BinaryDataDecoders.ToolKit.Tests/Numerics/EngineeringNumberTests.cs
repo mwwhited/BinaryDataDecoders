@@ -24,4 +24,20 @@ public class EngineeringNumberTests
         var result = number.ToString();
         Assert.AreEqual(expected, result);
     }
+
+    [DataTestMethod, TestCategory(TestCategories.Unit)]
+    [DataRow("1", 1d)]
+    [DataRow("1k", 1000d)]
+    [DataRow("1.001k", 1001d)]
+    [DataRow("1.024k", 1024d)]
+    [DataRow("1.026k", 1026d)]
+    [DataRow("1.001M", 1001000d)]
+    [DataRow("110m", 0.110)]
+    [DataRow("110.123m", 0.110123)]
+    public void TryParseTest(string? input, double? expected)
+    {
+        var result = EngineeringNumber.TryParse(input, out var value);
+        Assert.IsTrue(result);
+        Assert.AreEqual(expected, (double)value);
+    }
 }

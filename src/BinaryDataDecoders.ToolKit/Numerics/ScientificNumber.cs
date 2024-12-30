@@ -1,8 +1,10 @@
-﻿namespace BinaryDataDecoders.ToolKit.Numerics;
+﻿using System;
+
+namespace BinaryDataDecoders.ToolKit.Numerics;
 
 public record ScientificNumber : FormattableNumber
 {
-    public ScientificNumber(object value) : base(new ScienceNotationFormatter(), value)
+    public ScientificNumber(object value) : base(value, new ScienceNotationFormatter())
     {
     }
 
@@ -24,4 +26,18 @@ public record ScientificNumber : FormattableNumber
     public static implicit operator ScientificNumber(EngineeringNumber number) => new(number.AsDouble());
 
     public override string ToString() => base.ToString();
+
+    public static bool TryParse(string? input, out ScientificNumber? value)
+    {
+        if (double.TryParse(input, out var number))
+        {
+            value = number;
+            return true;
+        }
+        else
+        {
+            value = default;
+            return false;
+        }
+    }
 }
