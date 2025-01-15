@@ -39,11 +39,12 @@ internal class Program
         {
             var cmdLine = serviceProvider.GetRequiredService<CommandLineOptions>();
 
-            if (cmdLine.GetVersion)
-            {
-                Console.WriteLine($"{GitVersionInformation.FullSemVer}");
-                return;
-            }
+            //TODO: fix this
+            //if (cmdLine.GetVersion)
+            //{
+            //    Console.WriteLine($"{GitVersionInformation.FullSemVer}");
+            //    return;
+            //}
 
             var versionXml = service.OpenXml(cmdLine.SourceFile, followImports: cmdLine.FollowImports);
 
