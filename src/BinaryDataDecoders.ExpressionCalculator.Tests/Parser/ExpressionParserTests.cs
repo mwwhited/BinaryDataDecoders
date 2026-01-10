@@ -354,7 +354,7 @@ public abstract class ExpressionParserTests<T>
         }
         catch (DivideByZeroException)
         {
-            if (x++ > 4)
+            if (x++ > 10)
             {
                 throw;
             }

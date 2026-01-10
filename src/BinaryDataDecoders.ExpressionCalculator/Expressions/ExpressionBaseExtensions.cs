@@ -48,18 +48,19 @@ public static class ExpressionBaseExtensions
                   .Select(s => s.Name)
                   .Distinct();
 
+    private static Random _random = Random.Shared;
+
     public static IDictionary<string, T> GenerateTestValues<T>(this ExpressionBase<T> expression, int scale = 4, bool includeNegatives = false, int places = 2)
         where T : struct, IComparable<T>, IEquatable<T>
     {
         var evaluator = ExpressionEvaluatorFactory.Create<T>();
 
         var variableNames = expression.GetDistinctVariableNames();
-        var rand = new Random();
 
         var variables = new Dictionary<string, T>();
         foreach (var variableName in variableNames)
         {
-            var randomValue = Math.Round(rand.NextDouble() * Math.Pow(10, scale) * (includeNegatives && rand.Next() % 2 == 0 ? -1 : 1), places);
+            var randomValue = Math.Round(_random.NextDouble() * Math.Pow(10, scale) * (includeNegatives && _random.Next() % 2 == 0 ? -1 : 1), places);
             var value = evaluator.GetValue(randomValue);
             variables.Add(variableName, value);
         }
