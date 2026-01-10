@@ -23,7 +23,7 @@ public struct TrackSectorList
     {
         Unused_0 = span[0x00];
         NextTrack = span[0x01];
-        NextSector = span[0x03];
+        NextSector = span[0x02];
         Unused_3_to_4 = span.Slice(0x03, 2).ToArray();
         SectorOffset = BitConverter.ToUInt16(span.Slice(0x05, 2));
         Unused_7_to_B = span.Slice(0x07, 5).ToArray();

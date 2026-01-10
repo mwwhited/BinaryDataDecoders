@@ -23,13 +23,13 @@ public readonly struct CatalogEntry
         Unused_0 = span[0];
         NextCatalogTrack = span[1];
         NextSectorTrack = span[2];
-        Unused_3_to_A = span.Slice(0x03, 13).ToArray();
+        Unused_3_to_A = span.Slice(0x03, 8).ToArray();
 
         var fileSpan = span[0x0b..];
         var fileEntrySize = 35;
         var entries = new FileEntry[fileSpan.Length / fileEntrySize];
-        for (var index = 0; index < entries.Length; index += fileEntrySize)
-            entries[index] = new FileEntry(fileSpan.Slice(index, fileEntrySize));
+        for (var index = 0; index < entries.Length; index++)
+            entries[index] = new FileEntry(fileSpan.Slice(index * fileEntrySize, fileEntrySize));
         FileEntries = entries;
     }
 

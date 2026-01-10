@@ -17,7 +17,7 @@ public struct VolumeTableOfContents
         FirstCatalogTrack = span[1];
         FirstCatalogSector = span[2];
         DosReleaseNumber = span[3];
-        Unused4_5 = span[4..5].ToArray();
+        Unused4_5 = span.Slice(4, 2).ToArray();
         DiskVolumeNumber = span[6];
         Unused7_26 = span.Slice(0x7, 32).ToArray();
         MaxTrackSectorPair = span[0x27];
@@ -28,7 +28,7 @@ public struct VolumeTableOfContents
         NumberOfTracksPerDisk = span[0x34];
         NumberOfSectorsPerTrack = span[0x35];
         NumberOfBytesPerSector = BitConverter.ToUInt16(span.Slice(0x36, 2));
-        BitmapFreeSectors = MemoryMarshal.Cast<byte, uint>(span[0x38..])[..50].ToArray();
+        BitmapFreeSectors = MemoryMarshal.Cast<byte, uint>(span[0x38..])[..35].ToArray();
     }
 
     /// <summary>
