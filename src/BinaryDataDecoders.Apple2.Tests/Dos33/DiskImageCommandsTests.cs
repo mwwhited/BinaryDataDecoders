@@ -85,7 +85,7 @@ public class DiskImageCommandsTests
                     select f.Name.Trim();
 
         //Assert
-        Assert.AreEqual("HELLO|COPY|CONVERT13", string.Join("|", files));
+        Assert.AreEqual("HELLO|APPLESOFT|LOADER.OBJ0|FPBASIC|INTBASIC|MASTER|MASTER CREATE|COPY|COPY.OBJ0|COPYA|CHAIN|RENUMBER|FILEM|FID|CONVERT13|MUFFIN|START13|BOOT13|SLOT#", string.Join("|", files));
 
         //Verify
     }
