@@ -72,9 +72,9 @@ public class GpsDopAndActiveSatellites : INema0183Message
         };
         Fix = int.TryParse(data[2], out var fixMode) ? (FixModes)fixMode : 0;
         Satellites = data[3..15].ToList().AsReadOnly();
-        PDOP = decimal.TryParse(data[16], out var pdop) ? pdop : 0m;
+        PDOP = decimal.TryParse(data[15], out var pdop) ? pdop : 0m;
         HDOP = decimal.TryParse(data[16], out var hdop) ? hdop : 0m;
-        VDOP = decimal.TryParse(data[16], out var vdop) ? vdop : 0m;
+        VDOP = decimal.TryParse(data[17], out var vdop) ? vdop : 0m;
     }
 
     public override string ToString() => $@"GPS DOP: {new

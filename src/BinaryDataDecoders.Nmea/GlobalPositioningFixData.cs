@@ -54,7 +54,7 @@ public class GlobalPositioningFixData : INema0183Message
             int.TryParse(fixTime[0..2], out var hr) ? hr : 0,
             int.TryParse(fixTime[2..4], out var min) ? min : 0,
             int.TryParse(fixTime[4..6], out var sec) ? sec : 0,
-            int.TryParse(fixTime[7..10], out var mill) ? mill : 0
+            fixTime.Length > 7 && int.TryParse(fixTime[7..Math.Min(10, fixTime.Length)], out var mill) ? mill : 0
             );
 
         if (decimal.TryParse(data.ElementAtOrDefault(2), out var latitude)) Latitude = latitude;
