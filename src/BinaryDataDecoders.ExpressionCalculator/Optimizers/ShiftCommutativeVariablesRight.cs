@@ -1,90 +1,128 @@
-﻿using BinaryDataDecoders.ExpressionCalculator.Expressions;
+using BinaryDataDecoders.ExpressionCalculator.Expressions;
 using System;
+using System.Collections.Generic;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Optimizers;
 
 public sealed class ShiftCommutativeVariablesRight<T> : IExpressionOptimizer<T> where T : struct, IComparable<T>, IEquatable<T>
 {
-    public ExpressionBase<T> Optimize(ExpressionBase<T> expression) => expression;
-		/*
-     if (expression instanceof InnerExpression) {
-			var inner =(InnerExpression) expression;
-			var child = moveCommutativeVariablesRight(inner.getInner());
-			inner.setInner(child);
-			return inner;
-		}
-		else if (expression instanceof BinaryOperatorExpression) {
-			var binOpExp = (BinaryOperatorExpression) expression;
-			var operator = binOpExp.getOperator();
+    public ExpressionBase<T> Optimize(ExpressionBase<T> expression) =>
+        expression switch
+        {
+            InnerExpression<T> inner => new InnerExpression<T>(Optimize(inner.Expression)),
+            BinaryOperatorExpression<T> binary => OptimizeBinary(binary),
+            UnaryOperatorExpression<T> unary => new UnaryOperatorExpression<T>(unary.Operator, Optimize(unary.Operand)),
+            _ => expression
+        };
 
-			var left = moveCommutativeVariablesRight(binOpExp.getLeft());
-			var right = moveCommutativeVariablesRight(binOpExp.getRight());
+    private ExpressionBase<T> OptimizeBinary(BinaryOperatorExpression<T> expression)
+    {
+        var left = Optimize(expression.Left);
+        var right = Optimize(expression.Right);
+        var op = expression.Operator;
 
-			if (operator == OperationTypes.Add || operator == OperationTypes.Multiply) {
+        // Only reorder commutative operations (Add, Multiply)
+        if (op != BinaryOperators.Add && op != BinaryOperators.Multiply)
+        {
+            return new BinaryOperatorExpression<T>(left, op, right);
+        }
 
-				var lBinOpExp = left instanceof BinaryOperatorExpression ? (BinaryOperatorExpression) left : null;
-				var rBinOpExp = right instanceof BinaryOperatorExpression ? (BinaryOperatorExpression) right : null;
+        // Flatten commutative operations and collect all operands
+        var operands = new List<ExpressionBase<T>>();
+        CollectOperands(left, op, operands);
+        CollectOperands(right, op, operands);
 
-				if (lBinOpExp != null && !lBinOpExp.getOperator().equals(operator)) {
-					lBinOpExp = null;
-				}
-				if (rBinOpExp != null && !rBinOpExp.getOperator().equals(operator)) {
-					rBinOpExp = null;
-				}
-				var expArray = new ArrayList<ExpressionBase>();
-				if (lBinOpExp == null) {
-					expArray.add(left);
-				}else {
-					expArray.add(moveCommutativeVariablesRight(lBinOpExp.getLeft()));
-					expArray.add(moveCommutativeVariablesRight(lBinOpExp.getRight()));					
-				}
-				if (rBinOpExp == null) {
-					expArray.add(right);
-				}else {
-					expArray.add(moveCommutativeVariablesRight(rBinOpExp.getLeft()));
-					expArray.add(moveCommutativeVariablesRight(rBinOpExp.getRight()));					
-				}
-				expArray.sort(new ExpressionComparator());
-				
-				switch(expArray.size()) {
-					case 4: return new BinaryOperatorExpression(
-							 new BinaryOperatorExpression(
-										 expArray.get(0),
-										 operator,
-										 expArray.get(1)
-									),
-							 operator,
-							 new BinaryOperatorExpression(
-										 expArray.get(2),
-										 operator,
-										 expArray.get(3)
-									)
-							);
-					
-					case 3: return new BinaryOperatorExpression(
-							 new BinaryOperatorExpression(
-										 expArray.get(0),
-										 operator,
-										 expArray.get(1)
-									),
-							 operator,
-							 expArray.get(2)
-							);
+        // Sort operands: Numbers first (by value), then variables (alphabetically)
+        operands.Sort(new ExpressionComparator<T>());
 
-					case 2: return new BinaryOperatorExpression(
-										 expArray.get(0),
-										 operator,
-										 expArray.get(1)
-									);
+        // Rebuild tree from sorted operands
+        return BuildTree(operands, op);
+    }
 
+    private void CollectOperands(ExpressionBase<T> expression, BinaryOperators op, List<ExpressionBase<T>> operands)
+    {
+        // If this is a binary expression with the same operator, flatten it
+        if (expression is BinaryOperatorExpression<T> binary && binary.Operator == op)
+        {
+            CollectOperands(binary.Left, op, operands);
+            CollectOperands(binary.Right, op, operands);
+        }
+        else
+        {
+            operands.Add(expression);
+        }
+    }
 
-					case 1: return expArray.get(0);
-					
-					default: return null;
-				}
-			}
-		}
+    private ExpressionBase<T> BuildTree(List<ExpressionBase<T>> operands, BinaryOperators op)
+    {
+        if (operands.Count == 0)
+            throw new InvalidOperationException("Cannot build tree from empty operand list");
 
-		return expression;
-		*/
+        if (operands.Count == 1)
+            return operands[0];
+
+        // Build left-associative tree matching the Java logic structure
+        // For 2 operands: a op b
+        // For 3 operands: (a op b) op c
+        // For 4 operands: ((a op b) op (c op d))
+        if (operands.Count == 4)
+        {
+            return new BinaryOperatorExpression<T>(
+                new BinaryOperatorExpression<T>(operands[0], op, operands[1]),
+                op,
+                new BinaryOperatorExpression<T>(operands[2], op, operands[3])
+            );
+        }
+        else if (operands.Count == 3)
+        {
+            return new BinaryOperatorExpression<T>(
+                new BinaryOperatorExpression<T>(operands[0], op, operands[1]),
+                op,
+                operands[2]
+            );
+        }
+        else if (operands.Count == 2)
+        {
+            return new BinaryOperatorExpression<T>(operands[0], op, operands[1]);
+        }
+        else
+        {
+            // For more than 4 operands, build left-associative tree
+            var result = operands[0];
+            for (int i = 1; i < operands.Count; i++)
+            {
+                result = new BinaryOperatorExpression<T>(result, op, operands[i]);
+            }
+            return result;
+        }
+    }
+
+    private class ExpressionComparator<TValue> : IComparer<ExpressionBase<TValue>>
+        where TValue : struct, IComparable<TValue>, IEquatable<TValue>
+    {
+        public int Compare(ExpressionBase<TValue>? x, ExpressionBase<TValue>? y)
+        {
+            if (x == null && y == null) return 0;
+            if (x == null) return -1;
+            if (y == null) return 1;
+
+            // Order: Numbers < Variables < Others
+            var xPriority = GetPriority(x);
+            var yPriority = GetPriority(y);
+
+            if (xPriority != yPriority)
+                return xPriority.CompareTo(yPriority);
+
+            // Within same category, compare by string representation
+            return string.Compare(x.ToString(), y.ToString(), StringComparison.Ordinal);
+        }
+
+        private int GetPriority(ExpressionBase<TValue> expr) =>
+            expr switch
+            {
+                NumberExpression<TValue> => 0,
+                VariableExpression<TValue> => 1,
+                _ => 2
+            };
+    }
 }

@@ -146,7 +146,7 @@ public class XsltTransformer(string sandbox, params object[] extensions) : IXslt
     /// <param name="input">Wild card allowed for multiple files</param>
     /// <param name="inputNavigatorFactory">function to load input file into IXPathNavigable</param>
     /// <param name="output">Output and suffix per file.</param>
-    public void TransformAll(string template, string input, Func<string, IXPathNavigable> inputNavigatorFactory, string output, string? excludeInputSource = null)
+    public void TransformAll(string template, string input, Func<string, IXPathNavigable?> inputNavigatorFactory, string output, string? excludeInputSource = null)
     {
         var inputFullPath = Path.GetFullPath(input);
         var inputDir = PathEx.GetBasePath(input);

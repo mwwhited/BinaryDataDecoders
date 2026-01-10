@@ -88,9 +88,9 @@ public class NugetManager(
             if (cancellationToken.IsCancellationRequested)
                 break;
 
-            var packageName = (string)package.packageVersion.Attribute("Include");
+            var packageName = (string?)package.packageVersion.Attribute("Include");
             var versionAttribute = package.packageVersion.Attribute("Version");
-            var version = (string)versionAttribute;
+            var version = (string?)versionAttribute;
             if (!NuGetVersion.TryParse(version, out var current))
             {
                 // _logger.LogInformation($"Found version {packageName}: {version} => Not Supported");

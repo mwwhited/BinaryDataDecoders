@@ -10,6 +10,9 @@ namespace BinaryDataDecoders.ExpressionCalculator.Expressions;
 
 public static class ExpressionBaseExtensions
 {
+    private const int DefaultRandomScale = 4;
+    private const int DefaultRandomPlaces = 2;
+
     public static ExpressionBase<T> Optimize<T>(this ExpressionBase<T> expression)
         where T : struct, IComparable<T>, IEquatable<T> =>
             new ExpressionOptimizationProvider<T>().Optimize(expression);
@@ -50,7 +53,7 @@ public static class ExpressionBaseExtensions
 
     private static Random _random = Random.Shared;
 
-    public static IDictionary<string, T> GenerateTestValues<T>(this ExpressionBase<T> expression, int scale = 4, bool includeNegatives = false, int places = 2)
+    public static IDictionary<string, T> GenerateTestValues<T>(this ExpressionBase<T> expression, int scale = DefaultRandomScale, bool includeNegatives = false, int places = DefaultRandomPlaces)
         where T : struct, IComparable<T>, IEquatable<T>
     {
         var evaluator = ExpressionEvaluatorFactory.Create<T>();

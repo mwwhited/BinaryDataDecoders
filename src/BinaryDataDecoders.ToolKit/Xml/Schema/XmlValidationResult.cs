@@ -4,7 +4,7 @@ namespace BinaryDataDecoders.ToolKit.Xml.Schema;
 
 public class XmlValidationResult
 {
-    public XmlSchemaException Exception { get; init; }
-    public string Message { get; init; }
+    public XmlSchemaException Exception { get; init; } = null!;
+    public string Message { get; init; } = null!;
     public XmlSeverityType Severity { get; init; }
 }

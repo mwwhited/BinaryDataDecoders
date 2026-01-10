@@ -62,7 +62,7 @@ public class XmlSchemaValidatorEx
             var xDocument = XDocument.Load(xsdUri);
             var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
 
-            var targetNamespace = xDocument.Element(xsdNs + "schema").Attribute("targetNamespace") switch
+            var targetNamespace = xDocument.Element(xsdNs + "schema")?.Attribute("targetNamespace") switch
             {
                 null => null,
                 XAttribute attribute => (string)attribute
@@ -79,7 +79,7 @@ public class XmlSchemaValidatorEx
         {
             var xsdNs = (XNamespace)"http://www.w3.org/2001/XMLSchema";
 
-            var targetNamespace = xsdContainer.Element(xsdNs + "schema").Attribute("targetNamespace") switch
+            var targetNamespace = xsdContainer.Element(xsdNs + "schema")?.Attribute("targetNamespace") switch
             {
                 null => null,
                 XAttribute attribute => (string)attribute

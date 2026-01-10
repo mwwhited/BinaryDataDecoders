@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Expressions;
 
-#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
 public sealed class VariableExpression<T> : ExpressionBase<T>
-#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     where T : struct, IComparable<T>, IEquatable<T>
 {
     public string Name { get; }
@@ -25,4 +23,6 @@ public sealed class VariableExpression<T> : ExpressionBase<T>
         this == obj ||
         obj is VariableExpression<T> vari && Name.Equals(vari.Name) ||
         obj is string && Name.Equals(obj);
+
+    public override int GetHashCode() => Name.GetHashCode();
 }

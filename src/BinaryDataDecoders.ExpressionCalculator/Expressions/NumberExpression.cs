@@ -4,9 +4,7 @@ using System.Collections.Generic;
 
 namespace BinaryDataDecoders.ExpressionCalculator.Expressions;
 
-#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
 public sealed class NumberExpression<T>(T value) : ExpressionBase<T>
-#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     where T : struct, IComparable<T>, IEquatable<T>
 {
     private static readonly IExpressionEvaluator<T> _evaluator = ExpressionEvaluatorFactory.Create<T>();
@@ -21,6 +19,8 @@ public sealed class NumberExpression<T>(T value) : ExpressionBase<T>
         this == obj ||
         obj is NumberExpression<T> no && Value.Equals(no.Value) ||
         obj is T && Value.Equals(obj);
+
+    public override int GetHashCode() => Value.GetHashCode();
 
     public static readonly ExpressionBase<T> One = new NumberExpression<T>(_evaluator.GetValue(1));
     public static readonly ExpressionBase<T> Zero = new NumberExpression<T>(_evaluator.GetValue(0));
